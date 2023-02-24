@@ -11,7 +11,7 @@ export enum qualyFormat {
   AGGREGATE = 'AGGREGATE',
   KNOCKOUT = 'KNOCKOUT',
   ELIMINATION = 'ELIMINATION',
-  SPRINT_RACE = 'SPRINT_RACE',
+  SPRINT_RACE = 'SPRINT_RACE'
 }
 
 export type RaceEventStorage = Modify<

@@ -43,7 +43,7 @@ export class EventService extends DbService {
     const raceLapTimes = this.lapService.getLaps({
       raceId: id,
       orderBy: 'time',
-      pageSize: 1,
+      pageSize: 1
     });
 
     return raceLapTimes.items[0];

@@ -2,13 +2,13 @@ import { Get, Queries, Route, Tags } from 'tsoa';
 import {
   PageMetadata,
   pageQueryParams,
-  Paginator,
+  Paginator
 } from '../models/interfaces/paginated-items';
 import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
 import { parseQueryParams } from '../utils/objAttributesToStr';
 import {
   LapTime,
-  LapTimeStorage,
+  LapTimeStorage
 } from './../models/classes/eventDriverData/lapTime';
 import { DbService } from './db.service';
 import { DriverService } from './driver.service';
@@ -76,9 +76,9 @@ export class LapService extends DbService {
             race: this.eventService.getById(x.raceId),
             constructorData: undefined as any,
             engine: undefined as any,
-            tyre: undefined as any,
+            tyre: undefined as any
           })
-      ),
+      )
     };
   }
 

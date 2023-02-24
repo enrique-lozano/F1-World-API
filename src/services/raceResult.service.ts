@@ -1,6 +1,6 @@
 import {
   RaceResult,
-  RaceResultStorage,
+  RaceResultStorage
 } from './../models/classes/eventDriverData/raceResult';
 import { DbService } from './db.service';
 import { DriverService } from './driver.service';
@@ -13,7 +13,7 @@ export class RaceResultService extends DbService {
       race: this.eventService.getById(elToInstanciate.raceId),
       constructorData: undefined as any,
       engine: undefined as any,
-      tyre: undefined as any,
+      tyre: undefined as any
     });
   }
 
