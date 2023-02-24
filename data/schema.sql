@@ -1,0 +1,363 @@
+--
+-- File generated with SQLiteStudio v3.4.3 on sá. feb. 11 11:43:19 2023
+--
+-- Text encoding used: UTF-8
+--
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+-- Table: circuits
+DROP TABLE IF EXISTS circuits;
+CREATE TABLE IF NOT EXISTS circuits
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
+, name VARCHAR(255) NOT NULL COLLATE NOCASE
+, fullName VARCHAR(255) NOT NULL COLLATE NOCASE
+, previousNames VARCHAR(255) COLLATE NOCASE
+, type VARCHAR(255) NOT NULL COLLATE NOCASE
+, placeName VARCHAR(255) NOT NULL COLLATE NOCASE
+, countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+, latitude DECIMAL(10,6)
+, longitude DECIMAL(10,6)
+);
+
+-- Table: constructors
+DROP TABLE IF EXISTS constructors;
+CREATE TABLE IF NOT EXISTS constructors
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
+, name VARCHAR(255) NOT NULL COLLATE NOCASE
+, fullName VARCHAR(255) NOT NULL COLLATE NOCASE
+, countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+, wikiUrl VARCHAR(255) COLLATE NOCASE
+, summary VARCHAR(5000) COLLATE NOCASE
+, photo VARCHAR(255) COLLATE NOCASE
+);
+
+-- Table: previousNextConstructors
+DROP TABLE IF EXISTS previousNextConstructors;
+CREATE TABLE IF NOT EXISTS previousNextConstructors
+( constructorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES constructors(id)
+, parentConstructorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES constructors(id)
+, yearFrom INTEGER NOT NULL
+, yearTo INTEGER
+, PRIMARY KEY (constructorId, parentConstructorId, yearFrom)
+);
+
+-- Table: countries
+DROP TABLE IF EXISTS countries;
+CREATE TABLE IF NOT EXISTS countries
+( alpha2Code VARCHAR(2) NOT NULL COLLATE NOCASE PRIMARY KEY
+, alpha3Code VARCHAR(3) NOT NULL COLLATE NOCASE UNIQUE
+, region VARCHAR(255) NOT NULL COLLATE NOCASE
+, subregion VARCHAR(255) COLLATE NOCASE
+);
+
+-- Table: countriesOfficialNames
+DROP TABLE IF EXISTS countriesOfficialNames;
+CREATE TABLE IF NOT EXISTS countriesOfficialNames
+( countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+, en VARCHAR(255) COLLATE NOCASE NOT NULL
+, ces VARCHAR(255) COLLATE NOCASE
+, deu VARCHAR(255) COLLATE NOCASE
+, est VARCHAR(255) COLLATE NOCASE
+, fin VARCHAR(255) COLLATE NOCASE
+, fra VARCHAR(255) COLLATE NOCASE
+, hrv VARCHAR(255) COLLATE NOCASE
+, hun VARCHAR(255) COLLATE NOCASE
+, ita VARCHAR(255) COLLATE NOCASE
+, jpn VARCHAR(255) COLLATE NOCASE
+, kor VARCHAR(255) COLLATE NOCASE
+, nld VARCHAR(255) COLLATE NOCASE
+, per VARCHAR(255) COLLATE NOCASE
+, pol VARCHAR(255) COLLATE NOCASE
+, por VARCHAR(255) COLLATE NOCASE
+, rus VARCHAR(255) COLLATE NOCASE
+, slk VARCHAR(255) COLLATE NOCASE
+, spa VARCHAR(255) COLLATE NOCASE
+, swe VARCHAR(255) COLLATE NOCASE
+, urd VARCHAR(255) COLLATE NOCASE
+, zho VARCHAR(255) COLLATE NOCASE
+, cym VARCHAR(255) COLLATE NOCASE
+);
+
+-- Table: countriesCommonNames
+DROP TABLE IF EXISTS countriesCommonNames;
+CREATE TABLE IF NOT EXISTS countriesCommonNames
+( countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+, en VARCHAR(255) COLLATE NOCASE NOT NULL
+, ces VARCHAR(255) COLLATE NOCASE
+, deu VARCHAR(255) COLLATE NOCASE
+, est VARCHAR(255) COLLATE NOCASE
+, fin VARCHAR(255) COLLATE NOCASE
+, fra VARCHAR(255) COLLATE NOCASE
+, hrv VARCHAR(255) COLLATE NOCASE
+, hun VARCHAR(255) COLLATE NOCASE
+, ita VARCHAR(255) COLLATE NOCASE
+, jpn VARCHAR(255) COLLATE NOCASE
+, kor VARCHAR(255) COLLATE NOCASE
+, nld VARCHAR(255) COLLATE NOCASE
+, per VARCHAR(255) COLLATE NOCASE
+, pol VARCHAR(255) COLLATE NOCASE
+, por VARCHAR(255) COLLATE NOCASE
+, rus VARCHAR(255) COLLATE NOCASE
+, slk VARCHAR(255) COLLATE NOCASE
+, spa VARCHAR(255) COLLATE NOCASE
+, swe VARCHAR(255) COLLATE NOCASE
+, urd VARCHAR(255) COLLATE NOCASE
+, zho VARCHAR(255) COLLATE NOCASE
+, cym VARCHAR(255) COLLATE NOCASE
+);
+
+-- Table: drivers
+DROP TABLE IF EXISTS drivers;
+CREATE TABLE IF NOT EXISTS drivers
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
+, name VARCHAR(255) NOT NULL COLLATE NOCASE
+, firstName VARCHAR(255) NOT NULL COLLATE NOCASE
+, lastName VARCHAR(255) NOT NULL COLLATE NOCASE
+, fullName VARCHAR(255) NOT NULL COLLATE NOCASE
+, abbreviation VARCHAR(3) NOT NULL COLLATE NOCASE
+, permanentNumber VARCHAR(2) COLLATE NOCASE
+, gender VARCHAR(255) NOT NULL COLLATE NOCASE
+, dateOfBirth DATE NOT NULL
+, dateOfDeath DATE
+, placeOfBirth VARCHAR(255) NOT NULL COLLATE NOCASE
+, countryOfBirthCountryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+, nationalityCountryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+, secondNationalityCountryId VARCHAR(255) COLLATE NOCASE REFERENCES countries(alpha2Code)
+, photo VARCHAR(10000)
+);
+
+-- Table: driversFamilyRelationships
+DROP TABLE IF EXISTS driversFamilyRelationships;
+CREATE TABLE IF NOT EXISTS driversFamilyRelationships
+( driverA VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, driverB VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, AisToB VARCHAR(255) NOT NULL COLLATE NOCASE
+, PRIMARY KEY (driverA, driverB, AisToB)
+);
+
+-- Table: engineManufacturers
+DROP TABLE IF EXISTS engineManufacturers;
+CREATE TABLE IF NOT EXISTS engineManufacturers
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
+, name VARCHAR(255) NOT NULL COLLATE NOCASE
+, countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+);
+
+-- Table: tyreManufacturers
+DROP TABLE IF EXISTS tyreManufacturers;
+CREATE TABLE IF NOT EXISTS tyreManufacturers
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
+, name VARCHAR(255) NOT NULL COLLATE NOCASE
+, countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+, primaryColor VARCHAR(10) NOT NULL COLLATE NOCASE
+, secondaryColor VARCHAR(10) NOT NULL COLLATE NOCASE
+);
+
+-- Table: grandsPrix
+DROP TABLE IF EXISTS grandsPrix;
+CREATE TABLE IF NOT EXISTS grandsPrix
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
+, name VARCHAR(255) NOT NULL COLLATE NOCASE
+, fullName VARCHAR(255) NOT NULL COLLATE NOCASE
+, shortName VARCHAR(255) NOT NULL COLLATE NOCASE
+, countryId VARCHAR(255) COLLATE NOCASE REFERENCES countries(alpha2Code)
+);
+
+-- Table: lapTimes
+DROP TABLE IF EXISTS lapTimes;
+CREATE TABLE IF NOT EXISTS lapTimes 
+( driverId TEXT NOT NULL REFERENCES drivers (id)
+, raceId TEXT  NOT NULL REFERENCES events (id)
+, lap INTEGER NOT NULL
+, time NUMERIC
+, pos INTEGER
+, PRIMARY KEY (driverId, raceId, lap)
+);
+
+-- Table: pitStops
+DROP TABLE IF EXISTS pitStops;
+CREATE TABLE IF NOT EXISTS pitStops 
+( raceId TEXT REFERENCES events (id) NOT NULL
+, driverId TEXT REFERENCES drivers (id) NOT NULL
+, lap INTEGER NOT NULL
+, time NUMERIC
+, timeOfDay VARCHAR(10)
+, annotation VARCHAR(255)
+, PRIMARY KEY (driverId, raceId, lap)
+);
+
+-- Table: events
+DROP TABLE IF EXISTS events;
+CREATE TABLE IF NOT EXISTS events
+( id VARCHAR(10) NOT NULL PRIMARY KEY
+, raceDate DATE NOT NULL
+, grandPrixId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES grandsPrix(id)
+, name VARCHAR(255) NOT NULL COLLATE NOCASE
+, qualyFormat VARCHAR(255) NOT NULL COLLATE NOCASE
+, circuitId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES circuits(id)
+, scheduledLaps INTEGER
+, posterURL VARCHAR(255) COLLATE NOCASE
+);
+
+-- Table: warming_up_results
+DROP TABLE IF EXISTS warming_up_results;
+CREATE TABLE IF NOT EXISTS warming_up_results
+( raceId INTEGER NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, pos INTEGER
+, laps INTEGER
+, time INTEGER 
+, PRIMARY KEY (raceId, driverId)
+);
+
+-- Table: fp1_results
+DROP TABLE IF EXISTS fp1_results;
+CREATE TABLE IF NOT EXISTS fp1_results
+( raceId INTEGER NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, pos INTEGER
+, laps INTEGER
+, time INTEGER
+, PRIMARY KEY (raceId, driverId)
+);
+
+-- Table: fp2_results
+DROP TABLE IF EXISTS fp2_results;
+CREATE TABLE IF NOT EXISTS fp2_results
+( raceId INTEGER NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, pos INTEGER
+, laps INTEGER
+, time INTEGER
+, PRIMARY KEY (raceId, driverId)
+);
+
+-- Table: fp3_results
+DROP TABLE IF EXISTS fp3_results;
+CREATE TABLE IF NOT EXISTS fp3_results
+( raceId INTEGER NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, pos INTEGER
+, laps INTEGER
+, time INTEGER
+, PRIMARY KEY (raceId, driverId)
+);
+
+-- Table: fp4_results
+DROP TABLE IF EXISTS fp4_results;
+CREATE TABLE IF NOT EXISTS fp4_results
+( raceId INTEGER NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, pos INTEGER
+, laps INTEGER
+, time INTEGER
+, PRIMARY KEY (raceId, driverId)
+);
+
+-- Table: preQualifyingResults
+DROP TABLE IF EXISTS preQualifyingResults;
+CREATE TABLE IF NOT EXISTS preQualifyingResults
+( raceId INTEGER NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, pos INTEGER
+, time INTEGER
+, PRIMARY KEY (raceId, driverId)
+);
+
+-- Table: qualifyingResults
+DROP TABLE IF EXISTS qualifyingResults;
+CREATE TABLE IF NOT EXISTS qualifyingResults
+( raceId INTEGER NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, pos INTEGER
+, time INTEGER
+, qualy1Time INTEGER
+, qualy1Pos INTEGER
+, qualy2Time INTEGER
+, qualy2Pos INTEGER
+, laps INTEGER
+, Q1 INTEGER
+, Q2 INTEGER
+, Q3 INTEGER
+, PRIMARY KEY (raceId, driverId)
+);
+
+-- Table: raceResults
+DROP TABLE IF EXISTS raceResults;
+CREATE TABLE IF NOT EXISTS raceResults
+( raceId INTEGER NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, driverNumber INTEGER
+, positionText VARCHAR(4) NOT NULL
+, time INTEGER
+, gridPos INTEGER
+, laps INTEGER
+, points INTEGER
+, gap VARCHAR(255)
+, sharedCar BOOLEAN
+, timePenalty INTEGER
+, reasonRetired VARCHAR(255)
+);
+
+
+-- Table: redFlags
+DROP TABLE IF EXISTS redFlags;
+CREATE TABLE IF NOT EXISTS redFlags
+( raceId INTEGER NOT NULL REFERENCES events(id)
+, lap INTEGER NOT NULL
+, incident VARCHAR(255)
+, excluded VARCHAR(2000)
+, resumed VARCHAR(1)
+);
+
+-- Table: safetyCars
+DROP TABLE IF EXISTS safetyCars;
+CREATE TABLE IF NOT EXISTS safetyCars
+( raceId INTEGER NOT NULL REFERENCES events(id)
+, deployed INTEGER NOT NULL
+, fullLaps INTEGER
+, retreated INTEGER
+, cause VARCHAR(255)
+, PRIMARY KEY (raceId, deployed)
+);
+
+-- Table: seasonEntrants
+DROP TABLE IF EXISTS seasonEntrants;
+CREATE TABLE IF NOT EXISTS seasonEntrants
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY 
+, season INTEGER NOT NULL 
+, name VARCHAR(255) NOT NULL COLLATE NOCASE
+, countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+);
+
+-- Table: seasonEntrantConstructors
+DROP TABLE IF EXISTS seasonEntrantConstructors;
+CREATE TABLE IF NOT EXISTS seasonEntrantConstructors
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY 
+, entrantId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES seasonEntrants(id)
+, constructorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES constructors(id)
+, engineManufacturerId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES engineManufacturers(id)
+);
+
+-- Table: seasonEntrantConstructorDrivers
+DROP TABLE IF EXISTS seasonEntrantConstructorDrivers;
+CREATE TABLE IF NOT EXISTS seasonEntrantConstructorDrivers
+( entrantConstructorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES seasonEntrantConstructors(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, roundsText VARCHAR(255) COLLATE NOCASE
+, isTestDriver BOOLEAN NOT NULL
+, PRIMARY KEY (entrantConstructorId, driverId)
+);
+
+-- Table: seasonEntrantConstructorTyres
+DROP TABLE IF EXISTS seasonEntrantConstructorTyres;
+CREATE TABLE IF NOT EXISTS seasonEntrantConstructorTyres
+( entrantConstructorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES seasonEntrantConstructors(id)
+, tyreManufacturerId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES tyreManufacturers(id)
+, roundsText VARCHAR(255) COLLATE NOCASE
+, PRIMARY KEY (entrantConstructorId, tyreManufacturerId)
+);
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;

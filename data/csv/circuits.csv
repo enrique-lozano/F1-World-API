@@ -1,0 +1,77 @@
+id,name,fullName,previousNames,type,placeName,countryId,latitude,longitude
+adelaide,Adelaide,Adelaide Street Circuit,,STREET,Adelaide,AU,-34.927222,138.617222
+aida,Aida,Okayama International Circuit,['TI Circuit Aida'],RACE,Aida,JP,34.915,134.221111
+ain-diab,Ain-Diab,Ain-Diab Circuit,,ROAD,Casablanca,MA,33.578611,-7.6875
+aintree,Aintree,Aintree Motor Racing Circuit,,ROAD,Aintree,GB,53.476944,-2.940556
+anderstorp,Anderstorp Raceway,Anderstorp Raceway,['Scandinavian Raceway'],RACE,Anderstorp,SE,57.264167,13.601389
+austin,Americas,Circuit of the Americas,,RACE,Austin,US,30.132778,-97.641111
+avus,AVUS,AVUS,,ROAD,Berlin,DE,52.480556,13.251389
+bahrain,Bahrain,Bahrain International Circuit,,RACE,Sakhir,BH,26.0325,50.510556
+baku,Baku,Baku City Circuit,,STREET,Baku,AZ,40.3725,49.853333
+brands-hatch,Brands Hatch,Brands Hatch,,RACE,Fawkham,GB,51.356667,0.2625
+bremgarten,Bremgarten,Circuit Bremgarten,,ROAD,Bern,CH,46.95,7.410833
+buddh,Buddh,Buddh International Circuit,,RACE,Greater Noida,IN,28.350556,77.535
+buenos-aires,Juan y Oscar Gálvez,Autódromo Juan y Oscar Gálvez,"['Autódromo 17 de Octubre', 'Autódromo Municipal Ciudad de Buenos Aires', 'Autódromo Municipal del Parque Almirante Brown de la Ciudad de Buenos Aires', 'Autódromo Oscar Alfredo Gálvez']",RACE,Buenos Aires,AR,-34.694272,-58.459347
+bugatti,Bugatti,Bugatti Circuit,,RACE,Le Mans,FR,47.937694,0.2256109999999999
+caesars-palace,Caesars Palace,Caesars Palace,,STREET,Las Vegas,US,36.116944,-115.175
+catalunya,Catalunya,Circuit de Barcelona-Catalunya,,RACE,Montmeló,ES,41.57,2.261111
+clermont-ferrand,Charade,Charade Circuit,,ROAD,Clermont-Ferrand,FR,45.747222,3.038889
+dallas,Fair Park,Fair Park,,STREET,Dallas,US,32.781944,-96.765556
+detroit,Detroit,Detroit Street Circuit,,STREET,Detroit,US,42.32975,-83.040111
+dijon,Dijon-Prenois,Dijon-Prenois,,RACE,Dijon,FR,47.3625,4.899167
+donington,Donington Park,Donington Park,,RACE,Leicestershire,GB,52.829806,-1.379556
+east-london,Prince George,Prince George Circuit,,RACE,East London,ZA,-33.048611,27.873611
+estoril,Estoril,Autódromo do Estoril,,RACE,Estoril,PT,38.750833,-9.394167
+fuji,Fuji,Fuji Speedway,,RACE,Oyama,JP,35.371667,138.926667
+hockenheimring,Hockenheimring,Hockenheimring,,RACE,Hockenheim,DE,49.327778,8.565833
+hungaroring,Hungaroring,Hungaroring,,RACE,Budapest,HU,47.582222,19.251111
+imola,Enzo e Dino Ferrari,Autodromo Internazionale Enzo e Dino Ferrari,['Autodromo Dino Ferrari'],RACE,Imola,IT,44.341111,11.713333
+indianapolis,Indianapolis,Indianapolis Motor Speedway,,RACE,Indianapolis,US,39.798333,-86.232778
+interlagos,José Carlos Pace,Autódromo José Carlos Pace,['Interlagos'],RACE,São Paulo,BR,-23.701111,-46.697222
+istanbul,Istanbul Park,Istanbul Park,['Istanbul Otodrom'],RACE,Istanbul,TR,40.951667,29.405
+jacarepagua,Nelson Piquet,Autódromo Internacional Nelson Piquet,['Jacarepaguá'],RACE,Rio de Janeiro,BR,-22.975556,-43.395
+jarama,Jarama,Circuito del Jarama,['Circuito Permanente del Jarama'],RACE,Madrid,ES,40.617111,-3.585583
+jeddah,Jeddah,Jeddah Street Circuit,,STREET,Jeddah,SA,21.543333,39.172778
+jerez,Jerez,Circuito de Jerez,['Circuito Permanente de Jerez'],RACE,Jerez de la Frontera,ES,36.708333,-6.034167
+kyalami,Kyalami,Kyalami Racing Circuit,,RACE,Midrand,ZA,-25.998611,28.068889
+long-beach,Long Beach,Long Beach,,STREET,Long Beach,US,33.766389,-118.192778
+losail,Losail,Losail International Circuit,,RACE,Lusail,QA,25.49,51.454167
+magny-cours,Magny-Cours,Circuit de Nevers Magny-Cours,,RACE,Nevers,FR,46.863242,3.164228
+marina-bay,Marina Bay,Marina Bay Street Circuit,,STREET,Singapore,SG,1.291531,103.86385
+melbourne,Melbourne,Melbourne Grand Prix Circuit,['Albert Park Circuit'],STREET,Melbourne,AU,-37.849722,144.968333
+mexico-city,Hermanos Rodríguez,Autódromo Hermanos Rodríguez,['Autódromo Ricardo Rodríguez'],RACE,Mexico City,MX,19.404197,-99.088747
+miami,Miami,Miami International Autodrome,,STREET,Miami Gardens,US,25.958056,-80.238889
+monaco,Monaco,Circuit de Monaco,,STREET,Monte Carlo,MC,43.734722,7.420556
+monsanto,Monsanto,Circuito de Monsanto,,STREET,Lisbon,PT,38.719722,-9.203056
+mont-tremblant,Mont-Tremblant,Circuit Mont-Tremblant,,RACE,Mont-Tremblant,CA,46.187707,-74.609936
+montjuic,Montjuïc,Circuito de Montjuïc,,STREET,Barcelona,ES,41.366389,2.151667
+montreal,Gilles Villeneuve,Circuit Gilles Villeneuve,['Île Notre-Dame Circuit'],STREET,Montreal,CA,45.500578,-73.522461
+monza,Monza,Autodromo Nazionale Monza,,RACE,Monza,IT,45.620556,9.289444
+mosport,Mosport,Canadian Tire Motorsport Park,"['Mosport Park', 'Mosport International Raceway']",RACE,Bowmanville,CA,44.05,-78.677778
+mugello,Mugello,Autodromo Internazionale del Mugello,,RACE,Scarperia e San Piero,IT,43.9975,11.371944
+nivelles,Nivelles-Baulers,Nivelles-Baulers,,RACE,Nivelles,BE,50.621111,4.326944
+nurburgring,Nürburgring,Nürburgring,,RACE,Nürburg,DE,50.335556,6.9475
+paul-ricard,Paul Ricard,Circuit Paul Ricard,,RACE,Le Castellet,FR,43.250556,5.791667
+pedralbes,Pedralbes,Pedralbes Circuit,,STREET,Barcelona,ES,41.390278,2.116667
+pescara,Pescara,Pescara Circuit,,ROAD,Pescara,IT,42.475,14.150833
+phoenix,Phoenix,Phoenix Street Circuit,,STREET,Phoenix,US,33.447917,-112.074583
+portimao,Portimão,Algarve International Circuit,,RACE,Portimão,PT,37.221944,-8.629444
+porto,Boavista,Circuito da Boavista,,STREET,Porto,PT,41.170472,-8.67325
+reims,Reims-Gueux,Reims-Gueux,,ROAD,Reims,FR,49.254075,3.930561
+riverside,Riverside,Riverside International Raceway,,RACE,Riverside,US,33.937,-117.272556
+rouen,Rouen-Les-Essarts,Rouen-Les-Essarts,,ROAD,Rouen,FR,49.330639,1.004583
+sebring,Sebring,Sebring International Raceway,,ROAD,Sebring,US,27.454741,-81.348267
+sepang,Sepang,Sepang International Circuit,,RACE,Sepang,MY,2.760556,101.7375
+shanghai,Shanghai,Shanghai International Circuit,,RACE,Shanghai,CN,31.338889,121.219722
+silverstone,Silverstone,Silverstone Circuit,,RACE,Silverstone,GB,52.078611,-1.016944
+sochi,Sochi,Sochi Autodrom,"['Sochi International Street Circuit', 'Sochi Olympic Park Circuit']",ROAD,Sochi,RU,43.410278,39.968271
+spa-francorchamps,Spa-Francorchamps,Circuit de Spa-Francorchamps,,RACE,Spa,BE,50.437222,5.971389
+spielberg,Red Bull Ring,Red Bull Ring,"['Österreichring', 'A1-Ring']",RACE,Spielberg,AT,47.219722,14.764722
+suzuka,Suzuka,Suzuka Circuit,,RACE,Suzuka,JP,34.843056,136.540556
+valencia,Valencia,Valencia Street Circuit,,STREET,Valencia,ES,39.458778,-0.325556
+watkins-glen,Watkins Glen,Watkins Glen International,,RACE,Watkins Glen,US,42.336944,-76.927222
+yas-marina,Yas Marina,Yas Marina Circuit,,RACE,Abu Dhabi,AE,24.467222,54.603056
+yeongam,Korea,Korea International Circuit,,RACE,Yeongam,KR,34.733333,126.416667
+zandvoort,Zandvoort,Circuit Park Zandvoort,,RACE,Zandvoort,NL,52.388819,4.540922
+zeltweg,Zeltweg,Zeltweg,,ROAD,Zeltweg,AT,47.202222,14.742222
+zolder,Zolder,Circuit Zolder,,RACE,Heusden-Zolder,BE,50.988889,5.255556

@@ -1,0 +1,307 @@
+raceId,deployed,fullLaps,retreated,cause
+1973-14,33,5,39,Accident
+1993-2,29,8,38,Accident/Rain
+1993-9,38,1,40,Stranded car
+1994-3,1,4,6,Accident
+1995-11,28,4,33,Rain
+1996-3,28,4,33,Accident
+1996-13,13,4,18,Accident
+1997-3,1,4,6,Accident
+1997-12,1,3,4,Rain
+1998-7,1,4,6,Accident
+1998-7,15,2,18,Debris
+1998-7,20,1,22,Accident
+1998-9,42,6,49,Rain
+1998-10,1,2,4,Two accidents
+1998-13,28,4,33,Accident
+1999-1,15,1,17,Accident
+1999-1,20,4,25,Accident
+1999-6,1,1,3,Accident
+1999-6,3,4,8,Accident
+1999-6,35,5,41,Accident
+1999-6,66,3,,Accident
+1999-7,25,10,36,Stranded car/Rain
+1999-14,1,4,6,Accident
+2000-1,7,3,11,Accident
+2000-10,1,1,3,Accident
+2000-11,25,3,29,Man on track
+2000-11,30,1,32,Accident
+2000-13,1,1,2,Rain
+2000-14,1,11,12,Multiple accidents
+2000-17,1,1,3,Accident
+2001-1,5,9,15,Accident
+2001-2,4,6,11,Rain
+2001-3,1,1,3,Stranded car
+2001-6,1,2,4,Four stranded cars
+2001-8,21,2,24,Accident
+2001-14,6,1,7,Accident
+2002-1,1,4,6,Accident
+2002-1,9,2,12,Accident
+2002-6,24,3,28,Stranded car
+2002-6,28,8,37,Accident
+2002-8,14,2,17,Stranded car
+2003-1,8,2,11,Two accidents
+2003-1,16,3,20,Stranded car
+2003-3,1,8,9,Rain
+2003-3,18,5,24,Accident
+2003-3,27,2,30,Three accidents
+2003-3,33,3,37,Accident
+2003-3,54,2,,Two accidents
+2003-6,1,3,5,Stranded car
+2003-11,5,1,7,Debris from car
+2003-11,12,2,15,Man on track
+2004-6,3,4,8,Accident
+2004-6,32,4,37,Accident
+2004-9,1,4,6,Accident
+2004-9,11,8,20,Accident
+2004-14,1,3,5,Accident
+2004-14,31,2,34,Accident
+2004-14,38,3,42,Debris from accident
+2005-6,25,3,29,Stranded car
+2005-8,46,5,52,Accident
+2005-11,1,1,3,Accident
+2005-16,11,2,14,Accident
+2005-18,1,6,8,Accident
+2005-19,19,5,25,Loose drain cover
+2005-19,29,5,35,Accident
+2006-3,1,1,3,Accident
+2006-3,8,1,10,Accident
+2006-3,32,2,35,Accident
+2006-3,36,3,40,Accident
+2006-4,1,1,3,Accident
+2006-7,47,1,49,Stranded car
+2006-8,2,1,4,Accident
+2006-9,2,1,4,Accident
+2006-9,61,2,64,Accident
+2006-10,1,5,7,Two accidents
+2006-13,26,4,31,Accident
+2006-14,13,2,16,Stranded car
+2006-18,2,3,6,Accident
+2007-3,1,2,4,Accident
+2007-6,22,3,26,Accident
+2007-6,26,7,34,Accident
+2007-6,50,3,54,Debris from accident
+2007-6,55,4,60,Accident
+2007-10,3,3,7,Accidents
+2007-13,1,5,7,Accident
+2007-15,1,19,20,Rain
+2007-15,41,6,48,Accident
+2008-1,1,1,3,Accident
+2008-1,26,3,30,Accident
+2008-1,44,2,47,Accident
+2008-4,1,2,4,Accident
+2008-4,22,6,29,Accident
+2008-5,1,1,3,Accident
+2008-6,8,2,11,Accident
+2008-6,62,4,67,Accident
+2008-7,16,5,22,Stranded car
+2008-10,36,5,42,Accident
+2008-14,1,2,3,Rain
+2008-15,14,5,20,Accident
+2008-15,46,6,53,Accident
+2008-18,1,2,4,Accident
+2009-1,19,4,24,Accident
+2009-1,55,3,,Accident
+2009-2,31,1,,Rain
+2009-3,1,7,8,Rain
+2009-3,18,3,22,Debris from accident
+2009-5,1,3,6,Accident
+2009-12,1,3,5,Accident
+2009-13,53,1,,Accident
+2009-14,21,5,26,Accident
+2009-15,45,5,50,Accident
+2009-16,1,5,6,Accident
+2010-2,2,2,5,Accident
+2010-4,1,2,4,Accident
+2010-4,22,3,26,Debris from accident
+2010-6,1,5,7,Accident
+2010-6,31,2,34,Accident
+2010-6,43,2,46,Loose drain cover
+2010-6,75,3,,Accident
+2010-9,10,4,15,Accident
+2010-10,28,2,31,Debris from car
+2010-12,15,2,18,Debris from car
+2010-13,2,1,4,Accident
+2010-13,38,2,41,Accident
+2010-15,3,2,6,Accident
+2010-15,31,4,36,Accident
+2010-16,1,5,7,Accident
+2010-17,1,3,4,Rain
+2010-17,4,14,18,Rain
+2010-17,19,4,24,Accident
+2010-17,31,3,35,Accident
+2010-18,51,4,56,Accident
+2010-19,1,4,6,Accident
+2011-6,35,3,39,Accident
+2011-7,1,5,6,Rain
+2011-7,8,4,13,Accident
+2011-7,20,6,26,Rain
+2011-7,26,8,34,Rain
+2011-7,37,2,40,Accident
+2011-7,56,4,61,Debris from accident
+2011-12,13,3,17,Accident
+2011-13,1,3,4,Accident
+2011-14,30,3,34,Accident
+2011-15,24,3,28,Debris from accident
+2011-16,17,3,21,Accident
+2012-1,37,4,42,Stranded car
+2012-2,6,4,10,Rain
+2012-2,10,5,15,Rain
+2012-6,1,1,3,Accident
+2012-8,27,6,34,Debris from accident
+2012-12,1,4,6,Accident
+2012-14,30,1,32,Accident
+2012-14,33,9,43,Accident
+2012-15,1,1,3,Accident
+2012-18,9,5,15,Accident
+2012-18,39,3,43,Accident
+2012-20,23,5,29,Debris
+2012-20,70,1,,Accident
+2013-6,31,7,39,Accident
+2013-6,47,1,48,Accident
+2013-6,62,4,67,Accident
+2013-8,14,7,22,Debris from car
+2013-8,41,4,46,Stranded car
+2013-9,23,6,30,Stranded car
+2013-13,25,5,31,Accident
+2013-14,31,5,37,Debris
+2013-14,38,2,41,Vehicle on track
+2013-18,1,4,5,Accident
+2014-1,12,3,16,Debris from car
+2014-3,41,6,48,Accident
+2014-6,1,3,5,Accident
+2014-6,26,5,32,Accident
+2014-7,1,6,8,Accident
+2014-9,1,1,3,Accident
+2014-10,1,1,3,Accident
+2014-11,9,4,14,Two accidents
+2014-11,23,4,28,Accident
+2014-14,31,6,38,Debris from accident
+2014-15,1,2,3,Rain
+2014-15,3,6,9,Rain
+2014-15,44,4,,Accident
+2014-17,1,3,5,Accident
+2015-1,1,2,4,Accident
+2015-2,4,2,7,Accident
+2015-3,54,2,,Stranded car
+2015-6,59,11,71,Accident
+2015-8,1,5,7,Accident
+2015-9,1,2,4,Accident
+2015-10,43,5,49,Accident
+2015-13,37,3,41,Man on track
+2015-15,1,2,4,Accident
+2015-15,12,5,18,Accident
+2015-16,28,4,33,Stranded car
+2015-16,43,3,47,Accident
+2015-17,53,4,58,Accident
+2016-1,17,2,20,Accident
+2016-3,4,5,10,Debris from car
+2016-4,1,2,4,Accident
+2016-6,1,7,8,Rain
+2016-9,27,4,32,Debris from car
+2016-10,1,5,6,Rain
+2016-19,1,2,4,Accident
+2016-20,1,6,7,Rain
+2016-20,13,6,20,Accident
+2016-20,21,11,32,Rain
+2016-20,48,7,56,Accident
+2017-2,4,3,8,Accident
+2017-3,16,1,18,Accident
+2017-4,1,2,4,Accident
+2017-6,60,7,68,Accident
+2017-7,1,2,4,Accident
+2017-8,12,4,17,Stranded car
+2017-8,17,2,20,Debris from car
+2017-8,20,3,24,Debris from accident
+2017-10,1,4,6,Accident
+2017-11,4,2,7,Accident
+2017-12,30,4,35,Debris from accident
+2017-14,1,3,5,Accident
+2017-14,11,3,15,Accident
+2017-14,38,3,42,Accident
+2017-16,1,2,4,Accident
+2017-19,1,5,7,Accident
+2018-1,29,2,32,Stranded car
+2018-3,31,3,35,Debris from accident
+2018-4,1,4,6,Two accidents
+2018-4,40,7,48,Two accidents
+2018-5,1,5,7,Accident
+2018-7,1,3,5,Accident
+2018-8,1,4,6,Accident
+2018-10,33,4,38,Accident
+2018-10,38,3,42,Accident
+2018-11,52,5,58,Accident
+2018-13,1,3,5,Accident
+2018-14,1,1,3,Accident
+2018-15,1,3,5,Accident
+2018-17,3,4,8,Debris from accident
+2018-21,1,3,5,Accident
+2019-2,55,2,,Two stranded cars
+2019-5,46,6,53,Accident
+2019-6,11,4,16,Debris from accident
+2019-10,20,4,25,Accident
+2019-11,2,2,5,Accident
+2019-11,29,4,34,Accident
+2019-11,41,4,46,Accident
+2019-11,57,2,60,Accident
+2019-13,1,3,5,Accident
+2019-15,34,6,41,Debris from accident
+2019-15,44,4,49,Stranded car
+2019-15,50,2,53,Accident
+2019-16,2,2,5,Accident
+2019-16,30,3,34,Accident
+2019-20,54,5,60,Stranded car
+2019-20,66,3,70,Accident
+2020-1,26,4,31,Stranded car
+2020-1,50,4,55,Stranded car
+2020-1,55,5,61,Stranded car
+2020-2,1,2,4,Debris from accident
+2020-4,2,3,6,Accident
+2020-4,13,5,19,Accident
+2020-7,11,4,15,Accident
+2020-8,20,3,24,Stranded car
+2020-8,25,2,28,Accident
+2020-9,1,5,7,Accident
+2020-9,7,2,10,Accident
+2020-9,45,2,48,Accident
+2020-10,1,4,6,Two accidents
+2020-11,45,5,50,Stranded car
+2020-13,51,5,58,Accident
+2020-15,2,6,9,Accident
+2020-15,54,3,,Stranded car
+2020-16,1,5,7,Accident
+2020-16,64,3,69,Accident
+2020-17,12,1,14,Stranded car
+2021-1,1,2,4,Accident
+2021-2,2,4,7,Two accidents
+2021-3,2,4,7,Accident
+2021-4,8,2,11,Stranded car
+2021-6,32,3,36,Accident
+2021-6,47,1,49,Accident
+2021-9,1,2,4,Stranded car
+2021-11,1,1,2,Accident
+2021-12,1,2,,Rain
+2021-14,26,5,32,Accident
+2021-21,10,4,15,Accident
+2021-22,54,3,58,Accident
+2022-1,46,4,51,Stranded car
+2022-2,16,4,21,Stranded car
+2022-3,4,2,7,Stranded car
+2022-3,24,3,27,Stranded car
+2022-4,1,4,5,Stranded car
+2022-5,40,6,47,Stranded car
+2022-7,1,1,3,Rain
+2022-7,27,5,33,Stranded car
+2022-9,49,5,55,Stranded car
+2022-10,39,4,43,Stranded car
+2022-12,18,2,21,Stranded car
+2022-14,2,3,5,Stranded car
+2022-15,56,4,61,Stranded car
+2022-16,47,6,,Stranded car
+2022-17,8,3,11,Stranded car
+2022-17,36,3,40,Stranded car
+2022-18,1,5,6,Stranded car/Rain
+2022-19,18,4,22,Stranded car
+2022-19,23,3,26,Accident
+2022-21,1,7,7,Accident
+2022-21,55,5,60,Stranded car

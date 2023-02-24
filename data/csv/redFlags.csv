@@ -1,0 +1,90 @@
+raceId,lap,incident,excluded,resumed
+1950-3,138,Rain.,,N
+1971-10,64,Mist.,,N
+1973-9,2,"Crash involving Jody Scheckter, Jean-Pierre Beltoise, George Follmer, Mike Hailwood, Carlos Pace, Jochen Mass, Jackie Oliver, Roger Williamson and Andrea de Adamich.","Jody Scheckter, Jean-Pierre Beltoise, George Follmer, Mike Hailwood, Carlos Pace, Jochen Mass, Jackie Oliver, Roger Williamson and Andrea de Adamich (crash) Graham McRae (throttle) and David Purley (spun off).",Y
+1974-2,32,Rain.,,N
+1975-4,29,Crash of Rolf Stommelen which killed five spectators. Half points were awarded.,,N
+1975-10,56,"Rain and crashes involving Wilson Fittipaldi, Jochen Mass, John Watson, Carlos Pace, Jody Scheckter, James Hunt and Mark Donohue.",,N
+1975-12,29,Rain. Half points were awarded.,,N
+1976-9,1,"Crash at the start involving Clay Regazzoni, James Hunt, Jacques Laffite and Niki Lauda.","None, although Clay Regazzoni and Jacques Laffite illegally used their spare cars at the restart, and were subsequently disqualified.",Y
+1976-10,2,"Crash involving Niki Lauda, Brett Lunger and Harald Ertl.","Niki Lauda (crashed, injured), Brett Lunger and Harald Ertl (crashed), Chris Amon (withdrawn), Hans-Joachim Stuck (clutch) and Jacques Laffite (gearbox)",Y
+1978-12,7,Rain. The race was decided by combining the time from the first 7 laps with the time from the restarted 47.,"Mario Andretti, Jody Scheckter, Nelson Piquet, Héctor Rebaque, Harald Ertl, Riccardo Patrese, Alan Jones and James Hunt.",R
+1978-14,1,"Crash involving Ronnie Peterson, Riccardo Patrese, James Hunt, Vittorio Brambilla, Hans-Joachim Stuck, Patrick Depailler, Didier Pironi, Derek Daly, Clay Regazzoni and Brett Lunger. The race was shortened to 40 laps from the scheduled 52 due to the concerns over darkness.","Ronnie Peterson (fatal crash), Vittorio Brambilla (injured), Hans-Joachim Stuck, Didier Pironi and Brett Lunger.",S
+1979-1,1,"A huge crash involving Jody Scheckter, Arturo Merzario, Didier Pironi, Nelson Piquet, John Watson, Patrick Tambay and Mario Andretti.","Jody Scheckter, Arturo Merzario, Didier Pironi, Nelson Piquet and Patrick Tambay.",Y
+1979-3,2,Rain.,,R
+1980-13,1,"Crash involving Jean-Pierre Jarier, Derek Daly, Emerson Fittipaldi, Keke Rosberg, Mario Andretti, Gilles Villeneuve and Jochen Mass.",Derek Daly (crashed) and Mike Thackwell (lending his car to Jean-Pierre Jarier after Jarier crashed his car before the restart).,Y
+1981-5,2,"Start crash that involved Riccardo Patrese and teammate Siegfried Stohr, injuring Patrese's mechanic.",Riccardo Patrese and Siegfried Stohr,R
+1981-5,54,Rain.,,N
+1981-8,58,Rain. The race was decided by combining the time from the first 58 laps with the time from the restarted 22.,,R
+1982-7,7,"Crash involving Elio de Angelis, Roberto Guerrero, and Riccardo Patrese. The race was decided by combining the time from the first 6 laps with the time from the restarted 64, shortened to 56 due to the two-hour time limit.",Riccardo Patrese and Roberto Guerrero,S
+1982-8,1,"Didier Pironi stalled his car at the start, causing Riccardo Paletti to crash fatally into the back of Pironi's car. Geoff Lees, Raul Boesel and Eliseo Salazar were also involved in separate crashes at the start.","Riccardo Paletti (fatal crash), Geoff Lees (crashed) and Jean-Pierre Jarier (withdrawn after teammate Paletti died).",Y
+1984-6,31,Rain. Half points were awarded.,,N
+1984-8,1,"Crash at the start involving Nelson Piquet, Ayrton Senna, Michele Alboreto and Marc Surer",Marc Surer,Y
+1984-10,11,"Crash of Jonathan Palmer. The race was restarted for 60 laps, rather than the original 64.",,S
+1984-12,1,Improper start procedure.,,Y
+1985-10,1,"Crash at the start involving Teo Fabi, Elio de Angelis, Michele Alboreto and Gerhard Berger.",Piercarlo Ghinzani,Y
+1986-9,1,"Nigel Mansell suffered a driveshaft failure at the start, resulting in a crash involving a number of cars which included Thierry Boutsen, Jacques Laffite, Christian Danner, Piercarlo Ghinzani, Allen Berg and Jonathan Palmer.","Jacques Laffite (crash, injured), Christian Danner, Piercarlo Ghinzani and Allen Berg.",Y
+1987-3,2,Crash involving Jonathan Palmer and Philippe Streiff.,Jonathan Palmer,Y
+1987-10,1,"The first race start ended quickly after Martin Brundle crashed, then Jonathan Palmer, Philippe Streiff and Piercarlo Ghinzani collided.",,Y
+1987-10,1,"The second race start ended quickly after Nigel Mansell crawled away with clutch problems and then Eddie Cheever and Riccardo Patrese collided and half the grid, including Stefan Johansson, Alex Caffi, Ivan Capelli, Pascal Fabre, Philippe Alliot, Martin Brundle and Christian Danner were involved in the ensuing pile-up.",Philippe Streiff,Y
+1987-12,2,"A multi-car collision on the opening lap. Nelson Piquet and Michele Alboreto collided at the start. Derek Warwick, Satoru Nakajima, Martin Brundle, Christian Danner, Philippe Alliot, René Arnoux and Adrián Campos were all involved in the ensuing crash.",Christian Danner,Y
+1987-14,30,Crash of Derek Warwick. The race was decided by combining the time from the first 30 laps with the time from the restarted 33.,,S
+1988-13,1,"After the first start was aborted, the second start was red-flagged after Derek Warwick stalled his car and was hit by Andrea de Cesaris, with Luis Pérez-Sala and Satoru Nakajima also involved.",,Y
+1989-2,4,"Crash of Gerhard Berger. The race was shortened from 61 to 58 laps, and was decided by combining the time from the first 3 laps with the time from the restarted 55.",Gerhard Berger (injured),S
+1989-4,2,Crash involving several cars.,,Y
+1989-7,1,"Crash involving Nigel Mansell, Maurício Gugelmin, Thierry Boutsen, René Arnoux and Jonathan Palmer",,Y
+1989-16,2,Crash involving JJ Lehto.,"Nicola Larini, Alain Prost (withdrew)",Y
+1990-4,1,Crash involving Gerhard Berger and Alain Prost.,,Y
+1990-11,1,"Multiple crashes on the first lap, involving Martin Donnelly, Nigel Mansell, Aguri Suzuki and several others.",Aguri Suzuki,Y
+1990-11,1,"Crash involving Paolo Barilla, resulting in a damaged guardrail.",Paolo Barilla,Y
+1990-12,2,Crash of Derek Warwick.,,Y
+1990-13,61,Crash involving Aguri Suzuki and Alex Caffi.,,N
+1991-16,14,Rain. Half points were awarded.,,N
+1992-8,18,Rain. The race was decided by combining the time from the first 18 laps with the time from the restarted 51.,,S
+1994-3,7,"Fatal crash of Ayrton Senna. The race was shortened from 61 to 58 laps, and was decided by combining the time from the first 5 laps with the time from the restarted 53.","Ayrton Senna (fatal crash), Érik Comas (withdrew)",S
+1994-12,1,Crash involving several cars.,,Y
+1994-15,15,"Rain and a crash involving Martin Brundle, resulting in an injured marshal. The race was restarted with race leader Michael Schumacher behind the safety car and was decided by combining the time from the first 13 laps with the time of the restarted 37.",Martin Brundle,S
+1995-2,1,"Several crashes involving Jean Alesi, Mika Salo, Luca Badoer, Olivier Panis, Pierluigi Martini, Johnny Herbert, Rubens Barrichello and Ukyo Katayama.",Luca Badoer,Y
+1995-5,1,"Crash involving Jean Alesi, Gerhard Berger and David Coulthard.","Domenico Schiattarella, Jos Verstappen",Y
+1995-12,1,"Crash involving Max Papis, Jean-Christophe Boullion, Andrea Montermini, Pedro Diniz and Roberto Moreno.",Andrea Montermini and Roberto Moreno.,Y
+1995-13,1,"Crash involving Ukyo Katayama, Luca Badoer, Pedro Diniz and Roberto Moreno.","Ukyo Katayama (crash, injured) and Max Papis (gearbox)",Y
+1996-1,1,"Crash involving Martin Brundle, David Coulthard and Johnny Herbert.",Johnny Herbert,Y
+1997-2,1,"Rubens Barrichello stalled his car at the start, followed by several crashes involving Giancarlo Fisichella, Jacques Villeneuve, Jan Magnussen, Damon Hill, Johnny Herbert and Eddie Irvine.",Jan Magnussen,Y
+1997-7,56,Crash of Olivier Panis.,,N
+1998-7,1,"Crash involving Jean Alesi, Johnny Herbert, Jarno Trulli and Alexander Wurz.",,Y
+1998-8,1,Jos Verstappen stalled his car at the start.,,S
+1998-13,1,"Massive crash involving David Coulthard, Jos Verstappen, Eddie Irvine, Alexander Wurz, Rubens Barrichello, Johnny Herbert, Olivier Panis, Jarno Trulli, Mika Salo, Pedro Diniz, Toranosuke Takagi, Ricardo Rosset and Shinji Nakano.","Rubens Barrichello, Ricardo Rosset, Mika Salo and Olivier Panis.",Y
+1999-8,1,Jacques Villeneuve and Alessandro Zanardi stalled their cars at the start. Michael Schumacher crashed after the red flag was shown.,"Michael Schumacher (crash, injured)",Y
+2000-7,1,Initially shown due to a technical fault in the FIA computer. Pedro de la Rosa and Jenson Button collided after the red flag was shown.,Pedro de la Rosa,Y
+2001-12,2,Crash involving Luciano Burti and Michael Schumacher.,,Y
+2001-14,5,"Crash involving Luciano Burti and Eddie Irvine, resulting in a damaged tyre wall.","Luciano Burti (crash, injured), Eddie Irvine (crash), Kimi Räikkönen (transmission) and Fernando Alonso (gearbox)",S
+2003-3,56,Crashes of Mark Webber and Fernando Alonso.,,N
+2007-10,5,"Torrential rain and crashes involving Jenson Button, Nico Rosberg, Adrian Sutil, Lewis Hamilton, Scott Speed and Vitantonio Liuzzi.","Jenson Button, Nico Rosberg, Adrian Sutil, Scott Speed and Vitantonio Liuzzi.",R
+2009-2,33,"Torrential rain and crashes of Sébastien Buemi, Sebastian Vettel and Giancarlo Fisichella. Half points were awarded.",,N
+2010-17,3,Rain.,,R
+2011-6,72,"Crash involving Adrian Sutil, Lewis Hamilton, Jaime Alguersuari and Vitaly Petrov.",Jaime Alguersuari and Vitaly Petrov,R
+2011-7,25,Rain.,,R
+2012-2,9,Rain.,,R
+2013-6,46,"Crash involving Pastor Maldonado and Max Chilton, resulting in a damaged barrier blocking the track.",Pastor Maldonado,R
+2014-9,1,"Crash involving Kimi Räikkönen, Felipe Massa and Kamui Kobayashi, resulting in a damaged guardrail.",Kimi Räikkönen and Felipe Massa,R
+2014-15,2,Torrential rain as a consequence of Typhoon Phanfone.,,R
+2014-15,46,Fatal crash of Jules Bianchi.,,N
+2016-1,18,Crash involving Fernando Alonso and Esteban Gutiérrez.,"Fernando Alonso (crash, injured), Esteban Gutiérrez (crash) and Rio Haryanto (mechanical problem during red flag period)",R
+2016-13,9,"Crash of Kevin Magnussen, resulting in a damaged barrier.",Kevin Magnussen,R
+2016-20,21,Rain and crash of Kimi Räikkönen.,"Jolyon Palmer, Kimi Räikkönen",R
+2016-20,28,Rain.,,R
+2017-8,22,Debris on the track following multiple incidents.,,R
+2020-8,27,"Crash of Charles Leclerc, resulting in a damaged barrier.",Charles Leclerc,R
+2020-9,9,"Crash involving Carlos Sainz Jr., Nicholas Latifi, Kevin Magnussen and Antonio Giovinazzi.","Carlos Sainz Jr., Nicholas Latifi, Kevin Magnussen, Antonio Giovinazzi (all crash) and Esteban Ocon (brakes)",R
+2020-9,46,"Crash of Lance Stroll, resulting in a damaged barrier.",Lance Stroll,R
+2020-15,1,Crash of Romain Grosjean.,"Romain Grosjean (crash, injured)",R
+2021-2,33,"Crash involving Valtteri Bottas and George Russell, resulting in debris on the track.","Valtteri Bottas, George Russell",R
+2021-6,48,"Crash of Max Verstappen, resulting in debris on the track.",Max Verstappen,R
+2021-10,2,"Crash involving Lewis Hamilton and Max Verstappen, resulting in a damaged barrier.",Max Verstappen,R
+2021-11,2,"Crashes involving Valtteri Bottas, Lando Norris, Max Verstappen, Sergio Pérez, Lance Stroll, Daniel Ricciardo and Charles Leclerc, resulting in debris on the track.","Valtteri Bottas, Charles Leclerc, Lance Stroll, Sergio Pérez, Lando Norris (all crash)",R
+2021-12,3,Rain. Half points were awarded.,,N
+2021-21,13,"Crash of Mick Schumacher, resulting in a damaged barrier.",Mick Schumacher (crash),R
+2021-21,15,"Crashes involving Charles Leclerc, Nikita Mazepin, Sergio Pérez and George Russell.","Nikita Mazepin, Sergio Pérez and George Russell (all crash)",R
+2022-7,30,"Crash of Mick Schumacher, resulting in a damaged barrier.",Mick Schumacher (crash),S
+2022-10,1,"Crash involving Pierre Gasly, George Russell, Zhou Guanyu, Yuki Tsunoda, Esteban Ocon, Alexander Albon and Sebastian Vettel.","George Russell, Zhou Guanyu and Alexander Albon (all crash)",R
+2022-18,2,Rain and crash of Carlos Sainz Jr.,Carlos Sainz Jr. (crash) and Alexander Albon (collision damage),S

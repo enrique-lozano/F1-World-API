@@ -1,0 +1,10 @@
+id,name,countryId,primaryColor,secondaryColor
+avon,Avon,GB,#F90000,#FFFFFF
+bridgestone,Bridgestone,JP,#F90000,#FFFFFF
+continental,Continental,DE,#FF9933,#000000
+dunlop,Dunlop,GB,#F90000,#FFFFFF
+englebert,Englebert,BE,#FFFF00,#0000C0
+firestone,Firestone,US,#F90000,#FFFFFF
+goodyear,Goodyear,US,#AF7817,#FFFFFF
+michelin,Michelin,FR,#00008B,#FFFFFF
+pirelli,Pirelli,IT,#FEE100,#DD0029

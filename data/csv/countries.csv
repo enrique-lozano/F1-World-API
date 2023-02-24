@@ -1,0 +1,251 @@
+alpha2Code,alpha3Code,region,subregion
+AW,ABW,Americas,Caribbean
+AF,AFG,Asia,Southern Asia
+AO,AGO,Africa,Middle Africa
+AI,AIA,Americas,Caribbean
+AX,ALA,Europe,Northern Europe
+AL,ALB,Europe,Southeast Europe
+AD,AND,Europe,Southern Europe
+AE,ARE,Asia,Western Asia
+AR,ARG,Americas,South America
+AM,ARM,Asia,Western Asia
+AS,ASM,Oceania,Polynesia
+AQ,ATA,Antarctic,
+TF,ATF,Antarctic,
+AG,ATG,Americas,Caribbean
+AU,AUS,Oceania,Australia and New Zealand
+AT,AUT,Europe,Central Europe
+AZ,AZE,Asia,Western Asia
+BI,BDI,Africa,Eastern Africa
+BE,BEL,Europe,Western Europe
+BJ,BEN,Africa,Western Africa
+BF,BFA,Africa,Western Africa
+BD,BGD,Asia,Southern Asia
+BG,BGR,Europe,Southeast Europe
+BH,BHR,Asia,Western Asia
+BS,BHS,Americas,Caribbean
+BA,BIH,Europe,Southeast Europe
+BL,BLM,Americas,Caribbean
+SH,SHN,Africa,Western Africa
+BY,BLR,Europe,Eastern Europe
+BZ,BLZ,Americas,Central America
+BM,BMU,Americas,North America
+BO,BOL,Americas,South America
+BQ,BES,Americas,Caribbean
+BR,BRA,Americas,South America
+BB,BRB,Americas,Caribbean
+BN,BRN,Asia,South-Eastern Asia
+BT,BTN,Asia,Southern Asia
+BV,BVT,Antarctic,
+BW,BWA,Africa,Southern Africa
+CF,CAF,Africa,Middle Africa
+CA,CAN,Americas,North America
+CC,CCK,Oceania,Australia and New Zealand
+CH,CHE,Europe,Western Europe
+CL,CHL,Americas,South America
+CN,CHN,Asia,Eastern Asia
+CI,CIV,Africa,Western Africa
+CM,CMR,Africa,Middle Africa
+CD,COD,Africa,Middle Africa
+CG,COG,Africa,Middle Africa
+CK,COK,Oceania,Polynesia
+CO,COL,Americas,South America
+KM,COM,Africa,Eastern Africa
+CV,CPV,Africa,Western Africa
+CR,CRI,Americas,Central America
+CU,CUB,Americas,Caribbean
+CW,CUW,Americas,Caribbean
+CX,CXR,Oceania,Australia and New Zealand
+KY,CYM,Americas,Caribbean
+CY,CYP,Europe,Southern Europe
+CZ,CZE,Europe,Central Europe
+DE,DEU,Europe,Western Europe
+DJ,DJI,Africa,Eastern Africa
+DM,DMA,Americas,Caribbean
+DK,DNK,Europe,Northern Europe
+DO,DOM,Americas,Caribbean
+DZ,DZA,Africa,Northern Africa
+EC,ECU,Americas,South America
+EG,EGY,Africa,Northern Africa
+ER,ERI,Africa,Eastern Africa
+EH,ESH,Africa,Northern Africa
+ES,ESP,Europe,Southern Europe
+EE,EST,Europe,Northern Europe
+ET,ETH,Africa,Eastern Africa
+FI,FIN,Europe,Northern Europe
+FJ,FJI,Oceania,Melanesia
+FK,FLK,Americas,South America
+FR,FRA,Europe,Western Europe
+FO,FRO,Europe,Northern Europe
+FM,FSM,Oceania,Micronesia
+GA,GAB,Africa,Middle Africa
+GB,GBR,Europe,Northern Europe
+GE,GEO,Asia,Western Asia
+GG,GGY,Europe,Northern Europe
+GH,GHA,Africa,Western Africa
+GI,GIB,Europe,Southern Europe
+GN,GIN,Africa,Western Africa
+GP,GLP,Americas,Caribbean
+GM,GMB,Africa,Western Africa
+GW,GNB,Africa,Western Africa
+GQ,GNQ,Africa,Middle Africa
+GR,GRC,Europe,Southern Europe
+GD,GRD,Americas,Caribbean
+GL,GRL,Americas,North America
+GT,GTM,Americas,Central America
+GF,GUF,Americas,South America
+GU,GUM,Oceania,Micronesia
+GY,GUY,Americas,South America
+HK,HKG,Asia,Eastern Asia
+HM,HMD,Antarctic,
+HN,HND,Americas,Central America
+HR,HRV,Europe,Southeast Europe
+HT,HTI,Americas,Caribbean
+HU,HUN,Europe,Central Europe
+ID,IDN,Asia,South-Eastern Asia
+IM,IMN,Europe,Northern Europe
+IN,IND,Asia,Southern Asia
+IO,IOT,Africa,Eastern Africa
+IE,IRL,Europe,Northern Europe
+IR,IRN,Asia,Southern Asia
+IQ,IRQ,Asia,Western Asia
+IS,ISL,Europe,Northern Europe
+IL,ISR,Asia,Western Asia
+IT,ITA,Europe,Southern Europe
+JM,JAM,Americas,Caribbean
+JE,JEY,Europe,Northern Europe
+JO,JOR,Asia,Western Asia
+JP,JPN,Asia,Eastern Asia
+KZ,KAZ,Asia,Central Asia
+KE,KEN,Africa,Eastern Africa
+KG,KGZ,Asia,Central Asia
+KH,KHM,Asia,South-Eastern Asia
+KI,KIR,Oceania,Micronesia
+KN,KNA,Americas,Caribbean
+KR,KOR,Asia,Eastern Asia
+XK,UNK,Europe,Southeast Europe
+KW,KWT,Asia,Western Asia
+LA,LAO,Asia,South-Eastern Asia
+LB,LBN,Asia,Western Asia
+LR,LBR,Africa,Western Africa
+LY,LBY,Africa,Northern Africa
+LC,LCA,Americas,Caribbean
+LI,LIE,Europe,Western Europe
+LK,LKA,Asia,Southern Asia
+LS,LSO,Africa,Southern Africa
+LT,LTU,Europe,Northern Europe
+LU,LUX,Europe,Western Europe
+LV,LVA,Europe,Northern Europe
+MO,MAC,Asia,Eastern Asia
+MF,MAF,Americas,Caribbean
+MA,MAR,Africa,Northern Africa
+MC,MCO,Europe,Western Europe
+MD,MDA,Europe,Eastern Europe
+MG,MDG,Africa,Eastern Africa
+MV,MDV,Asia,Southern Asia
+MX,MEX,Americas,North America
+MH,MHL,Oceania,Micronesia
+MK,MKD,Europe,Southeast Europe
+ML,MLI,Africa,Western Africa
+MT,MLT,Europe,Southern Europe
+MM,MMR,Asia,South-Eastern Asia
+ME,MNE,Europe,Southeast Europe
+MN,MNG,Asia,Eastern Asia
+MP,MNP,Oceania,Micronesia
+MZ,MOZ,Africa,Eastern Africa
+MR,MRT,Africa,Western Africa
+MS,MSR,Americas,Caribbean
+MQ,MTQ,Americas,Caribbean
+MU,MUS,Africa,Eastern Africa
+MW,MWI,Africa,Eastern Africa
+MY,MYS,Asia,South-Eastern Asia
+YT,MYT,Africa,Eastern Africa
+NA,NAM,Africa,Southern Africa
+NC,NCL,Oceania,Melanesia
+NE,NER,Africa,Western Africa
+NF,NFK,Oceania,Australia and New Zealand
+NG,NGA,Africa,Western Africa
+NI,NIC,Americas,Central America
+NU,NIU,Oceania,Polynesia
+NL,NLD,Europe,Western Europe
+NO,NOR,Europe,Northern Europe
+NP,NPL,Asia,Southern Asia
+NR,NRU,Oceania,Micronesia
+NZ,NZL,Oceania,Australia and New Zealand
+OM,OMN,Asia,Western Asia
+PK,PAK,Asia,Southern Asia
+PA,PAN,Americas,Central America
+PN,PCN,Oceania,Polynesia
+PE,PER,Americas,South America
+PH,PHL,Asia,South-Eastern Asia
+PW,PLW,Oceania,Micronesia
+PG,PNG,Oceania,Melanesia
+PL,POL,Europe,Central Europe
+PR,PRI,Americas,Caribbean
+KP,PRK,Asia,Eastern Asia
+PT,PRT,Europe,Southern Europe
+PY,PRY,Americas,South America
+PS,PSE,Asia,Western Asia
+PF,PYF,Oceania,Polynesia
+QA,QAT,Asia,Western Asia
+RE,REU,Africa,Eastern Africa
+RO,ROU,Europe,Southeast Europe
+RU,RUS,Europe,Eastern Europe
+RW,RWA,Africa,Eastern Africa
+SA,SAU,Asia,Western Asia
+SD,SDN,Africa,Northern Africa
+SN,SEN,Africa,Western Africa
+SG,SGP,Asia,South-Eastern Asia
+GS,SGS,Antarctic,
+SJ,SJM,Europe,Northern Europe
+SB,SLB,Oceania,Melanesia
+SL,SLE,Africa,Western Africa
+SV,SLV,Americas,Central America
+SM,SMR,Europe,Southern Europe
+SO,SOM,Africa,Eastern Africa
+PM,SPM,Americas,North America
+RS,SRB,Europe,Southeast Europe
+SS,SSD,Africa,Middle Africa
+ST,STP,Africa,Middle Africa
+SR,SUR,Americas,South America
+SK,SVK,Europe,Central Europe
+SI,SVN,Europe,Central Europe
+SE,SWE,Europe,Northern Europe
+SZ,SWZ,Africa,Southern Africa
+SX,SXM,Americas,Caribbean
+SC,SYC,Africa,Eastern Africa
+SY,SYR,Asia,Western Asia
+TC,TCA,Americas,Caribbean
+TD,TCD,Africa,Middle Africa
+TG,TGO,Africa,Western Africa
+TH,THA,Asia,South-Eastern Asia
+TJ,TJK,Asia,Central Asia
+TK,TKL,Oceania,Polynesia
+TM,TKM,Asia,Central Asia
+TL,TLS,Asia,South-Eastern Asia
+TO,TON,Oceania,Polynesia
+TT,TTO,Americas,Caribbean
+TN,TUN,Africa,Northern Africa
+TR,TUR,Asia,Western Asia
+TV,TUV,Oceania,Polynesia
+TW,TWN,Asia,Eastern Asia
+TZ,TZA,Africa,Eastern Africa
+UG,UGA,Africa,Eastern Africa
+UA,UKR,Europe,Eastern Europe
+UM,UMI,Americas,North America
+UY,URY,Americas,South America
+US,USA,Americas,North America
+UZ,UZB,Asia,Central Asia
+VA,VAT,Europe,Southern Europe
+VC,VCT,Americas,Caribbean
+VE,VEN,Americas,South America
+VG,VGB,Americas,Caribbean
+VI,VIR,Americas,Caribbean
+VN,VNM,Asia,South-Eastern Asia
+VU,VUT,Oceania,Melanesia
+WF,WLF,Oceania,Polynesia
+WS,WSM,Oceania,Polynesia
+YE,YEM,Asia,Western Asia
+ZA,ZAF,Africa,Southern Africa
+ZM,ZMB,Africa,Eastern Africa
+ZW,ZWE,Africa,Eastern Africa
