@@ -255,6 +255,17 @@ CREATE TABLE IF NOT EXISTS fp4_results
 , PRIMARY KEY (eventId, driverId)
 );
 
+-- Table: warmingUpResults
+DROP TABLE IF EXISTS warmingUpResults;
+CREATE TABLE IF NOT EXISTS warmingUpResults
+( eventId INTEGER NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, pos INTEGER
+, laps INTEGER
+, time INTEGER
+, PRIMARY KEY (eventId, driverId)
+);
+
 -- Table: preQualifyingResults
 DROP TABLE IF EXISTS preQualifyingResults;
 CREATE TABLE IF NOT EXISTS preQualifyingResults
