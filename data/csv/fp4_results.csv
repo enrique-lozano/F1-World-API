@@ -1,4 +1,4 @@
-raceId,driverId,pos,laps,time
+eventId,driverId,pos,laps,time
 2004-1,michael-schumacher,1,13,85093
 2004-1,juan-pablo-montoya,2,9,85255
 2004-1,ralf-schumacher,3,9,85628

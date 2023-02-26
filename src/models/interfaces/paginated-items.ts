@@ -17,21 +17,19 @@ export interface PaginatedItems<T> {
   pageData: PageMetadata;
 }
 
-export class Paginator {
+export class Paginator implements pageQueryParams {
   pageNo: number;
   pageSize: number;
 
   /** Statement to put at the of a SQL query to get only certain results, that is `LIMIT x OFFSET y` */
   sqlStatement: string;
 
-  constructor(pageNo?: string | number, pageSize?: string | number) {
+  constructor(pageNo?: number, pageSize?: number) {
     this.pageNo =
-      pageNo == undefined || pageNo == null ? defaultPageNo : Number(pageNo);
+      pageNo == undefined || pageNo == null ? defaultPageNo : pageNo;
 
     this.pageSize =
-      pageSize == undefined || pageSize == null
-        ? defaultPageSize
-        : Number(pageSize);
+      pageSize == undefined || pageSize == null ? defaultPageSize : pageSize;
 
     this.sqlStatement = `LIMIT ${this.pageSize} OFFSET ${
       this.pageSize * this.pageNo
@@ -45,13 +43,13 @@ export interface pageQueryParams {
    *
    * @default 0
    * */
-  pageNo?: number | string;
+  pageNo?: number;
 
   /**
    * Size of the page to retrieve
    *
    * @default 10
-   * */ pageSize?: number | string;
+   * */ pageSize?: number;
 }
 
 export const defaultPageNo = 0;

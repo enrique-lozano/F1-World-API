@@ -1,4 +1,4 @@
-raceId,driverId,pos,laps,time
+eventId,driverId,pos,laps,time
 2003-9,ralf-schumacher,1,11,91305
 2003-9,juan-pablo-montoya,2,15,91366
 2003-9,olivier-panis,3,18,91490

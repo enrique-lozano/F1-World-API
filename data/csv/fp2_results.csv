@@ -1,4 +1,4 @@
-raceId,driverId,pos,laps,time
+eventId,driverId,pos,laps,time
 1986-15,ayrton-senna,1,,77977
 1986-15,gerhard-berger,2,,78088
 1986-15,teo-fabi,3,,78154

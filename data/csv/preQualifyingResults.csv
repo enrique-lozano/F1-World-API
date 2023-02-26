@@ -1,4 +1,4 @@
-raceId,driverId,pos,time
+eventId,driverId,pos,time
 1977-10,gilles-villeneuve,1,79480
 1977-10,patrick-tambay,2,79550
 1977-10,jean-pierre-jarier,3,79630

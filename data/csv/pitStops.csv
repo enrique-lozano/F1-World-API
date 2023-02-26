@@ -1,4 +1,4 @@
-raceId,driverId,lap,time,timeOfDay,annotation
+eventId,driverId,lap,time,timeOfDay,annotation
 1994-2,erik-comas,1,49111,14:01:34,
 1994-2,ukyo-katayama,17,28482,14:20:46,
 1994-2,mika-hakkinen,18,43745,14:22:35,

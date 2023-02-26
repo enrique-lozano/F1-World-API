@@ -1,4 +1,4 @@
-raceId,lap,incident,excluded,resumed
+eventId,lap,incident,excluded,resumed
 1950-3,138,Rain.,,N
 1971-10,64,Mist.,,N
 1973-9,2,"Crash involving Jody Scheckter, Jean-Pierre Beltoise, George Follmer, Mike Hailwood, Carlos Pace, Jochen Mass, Jackie Oliver, Roger Williamson and Andrea de Adamich.","Jody Scheckter, Jean-Pierre Beltoise, George Follmer, Mike Hailwood, Carlos Pace, Jochen Mass, Jackie Oliver, Roger Williamson and Andrea de Adamich (crash) Graham McRae (throttle) and David Purley (spun off).",Y

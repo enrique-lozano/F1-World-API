@@ -1,4 +1,4 @@
-raceId,driverId,pos,time,qualy1Time,qualy1Pos,qualy2Time,qualy2Pos,laps,Q1,Q2,Q3
+eventId,driverId,pos,time,qualy1Time,qualy1Pos,qualy2Time,qualy2Pos,laps,Q1,Q2,Q3
 1950-1,nino-farina,1,110800,,,,,,,,
 1950-1,luigi-fagioli,2,111000,,,,,,,,
 1950-1,juan-manuel-fangio,3,111000,,,,,,,,

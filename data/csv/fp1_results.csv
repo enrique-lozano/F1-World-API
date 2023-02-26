@@ -1,4 +1,4 @@
-raceId,driverId,pos,laps,time
+eventId,driverId,pos,laps,time
 1986-15,nelson-piquet,1,,78601
 1986-15,ayrton-senna,2,,78779
 1986-15,gerhard-berger,3,,79004

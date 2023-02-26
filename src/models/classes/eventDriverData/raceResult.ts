@@ -2,7 +2,7 @@ import { Except } from 'type-fest';
 import { EventDriverData, EventDriverDataInStorage } from './eventDriverData';
 
 export type RaceResultStorage = EventDriverDataInStorage &
-  Except<RaceResult, 'position' | 'positionsGained'>;
+  Except<RaceResult, 'positionsGained'>;
 
 export class RaceResult extends EventDriverData {
   /** Finishing position in the race, converted to number. Will be `nan` if the driver has not finished the race */
@@ -32,6 +32,8 @@ export class RaceResult extends EventDriverData {
     super({ ...completeObjects });
 
     this.positionText = data.positionText;
+    this.position = data.position;
+
     this.driverNumber = data.driverNumber;
     this.sharedCar = data.sharedCar;
     this.laps = data.laps;
@@ -45,8 +47,6 @@ export class RaceResult extends EventDriverData {
     this.reasonRetired = data.reasonRetired;
     this.points = data.points;
     this.gridPos = data.gridPos;
-
-    this.position = Number(this.positionText);
 
     if (this.position && Number(this.gridPos))
       this.positionsGained = Number(this.gridPos) - this.position;

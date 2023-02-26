@@ -1,5 +1,7 @@
+import { Except } from 'type-fest';
 import { PhotoSchema } from '../interfaces/photo.schema';
 import { Modify } from './../../utils/types';
+import { Country } from './country';
 
 /**
  * The family relationship type.
@@ -24,7 +26,19 @@ export type FamilyRelationshipType =
 
 /** Driver object stored in the DB */
 export type DriverStorage = Modify<
-  Driver,
+  Except<
+    Driver,
+    'countryOfBirth' | 'nationalityCountry' | 'secondNationalityCountry'
+  > & {
+    /** The country of birth. */
+    countryOfBirthCountryId: string;
+
+    /** The nationality. */
+    nationalityCountryId: string;
+
+    /** The second nationality. */
+    secondNationalityCountryId: string | null;
+  },
   {
     dateOfBirth: string;
     dateOfDeath: string | null;
@@ -66,18 +80,18 @@ export class Driver {
   /** The place of birth. */
   placeOfBirth: string;
 
-  /** The country of birth. */
-  countryOfBirthCountryId: string;
-
-  /** The nationality. */
-  nationalityCountryId: string;
-
-  /** The second nationality. */
-  secondNationalityCountryId: string | null;
+  countryOfBirth: Country;
+  nationalityCountry: Country;
+  secondNationalityCountry?: Country;
 
   photo?: PhotoSchema;
 
-  constructor(data: DriverStorage) {
+  constructor(
+    data: DriverStorage,
+    countryOfBirth: Country,
+    nationalityCountry: Country,
+    secondNationalityCountry?: Country
+  ) {
     this.id = data.id;
     this.name = data.name;
     this.fullName = data.fullName;
@@ -87,9 +101,10 @@ export class Driver {
     this.permanentNumber = data.permanentNumber;
     this.abbreviation = data.abbreviation;
     this.placeOfBirth = data.placeOfBirth;
-    this.countryOfBirthCountryId = data.countryOfBirthCountryId;
-    this.nationalityCountryId = data.nationalityCountryId;
-    this.secondNationalityCountryId = data.secondNationalityCountryId;
+
+    this.countryOfBirth = countryOfBirth;
+    this.nationalityCountry = nationalityCountry;
+    this.secondNationalityCountry = secondNationalityCountry;
 
     this.dateOfBirth = new Date(data.dateOfBirth);
     this.dateOfDeath = data.dateOfDeath ? new Date(data.dateOfDeath) : null;

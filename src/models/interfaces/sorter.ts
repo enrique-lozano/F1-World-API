@@ -1,17 +1,17 @@
 type OrderDir = 'ASC' | 'DESC';
 
-export class Sorter {
-  orderBy: string;
+export class Sorter<T> implements SorterQueryParams {
+  orderBy: keyof T;
   orderDir: OrderDir;
 
   /** Statement to put at the of a SQL query to get only certain results, that is `ORDER BY x {ASC|DESC}` */
   sqlStatement: string;
 
-  constructor(orderBy: string, orderDir?: OrderDir) {
+  constructor(orderBy: keyof T, orderDir?: OrderDir) {
     this.orderBy = orderBy;
     this.orderDir = orderDir ?? defaultOrderDir;
 
-    this.sqlStatement = `ORDER BY ${this.orderBy} ${this.orderDir}`;
+    this.sqlStatement = `ORDER BY ${String(this.orderBy)} ${this.orderDir}`;
   }
 }
 

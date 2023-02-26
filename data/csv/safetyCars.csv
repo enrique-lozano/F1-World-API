@@ -1,4 +1,4 @@
-raceId,deployed,fullLaps,retreated,cause
+eventId,deployed,fullLaps,retreated,cause
 1973-14,33,5,39,Accident
 1993-2,29,8,38,Accident/Rain
 1993-9,38,1,40,Stranded car

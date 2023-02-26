@@ -1,4 +1,9 @@
-export type CircuitStorage = Circuit;
+import { Except } from 'type-fest';
+import { Country } from './country';
+
+export type CircuitStorage = Except<Circuit, 'country'> & {
+  countryId: string;
+};
 
 export class Circuit {
   id: string;
@@ -7,7 +12,7 @@ export class Circuit {
   previousNames: string;
   type: 'RACE' | 'ROAD' | 'STREET';
   placeName: string;
-  countryId: string;
+  country: Country;
 
   /** The latitude of the location */
   latitude: number;
@@ -15,15 +20,16 @@ export class Circuit {
   /** The longitude of the location */
   longitude: number;
 
-  constructor(data: CircuitStorage) {
+  constructor(data: CircuitStorage, country: Country) {
     this.id = data.id;
     this.name = data.name;
     this.fullName = data.fullName;
     this.previousNames = data.previousNames;
     this.type = data.type;
     this.placeName = data.placeName;
-    this.countryId = data.countryId;
     this.latitude = data.latitude;
     this.longitude = data.longitude;
+
+    this.country = country;
   }
 }

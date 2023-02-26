@@ -168,23 +168,23 @@ CREATE TABLE IF NOT EXISTS grandsPrix
 DROP TABLE IF EXISTS lapTimes;
 CREATE TABLE IF NOT EXISTS lapTimes 
 ( driverId TEXT NOT NULL REFERENCES drivers (id)
-, raceId TEXT  NOT NULL REFERENCES events (id)
+, eventId TEXT  NOT NULL REFERENCES events (id)
 , lap INTEGER NOT NULL
 , time NUMERIC
 , pos INTEGER
-, PRIMARY KEY (driverId, raceId, lap)
+, PRIMARY KEY (driverId, eventId, lap)
 );
 
 -- Table: pitStops
 DROP TABLE IF EXISTS pitStops;
 CREATE TABLE IF NOT EXISTS pitStops 
-( raceId TEXT REFERENCES events (id) NOT NULL
+( eventId TEXT REFERENCES events (id) NOT NULL
 , driverId TEXT REFERENCES drivers (id) NOT NULL
 , lap INTEGER NOT NULL
 , time NUMERIC
 , timeOfDay VARCHAR(10)
 , annotation VARCHAR(255)
-, PRIMARY KEY (driverId, raceId, lap)
+, PRIMARY KEY (driverId, eventId, lap)
 );
 
 -- Table: events
@@ -203,72 +203,72 @@ CREATE TABLE IF NOT EXISTS events
 -- Table: warming_up_results
 DROP TABLE IF EXISTS warming_up_results;
 CREATE TABLE IF NOT EXISTS warming_up_results
-( raceId INTEGER NOT NULL REFERENCES events(id)
+( eventId INTEGER NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , pos INTEGER
 , laps INTEGER
 , time INTEGER 
-, PRIMARY KEY (raceId, driverId)
+, PRIMARY KEY (eventId, driverId)
 );
 
 -- Table: fp1_results
 DROP TABLE IF EXISTS fp1_results;
 CREATE TABLE IF NOT EXISTS fp1_results
-( raceId INTEGER NOT NULL REFERENCES events(id)
+( eventId INTEGER NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , pos INTEGER
 , laps INTEGER
 , time INTEGER
-, PRIMARY KEY (raceId, driverId)
+, PRIMARY KEY (eventId, driverId)
 );
 
 -- Table: fp2_results
 DROP TABLE IF EXISTS fp2_results;
 CREATE TABLE IF NOT EXISTS fp2_results
-( raceId INTEGER NOT NULL REFERENCES events(id)
+( eventId INTEGER NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , pos INTEGER
 , laps INTEGER
 , time INTEGER
-, PRIMARY KEY (raceId, driverId)
+, PRIMARY KEY (eventId, driverId)
 );
 
 -- Table: fp3_results
 DROP TABLE IF EXISTS fp3_results;
 CREATE TABLE IF NOT EXISTS fp3_results
-( raceId INTEGER NOT NULL REFERENCES events(id)
+( eventId INTEGER NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , pos INTEGER
 , laps INTEGER
 , time INTEGER
-, PRIMARY KEY (raceId, driverId)
+, PRIMARY KEY (eventId, driverId)
 );
 
 -- Table: fp4_results
 DROP TABLE IF EXISTS fp4_results;
 CREATE TABLE IF NOT EXISTS fp4_results
-( raceId INTEGER NOT NULL REFERENCES events(id)
+( eventId INTEGER NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , pos INTEGER
 , laps INTEGER
 , time INTEGER
-, PRIMARY KEY (raceId, driverId)
+, PRIMARY KEY (eventId, driverId)
 );
 
 -- Table: preQualifyingResults
 DROP TABLE IF EXISTS preQualifyingResults;
 CREATE TABLE IF NOT EXISTS preQualifyingResults
-( raceId INTEGER NOT NULL REFERENCES events(id)
+( eventId INTEGER NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , pos INTEGER
 , time INTEGER
-, PRIMARY KEY (raceId, driverId)
+, PRIMARY KEY (eventId, driverId)
 );
 
 -- Table: qualifyingResults
 DROP TABLE IF EXISTS qualifyingResults;
 CREATE TABLE IF NOT EXISTS qualifyingResults
-( raceId INTEGER NOT NULL REFERENCES events(id)
+( eventId INTEGER NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , pos INTEGER
 , time INTEGER
@@ -280,13 +280,13 @@ CREATE TABLE IF NOT EXISTS qualifyingResults
 , Q1 INTEGER
 , Q2 INTEGER
 , Q3 INTEGER
-, PRIMARY KEY (raceId, driverId)
+, PRIMARY KEY (eventId, driverId)
 );
 
 -- Table: raceResults
 DROP TABLE IF EXISTS raceResults;
 CREATE TABLE IF NOT EXISTS raceResults
-( raceId INTEGER NOT NULL REFERENCES events(id)
+( eventId INTEGER NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , driverNumber INTEGER
 , positionText VARCHAR(4) NOT NULL
@@ -304,7 +304,7 @@ CREATE TABLE IF NOT EXISTS raceResults
 -- Table: redFlags
 DROP TABLE IF EXISTS redFlags;
 CREATE TABLE IF NOT EXISTS redFlags
-( raceId INTEGER NOT NULL REFERENCES events(id)
+( eventId INTEGER NOT NULL REFERENCES events(id)
 , lap INTEGER NOT NULL
 , incident VARCHAR(255)
 , excluded VARCHAR(2000)
@@ -314,12 +314,12 @@ CREATE TABLE IF NOT EXISTS redFlags
 -- Table: safetyCars
 DROP TABLE IF EXISTS safetyCars;
 CREATE TABLE IF NOT EXISTS safetyCars
-( raceId INTEGER NOT NULL REFERENCES events(id)
+( eventId INTEGER NOT NULL REFERENCES events(id)
 , deployed INTEGER NOT NULL
 , fullLaps INTEGER
 , retreated INTEGER
 , cause VARCHAR(255)
-, PRIMARY KEY (raceId, deployed)
+, PRIMARY KEY (eventId, deployed)
 );
 
 -- Table: seasonEntrants

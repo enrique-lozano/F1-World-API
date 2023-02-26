@@ -1,14 +1,28 @@
-import { Get, Path, Route, Tags } from 'tsoa';
-import { Event, RaceEventStorage } from './../models/classes/raceEvent';
+import { Get, Path, Queries, Route, Tags } from 'tsoa';
+import { Event, EventInDB } from '../models/classes/event';
+import {
+  PageMetadata,
+  pageQueryParams,
+  Paginator
+} from '../models/interfaces/paginated-items';
+import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+import { parseSearchQueryParams } from '../utils/objAttributesToStr';
 import { CircuitService } from './circuit.service';
 import { DbService } from './db.service';
 import { GrandPrixService } from './grandPrix.service';
 import { LapService } from './lap.service';
 
+interface EventQueryParams extends pageQueryParams, SorterQueryParams {
+  circuitId?: string;
+
+  /** @default id */
+  orderBy?: keyof EventInDB;
+}
+
 @Route('/events')
 @Tags('Events')
 export class EventService extends DbService {
-  private instanciateNewClass(elToInstanciate: RaceEventStorage) {
+  private instanciateNewClass(elToInstanciate: EventInDB) {
     const grandPrix = this.grandPrixService.getById(
       elToInstanciate.grandPrixId
     );
@@ -17,12 +31,45 @@ export class EventService extends DbService {
     return new Event(elToInstanciate, circuit, grandPrix);
   }
 
-  get() {
-    const raceEvents = this.db
-      .prepare('SELECT * FROM events')
-      .all() as RaceEventStorage[];
+  /** Get events based on some params */ @Get('/')
+  get(@Queries() obj: EventQueryParams) {
+    const sorter = new Sorter<EventInDB>(obj.orderBy || 'id', obj.orderDir);
 
-    return raceEvents.map((x) => this.instanciateNewClass(x));
+    const paginator = new Paginator(obj.pageNo, obj.pageSize);
+
+    let whereStatement = '';
+
+    const params = parseSearchQueryParams(obj);
+
+    if (Object.values(params).length) {
+      whereStatement += ' WHERE ';
+
+      let searchQueries: string[] = [];
+
+      if (params.circuitId) searchQueries.push(`circuitId = :circuitId`);
+
+      whereStatement += searchQueries.join(' AND ');
+    }
+
+    const eventsInDB = this.db
+      .prepare(
+        'SELECT * FROM raceResults' +
+          `${whereStatement} ${sorter.sqlStatement} ${paginator.sqlStatement}`
+      )
+      .all(params) as EventInDB[];
+
+    const totalElements = this.db
+      .prepare('SELECT COUNT(*) FROM raceResults' + whereStatement)
+      .get(params)['COUNT(*)'];
+
+    return {
+      pageData: new PageMetadata(
+        totalElements,
+        paginator.pageNo,
+        paginator.pageSize
+      ),
+      items: eventsInDB.map((x) => this.instanciateNewClass(x))
+    };
   }
 
   /** Gets a event by its ID
@@ -31,7 +78,7 @@ export class EventService extends DbService {
   getById(@Path() id: string) {
     const el = this.db
       .prepare('SELECT * FROM events WHERE id = ?')
-      .get(id) as RaceEventStorage;
+      .get(id) as EventInDB;
 
     return this.instanciateNewClass(el);
   }
@@ -41,7 +88,7 @@ export class EventService extends DbService {
    * @param id The ID of the event to get */ @Get('{id}/fastest-lap')
   getEventFastestLap(@Path() id: string) {
     const raceLapTimes = this.lapService.getLaps({
-      raceId: id,
+      eventId: id,
       orderBy: 'time',
       pageSize: 1
     });

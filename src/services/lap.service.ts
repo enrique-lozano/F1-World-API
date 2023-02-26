@@ -5,7 +5,7 @@ import {
   Paginator
 } from '../models/interfaces/paginated-items';
 import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
-import { parseQueryParams } from '../utils/objAttributesToStr';
+import { parseSearchQueryParams } from '../utils/objAttributesToStr';
 import {
   LapTime,
   LapTimeStorage
@@ -15,39 +15,51 @@ import { DriverService } from './driver.service';
 import { EventService } from './event.service';
 
 interface LapQueryParams extends pageQueryParams, SorterQueryParams {
-  raceId?: string;
+  eventId?: string;
   driverId?: string;
   year?: number;
   pos?: number;
 
-  /** @default raceId */
+  /** @default eventId */
   orderBy?: keyof LapTimeStorage;
 }
 
 @Route('laps')
 @Tags('Laps')
 export class LapService extends DbService {
+  private instanciateNewClass(lap: LapTimeStorage) {
+    return new LapTime(lap, {
+      driver: this.driverService.getById(lap.driverId),
+      race: this.eventService.getById(lap.eventId),
+      constructorData: undefined as any,
+      engine: undefined as any,
+      tyre: undefined as any
+    });
+  }
+
   @Get('/')
-  getLaps(
-    @Queries()
-    obj: LapQueryParams
-  ) {
-    const sorter = new Sorter(obj.orderBy || 'raceId', obj.orderDir);
+  getLaps(@Queries() obj: LapQueryParams) {
+    const sorter = new Sorter<LapTimeStorage>(
+      obj.orderBy || 'eventId',
+      obj.orderDir
+    );
+
     const paginator = new Paginator(obj.pageNo, obj.pageSize);
 
     let whereStatement = '';
 
-    const params = parseQueryParams(obj);
+    const params = parseSearchQueryParams(obj);
 
     if (Object.values(params).length) {
       whereStatement += ' WHERE ';
 
       let searchQueries: string[] = [];
 
-      if (params.raceId) searchQueries.push(`raceId = :raceId`);
+      if (params.eventId) searchQueries.push(`eventId = :eventId`);
       if (params.driverId) searchQueries.push(`driverId = :driverId`);
       if (params.pos) searchQueries.push(`pos = :pos`);
-      if (params.year) searchQueries.push(`substr(raceId, 1, 4) = :year`);
+      if (params.year)
+        searchQueries.push(`cast(substr(eventId, 1, 4) as INT) = :year`);
 
       whereStatement += searchQueries.join(' AND ');
     }
@@ -69,16 +81,7 @@ export class LapService extends DbService {
         paginator.pageNo,
         paginator.pageSize
       ),
-      items: lapTimesInDB.map(
-        (x) =>
-          new LapTime(x, {
-            driver: this.driverService.getById(x.driverId),
-            race: this.eventService.getById(x.raceId),
-            constructorData: undefined as any,
-            engine: undefined as any,
-            tyre: undefined as any
-          })
-      )
+      items: lapTimesInDB.map((x) => this.instanciateNewClass(x))
     };
   }
 

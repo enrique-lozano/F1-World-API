@@ -1,11 +1,11 @@
 import { Constructor } from '../constructor';
 import { Driver } from '../driver';
 import { EngineManufacturer } from '../engineManufacturer';
-import { Event } from '../raceEvent';
+import { Event } from '../event';
 import { TyreManufacturer } from '../tyreManufacturer';
 
 export type EventDriverDataInStorage = {
-  raceId: string;
+  eventId: string;
   driverId: string;
 };
 

@@ -1,4 +1,4 @@
-raceId,driverId,driverNumber,positionText,time,gridPos,laps,points,gap,sharedCar,timePenalty,reasonRetired
+eventId,driverId,driverNumber,positionText,time,gridPos,laps,points,gap,sharedCar,timePenalty,reasonRetired
 1950-1,nino-farina,2,1,8003600,1,70,9,,0,,
 1950-1,luigi-fagioli,3,2,8006200,2,70,6,+2.600,0,,
 1950-1,reg-parnell,4,3,8055600,4,70,4,+52.000,0,,
