@@ -11,8 +11,7 @@ export class RaceResult extends EventDriverData {
   /** Finishing position in the race. Could be `DNF`, `DNQ`... if the driver has not finished the race */
   positionText: string | number;
 
-  driverNumber: string;
-  sharedCar: boolean;
+  positionOrder: number;
 
   /** Number of laps completed */
   laps: number;
@@ -32,10 +31,9 @@ export class RaceResult extends EventDriverData {
     super({ ...completeObjects });
 
     this.positionText = data.positionText;
+    this.positionOrder = data.positionOrder;
     this.position = data.position;
 
-    this.driverNumber = data.driverNumber;
-    this.sharedCar = data.sharedCar;
     this.laps = data.laps;
     this.time = data.time;
     this.timePenalty = data.timePenalty;

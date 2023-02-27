@@ -299,14 +299,13 @@ DROP TABLE IF EXISTS raceResults;
 CREATE TABLE IF NOT EXISTS raceResults
 ( eventId INTEGER NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, driverNumber INTEGER
 , positionText VARCHAR(4) NOT NULL
+, positionOrder INTEGER NOT NULL
 , time INTEGER
 , gridPos INTEGER
 , laps INTEGER
 , points INTEGER
 , gap VARCHAR(255)
-, sharedCar BOOLEAN
 , timePenalty INTEGER
 , reasonRetired VARCHAR(255)
 );
