@@ -5,6 +5,8 @@ import swaggerUi from 'swagger-ui-express';
 import { ValidateError } from 'tsoa';
 import { RegisterRoutes } from './routes';
 
+import * as swaggerJSON from './swagger.json';
+
 dotenv.config();
 
 const app = express();
@@ -15,11 +17,25 @@ const router = express.Router();
 RegisterRoutes(router);
 
 // Base path for all the routes
-app.use('/api/v1', router);
+const BASE_PATH = '/api';
+app.use(BASE_PATH, router);
 
 // Swagger docs generator
-app.use('/api-docs', swaggerUi.serve, async (_req: Request, res: Response) => {
-  return res.send(swaggerUi.generateHTML(await import('./swagger.json')));
+app.use(
+  `${BASE_PATH}/docs`,
+  swaggerUi.serve,
+  async (_req: Request, res: Response) => {
+    return res.send(
+      swaggerUi.generateHTML(swaggerJSON, {
+        customSiteTitle: 'Swagger - F1 World'
+      })
+    );
+  }
+);
+
+// Return swagger json
+app.use(`${BASE_PATH}/swagger/json`, (_req, res) => {
+  return res.send(swaggerJSON);
 });
 
 // Errors handling
