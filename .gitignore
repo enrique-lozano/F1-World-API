@@ -111,3 +111,7 @@ dist
 
 data/db/**/*
 !data/db/.gitkeep
+
+# Project specific:
+**/generators/**/temp
+**/generators/**/generated
