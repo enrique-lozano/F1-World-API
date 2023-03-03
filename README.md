@@ -1,3 +1,31 @@
+# F1 World API & Database
+
+Welcome to one of the largest open database on Formula 1. A SQLite database and a Node.js API ready to be used with race results, teams, times per lap, pit stops, free-practices and much more!
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#run-the-api-">Run the code locally</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#manage-the-database-">Manage the database</a>
+    </li>
+    <li>
+      <a href="#contributing-">Contributing</a>
+      <ul>
+        <li><a href="#why-to-contribute">Why to contribute?</a></li>
+      </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
 ## Run the API 🚀
 
 The following explains how to run the API locally. This way you will be able to investigate on your own how it is done, create new features, fix bugs or use it in your projects.
