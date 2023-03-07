@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run swagger & tsc",
-    "start": "npm run build & node dist/src/index.js",
+    "start": "npm run build & node dist/index.js",
     "start:dev": "ts-node-dev src/index.ts",
     "swagger": "tsoa spec-and-routes",
     "prettier": "prettier --write \"src/**/*{json,js,ts}\"",
