@@ -91,6 +91,34 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"PageMetadata": {
+				"properties": {
+					"pageSize": {
+						"type": "number",
+						"format": "double"
+					},
+					"totalElements": {
+						"type": "number",
+						"format": "double"
+					},
+					"totalPages": {
+						"type": "number",
+						"format": "double"
+					},
+					"currentPage": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"pageSize",
+					"totalElements",
+					"totalPages",
+					"currentPage"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"Company": {
 				"properties": {
 					"id": {
@@ -119,6 +147,32 @@
 					"fullName",
 					"country"
 				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CompanyQueryParams": {
+				"properties": {
+					"pageNo": {
+						"type": "number",
+						"format": "double",
+						"description": "Page to retrieve, starting at 0",
+						"default": "0"
+					},
+					"pageSize": {
+						"type": "number",
+						"format": "double",
+						"description": "Size of the page to retrieve",
+						"default": "10"
+					},
+					"specialty": {
+						"type": "string",
+						"enum": [
+							"engine",
+							"chassis"
+						],
+						"description": "Return only the companies that has manufactured in this specialty"
+					}
+				},
 				"type": "object",
 				"additionalProperties": false
 			},
@@ -463,34 +517,6 @@
 					"chassisName",
 					"engineManufacturer",
 					"tyreManufacturer"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"PageMetadata": {
-				"properties": {
-					"pageSize": {
-						"type": "number",
-						"format": "double"
-					},
-					"totalElements": {
-						"type": "number",
-						"format": "double"
-					},
-					"totalPages": {
-						"type": "number",
-						"format": "double"
-					},
-					"currentPage": {
-						"type": "number",
-						"format": "double"
-					}
-				},
-				"required": [
-					"pageSize",
-					"totalElements",
-					"totalPages",
-					"currentPage"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -976,10 +1002,22 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/Company"
+									"properties": {
+										"items": {
+											"items": {
+												"$ref": "#/components/schemas/Company"
+											},
+											"type": "array"
+										},
+										"pageData": {
+											"$ref": "#/components/schemas/PageMetadata"
+										}
 									},
-									"type": "array"
+									"required": [
+										"items",
+										"pageData"
+									],
+									"type": "object"
 								}
 							}
 						}
@@ -989,7 +1027,43 @@
 					"Companies"
 				],
 				"security": [],
-				"parameters": []
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Return only the companies that has manufactured in this specialty",
+						"in": "query",
+						"name": "specialty",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"engine",
+								"chassis"
+							]
+						}
+					}
+				]
 			}
 		},
 		"/companies/{companyId}": {

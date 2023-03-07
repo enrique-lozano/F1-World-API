@@ -54,6 +54,17 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "PageMetadata": {
+        "dataType": "refObject",
+        "properties": {
+            "pageSize": {"dataType":"double","required":true},
+            "totalElements": {"dataType":"double","required":true},
+            "totalPages": {"dataType":"double","required":true},
+            "currentPage": {"dataType":"double","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "Company": {
         "dataType": "refObject",
         "properties": {
@@ -63,6 +74,16 @@ const models: TsoaRoute.Models = {
             "country": {"ref":"Country","required":true},
             "founder": {"dataType":"string"},
             "yearFounded": {"dataType":"double"},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "CompanyQueryParams": {
+        "dataType": "refObject",
+        "properties": {
+            "pageNo": {"dataType":"double","default":"0"},
+            "pageSize": {"dataType":"double","default":"10"},
+            "specialty": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["engine"]},{"dataType":"enum","enums":["chassis"]}]},
         },
         "additionalProperties": false,
     },
@@ -164,17 +185,6 @@ const models: TsoaRoute.Models = {
             "tyreManufacturer": {"ref":"TyreManufacturer","required":true},
             "driverNumber": {"dataType":"double"},
             "note": {"dataType":"string"},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "PageMetadata": {
-        "dataType": "refObject",
-        "properties": {
-            "pageSize": {"dataType":"double","required":true},
-            "totalElements": {"dataType":"double","required":true},
-            "totalPages": {"dataType":"double","required":true},
-            "currentPage": {"dataType":"double","required":true},
         },
         "additionalProperties": false,
     },
@@ -392,6 +402,7 @@ export function RegisterRoutes(app: Router) {
 
             function CompanyService_get(request: any, response: any, next: any) {
             const args = {
+                    obj: {"in":"queries","name":"obj","required":true,"ref":"CompanyQueryParams"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
