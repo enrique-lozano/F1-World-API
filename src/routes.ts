@@ -620,6 +620,56 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/events/:id/circuit',
+            ...(fetchMiddlewares<RequestHandler>(EventService)),
+            ...(fetchMiddlewares<RequestHandler>(EventService.prototype.getEventCircuit)),
+
+            function EventService_getEventCircuit(request: any, response: any, next: any) {
+            const args = {
+                    id: {"in":"path","name":"id","required":true,"dataType":"string"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new EventService();
+
+
+              const promise = controller.getEventCircuit.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/events/:id/grand-prix',
+            ...(fetchMiddlewares<RequestHandler>(EventService)),
+            ...(fetchMiddlewares<RequestHandler>(EventService.prototype.getEventGrandPrix)),
+
+            function EventService_getEventGrandPrix(request: any, response: any, next: any) {
+            const args = {
+                    id: {"in":"path","name":"id","required":true,"dataType":"string"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new EventService();
+
+
+              const promise = controller.getEventGrandPrix.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/race-results',
             ...(fetchMiddlewares<RequestHandler>(RaceResultService)),
             ...(fetchMiddlewares<RequestHandler>(RaceResultService.prototype.getAllRaceResults)),

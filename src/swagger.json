@@ -1473,6 +1473,72 @@
 				]
 			}
 		},
+		"/events/{id}/circuit": {
+			"get": {
+				"operationId": "GetEventCircuit",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Circuit"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get info about the circuit where an event takes place",
+				"tags": [
+					"Events"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "The ID of the event to get",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/events/{id}/grand-prix": {
+			"get": {
+				"operationId": "GetEventGrandPrix",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GrandPrix"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get info about the grand prix where an event takes place",
+				"tags": [
+					"Events"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "The ID of the event to get",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
 		"/race-results": {
 			"get": {
 				"operationId": "GetAllRaceResults",

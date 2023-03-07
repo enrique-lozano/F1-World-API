@@ -96,6 +96,28 @@ export class EventService extends DbService {
     return raceLapTimes.items[0];
   }
 
+  /** Get info about the circuit where an event takes place
+   *
+   * @param id The ID of the event to get */ @Get('{id}/circuit')
+  getEventCircuit(@Path() id: string) {
+    const el = this.db
+      .prepare('SELECT * FROM events WHERE id = ?')
+      .get(id) as EventInDB;
+
+    return this.circuitService.getById(el.circuitId);
+  }
+
+  /** Get info about the grand prix where an event takes place
+   *
+   * @param id The ID of the event to get */ @Get('{id}/grand-prix')
+  getEventGrandPrix(@Path() id: string) {
+    const el = this.db
+      .prepare('SELECT * FROM events WHERE id = ?')
+      .get(id) as EventInDB;
+
+    return this.grandPrixService.getById(el.grandPrixId);
+  }
+
   private get circuitService() {
     return new CircuitService();
   }
