@@ -11,8 +11,7 @@ import {
   RaceResultStorage
 } from './../models/classes/eventDriverData/raceResult';
 import { DbService } from './db.service';
-import { DriverService } from './driver.service';
-import { EventService } from './event.service';
+import { EventEntrantService } from './eventEntrant.service';
 
 export interface RaceResultQueryParams
   extends pageQueryParams,
@@ -37,13 +36,13 @@ export interface RaceResultQueryParams
 @Tags('RaceResults')
 export class RaceResultService extends DbService {
   private instanciateNewClass(elToInstanciate: RaceResultStorage) {
-    return new RaceResult(elToInstanciate, {
-      driver: this.driverService.getById(elToInstanciate.driverId),
-      race: this.eventService.getById(elToInstanciate.eventId),
-      constructorData: undefined as any,
-      engine: undefined as any,
-      tyre: undefined as any
-    });
+    return new RaceResult(
+      elToInstanciate,
+      this.eventEntrantService.getEntrantInfo(
+        elToInstanciate.eventId,
+        elToInstanciate.driverId
+      )
+    );
   }
 
   @Get('/')
@@ -119,11 +118,7 @@ export class RaceResultService extends DbService {
     return this.instanciateNewClass(raceResultInDB);
   }
 
-  private get eventService() {
-    return new EventService();
-  }
-
-  private get driverService() {
-    return new DriverService();
+  private get eventEntrantService() {
+    return new EventEntrantService();
   }
 }

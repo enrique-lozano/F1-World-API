@@ -91,7 +91,7 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Constructor": {
+			"Company": {
 				"properties": {
 					"id": {
 						"type": "string"
@@ -105,27 +105,19 @@
 					"country": {
 						"$ref": "#/components/schemas/Country"
 					},
-					"photo": {
-						"type": "string",
-						"nullable": true
+					"founder": {
+						"type": "string"
 					},
-					"summary": {
-						"type": "string",
-						"nullable": true
-					},
-					"wikiUrl": {
-						"type": "string",
-						"nullable": true
+					"yearFounded": {
+						"type": "number",
+						"format": "double"
 					}
 				},
 				"required": [
 					"id",
 					"name",
 					"fullName",
-					"country",
-					"photo",
-					"summary",
-					"wikiUrl"
+					"country"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -156,34 +148,6 @@
 					"fullName",
 					"shortName",
 					"countryId"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"PageMetadata": {
-				"properties": {
-					"pageSize": {
-						"type": "number",
-						"format": "double"
-					},
-					"totalElements": {
-						"type": "number",
-						"format": "double"
-					},
-					"totalPages": {
-						"type": "number",
-						"format": "double"
-					},
-					"currentPage": {
-						"type": "number",
-						"format": "double"
-					}
-				},
-				"required": [
-					"pageSize",
-					"totalElements",
-					"totalPages",
-					"currentPage"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -400,24 +364,23 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"EngineManufacturer": {
+			"SeasonEntrant": {
 				"properties": {
 					"id": {
-						"type": "string",
-						"description": "The unique identifier."
-					},
-					"name": {
-						"type": "string",
-						"description": "The name."
-					},
-					"countryId": {
 						"type": "string"
+					},
+					"season": {
+						"type": "number",
+						"format": "double"
+					},
+					"country": {
+						"$ref": "#/components/schemas/Country"
 					}
 				},
 				"required": [
 					"id",
-					"name",
-					"countryId"
+					"season",
+					"country"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -452,6 +415,86 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"EventDriverData": {
+				"description": "Object that represents a driver and an event of his that has occurred within an event. For example, his results in one of the sessions, the time he has set in a race lap, or a pit stop.",
+				"properties": {
+					"driver": {
+						"$ref": "#/components/schemas/Driver",
+						"description": "The full driver object. Got in the contructor"
+					},
+					"race": {
+						"$ref": "#/components/schemas/Event",
+						"description": "The full race event object. Got in the contructor"
+					},
+					"seasonEntrant": {
+						"$ref": "#/components/schemas/SeasonEntrant"
+					},
+					"entrantName": {
+						"type": "string"
+					},
+					"chassisManufacturer": {
+						"$ref": "#/components/schemas/Company"
+					},
+					"chassisName": {
+						"type": "string"
+					},
+					"engineManufacturer": {
+						"$ref": "#/components/schemas/Company"
+					},
+					"engineName": {
+						"type": "string"
+					},
+					"tyreManufacturer": {
+						"$ref": "#/components/schemas/TyreManufacturer"
+					},
+					"driverNumber": {
+						"type": "number",
+						"format": "double"
+					},
+					"note": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"driver",
+					"race",
+					"entrantName",
+					"chassisManufacturer",
+					"chassisName",
+					"engineManufacturer",
+					"tyreManufacturer"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PageMetadata": {
+				"properties": {
+					"pageSize": {
+						"type": "number",
+						"format": "double"
+					},
+					"totalElements": {
+						"type": "number",
+						"format": "double"
+					},
+					"totalPages": {
+						"type": "number",
+						"format": "double"
+					},
+					"currentPage": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"pageSize",
+					"totalElements",
+					"totalPages",
+					"currentPage"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"LapTime": {
 				"properties": {
 					"driver": {
@@ -462,14 +505,33 @@
 						"$ref": "#/components/schemas/Event",
 						"description": "The full race event object. Got in the contructor"
 					},
-					"constructorData": {
-						"$ref": "#/components/schemas/Constructor"
+					"seasonEntrant": {
+						"$ref": "#/components/schemas/SeasonEntrant"
 					},
-					"engine": {
-						"$ref": "#/components/schemas/EngineManufacturer"
+					"entrantName": {
+						"type": "string"
 					},
-					"tyre": {
+					"chassisManufacturer": {
+						"$ref": "#/components/schemas/Company"
+					},
+					"chassisName": {
+						"type": "string"
+					},
+					"engineManufacturer": {
+						"$ref": "#/components/schemas/Company"
+					},
+					"engineName": {
+						"type": "string"
+					},
+					"tyreManufacturer": {
 						"$ref": "#/components/schemas/TyreManufacturer"
+					},
+					"driverNumber": {
+						"type": "number",
+						"format": "double"
+					},
+					"note": {
+						"type": "string"
 					},
 					"pos": {
 						"type": "number",
@@ -490,9 +552,11 @@
 				"required": [
 					"driver",
 					"race",
-					"constructorData",
-					"engine",
-					"tyre",
+					"entrantName",
+					"chassisManufacturer",
+					"chassisName",
+					"engineManufacturer",
+					"tyreManufacturer",
 					"pos",
 					"time",
 					"lap"
@@ -605,14 +669,33 @@
 						"$ref": "#/components/schemas/Event",
 						"description": "The full race event object. Got in the contructor"
 					},
-					"constructorData": {
-						"$ref": "#/components/schemas/Constructor"
+					"seasonEntrant": {
+						"$ref": "#/components/schemas/SeasonEntrant"
 					},
-					"engine": {
-						"$ref": "#/components/schemas/EngineManufacturer"
+					"entrantName": {
+						"type": "string"
 					},
-					"tyre": {
+					"chassisManufacturer": {
+						"$ref": "#/components/schemas/Company"
+					},
+					"chassisName": {
+						"type": "string"
+					},
+					"engineManufacturer": {
+						"$ref": "#/components/schemas/Company"
+					},
+					"engineName": {
+						"type": "string"
+					},
+					"tyreManufacturer": {
 						"$ref": "#/components/schemas/TyreManufacturer"
+					},
+					"driverNumber": {
+						"type": "number",
+						"format": "double"
+					},
+					"note": {
+						"type": "string"
 					},
 					"position": {
 						"type": "number",
@@ -631,11 +714,9 @@
 						],
 						"description": "Finishing position in the race. Could be `DNF`, `DNQ`... if the driver has not finished the race"
 					},
-					"driverNumber": {
-						"type": "string"
-					},
-					"sharedCar": {
-						"type": "boolean"
+					"positionOrder": {
+						"type": "number",
+						"format": "double"
 					},
 					"laps": {
 						"type": "number",
@@ -678,13 +759,14 @@
 				"required": [
 					"driver",
 					"race",
-					"constructorData",
-					"engine",
-					"tyre",
+					"entrantName",
+					"chassisManufacturer",
+					"chassisName",
+					"engineManufacturer",
+					"tyreManufacturer",
 					"position",
 					"positionText",
-					"driverNumber",
-					"sharedCar",
+					"positionOrder",
 					"laps",
 					"time",
 					"timePenalty",
@@ -742,21 +824,14 @@
 							"driverId",
 							"time",
 							"positionText",
-							"position",
-							"driverNumber",
-							"sharedCar",
+							"positionOrder",
 							"laps",
 							"timePenalty",
 							"timePenaltyMillis",
 							"gap",
 							"reasonRetired",
-							"points",
 							"gridPos",
-							"driver",
-							"race",
-							"constructorData",
-							"engine",
-							"tyre"
+							"points"
 						],
 						"nullable": false,
 						"default": "eventId"
@@ -892,7 +967,7 @@
 				]
 			}
 		},
-		"/constructors": {
+		"/companies": {
 			"get": {
 				"operationId": "Get",
 				"responses": {
@@ -902,7 +977,7 @@
 							"application/json": {
 								"schema": {
 									"items": {
-										"$ref": "#/components/schemas/Constructor"
+										"$ref": "#/components/schemas/Company"
 									},
 									"type": "array"
 								}
@@ -911,13 +986,13 @@
 					}
 				},
 				"tags": [
-					"Constructors"
+					"Companies"
 				],
 				"security": [],
 				"parameters": []
 			}
 		},
-		"/constructors/{constructorId}": {
+		"/companies/{companyId}": {
 			"get": {
 				"operationId": "GetById",
 				"responses": {
@@ -926,22 +1001,22 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/Constructor"
+									"$ref": "#/components/schemas/Company"
 								}
 							}
 						}
 					}
 				},
-				"description": "Get a constructor by its ID",
+				"description": "Get a company by its ID",
 				"tags": [
-					"Constructors"
+					"Companies"
 				],
 				"security": [],
 				"parameters": [
 					{
 						"description": "The ID of the driver to get",
 						"in": "path",
-						"name": "constructorId",
+						"name": "companyId",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -998,6 +1073,42 @@
 					{
 						"in": "path",
 						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/eventEntrants/{eventId}": {
+			"get": {
+				"operationId": "GetEventEntrants",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/EventDriverData"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get all the drivers that has participated in a certain event, alongside their teams and other usefull info",
+				"tags": [
+					"EventEntrants"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "The ID of the event to get its entrants",
+						"in": "path",
+						"name": "eventId",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -1412,21 +1523,14 @@
 								"driverId",
 								"time",
 								"positionText",
-								"position",
-								"driverNumber",
-								"sharedCar",
+								"positionOrder",
 								"laps",
 								"timePenalty",
 								"timePenaltyMillis",
 								"gap",
 								"reasonRetired",
-								"points",
 								"gridPos",
-								"driver",
-								"race",
-								"constructorData",
-								"engine",
-								"tyre"
+								"points"
 							]
 						}
 					}
@@ -1732,21 +1836,14 @@
 								"driverId",
 								"time",
 								"positionText",
-								"position",
-								"driverNumber",
-								"sharedCar",
+								"positionOrder",
 								"laps",
 								"timePenalty",
 								"timePenaltyMillis",
 								"gap",
 								"reasonRetired",
-								"points",
 								"gridPos",
-								"driver",
-								"race",
-								"constructorData",
-								"engine",
-								"tyre"
+								"points"
 							]
 						}
 					}

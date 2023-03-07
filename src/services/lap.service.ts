@@ -11,8 +11,7 @@ import {
   LapTimeStorage
 } from './../models/classes/eventDriverData/lapTime';
 import { DbService } from './db.service';
-import { DriverService } from './driver.service';
-import { EventService } from './event.service';
+import { EventEntrantService } from './eventEntrant.service';
 
 interface LapQueryParams extends pageQueryParams, SorterQueryParams {
   eventId?: string;
@@ -28,13 +27,10 @@ interface LapQueryParams extends pageQueryParams, SorterQueryParams {
 @Tags('Laps')
 export class LapService extends DbService {
   private instanciateNewClass(lap: LapTimeStorage) {
-    return new LapTime(lap, {
-      driver: this.driverService.getById(lap.driverId),
-      race: this.eventService.getById(lap.eventId),
-      constructorData: undefined as any,
-      engine: undefined as any,
-      tyre: undefined as any
-    });
+    return new LapTime(
+      lap,
+      this.eventEntrantService.getEntrantInfo(lap.eventId, lap.driverId)
+    );
   }
 
   @Get('/')
@@ -85,11 +81,7 @@ export class LapService extends DbService {
     };
   }
 
-  private get eventService() {
-    return new EventService();
-  }
-
-  private get driverService() {
-    return new DriverService();
+  private get eventEntrantService() {
+    return new EventEntrantService();
   }
 }

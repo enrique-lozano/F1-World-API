@@ -54,6 +54,7 @@ app.use(function errorHandler(
     });
   }
   if (err instanceof Error) {
+    console.error(err);
     return res.status(500).json({
       message: 'Internal Server Error'
     });

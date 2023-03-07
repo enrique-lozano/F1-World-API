@@ -20,6 +20,17 @@ CREATE TABLE IF NOT EXISTS circuits
 , longitude DECIMAL(10,6)
 );
 
+-- Table: companies
+DROP TABLE IF EXISTS companies;
+CREATE TABLE IF NOT EXISTS companies
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
+, name VARCHAR(255) NOT NULL COLLATE NOCASE
+, fullName VARCHAR(255) NOT NULL COLLATE NOCASE
+, countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+, founder VARCHAR(255) COLLATE NOCASE
+, yearFounded INTEGER
+);
+
 -- Table: constructors
 DROP TABLE IF EXISTS constructors;
 CREATE TABLE IF NOT EXISTS constructors
@@ -341,32 +352,20 @@ CREATE TABLE IF NOT EXISTS seasonEntrants
 , countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
 );
 
--- Table: seasonEntrantConstructors
-DROP TABLE IF EXISTS seasonEntrantConstructors;
-CREATE TABLE IF NOT EXISTS seasonEntrantConstructors
-( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY 
-, entrantId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES seasonEntrants(id)
-, constructorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES constructors(id)
-, engineManufacturerId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES engineManufacturers(id)
-);
-
--- Table: seasonEntrantConstructorDrivers
-DROP TABLE IF EXISTS seasonEntrantConstructorDrivers;
-CREATE TABLE IF NOT EXISTS seasonEntrantConstructorDrivers
-( entrantConstructorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES seasonEntrantConstructors(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, roundsText VARCHAR(255) COLLATE NOCASE
-, isTestDriver BOOLEAN NOT NULL
-, PRIMARY KEY (entrantConstructorId, driverId)
-);
-
--- Table: seasonEntrantConstructorTyres
-DROP TABLE IF EXISTS seasonEntrantConstructorTyres;
-CREATE TABLE IF NOT EXISTS seasonEntrantConstructorTyres
-( entrantConstructorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES seasonEntrantConstructors(id)
-, tyreManufacturerId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES tyreManufacturers(id)
-, roundsText VARCHAR(255) COLLATE NOCASE
-, PRIMARY KEY (entrantConstructorId, tyreManufacturerId)
+-- Table: eventEntrants
+DROP TABLE IF EXISTS eventEntrants;
+CREATE TABLE IF NOT EXISTS eventEntrants
+( eventId VARCHAR(8) NOT NULL REFERENCES events(id)
+, driverId TEXT NOT NULL REFERENCES drivers(id)
+, driverNumber INTEGER NOT NULL
+, seasonEntrantId VARCHAR(255) REFERENCES seasonEntrants(id)
+, entrantName VARCHAR(255)
+, chassisManufacturerId VARCHAR(255) REFERENCES companies(id)
+, chassisName VARCHAR(255)
+, engineName VARCHAR(255)
+, engineManufacturerId VARCHAR(255)  REFERENCES companies(id)
+, tyreManufacturerId VARCHAR(255) REFERENCES tyreManufacturers(id)
+, note VARCHAR(255)
 );
 
 COMMIT TRANSACTION;

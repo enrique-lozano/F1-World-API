@@ -11,13 +11,13 @@ tables = [
     "countries",
     "countriesCommonNames",
     "countriesOfficialNames",
-    "constructors",
+    "companies",
+    "eventEntrants",
     "previousNextConstructors",
     "circuits",
     "grandsPrix",
     "drivers",
     "driversFamilyRelationships",
-    "engineManufacturers",
     "tyreManufacturers",
     "events",
     "redFlags",
@@ -33,9 +33,6 @@ tables = [
     "warmingUpResults",
     "raceResults",
     "seasonEntrants",
-    "seasonEntrantConstructors",
-    "seasonEntrantConstructorDrivers",
-    "seasonEntrantConstructorTyres",
 ]
 
 

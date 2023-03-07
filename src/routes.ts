@@ -7,9 +7,11 @@ import { CountryService } from './services/countries.service';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { CircuitService } from './services/circuit.service';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { ConstructorService } from './services/constructor.service';
+import { CompanyService } from './services/company.service';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { GrandPrixService } from './services/grandPrix.service';
+// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+import { EventEntrantService } from './services/eventEntrant.service';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { LapService } from './services/lap.service';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -52,16 +54,15 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "Constructor": {
+    "Company": {
         "dataType": "refObject",
         "properties": {
             "id": {"dataType":"string","required":true},
             "name": {"dataType":"string","required":true},
             "fullName": {"dataType":"string","required":true},
             "country": {"ref":"Country","required":true},
-            "photo": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
-            "summary": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
-            "wikiUrl": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+            "founder": {"dataType":"string"},
+            "yearFounded": {"dataType":"double"},
         },
         "additionalProperties": false,
     },
@@ -74,17 +75,6 @@ const models: TsoaRoute.Models = {
             "fullName": {"dataType":"string","required":true},
             "shortName": {"dataType":"string","required":true},
             "countryId": {"dataType":"string","required":true},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "PageMetadata": {
-        "dataType": "refObject",
-        "properties": {
-            "pageSize": {"dataType":"double","required":true},
-            "totalElements": {"dataType":"double","required":true},
-            "totalPages": {"dataType":"double","required":true},
-            "currentPage": {"dataType":"double","required":true},
         },
         "additionalProperties": false,
     },
@@ -138,12 +128,12 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "EngineManufacturer": {
+    "SeasonEntrant": {
         "dataType": "refObject",
         "properties": {
             "id": {"dataType":"string","required":true},
-            "name": {"dataType":"string","required":true},
-            "countryId": {"dataType":"string","required":true},
+            "season": {"dataType":"double","required":true},
+            "country": {"ref":"Country","required":true},
         },
         "additionalProperties": false,
     },
@@ -160,14 +150,49 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "EventDriverData": {
+        "dataType": "refObject",
+        "properties": {
+            "driver": {"ref":"Driver","required":true},
+            "race": {"ref":"Event","required":true},
+            "seasonEntrant": {"ref":"SeasonEntrant"},
+            "entrantName": {"dataType":"string","required":true},
+            "chassisManufacturer": {"ref":"Company","required":true},
+            "chassisName": {"dataType":"string","required":true},
+            "engineManufacturer": {"ref":"Company","required":true},
+            "engineName": {"dataType":"string"},
+            "tyreManufacturer": {"ref":"TyreManufacturer","required":true},
+            "driverNumber": {"dataType":"double"},
+            "note": {"dataType":"string"},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "PageMetadata": {
+        "dataType": "refObject",
+        "properties": {
+            "pageSize": {"dataType":"double","required":true},
+            "totalElements": {"dataType":"double","required":true},
+            "totalPages": {"dataType":"double","required":true},
+            "currentPage": {"dataType":"double","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "LapTime": {
         "dataType": "refObject",
         "properties": {
             "driver": {"ref":"Driver","required":true},
             "race": {"ref":"Event","required":true},
-            "constructorData": {"ref":"Constructor","required":true},
-            "engine": {"ref":"EngineManufacturer","required":true},
-            "tyre": {"ref":"TyreManufacturer","required":true},
+            "seasonEntrant": {"ref":"SeasonEntrant"},
+            "entrantName": {"dataType":"string","required":true},
+            "chassisManufacturer": {"ref":"Company","required":true},
+            "chassisName": {"dataType":"string","required":true},
+            "engineManufacturer": {"ref":"Company","required":true},
+            "engineName": {"dataType":"string"},
+            "tyreManufacturer": {"ref":"TyreManufacturer","required":true},
+            "driverNumber": {"dataType":"double"},
+            "note": {"dataType":"string"},
             "pos": {"dataType":"double","required":true},
             "time": {"dataType":"double","required":true},
             "lap": {"dataType":"double","required":true},
@@ -212,13 +237,18 @@ const models: TsoaRoute.Models = {
         "properties": {
             "driver": {"ref":"Driver","required":true},
             "race": {"ref":"Event","required":true},
-            "constructorData": {"ref":"Constructor","required":true},
-            "engine": {"ref":"EngineManufacturer","required":true},
-            "tyre": {"ref":"TyreManufacturer","required":true},
+            "seasonEntrant": {"ref":"SeasonEntrant"},
+            "entrantName": {"dataType":"string","required":true},
+            "chassisManufacturer": {"ref":"Company","required":true},
+            "chassisName": {"dataType":"string","required":true},
+            "engineManufacturer": {"ref":"Company","required":true},
+            "engineName": {"dataType":"string"},
+            "tyreManufacturer": {"ref":"TyreManufacturer","required":true},
+            "driverNumber": {"dataType":"double"},
+            "note": {"dataType":"string"},
             "position": {"dataType":"double","required":true},
             "positionText": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"double"}],"required":true},
-            "driverNumber": {"dataType":"string","required":true},
-            "sharedCar": {"dataType":"boolean","required":true},
+            "positionOrder": {"dataType":"double","required":true},
             "laps": {"dataType":"double","required":true},
             "time": {"dataType":"double","required":true},
             "timePenalty": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
@@ -243,7 +273,7 @@ const models: TsoaRoute.Models = {
             "positionText": {"dataType":"string"},
             "minPos": {"dataType":"double"},
             "maxPos": {"dataType":"double"},
-            "orderBy": {"dataType":"enum","enums":["eventId","driverId","time","positionText","position","driverNumber","sharedCar","laps","timePenalty","timePenaltyMillis","gap","reasonRetired","points","gridPos","driver","race","constructorData","engine","tyre"],"default":"eventId"},
+            "orderBy": {"dataType":"enum","enums":["eventId","driverId","time","positionText","positionOrder","laps","timePenalty","timePenaltyMillis","gap","reasonRetired","gridPos","points"],"default":"eventId"},
         },
         "additionalProperties": false,
     },
@@ -356,11 +386,11 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/constructors',
-            ...(fetchMiddlewares<RequestHandler>(ConstructorService)),
-            ...(fetchMiddlewares<RequestHandler>(ConstructorService.prototype.get)),
+        app.get('/companies',
+            ...(fetchMiddlewares<RequestHandler>(CompanyService)),
+            ...(fetchMiddlewares<RequestHandler>(CompanyService.prototype.get)),
 
-            function ConstructorService_get(request: any, response: any, next: any) {
+            function CompanyService_get(request: any, response: any, next: any) {
             const args = {
             };
 
@@ -370,7 +400,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new ConstructorService();
+                const controller = new CompanyService();
 
 
               const promise = controller.get.apply(controller, validatedArgs as any);
@@ -380,13 +410,13 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/constructors/:constructorId',
-            ...(fetchMiddlewares<RequestHandler>(ConstructorService)),
-            ...(fetchMiddlewares<RequestHandler>(ConstructorService.prototype.getById)),
+        app.get('/companies/:companyId',
+            ...(fetchMiddlewares<RequestHandler>(CompanyService)),
+            ...(fetchMiddlewares<RequestHandler>(CompanyService.prototype.getById)),
 
-            function ConstructorService_getById(request: any, response: any, next: any) {
+            function CompanyService_getById(request: any, response: any, next: any) {
             const args = {
-                    constructorId: {"in":"path","name":"constructorId","required":true,"dataType":"string"},
+                    companyId: {"in":"path","name":"companyId","required":true,"dataType":"string"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -395,7 +425,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new ConstructorService();
+                const controller = new CompanyService();
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
@@ -448,6 +478,31 @@ export function RegisterRoutes(app: Router) {
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/eventEntrants/:eventId',
+            ...(fetchMiddlewares<RequestHandler>(EventEntrantService)),
+            ...(fetchMiddlewares<RequestHandler>(EventEntrantService.prototype.getEventEntrants)),
+
+            function EventEntrantService_getEventEntrants(request: any, response: any, next: any) {
+            const args = {
+                    eventId: {"in":"path","name":"eventId","required":true,"dataType":"string"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new EventEntrantService();
+
+
+              const promise = controller.getEventEntrants.apply(controller, validatedArgs as any);
               promiseHandler(controller, promise, response, undefined, next);
             } catch (err) {
                 return next(err);

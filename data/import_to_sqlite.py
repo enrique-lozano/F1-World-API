@@ -14,6 +14,7 @@ files = [
     "countriesCommonNames",
     "countriesOfficialNames",
     "constructors",
+    "companies",
     "previousNextConstructors",
     "circuits",
     "grandsPrix",
@@ -35,9 +36,7 @@ files = [
     "warmingUpResults",
     "raceResults",
     "seasonEntrants",
-    "seasonEntrantConstructors",
-    "seasonEntrantConstructorDrivers",
-    "seasonEntrantConstructorTyres",
+    "eventEntrants",
 ]
 
 for file in files:
