@@ -68,6 +68,12 @@ python import_to_sqlite.py
 
 Now you are already finishing! It only remains to prove that everything goes as it should. For that, you can run <code>npm run start</code> on your terminal. When this command finish, you can start receiving data from the API. Try to put http://localhost:3200/api/drivers/adrian-sutil in your favorite browser. You should see how the information of this driver in JSON format is shown:
 
+<img src="docs/screenshots/browser-json-res.png"  alt="Data in the browser">
+
+To see the avalaible routes (or API calls) that you can access, you can go to our [swagger documentation](http://localhost:3200/api/docs). Here you will have described all the calls you can make, their parameters, etc.
+
+<img src="docs/screenshots/swagger.png"  alt="Swagger screenshot">
+
 ## Manage the database 🗂️
 
 If you want to collaborate by adding/correcting records in our database or simply see how we have organized all the information, you can go to this [directory](https://github.com/enrique-lozano/F1-World-API/blob/main/data/README.md). In it, you will find all the necessary information, and if you have any questions, do not hesitate to ask!
