@@ -78,7 +78,7 @@ To see the avalaible routes (or API calls) that you can access, you can go to ou
 
 ## Manage the database 🗂️
 
-If you want to collaborate by adding/correcting records in our database or simply see how we have organized all the information, you can go to this [directory](https://github.com/enrique-lozano/F1-World-API/blob/main/data/README.md). In it, you will find all the necessary information, and if you have any questions, do not hesitate to ask!
+If you want to collaborate by adding/correcting records in our database or simply see how we have organized all the information, you can go to this [directory](https://github.com/enrique-lozano/F1-World-API/blob/main/data). In it, you will find all the necessary information, and if you have any questions, do not hesitate to ask!
 
 ## Contributing 🙋🏻
 
