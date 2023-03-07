@@ -26,13 +26,13 @@ Welcome to one of the largest open database on Formula 1. A SQLite database and 
   </ol>
 </details>
 
-## Run the API 🚀
+## Run the API locally 🚀
 
 The following explains how to run the API locally. This way you will be able to investigate on your own how it is done, create new features, fix bugs or use it in your projects.
 
 ### Prerequisites
 
-The API has developed in Node and TypeScript, so you will need to have installed Node. Consult [here](https://nodejs.org/en/download/) your installation options. You should also have git installed in your machine.
+The API has developed in Node and TypeScript, so you will need to have installed Node. Consult [here](https://nodejs.org/en/download/) your installation options. To create the database and to import/export data from it, you must install Python (a version greater than `3.10` if possible). You should also have git installed in your machine.
 
 ### Installation
 
@@ -41,18 +41,36 @@ Open a terminal on your computer and go to the folder where you want to place th
 ```
 git clone https://github.com/enrique-lozano/F1-World-API.git
 ```
+
 ```
 cd F1-World-API
 ```
+
 ```
 npm install
 ```
 
-If everything went correctly these commands will finish executing without errors. Now you can run <code>npm run start</code> on your terminal. When this command finish, you can start receiving data from the API. To prove that everything goes as it should, try to put http://localhost:3200/api/drivers/adrian-sutil in your favorite browser. You will see how the information of this driver in JSON format is shown:
+If everything went correctly these commands will finish executing without errors.
+
+### Create the database in SQLite
+
+Now you will have to create the database on your machine, otherwise when running the API it will not find any data. To do this, with python correctly installed, run the following commands:
+
+```
+cd data
+```
+
+```
+python import_to_sqlite.py
+```
+
+### Start the server
+
+Now you are already finishing! It only remains to prove that everything goes as it should. For that, you can run <code>npm run start</code> on your terminal. When this command finish, you can start receiving data from the API. Try to put http://localhost:3200/api/drivers/adrian-sutil in your favorite browser. You should see how the information of this driver in JSON format is shown:
 
 ## Manage the database 🗂️
 
-If you want to collaborate by adding/correcting records in our database or simply see how we have organized all the information, you can go to this directory. In it, you will find all the necessary information, and if you have any questions, do not hesitate to ask!
+If you want to collaborate by adding/correcting records in our database or simply see how we have organized all the information, you can go to this [directory](https://github.com/enrique-lozano/F1-World-API/blob/main/data/README.md). In it, you will find all the necessary information, and if you have any questions, do not hesitate to ask!
 
 ## Contributing 🙋🏻
 
@@ -61,6 +79,7 @@ Contributions are what make the open source community such an amazing place to l
 Read through our [contributing guidelines](https://github.com/enrique-lozano/F1-World-API/blob/main/CONTRIBUTING.md) to learn about how you can collaborate making this API better. **All Pull Requests are welcome** and will be studied without exception!
 
 ### Why to contribute?
+
 - We can learn for you and you can learn from us.
 - You'll appear in our contributors wall.
 - You can **include it in your CV/LinkedIn** and show recruiters that you contribute to open-source projects.
