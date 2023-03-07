@@ -20,7 +20,7 @@ export function removeEmptyAttributes<T extends object>(obj: T) {
   ) as Partial<T>;
 }
 
-/** Parse the search query params of a call, removing undefined values and converting all properties to a string. A search query param is a param that is used in the `WHERE` clause, that is, has nothing to do with the pagination or with the order.
+/** Parse the search query params of a call, removing undefined values. A search query param is a param that is used in the `WHERE` clause, that is, has nothing to do with the pagination or with the order.
  *
  * @param queryParams An object with the query params
  * @param toRemove Array of keys to delete from the params object passed in the first parameter on this call. Defaults to `['pageNo', 'pageSize', 'orderDir', 'orderBy']`
