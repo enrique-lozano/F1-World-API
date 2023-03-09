@@ -24,6 +24,9 @@ export interface RaceResultQueryParams
   extends pageQueryParams,
     SorterQueryParams,
     EventEntrantQueryParams {
+  /** Filter by a specific grid postion text */
+  gridPos?: string;
+
   /** Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`... */
   positionText?: string;
 
@@ -81,6 +84,7 @@ export class RaceResultService extends DbService {
         searchQueries.push(`engineManufacturerId = :engineManufacturerId`);
       if (params.positionText)
         searchQueries.push(`positionText = :positionText`);
+      if (params.gridPos) searchQueries.push(`gridPos = :gridPos`);
       if (params.year)
         searchQueries.push(`cast(substr(eventId, 1, 4) as INT) = :year`);
       if (params.maxPos) searchQueries.push(`position <= :maxPos`);

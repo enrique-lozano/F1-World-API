@@ -1100,6 +1100,10 @@
 						"type": "string",
 						"description": "If specified, it will return only results relative to the pilot having this ID"
 					},
+					"gridPos": {
+						"type": "string",
+						"description": "Filter by a specific grid postion text"
+					},
 					"positionText": {
 						"type": "string",
 						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`..."
@@ -1130,13 +1134,14 @@
 							"note",
 							"seasonEntrantId",
 							"tyreManufacturerId",
+							"gridPos",
 							"positionText",
 							"positionOrder",
+							"position",
 							"timePenalty",
 							"timePenaltyMillis",
 							"gap",
 							"reasonRetired",
-							"gridPos",
 							"points"
 						],
 						"nullable": false,
@@ -2461,6 +2466,15 @@
 						}
 					},
 					{
+						"description": "Filter by a specific grid postion text",
+						"in": "query",
+						"name": "gridPos",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
 						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`...",
 						"in": "query",
 						"name": "positionText",
@@ -2510,13 +2524,14 @@
 								"note",
 								"seasonEntrantId",
 								"tyreManufacturerId",
+								"gridPos",
 								"positionText",
 								"positionOrder",
+								"position",
 								"timePenalty",
 								"timePenaltyMillis",
 								"gap",
 								"reasonRetired",
-								"gridPos",
 								"points"
 							]
 						}

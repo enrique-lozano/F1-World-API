@@ -5,6 +5,7 @@ export type RaceResultStorage = EventDriverDataInStorage &
     RaceResult,
     | 'positionOrder'
     | 'positionText'
+    | 'position'
     | 'laps'
     | 'time'
     | 'timePenalty'
@@ -43,7 +44,7 @@ export class RaceResult extends EventDriverData {
 
     this.positionText = data.positionText;
     this.positionOrder = data.positionOrder;
-    this.position = Number(data.positionText);
+    this.position = data.position;
 
     this.laps = data.laps;
     this.time = data.time;
