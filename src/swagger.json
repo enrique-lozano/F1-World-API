@@ -319,6 +319,36 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"TyreManufacturer": {
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "The unique identifier."
+					},
+					"name": {
+						"type": "string",
+						"description": "The name."
+					},
+					"country": {
+						"$ref": "#/components/schemas/Country"
+					},
+					"primaryColor": {
+						"type": "string"
+					},
+					"secondaryColor": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"country",
+					"primaryColor",
+					"secondaryColor"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"qualyFormat": {
 				"enum": [
 					"FOUR_LAPS",
@@ -435,36 +465,6 @@
 					"id",
 					"season",
 					"country"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"TyreManufacturer": {
-				"properties": {
-					"id": {
-						"type": "string",
-						"description": "The unique identifier."
-					},
-					"name": {
-						"type": "string",
-						"description": "The name."
-					},
-					"countryId": {
-						"type": "string"
-					},
-					"primaryColor": {
-						"type": "string"
-					},
-					"secondaryColor": {
-						"type": "string"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"countryId",
-					"primaryColor",
-					"secondaryColor"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1469,6 +1469,63 @@
 						"description": "The ID of the driver to get",
 						"in": "path",
 						"name": "driverId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/tyre-manufacturers": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/TyreManufacturer"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Tyre Manufacturers"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/tyre-manufacturers/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TyreManufacturer"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get a tyre manufacturer by its ID",
+				"tags": [
+					"Tyre Manufacturers"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
 						"required": true,
 						"schema": {
 							"type": "string"

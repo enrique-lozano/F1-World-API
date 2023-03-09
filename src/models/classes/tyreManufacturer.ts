@@ -1,4 +1,9 @@
-export type TyreManufacturerStorage = TyreManufacturer;
+import { Except } from 'type-fest';
+import { Country } from './country';
+
+export type TyreManufacturerStorage = Except<TyreManufacturer, 'country'> & {
+  countryId: string;
+};
 
 export class TyreManufacturer {
   /** The unique identifier. */
@@ -7,17 +12,18 @@ export class TyreManufacturer {
   /** The name. */
   name: string;
 
-  countryId: string;
+  country: Country;
 
   primaryColor: string;
   secondaryColor: string;
 
-  constructor(data: TyreManufacturerStorage) {
+  constructor(data: TyreManufacturerStorage, country: Country) {
     this.id = data.id;
     this.name = data.name;
-    this.countryId = data.countryId;
 
     this.primaryColor = data.primaryColor;
     this.secondaryColor = data.secondaryColor;
+
+    this.country = country;
   }
 }

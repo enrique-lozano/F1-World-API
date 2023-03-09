@@ -8,6 +8,7 @@ import { DbService } from './db.service';
 import { DriverService } from './driver.service';
 import { EventService } from './event.service';
 import { SeasonEntrantService } from './seasonEntrant.service';
+import { TyreManufacturerService } from './tyreManufacturer.service';
 
 export interface EventEntrantQueryParams {
   /** If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer */
@@ -43,7 +44,9 @@ export class EventEntrantService extends DbService {
       engineManufacturer: this.companyService.getById(
         eventEntrant.engineManufacturerId
       ),
-      tyreManufacturer: null as any
+      tyreManufacturer: this.tyreManufacturerService.getById(
+        eventEntrant.tyreManufacturerId
+      )
     });
   }
 
@@ -65,6 +68,10 @@ export class EventEntrantService extends DbService {
 
   private get driverService() {
     return new DriverService();
+  }
+
+  private get tyreManufacturerService() {
+    return new TyreManufacturerService();
   }
 
   private get companyService() {
