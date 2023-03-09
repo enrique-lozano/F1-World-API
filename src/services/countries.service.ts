@@ -8,7 +8,7 @@ import {
 import { DbService } from './db.service';
 
 @Route('/countries')
-@Tags('countries')
+@Tags('Countries')
 export class CountryService extends DbService {
   private instanciateNewClass(x: CountryInDB) {
     return new Country(

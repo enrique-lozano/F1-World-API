@@ -1218,7 +1218,7 @@
 					}
 				},
 				"tags": [
-					"countries"
+					"Countries"
 				],
 				"security": [],
 				"parameters": []
@@ -1241,7 +1241,7 @@
 				},
 				"description": "Get a country by its ID",
 				"tags": [
-					"countries"
+					"Countries"
 				],
 				"security": [],
 				"parameters": [
@@ -1297,6 +1297,7 @@
 						}
 					}
 				},
+				"description": "Get a circuit by its ID",
 				"tags": [
 					"Circuits"
 				],

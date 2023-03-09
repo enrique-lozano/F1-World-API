@@ -18,7 +18,7 @@ export class CircuitService extends DbService {
       .map((x) => this.instanciateNewClass(x));
   }
 
-  @Get('/{id}')
+  /** Get a circuit by its ID */ @Get('/{id}')
   getById(id: string) {
     return this.instanciateNewClass(
       this.db.prepare('SELECT * FROM circuits WHERE id = ?').get(id)
