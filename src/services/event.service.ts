@@ -9,8 +9,12 @@ import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
 import { CircuitService } from './circuit.service';
 import { DbService } from './db.service';
+import { EventEntrantService } from './eventEntrant.service';
+import { FreePracticeService } from './freePractice.service';
 import { GrandPrixService } from './grandPrix.service';
 import { LapService } from './lap.service';
+import { PitStopService } from './pitStop.service';
+import { RaceResultService } from './raceResult.service';
 
 interface EventQueryParams extends pageQueryParams, SorterQueryParams {
   circuitId?: string;
@@ -53,13 +57,13 @@ export class EventService extends DbService {
 
     const eventsInDB = this.db
       .prepare(
-        'SELECT * FROM raceResults' +
+        'SELECT * FROM events' +
           `${whereStatement} ${sorter.sqlStatement} ${paginator.sqlStatement}`
       )
       .all(params) as EventInDB[];
 
     const totalElements = this.db
-      .prepare('SELECT COUNT(*) FROM raceResults' + whereStatement)
+      .prepare('SELECT COUNT(*) FROM events' + whereStatement)
       .get(params)['COUNT(*)'];
 
     return {
@@ -72,50 +76,24 @@ export class EventService extends DbService {
     };
   }
 
-  /** Gets a event by its ID
+  /** Get a event by its ID
    *
-   * @param id The ID of the event to get */ @Get('{id}')
-  getById(@Path() id: string) {
+   * @param eventId The ID of the event to get */ @Get('{eventId}')
+  getById(@Path() eventId: string) {
     const el = this.db
       .prepare('SELECT * FROM events WHERE id = ?')
-      .get(id) as EventInDB;
+      .get(eventId) as EventInDB;
 
     return this.instanciateNewClass(el);
   }
 
-  /** Gets the fastest lap of a race event
+  /** Get all the drivers that has participated in a certain event, alongside their teams and other usefull info
    *
-   * @param id The ID of the event to get */ @Get('{id}/fastest-lap')
-  getEventFastestLap(@Path() id: string) {
-    const raceLapTimes = this.lapService.getLaps({
-      eventId: id,
-      orderBy: 'time',
-      pageSize: 1
-    });
-
-    return raceLapTimes.items[0];
-  }
-
-  /** Get info about the circuit where an event takes place
-   *
-   * @param id The ID of the event to get */ @Get('{id}/circuit')
-  getEventCircuit(@Path() id: string) {
-    const el = this.db
-      .prepare('SELECT * FROM events WHERE id = ?')
-      .get(id) as EventInDB;
-
-    return this.circuitService.getById(el.circuitId);
-  }
-
-  /** Get info about the grand prix where an event takes place
-   *
-   * @param id The ID of the event to get */ @Get('{id}/grand-prix')
-  getEventGrandPrix(@Path() id: string) {
-    const el = this.db
-      .prepare('SELECT * FROM events WHERE id = ?')
-      .get(id) as EventInDB;
-
-    return this.grandPrixService.getById(el.grandPrixId);
+   * @param eventId The ID of the event to get its entrants */ @Get(
+    '/{eventId}/entrants'
+  )
+  getEventEntrants(@Path() eventId: string) {
+    this.eventEntrantService.getEventEntrants(eventId);
   }
 
   private get circuitService() {
@@ -128,5 +106,21 @@ export class EventService extends DbService {
 
   private get lapService() {
     return new LapService();
+  }
+
+  private get pitStopService() {
+    return new PitStopService();
+  }
+
+  private get raceResultService() {
+    return new RaceResultService();
+  }
+
+  private get FPService() {
+    return new FreePracticeService();
+  }
+
+  private get eventEntrantService() {
+    return new EventEntrantService();
   }
 }

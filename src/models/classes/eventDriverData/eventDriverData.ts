@@ -30,7 +30,7 @@ export class EventDriverData {
   /** The full race event object. Got in the contructor */
   race: Event;
 
-  seasonEntrant?: SeasonEntrant;
+  seasonEntrant: SeasonEntrant | null;
   entrantName: string;
 
   chassisManufacturer: Company;

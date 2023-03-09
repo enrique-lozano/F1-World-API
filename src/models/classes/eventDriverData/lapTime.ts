@@ -1,9 +1,6 @@
 import { EventDriverData, EventDriverDataInStorage } from './eventDriverData';
 
-export type LapTimeStorage = Pick<
-  EventDriverDataInStorage,
-  'eventId' | 'driverId'
-> &
+export type LapTimeStorage = EventDriverDataInStorage &
   Pick<LapTime, 'pos' | 'time' | 'lap'>;
 
 export class LapTime extends EventDriverData {

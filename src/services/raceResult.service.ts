@@ -1,24 +1,29 @@
-import { Get, Path, Queries, Route, Tags } from 'tsoa';
+import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
 import {
   PageMetadata,
   pageQueryParams,
   Paginator
 } from '../models/interfaces/paginated-items';
 import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+import {
+  ErrorMessage,
+  sendTsoaError
+} from '../utils/custom-error/custom-error';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
 import {
   RaceResult,
   RaceResultStorage
 } from './../models/classes/eventDriverData/raceResult';
 import { DbService } from './db.service';
-import { EventEntrantService } from './eventEntrant.service';
+import {
+  EventEntrantQueryParams,
+  EventEntrantService
+} from './eventEntrant.service';
 
 export interface RaceResultQueryParams
   extends pageQueryParams,
-    SorterQueryParams {
-  driverId?: string;
-  year?: number;
-
+    SorterQueryParams,
+    EventEntrantQueryParams {
   /** Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`... */
   positionText?: string;
 
@@ -32,22 +37,32 @@ export interface RaceResultQueryParams
   orderBy?: keyof RaceResultStorage;
 }
 
-@Route('race-results')
-@Tags('RaceResults')
+@Route('races/results')
+@Tags('Races')
 export class RaceResultService extends DbService {
+  private readonly selectQuery = `SELECT *, \
+          CASE WHEN CAST(positionText as INT) > 0 \
+          THEN CAST(positionText as INT) ELSE null END as position \
+          FROM eventEntrants                                 \
+                INNER JOIN                                   \
+                raceResults USING (                          \
+                    eventId,                                 \
+                    driverId                                 \
+                )`;
+
   private instanciateNewClass(elToInstanciate: RaceResultStorage) {
     return new RaceResult(
       elToInstanciate,
-      this.eventEntrantService.getEntrantInfo(
-        elToInstanciate.eventId,
-        elToInstanciate.driverId
-      )
+      this.eventEntrantService.getEntrantInfo(elToInstanciate as any)
     );
   }
 
-  @Get('/')
-  getAllRaceResults(@Queries() obj: RaceResultQueryParams) {
-    const sorter = new Sorter(obj.orderBy || 'eventId', obj.orderDir);
+  /** Get driver race results based on some filters */ @Get('/')
+  getRaceResults(@Queries() obj: RaceResultQueryParams) {
+    const sorter = new Sorter<RaceResultStorage>(
+      obj.orderBy || 'eventId',
+      obj.orderDir
+    );
     const paginator = new Paginator(obj.pageNo, obj.pageSize);
 
     let whereStatement = '';
@@ -60,6 +75,10 @@ export class RaceResultService extends DbService {
       let searchQueries: string[] = [];
 
       if (params.driverId) searchQueries.push(`driverId = :driverId`);
+      if (params.chassisManufacturerId)
+        searchQueries.push(`chassisManufacturerId = :chassisManufacturerId`);
+      if (params.engineManufacturerId)
+        searchQueries.push(`engineManufacturerId = :engineManufacturerId`);
       if (params.positionText)
         searchQueries.push(`positionText = :positionText`);
       if (params.year)
@@ -72,21 +91,13 @@ export class RaceResultService extends DbService {
 
     const raceResultsInDB = this.db
       .prepare(
-        'SELECT *, \
-          CASE WHEN CAST(positionText as INT) > 0 \
-          THEN CAST(positionText as INT) ELSE null END as position \
-        FROM raceResults' +
+        this.selectQuery +
           `${whereStatement} ${sorter.sqlStatement} ${paginator.sqlStatement}`
       )
       .all(params) as RaceResultStorage[];
 
     const totalElements = this.db
-      .prepare(
-        'SELECT COUNT(*), \
-          CASE WHEN CAST(positionText as INT) > 0 \
-          THEN CAST(positionText as INT) ELSE null END as position \
-        FROM raceResults' + whereStatement
-      )
+      .prepare(`SELECT COUNT(*) FROM (${this.selectQuery}${whereStatement})`)
       .get(params)['COUNT(*)'];
 
     return {
@@ -99,21 +110,21 @@ export class RaceResultService extends DbService {
     };
   }
 
-  /** Gets the results of a specific race */ @Get('/{eventId}')
-  getRaceResults(@Path() eventId: string) {
-    return this.db
-      .prepare('SELECT * FROM raceResults WHERE eventId = ?')
-      .all(eventId)
-      .map((x: RaceResultStorage) => this.instanciateNewClass(x));
-  }
-
-  /** Gets the result obteined by a driver in a certain race */ @Get(
+  /** Gets info about the result obtained by a driver in a certain race */ @Get(
     '/{eventId}/{driverId}'
   )
-  getRaceResult(@Path() driverId: string, @Path() eventId: string) {
+  getDriverRaceResult(
+    @Path() eventId: string,
+    @Path() driverId: string,
+    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+  ): RaceResult {
     const raceResultInDB = this.db
-      .prepare('SELECT * FROM raceResults WHERE driverId = ? AND eventId = ?')
+      .prepare(`${this.selectQuery} WHERE driverId = ? AND eventId = ?`)
       .get(driverId, eventId) as RaceResultStorage;
+
+    if (!raceResultInDB) {
+      return sendTsoaError(notFoundResponse, 404, 'result.not.found');
+    }
 
     return this.instanciateNewClass(raceResultInDB);
   }

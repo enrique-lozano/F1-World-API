@@ -1,9 +1,6 @@
 import { EventDriverData, EventDriverDataInStorage } from './eventDriverData';
 
-export type RaceResultStorage = Pick<
-  EventDriverDataInStorage,
-  'eventId' | 'driverId'
-> &
+export type RaceResultStorage = EventDriverDataInStorage &
   Pick<
     RaceResult,
     | 'positionOrder'

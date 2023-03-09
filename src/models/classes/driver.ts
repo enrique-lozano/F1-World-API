@@ -1,6 +1,6 @@
 import { Except } from 'type-fest';
+import { Modify } from '../../utils/types/util-types';
 import { PhotoSchema } from '../interfaces/photo.schema';
-import { Modify } from './../../utils/types';
 import { Country } from './country';
 
 /**

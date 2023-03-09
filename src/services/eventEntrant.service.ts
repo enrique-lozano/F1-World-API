@@ -1,4 +1,4 @@
-import { Get, Path, Route, Tags } from 'tsoa';
+import { Route, Tags } from 'tsoa';
 import {
   EventDriverData,
   EventDriverDataInStorage
@@ -8,6 +8,23 @@ import { DbService } from './db.service';
 import { DriverService } from './driver.service';
 import { EventService } from './event.service';
 import { SeasonEntrantService } from './seasonEntrant.service';
+
+export interface EventEntrantQueryParams {
+  /** If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer */
+  chassisManufacturerId?: string;
+
+  /** If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer */
+  engineManufacturerId?: string;
+
+  /** If specified, it will return only results relative to the event that has this ID */
+  eventId?: string;
+
+  /** If specified, it will return only results relative to this year's events */
+  year?: number;
+
+  /** If specified, it will return only results relative to the pilot having this ID */
+  driverId?: string;
+}
 
 @Route('eventEntrants')
 @Tags('EventEntrants')
@@ -30,26 +47,11 @@ export class EventEntrantService extends DbService {
     });
   }
 
-  getEntrantInfo(eventId: string, driverId: string) {
-    const eventEntrantsInDB = this.db
-      .prepare('SELECT * FROM eventEntrants WHERE eventId = ? AND driverId = ?')
-      .all(eventId, driverId) as EventDriverDataInStorage[];
-
-    if (eventEntrantsInDB.length == 0) {
-      throw new Error(
-        `[IN EVENT -> ${eventId}] Can not find driver with id: ${driverId}`
-      );
-    }
-
-    return this.instanciateNewClass(eventEntrantsInDB[0]);
+  getEntrantInfo(data: EventDriverDataInStorage) {
+    return this.instanciateNewClass(data);
   }
 
-  /** Get all the drivers that has participated in a certain event, alongside their teams and other usefull info
-   *
-   * @param eventId The ID of the event to get its entrants */ @Get(
-    '/{eventId}'
-  )
-  getEventEntrants(@Path() eventId: string) {
+  getEventEntrants(eventId: string) {
     const eventEntrantsInDB = this.db
       .prepare('SELECT * FROM eventEntrants WHERE eventId = ?')
       .all(eventId) as EventDriverDataInStorage[];

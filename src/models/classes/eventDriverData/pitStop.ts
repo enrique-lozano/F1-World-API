@@ -1,6 +1,7 @@
 import { EventDriverData, EventDriverDataInStorage } from './eventDriverData';
 
-export type PitStopStorage = EventDriverDataInStorage & PitStop;
+export type PitStopStorage = EventDriverDataInStorage &
+  Pick<PitStop, 'pitStopLap' | 'time' | 'timeOfDay' | 'annotation'>;
 
 export class PitStop extends EventDriverData {
   /** The lap of the race in which the pit stop happened */

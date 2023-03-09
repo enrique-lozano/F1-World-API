@@ -66,7 +66,7 @@ app.use(function errorHandler(
 // Send 404 if the route does not exists
 app.use(function notFoundHandler(_req, res: Response) {
   res.status(404).send({
-    message: 'Not Found'
+    message: 'Route not found. Please verify that the URL is valid'
   });
 });
 

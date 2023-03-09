@@ -3,7 +3,7 @@ import { GrandPrix } from '../models/classes/grandPrix';
 import { DbService } from './db.service';
 
 @Route('/grands-prix')
-@Tags('GrandsPrix')
+@Tags('Grands Prix')
 export class GrandPrixService extends DbService {
   @Get('/')
   get() {

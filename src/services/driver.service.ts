@@ -1,10 +1,7 @@
-import { Get, Path, Queries, Route, Tags } from 'tsoa';
-import { LapTime } from '../models/classes/eventDriverData/lapTime';
+import { Get, Path, Route, Tags } from 'tsoa';
 import { Driver, DriverStorage } from './../models/classes/driver';
 import { CountryService } from './countries.service';
 import { DbService } from './db.service';
-import { EventService } from './event.service';
-import { RaceResultQueryParams, RaceResultService } from './raceResult.service';
 
 @Route('/drivers')
 @Tags('Drivers')
@@ -35,41 +32,6 @@ export class DriverService extends DbService {
     return this.instanciateNewClass(
       this.db.prepare('SELECT * FROM drivers WHERE id = ?').get(driverId)
     );
-  }
-
-  @Get('{driverId}/fastest-laps')
-  getFastestLaps(@Path() driverId: string) {
-    const raceResults = this.getRaceResults(driverId, {
-      pageSize: 100000
-    }).items;
-
-    let fastestLaps: LapTime[] = [];
-
-    for (const race of raceResults) {
-      const raceFastestLap = this.eventService.getEventFastestLap(race.race.id);
-
-      if (raceFastestLap.driver.id == driverId) {
-        fastestLaps.push(raceFastestLap);
-      }
-    }
-
-    return fastestLaps;
-  }
-
-  @Get('{driverId}/race-results')
-  getRaceResults(
-    @Path() driverId: string,
-    @Queries() params: RaceResultQueryParams
-  ) {
-    return this.raceResultService.getAllRaceResults({ driverId, ...params });
-  }
-
-  private get raceResultService() {
-    return new RaceResultService();
-  }
-
-  private get eventService() {
-    return new EventService();
   }
 
   private get countryService() {

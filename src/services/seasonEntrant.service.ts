@@ -7,6 +7,8 @@ import { DbService } from './db.service';
 
 export class SeasonEntrantService extends DbService {
   private instanciateNewClass(entrant: SeasonEntrantStorage) {
+    if (!entrant) return null;
+
     return new SeasonEntrant(
       entrant,
       this.countryService.getById(entrant.countryId)

@@ -1,5 +1,5 @@
 import { Except } from 'type-fest';
-import { Modify } from '../../utils/types';
+import { Modify } from '../../utils/types/util-types';
 import { Circuit } from './circuit';
 import { GrandPrix } from './grandPrix';
 

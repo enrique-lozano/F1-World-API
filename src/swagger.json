@@ -176,36 +176,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"GrandPrix": {
-				"properties": {
-					"id": {
-						"type": "string",
-						"description": "The unique identifier."
-					},
-					"name": {
-						"type": "string",
-						"description": "The name."
-					},
-					"fullName": {
-						"type": "string"
-					},
-					"shortName": {
-						"type": "string"
-					},
-					"countryId": {
-						"type": "string"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"fullName",
-					"shortName",
-					"countryId"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"PhotoSchema": {
 				"allOf": [
 					{
@@ -362,6 +332,36 @@
 				],
 				"type": "string"
 			},
+			"GrandPrix": {
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "The unique identifier."
+					},
+					"name": {
+						"type": "string",
+						"description": "The name."
+					},
+					"fullName": {
+						"type": "string"
+					},
+					"shortName": {
+						"type": "string"
+					},
+					"countryId": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"fullName",
+					"shortName",
+					"countryId"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"Event": {
 				"properties": {
 					"id": {
@@ -469,8 +469,8 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"EventDriverData": {
-				"description": "Object that represents a driver and an event of his that has occurred within an event. For example, his results in one of the sessions, the time he has set in a race lap, or a pit stop.",
+			"TimedSessionResult": {
+				"description": "Common interface for timed sessions, like free practices, warm ups...",
 				"properties": {
 					"driver": {
 						"$ref": "#/components/schemas/Driver",
@@ -481,7 +481,12 @@
 						"description": "The full race event object. Got in the contructor"
 					},
 					"seasonEntrant": {
-						"$ref": "#/components/schemas/SeasonEntrant"
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/SeasonEntrant"
+							}
+						],
+						"nullable": true
 					},
 					"entrantName": {
 						"type": "string"
@@ -507,16 +512,130 @@
 					},
 					"note": {
 						"type": "string"
+					},
+					"pos": {
+						"type": "number",
+						"format": "double"
+					},
+					"laps": {
+						"type": "number",
+						"format": "double"
+					},
+					"time": {
+						"type": "number",
+						"format": "double"
 					}
 				},
 				"required": [
 					"driver",
 					"race",
+					"seasonEntrant",
 					"entrantName",
 					"chassisManufacturer",
 					"chassisName",
 					"engineManufacturer",
-					"tyreManufacturer"
+					"tyreManufacturer",
+					"pos",
+					"time"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"OrderDir": {
+				"type": "string",
+				"enum": [
+					"ASC",
+					"DESC"
+				]
+			},
+			"FreePracticesQueryParamsWithEvent": {
+				"properties": {
+					"pageNo": {
+						"type": "number",
+						"format": "double",
+						"description": "Page to retrieve, starting at 0",
+						"default": "0"
+					},
+					"pageSize": {
+						"type": "number",
+						"format": "double",
+						"description": "Size of the page to retrieve",
+						"default": "10"
+					},
+					"orderDir": {
+						"$ref": "#/components/schemas/OrderDir",
+						"description": "Order of the results"
+					},
+					"chassisManufacturerId": {
+						"type": "string",
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer"
+					},
+					"engineManufacturerId": {
+						"type": "string",
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer"
+					},
+					"eventId": {
+						"type": "string",
+						"description": "If specified, it will return only results relative to the event that has this ID"
+					},
+					"year": {
+						"type": "number",
+						"format": "double",
+						"description": "If specified, it will return only results relative to this year's events"
+					},
+					"driverId": {
+						"type": "string",
+						"description": "If specified, it will return only results relative to the pilot having this ID"
+					},
+					"pos": {
+						"type": "number",
+						"format": "double"
+					},
+					"orderBy": {
+						"type": "string",
+						"enum": [
+							"chassisManufacturerId",
+							"engineManufacturerId",
+							"eventId",
+							"driverId",
+							"pos",
+							"time",
+							"laps",
+							"entrantName",
+							"chassisName",
+							"engineName",
+							"driverNumber",
+							"note",
+							"seasonEntrantId",
+							"tyreManufacturerId"
+						],
+						"nullable": false,
+						"default": "eventId"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ErrorMessage_404_": {
+				"properties": {
+					"status": {
+						"type": "number",
+						"enum": [
+							404
+						],
+						"nullable": false
+					},
+					"code": {
+						"type": "string"
+					},
+					"details": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"status",
+					"code",
+					"details"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -532,7 +651,12 @@
 						"description": "The full race event object. Got in the contructor"
 					},
 					"seasonEntrant": {
-						"$ref": "#/components/schemas/SeasonEntrant"
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/SeasonEntrant"
+							}
+						],
+						"nullable": true
 					},
 					"entrantName": {
 						"type": "string"
@@ -578,6 +702,7 @@
 				"required": [
 					"driver",
 					"race",
+					"seasonEntrant",
 					"entrantName",
 					"chassisManufacturer",
 					"chassisName",
@@ -589,13 +714,6 @@
 				],
 				"type": "object",
 				"additionalProperties": false
-			},
-			"OrderDir": {
-				"type": "string",
-				"enum": [
-					"ASC",
-					"DESC"
-				]
 			},
 			"LapQueryParams": {
 				"properties": {
@@ -615,27 +733,51 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
-					"eventId": {
-						"type": "string"
+					"chassisManufacturerId": {
+						"type": "string",
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer"
 					},
-					"driverId": {
-						"type": "string"
+					"engineManufacturerId": {
+						"type": "string",
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer"
+					},
+					"eventId": {
+						"type": "string",
+						"description": "If specified, it will return only results relative to the event that has this ID"
 					},
 					"year": {
 						"type": "number",
-						"format": "double"
+						"format": "double",
+						"description": "If specified, it will return only results relative to this year's events"
+					},
+					"driverId": {
+						"type": "string",
+						"description": "If specified, it will return only results relative to the pilot having this ID"
 					},
 					"pos": {
+						"type": "number",
+						"format": "double"
+					},
+					"lap": {
 						"type": "number",
 						"format": "double"
 					},
 					"orderBy": {
 						"type": "string",
 						"enum": [
+							"chassisManufacturerId",
+							"engineManufacturerId",
 							"eventId",
 							"driverId",
 							"pos",
 							"time",
+							"entrantName",
+							"chassisName",
+							"engineName",
+							"driverNumber",
+							"note",
+							"seasonEntrantId",
+							"tyreManufacturerId",
 							"lap"
 						],
 						"nullable": false,
@@ -645,7 +787,87 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"EventQueryParams": {
+			"PitStop": {
+				"properties": {
+					"driver": {
+						"$ref": "#/components/schemas/Driver",
+						"description": "The full driver object. Got in the contructor"
+					},
+					"race": {
+						"$ref": "#/components/schemas/Event",
+						"description": "The full race event object. Got in the contructor"
+					},
+					"seasonEntrant": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/SeasonEntrant"
+							}
+						],
+						"nullable": true
+					},
+					"entrantName": {
+						"type": "string"
+					},
+					"chassisManufacturer": {
+						"$ref": "#/components/schemas/Company"
+					},
+					"chassisName": {
+						"type": "string"
+					},
+					"engineManufacturer": {
+						"$ref": "#/components/schemas/Company"
+					},
+					"engineName": {
+						"type": "string"
+					},
+					"tyreManufacturer": {
+						"$ref": "#/components/schemas/TyreManufacturer"
+					},
+					"driverNumber": {
+						"type": "number",
+						"format": "double"
+					},
+					"note": {
+						"type": "string"
+					},
+					"pitStopLap": {
+						"type": "number",
+						"format": "double",
+						"description": "The lap of the race in which the pit stop happened"
+					},
+					"time": {
+						"type": "number",
+						"format": "double",
+						"description": "Time of this pit stops in ms. The time is counted from the moment the pilot crosses the line of the pits until he leaves them."
+					},
+					"timeOfDay": {
+						"type": "string",
+						"description": "The time of the day of the pit stop."
+					},
+					"annotation": {
+						"type": "string",
+						"nullable": true,
+						"description": "Some notes about the pit stop."
+					}
+				},
+				"required": [
+					"driver",
+					"race",
+					"seasonEntrant",
+					"entrantName",
+					"chassisManufacturer",
+					"chassisName",
+					"engineManufacturer",
+					"tyreManufacturer",
+					"pitStopLap",
+					"time",
+					"timeOfDay",
+					"annotation"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PitStopQueryParams": {
 				"properties": {
 					"pageNo": {
 						"type": "number",
@@ -663,23 +885,52 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
-					"circuitId": {
-						"type": "string"
+					"chassisManufacturerId": {
+						"type": "string",
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer"
+					},
+					"engineManufacturerId": {
+						"type": "string",
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer"
+					},
+					"eventId": {
+						"type": "string",
+						"description": "If specified, it will return only results relative to the event that has this ID"
+					},
+					"year": {
+						"type": "number",
+						"format": "double",
+						"description": "If specified, it will return only results relative to this year's events"
+					},
+					"driverId": {
+						"type": "string",
+						"description": "If specified, it will return only results relative to the pilot having this ID"
+					},
+					"lap": {
+						"type": "number",
+						"format": "double"
 					},
 					"orderBy": {
 						"type": "string",
 						"enum": [
-							"id",
-							"name",
-							"raceDate",
-							"scheduledLaps",
-							"qualyFormat",
-							"posterURL",
-							"circuitId",
-							"grandPrixId"
+							"chassisManufacturerId",
+							"engineManufacturerId",
+							"eventId",
+							"driverId",
+							"time",
+							"entrantName",
+							"chassisName",
+							"engineName",
+							"driverNumber",
+							"note",
+							"seasonEntrantId",
+							"tyreManufacturerId",
+							"pitStopLap",
+							"timeOfDay",
+							"annotation"
 						],
 						"nullable": false,
-						"default": "id"
+						"default": "eventId"
 					}
 				},
 				"type": "object",
@@ -696,7 +947,12 @@
 						"description": "The full race event object. Got in the contructor"
 					},
 					"seasonEntrant": {
-						"$ref": "#/components/schemas/SeasonEntrant"
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/SeasonEntrant"
+							}
+						],
+						"nullable": true
 					},
 					"entrantName": {
 						"type": "string"
@@ -785,6 +1041,7 @@
 				"required": [
 					"driver",
 					"race",
+					"seasonEntrant",
 					"entrantName",
 					"chassisManufacturer",
 					"chassisName",
@@ -822,12 +1079,26 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
-					"driverId": {
-						"type": "string"
+					"chassisManufacturerId": {
+						"type": "string",
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer"
+					},
+					"engineManufacturerId": {
+						"type": "string",
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer"
+					},
+					"eventId": {
+						"type": "string",
+						"description": "If specified, it will return only results relative to the event that has this ID"
 					},
 					"year": {
 						"type": "number",
-						"format": "double"
+						"format": "double",
+						"description": "If specified, it will return only results relative to this year's events"
+					},
+					"driverId": {
+						"type": "string",
+						"description": "If specified, it will return only results relative to the pilot having this ID"
 					},
 					"positionText": {
 						"type": "string",
@@ -846,12 +1117,21 @@
 					"orderBy": {
 						"type": "string",
 						"enum": [
+							"chassisManufacturerId",
+							"engineManufacturerId",
 							"eventId",
 							"driverId",
 							"time",
+							"laps",
+							"entrantName",
+							"chassisName",
+							"engineName",
+							"driverNumber",
+							"note",
+							"seasonEntrantId",
+							"tyreManufacturerId",
 							"positionText",
 							"positionOrder",
-							"laps",
 							"timePenalty",
 							"timePenaltyMillis",
 							"gap",
@@ -861,6 +1141,46 @@
 						],
 						"nullable": false,
 						"default": "eventId"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"EventQueryParams": {
+				"properties": {
+					"pageNo": {
+						"type": "number",
+						"format": "double",
+						"description": "Page to retrieve, starting at 0",
+						"default": "0"
+					},
+					"pageSize": {
+						"type": "number",
+						"format": "double",
+						"description": "Size of the page to retrieve",
+						"default": "10"
+					},
+					"orderDir": {
+						"$ref": "#/components/schemas/OrderDir",
+						"description": "Order of the results"
+					},
+					"circuitId": {
+						"type": "string"
+					},
+					"orderBy": {
+						"type": "string",
+						"enum": [
+							"id",
+							"name",
+							"raceDate",
+							"scheduledLaps",
+							"qualyFormat",
+							"posterURL",
+							"circuitId",
+							"grandPrixId"
+						],
+						"nullable": false,
+						"default": "id"
 					}
 				},
 				"type": "object",
@@ -1099,6 +1419,322 @@
 				]
 			}
 		},
+		"/drivers": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Driver"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Drivers"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/drivers/{driverId}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Driver"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get a driver by its ID",
+				"tags": [
+					"Drivers"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "The ID of the driver to get",
+						"in": "path",
+						"name": "driverId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/free-practices/{session}/results": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"items": {
+											"items": {
+												"$ref": "#/components/schemas/TimedSessionResult"
+											},
+											"type": "array"
+										},
+										"pageData": {
+											"$ref": "#/components/schemas/PageMetadata"
+										}
+									},
+									"required": [
+										"items",
+										"pageData"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Return driver results of a specific practice session based on some filters",
+				"tags": [
+					"Free Practices"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "session",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"fp1",
+								"fp2",
+								"fp3",
+								"fp4",
+								"warm-up"
+							]
+						}
+					},
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer",
+						"in": "query",
+						"name": "chassisManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer",
+						"in": "query",
+						"name": "engineManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the event that has this ID",
+						"in": "query",
+						"name": "eventId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to this year's events",
+						"in": "query",
+						"name": "year",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the pilot having this ID",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the pilot having this ID",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to this year's events",
+						"in": "query",
+						"name": "year",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "pos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "orderBy",
+						"required": false,
+						"schema": {
+							"default": "eventId",
+							"type": "string",
+							"enum": [
+								"chassisManufacturerId",
+								"engineManufacturerId",
+								"eventId",
+								"driverId",
+								"pos",
+								"time",
+								"laps",
+								"entrantName",
+								"chassisName",
+								"engineName",
+								"driverNumber",
+								"note",
+								"seasonEntrantId",
+								"tyreManufacturerId"
+							]
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the event that has this ID",
+						"in": "query",
+						"name": "eventId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/free-practices/{session}/results/{eventId}/{driverId}": {
+			"get": {
+				"operationId": "GetDriverSessionResult",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TimedSessionResult"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Register not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorMessage_404_"
+								}
+							}
+						}
+					}
+				},
+				"description": "Gets info about the result obtained by a driver in a certain session of free practice",
+				"tags": [
+					"Free Practices"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "session",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"fp1",
+								"fp2",
+								"fp3",
+								"fp4",
+								"warm-up"
+							]
+						}
+					},
+					{
+						"in": "path",
+						"name": "eventId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "driverId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
 		"/grands-prix": {
 			"get": {
 				"operationId": "Get",
@@ -1118,7 +1754,7 @@
 					}
 				},
 				"tags": [
-					"GrandsPrix"
+					"Grands Prix"
 				],
 				"security": [],
 				"parameters": []
@@ -1140,7 +1776,7 @@
 					}
 				},
 				"tags": [
-					"GrandsPrix"
+					"Grands Prix"
 				],
 				"security": [],
 				"parameters": [
@@ -1155,43 +1791,7 @@
 				]
 			}
 		},
-		"/eventEntrants/{eventId}": {
-			"get": {
-				"operationId": "GetEventEntrants",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/EventDriverData"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get all the drivers that has participated in a certain event, alongside their teams and other usefull info",
-				"tags": [
-					"EventEntrants"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "The ID of the event to get its entrants",
-						"in": "path",
-						"name": "eventId",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/laps": {
+		"/races/laps": {
 			"get": {
 				"operationId": "GetLaps",
 				"responses": {
@@ -1222,7 +1822,7 @@
 					}
 				},
 				"tags": [
-					"Laps"
+					"Races"
 				],
 				"security": [],
 				"parameters": [
@@ -1258,6 +1858,25 @@
 						}
 					},
 					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer",
+						"in": "query",
+						"name": "chassisManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer",
+						"in": "query",
+						"name": "engineManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the event that has this ID",
 						"in": "query",
 						"name": "eventId",
 						"required": false,
@@ -1266,14 +1885,7 @@
 						}
 					},
 					{
-						"in": "query",
-						"name": "driverId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
+						"description": "If specified, it will return only results relative to this year's events",
 						"in": "query",
 						"name": "year",
 						"required": false,
@@ -1283,8 +1895,26 @@
 						}
 					},
 					{
+						"description": "If specified, it will return only results relative to the pilot having this ID",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
 						"in": "query",
 						"name": "pos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "lap",
 						"required": false,
 						"schema": {
 							"format": "double",
@@ -1299,12 +1929,588 @@
 							"default": "eventId",
 							"type": "string",
 							"enum": [
+								"chassisManufacturerId",
+								"engineManufacturerId",
 								"eventId",
 								"driverId",
 								"pos",
 								"time",
+								"entrantName",
+								"chassisName",
+								"engineName",
+								"driverNumber",
+								"note",
+								"seasonEntrantId",
+								"tyreManufacturerId",
 								"lap"
 							]
+						}
+					}
+				]
+			}
+		},
+		"/races/fastest-laps": {
+			"get": {
+				"operationId": "GetFastestLaps",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"items": {
+											"items": {
+												"$ref": "#/components/schemas/LapTime"
+											},
+											"type": "array"
+										},
+										"pageData": {
+											"$ref": "#/components/schemas/PageMetadata"
+										}
+									},
+									"required": [
+										"items",
+										"pageData"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Races"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer",
+						"in": "query",
+						"name": "chassisManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer",
+						"in": "query",
+						"name": "engineManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the event that has this ID",
+						"in": "query",
+						"name": "eventId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to this year's events",
+						"in": "query",
+						"name": "year",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the pilot having this ID",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "pos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "lap",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "orderBy",
+						"required": false,
+						"schema": {
+							"default": "eventId",
+							"type": "string",
+							"enum": [
+								"chassisManufacturerId",
+								"engineManufacturerId",
+								"eventId",
+								"driverId",
+								"pos",
+								"time",
+								"entrantName",
+								"chassisName",
+								"engineName",
+								"driverNumber",
+								"note",
+								"seasonEntrantId",
+								"tyreManufacturerId",
+								"lap"
+							]
+						}
+					}
+				]
+			}
+		},
+		"/races/fastest-laps/{eventId}": {
+			"get": {
+				"operationId": "GetEventFastestLap",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/LapTime"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get the fastest lap of a race event",
+				"tags": [
+					"Races"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "eventId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/races/pit-stops": {
+			"get": {
+				"operationId": "GetPitStops",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"items": {
+											"items": {
+												"$ref": "#/components/schemas/PitStop"
+											},
+											"type": "array"
+										},
+										"pageData": {
+											"$ref": "#/components/schemas/PageMetadata"
+										}
+									},
+									"required": [
+										"items",
+										"pageData"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Races"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer",
+						"in": "query",
+						"name": "chassisManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer",
+						"in": "query",
+						"name": "engineManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the event that has this ID",
+						"in": "query",
+						"name": "eventId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to this year's events",
+						"in": "query",
+						"name": "year",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the pilot having this ID",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "lap",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "orderBy",
+						"required": false,
+						"schema": {
+							"default": "eventId",
+							"type": "string",
+							"enum": [
+								"chassisManufacturerId",
+								"engineManufacturerId",
+								"eventId",
+								"driverId",
+								"time",
+								"entrantName",
+								"chassisName",
+								"engineName",
+								"driverNumber",
+								"note",
+								"seasonEntrantId",
+								"tyreManufacturerId",
+								"pitStopLap",
+								"timeOfDay",
+								"annotation"
+							]
+						}
+					}
+				]
+			}
+		},
+		"/races/results": {
+			"get": {
+				"operationId": "GetRaceResults",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"items": {
+											"items": {
+												"$ref": "#/components/schemas/RaceResult"
+											},
+											"type": "array"
+										},
+										"pageData": {
+											"$ref": "#/components/schemas/PageMetadata"
+										}
+									},
+									"required": [
+										"items",
+										"pageData"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get driver race results based on some filters",
+				"tags": [
+					"Races"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer",
+						"in": "query",
+						"name": "chassisManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer",
+						"in": "query",
+						"name": "engineManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the event that has this ID",
+						"in": "query",
+						"name": "eventId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to this year's events",
+						"in": "query",
+						"name": "year",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the pilot having this ID",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`...",
+						"in": "query",
+						"name": "positionText",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Look for the results where the driver achieved a position worse than or equal to this number.",
+						"in": "query",
+						"name": "minPos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Look for the results where the driver achieved a position better than or equal to this number.",
+						"in": "query",
+						"name": "maxPos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "orderBy",
+						"required": false,
+						"schema": {
+							"default": "eventId",
+							"type": "string",
+							"enum": [
+								"chassisManufacturerId",
+								"engineManufacturerId",
+								"eventId",
+								"driverId",
+								"time",
+								"laps",
+								"entrantName",
+								"chassisName",
+								"engineName",
+								"driverNumber",
+								"note",
+								"seasonEntrantId",
+								"tyreManufacturerId",
+								"positionText",
+								"positionOrder",
+								"timePenalty",
+								"timePenaltyMillis",
+								"gap",
+								"reasonRetired",
+								"gridPos",
+								"points"
+							]
+						}
+					}
+				]
+			}
+		},
+		"/races/results/{eventId}/{driverId}": {
+			"get": {
+				"operationId": "GetDriverRaceResult",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RaceResult"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorMessage_404_"
+								}
+							}
+						}
+					}
+				},
+				"description": "Gets info about the result obtained by a driver in a certain race",
+				"tags": [
+					"Races"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "eventId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "driverId",
+						"required": true,
+						"schema": {
+							"type": "string"
 						}
 					}
 				]
@@ -1407,7 +2613,7 @@
 				]
 			}
 		},
-		"/events/{id}": {
+		"/events/{eventId}": {
 			"get": {
 				"operationId": "GetById",
 				"responses": {
@@ -1422,7 +2628,7 @@
 						}
 					}
 				},
-				"description": "Gets a event by its ID",
+				"description": "Get a event by its ID",
 				"tags": [
 					"Events"
 				],
@@ -1430,278 +2636,6 @@
 				"parameters": [
 					{
 						"description": "The ID of the event to get",
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/events/{id}/fastest-lap": {
-			"get": {
-				"operationId": "GetEventFastestLap",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/LapTime"
-								}
-							}
-						}
-					}
-				},
-				"description": "Gets the fastest lap of a race event",
-				"tags": [
-					"Events"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "The ID of the event to get",
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/events/{id}/circuit": {
-			"get": {
-				"operationId": "GetEventCircuit",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/Circuit"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get info about the circuit where an event takes place",
-				"tags": [
-					"Events"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "The ID of the event to get",
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/events/{id}/grand-prix": {
-			"get": {
-				"operationId": "GetEventGrandPrix",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/GrandPrix"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get info about the grand prix where an event takes place",
-				"tags": [
-					"Events"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "The ID of the event to get",
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/race-results": {
-			"get": {
-				"operationId": "GetAllRaceResults",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"items": {
-											"items": {
-												"$ref": "#/components/schemas/RaceResult"
-											},
-											"type": "array"
-										},
-										"pageData": {
-											"$ref": "#/components/schemas/PageMetadata"
-										}
-									},
-									"required": [
-										"items",
-										"pageData"
-									],
-									"type": "object"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"RaceResults"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "Page to retrieve, starting at 0",
-						"in": "query",
-						"name": "pageNo",
-						"required": false,
-						"schema": {
-							"default": "0",
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "Size of the page to retrieve",
-						"in": "query",
-						"name": "pageSize",
-						"required": false,
-						"schema": {
-							"default": "10",
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "Order of the results",
-						"in": "query",
-						"name": "orderDir",
-						"required": false,
-						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
-						}
-					},
-					{
-						"in": "query",
-						"name": "driverId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "year",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`...",
-						"in": "query",
-						"name": "positionText",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"description": "Look for the results where the driver achieved a position worse than or equal to this number.",
-						"in": "query",
-						"name": "minPos",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "Look for the results where the driver achieved a position better than or equal to this number.",
-						"in": "query",
-						"name": "maxPos",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "query",
-						"name": "orderBy",
-						"required": false,
-						"schema": {
-							"default": "eventId",
-							"type": "string",
-							"enum": [
-								"eventId",
-								"driverId",
-								"time",
-								"positionText",
-								"positionOrder",
-								"laps",
-								"timePenalty",
-								"timePenaltyMillis",
-								"gap",
-								"reasonRetired",
-								"gridPos",
-								"points"
-							]
-						}
-					}
-				]
-			}
-		},
-		"/race-results/{eventId}": {
-			"get": {
-				"operationId": "GetRaceResults",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/RaceResult"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"description": "Gets the results of a specific race",
-				"tags": [
-					"RaceResults"
-				],
-				"security": [],
-				"parameters": [
-					{
 						"in": "path",
 						"name": "eventId",
 						"required": true,
@@ -1712,279 +2646,27 @@
 				]
 			}
 		},
-		"/race-results/{eventId}/{driverId}": {
+		"/events/{eventId}/entrants": {
 			"get": {
-				"operationId": "GetRaceResult",
+				"operationId": "GetEventEntrants",
 				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/RaceResult"
-								}
-							}
-						}
+					"204": {
+						"description": "No content"
 					}
 				},
-				"description": "Gets the result obteined by a driver in a certain race",
+				"description": "Get all the drivers that has participated in a certain event, alongside their teams and other usefull info",
 				"tags": [
-					"RaceResults"
+					"Events"
 				],
 				"security": [],
 				"parameters": [
 					{
-						"in": "path",
-						"name": "driverId",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
+						"description": "The ID of the event to get its entrants",
 						"in": "path",
 						"name": "eventId",
 						"required": true,
 						"schema": {
 							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/drivers": {
-			"get": {
-				"operationId": "Get",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/Driver"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Drivers"
-				],
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/drivers/{driverId}": {
-			"get": {
-				"operationId": "GetById",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/Driver"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get a driver by its ID",
-				"tags": [
-					"Drivers"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "The ID of the driver to get",
-						"in": "path",
-						"name": "driverId",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/drivers/{driverId}/fastest-laps": {
-			"get": {
-				"operationId": "GetFastestLaps",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/LapTime"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Drivers"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "driverId",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/drivers/{driverId}/race-results": {
-			"get": {
-				"operationId": "GetRaceResults",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"items": {
-											"items": {
-												"$ref": "#/components/schemas/RaceResult"
-											},
-											"type": "array"
-										},
-										"pageData": {
-											"$ref": "#/components/schemas/PageMetadata"
-										}
-									},
-									"required": [
-										"items",
-										"pageData"
-									],
-									"type": "object"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Drivers"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "driverId",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"description": "Page to retrieve, starting at 0",
-						"in": "query",
-						"name": "pageNo",
-						"required": false,
-						"schema": {
-							"default": "0",
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "Size of the page to retrieve",
-						"in": "query",
-						"name": "pageSize",
-						"required": false,
-						"schema": {
-							"default": "10",
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "Order of the results",
-						"in": "query",
-						"name": "orderDir",
-						"required": false,
-						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
-						}
-					},
-					{
-						"in": "query",
-						"name": "driverId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "year",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`...",
-						"in": "query",
-						"name": "positionText",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"description": "Look for the results where the driver achieved a position worse than or equal to this number.",
-						"in": "query",
-						"name": "minPos",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "Look for the results where the driver achieved a position better than or equal to this number.",
-						"in": "query",
-						"name": "maxPos",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "query",
-						"name": "orderBy",
-						"required": false,
-						"schema": {
-							"default": "eventId",
-							"type": "string",
-							"enum": [
-								"eventId",
-								"driverId",
-								"time",
-								"positionText",
-								"positionOrder",
-								"laps",
-								"timePenalty",
-								"timePenaltyMillis",
-								"gap",
-								"reasonRetired",
-								"gridPos",
-								"points"
-							]
 						}
 					}
 				]
