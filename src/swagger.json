@@ -469,6 +469,132 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"EventDriverData": {
+				"description": "Object that represents a driver and an event of his that has occurred within an event. For example, his results in one of the sessions, the time he has set in a race lap, or a pit stop.",
+				"properties": {
+					"driver": {
+						"$ref": "#/components/schemas/Driver",
+						"description": "The full driver object. Got in the contructor"
+					},
+					"race": {
+						"$ref": "#/components/schemas/Event",
+						"description": "The full race event object. Got in the contructor"
+					},
+					"seasonEntrant": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/SeasonEntrant"
+							}
+						],
+						"nullable": true
+					},
+					"entrantName": {
+						"type": "string"
+					},
+					"chassisManufacturer": {
+						"$ref": "#/components/schemas/Company"
+					},
+					"chassisName": {
+						"type": "string"
+					},
+					"engineManufacturer": {
+						"$ref": "#/components/schemas/Company"
+					},
+					"engineName": {
+						"type": "string"
+					},
+					"tyreManufacturer": {
+						"$ref": "#/components/schemas/TyreManufacturer"
+					},
+					"driverNumber": {
+						"type": "number",
+						"format": "double"
+					},
+					"note": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"driver",
+					"race",
+					"seasonEntrant",
+					"entrantName",
+					"chassisManufacturer",
+					"chassisName",
+					"engineManufacturer",
+					"tyreManufacturer"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"OrderDir": {
+				"type": "string",
+				"enum": [
+					"ASC",
+					"DESC"
+				]
+			},
+			"EventEntrantQueryParams": {
+				"properties": {
+					"pageNo": {
+						"type": "number",
+						"format": "double",
+						"description": "Page to retrieve, starting at 0",
+						"default": "0"
+					},
+					"pageSize": {
+						"type": "number",
+						"format": "double",
+						"description": "Size of the page to retrieve",
+						"default": "10"
+					},
+					"orderDir": {
+						"$ref": "#/components/schemas/OrderDir",
+						"description": "Order of the results"
+					},
+					"chassisManufacturerId": {
+						"type": "string",
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer"
+					},
+					"engineManufacturerId": {
+						"type": "string",
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer"
+					},
+					"eventId": {
+						"type": "string",
+						"description": "If specified, it will return only results relative to the event that has this ID"
+					},
+					"year": {
+						"type": "number",
+						"format": "double",
+						"description": "If specified, it will return only results relative to this year's events"
+					},
+					"driverId": {
+						"type": "string",
+						"description": "If specified, it will return only results relative to the pilot having this ID"
+					},
+					"orderBy": {
+						"type": "string",
+						"enum": [
+							"chassisManufacturerId",
+							"engineManufacturerId",
+							"eventId",
+							"driverId",
+							"entrantName",
+							"chassisName",
+							"engineName",
+							"driverNumber",
+							"note",
+							"seasonEntrantId",
+							"tyreManufacturerId"
+						],
+						"nullable": false,
+						"default": "eventId"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
 			"TimedSessionResult": {
 				"description": "Common interface for timed sessions, like free practices, warm ups...",
 				"properties": {
@@ -541,13 +667,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"OrderDir": {
-				"type": "string",
-				"enum": [
-					"ASC",
-					"DESC"
-				]
-			},
 			"FreePracticesQueryParamsWithEvent": {
 				"properties": {
 					"pageNo": {
@@ -598,16 +717,16 @@
 							"engineManufacturerId",
 							"eventId",
 							"driverId",
-							"pos",
-							"time",
-							"laps",
 							"entrantName",
 							"chassisName",
 							"engineName",
 							"driverNumber",
 							"note",
 							"seasonEntrantId",
-							"tyreManufacturerId"
+							"tyreManufacturerId",
+							"pos",
+							"time",
+							"laps"
 						],
 						"nullable": false,
 						"default": "eventId"
@@ -769,8 +888,6 @@
 							"engineManufacturerId",
 							"eventId",
 							"driverId",
-							"pos",
-							"time",
 							"entrantName",
 							"chassisName",
 							"engineName",
@@ -778,6 +895,8 @@
 							"note",
 							"seasonEntrantId",
 							"tyreManufacturerId",
+							"pos",
+							"time",
 							"lap"
 						],
 						"nullable": false,
@@ -917,7 +1036,6 @@
 							"engineManufacturerId",
 							"eventId",
 							"driverId",
-							"time",
 							"entrantName",
 							"chassisName",
 							"engineName",
@@ -925,6 +1043,7 @@
 							"note",
 							"seasonEntrantId",
 							"tyreManufacturerId",
+							"time",
 							"pitStopLap",
 							"timeOfDay",
 							"annotation"
@@ -1125,8 +1244,6 @@
 							"engineManufacturerId",
 							"eventId",
 							"driverId",
-							"time",
-							"laps",
 							"entrantName",
 							"chassisName",
 							"engineName",
@@ -1134,6 +1251,8 @@
 							"note",
 							"seasonEntrantId",
 							"tyreManufacturerId",
+							"time",
+							"laps",
 							"gridPos",
 							"positionText",
 							"positionOrder",
@@ -1171,6 +1290,10 @@
 					},
 					"circuitId": {
 						"type": "string"
+					},
+					"year": {
+						"type": "number",
+						"format": "double"
 					},
 					"orderBy": {
 						"type": "string",
@@ -1540,6 +1663,143 @@
 				]
 			}
 		},
+		"/event-entrants": {
+			"get": {
+				"operationId": "GetEventEntrants",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"items": {
+											"items": {
+												"$ref": "#/components/schemas/EventDriverData"
+											},
+											"type": "array"
+										},
+										"pageData": {
+											"$ref": "#/components/schemas/PageMetadata"
+										}
+									},
+									"required": [
+										"items",
+										"pageData"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Event Entrants"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer",
+						"in": "query",
+						"name": "chassisManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer",
+						"in": "query",
+						"name": "engineManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the event that has this ID",
+						"in": "query",
+						"name": "eventId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to this year's events",
+						"in": "query",
+						"name": "year",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the pilot having this ID",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "orderBy",
+						"required": false,
+						"schema": {
+							"default": "eventId",
+							"type": "string",
+							"enum": [
+								"chassisManufacturerId",
+								"engineManufacturerId",
+								"eventId",
+								"driverId",
+								"entrantName",
+								"chassisName",
+								"engineName",
+								"driverNumber",
+								"note",
+								"seasonEntrantId",
+								"tyreManufacturerId"
+							]
+						}
+					}
+				]
+			}
+		},
 		"/free-practices/{session}/results": {
 			"get": {
 				"operationId": "Get",
@@ -1589,6 +1849,37 @@
 								"fp4",
 								"warm-up"
 							]
+						}
+					},
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
 						}
 					},
 					{
@@ -1708,16 +1999,16 @@
 								"engineManufacturerId",
 								"eventId",
 								"driverId",
-								"pos",
-								"time",
-								"laps",
 								"entrantName",
 								"chassisName",
 								"engineName",
 								"driverNumber",
 								"note",
 								"seasonEntrantId",
-								"tyreManufacturerId"
+								"tyreManufacturerId",
+								"pos",
+								"time",
+								"laps"
 							]
 						}
 					},
@@ -1921,6 +2212,37 @@
 						}
 					},
 					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
 						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer",
 						"in": "query",
 						"name": "chassisManufacturerId",
@@ -1996,8 +2318,6 @@
 								"engineManufacturerId",
 								"eventId",
 								"driverId",
-								"pos",
-								"time",
 								"entrantName",
 								"chassisName",
 								"engineName",
@@ -2005,6 +2325,8 @@
 								"note",
 								"seasonEntrantId",
 								"tyreManufacturerId",
+								"pos",
+								"time",
 								"lap"
 							]
 						}
@@ -2047,6 +2369,37 @@
 				],
 				"security": [],
 				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
 					{
 						"description": "Page to retrieve, starting at 0",
 						"in": "query",
@@ -2154,8 +2507,6 @@
 								"engineManufacturerId",
 								"eventId",
 								"driverId",
-								"pos",
-								"time",
 								"entrantName",
 								"chassisName",
 								"engineName",
@@ -2163,6 +2514,8 @@
 								"note",
 								"seasonEntrantId",
 								"tyreManufacturerId",
+								"pos",
+								"time",
 								"lap"
 							]
 						}
@@ -2269,6 +2622,37 @@
 						}
 					},
 					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
 						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer",
 						"in": "query",
 						"name": "chassisManufacturerId",
@@ -2335,7 +2719,6 @@
 								"engineManufacturerId",
 								"eventId",
 								"driverId",
-								"time",
 								"entrantName",
 								"chassisName",
 								"engineName",
@@ -2343,6 +2726,7 @@
 								"note",
 								"seasonEntrantId",
 								"tyreManufacturerId",
+								"time",
 								"pitStopLap",
 								"timeOfDay",
 								"annotation"
@@ -2388,6 +2772,37 @@
 				],
 				"security": [],
 				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
 					{
 						"description": "Page to retrieve, starting at 0",
 						"in": "query",
@@ -2515,8 +2930,6 @@
 								"engineManufacturerId",
 								"eventId",
 								"driverId",
-								"time",
-								"laps",
 								"entrantName",
 								"chassisName",
 								"engineName",
@@ -2524,6 +2937,8 @@
 								"note",
 								"seasonEntrantId",
 								"tyreManufacturerId",
+								"time",
+								"laps",
 								"gridPos",
 								"positionText",
 								"positionOrder",
@@ -2666,6 +3081,15 @@
 					},
 					{
 						"in": "query",
+						"name": "year",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
 						"name": "orderBy",
 						"required": false,
 						"schema": {
@@ -2709,32 +3133,6 @@
 				"parameters": [
 					{
 						"description": "The ID of the event to get",
-						"in": "path",
-						"name": "eventId",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/events/{eventId}/entrants": {
-			"get": {
-				"operationId": "GetEventEntrants",
-				"responses": {
-					"204": {
-						"description": "No content"
-					}
-				},
-				"description": "Get all the drivers that has participated in a certain event, alongside their teams and other usefull info",
-				"tags": [
-					"Events"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "The ID of the event to get its entrants",
 						"in": "path",
 						"name": "eventId",
 						"required": true,

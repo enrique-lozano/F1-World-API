@@ -19,6 +19,8 @@ import { RaceResultService } from './raceResult.service';
 interface EventQueryParams extends pageQueryParams, SorterQueryParams {
   circuitId?: string;
 
+  year?: number;
+
   /** @default id */
   orderBy?: keyof EventInDB;
 }
@@ -51,6 +53,8 @@ export class EventService extends DbService {
       let searchQueries: string[] = [];
 
       if (params.circuitId) searchQueries.push(`circuitId = :circuitId`);
+      if (params.year)
+        searchQueries.push(`cast(substr(eventId, 1, 4) as INT) = :year`);
 
       whereStatement += searchQueries.join(' AND ');
     }
@@ -85,15 +89,6 @@ export class EventService extends DbService {
       .get(eventId) as EventInDB;
 
     return this.instanciateNewClass(el);
-  }
-
-  /** Get all the drivers that has participated in a certain event, alongside their teams and other usefull info
-   *
-   * @param eventId The ID of the event to get its entrants */ @Get(
-    '/{eventId}/entrants'
-  )
-  getEventEntrants(@Path() eventId: string) {
-    this.eventEntrantService.getEventEntrants(eventId);
   }
 
   private get circuitService() {

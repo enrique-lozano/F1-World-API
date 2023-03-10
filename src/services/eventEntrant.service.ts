@@ -1,8 +1,15 @@
-import { Route, Tags } from 'tsoa';
+import { Get, Queries, Route, Tags } from 'tsoa';
 import {
   EventDriverData,
   EventDriverDataInStorage
 } from '../models/classes/eventDriverData/eventDriverData';
+import {
+  PageMetadata,
+  pageQueryParams,
+  Paginator
+} from '../models/interfaces/paginated-items';
+import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+import { parseSearchQueryParams } from '../utils/objAttributesToStr';
 import { CompanyService } from './company.service';
 import { DbService } from './db.service';
 import { DriverService } from './driver.service';
@@ -10,7 +17,9 @@ import { EventService } from './event.service';
 import { SeasonEntrantService } from './seasonEntrant.service';
 import { TyreManufacturerService } from './tyreManufacturer.service';
 
-export interface EventEntrantQueryParams {
+export interface EventEntrantQueryParamsWithoutSort
+  extends pageQueryParams,
+    SorterQueryParams {
   /** If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer */
   chassisManufacturerId?: string;
 
@@ -27,8 +36,14 @@ export interface EventEntrantQueryParams {
   driverId?: string;
 }
 
-@Route('eventEntrants')
-@Tags('EventEntrants')
+export interface EventEntrantQueryParams
+  extends EventEntrantQueryParamsWithoutSort {
+  /** @default eventId */
+  orderBy?: keyof EventDriverDataInStorage;
+}
+
+@Route('event-entrants')
+@Tags('Event Entrants')
 export class EventEntrantService extends DbService {
   private instanciateNewClass(eventEntrant: EventDriverDataInStorage) {
     return new EventDriverData({
@@ -54,12 +69,55 @@ export class EventEntrantService extends DbService {
     return this.instanciateNewClass(data);
   }
 
-  getEventEntrants(eventId: string) {
-    const eventEntrantsInDB = this.db
-      .prepare('SELECT * FROM eventEntrants WHERE eventId = ?')
-      .all(eventId) as EventDriverDataInStorage[];
+  @Get('/')
+  getEventEntrants(@Queries() obj: EventEntrantQueryParams) {
+    const sorter = new Sorter<EventDriverDataInStorage>(
+      obj.orderBy || 'eventId',
+      obj.orderDir
+    );
 
-    return eventEntrantsInDB.map((x) => this.instanciateNewClass(x));
+    const paginator = new Paginator(obj.pageNo, obj.pageSize);
+
+    let whereStatement = '';
+
+    const params = parseSearchQueryParams(obj);
+
+    if (Object.values(params).length) {
+      whereStatement += ' WHERE ';
+
+      let searchQueries: string[] = [];
+
+      if (params.eventId) searchQueries.push(`eventId = :eventId`);
+      if (params.driverId) searchQueries.push(`driverId = :driverId`);
+      if (params.chassisManufacturerId)
+        searchQueries.push(`chassisManufacturerId = :chassisManufacturerId`);
+      if (params.engineManufacturerId)
+        searchQueries.push(`engineManufacturerId = :engineManufacturerId`);
+      if (params.year)
+        searchQueries.push(`cast(substr(eventId, 1, 4) as INT) = :year`);
+
+      whereStatement += searchQueries.join(' AND ');
+    }
+
+    const eventEntrantsInDB = this.db
+      .prepare(
+        'SELECT * FROM eventEntrants WHERE eventId = ?' +
+          `${whereStatement} ${sorter.sqlStatement} ${paginator.sqlStatement}`
+      )
+      .all(params) as EventDriverDataInStorage[];
+
+    const totalElements = this.db
+      .prepare('SELECT * FROM eventEntrants WHERE eventId = ?' + whereStatement)
+      .get(params)['COUNT(*)'];
+
+    return {
+      pageData: new PageMetadata(
+        totalElements,
+        paginator.pageNo,
+        paginator.pageSize
+      ),
+      items: eventEntrantsInDB.map((x) => this.instanciateNewClass(x))
+    };
   }
 
   private get eventService() {

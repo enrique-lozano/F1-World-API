@@ -16,14 +16,14 @@ import {
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
 import { DbService } from './db.service';
 import {
-  EventEntrantQueryParams,
+  EventEntrantQueryParamsWithoutSort,
   EventEntrantService
 } from './eventEntrant.service';
 
 export interface FreePracticesQueryParams
   extends pageQueryParams,
     SorterQueryParams,
-    EventEntrantQueryParams {
+    EventEntrantQueryParamsWithoutSort {
   driverId?: string;
   year?: number;
   pos?: number;

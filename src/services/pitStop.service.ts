@@ -12,14 +12,14 @@ import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
 import { DbService } from './db.service';
 import {
-  EventEntrantQueryParams,
+  EventEntrantQueryParamsWithoutSort,
   EventEntrantService
 } from './eventEntrant.service';
 
 interface PitStopQueryParams
   extends pageQueryParams,
     SorterQueryParams,
-    EventEntrantQueryParams {
+    EventEntrantQueryParamsWithoutSort {
   lap?: number;
 
   /** @default eventId */

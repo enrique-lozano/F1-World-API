@@ -12,14 +12,14 @@ import {
 } from './../models/classes/eventDriverData/lapTime';
 import { DbService } from './db.service';
 import {
-  EventEntrantQueryParams,
+  EventEntrantQueryParamsWithoutSort,
   EventEntrantService
 } from './eventEntrant.service';
 
 interface LapQueryParams
   extends pageQueryParams,
     SorterQueryParams,
-    EventEntrantQueryParams {
+    EventEntrantQueryParamsWithoutSort {
   pos?: number;
   lap?: number;
 

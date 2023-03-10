@@ -16,14 +16,14 @@ import {
 } from './../models/classes/eventDriverData/raceResult';
 import { DbService } from './db.service';
 import {
-  EventEntrantQueryParams,
+  EventEntrantQueryParamsWithoutSort,
   EventEntrantService
 } from './eventEntrant.service';
 
 export interface RaceResultQueryParams
   extends pageQueryParams,
     SorterQueryParams,
-    EventEntrantQueryParams {
+    EventEntrantQueryParamsWithoutSort {
   /** Filter by a specific grid postion text */
   gridPos?: string;
 
