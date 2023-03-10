@@ -40,15 +40,22 @@ export class DriverStandingService extends DbService {
       if (a.points < b.points) return 1;
       else if (a.points > b.points) return -1;
       else {
-        const aResults = this.raceResultService
-          .getRaceResults({ driverId: a.driverId, year: season, pageSize: 100 })
-          .items.map((x) => x.position)
+        const raceResultQuery =
+          'SELECT CASE WHEN CAST(positionText as INT) > 0               \
+            THEN CAST(positionText as INT) ELSE null END as position    \
+            FROM raceResults WHERE driverId = ? AND cast(substr(eventId, 1, 4) as INT) = ?';
+
+        const aResults = this.db
+          .prepare(raceResultQuery)
+          .all(a.driverId, season)
+          .map((x) => x.position)
           .filter((x) => x)
           .sort((x, y) => x - y);
 
-        const bResults = this.raceResultService
-          .getRaceResults({ driverId: b.driverId, year: season, pageSize: 100 })
-          .items.map((x) => x.position)
+        const bResults = this.db
+          .prepare(raceResultQuery)
+          .all(a.driverId, season)
+          .map((x) => x.position)
           .filter((x) => x)
           .sort((x, y) => x - y);
 
