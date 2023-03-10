@@ -1606,6 +1606,123 @@
 				]
 			}
 		},
+		"/drivers/{driverId}/seasons": {
+			"get": {
+				"operationId": "GetDriverSeasons",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"type": "number",
+										"format": "double"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get the seasons where a specific driver has participated in at least one race or event",
+				"tags": [
+					"Drivers"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "The ID of the driver to get",
+						"in": "path",
+						"name": "driverId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If 'entrants' is selected here, it will return also the season where the driver has participated in free practices and other not computable sessions for the WDC. The 'race' will only take into account the race entrants",
+						"in": "query",
+						"name": "from",
+						"required": false,
+						"schema": {
+							"default": "races",
+							"type": "string",
+							"enum": [
+								"entrants",
+								"races"
+							]
+						}
+					}
+				]
+			}
+		},
+		"/drivers/{driverId}/championship-results": {
+			"get": {
+				"operationId": "GetChampionshipResults",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"results": {
+											"items": {
+												"properties": {
+													"points": {
+														"type": "number",
+														"format": "double"
+													},
+													"position": {
+														"type": "number",
+														"format": "double"
+													},
+													"season": {
+														"type": "number",
+														"format": "double"
+													}
+												},
+												"required": [
+													"points",
+													"position",
+													"season"
+												],
+												"type": "object"
+											},
+											"type": "array"
+										},
+										"driver": {
+											"$ref": "#/components/schemas/Driver"
+										}
+									},
+									"required": [
+										"results",
+										"driver"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get WDC results of this driver",
+				"tags": [
+					"Drivers"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "driverId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
 		"/free-practices/{session}/results": {
 			"get": {
 				"operationId": "Get",

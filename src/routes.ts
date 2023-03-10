@@ -614,6 +614,57 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/drivers/:driverId/seasons',
+            ...(fetchMiddlewares<RequestHandler>(DriverService)),
+            ...(fetchMiddlewares<RequestHandler>(DriverService.prototype.getDriverSeasons)),
+
+            function DriverService_getDriverSeasons(request: any, response: any, next: any) {
+            const args = {
+                    driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
+                    from: {"default":"races","in":"query","name":"from","dataType":"union","subSchemas":[{"dataType":"enum","enums":["entrants"]},{"dataType":"enum","enums":["races"]}]},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new DriverService();
+
+
+              const promise = controller.getDriverSeasons.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/drivers/:driverId/championship-results',
+            ...(fetchMiddlewares<RequestHandler>(DriverService)),
+            ...(fetchMiddlewares<RequestHandler>(DriverService.prototype.getChampionshipResults)),
+
+            function DriverService_getChampionshipResults(request: any, response: any, next: any) {
+            const args = {
+                    driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new DriverService();
+
+
+              const promise = controller.getChampionshipResults.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/free-practices/:session/results',
             ...(fetchMiddlewares<RequestHandler>(FreePracticeService)),
             ...(fetchMiddlewares<RequestHandler>(FreePracticeService.prototype.get)),
