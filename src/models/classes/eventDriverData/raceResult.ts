@@ -1,3 +1,4 @@
+import { SetOptional } from 'type-fest';
 import { EventDriverData, EventDriverDataInStorage } from './eventDriverData';
 
 export type RaceResultStorage = EventDriverDataInStorage &
@@ -38,7 +39,7 @@ export class RaceResult extends EventDriverData {
   /** Points that this result awards the driver for the WDC */
   points: number;
 
-  /** Difference between the points that the driver has in the WDC at the end of this round and the ones he/she had after the previous round. This number usually coincides with the points awarded for the result, except in some cases until 1990, where only the N best results were taken into account.
+  /** Difference between the points that the driver has in the WDC at the end of this race and the ones he/she had after the previous scoring session (a race, a sprint race...). This number usually coincides with the points awarded for the result, except in some cases until 1990, where only the N best results were taken into account.
    *
    * @see https://en.wikipedia.org/wiki/List_of_Formula_One_World_Championship_points_scoring_systems#Points_scoring_systems
    */
@@ -55,7 +56,10 @@ export class RaceResult extends EventDriverData {
   /** The positions gained during the race */
   positionsGained?: number;
 
-  constructor(data: RaceResultStorage, completeObjects: EventDriverData) {
+  constructor(
+    data: SetOptional<RaceResultStorage, 'pointsGained' | 'pointsCountForWDC'>,
+    completeObjects: EventDriverData
+  ) {
     super({ ...completeObjects });
 
     this.positionText = data.positionText;
@@ -72,8 +76,8 @@ export class RaceResult extends EventDriverData {
     this.gridPos = data.gridPos;
 
     this.points = data.points;
-    this.pointsGained = data.pointsGained;
-    this.pointsCountForWDC = data.pointsCountForWDC == 1 ? true : false;
+    this.pointsGained = data.pointsGained ?? data.points;
+    this.pointsCountForWDC = data.pointsCountForWDC === 0 ? false : true;
 
     if (this.position && Number(this.gridPos))
       this.positionsGained = Number(this.gridPos) - this.position;

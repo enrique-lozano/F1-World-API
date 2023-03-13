@@ -25,8 +25,13 @@ export class DriverStandingService extends DbService {
 
     const results = this.db
       .prepare(
-        'SELECT driverId, SUM(pointsGained) AS points, SUM(points) AS totalPoints \
-          FROM raceResults' +
+        'SELECT driverId, \
+            (SUM(raceResults.pointsGained) + SUM(racesSprintQualifyingResults.points) ) AS points, \
+            (SUM(raceResults.points) + SUM(racesSprintQualifyingResults.points) ) AS totalPoints \
+          FROM raceResults LEFT JOIN               \
+            racesSprintQualifyingResults USING (   \
+                eventId,                           \
+                driverId)' +
           `${whereStatement} GROUP BY driverId ORDER BY points DESC`
       )
       .all(params) as [

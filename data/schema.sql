@@ -323,6 +323,22 @@ CREATE TABLE IF NOT EXISTS raceResults
 , reasonRetired VARCHAR(255)
 );
 
+-- Table: sprintQualifyingResults
+DROP TABLE IF EXISTS sprintQualifyingResults;
+CREATE TABLE IF NOT EXISTS sprintQualifyingResults
+( eventId INTEGER NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, positionText VARCHAR(4) NOT NULL
+, positionOrder INTEGER NOT NULL
+, time INTEGER
+, gridPos INTEGER
+, laps INTEGER
+, points INTEGER
+, gap VARCHAR(255)
+, timePenalty INTEGER
+, reasonRetired VARCHAR(255)
+);
+
 
 -- Table: redFlags
 DROP TABLE IF EXISTS redFlags;
