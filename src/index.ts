@@ -1,5 +1,4 @@
 //const express = require('express');
-import dotenv from 'dotenv';
 import express, { NextFunction, Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { ValidateError } from 'tsoa';
@@ -7,10 +6,8 @@ import { RegisterRoutes } from './routes';
 
 import * as swaggerJSON from './swagger.json';
 
-dotenv.config();
-
 const app = express();
-const port = process.env['PORT'];
+const port = 3200;
 
 // Register routes thanks to the tsoa generated file
 const router = express.Router();
