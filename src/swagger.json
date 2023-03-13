@@ -1190,7 +1190,17 @@
 					},
 					"points": {
 						"type": "number",
-						"format": "double"
+						"format": "double",
+						"description": "Points that this result awards the driver for the WDC"
+					},
+					"pointsGained": {
+						"type": "number",
+						"format": "double",
+						"description": "Difference between the points that the driver has in the WDC at the end of this round and the ones he/she had after the previous round. This number usually coincides with the points awarded for the result, except in some cases until 1990, where only the N best results were taken into account."
+					},
+					"pointsCountForWDC": {
+						"type": "boolean",
+						"description": "Whether or not the result counts for the final calculation of the WDC points (at the end of the year). It is usually true, except in some cases until 1990, where only the N best results were taken into account."
 					},
 					"gridPos": {
 						"type": "string"
@@ -1219,6 +1229,8 @@
 					"gap",
 					"reasonRetired",
 					"points",
+					"pointsGained",
+					"pointsCountForWDC",
 					"gridPos"
 				],
 				"type": "object",
@@ -1305,7 +1317,9 @@
 							"timePenaltyMillis",
 							"gap",
 							"reasonRetired",
-							"points"
+							"points",
+							"pointsGained",
+							"pointsCountForWDC"
 						],
 						"nullable": false,
 						"default": "eventId"
@@ -3203,7 +3217,9 @@
 								"timePenaltyMillis",
 								"gap",
 								"reasonRetired",
-								"points"
+								"points",
+								"pointsGained",
+								"pointsCountForWDC"
 							]
 						}
 					}
@@ -3271,6 +3287,10 @@
 								"schema": {
 									"items": {
 										"properties": {
+											"totalPoints": {
+												"type": "number",
+												"format": "double"
+											},
 											"points": {
 												"type": "number",
 												"format": "double"
@@ -3284,6 +3304,7 @@
 											}
 										},
 										"required": [
+											"totalPoints",
 											"points",
 											"driver",
 											"position"
@@ -3334,6 +3355,10 @@
 							"application/json": {
 								"schema": {
 									"properties": {
+										"totalPoints": {
+											"type": "number",
+											"format": "double"
+										},
 										"points": {
 											"type": "number",
 											"format": "double"
@@ -3347,6 +3372,7 @@
 										}
 									},
 									"required": [
+										"totalPoints",
 										"points",
 										"driver",
 										"position"

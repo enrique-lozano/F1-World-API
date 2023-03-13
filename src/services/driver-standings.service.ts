@@ -25,13 +25,15 @@ export class DriverStandingService extends DbService {
 
     const results = this.db
       .prepare(
-        'SELECT driverId, SUM(points) AS points FROM raceResults' +
+        'SELECT driverId, SUM(pointsGained) AS points, SUM(points) AS totalPoints \
+          FROM raceResults' +
           `${whereStatement} GROUP BY driverId ORDER BY points DESC`
       )
       .all(params) as [
       {
         driverId: string;
         points: number;
+        totalPoints: number;
       }
     ];
 
@@ -54,7 +56,7 @@ export class DriverStandingService extends DbService {
 
         const bResults = this.db
           .prepare(raceResultQuery)
-          .all(a.driverId, season)
+          .all(b.driverId, season)
           .map((x) => x.position)
           .filter((x) => x)
           .sort((x, y) => x - y);
@@ -75,7 +77,8 @@ export class DriverStandingService extends DbService {
       return {
         position: index + 1,
         driver: this.driverService.getById(x.driverId),
-        points: x.points
+        points: x.points,
+        totalPoints: x.totalPoints
       };
     });
   }

@@ -316,6 +316,8 @@ CREATE TABLE IF NOT EXISTS raceResults
 , gridPos INTEGER
 , laps INTEGER
 , points INTEGER
+, pointsCountForWDC BOOL
+, pointsGained INTEGER
 , gap VARCHAR(255)
 , timePenalty INTEGER
 , reasonRetired VARCHAR(255)

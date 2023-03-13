@@ -78,6 +78,7 @@ export class RaceResultService extends DbService {
       let searchQueries: string[] = [];
 
       if (params.driverId) searchQueries.push(`driverId = :driverId`);
+      if (params.eventId) searchQueries.push(`eventId = :eventId`);
       if (params.chassisManufacturerId)
         searchQueries.push(`chassisManufacturerId = :chassisManufacturerId`);
       if (params.engineManufacturerId)
