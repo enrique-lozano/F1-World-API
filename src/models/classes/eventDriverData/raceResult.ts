@@ -9,7 +9,6 @@ export type RaceResultStorage = EventDriverDataInStorage &
     | 'laps'
     | 'time'
     | 'timePenalty'
-    | 'timePenaltyMillis'
     | 'gap'
     | 'reasonRetired'
     | 'gridPos'
@@ -33,7 +32,6 @@ export class RaceResult extends EventDriverData {
 
   time: number;
   timePenalty: string | null;
-  timePenaltyMillis?: number;
   gap: string | null;
   reasonRetired: string | null;
 
@@ -67,8 +65,6 @@ export class RaceResult extends EventDriverData {
     this.laps = data.laps;
     this.time = data.time;
     this.timePenalty = data.timePenalty;
-
-    if (this.timePenaltyMillis) this.timePenaltyMillis = data.timePenaltyMillis;
 
     this.gap = data.gap;
 
