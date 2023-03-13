@@ -1,7 +1,8 @@
-import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
+import { TsoaResponse } from 'tsoa';
 import {
   TimedSessionResult,
-  TimedSessionResultStorage
+  TimedSessionResultStorage,
+  TimedSessions
 } from '../models/classes/eventDriverData/TimedSessionResult';
 import {
   PageMetadata,
@@ -20,31 +21,24 @@ import {
   EventEntrantService
 } from './eventEntrant.service';
 
-export interface FreePracticesQueryParams
+export interface TimedSessionResultQueryParams
   extends pageQueryParams,
     SorterQueryParams,
     EventEntrantQueryParamsWithoutSort {
-  driverId?: string;
-  year?: number;
   pos?: number;
 
   /** @default eventId */
   orderBy?: keyof TimedSessionResultStorage;
 }
 
-export interface FreePracticesQueryParamsWithEvent
-  extends FreePracticesQueryParams {
-  eventId?: string;
-}
-
-@Route('free-practices')
-@Tags('Free Practices')
-export class FreePracticeService extends DbService {
-  private getSelectQuery(session: 'fp1' | 'fp2' | 'fp3' | 'fp4' | 'warm-up') {
+export class TimedSessionResultService extends DbService {
+  private getSelectQuery(session: TimedSessions) {
     let tableToGet: string;
 
     if (session == 'warm-up') {
       tableToGet = 'warmingUpResults';
+    } else if (session == 'preQualifying') {
+      tableToGet = 'preQualifyingResults';
     } else {
       tableToGet = `${session}_results`;
     }
@@ -65,12 +59,9 @@ export class FreePracticeService extends DbService {
     );
   }
 
-  /** Return driver results of a specific practice session based on some filters */ @Get(
-    '/{session}/results'
-  )
-  get(
-    @Path() session: 'fp1' | 'fp2' | 'fp3' | 'fp4' | 'warm-up',
-    @Queries() filters: FreePracticesQueryParamsWithEvent
+  getTimedSessionsResults(
+    session: TimedSessions,
+    filters: TimedSessionResultQueryParams
   ) {
     const sorter = new Sorter(filters.orderBy || 'eventId', filters.orderDir);
     const paginator = new Paginator(filters.pageNo, filters.pageSize);
@@ -121,16 +112,27 @@ export class FreePracticeService extends DbService {
     };
   }
 
-  /** Gets info about the result obtained by a driver in a certain session of free practice
-   *
-   * @param notFoundResponse Register not found */ @Get(
-    '/{session}/results/{eventId}/{driverId}'
-  )
+  getDriverSessionResults(
+    session: TimedSessions,
+    eventId: string,
+    notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+  ): TimedSessionResult[] {
+    const raceResultInDB = this.db
+      .prepare(`${this.getSelectQuery(session)} WHERE eventId = ?`)
+      .all(eventId) as TimedSessionResultStorage[];
+
+    if (!raceResultInDB) {
+      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
+    }
+
+    return raceResultInDB.map((x) => this.instanciateNewClass(x));
+  }
+
   getDriverSessionResult(
-    @Path() session: 'fp1' | 'fp2' | 'fp3' | 'fp4' | 'warm-up',
-    @Path() eventId: string,
-    @Path() driverId: string,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+    session: TimedSessions,
+    eventId: string,
+    driverId: string,
+    notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): TimedSessionResult {
     const raceResultInDB = this.db
       .prepare(

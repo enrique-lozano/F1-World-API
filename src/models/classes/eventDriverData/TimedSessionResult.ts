@@ -1,5 +1,14 @@
 import { EventDriverData, EventDriverDataInStorage } from './eventDriverData';
 
+/** Different types/names of timed sessions */
+export type TimedSessions =
+  | 'fp1'
+  | 'fp2'
+  | 'fp3'
+  | 'fp4'
+  | 'warm-up'
+  | 'preQualifying';
+
 export type TimedSessionResultStorage = EventDriverDataInStorage &
   Pick<TimedSessionResult, 'pos' | 'time' | 'laps'>;
 

@@ -548,7 +548,7 @@
 					"DESC"
 				]
 			},
-			"FreePracticesQueryParamsWithEvent": {
+			"TimedSessionResultQueryParams": {
 				"properties": {
 					"pageNo": {
 						"type": "number",
@@ -596,9 +596,9 @@
 						"enum": [
 							"chassisManufacturerId",
 							"engineManufacturerId",
+							"pos",
 							"eventId",
 							"driverId",
-							"pos",
 							"time",
 							"laps",
 							"entrantName",
@@ -767,9 +767,9 @@
 						"enum": [
 							"chassisManufacturerId",
 							"engineManufacturerId",
+							"pos",
 							"eventId",
 							"driverId",
-							"pos",
 							"time",
 							"entrantName",
 							"chassisName",
@@ -1734,7 +1734,7 @@
 		},
 		"/free-practices/{session}/results": {
 			"get": {
-				"operationId": "Get",
+				"operationId": "GetSessionsResults",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -1892,25 +1892,6 @@
 						}
 					},
 					{
-						"description": "If specified, it will return only results relative to the pilot having this ID",
-						"in": "query",
-						"name": "driverId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"description": "If specified, it will return only results relative to this year's events",
-						"in": "query",
-						"name": "year",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
 						"in": "query",
 						"name": "pos",
 						"required": false,
@@ -1929,9 +1910,9 @@
 							"enum": [
 								"chassisManufacturerId",
 								"engineManufacturerId",
+								"pos",
 								"eventId",
 								"driverId",
-								"pos",
 								"time",
 								"laps",
 								"entrantName",
@@ -1943,12 +1924,63 @@
 								"tyreManufacturerId"
 							]
 						}
+					}
+				]
+			}
+		},
+		"/free-practices/{session}/results/{eventId}": {
+			"get": {
+				"operationId": "GetSessionResults",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/TimedSessionResult"
+									},
+									"type": "array"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Register not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorMessage_404_"
+								}
+							}
+						}
+					}
+				},
+				"description": "Gets the results of a certain session of free practice",
+				"tags": [
+					"Free Practices"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "session",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"fp1",
+								"fp2",
+								"fp3",
+								"fp4",
+								"warm-up"
+							]
+						}
 					},
 					{
-						"description": "If specified, it will return only results relative to the event that has this ID",
-						"in": "query",
+						"in": "path",
 						"name": "eventId",
-						"required": false,
+						"required": true,
 						"schema": {
 							"type": "string"
 						}
@@ -2248,9 +2280,9 @@
 							"enum": [
 								"chassisManufacturerId",
 								"engineManufacturerId",
+								"pos",
 								"eventId",
 								"driverId",
-								"pos",
 								"time",
 								"entrantName",
 								"chassisName",
@@ -2437,9 +2469,9 @@
 							"enum": [
 								"chassisManufacturerId",
 								"engineManufacturerId",
+								"pos",
 								"eventId",
 								"driverId",
-								"pos",
 								"time",
 								"entrantName",
 								"chassisName",
@@ -3453,6 +3485,282 @@
 						"schema": {
 							"format": "double",
 							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/pre-qualifyings/results": {
+			"get": {
+				"operationId": "GetPreQualifyingsResults",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"items": {
+											"items": {
+												"$ref": "#/components/schemas/TimedSessionResult"
+											},
+											"type": "array"
+										},
+										"pageData": {
+											"$ref": "#/components/schemas/PageMetadata"
+										}
+									},
+									"required": [
+										"items",
+										"pageData"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Return driver results of a specific pre-qualifying session based on some filters",
+				"tags": [
+					"Pre-Qualifying"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer",
+						"in": "query",
+						"name": "chassisManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, the call will return only the results where the company that has this ID appears as the  engine manufacturer",
+						"in": "query",
+						"name": "engineManufacturerId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the event that has this ID",
+						"in": "query",
+						"name": "eventId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to this year's events",
+						"in": "query",
+						"name": "year",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "If specified, it will return only results relative to the pilot having this ID",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "pos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "orderBy",
+						"required": false,
+						"schema": {
+							"default": "eventId",
+							"type": "string",
+							"enum": [
+								"chassisManufacturerId",
+								"engineManufacturerId",
+								"pos",
+								"eventId",
+								"driverId",
+								"time",
+								"laps",
+								"entrantName",
+								"chassisName",
+								"engineName",
+								"driverNumber",
+								"note",
+								"seasonEntrantId",
+								"tyreManufacturerId"
+							]
+						}
+					}
+				]
+			}
+		},
+		"/pre-qualifyings/results/{eventId}": {
+			"get": {
+				"operationId": "GetSessionResults",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/TimedSessionResult"
+									},
+									"type": "array"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Register not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorMessage_404_"
+								}
+							}
+						}
+					}
+				},
+				"description": "Gets the results of a certain pre-qualifying",
+				"tags": [
+					"Pre-Qualifying"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "eventId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/pre-qualifyings/results/{eventId}/{driverId}": {
+			"get": {
+				"operationId": "GetDriverSessionResult",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TimedSessionResult"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Register not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorMessage_404_"
+								}
+							}
+						}
+					}
+				},
+				"description": "Gets info about the result obtained by a driver in a pre-qualifying session",
+				"tags": [
+					"Pre-Qualifying"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "eventId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "driverId",
+						"required": true,
+						"schema": {
+							"type": "string"
 						}
 					}
 				]
