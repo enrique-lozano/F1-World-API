@@ -125,7 +125,7 @@ export class RaceResultService extends DbService {
       .all(eventId) as RaceResultStorage[];
 
     if (!raceResultInDB || raceResultInDB.length === 0) {
-      return sendTsoaError(notFoundResponse, 404, 'result.not.found');
+      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
     }
 
     return raceResultInDB.map((x) => this.instanciateNewClass(x));

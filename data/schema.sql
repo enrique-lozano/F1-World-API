@@ -283,6 +283,7 @@ CREATE TABLE IF NOT EXISTS preQualifyingResults
 ( eventId INTEGER NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , pos INTEGER
+, laps INTEGER
 , time INTEGER
 , PRIMARY KEY (eventId, driverId)
 );

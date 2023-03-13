@@ -10,7 +10,7 @@ import { parseSearchQueryParams } from '../utils/objAttributesToStr';
 import { CircuitService } from './circuit.service';
 import { DbService } from './db.service';
 import { EventEntrantService } from './eventEntrant.service';
-import { FreePracticeService } from './freePractice.service';
+import { FreePracticeResultService } from './freePracticeResult.service';
 import { GrandPrixService } from './grandPrix.service';
 import { LapService } from './lap.service';
 import { PitStopService } from './pitStop.service';
@@ -112,7 +112,7 @@ export class EventService extends DbService {
   }
 
   private get FPService() {
-    return new FreePracticeService();
+    return new FreePracticeResultService();
   }
 
   private get eventEntrantService() {
