@@ -1,3 +1,4 @@
+import { SetOptional } from 'type-fest';
 import { EventDriverData, EventDriverDataInStorage } from './eventDriverData';
 
 export type RaceResultStorage = EventDriverDataInStorage &
@@ -9,7 +10,6 @@ export type RaceResultStorage = EventDriverDataInStorage &
     | 'laps'
     | 'time'
     | 'timePenalty'
-    | 'timePenaltyMillis'
     | 'gap'
     | 'reasonRetired'
     | 'gridPos'
@@ -33,14 +33,13 @@ export class RaceResult extends EventDriverData {
 
   time: number;
   timePenalty: string | null;
-  timePenaltyMillis?: number;
   gap: string | null;
   reasonRetired: string | null;
 
   /** Points that this result awards the driver for the WDC */
   points: number;
 
-  /** Difference between the points that the driver has in the WDC at the end of this round and the ones he/she had after the previous round. This number usually coincides with the points awarded for the result, except in some cases until 1990, where only the N best results were taken into account.
+  /** Difference between the points that the driver has in the WDC at the end of this race and the ones he/she had after the previous scoring session (a race, a sprint race...). This number usually coincides with the points awarded for the result, except in some cases until 1990, where only the N best results were taken into account.
    *
    * @see https://en.wikipedia.org/wiki/List_of_Formula_One_World_Championship_points_scoring_systems#Points_scoring_systems
    */
@@ -57,7 +56,10 @@ export class RaceResult extends EventDriverData {
   /** The positions gained during the race */
   positionsGained?: number;
 
-  constructor(data: RaceResultStorage, completeObjects: EventDriverData) {
+  constructor(
+    data: SetOptional<RaceResultStorage, 'pointsGained' | 'pointsCountForWDC'>,
+    completeObjects: EventDriverData
+  ) {
     super({ ...completeObjects });
 
     this.positionText = data.positionText;
@@ -68,16 +70,14 @@ export class RaceResult extends EventDriverData {
     this.time = data.time;
     this.timePenalty = data.timePenalty;
 
-    if (this.timePenaltyMillis) this.timePenaltyMillis = data.timePenaltyMillis;
-
     this.gap = data.gap;
 
     this.reasonRetired = data.reasonRetired;
     this.gridPos = data.gridPos;
 
     this.points = data.points;
-    this.pointsGained = data.pointsGained;
-    this.pointsCountForWDC = data.pointsCountForWDC == 1 ? true : false;
+    this.pointsGained = data.pointsGained ?? data.points;
+    this.pointsCountForWDC = data.pointsCountForWDC === 0 ? false : true;
 
     if (this.position && Number(this.gridPos))
       this.positionsGained = Number(this.gridPos) - this.position;

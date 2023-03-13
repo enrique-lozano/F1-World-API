@@ -1,54 +1,28 @@
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
 import {
-  PageMetadata,
-  pageQueryParams,
-  Paginator
-} from '../models/interfaces/paginated-items';
-import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+  RaceResult,
+  RaceResultStorage
+} from '../models/classes/eventDriverData/raceResult';
+import { PageMetadata, Paginator } from '../models/interfaces/paginated-items';
+import { Sorter } from '../models/interfaces/sorter';
 import {
   ErrorMessage,
   sendTsoaError
 } from '../utils/custom-error/custom-error';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import {
-  RaceResult,
-  RaceResultStorage
-} from './../models/classes/eventDriverData/raceResult';
 import { DbService } from './db.service';
-import {
-  EventEntrantQueryParamsWithoutSort,
-  EventEntrantService
-} from './eventEntrant.service';
+import { EventEntrantService } from './eventEntrant.service';
+import { RaceResultQueryParams } from './raceResult.service';
 
-export interface RaceResultQueryParams
-  extends pageQueryParams,
-    SorterQueryParams,
-    EventEntrantQueryParamsWithoutSort {
-  /** Filter by a specific grid postion text */
-  gridPos?: string;
-
-  /** Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`... */
-  positionText?: string;
-
-  /** Look for the results where the driver achieved a position worse than or equal to this number.  */
-  minPos?: number;
-
-  /** Look for the results where the driver achieved a position better than or equal to this number.  */
-  maxPos?: number;
-
-  /** @default eventId */
-  orderBy?: keyof RaceResultStorage;
-}
-
-@Route('races/results')
-@Tags('Races')
-export class RaceResultService extends DbService {
+@Route('sprint-qualifyings/results')
+@Tags('Sprint Qualifyings')
+export class sprintQualifyingResultService extends DbService {
   private readonly selectQuery = `SELECT *, \
           CASE WHEN CAST(positionText as INT) > 0 \
           THEN CAST(positionText as INT) ELSE null END as position \
           FROM eventEntrants                                 \
                 INNER JOIN                                   \
-                raceResults USING (                          \
+                sprintQualifyingResults USING (                          \
                     eventId,                                 \
                     driverId                                 \
                 )`;
@@ -60,8 +34,8 @@ export class RaceResultService extends DbService {
     );
   }
 
-  /** Get driver race results based on some filters */ @Get('/')
-  getRacesResults(@Queries() obj: RaceResultQueryParams) {
+  /** Get driver sprint qualifyings results based on some filters */ @Get('/')
+  getSprintQualifyingsResults(@Queries() obj: RaceResultQueryParams) {
     const sorter = new Sorter<RaceResultStorage>(
       obj.orderBy || 'eventId',
       obj.orderDir
@@ -115,8 +89,10 @@ export class RaceResultService extends DbService {
     };
   }
 
-  /** Gets info about the results of a certain race */ @Get('/{eventId}')
-  getRaceResults(
+  /** Gets info about the results of a certain sprint qualifying */ @Get(
+    '/{eventId}'
+  )
+  getSprintQualifyingResults(
     @Path() eventId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): RaceResult[] {
@@ -131,7 +107,7 @@ export class RaceResultService extends DbService {
     return raceResultInDB.map((x) => this.instanciateNewClass(x));
   }
 
-  /** Gets info about the result obtained by a driver in a certain race */ @Get(
+  /** Gets info about the result obtained by a driver in a certain sprint qualifying */ @Get(
     '/{eventId}/{driverId}'
   )
   getDriverRaceResult(

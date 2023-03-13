@@ -139,7 +139,7 @@ export class FreePracticeService extends DbService {
       .get(driverId, eventId) as TimedSessionResultStorage;
 
     if (!raceResultInDB) {
-      return sendTsoaError(notFoundResponse, 404, 'result.not.found');
+      return sendTsoaError(notFoundResponse, 404, 'driver-result.not.found');
     }
 
     return this.instanciateNewClass(raceResultInDB);

@@ -35,6 +35,7 @@ files = [
     "fp4_results",
     "warmingUpResults",
     "raceResults",
+    "sprintQualifyingResults",
     "seasonEntrants",
     "eventEntrants",
 ]

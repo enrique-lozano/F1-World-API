@@ -32,6 +32,7 @@ tables = [
     "fp4_results",
     "warmingUpResults",
     "raceResults",
+    "sprintQualifyingResults",
     "seasonEntrants",
 ]
 
