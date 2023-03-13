@@ -1,13 +1,15 @@
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'npm' # See documentation for possible values
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
 
     target-branch: develop
+    labels:
+      - 'type:build'
 
     open-pull-requests-limit: 3
 
     commit-message:
-      prefix: "build"
+      prefix: 'build'
