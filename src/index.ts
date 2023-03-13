@@ -68,5 +68,9 @@ app.use(function notFoundHandler(_req, res: Response) {
 });
 
 app.listen(port, () => {
-  console.log(`\nListening on http://localhost:${port}/\n`);
+  console.log(`\nServer ready and listening on port ${port}.`);
+  console.log('');
+  console.log(
+    `You can start making calls. Visit the docs at http://localhost:${port}/api/docs/ to check the avalaible endpoints.\n`
+  );
 });
