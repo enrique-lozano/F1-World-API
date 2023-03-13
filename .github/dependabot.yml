@@ -7,7 +7,7 @@ updates:
 
     target-branch: develop
     labels:
-      - 'type:build'
+      - 'type: build'
 
     open-pull-requests-limit: 3
 
