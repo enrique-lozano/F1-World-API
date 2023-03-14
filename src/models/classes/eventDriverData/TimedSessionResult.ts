@@ -7,14 +7,17 @@ export type TimedSessions =
   | 'fp3'
   | 'fp4'
   | 'warm-up'
-  | 'preQualifying';
+  | 'preQualifying'
+  | 'qualifying1'
+  | 'qualifying2';
 
 export type TimedSessionResultStorage = EventDriverDataInStorage &
-  Pick<TimedSessionResult, 'pos' | 'time' | 'laps'>;
+  Pick<TimedSessionResult, 'positionOrder' | 'positionText' | 'time' | 'laps'>;
 
 /** Common interface for timed sessions, like free practices, warm ups... */
 export class TimedSessionResult extends EventDriverData {
-  pos: number;
+  positionOrder: number;
+  positionText: string;
   laps?: number;
   time: number;
 
@@ -24,7 +27,8 @@ export class TimedSessionResult extends EventDriverData {
   ) {
     super({ ...completeObjects });
 
-    this.pos = data.pos;
+    this.positionOrder = data.positionOrder;
+    this.positionText = data.positionText;
     this.laps = data.laps;
     this.time = data.time;
   }

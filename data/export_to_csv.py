@@ -26,6 +26,8 @@ tables = [
     "lapTimes",
     "preQualifyingResults",
     "qualifyingResults",
+    "qualifying1_results",
+    "qualifying2_results",
     "fp1_results",
     "fp2_results",
     "fp3_results",

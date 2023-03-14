@@ -25,7 +25,7 @@ export interface TimedSessionResultQueryParams
   extends pageQueryParams,
     SorterQueryParams,
     EventEntrantQueryParamsWithoutSort {
-  pos?: number;
+  positionText?: number;
 
   /** @default eventId */
   orderBy?: keyof TimedSessionResultStorage;
@@ -43,7 +43,7 @@ export class TimedSessionResultService extends DbService {
       tableToGet = `${session}_results`;
     }
 
-    return `SELECT laps, pos, time, eventEntrants.*        \
+    return `SELECT laps, positionText, positionOrder, time, eventEntrants.*        \
           FROM eventEntrants                       \
               INNER JOIN                           \
               ${tableToGet} USING (                \
@@ -80,7 +80,8 @@ export class TimedSessionResultService extends DbService {
         searchQueries.push(`chassisManufacturerId = :chassisManufacturerId`);
       if (params.engineManufacturerId)
         searchQueries.push(`engineManufacturerId = :engineManufacturerId`);
-      if (params.pos) searchQueries.push(`pos = :pos`);
+      if (params.positionText)
+        searchQueries.push(`positionText = :positionText`);
       if (params.year)
         searchQueries.push(`cast(substr(eventId, 1, 4) as INT) = :year`);
 
