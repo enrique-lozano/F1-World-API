@@ -43,7 +43,9 @@ export class TimedSessionResultService extends DbService {
       tableToGet = `${session}_results`;
     }
 
-    return `SELECT laps, positionText, positionOrder, time, eventEntrants.*        \
+    return `SELECT laps, positionText, positionOrder, time, eventEntrants.*, \
+          CASE WHEN CAST(positionText as INT) > 0 \
+          THEN CAST(positionText as INT) ELSE null END as position \
           FROM eventEntrants                       \
               INNER JOIN                           \
               ${tableToGet} USING (                \

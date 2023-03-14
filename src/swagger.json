@@ -520,13 +520,20 @@
 					"positionText": {
 						"type": "string"
 					},
+					"position": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
 					"laps": {
 						"type": "number",
-						"format": "double"
+						"format": "double",
+						"description": "Number of laps completed in this session."
 					},
 					"time": {
 						"type": "number",
-						"format": "double"
+						"format": "double",
+						"description": "Time that gives the driver his/her position at the end of this session."
 					}
 				},
 				"required": [
@@ -540,6 +547,7 @@
 					"tyreManufacturer",
 					"positionOrder",
 					"positionText",
+					"position",
 					"time"
 				],
 				"type": "object",
@@ -604,6 +612,7 @@
 							"eventId",
 							"driverId",
 							"positionOrder",
+							"position",
 							"time",
 							"laps",
 							"entrantName",
@@ -1150,7 +1159,7 @@
 					"position": {
 						"type": "number",
 						"format": "double",
-						"description": "Finishing position in the race, converted to number. Will be `nan` if the driver has not finished the race"
+						"description": "Finishing position in the race, converted to number. Will be `null` if the driver has not finished the race"
 					},
 					"positionText": {
 						"anyOf": [
@@ -1303,6 +1312,7 @@
 							"eventId",
 							"driverId",
 							"positionOrder",
+							"position",
 							"time",
 							"laps",
 							"entrantName",
@@ -1313,7 +1323,6 @@
 							"seasonEntrantId",
 							"tyreManufacturerId",
 							"gridPos",
-							"position",
 							"timePenalty",
 							"gap",
 							"reasonRetired",
@@ -1378,13 +1387,20 @@
 					"positionText": {
 						"type": "string"
 					},
+					"position": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
 					"laps": {
 						"type": "number",
-						"format": "double"
+						"format": "double",
+						"description": "Number of laps completed in this session."
 					},
 					"time": {
 						"type": "number",
-						"format": "double"
+						"format": "double",
+						"description": "Time that gives the driver his/her position at the end of this session."
 					},
 					"q1Time": {
 						"type": "number",
@@ -1431,6 +1447,7 @@
 					"tyreManufacturer",
 					"positionOrder",
 					"positionText",
+					"position",
 					"time",
 					"q1Time",
 					"q2Time",
@@ -2034,6 +2051,7 @@
 								"eventId",
 								"driverId",
 								"positionOrder",
+								"position",
 								"time",
 								"laps",
 								"entrantName",
@@ -3350,6 +3368,7 @@
 								"eventId",
 								"driverId",
 								"positionOrder",
+								"position",
 								"time",
 								"laps",
 								"entrantName",
@@ -3360,7 +3379,6 @@
 								"seasonEntrantId",
 								"tyreManufacturerId",
 								"gridPos",
-								"position",
 								"timePenalty",
 								"gap",
 								"reasonRetired",
@@ -3778,6 +3796,7 @@
 								"eventId",
 								"driverId",
 								"positionOrder",
+								"position",
 								"time",
 								"laps",
 								"entrantName",
@@ -4055,6 +4074,7 @@
 								"eventId",
 								"driverId",
 								"positionOrder",
+								"position",
 								"time",
 								"laps",
 								"entrantName",
@@ -4344,6 +4364,7 @@
 								"eventId",
 								"driverId",
 								"positionOrder",
+								"position",
 								"time",
 								"laps",
 								"entrantName",
@@ -4674,6 +4695,7 @@
 								"eventId",
 								"driverId",
 								"positionOrder",
+								"position",
 								"time",
 								"laps",
 								"entrantName",
@@ -4684,7 +4706,6 @@
 								"seasonEntrantId",
 								"tyreManufacturerId",
 								"gridPos",
-								"position",
 								"timePenalty",
 								"gap",
 								"reasonRetired",
