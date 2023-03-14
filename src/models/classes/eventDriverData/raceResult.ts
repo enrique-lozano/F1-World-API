@@ -20,7 +20,7 @@ export type RaceResultStorage = EventDriverDataInStorage &
   };
 
 export class RaceResult extends EventDriverData {
-  /** Finishing position in the race, converted to number. Will be `nan` if the driver has not finished the race */
+  /** Finishing position in the race, converted to number. Will be `null` if the driver has not finished the race */
   position: number;
 
   /** Finishing position in the race. Could be `DNF`, `DNQ`... if the driver has not finished the race */

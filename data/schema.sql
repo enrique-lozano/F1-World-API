@@ -214,9 +214,10 @@ CREATE TABLE IF NOT EXISTS events
 -- Table: warming_up_results
 DROP TABLE IF EXISTS warming_up_results;
 CREATE TABLE IF NOT EXISTS warming_up_results
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, pos INTEGER
+, positionOrder INTEGER
+, positionText VARCHAR(3)
 , laps INTEGER
 , time INTEGER 
 , PRIMARY KEY (eventId, driverId)
@@ -225,9 +226,10 @@ CREATE TABLE IF NOT EXISTS warming_up_results
 -- Table: fp1_results
 DROP TABLE IF EXISTS fp1_results;
 CREATE TABLE IF NOT EXISTS fp1_results
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, pos INTEGER
+, positionOrder INTEGER
+, positionText VARCHAR(3)
 , laps INTEGER
 , time INTEGER
 , PRIMARY KEY (eventId, driverId)
@@ -236,9 +238,10 @@ CREATE TABLE IF NOT EXISTS fp1_results
 -- Table: fp2_results
 DROP TABLE IF EXISTS fp2_results;
 CREATE TABLE IF NOT EXISTS fp2_results
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, pos INTEGER
+, positionOrder INTEGER
+, positionText VARCHAR(3)
 , laps INTEGER
 , time INTEGER
 , PRIMARY KEY (eventId, driverId)
@@ -247,9 +250,10 @@ CREATE TABLE IF NOT EXISTS fp2_results
 -- Table: fp3_results
 DROP TABLE IF EXISTS fp3_results;
 CREATE TABLE IF NOT EXISTS fp3_results
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, pos INTEGER
+, positionOrder INTEGER
+, positionText VARCHAR(3)
 , laps INTEGER
 , time INTEGER
 , PRIMARY KEY (eventId, driverId)
@@ -258,9 +262,10 @@ CREATE TABLE IF NOT EXISTS fp3_results
 -- Table: fp4_results
 DROP TABLE IF EXISTS fp4_results;
 CREATE TABLE IF NOT EXISTS fp4_results
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, pos INTEGER
+, positionOrder INTEGER
+, positionText VARCHAR(3)
 , laps INTEGER
 , time INTEGER
 , PRIMARY KEY (eventId, driverId)
@@ -269,9 +274,10 @@ CREATE TABLE IF NOT EXISTS fp4_results
 -- Table: warmingUpResults
 DROP TABLE IF EXISTS warmingUpResults;
 CREATE TABLE IF NOT EXISTS warmingUpResults
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, pos INTEGER
+, positionOrder INTEGER
+, positionText VARCHAR(3)
 , laps INTEGER
 , time INTEGER
 , PRIMARY KEY (eventId, driverId)
@@ -280,9 +286,34 @@ CREATE TABLE IF NOT EXISTS warmingUpResults
 -- Table: preQualifyingResults
 DROP TABLE IF EXISTS preQualifyingResults;
 CREATE TABLE IF NOT EXISTS preQualifyingResults
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, pos INTEGER
+, positionOrder INTEGER
+, positionText VARCHAR(3)
+, laps INTEGER
+, time INTEGER
+, PRIMARY KEY (eventId, driverId)
+);
+
+-- Table: qualifying1_results
+DROP TABLE IF EXISTS qualifying1_results;
+CREATE TABLE IF NOT EXISTS qualifying1_results
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, positionOrder INTEGER
+, positionText VARCHAR(3)
+, laps INTEGER
+, time INTEGER
+, PRIMARY KEY (eventId, driverId)
+);
+
+-- Table: qualifying2_results
+DROP TABLE IF EXISTS qualifying2_results;
+CREATE TABLE IF NOT EXISTS qualifying2_results
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
+, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+, positionOrder INTEGER
+, positionText VARCHAR(3)
 , laps INTEGER
 , time INTEGER
 , PRIMARY KEY (eventId, driverId)
@@ -291,25 +322,22 @@ CREATE TABLE IF NOT EXISTS preQualifyingResults
 -- Table: qualifyingResults
 DROP TABLE IF EXISTS qualifyingResults;
 CREATE TABLE IF NOT EXISTS qualifyingResults
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, pos INTEGER
+, positionOrder INTEGER
+, positionText VARCHAR(3)
 , time INTEGER
-, qualy1Time INTEGER
-, qualy1Pos INTEGER
-, qualy2Time INTEGER
-, qualy2Pos INTEGER
 , laps INTEGER
-, Q1 INTEGER
-, Q2 INTEGER
-, Q3 INTEGER
+, q1Time INTEGER
+, q2Time INTEGER
+, q3Time INTEGER
 , PRIMARY KEY (eventId, driverId)
 );
 
 -- Table: raceResults
 DROP TABLE IF EXISTS raceResults;
 CREATE TABLE IF NOT EXISTS raceResults
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , positionText VARCHAR(4) NOT NULL
 , positionOrder INTEGER NOT NULL
@@ -327,7 +355,7 @@ CREATE TABLE IF NOT EXISTS raceResults
 -- Table: sprintQualifyingResults
 DROP TABLE IF EXISTS sprintQualifyingResults;
 CREATE TABLE IF NOT EXISTS sprintQualifyingResults
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , positionText VARCHAR(4) NOT NULL
 , positionOrder INTEGER NOT NULL
@@ -344,7 +372,7 @@ CREATE TABLE IF NOT EXISTS sprintQualifyingResults
 -- Table: redFlags
 DROP TABLE IF EXISTS redFlags;
 CREATE TABLE IF NOT EXISTS redFlags
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , lap INTEGER NOT NULL
 , incident VARCHAR(255)
 , excluded VARCHAR(2000)
@@ -354,7 +382,7 @@ CREATE TABLE IF NOT EXISTS redFlags
 -- Table: safetyCars
 DROP TABLE IF EXISTS safetyCars;
 CREATE TABLE IF NOT EXISTS safetyCars
-( eventId INTEGER NOT NULL REFERENCES events(id)
+( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , deployed INTEGER NOT NULL
 , fullLaps INTEGER
 , retreated INTEGER

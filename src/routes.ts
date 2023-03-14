@@ -31,6 +31,8 @@ import { DriverStandingService } from './services/driver-standings.service';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { PreQualifyingResultService } from './services/preQualifyingResult.service';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+import { QualifyingResultService } from './services/qualifyingResult.service';
+// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { sprintQualifyingResultService } from './services/sprintQualifyingResult.service';
 import type { RequestHandler, Router } from 'express';
 
@@ -197,7 +199,9 @@ const models: TsoaRoute.Models = {
             "tyreManufacturer": {"ref":"TyreManufacturer","required":true},
             "driverNumber": {"dataType":"double"},
             "note": {"dataType":"string"},
-            "pos": {"dataType":"double","required":true},
+            "positionOrder": {"dataType":"double","required":true},
+            "positionText": {"dataType":"string","required":true},
+            "position": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "laps": {"dataType":"double"},
             "time": {"dataType":"double","required":true},
         },
@@ -220,8 +224,8 @@ const models: TsoaRoute.Models = {
             "eventId": {"dataType":"string"},
             "year": {"dataType":"double"},
             "driverId": {"dataType":"string"},
-            "pos": {"dataType":"double"},
-            "orderBy": {"dataType":"enum","enums":["chassisManufacturerId","engineManufacturerId","pos","eventId","driverId","time","laps","entrantName","chassisName","engineName","driverNumber","note","seasonEntrantId","tyreManufacturerId"],"default":"eventId"},
+            "positionText": {"dataType":"double"},
+            "orderBy": {"dataType":"enum","enums":["chassisManufacturerId","engineManufacturerId","positionText","eventId","driverId","positionOrder","position","time","laps","entrantName","chassisName","engineName","driverNumber","note","seasonEntrantId","tyreManufacturerId"],"default":"eventId"},
         },
         "additionalProperties": false,
     },
@@ -270,7 +274,7 @@ const models: TsoaRoute.Models = {
             "driverId": {"dataType":"string"},
             "pos": {"dataType":"double"},
             "lap": {"dataType":"double"},
-            "orderBy": {"dataType":"enum","enums":["chassisManufacturerId","engineManufacturerId","pos","eventId","driverId","time","entrantName","chassisName","engineName","driverNumber","note","seasonEntrantId","tyreManufacturerId","lap"],"default":"eventId"},
+            "orderBy": {"dataType":"enum","enums":["chassisManufacturerId","engineManufacturerId","eventId","driverId","time","entrantName","chassisName","engineName","driverNumber","note","seasonEntrantId","tyreManufacturerId","pos","lap"],"default":"eventId"},
         },
         "additionalProperties": false,
     },
@@ -407,7 +411,37 @@ const models: TsoaRoute.Models = {
             "positionText": {"dataType":"string"},
             "minPos": {"dataType":"double"},
             "maxPos": {"dataType":"double"},
-            "orderBy": {"dataType":"enum","enums":["chassisManufacturerId","engineManufacturerId","eventId","driverId","time","laps","entrantName","chassisName","engineName","driverNumber","note","seasonEntrantId","tyreManufacturerId","gridPos","positionText","positionOrder","position","timePenalty","gap","reasonRetired","points","pointsGained","pointsCountForWDC"],"default":"eventId"},
+            "orderBy": {"dataType":"enum","enums":["chassisManufacturerId","engineManufacturerId","positionText","eventId","driverId","positionOrder","position","time","laps","entrantName","chassisName","engineName","driverNumber","note","seasonEntrantId","tyreManufacturerId","gridPos","timePenalty","gap","reasonRetired","points","pointsGained","pointsCountForWDC"],"default":"eventId"},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "QualifyingResult": {
+        "dataType": "refObject",
+        "properties": {
+            "driver": {"ref":"Driver","required":true},
+            "race": {"ref":"Event","required":true},
+            "seasonEntrant": {"dataType":"union","subSchemas":[{"ref":"SeasonEntrant"},{"dataType":"enum","enums":[null]}],"required":true},
+            "entrantName": {"dataType":"string","required":true},
+            "chassisManufacturer": {"ref":"Company","required":true},
+            "chassisName": {"dataType":"string","required":true},
+            "engineManufacturer": {"ref":"Company","required":true},
+            "engineName": {"dataType":"string"},
+            "tyreManufacturer": {"ref":"TyreManufacturer","required":true},
+            "driverNumber": {"dataType":"double"},
+            "note": {"dataType":"string"},
+            "positionOrder": {"dataType":"double","required":true},
+            "positionText": {"dataType":"string","required":true},
+            "position": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
+            "laps": {"dataType":"double"},
+            "time": {"dataType":"double","required":true},
+            "q1Time": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
+            "q2Time": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
+            "q3Time": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
+            "qualy1Time": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
+            "qualy1Pos": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+            "qualy2Time": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
+            "qualy2Pos": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
         },
         "additionalProperties": false,
     },
@@ -1224,6 +1258,165 @@ export function RegisterRoutes(app: Router) {
                 validatedArgs = getValidatedArgs(args, request, response);
 
                 const controller = new PreQualifyingResultService();
+
+
+              const promise = controller.getDriverSessionResult.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/qualifyings/results/resume',
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService)),
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService.prototype.getQualifyingsResults)),
+
+            function QualifyingResultService_getQualifyingsResults(request: any, response: any, next: any) {
+            const args = {
+                    filters: {"in":"queries","name":"filters","required":true,"ref":"TimedSessionResultQueryParams"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new QualifyingResultService();
+
+
+              const promise = controller.getQualifyingsResults.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/qualifyings/results/resume/:eventId',
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService)),
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService.prototype.getQualifyingResults)),
+
+            function QualifyingResultService_getQualifyingResults(request: any, response: any, next: any) {
+            const args = {
+                    eventId: {"in":"path","name":"eventId","required":true,"dataType":"string"},
+                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new QualifyingResultService();
+
+
+              const promise = controller.getQualifyingResults.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/qualifyings/results/resume/:eventId/:driverId',
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService)),
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService.prototype.getQualifyingResult)),
+
+            function QualifyingResultService_getQualifyingResult(request: any, response: any, next: any) {
+            const args = {
+                    eventId: {"in":"path","name":"eventId","required":true,"dataType":"string"},
+                    driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
+                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new QualifyingResultService();
+
+
+              const promise = controller.getQualifyingResult.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/qualifyings/:session/results',
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService)),
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService.prototype.getSessionsResults)),
+
+            function QualifyingResultService_getSessionsResults(request: any, response: any, next: any) {
+            const args = {
+                    session: {"in":"path","name":"session","required":true,"dataType":"union","subSchemas":[{"dataType":"enum","enums":["qualifying1"]},{"dataType":"enum","enums":["qualifying2"]}]},
+                    filters: {"in":"queries","name":"filters","required":true,"ref":"TimedSessionResultQueryParams"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new QualifyingResultService();
+
+
+              const promise = controller.getSessionsResults.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/qualifyings/:session/results/:eventId',
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService)),
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService.prototype.getSessionResults)),
+
+            function QualifyingResultService_getSessionResults(request: any, response: any, next: any) {
+            const args = {
+                    session: {"in":"path","name":"session","required":true,"dataType":"union","subSchemas":[{"dataType":"enum","enums":["qualifying1"]},{"dataType":"enum","enums":["qualifying2"]}]},
+                    eventId: {"in":"path","name":"eventId","required":true,"dataType":"string"},
+                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new QualifyingResultService();
+
+
+              const promise = controller.getSessionResults.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/qualifyings/:session/results/:eventId/:driverId',
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService)),
+            ...(fetchMiddlewares<RequestHandler>(QualifyingResultService.prototype.getDriverSessionResult)),
+
+            function QualifyingResultService_getDriverSessionResult(request: any, response: any, next: any) {
+            const args = {
+                    session: {"in":"path","name":"session","required":true,"dataType":"union","subSchemas":[{"dataType":"enum","enums":["qualifying1"]},{"dataType":"enum","enums":["qualifying2"]}]},
+                    eventId: {"in":"path","name":"eventId","required":true,"dataType":"string"},
+                    driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
+                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new QualifyingResultService();
 
 
               const promise = controller.getDriverSessionResult.apply(controller, validatedArgs as any);
