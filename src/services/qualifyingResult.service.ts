@@ -21,10 +21,27 @@ import {
 @Tags('Qualifyings')
 export class QualifyingResultService extends DbService {
   private readonly selectQuery =
-    'SELECT qualifyingResults.laps,  qualifyingResults.positionText,     qualifyingResults.positionOrder,    qualifyingResults.time,  qualifying1_results.time AS qualy1Time,       qualifying1_results.positionText AS qualy1Pos,qualifying2_results.time AS qualy2Time,       qualifying2_results.positionText AS qualy2Pos,q1Time,       q2Time,       q3Time,       eventEntrants.*, \
-          CASE WHEN CAST(qualifyingResults.positionText as INT) > 0 \
-          THEN CAST(qualifyingResults.positionText as INT) ELSE null END as position \
-     FROM qualifyingResults        LEFT JOIN     qualifying1_results USING (           eventId,          driverId      )       LEFT JOIN       qualifying2_results USING (eventId, driverId )  INNER JOIN  eventEntrants USING (eventId, driverId )';
+    'SELECT qualifyingResults.laps, \
+      qualifyingResults.positionText, \
+      qualifyingResults.positionOrder, \
+      qualifyingResults.time, \
+      qualifying1_results.time AS qualy1Time, \
+      qualifying1_results.positionText AS qualy1Pos, \
+      qualifying2_results.time AS qualy2Time, \
+      qualifying2_results.positionText AS qualy2Pos, \
+      q1Time, \
+      q2Time, \
+      q3Time, \
+      eventEntrants.*, \
+      CASE \
+        WHEN CAST(qualifyingResults.positionText as INT) > 0 \
+        THEN CAST(qualifyingResults.positionText as INT) \
+        ELSE null \
+      END as position \
+    FROM qualifyingResults \
+    LEFT JOIN qualifying1_results USING (eventId, driverId) \
+    LEFT JOIN qualifying2_results USING (eventId, driverId) \
+    INNER JOIN eventEntrants USING (eventId, driverId)';
 
   private instanciateNewClass(res: QualifyingResultStorage) {
     return new QualifyingResult(
