@@ -12,7 +12,8 @@ export type RaceResultStorage = EventDriverDataInStorage &
     | 'timePenalty'
     | 'gap'
     | 'reasonRetired'
-    | 'gridPos'
+    | 'gridPosition'
+    | 'gridPenalty'
     | 'points'
     | 'pointsGained'
   > & {
@@ -51,7 +52,11 @@ export class RaceResult extends EventDriverData {
    */
   pointsCountForWDC: boolean;
 
-  gridPos: string;
+  /** The started grid position of the driver for this races, after apply penalties (if any). Will be `PL` if the driver started from the Pit Lane */
+  gridPosition: string;
+
+  /** Number of starting grid positions with which the driver has been penalized before starting the race. It will be `SFB` if the driver is forced to start from the back of the grid */
+  gridPenalty: string;
 
   /** The positions gained during the race */
   positionsGained?: number;
@@ -73,13 +78,14 @@ export class RaceResult extends EventDriverData {
     this.gap = data.gap;
 
     this.reasonRetired = data.reasonRetired;
-    this.gridPos = data.gridPos;
+    this.gridPosition = data.gridPosition;
+    this.gridPenalty = data.gridPenalty;
 
     this.points = data.points;
     this.pointsGained = data.pointsGained ?? data.points;
     this.pointsCountForWDC = data.pointsCountForWDC === 0 ? false : true;
 
-    if (this.position && Number(this.gridPos))
-      this.positionsGained = Number(this.gridPos) - this.position;
+    if (this.positionOrder && Number(this.gridPosition))
+      this.positionsGained = Number(this.gridPosition) - this.positionOrder;
   }
 }
