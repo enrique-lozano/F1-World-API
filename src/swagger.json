@@ -1212,8 +1212,13 @@
 						"type": "boolean",
 						"description": "Whether or not the result counts for the final calculation of the WDC points (at the end of the year). It is usually true, except in some cases until 1990, where only the N best results were taken into account."
 					},
-					"gridPos": {
-						"type": "string"
+					"gridPosition": {
+						"type": "string",
+						"description": "The started grid position of the driver for this races, after apply penalties (if any). Will be `PL` if the driver started from the Pit Lane"
+					},
+					"gridPenalty": {
+						"type": "string",
+						"description": "Number of starting grid positions with which the driver has been penalized before starting the race. It will be `SFB` if the driver is forced to start from the back of the grid"
 					},
 					"positionsGained": {
 						"type": "number",
@@ -1241,7 +1246,8 @@
 					"points",
 					"pointsGained",
 					"pointsCountForWDC",
-					"gridPos"
+					"gridPosition",
+					"gridPenalty"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1322,10 +1328,11 @@
 							"note",
 							"seasonEntrantId",
 							"tyreManufacturerId",
-							"gridPos",
 							"timePenalty",
 							"gap",
 							"reasonRetired",
+							"gridPosition",
+							"gridPenalty",
 							"points",
 							"pointsGained",
 							"pointsCountForWDC"
@@ -3378,10 +3385,11 @@
 								"note",
 								"seasonEntrantId",
 								"tyreManufacturerId",
-								"gridPos",
 								"timePenalty",
 								"gap",
 								"reasonRetired",
+								"gridPosition",
+								"gridPenalty",
 								"points",
 								"pointsGained",
 								"pointsCountForWDC"
@@ -4705,10 +4713,11 @@
 								"note",
 								"seasonEntrantId",
 								"tyreManufacturerId",
-								"gridPos",
 								"timePenalty",
 								"gap",
 								"reasonRetired",
+								"gridPosition",
+								"gridPenalty",
 								"points",
 								"pointsGained",
 								"pointsCountForWDC"
