@@ -339,8 +339,8 @@ DROP TABLE IF EXISTS raceResults;
 CREATE TABLE IF NOT EXISTS raceResults
 ( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, positionText VARCHAR(4) NOT NULL
 , positionOrder INTEGER NOT NULL
+, positionText VARCHAR(4) NOT NULL
 , time INTEGER
 , gridPosition INTEGER
 , gridPenalty VARCHAR(10)
