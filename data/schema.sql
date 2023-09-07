@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS countries
 -- Table: countriesOfficialNames
 DROP TABLE IF EXISTS countriesOfficialNames;
 CREATE TABLE IF NOT EXISTS countriesOfficialNames
-( countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+( countryId VARCHAR(255)  PRIMARY KEY NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code) 
 , en VARCHAR(255) COLLATE NOCASE NOT NULL
 , ces VARCHAR(255) COLLATE NOCASE
 , deu VARCHAR(255) COLLATE NOCASE
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS countriesOfficialNames
 -- Table: countriesCommonNames
 DROP TABLE IF EXISTS countriesCommonNames;
 CREATE TABLE IF NOT EXISTS countriesCommonNames
-( countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+( countryId VARCHAR(255)  PRIMARY KEY NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
 , en VARCHAR(255) COLLATE NOCASE NOT NULL
 , ces VARCHAR(255) COLLATE NOCASE
 , deu VARCHAR(255) COLLATE NOCASE
@@ -129,8 +129,8 @@ CREATE TABLE IF NOT EXISTS drivers
 , abbreviation VARCHAR(3) NOT NULL COLLATE NOCASE
 , permanentNumber VARCHAR(2) COLLATE NOCASE
 , gender VARCHAR(255) NOT NULL COLLATE NOCASE
-, dateOfBirth DATE NOT NULL
-, dateOfDeath DATE
+, dateOfBirth VARCHAR(11) NOT NULL
+, dateOfDeath VARCHAR(11)
 , placeOfBirth VARCHAR(255) NOT NULL COLLATE NOCASE
 , countryOfBirthCountryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
 , nationalityCountryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
@@ -202,7 +202,7 @@ CREATE TABLE IF NOT EXISTS pitStops
 DROP TABLE IF EXISTS events;
 CREATE TABLE IF NOT EXISTS events
 ( id VARCHAR(10) NOT NULL PRIMARY KEY
-, raceDate DATE NOT NULL
+, raceDate VARCHAR(11) NOT NULL
 , grandPrixId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES grandsPrix(id)
 , name VARCHAR(255) NOT NULL COLLATE NOCASE
 , qualyFormat VARCHAR(255) NOT NULL COLLATE NOCASE
@@ -346,11 +346,12 @@ CREATE TABLE IF NOT EXISTS raceResults
 , gridPenalty VARCHAR(10)
 , laps INTEGER
 , points INTEGER
-, pointsCountForWDC BOOL
+, pointsCountForWDC BOOLEAN
 , pointsGained INTEGER
 , gap VARCHAR(255)
 , timePenalty INTEGER
 , reasonRetired VARCHAR(255)
+, PRIMARY KEY (eventId, driverId, positionOrder)
 );
 
 -- Table: sprintQualifyingResults
@@ -367,6 +368,7 @@ CREATE TABLE IF NOT EXISTS sprintQualifyingResults
 , gap VARCHAR(255)
 , timePenalty INTEGER
 , reasonRetired VARCHAR(255)
+, PRIMARY KEY (eventId, driverId)
 );
 
 
@@ -375,9 +377,10 @@ DROP TABLE IF EXISTS redFlags;
 CREATE TABLE IF NOT EXISTS redFlags
 ( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
 , lap INTEGER NOT NULL
-, incident VARCHAR(255)
+, incident VARCHAR(255) NOT NULL
 , excluded VARCHAR(2000)
 , resumed VARCHAR(1)
+, PRIMARY KEY (eventId, lap, incident)
 );
 
 -- Table: safetyCars
@@ -407,13 +410,14 @@ CREATE TABLE IF NOT EXISTS eventEntrants
 , driverId TEXT NOT NULL REFERENCES drivers(id)
 , driverNumber INTEGER NOT NULL
 , seasonEntrantId VARCHAR(255) REFERENCES seasonEntrants(id)
-, entrantName VARCHAR(255)
-, chassisManufacturerId VARCHAR(255) REFERENCES companies(id)
+, entrantName VARCHAR(255) NOT NULL
+, chassisManufacturerId VARCHAR(255) REFERENCES companies(id) NOT NULL
 , chassisName VARCHAR(255)
 , engineName VARCHAR(255)
-, engineManufacturerId VARCHAR(255)  REFERENCES companies(id)
+, engineManufacturerId VARCHAR(255)  REFERENCES companies(id) NOT NULL
 , tyreManufacturerId VARCHAR(255) REFERENCES tyreManufacturers(id)
 , note VARCHAR(255)
+, PRIMARY KEY (eventId, driverId, driverNumber, entrantName, chassisManufacturerId)
 );
 
 COMMIT TRANSACTION;
