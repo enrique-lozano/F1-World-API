@@ -5,5 +5,6 @@
   "conventionalCommits.scopes": ["security"],
   "yaml.schemas": {
     "https://json.schemastore.org/github-issue-config.json": "file:///c%3A/Users/kikel/Desktop/backend-f1/.github/ISSUE_TEMPLATE/config.yml"
-  }
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

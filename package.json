@@ -7,7 +7,7 @@
     "build": "npm run swagger & tsc",
     "start": "npm run build & node dist/index.js",
     "start:dev": "ts-node-dev src/index.ts",
-    "swagger": "tsoa spec-and-routes",
+    "swagger": "npx tsoa spec-and-routes --basePath='/api'",
     "prettier": "prettier --write \"src/**/*{json,js,ts}\"",
     "prettier:check": "prettier --check \"src/**/*{json,js,ts}\"",
     "prepare": "husky install"
@@ -20,6 +20,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "husky": "^8.0.3",
+    "kysely": "^0.26.3",
     "swagger-ui-express": "^4.6.2",
     "tslib": "^2.5.0",
     "tsoa": "^5.1.1"

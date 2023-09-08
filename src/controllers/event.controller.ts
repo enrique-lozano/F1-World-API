@@ -2,21 +2,21 @@ import { Get, Path, Queries, Route, Tags } from 'tsoa';
 import { Event, EventInDB } from '../models/classes/event';
 import {
   PageMetadata,
-  pageQueryParams,
+  PageQueryParams,
   Paginator
 } from '../models/interfaces/paginated-items';
 import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+import { DbService } from '../services/db.service';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import { CircuitService } from './circuit.service';
-import { DbService } from './db.service';
-import { EventEntrantService } from './eventEntrant.service';
-import { FreePracticeResultService } from './freePracticeResult.service';
-import { GrandPrixService } from './grandPrix.service';
-import { LapService } from './lap.service';
-import { PitStopService } from './pitStop.service';
-import { RaceResultService } from './raceResult.service';
+import { CircuitService } from './circuit.controller';
+import { EventEntrantService } from './eventEntrant.controller';
+import { FreePracticeResultService } from './freePracticeResult.controller';
+import { GrandPrixService } from './grandPrix.controller';
+import { LapService } from './lap.controller';
+import { PitStopService } from './pitStop.controller';
+import { RaceResultService } from './raceResult.controller';
 
-interface EventQueryParams extends pageQueryParams, SorterQueryParams {
+interface EventQueryParams extends PageQueryParams, SorterQueryParams {
   circuitId?: string;
 
   year?: number;
@@ -34,7 +34,7 @@ export class EventService extends DbService {
     );
     const circuit = this.circuitService.getById(elToInstanciate.circuitId);
 
-    return new Event(elToInstanciate, circuit, grandPrix);
+    return new Event(elToInstanciate, null as any, grandPrix);
   }
 
   /** Get events based on some params */ @Get('/')

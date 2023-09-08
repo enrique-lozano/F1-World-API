@@ -1,27 +1,27 @@
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
 import {
+  RaceResult,
+  RaceResultStorage
+} from '../models/classes/eventDriverData/raceResult';
+import {
   PageMetadata,
-  pageQueryParams,
+  PageQueryParams,
   Paginator
 } from '../models/interfaces/paginated-items';
 import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+import { DbService } from '../services/db.service';
 import {
   ErrorMessage,
   sendTsoaError
 } from '../utils/custom-error/custom-error';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
 import {
-  RaceResult,
-  RaceResultStorage
-} from './../models/classes/eventDriverData/raceResult';
-import { DbService } from './db.service';
-import {
   EventEntrantQueryParamsWithoutSort,
   EventEntrantService
-} from './eventEntrant.service';
+} from './eventEntrant.controller';
 
 export interface RaceResultQueryParams
-  extends pageQueryParams,
+  extends PageQueryParams,
     SorterQueryParams,
     EventEntrantQueryParamsWithoutSort {
   /** Filter by a specific grid postion text */

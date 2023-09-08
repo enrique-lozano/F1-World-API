@@ -5,17 +5,17 @@ import {
 } from '../models/classes/eventDriverData/qualifyingResult';
 import { PageMetadata, Paginator } from '../models/interfaces/paginated-items';
 import { Sorter } from '../models/interfaces/sorter';
+import { DbService } from '../services/db.service';
 import {
   ErrorMessage,
   sendTsoaError
 } from '../utils/custom-error/custom-error';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import { DbService } from './db.service';
-import { EventEntrantService } from './eventEntrant.service';
+import { EventEntrantService } from './eventEntrant.controller';
 import {
   TimedSessionResultQueryParams,
   TimedSessionResultService
-} from './timedSessionResult.service';
+} from './timedSessionResult.controller';
 
 @Route('qualifyings')
 @Tags('Qualifyings')

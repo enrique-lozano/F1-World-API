@@ -6,23 +6,23 @@ import {
 } from '../models/classes/eventDriverData/TimedSessionResult';
 import {
   PageMetadata,
-  pageQueryParams,
+  PageQueryParams,
   Paginator
 } from '../models/interfaces/paginated-items';
 import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+import { DbService } from '../services/db.service';
 import {
   ErrorMessage,
   sendTsoaError
 } from '../utils/custom-error/custom-error';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import { DbService } from './db.service';
 import {
   EventEntrantQueryParamsWithoutSort,
   EventEntrantService
-} from './eventEntrant.service';
+} from './eventEntrant.controller';
 
 export interface TimedSessionResultQueryParams
-  extends pageQueryParams,
+  extends PageQueryParams,
     SorterQueryParams,
     EventEntrantQueryParamsWithoutSort {
   positionText?: number;

@@ -5,19 +5,19 @@ import {
 } from '../models/classes/eventDriverData/pitStop';
 import {
   PageMetadata,
-  pageQueryParams,
+  PageQueryParams,
   Paginator
 } from '../models/interfaces/paginated-items';
 import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+import { DbService } from '../services/db.service';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import { DbService } from './db.service';
 import {
   EventEntrantQueryParamsWithoutSort,
   EventEntrantService
-} from './eventEntrant.service';
+} from './eventEntrant.controller';
 
 interface PitStopQueryParams
-  extends pageQueryParams,
+  extends PageQueryParams,
     SorterQueryParams,
     EventEntrantQueryParamsWithoutSort {
   lap?: number;

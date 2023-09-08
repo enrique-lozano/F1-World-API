@@ -5,7 +5,7 @@
     "outputDirectory": "src",
     "specVersion": 3
   },
-  "controllerPathGlobs": ["src/**/services/*.ts"],
+  "controllerPathGlobs": ["src/**/*.controller{.ts,.js}"],
   "routes": {
     "routesDir": "src"
   }

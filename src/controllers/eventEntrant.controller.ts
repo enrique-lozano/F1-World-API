@@ -5,20 +5,20 @@ import {
 } from '../models/classes/eventDriverData/eventDriverData';
 import {
   PageMetadata,
-  pageQueryParams,
+  PageQueryParams,
   Paginator
 } from '../models/interfaces/paginated-items';
 import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+import { DbService } from '../services/db.service';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import { CompanyService } from './company.service';
-import { DbService } from './db.service';
-import { DriverService } from './driver.service';
-import { EventService } from './event.service';
-import { SeasonEntrantService } from './seasonEntrant.service';
-import { TyreManufacturerService } from './tyreManufacturer.service';
+import { CompanyService } from './company.controller';
+import { DriverService } from './driver.controller';
+import { EventService } from './event.controller';
+import { SeasonEntrantService } from './seasonEntrant.controller';
+import { TyreManufacturerService } from './tyreManufacturer.controller';
 
 export interface EventEntrantQueryParamsWithoutSort
-  extends pageQueryParams,
+  extends PageQueryParams,
     SorterQueryParams {
   /** If specified, the call will return only the results where the company that has this ID appears as the chassis manufacturer */
   chassisManufacturerId?: string;

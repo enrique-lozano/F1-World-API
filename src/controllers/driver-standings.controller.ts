@@ -1,8 +1,8 @@
 import { Get, Path, Query, Route, Tags } from 'tsoa';
+import { DbService } from '../services/db.service';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import { DbService } from './db.service';
-import { DriverService } from './driver.service';
-import { RaceResultService } from './raceResult.service';
+import { DriverService } from './driver.controller';
+import { RaceResultService } from './raceResult.controller';
 
 @Route('championships')
 @Tags('Championships')

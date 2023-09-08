@@ -2,8 +2,8 @@ import {
   SeasonEntrant,
   SeasonEntrantStorage
 } from '../models/classes/seasonEntrant';
-import { CountryService } from './countries.service';
-import { DbService } from './db.service';
+import { DbService } from '../services/db.service';
+import { CountryService } from './countries.controller';
 
 export class SeasonEntrantService extends DbService {
   private instanciateNewClass(entrant: SeasonEntrantStorage) {

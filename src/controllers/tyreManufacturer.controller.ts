@@ -3,8 +3,8 @@ import {
   TyreManufacturer,
   TyreManufacturerStorage
 } from '../models/classes/tyreManufacturer';
-import { CountryService } from './countries.service';
-import { DbService } from './db.service';
+import { DbService } from '../services/db.service';
+import { CountryService } from './countries.controller';
 
 @Route('tyre-manufacturers')
 @Tags('Tyre Manufacturers')

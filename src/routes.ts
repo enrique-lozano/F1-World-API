@@ -3,67 +3,51 @@
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute, HttpStatusCodeLiteral, TsoaResponse, fetchMiddlewares } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { CountryService } from './services/countries.service';
+import { CountryService } from './controllers/countries.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { CircuitService } from './services/circuit.service';
+import { CircuitService } from './controllers/circuit.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { CompanyService } from './services/company.service';
+import { CompanyService } from './controllers/company.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { DriverService } from './services/driver.service';
+import { DriverService } from './controllers/driver.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { FreePracticeResultService } from './services/freePracticeResult.service';
+import { FreePracticeResultService } from './controllers/freePracticeResult.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { GrandPrixService } from './services/grandPrix.service';
+import { GrandPrixService } from './controllers/grandPrix.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { LapService } from './services/lap.service';
+import { LapService } from './controllers/lap.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { PitStopService } from './services/pitStop.service';
+import { PitStopService } from './controllers/pitStop.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { EventService } from './services/event.service';
+import { EventService } from './controllers/event.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { TyreManufacturerService } from './services/tyreManufacturer.service';
+import { TyreManufacturerService } from './controllers/tyreManufacturer.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { EventEntrantService } from './services/eventEntrant.service';
+import { EventEntrantService } from './controllers/eventEntrant.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { RaceResultService } from './services/raceResult.service';
+import { RaceResultService } from './controllers/raceResult.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { DriverStandingService } from './services/driver-standings.service';
+import { DriverStandingService } from './controllers/driver-standings.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { PreQualifyingResultService } from './services/preQualifyingResult.service';
+import { PreQualifyingResultService } from './controllers/preQualifyingResult.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { QualifyingResultService } from './services/qualifyingResult.service';
+import { QualifyingResultService } from './controllers/qualifyingResult.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { sprintQualifyingResultService } from './services/sprintQualifyingResult.service';
+import { sprintQualifyingResultService } from './controllers/sprintQualifyingResult.controller';
 import type { RequestHandler, Router } from 'express';
 
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
 const models: TsoaRoute.Models = {
-    "Country": {
+    "CountryDTO": {
         "dataType": "refObject",
         "properties": {
             "alpha2Code": {"dataType":"string","required":true},
             "alpha3Code": {"dataType":"string","required":true},
             "region": {"dataType":"string","required":true},
-            "subregion": {"dataType":"string","required":true},
+            "subregion": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
             "commonName": {"dataType":"string","required":true},
             "officialName": {"dataType":"string","required":true},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "Circuit": {
-        "dataType": "refObject",
-        "properties": {
-            "id": {"dataType":"string","required":true},
-            "name": {"dataType":"string","required":true},
-            "fullName": {"dataType":"string","required":true},
-            "previousNames": {"dataType":"string","required":true},
-            "type": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["RACE"]},{"dataType":"enum","enums":["ROAD"]},{"dataType":"enum","enums":["STREET"]}],"required":true},
-            "placeName": {"dataType":"string","required":true},
-            "country": {"ref":"Country","required":true},
-            "latitude": {"dataType":"double","required":true},
-            "longitude": {"dataType":"double","required":true},
         },
         "additionalProperties": false,
     },
@@ -75,6 +59,44 @@ const models: TsoaRoute.Models = {
             "totalElements": {"dataType":"double","required":true},
             "totalPages": {"dataType":"double","required":true},
             "currentPage": {"dataType":"double","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "CircuitDTO": {
+        "dataType": "refObject",
+        "properties": {
+            "id": {"dataType":"string","required":true},
+            "name": {"dataType":"string","required":true},
+            "fullName": {"dataType":"string","required":true},
+            "previousNames": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+            "type": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["RACE"]},{"dataType":"enum","enums":["ROAD"]},{"dataType":"enum","enums":["STREET"]}],"required":true},
+            "placeName": {"dataType":"string","required":true},
+            "latitude": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+            "longitude": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+            "country": {"dataType":"union","subSchemas":[{"ref":"CountryDTO"},{"dataType":"enum","enums":[null]}],"required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "PageQueryParams": {
+        "dataType": "refObject",
+        "properties": {
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "Country": {
+        "dataType": "refObject",
+        "properties": {
+            "alpha2Code": {"dataType":"string","required":true},
+            "alpha3Code": {"dataType":"string","required":true},
+            "region": {"dataType":"string","required":true},
+            "subregion": {"dataType":"string","required":true},
+            "commonName": {"dataType":"string","required":true},
+            "officialName": {"dataType":"string","required":true},
         },
         "additionalProperties": false,
     },
@@ -95,8 +117,8 @@ const models: TsoaRoute.Models = {
     "CompanyQueryParams": {
         "dataType": "refObject",
         "properties": {
-            "pageNo": {"dataType":"double","default":"0"},
-            "pageSize": {"dataType":"double","default":"10"},
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "specialty": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["engine"]},{"dataType":"enum","enums":["chassis"]}]},
         },
         "additionalProperties": false,
@@ -132,6 +154,22 @@ const models: TsoaRoute.Models = {
     "qualyFormat": {
         "dataType": "refEnum",
         "enums": ["FOUR_LAPS","TWO_SESSION","ONE_SESSION","ONE_LAP","AGGREGATE","KNOCKOUT","ELIMINATION","SPRINT_RACE"],
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "Circuit": {
+        "dataType": "refObject",
+        "properties": {
+            "id": {"dataType":"string","required":true},
+            "name": {"dataType":"string","required":true},
+            "fullName": {"dataType":"string","required":true},
+            "previousNames": {"dataType":"string","required":true},
+            "type": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["RACE"]},{"dataType":"enum","enums":["ROAD"]},{"dataType":"enum","enums":["STREET"]}],"required":true},
+            "placeName": {"dataType":"string","required":true},
+            "country": {"ref":"Country","required":true},
+            "latitude": {"dataType":"double","required":true},
+            "longitude": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
+        },
+        "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "GrandPrix": {
@@ -216,8 +254,8 @@ const models: TsoaRoute.Models = {
     "TimedSessionResultQueryParams": {
         "dataType": "refObject",
         "properties": {
-            "pageNo": {"dataType":"double","default":"0"},
-            "pageSize": {"dataType":"double","default":"10"},
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"ASC"},
             "chassisManufacturerId": {"dataType":"string"},
             "engineManufacturerId": {"dataType":"string"},
@@ -264,8 +302,8 @@ const models: TsoaRoute.Models = {
     "LapQueryParams": {
         "dataType": "refObject",
         "properties": {
-            "pageNo": {"dataType":"double","default":"0"},
-            "pageSize": {"dataType":"double","default":"10"},
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"ASC"},
             "chassisManufacturerId": {"dataType":"string"},
             "engineManufacturerId": {"dataType":"string"},
@@ -304,8 +342,8 @@ const models: TsoaRoute.Models = {
     "PitStopQueryParams": {
         "dataType": "refObject",
         "properties": {
-            "pageNo": {"dataType":"double","default":"0"},
-            "pageSize": {"dataType":"double","default":"10"},
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"ASC"},
             "chassisManufacturerId": {"dataType":"string"},
             "engineManufacturerId": {"dataType":"string"},
@@ -321,8 +359,8 @@ const models: TsoaRoute.Models = {
     "EventQueryParams": {
         "dataType": "refObject",
         "properties": {
-            "pageNo": {"dataType":"double","default":"0"},
-            "pageSize": {"dataType":"double","default":"10"},
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"ASC"},
             "circuitId": {"dataType":"string"},
             "year": {"dataType":"double"},
@@ -352,8 +390,8 @@ const models: TsoaRoute.Models = {
     "EventEntrantQueryParams": {
         "dataType": "refObject",
         "properties": {
-            "pageNo": {"dataType":"double","default":"0"},
-            "pageSize": {"dataType":"double","default":"10"},
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"ASC"},
             "chassisManufacturerId": {"dataType":"string"},
             "engineManufacturerId": {"dataType":"string"},
@@ -400,8 +438,8 @@ const models: TsoaRoute.Models = {
     "RaceResultQueryParams": {
         "dataType": "refObject",
         "properties": {
-            "pageNo": {"dataType":"double","default":"0"},
-            "pageSize": {"dataType":"double","default":"10"},
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"ASC"},
             "chassisManufacturerId": {"dataType":"string"},
             "engineManufacturerId": {"dataType":"string"},
@@ -512,6 +550,7 @@ export function RegisterRoutes(app: Router) {
 
             function CircuitService_get(request: any, response: any, next: any) {
             const args = {
+                    obj: {"in":"queries","name":"obj","required":true,"ref":"PageQueryParams"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa

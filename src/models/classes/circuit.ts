@@ -18,7 +18,7 @@ export class Circuit {
   latitude: number;
 
   /** The longitude of the location */
-  longitude: number;
+  longitude: number | null;
 
   constructor(data: CircuitStorage, country: Country) {
     this.id = data.id;

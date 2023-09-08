@@ -1,6 +1,6 @@
 import { Get, Route, Tags } from 'tsoa';
 import { GrandPrix } from '../models/classes/grandPrix';
-import { DbService } from './db.service';
+import { DbService } from '../services/db.service';
 
 @Route('/grands-prix')
 @Tags('Grands Prix')

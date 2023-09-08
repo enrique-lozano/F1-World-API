@@ -5,14 +5,14 @@ import {
 } from '../models/classes/eventDriverData/raceResult';
 import { PageMetadata, Paginator } from '../models/interfaces/paginated-items';
 import { Sorter } from '../models/interfaces/sorter';
+import { DbService } from '../services/db.service';
 import {
   ErrorMessage,
   sendTsoaError
 } from '../utils/custom-error/custom-error';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import { DbService } from './db.service';
-import { EventEntrantService } from './eventEntrant.service';
-import { RaceResultQueryParams } from './raceResult.service';
+import { EventEntrantService } from './eventEntrant.controller';
+import { RaceResultQueryParams } from './raceResult.controller';
 
 @Route('sprint-qualifyings/results')
 @Tags('Sprint Qualifyings')

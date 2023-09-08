@@ -1,23 +1,23 @@
 import { Get, Queries, Route, Tags } from 'tsoa';
 import {
+  LapTime,
+  LapTimeStorage
+} from '../models/classes/eventDriverData/lapTime';
+import {
   PageMetadata,
-  pageQueryParams,
+  PageQueryParams,
   Paginator
 } from '../models/interfaces/paginated-items';
 import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+import { DbService } from '../services/db.service';
 import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import {
-  LapTime,
-  LapTimeStorage
-} from './../models/classes/eventDriverData/lapTime';
-import { DbService } from './db.service';
 import {
   EventEntrantQueryParamsWithoutSort,
   EventEntrantService
-} from './eventEntrant.service';
+} from './eventEntrant.controller';
 
 interface LapQueryParams
-  extends pageQueryParams,
+  extends PageQueryParams,
     SorterQueryParams,
     EventEntrantQueryParamsWithoutSort {
   pos?: number;

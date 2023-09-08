@@ -1,8 +1,8 @@
 import { Get, Path, Query, Route, Tags } from 'tsoa';
-import { Driver, DriverStorage } from './../models/classes/driver';
-import { CountryService } from './countries.service';
-import { DbService } from './db.service';
-import { DriverStandingService } from './driver-standings.service';
+import { Driver, DriverStorage } from '../models/classes/driver';
+import { DbService } from '../services/db.service';
+import { CountryService } from './countries.controller';
+import { DriverStandingService } from './driver-standings.controller';
 
 @Route('/drivers')
 @Tags('Drivers')

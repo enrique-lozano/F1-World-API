@@ -1,10 +1,10 @@
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
+import { DbService } from '../services/db.service';
 import { ErrorMessage } from '../utils/custom-error/custom-error';
-import { DbService } from './db.service';
 import {
   TimedSessionResultQueryParams,
   TimedSessionResultService
-} from './timedSessionResult.service';
+} from './timedSessionResult.controller';
 
 @Route('pre-qualifyings')
 @Tags('Pre-Qualifying')

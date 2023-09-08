@@ -6,7 +6,7 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"Country": {
+			"CountryDTO": {
 				"properties": {
 					"alpha2Code": {
 						"type": "string"
@@ -18,7 +18,8 @@
 						"type": "string"
 					},
 					"subregion": {
-						"type": "string"
+						"type": "string",
+						"nullable": true
 					},
 					"commonName": {
 						"type": "string"
@@ -34,59 +35,6 @@
 					"subregion",
 					"commonName",
 					"officialName"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Circuit": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"fullName": {
-						"type": "string"
-					},
-					"previousNames": {
-						"type": "string"
-					},
-					"type": {
-						"type": "string",
-						"enum": [
-							"RACE",
-							"ROAD",
-							"STREET"
-						]
-					},
-					"placeName": {
-						"type": "string"
-					},
-					"country": {
-						"$ref": "#/components/schemas/Country"
-					},
-					"latitude": {
-						"type": "number",
-						"format": "double",
-						"description": "The latitude of the location"
-					},
-					"longitude": {
-						"type": "number",
-						"format": "double",
-						"description": "The longitude of the location"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"fullName",
-					"previousNames",
-					"type",
-					"placeName",
-					"country",
-					"latitude",
-					"longitude"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -115,6 +63,116 @@
 					"totalElements",
 					"totalPages",
 					"currentPage"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CircuitDTO": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"fullName": {
+						"type": "string"
+					},
+					"previousNames": {
+						"type": "string",
+						"nullable": true
+					},
+					"type": {
+						"type": "string",
+						"enum": [
+							"RACE",
+							"ROAD",
+							"STREET"
+						]
+					},
+					"placeName": {
+						"type": "string"
+					},
+					"latitude": {
+						"type": "string",
+						"nullable": true
+					},
+					"longitude": {
+						"type": "string",
+						"nullable": true
+					},
+					"country": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/CountryDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"fullName",
+					"previousNames",
+					"type",
+					"placeName",
+					"latitude",
+					"longitude",
+					"country"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PageQueryParams": {
+				"description": "Query params to be passed to the paginated routes in the controllers. They are optional for the user, the pagination will be created with default params when required",
+				"properties": {
+					"pageNo": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Page to retrieve, starting at 0",
+						"default": "0",
+						"minimum": 0
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Size of the page to retrieve",
+						"default": "10",
+						"minimum": 1
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Country": {
+				"properties": {
+					"alpha2Code": {
+						"type": "string"
+					},
+					"alpha3Code": {
+						"type": "string"
+					},
+					"region": {
+						"type": "string"
+					},
+					"subregion": {
+						"type": "string"
+					},
+					"commonName": {
+						"type": "string"
+					},
+					"officialName": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"alpha2Code",
+					"alpha3Code",
+					"region",
+					"subregion",
+					"commonName",
+					"officialName"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -153,16 +211,18 @@
 			"CompanyQueryParams": {
 				"properties": {
 					"pageNo": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0"
+						"default": "0",
+						"minimum": 0
 					},
 					"pageSize": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10"
+						"default": "10",
+						"minimum": 1
 					},
 					"specialty": {
 						"type": "string",
@@ -331,6 +391,60 @@
 					"SPRINT_RACE"
 				],
 				"type": "string"
+			},
+			"Circuit": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"fullName": {
+						"type": "string"
+					},
+					"previousNames": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string",
+						"enum": [
+							"RACE",
+							"ROAD",
+							"STREET"
+						]
+					},
+					"placeName": {
+						"type": "string"
+					},
+					"country": {
+						"$ref": "#/components/schemas/Country"
+					},
+					"latitude": {
+						"type": "number",
+						"format": "double",
+						"description": "The latitude of the location"
+					},
+					"longitude": {
+						"type": "number",
+						"format": "double",
+						"nullable": true,
+						"description": "The longitude of the location"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"fullName",
+					"previousNames",
+					"type",
+					"placeName",
+					"country",
+					"latitude",
+					"longitude"
+				],
+				"type": "object",
+				"additionalProperties": false
 			},
 			"GrandPrix": {
 				"properties": {
@@ -563,16 +677,18 @@
 			"TimedSessionResultQueryParams": {
 				"properties": {
 					"pageNo": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0"
+						"default": "0",
+						"minimum": 0
 					},
 					"pageSize": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10"
+						"default": "10",
+						"minimum": 1
 					},
 					"orderDir": {
 						"$ref": "#/components/schemas/OrderDir",
@@ -732,16 +848,18 @@
 			"LapQueryParams": {
 				"properties": {
 					"pageNo": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0"
+						"default": "0",
+						"minimum": 0
 					},
 					"pageSize": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10"
+						"default": "10",
+						"minimum": 1
 					},
 					"orderDir": {
 						"$ref": "#/components/schemas/OrderDir",
@@ -884,16 +1002,18 @@
 			"PitStopQueryParams": {
 				"properties": {
 					"pageNo": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0"
+						"default": "0",
+						"minimum": 0
 					},
 					"pageSize": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10"
+						"default": "10",
+						"minimum": 1
 					},
 					"orderDir": {
 						"$ref": "#/components/schemas/OrderDir",
@@ -953,16 +1073,18 @@
 			"EventQueryParams": {
 				"properties": {
 					"pageNo": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0"
+						"default": "0",
+						"minimum": 0
 					},
 					"pageSize": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10"
+						"default": "10",
+						"minimum": 1
 					},
 					"orderDir": {
 						"$ref": "#/components/schemas/OrderDir",
@@ -1055,16 +1177,18 @@
 			"EventEntrantQueryParams": {
 				"properties": {
 					"pageNo": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0"
+						"default": "0",
+						"minimum": 0
 					},
 					"pageSize": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10"
+						"default": "10",
+						"minimum": 1
 					},
 					"orderDir": {
 						"$ref": "#/components/schemas/OrderDir",
@@ -1255,16 +1379,18 @@
 			"RaceResultQueryParams": {
 				"properties": {
 					"pageNo": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0"
+						"default": "0",
+						"minimum": 0
 					},
 					"pageSize": {
-						"type": "number",
-						"format": "double",
+						"type": "integer",
+						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10"
+						"default": "10",
+						"minimum": 1
 					},
 					"orderDir": {
 						"$ref": "#/components/schemas/OrderDir",
@@ -1490,7 +1616,7 @@
 							"application/json": {
 								"schema": {
 									"items": {
-										"$ref": "#/components/schemas/Country"
+										"$ref": "#/components/schemas/CountryDTO"
 									},
 									"type": "array"
 								}
@@ -1514,7 +1640,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/Country"
+									"$ref": "#/components/schemas/CountryDTO"
 								}
 							}
 						}
@@ -1547,10 +1673,25 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/Circuit"
-									},
-									"type": "array"
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageMetadata"
+										},
+										{
+											"properties": {
+												"data": {
+													"items": {
+														"$ref": "#/components/schemas/CircuitDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"data"
+											],
+											"type": "object"
+										}
+									]
 								}
 							}
 						}
@@ -1560,7 +1701,32 @@
 					"Circuits"
 				],
 				"security": [],
-				"parameters": []
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
+						}
+					}
+				]
 			}
 		},
 		"/circuits/{id}": {
@@ -1572,7 +1738,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/Circuit"
+									"$ref": "#/components/schemas/CircuitDTO"
 								}
 							}
 						}
@@ -1637,8 +1803,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -1648,8 +1815,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -1934,8 +2102,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -1945,8 +2114,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -1965,8 +2135,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -1976,8 +2147,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -2297,8 +2469,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -2308,8 +2481,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -2328,8 +2502,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -2339,8 +2514,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -2486,8 +2662,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -2497,8 +2674,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -2517,8 +2695,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -2528,8 +2707,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -2707,8 +2887,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -2718,8 +2899,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -2738,8 +2920,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -2749,8 +2932,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -2889,8 +3073,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -2900,8 +3085,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -3084,8 +3270,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -3095,8 +3282,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -3222,8 +3410,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -3233,8 +3422,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -3253,8 +3443,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -3264,8 +3455,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -3680,8 +3872,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -3691,8 +3884,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -3711,8 +3905,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -3722,8 +3917,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -3958,8 +4154,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -3969,8 +4166,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -3989,8 +4187,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -4000,8 +4199,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -4248,8 +4448,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -4259,8 +4460,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -4279,8 +4481,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -4290,8 +4493,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -4550,8 +4754,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -4561,8 +4766,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -4581,8 +4787,9 @@
 						"required": false,
 						"schema": {
 							"default": "0",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
 						}
 					},
 					{
@@ -4592,8 +4799,9 @@
 						"required": false,
 						"schema": {
 							"default": "10",
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
 						}
 					},
 					{
@@ -4825,7 +5033,7 @@
 	},
 	"servers": [
 		{
-			"url": "/"
+			"url": "/api"
 		}
 	]
 }

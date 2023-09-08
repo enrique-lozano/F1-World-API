@@ -2,13 +2,13 @@ import { Get, Path, Queries, Route, Tags } from 'tsoa';
 import { Company, CompanyStorage } from '../models/classes/company';
 import {
   PageMetadata,
-  pageQueryParams,
+  PageQueryParams,
   Paginator
 } from '../models/interfaces/paginated-items';
-import { CountryService } from './countries.service';
-import { DbService } from './db.service';
+import { DbService } from '../services/db.service';
+import { CountryService } from './countries.controller';
 
-interface CompanyQueryParams extends pageQueryParams {
+interface CompanyQueryParams extends PageQueryParams {
   /** Return only the companies that has manufactured in this specialty */
   specialty?: 'engine' | 'chassis';
 }
