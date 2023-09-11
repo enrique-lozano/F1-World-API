@@ -10,7 +10,9 @@
     "swagger": "npx tsoa spec-and-routes --basePath='/api'",
     "prettier": "prettier --write \"src/**/*{json,js,ts}\"",
     "prettier:check": "prettier --check \"src/**/*{json,js,ts}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "import-db": "npx ts-node data/db-import.ts",
+    "export-db": "npx ts-node data/db-export.ts"
   },
   "keywords": [],
   "author": "",
