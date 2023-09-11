@@ -1,4 +1,4 @@
-# F1 World API & Database
+# F1 World API & Database 🗂️🏎️
 
 Welcome to one of the largest open database on Formula 1. A SQLite database and a Node.js API ready to be used with race results, teams, times per lap, pit stops, free-practices and much more!
 
@@ -32,7 +32,7 @@ The following explains how to run the API locally. This way you will be able to 
 
 ### Prerequisites
 
-The API has developed in Node and TypeScript, so you will need to have installed Node. Consult [here](https://nodejs.org/en/download/) your installation options. To create the database and to import/export data from it, you must install Python (a version greater than `3.10` if possible). You should also have git installed in your machine.
+The API has developed in Node and TypeScript, so you will need to have installed Node. Consult [here](https://nodejs.org/en/download/) your installation options. Additionally, it is recommended (but not necessary) to have git installed on your device
 
 ### Installation
 
@@ -46,6 +46,10 @@ git clone https://github.com/enrique-lozano/F1-World-API.git
 cd F1-World-API
 ```
 
+> Instead of this steps, you could also download the zip of the repo from GitHub and open a terminal in the extracted zip file.
+
+After this steps, with the terminal pointing to the project directory, install the required dependencies by typing in it the following command:
+
 ```
 npm install
 ```
@@ -54,14 +58,10 @@ If everything went correctly these commands will finish executing without errors
 
 ### Create the database in SQLite
 
-Now you will have to create the database on your machine, otherwise when running the API it will not find any data. To do this, with python correctly installed, run the following commands:
+Now you will have to create and populate the database on your machine, otherwise when running the API it will not find any data. To do this, run the following commands:
 
 ```
-cd data
-```
-
-```
-python import_to_sqlite.py
+npm run import-db
 ```
 
 ### Start the server
