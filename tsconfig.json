@@ -16,6 +16,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "useUnknownInCatchVariables": false,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ESNext",
@@ -26,5 +27,5 @@
       "*": ["node_modules/*"]
     }
   },
-  "include": ["src/**/*", "src/controllers/.service.ts"]
+  "include": ["src/**/*", "src/controllers/.service.ts", "data/**/*"]
 }
