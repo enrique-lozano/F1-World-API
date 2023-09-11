@@ -12,7 +12,7 @@ export class TyreManufacturerService extends DbService {
   private instanciateNewClass(tyre: TyreManufacturerStorage) {
     return new TyreManufacturer(
       tyre,
-      this.countryService.getById(tyre.countryId)
+      this.countryService.getById(tyre.countryId) as any
     );
   }
 

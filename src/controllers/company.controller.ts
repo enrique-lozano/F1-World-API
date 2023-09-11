@@ -1,5 +1,5 @@
 import { Get, Path, Queries, Route, Tags } from 'tsoa';
-import { Company, CompanyStorage } from '../models/classes/company';
+import { CompanyStorage } from '../models/classes/company';
 import {
   PageMetadata,
   PageQueryParams,
@@ -17,7 +17,8 @@ interface CompanyQueryParams extends PageQueryParams {
 @Tags('Companies')
 export class CompanyService extends DbService {
   private instanciateNewClass(company: CompanyStorage) {
-    return new Company(company, this.countryService.getById(company.countryId));
+    return null;
+    //  return new Company(company, this.countryService.getById(company.countryId));
   }
 
   @Get('/')

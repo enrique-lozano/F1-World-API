@@ -55,10 +55,10 @@ export class EventEntrantService extends DbService {
       race: this.eventService.getById(eventEntrant.eventId),
       chassisManufacturer: this.companyService.getById(
         eventEntrant.chassisManufacturerId
-      ),
+      ) as any,
       engineManufacturer: this.companyService.getById(
         eventEntrant.engineManufacturerId
-      ),
+      ) as any,
       tyreManufacturer: this.tyreManufacturerService.getById(
         eventEntrant.tyreManufacturerId
       )

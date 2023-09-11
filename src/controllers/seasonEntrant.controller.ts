@@ -11,7 +11,7 @@ export class SeasonEntrantService extends DbService {
 
     return new SeasonEntrant(
       entrant,
-      this.countryService.getById(entrant.countryId)
+      this.countryService.getById(entrant.countryId) as any
     );
   }
 

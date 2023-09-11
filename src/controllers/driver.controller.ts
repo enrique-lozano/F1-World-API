@@ -10,11 +10,12 @@ export class DriverService extends DbService {
   private instanciateNewClass(x: DriverStorage) {
     return new Driver(
       x,
-      this.countryService.getById(x.countryOfBirthCountryId),
-      this.countryService.getById(x.nationalityCountryId),
+      //this.countryService.getById(x.countryOfBirthCountryId),
+      null as any,
+      this.countryService.getById(x.nationalityCountryId) as any,
       x.secondNationalityCountryId
         ? this.countryService.getById(x.secondNationalityCountryId)
-        : undefined
+        : (undefined as any)
     );
   }
 
