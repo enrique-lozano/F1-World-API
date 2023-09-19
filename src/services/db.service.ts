@@ -4,22 +4,22 @@ import {
   Database as sqliteDB
 } from 'better-sqlite3';
 import { Kysely, ParseJSONResultsPlugin, SqliteDialect } from 'kysely';
-import { DB } from '../models/interfaces/types.dto';
+import { DB } from '../models/types.dto';
 
 export class DbService {
-  db: sqliteDB;
+  db245: sqliteDB;
 
-  db1: Kysely<DB>;
+  db: Kysely<DB>;
 
   constructor() {
-    this.db = new Database('data/db/myDB.db');
-    this.db.pragma('journal_mode = WAL');
+    this.db245 = new Database('data/db/test.db');
+    this.db245.pragma('journal_mode = WAL');
 
     const dialect = new SqliteDialect({
-      database: new SQLite('data/db/myDB.db')
+      database: new SQLite('data/db/test.db')
     });
 
-    this.db1 = new Kysely<DB>({
+    this.db = new Kysely<DB>({
       dialect,
       plugins: [new ParseJSONResultsPlugin()]
     });

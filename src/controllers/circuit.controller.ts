@@ -2,13 +2,13 @@ import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 
 import { SelectQueryBuilder } from 'kysely';
 import { Get, Queries, Route, Tags } from 'tsoa';
-import { CircuitDTO, DB } from '../models/interfaces/types.dto';
-import { DbService } from '../services/db.service';
 import {
   PageMetadata,
   PageQueryParams,
   Paginator
-} from './../models/interfaces/paginated-items';
+} from '../models/paginated-items';
+import { CircuitDTO, DB } from '../models/types.dto';
+import { DbService } from '../services/db.service';
 import { CountryService } from './countries.controller';
 
 @Route('circuits')
@@ -43,7 +43,7 @@ export class CircuitService extends DbService {
   ): Promise<PageMetadata & { data: CircuitDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
 
-    return this.db1
+    return this.db
       .selectFrom('circuits')
       .select(({ fn, eb }) => [
         fn.countAll<number>().as('totalElements'),
@@ -60,7 +60,7 @@ export class CircuitService extends DbService {
 
   /** Get a circuit by its ID */ @Get('/{id}')
   getById(id: string): Promise<CircuitDTO | undefined> {
-    return CircuitService.getCircuitsSelect(this.db1.selectFrom('circuits'))
+    return CircuitService.getCircuitsSelect(this.db.selectFrom('circuits'))
       .where('id', '==', id)
       .executeTakeFirst();
   }

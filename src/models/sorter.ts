@@ -1,4 +1,4 @@
-type OrderDir = 'ASC' | 'DESC';
+type OrderDir = 'asc' | 'desc';
 
 export class Sorter<T> implements SorterQueryParams {
   orderBy: keyof T;
@@ -19,10 +19,10 @@ export interface SorterQueryParams {
   /**
    * Order of the results
    *
-   * @default ASC */
+   * @default asc */
   orderDir?: OrderDir;
 
   // * TSOA do not accept generics by the moment, so we can not include the orderBy here. We have to include this attribute manually on each query interface
 }
 
-export const defaultOrderDir: OrderDir = 'ASC';
+export const defaultOrderDir: OrderDir = 'asc';

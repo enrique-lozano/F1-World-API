@@ -1,22 +1,76 @@
-import { Get, Route, Tags } from 'tsoa';
-import { GrandPrix } from '../models/classes/grandPrix';
+import { SelectQueryBuilder } from 'kysely';
+import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
+import { Get, Queries, Route, Tags } from 'tsoa';
+import {
+  PageMetadata,
+  PageQueryParams,
+  Paginator
+} from '../models/paginated-items';
 import { DbService } from '../services/db.service';
+import { DB, GrandsPrixDTO } from './../models/types.dto';
+import { CountryService } from './countries.controller';
+
+interface GrandPrixQueryParams extends PageQueryParams {
+  /** Filter drivers by its full name */
+  name?: string;
+
+  /** Filter drivers by its nationality */
+  countryId?: string;
+}
 
 @Route('/grands-prix')
 @Tags('Grands Prix')
 export class GrandPrixService extends DbService {
-  @Get('/')
-  get() {
-    return this.db
-      .prepare('SELECT * FROM grandsPrix')
-      .all()
-      .map((x) => new GrandPrix(x));
+  static getGrandPrixSelect<T extends keyof DB>(
+    qb: SelectQueryBuilder<DB, T | 'grandsPrix', {}>
+  ) {
+    return (qb as SelectQueryBuilder<DB, 'grandsPrix', {}>)
+      .select(['countryId', 'fullName', 'id', 'name', 'shortName'])
+      .select((eb) => [
+        jsonObjectFrom(
+          CountryService.getCountriesSelect(
+            eb.selectFrom('countries')
+          ).whereRef('grandsPrix.countryId', '==', 'countries.alpha2Code')
+        ).as('country')
+      ]) as SelectQueryBuilder<DB, 'grandsPrix' | T, GrandsPrixDTO>;
   }
 
-  @Get('/{id}')
-  getById(id: string) {
-    return new GrandPrix(
-      this.db.prepare('SELECT * FROM grandsPrix WHERE id = ?').get(id)
-    );
+  @Get('/')
+  async get(
+    @Queries() obj: GrandPrixQueryParams
+  ): Promise<PageMetadata & { data: GrandsPrixDTO[] }> {
+    const paginator = Paginator.fromPageQueryParams(obj);
+
+    const mainSelect = this.db
+      .selectFrom('grandsPrix')
+      .where('grandsPrix.fullName', 'like', `%${obj.name ?? ''}%`)
+      .where(
+        'grandsPrix.countryId',
+        obj.countryId ? '=' : 'like',
+        obj.countryId ? obj.countryId : '%%'
+      );
+
+    return mainSelect
+      .select(({ fn, eb }) => [
+        fn.countAll<number>().as('totalElements'),
+        eb.val(paginator.pageSize).as('pageSize'),
+        eb.val(paginator.pageNo).as('currentPage'),
+        jsonArrayFrom(
+          GrandPrixService.getGrandPrixSelect(mainSelect)
+            .limit(paginator.pageSize)
+            .offset(paginator.sqlOffset)
+        ).as('data')
+      ])
+      .executeTakeFirstOrThrow();
+  }
+
+  /** Get a grandPrix by its ID
+   *
+   * @param id The ID of the grandPrix to get */
+  @Get('{id}')
+  getById(id: string): Promise<GrandsPrixDTO | undefined> {
+    return GrandPrixService.getGrandPrixSelect(this.db.selectFrom('grandsPrix'))
+      .where('id', '==', id)
+      .executeTakeFirst();
   }
 }

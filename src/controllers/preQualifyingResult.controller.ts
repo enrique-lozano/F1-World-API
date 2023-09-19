@@ -9,7 +9,7 @@ import {
 @Route('pre-qualifyings')
 @Tags('Pre-Qualifying')
 export class PreQualifyingResultService extends DbService {
-  private readonly table = 'preQualifying';
+  private readonly table = 'preQualifyingResults';
 
   /** Return driver results of a specific pre-qualifying session based on some filters */ @Get(
     '/results'
@@ -28,7 +28,7 @@ export class PreQualifyingResultService extends DbService {
     @Path() eventId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ) {
-    return this.timedSessionResultService.getDriverSessionResults(
+    return this.timedSessionResultService.getTimedSessionResults(
       this.table,
       eventId,
       notFoundResponse
@@ -45,7 +45,7 @@ export class PreQualifyingResultService extends DbService {
     @Path() driverId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ) {
-    return this.timedSessionResultService.getDriverSessionResult(
+    return this.timedSessionResultService.getDriverTimedSessionResult(
       this.table,
       eventId,
       driverId,

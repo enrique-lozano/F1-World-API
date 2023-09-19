@@ -19,6 +19,8 @@ export const tableNames = [
   'events',
   'redFlags',
   'safetyCars',
+  'seasonEntrants',
+  'eventEntrants',
   'pitStops',
   'lapTimes',
   'preQualifyingResults',
@@ -31,7 +33,5 @@ export const tableNames = [
   'fp4_results',
   'warmingUpResults',
   'raceResults',
-  'sprintQualifyingResults',
-  'seasonEntrants',
-  'eventEntrants'
-];
+  'sprintQualifyingResults'
+] as const;

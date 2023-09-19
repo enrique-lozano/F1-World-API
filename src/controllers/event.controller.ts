@@ -1,121 +1,95 @@
-import { Get, Path, Queries, Route, Tags } from 'tsoa';
-import { Event, EventInDB } from '../models/classes/event';
+import { SelectQueryBuilder, sql } from 'kysely';
+import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
+import { Get, Queries, Route, Tags } from 'tsoa';
 import {
   PageMetadata,
   PageQueryParams,
   Paginator
-} from '../models/interfaces/paginated-items';
-import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+} from '../models/paginated-items';
+import { Sorter, SorterQueryParams } from '../models/sorter';
 import { DbService } from '../services/db.service';
-import { parseSearchQueryParams } from '../utils/objAttributesToStr';
+import { DB, EventDTO, Events } from './../models/types.dto';
 import { CircuitService } from './circuit.controller';
-import { EventEntrantService } from './eventEntrant.controller';
-import { FreePracticeResultService } from './freePracticeResult.controller';
-import { GrandPrixService } from './grandPrix.controller';
-import { LapService } from './lap.controller';
-import { PitStopService } from './pitStop.controller';
-import { RaceResultService } from './raceResult.controller';
 
 interface EventQueryParams extends PageQueryParams, SorterQueryParams {
   circuitId?: string;
 
-  year?: number;
-
   /** @default id */
-  orderBy?: keyof EventInDB;
+  orderBy?: keyof Events;
 }
 
 @Route('/events')
 @Tags('Events')
 export class EventService extends DbService {
-  private instanciateNewClass(elToInstanciate: EventInDB) {
-    const grandPrix = this.grandPrixService.getById(
-      elToInstanciate.grandPrixId
-    );
-    const circuit = this.circuitService.getById(elToInstanciate.circuitId);
-
-    return new Event(elToInstanciate, null as any, grandPrix);
+  static getEventSelect<T extends keyof DB>(
+    qb: SelectQueryBuilder<DB, T | 'events', {}>
+  ) {
+    return (qb as SelectQueryBuilder<DB, 'events', {}>)
+      .select([
+        'id',
+        'name',
+        'posterURL',
+        'qualyFormat',
+        'raceDate',
+        'scheduledLaps'
+      ])
+      .select((eb) => [
+        jsonObjectFrom(
+          CircuitService.getCircuitsSelect(eb.selectFrom('circuits')).whereRef(
+            'events.circuitId',
+            '==',
+            'circuits.id'
+          )
+        ).as('circuit')
+      ]) as SelectQueryBuilder<DB, 'events' | T, EventDTO>;
   }
 
-  /** Get events based on some params */ @Get('/')
-  get(@Queries() obj: EventQueryParams) {
-    const sorter = new Sorter<EventInDB>(obj.orderBy || 'id', obj.orderDir);
+  @Get('/')
+  async get(
+    @Queries() obj: EventQueryParams
+  ): Promise<PageMetadata & { data: EventDTO[] }> {
+    const paginator = Paginator.fromPageQueryParams(obj);
+    const sorter = new Sorter<Events>(obj.orderBy || 'raceDate', obj.orderDir);
 
-    const paginator = new Paginator(obj.pageNo, obj.pageSize);
+    const mainSelect = this.db
+      .selectFrom('events')
+      .where(
+        'events.circuitId',
+        obj.circuitId ? '=' : 'like',
+        obj.circuitId ? obj.circuitId : '%%'
+      );
 
-    let whereStatement = '';
-
-    const params = parseSearchQueryParams(obj);
-
-    if (Object.values(params).length) {
-      whereStatement += ' WHERE ';
-
-      let searchQueries: string[] = [];
-
-      if (params.circuitId) searchQueries.push(`circuitId = :circuitId`);
-      if (params.year)
-        searchQueries.push(`cast(substr(eventId, 1, 4) as INT) = :year`);
-
-      whereStatement += searchQueries.join(' AND ');
-    }
-
-    const eventsInDB = this.db
-      .prepare(
-        'SELECT * FROM events' +
-          `${whereStatement} ${sorter.sqlStatement} ${paginator.sqlStatement}`
-      )
-      .all(params) as EventInDB[];
-
-    const totalElements = this.db
-      .prepare('SELECT COUNT(*) FROM events' + whereStatement)
-      .get(params)['COUNT(*)'];
-
-    return {
-      pageData: new PageMetadata(
-        totalElements,
-        paginator.pageNo,
-        paginator.pageSize
-      ),
-      items: eventsInDB.map((x) => this.instanciateNewClass(x))
-    };
+    return mainSelect
+      .select(({ fn, eb }) => [
+        fn.countAll<number>().as('totalElements'),
+        eb.val(paginator.pageSize).as('pageSize'),
+        eb.val(paginator.pageNo).as('currentPage'),
+        jsonArrayFrom(
+          EventService.getEventSelect(mainSelect)
+            .limit(paginator.pageSize)
+            .offset(paginator.sqlOffset)
+            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+        ).as('data')
+      ])
+      .executeTakeFirstOrThrow();
   }
 
   /** Get a event by its ID
    *
-   * @param eventId The ID of the event to get */ @Get('{eventId}')
-  getById(@Path() eventId: string) {
-    const el = this.db
-      .prepare('SELECT * FROM events WHERE id = ?')
-      .get(eventId) as EventInDB;
+   * @param id The ID of the event to get */
+  /*   @Get('{id}')
+  getById(id: string): Promise<EventDTO | undefined> {
+    return EventService.getEventSelect(this.db.selectFrom('events'))
+      .where('id', '==', id)
+      .executeTakeFirst();
+  } */
 
-    return this.instanciateNewClass(el);
-  }
-
-  private get circuitService() {
-    return new CircuitService();
-  }
-
-  private get grandPrixService() {
-    return new GrandPrixService();
-  }
-
-  private get lapService() {
-    return new LapService();
-  }
-
-  private get pitStopService() {
-    return new PitStopService();
-  }
-
-  private get raceResultService() {
-    return new RaceResultService();
-  }
-
-  private get FPService() {
-    return new FreePracticeResultService();
-  }
-
-  private get eventEntrantService() {
-    return new EventEntrantService();
+  /** Get a event by its season and its round */
+  @Get('{season}/{round}')
+  getById(season: number, round: number): Promise<EventDTO | undefined> {
+    return EventService.getEventSelect(this.db.selectFrom('events'))
+      .where(sql`cast(substr(id, 1, 4) as INT)`, '==', season)
+      .where(sql`cast(substr(id, 6, 8) as INT)`, '==', round)
+      .executeTakeFirst();
   }
 }

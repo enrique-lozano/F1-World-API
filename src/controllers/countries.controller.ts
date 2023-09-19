@@ -1,7 +1,7 @@
 import { SelectQueryBuilder } from 'kysely';
 import { Get, Path, Route, Tags } from 'tsoa';
 import { DbService } from '../services/db.service';
-import { CountryDTO, DB } from './../models/interfaces/types.dto';
+import { CountryDTO, DB } from './../models/types.dto';
 
 @Route('/countries')
 @Tags('Countries')
@@ -37,7 +37,7 @@ export class CountryService extends DbService {
   @Get('/')
   get(): Promise<CountryDTO[]> {
     return CountryService.getCountriesSelect(
-      this.db1.selectFrom('countries')
+      this.db.selectFrom('countries')
     ).execute();
   }
 
@@ -47,7 +47,7 @@ export class CountryService extends DbService {
    * */
   @Get('{countryId}')
   getById(@Path() countryId: string): Promise<CountryDTO | undefined> {
-    return CountryService.getCountriesSelect(this.db1.selectFrom('countries'))
+    return CountryService.getCountriesSelect(this.db.selectFrom('countries'))
       .where('alpha2Code', '==', countryId)
       .executeTakeFirst();
   }

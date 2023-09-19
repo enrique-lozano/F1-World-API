@@ -16,8 +16,13 @@ export class FreePracticeResultService extends DbService {
     @Path() session: 'fp1' | 'fp2' | 'fp3' | 'fp4' | 'warm-up',
     @Queries() filters: TimedSessionResultQueryParams
   ) {
+    const sessionTable =
+      session == 'warm-up'
+        ? `warmingUpResults`
+        : (`${session}_results` as const);
+
     return this.timedSessionResultService.getTimedSessionsResults(
-      session,
+      sessionTable,
       filters
     );
   }
@@ -32,8 +37,13 @@ export class FreePracticeResultService extends DbService {
     @Path() eventId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ) {
-    return this.timedSessionResultService.getDriverSessionResults(
-      session,
+    const sessionTable =
+      session == 'warm-up'
+        ? `warmingUpResults`
+        : (`${session}_results` as const);
+
+    return this.timedSessionResultService.getTimedSessionResults(
+      sessionTable,
       eventId,
       notFoundResponse
     );
@@ -50,8 +60,13 @@ export class FreePracticeResultService extends DbService {
     @Path() driverId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ) {
-    return this.timedSessionResultService.getDriverSessionResult(
-      session,
+    const sessionTable =
+      session == 'warm-up'
+        ? `warmingUpResults`
+        : (`${session}_results` as const);
+
+    return this.timedSessionResultService.getDriverTimedSessionResult(
+      sessionTable,
       eventId,
       driverId,
       notFoundResponse

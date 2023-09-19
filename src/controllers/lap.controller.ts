@@ -1,175 +1,98 @@
+import { SelectQueryBuilder } from 'kysely';
+import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Queries, Route, Tags } from 'tsoa';
-import {
-  LapTime,
-  LapTimeStorage
-} from '../models/classes/eventDriverData/lapTime';
 import {
   PageMetadata,
   PageQueryParams,
   Paginator
-} from '../models/interfaces/paginated-items';
-import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+} from '../models/paginated-items';
+import { Sorter, SorterQueryParams } from '../models/sorter';
 import { DbService } from '../services/db.service';
-import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import {
-  EventEntrantQueryParamsWithoutSort,
-  EventEntrantService
-} from './eventEntrant.controller';
+import { DB, LapTimeDTO, LapTimes } from './../models/types.dto';
+import { EventService } from './event.controller';
+import { EventEntrantService } from './eventEntrant.controller';
 
-interface LapQueryParams
-  extends PageQueryParams,
-    SorterQueryParams,
-    EventEntrantQueryParamsWithoutSort {
+interface LapQueryParams extends PageQueryParams, SorterQueryParams {
   pos?: number;
   lap?: number;
 
   /** @default eventId */
-  orderBy?: keyof LapTimeStorage;
+  orderBy?: keyof LapTimes;
 }
 
 @Route('races')
 @Tags('Races')
 export class LapService extends DbService {
-  private readonly selectQueryFastestLaps =
-    'SELECT lap, pos, MIN(time) AS time, eventEntrants.*   \
-          FROM eventEntrants                               \
-              INNER JOIN                                   \
-              lapTimes USING (                             \
-                  eventId,                                 \
-                  driverId                                 \
-              )';
-
-  private readonly selectQuery =
-    'SELECT lap, pos, time, eventEntrants.*        \
-          FROM eventEntrants                       \
-              INNER JOIN                           \
-              lapTimes USING (                     \
-                  eventId,                         \
-                  driverId                         \
-              )';
-
-  private instanciateNewClass(lap: LapTimeStorage) {
-    return new LapTime(lap, this.eventEntrantService.getEntrantInfo(lap));
+  static getLapsSelect<T extends keyof DB>(
+    qb: SelectQueryBuilder<DB, T | 'lapTimes', {}>
+  ) {
+    return (qb as SelectQueryBuilder<DB, 'lapTimes', {}>)
+      .select(['pos', 'lap', 'time'])
+      .select((eb) => [
+        jsonObjectFrom(
+          EventService.getEventSelect(eb.selectFrom('events')).whereRef(
+            'lapTimes.eventId',
+            '==',
+            'events.id'
+          )
+        ).as('event'),
+        jsonObjectFrom(
+          EventEntrantService.getEventEntrantSelect(
+            eb.selectFrom('eventEntrants')
+          ).whereRef('lapTimes.entrantId', '==', 'eventEntrants.id')
+        ).as('entrant')
+      ]) as SelectQueryBuilder<DB, 'lapTimes' | T, LapTimeDTO>;
   }
 
   @Get('/laps')
-  getLaps(@Queries() obj: LapQueryParams) {
-    const sorter = new Sorter<LapTimeStorage>(
-      obj.orderBy || 'eventId',
-      obj.orderDir
-    );
+  async get(
+    @Queries() obj: LapQueryParams
+  ): Promise<PageMetadata & { data: LapTimeDTO[] }> {
+    const paginator = Paginator.fromPageQueryParams(obj);
 
-    const paginator = new Paginator(obj.pageNo, obj.pageSize);
+    const sorter = new Sorter<LapTimes>(obj.orderBy || 'lap', obj.orderDir);
 
-    let whereStatement = '';
+    const mainSelect = this.db
+      .selectFrom('lapTimes')
+      .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!));
 
-    const params = parseSearchQueryParams(obj);
-
-    if (Object.values(params).length) {
-      whereStatement += ' WHERE ';
-
-      let searchQueries: string[] = [];
-
-      if (params.eventId) searchQueries.push(`eventId = :eventId`);
-      if (params.driverId) searchQueries.push(`driverId = :driverId`);
-      if (params.pos) searchQueries.push(`pos = :pos`);
-      if (params.chassisManufacturerId)
-        searchQueries.push(`chassisManufacturerId = :chassisManufacturerId`);
-      if (params.engineManufacturerId)
-        searchQueries.push(`engineManufacturerId = :engineManufacturerId`);
-      if (params.lap) searchQueries.push(`lap = :lap`);
-      if (params.year)
-        searchQueries.push(`cast(substr(eventId, 1, 4) as INT) = :year`);
-
-      whereStatement += searchQueries.join(' AND ');
-    }
-
-    const lapTimesInDB = this.db
-      .prepare(
-        this.selectQuery +
-          `${whereStatement} ${sorter.sqlStatement} ${paginator.sqlStatement}`
-      )
-      .all(params) as LapTimeStorage[];
-
-    const totalElements = this.db
-      .prepare(`SELECT COUNT(*) FROM (${this.selectQuery}${whereStatement})`)
-      .get(params)['COUNT(*)'];
-
-    return {
-      pageData: new PageMetadata(
-        totalElements,
-        paginator.pageNo,
-        paginator.pageSize
-      ),
-      items: lapTimesInDB.map((x) => this.instanciateNewClass(x))
-    };
+    return mainSelect
+      .select(({ fn, eb }) => [
+        fn.countAll<number>().as('totalElements'),
+        eb.val(paginator.pageSize).as('pageSize'),
+        eb.val(paginator.pageNo).as('currentPage'),
+        jsonArrayFrom(
+          LapService.getLapsSelect(mainSelect)
+            .limit(paginator.pageSize)
+            .offset(paginator.sqlOffset)
+            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+        ).as('data')
+      ])
+      .executeTakeFirstOrThrow();
   }
 
   @Get('/fastest-laps')
-  getFastestLaps(@Queries() obj: LapQueryParams) {
-    const sorter = new Sorter<LapTimeStorage>(
-      obj.orderBy || 'eventId',
-      obj.orderDir
-    );
+  getFastestLaps(
+    @Queries() obj: LapQueryParams
+  ): Promise<PageMetadata & { data: LapTimeDTO[] }> {
+    const paginator = Paginator.fromPageQueryParams(obj);
 
-    const paginator = new Paginator(obj.pageNo, obj.pageSize);
+    const mainSelect = this.db
+      .selectFrom('lapTimes')
+      .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!))
+      .groupBy('eventId');
 
-    let whereStatement = '';
-
-    const params = parseSearchQueryParams(obj);
-
-    if (Object.values(params).length) {
-      whereStatement += ' WHERE ';
-
-      let searchQueries: string[] = [];
-
-      if (params.driverId) searchQueries.push(`driverId = :driverId`);
-      if (params.pos) searchQueries.push(`pos = :pos`);
-      if (params.chassisManufacturerId)
-        searchQueries.push(`chassisManufacturerId = :chassisManufacturerId`);
-      if (params.engineManufacturerId)
-        searchQueries.push(`engineManufacturerId = :engineManufacturerId`);
-      if (params.lap) searchQueries.push(`lap = :lap`);
-      if (params.year)
-        searchQueries.push(`cast(substr(eventId, 1, 4) as INT) = :year`);
-
-      whereStatement += searchQueries.join(' AND ');
-    }
-
-    const groupByQuery = `SELECT * FROM (${this.selectQueryFastestLaps} GROUP BY eventId) ${whereStatement}`;
-
-    const lapTimesInDB = this.db
-      .prepare(
-        groupByQuery + ` ${sorter.sqlStatement} ${paginator.sqlStatement}`
-      )
-      .all(params) as LapTimeStorage[];
-
-    const totalElements = this.db
-      .prepare(`SELECT COUNT(*) FROM (${groupByQuery})`)
-      .get(params)['COUNT(*)'];
-
-    return {
-      pageData: new PageMetadata(
-        totalElements,
-        paginator.pageNo,
-        paginator.pageSize
-      ),
-      items: lapTimesInDB.map((x) => this.instanciateNewClass(x))
-    };
-  }
-
-  /** Get the fastest lap of a race event */ @Get('/fastest-laps/{eventId}')
-  getEventFastestLap(eventId: string) {
-    const fastestLap = this.db
-      .prepare(
-        `${this.selectQueryFastestLaps} WHERE eventId = ? GROUP BY eventId`
-      )
-      .get(eventId) as LapTimeStorage;
-
-    return this.instanciateNewClass(fastestLap);
-  }
-
-  private get eventEntrantService() {
-    return new EventEntrantService();
+    return mainSelect
+      .select(({ fn, eb }) => [
+        fn.countAll<number>().as('totalElements'),
+        eb.val(paginator.pageSize).as('pageSize'),
+        eb.val(paginator.pageNo).as('currentPage'),
+        jsonArrayFrom(
+          LapService.getLapsSelect(mainSelect)
+            .limit(paginator.pageSize)
+            .offset(paginator.sqlOffset)
+        ).as('data')
+      ])
+      .executeTakeFirstOrThrow();
   }
 }

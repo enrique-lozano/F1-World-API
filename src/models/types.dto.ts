@@ -23,6 +23,10 @@ export interface Companies {
   yearFounded: number | null;
 }
 
+export interface CompanyDTO extends Omit<Companies, 'countryId'> {
+  country: CountryDTO | null;
+}
+
 export interface Constructors {
   id: string;
   name: string;
@@ -97,6 +101,8 @@ export interface CountriesOfficialNames {
   cym: string | null;
 }
 
+export type Gender = 'MALE' | 'FEMALE';
+
 export interface Drivers {
   id: string;
   name: string;
@@ -105,7 +111,7 @@ export interface Drivers {
   fullName: string;
   abbreviation: string;
   permanentNumber: string | null;
-  gender: string;
+  gender: Gender;
   dateOfBirth: string;
   dateOfDeath: string | null;
   placeOfBirth: string;
@@ -113,6 +119,18 @@ export interface Drivers {
   nationalityCountryId: string;
   secondNationalityCountryId: string | null;
   photo: string | null;
+}
+
+// ! We should create a separete type to fix the issue: https://github.com/lukeautry/tsoa/issues/1238. If we put inside the Omit multiple lines, the swagger generator will not work
+type driverOmittedAttr =
+  | 'countryOfBirthCountryId'
+  | 'nationalityCountryId'
+  | 'secondNationalityCountryId';
+
+export interface DriverDTO extends Omit<Drivers, driverOmittedAttr> {
+  countryOfBirthCountry: CountryDTO | null;
+  nationalityCountry: CountryDTO | null;
+  secondNationalityCountry: CountryDTO | null;
 }
 
 export interface DriversFamilyRelationships {
@@ -127,8 +145,15 @@ export interface EngineManufacturers {
   countryId: string;
 }
 
+type EventEntrantOmittedAttr =
+  | 'seasonEntrantId'
+  | 'driverId'
+  | 'chassisManufacturerId'
+  | 'engineManufacturerId'
+  | 'tyreManufacturerId';
+
 export interface EventEntrants {
-  eventId: string;
+  id: string;
   driverId: string;
   driverNumber: number;
   seasonEntrantId: string | null;
@@ -139,6 +164,15 @@ export interface EventEntrants {
   engineManufacturerId: string;
   tyreManufacturerId: string | null;
   note: string | null;
+}
+
+export interface EventEntrantDTO
+  extends Omit<EventEntrants, EventEntrantOmittedAttr> {
+  driver: DriverDTO | null;
+  seasonEntrant: SeasonEntrantDTO | null;
+  tyreManufacturer: TyreManufacturerDTO | null;
+  chassisManufacturer: CompanyDTO | null;
+  engineManufacturer: CompanyDTO | null;
 }
 
 export interface Events {
@@ -152,40 +186,9 @@ export interface Events {
   posterURL: string | null;
 }
 
-export interface Fp1Results {
-  eventId: string;
-  driverId: string;
-  positionOrder: number | null;
-  positionText: string | null;
-  laps: number | null;
-  time: number | null;
-}
-
-export interface Fp2Results {
-  eventId: string;
-  driverId: string;
-  positionOrder: number | null;
-  positionText: string | null;
-  laps: number | null;
-  time: number | null;
-}
-
-export interface Fp3Results {
-  eventId: string;
-  driverId: string;
-  positionOrder: number | null;
-  positionText: string | null;
-  laps: number | null;
-  time: number | null;
-}
-
-export interface Fp4Results {
-  eventId: string;
-  driverId: string;
-  positionOrder: number | null;
-  positionText: string | null;
-  laps: number | null;
-  time: number | null;
+export interface EventDTO extends Omit<Events, 'grandPrixId' | 'circuitId'> {
+  grandPrix: GrandsPrix | null;
+  circuit: CircuitDTO | null;
 }
 
 export interface GrandsPrix {
@@ -196,30 +199,35 @@ export interface GrandsPrix {
   countryId: string | null;
 }
 
+export interface GrandsPrixDTO extends Omit<GrandsPrix, 'countryId'> {
+  country: CountryDTO | null;
+}
+
 export interface LapTimes {
-  driverId: string;
   eventId: string;
+  entrantId: string;
   lap: number;
   time: number | null;
   pos: number | null;
 }
 
+export interface LapTimeDTO extends Omit<LapTimes, 'eventId' | 'entrantId'> {
+  event: EventDTO | null;
+  entrant: EventEntrantDTO | null;
+}
+
 export interface PitStops {
+  entrantId: string;
   eventId: string;
-  driverId: string;
   lap: number;
   time: number | null;
   timeOfDay: string | null;
   annotation: string | null;
 }
 
-export interface PreQualifyingResults {
-  eventId: string;
-  driverId: string;
-  positionOrder: number | null;
-  positionText: string | null;
-  laps: number | null;
-  time: number | null;
+export interface PitStopDTO extends Omit<PitStops, 'eventId' | 'entrantId'> {
+  event: EventDTO | null;
+  entrant: EventEntrantDTO | null;
 }
 
 export interface PreviousNextConstructors {
@@ -229,27 +237,24 @@ export interface PreviousNextConstructors {
   yearTo: number | null;
 }
 
-export interface Qualifying1Results {
+export interface TimedSessionResults {
+  entrantId: string;
   eventId: string;
-  driverId: string;
   positionOrder: number | null;
   positionText: string | null;
   laps: number | null;
   time: number | null;
 }
 
-export interface Qualifying2Results {
-  eventId: string;
-  driverId: string;
-  positionOrder: number | null;
-  positionText: string | null;
-  laps: number | null;
-  time: number | null;
+export interface TimedSessionResultsDTO
+  extends Omit<TimedSessionResults, 'eventId' | 'entrantId'> {
+  event: EventDTO | null;
+  entrant: EventEntrantDTO | null;
 }
 
 export interface QualifyingResults {
+  entrantId: string;
   eventId: string;
-  driverId: string;
   positionOrder: number | null;
   positionText: string | null;
   time: number | null;
@@ -259,9 +264,15 @@ export interface QualifyingResults {
   q3Time: number | null;
 }
 
+export interface QualifyingResultDTO
+  extends Omit<QualifyingResults, 'eventId' | 'entrantId'> {
+  event: EventDTO | null;
+  entrant: EventEntrantDTO | null;
+}
+
 export interface RaceResults {
+  entrantId: string;
   eventId: string;
-  driverId: string;
   positionOrder: number;
   positionText: string;
   time: number | null;
@@ -274,6 +285,12 @@ export interface RaceResults {
   gap: string | null;
   timePenalty: number | null;
   reasonRetired: string | null;
+}
+
+export interface RaceResultDTO
+  extends Omit<RaceResults, 'eventId' | 'entrantId'> {
+  event: EventDTO | null;
+  entrant: EventEntrantDTO | null;
 }
 
 export interface RedFlags {
@@ -299,9 +316,13 @@ export interface SeasonEntrants {
   countryId: string;
 }
 
+export interface SeasonEntrantDTO extends Omit<SeasonEntrants, 'countryId'> {
+  country: CountryDTO | null;
+}
+
 export interface SprintQualifyingResults {
   eventId: string;
-  driverId: string;
+  entrantId: string;
   positionText: string;
   positionOrder: number;
   time: number | null;
@@ -313,6 +334,12 @@ export interface SprintQualifyingResults {
   reasonRetired: string | null;
 }
 
+export interface SprintQualifyingResultDTO
+  extends Omit<SprintQualifyingResults, 'eventId' | 'entrantId'> {
+  event: EventDTO | null;
+  entrant: EventEntrantDTO | null;
+}
+
 export interface TyreManufacturers {
   id: string;
   name: string;
@@ -321,22 +348,9 @@ export interface TyreManufacturers {
   secondaryColor: string;
 }
 
-export interface WarmingUpResults {
-  eventId: string;
-  driverId: string;
-  positionOrder: number | null;
-  positionText: string | null;
-  laps: number | null;
-  time: number | null;
-}
-
-export interface WarmingUpResults2 {
-  eventId: string;
-  driverId: string;
-  positionOrder: number | null;
-  positionText: string | null;
-  laps: number | null;
-  time: number | null;
+export interface TyreManufacturerDTO
+  extends Omit<TyreManufacturers, 'countryId'> {
+  country: CountryDTO | null;
 }
 
 export interface DB {
@@ -351,17 +365,17 @@ export interface DB {
   engineManufacturers: EngineManufacturers;
   eventEntrants: EventEntrants;
   events: Events;
-  fp1_results: Fp1Results;
-  fp2_results: Fp2Results;
-  fp3_results: Fp3Results;
-  fp4_results: Fp4Results;
+  fp1_results: TimedSessionResults;
+  fp2_results: TimedSessionResults;
+  fp3_results: TimedSessionResults;
+  fp4_results: TimedSessionResults;
   grandsPrix: GrandsPrix;
   lapTimes: LapTimes;
   pitStops: PitStops;
-  preQualifyingResults: PreQualifyingResults;
+  preQualifyingResults: TimedSessionResults;
   previousNextConstructors: PreviousNextConstructors;
-  qualifying1_results: Qualifying1Results;
-  qualifying2_results: Qualifying2Results;
+  qualifying1_results: TimedSessionResults;
+  qualifying2_results: TimedSessionResults;
   qualifyingResults: QualifyingResults;
   raceResults: RaceResults;
   redFlags: RedFlags;
@@ -369,6 +383,6 @@ export interface DB {
   seasonEntrants: SeasonEntrants;
   sprintQualifyingResults: SprintQualifyingResults;
   tyreManufacturers: TyreManufacturers;
-  warming_up_results: WarmingUpResults2;
-  warmingUpResults: WarmingUpResults;
+  warming_up_results: TimedSessionResults;
+  warmingUpResults: TimedSessionResults;
 }

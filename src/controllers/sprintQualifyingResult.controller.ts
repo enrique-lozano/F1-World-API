@@ -1,132 +1,134 @@
+import { SelectQueryBuilder } from 'kysely';
+import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
-import {
-  RaceResult,
-  RaceResultStorage
-} from '../models/classes/eventDriverData/raceResult';
-import { PageMetadata, Paginator } from '../models/interfaces/paginated-items';
-import { Sorter } from '../models/interfaces/sorter';
+import { PageMetadata, Paginator } from '../models/paginated-items';
+import { DB, SprintQualifyingResultDTO } from '../models/types.dto';
 import { DbService } from '../services/db.service';
 import {
   ErrorMessage,
   sendTsoaError
 } from '../utils/custom-error/custom-error';
-import { parseSearchQueryParams } from '../utils/objAttributesToStr';
+import { EventService } from './event.controller';
 import { EventEntrantService } from './eventEntrant.controller';
 import { RaceResultQueryParams } from './raceResult.controller';
 
 @Route('sprint-qualifyings/results')
 @Tags('Sprint Qualifyings')
 export class sprintQualifyingResultService extends DbService {
-  private readonly selectQuery = `SELECT *, \
-          CASE WHEN CAST(positionText as INT) > 0 \
-          THEN CAST(positionText as INT) ELSE null END as position \
-          FROM eventEntrants                                 \
-                INNER JOIN                                   \
-                sprintQualifyingResults USING (                          \
-                    eventId,                                 \
-                    driverId                                 \
-                )`;
-
-  private instanciateNewClass(elToInstanciate: RaceResultStorage) {
-    return new RaceResult(
-      elToInstanciate,
-      this.eventEntrantService.getEntrantInfo(elToInstanciate)
-    );
+  static getSprintRaceResultSelect<T extends keyof DB>(
+    qb: SelectQueryBuilder<DB, T | 'sprintQualifyingResults', {}>
+  ) {
+    return (qb as SelectQueryBuilder<DB, 'sprintQualifyingResults', {}>)
+      .select([
+        'gap',
+        'gridPos',
+        'laps',
+        'points',
+        'positionText',
+        'positionOrder',
+        'gap',
+        'time',
+        'timePenalty',
+        'reasonRetired'
+      ])
+      .select((eb) => [
+        jsonObjectFrom(
+          EventService.getEventSelect(eb.selectFrom('events')).whereRef(
+            'sprintQualifyingResults.eventId',
+            '==',
+            'events.id'
+          )
+        ).as('event'),
+        jsonObjectFrom(
+          EventEntrantService.getEventEntrantSelect(
+            eb.selectFrom('eventEntrants')
+          ).whereRef(
+            'sprintQualifyingResults.entrantId',
+            '==',
+            'eventEntrants.id'
+          )
+        ).as('entrant')
+      ]) as SelectQueryBuilder<
+      DB,
+      'sprintQualifyingResults' | T,
+      SprintQualifyingResultDTO
+    >;
   }
 
-  /** Get driver sprint qualifyings results based on some filters */ @Get('/')
-  getSprintQualifyingsResults(@Queries() obj: RaceResultQueryParams) {
-    const sorter = new Sorter<RaceResultStorage>(
-      obj.orderBy || 'eventId',
-      obj.orderDir
-    );
-    const paginator = new Paginator(obj.pageNo, obj.pageSize);
+  /** Get driver race results based on some filters */ @Get('/')
+  getRacesResults(
+    @Queries() obj: RaceResultQueryParams
+  ): Promise<PageMetadata & { data: SprintQualifyingResultDTO[] }> {
+    const paginator = Paginator.fromPageQueryParams(obj);
 
-    let whereStatement = '';
+    const mainSelect = this.db
+      .selectFrom('sprintQualifyingResults')
+      .$if(obj.positionText != undefined, (qb) =>
+        qb.where('positionText', '==', obj.positionText!)
+      );
 
-    const params = parseSearchQueryParams(obj);
-
-    if (Object.values(params).length) {
-      whereStatement += ' WHERE ';
-
-      let searchQueries: string[] = [];
-
-      if (params.driverId) searchQueries.push(`driverId = :driverId`);
-      if (params.eventId) searchQueries.push(`eventId = :eventId`);
-      if (params.chassisManufacturerId)
-        searchQueries.push(`chassisManufacturerId = :chassisManufacturerId`);
-      if (params.engineManufacturerId)
-        searchQueries.push(`engineManufacturerId = :engineManufacturerId`);
-      if (params.positionText)
-        searchQueries.push(`positionText = :positionText`);
-      if (params.gridPos) searchQueries.push(`gridPos = :gridPos`);
-      if (params.year)
-        searchQueries.push(`cast(substr(eventId, 1, 4) as INT) = :year`);
-      if (params.maxPos) searchQueries.push(`position <= :maxPos`);
-      if (params.minPos) searchQueries.push(`position >= :minPos`);
-
-      whereStatement += searchQueries.join(' AND ');
-    }
-
-    const raceResultsInDB = this.db
-      .prepare(
-        this.selectQuery +
-          `${whereStatement} ${sorter.sqlStatement} ${paginator.sqlStatement}`
-      )
-      .all(params) as RaceResultStorage[];
-
-    const totalElements = this.db
-      .prepare(`SELECT COUNT(*) FROM (${this.selectQuery}${whereStatement})`)
-      .get(params)['COUNT(*)'];
-
-    return {
-      pageData: new PageMetadata(
-        totalElements,
-        paginator.pageNo,
-        paginator.pageSize
-      ),
-      items: raceResultsInDB.map((x) => this.instanciateNewClass(x))
-    };
+    return mainSelect
+      .select(({ fn, eb }) => [
+        fn.countAll<number>().as('totalElements'),
+        eb.val(paginator.pageSize).as('pageSize'),
+        eb.val(paginator.pageNo).as('currentPage'),
+        jsonArrayFrom(
+          sprintQualifyingResultService
+            .getSprintRaceResultSelect(mainSelect)
+            .limit(paginator.pageSize)
+            .offset(paginator.sqlOffset)
+        ).as('data')
+      ])
+      .executeTakeFirstOrThrow();
   }
 
-  /** Gets info about the results of a certain sprint qualifying */ @Get(
-    '/{eventId}'
-  )
-  getSprintQualifyingResults(
+  /** Gets info about the results of a certain race */ @Get('/{eventId}')
+  async getRaceResults(
     @Path() eventId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
-  ): RaceResult[] {
-    const raceResultInDB = this.db
-      .prepare(`${this.selectQuery} WHERE eventId = ?`)
-      .all(eventId) as RaceResultStorage[];
+  ): Promise<SprintQualifyingResultDTO[]> {
+    const raceResultInDB: SprintQualifyingResultDTO[] =
+      await sprintQualifyingResultService
+        .getSprintRaceResultSelect(
+          this.db.selectFrom('sprintQualifyingResults')
+        )
+        .where('eventId', '==', eventId)
+        .execute();
 
     if (!raceResultInDB || raceResultInDB.length === 0) {
       return sendTsoaError(notFoundResponse, 404, 'results.not.found');
     }
 
-    return raceResultInDB.map((x) => this.instanciateNewClass(x));
+    return raceResultInDB;
   }
 
-  /** Gets info about the result obtained by a driver in a certain sprint qualifying */ @Get(
+  /** Gets info about the result obtained by a driver in a certain race */ @Get(
     '/{eventId}/{driverId}'
   )
-  getDriverRaceResult(
+  async getDriverRaceResult(
     @Path() eventId: string,
     @Path() driverId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
-  ): RaceResult {
-    const raceResultInDB = this.db
-      .prepare(`${this.selectQuery} WHERE driverId = ? AND eventId = ?`)
-      .get(driverId, eventId) as RaceResultStorage;
+  ): Promise<SprintQualifyingResultDTO> {
+    const raceResultInDB: SprintQualifyingResultDTO | undefined =
+      await sprintQualifyingResultService
+        .getSprintRaceResultSelect(
+          this.db.selectFrom('sprintQualifyingResults')
+        )
+        .innerJoin(
+          'eventEntrants',
+          'eventEntrants.id',
+          'sprintQualifyingResults.entrantId'
+        )
+        .where('eventId', '==', eventId)
+        .where('eventEntrants.driverId', '==', driverId)
+        .selectAll('sprintQualifyingResults')
+        .executeTakeFirst();
 
     if (!raceResultInDB) {
-      return sendTsoaError(notFoundResponse, 404, 'driver-result.not.found');
+      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
     }
 
-    return this.instanciateNewClass(raceResultInDB);
-  }
-
-  private get eventEntrantService() {
-    return new EventEntrantService();
+    return raceResultInDB;
   }
 }

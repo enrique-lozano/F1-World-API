@@ -24,6 +24,8 @@ try {
   console.log(pc.green('[OK]: ') + 'Database schema created successfully!');
 } catch (err) {
   console.error('Error executing schema SQL:', err);
+
+  throw new Error();
 }
 
 populateDB();

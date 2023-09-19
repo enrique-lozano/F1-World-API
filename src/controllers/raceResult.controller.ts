@@ -1,29 +1,24 @@
+import { SelectQueryBuilder } from 'kysely';
+import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
-import {
-  RaceResult,
-  RaceResultStorage
-} from '../models/classes/eventDriverData/raceResult';
 import {
   PageMetadata,
   PageQueryParams,
   Paginator
-} from '../models/interfaces/paginated-items';
-import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+} from '../models/paginated-items';
+import { Sorter, SorterQueryParams } from '../models/sorter';
+import { DB, RaceResultDTO, RaceResults } from '../models/types.dto';
 import { DbService } from '../services/db.service';
 import {
   ErrorMessage,
   sendTsoaError
 } from '../utils/custom-error/custom-error';
-import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import {
-  EventEntrantQueryParamsWithoutSort,
-  EventEntrantService
-} from './eventEntrant.controller';
+import { EventService } from './event.controller';
+import { EventEntrantService } from './eventEntrant.controller';
 
 export interface RaceResultQueryParams
   extends PageQueryParams,
-    SorterQueryParams,
-    EventEntrantQueryParamsWithoutSort {
+    SorterQueryParams {
   /** Filter by a specific grid postion text */
   gridPos?: string;
 
@@ -37,120 +32,119 @@ export interface RaceResultQueryParams
   maxPos?: number;
 
   /** @default eventId */
-  orderBy?: keyof RaceResultStorage;
+  orderBy?: keyof RaceResults;
 }
 
 @Route('races/results')
 @Tags('Races')
 export class RaceResultService extends DbService {
-  private readonly selectQuery = `SELECT *, \
-          CASE WHEN CAST(positionText as INT) > 0 \
-          THEN CAST(positionText as INT) ELSE null END as position \
-          FROM eventEntrants                                 \
-                INNER JOIN                                   \
-                raceResults USING (                          \
-                    eventId,                                 \
-                    driverId                                 \
-                )`;
-
-  private instanciateNewClass(elToInstanciate: RaceResultStorage) {
-    return new RaceResult(
-      elToInstanciate,
-      this.eventEntrantService.getEntrantInfo(elToInstanciate)
-    );
+  static getRaceResultSelect<T extends keyof DB>(
+    qb: SelectQueryBuilder<DB, T | 'raceResults', {}>
+  ) {
+    return (qb as SelectQueryBuilder<DB, 'raceResults', {}>)
+      .select([
+        'gap',
+        'gridPenalty',
+        'gridPosition',
+        'laps',
+        'points',
+        'pointsCountForWDC',
+        'pointsGained',
+        'positionText',
+        'positionOrder',
+        'gap',
+        'time',
+        'timePenalty',
+        'reasonRetired'
+      ])
+      .select((eb) => [
+        jsonObjectFrom(
+          EventService.getEventSelect(eb.selectFrom('events')).whereRef(
+            'raceResults.eventId',
+            '==',
+            'events.id'
+          )
+        ).as('event'),
+        jsonObjectFrom(
+          EventEntrantService.getEventEntrantSelect(
+            eb.selectFrom('eventEntrants')
+          ).whereRef('raceResults.entrantId', '==', 'eventEntrants.id')
+        ).as('entrant')
+      ]) as SelectQueryBuilder<DB, 'raceResults' | T, RaceResultDTO>;
   }
 
   /** Get driver race results based on some filters */ @Get('/')
-  getRacesResults(@Queries() obj: RaceResultQueryParams) {
-    const sorter = new Sorter<RaceResultStorage>(
+  getRacesResults(
+    @Queries() obj: RaceResultQueryParams
+  ): Promise<PageMetadata & { data: RaceResultDTO[] }> {
+    const paginator = Paginator.fromPageQueryParams(obj);
+    const sorter = new Sorter<RaceResults>(
       obj.orderBy || 'eventId',
       obj.orderDir
     );
-    const paginator = new Paginator(obj.pageNo, obj.pageSize);
 
-    let whereStatement = '';
+    const mainSelect = this.db
+      .selectFrom('raceResults')
+      .$if(obj.positionText != undefined, (qb) =>
+        qb.where('positionText', '==', obj.positionText!)
+      );
 
-    const params = parseSearchQueryParams(obj);
-
-    if (Object.values(params).length) {
-      whereStatement += ' WHERE ';
-
-      let searchQueries: string[] = [];
-
-      if (params.driverId) searchQueries.push(`driverId = :driverId`);
-      if (params.eventId) searchQueries.push(`eventId = :eventId`);
-      if (params.chassisManufacturerId)
-        searchQueries.push(`chassisManufacturerId = :chassisManufacturerId`);
-      if (params.engineManufacturerId)
-        searchQueries.push(`engineManufacturerId = :engineManufacturerId`);
-      if (params.positionText)
-        searchQueries.push(`positionText = :positionText`);
-      if (params.gridPos) searchQueries.push(`gridPos = :gridPos`);
-      if (params.year)
-        searchQueries.push(`cast(substr(eventId, 1, 4) as INT) = :year`);
-      if (params.maxPos) searchQueries.push(`position <= :maxPos`);
-      if (params.minPos) searchQueries.push(`position >= :minPos`);
-
-      whereStatement += searchQueries.join(' AND ');
-    }
-
-    const raceResultsInDB = this.db
-      .prepare(
-        this.selectQuery +
-          `${whereStatement} ${sorter.sqlStatement} ${paginator.sqlStatement}`
-      )
-      .all(params) as RaceResultStorage[];
-
-    const totalElements = this.db
-      .prepare(`SELECT COUNT(*) FROM (${this.selectQuery}${whereStatement})`)
-      .get(params)['COUNT(*)'];
-
-    return {
-      pageData: new PageMetadata(
-        totalElements,
-        paginator.pageNo,
-        paginator.pageSize
-      ),
-      items: raceResultsInDB.map((x) => this.instanciateNewClass(x))
-    };
+    return mainSelect
+      .select(({ fn, eb }) => [
+        fn.countAll<number>().as('totalElements'),
+        eb.val(paginator.pageSize).as('pageSize'),
+        eb.val(paginator.pageNo).as('currentPage'),
+        jsonArrayFrom(
+          RaceResultService.getRaceResultSelect(mainSelect)
+            .limit(paginator.pageSize)
+            .offset(paginator.sqlOffset)
+            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+        ).as('data')
+      ])
+      .executeTakeFirstOrThrow();
   }
 
   /** Gets info about the results of a certain race */ @Get('/{eventId}')
-  getRaceResults(
+  async getRaceResults(
     @Path() eventId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
-  ): RaceResult[] {
-    const raceResultInDB = this.db
-      .prepare(`${this.selectQuery} WHERE eventId = ?`)
-      .all(eventId) as RaceResultStorage[];
+  ): Promise<RaceResultDTO[]> {
+    const raceResultInDB: RaceResultDTO[] =
+      await RaceResultService.getRaceResultSelect(
+        this.db.selectFrom('raceResults')
+      )
+        .where('eventId', '==', eventId)
+        .execute();
 
     if (!raceResultInDB || raceResultInDB.length === 0) {
       return sendTsoaError(notFoundResponse, 404, 'results.not.found');
     }
 
-    return raceResultInDB.map((x) => this.instanciateNewClass(x));
+    return raceResultInDB;
   }
 
   /** Gets info about the result obtained by a driver in a certain race */ @Get(
     '/{eventId}/{driverId}'
   )
-  getDriverRaceResult(
+  async getDriverRaceResult(
     @Path() eventId: string,
     @Path() driverId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
-  ): RaceResult {
-    const raceResultInDB = this.db
-      .prepare(`${this.selectQuery} WHERE driverId = ? AND eventId = ?`)
-      .get(driverId, eventId) as RaceResultStorage;
+  ): Promise<RaceResultDTO> {
+    const raceResultInDB: RaceResultDTO | undefined =
+      await RaceResultService.getRaceResultSelect(
+        this.db.selectFrom('raceResults')
+      )
+        .innerJoin('eventEntrants', 'eventEntrants.id', 'raceResults.entrantId')
+        .where('eventId', '==', eventId)
+        .where('eventEntrants.driverId', '==', driverId)
+        .selectAll('raceResults')
+        .executeTakeFirst();
 
     if (!raceResultInDB) {
-      return sendTsoaError(notFoundResponse, 404, 'driver-result.not.found');
+      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
     }
 
-    return this.instanciateNewClass(raceResultInDB);
-  }
-
-  private get eventEntrantService() {
-    return new EventEntrantService();
+    return raceResultInDB;
   }
 }

@@ -27,5 +27,5 @@
       "*": ["node_modules/*"]
     }
   },
-  "include": ["src/**/*", "src/controllers/.service.ts", "data/**/*"]
+  "include": ["src/**/*", "src/controllers/.controller.ts", "data/**/*"]
 }

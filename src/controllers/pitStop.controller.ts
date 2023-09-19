@@ -1,105 +1,72 @@
+import { SelectQueryBuilder } from 'kysely';
+import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Queries, Route, Tags } from 'tsoa';
-import {
-  PitStop,
-  PitStopStorage
-} from '../models/classes/eventDriverData/pitStop';
 import {
   PageMetadata,
   PageQueryParams,
   Paginator
-} from '../models/interfaces/paginated-items';
-import { Sorter, SorterQueryParams } from '../models/interfaces/sorter';
+} from '../models/paginated-items';
+import { Sorter, SorterQueryParams } from '../models/sorter';
+import { DB, PitStopDTO, PitStops } from '../models/types.dto';
 import { DbService } from '../services/db.service';
-import { parseSearchQueryParams } from '../utils/objAttributesToStr';
-import {
-  EventEntrantQueryParamsWithoutSort,
-  EventEntrantService
-} from './eventEntrant.controller';
+import { EventService } from './event.controller';
+import { EventEntrantService } from './eventEntrant.controller';
 
-interface PitStopQueryParams
-  extends PageQueryParams,
-    SorterQueryParams,
-    EventEntrantQueryParamsWithoutSort {
+interface PitStopQueryParams extends PageQueryParams, SorterQueryParams {
   lap?: number;
 
-  /** @default eventId */
-  orderBy?: keyof PitStopStorage;
+  /** @default "eventId" */
+  orderBy?: keyof PitStops;
 }
 
 @Route('races')
 @Tags('Races')
 export class PitStopService extends DbService {
-  private instanciateNewClass(data: PitStopStorage) {
-    return new PitStop(data, this.eventEntrantService.getEntrantInfo(data));
+  static getPitStopsSelect<T extends keyof DB>(
+    qb: SelectQueryBuilder<DB, T | 'pitStops', {}>
+  ) {
+    return (qb as SelectQueryBuilder<DB, 'pitStops', {}>)
+      .select(['annotation', 'lap', 'time', 'timeOfDay'])
+      .select((eb) => [
+        jsonObjectFrom(
+          EventService.getEventSelect(eb.selectFrom('events')).whereRef(
+            'pitStops.eventId',
+            '==',
+            'events.id'
+          )
+        ).as('event'),
+        jsonObjectFrom(
+          EventEntrantService.getEventEntrantSelect(
+            eb.selectFrom('eventEntrants')
+          ).whereRef('pitStops.entrantId', '==', 'eventEntrants.id')
+        ).as('entrant')
+      ]) as SelectQueryBuilder<DB, 'pitStops' | T, PitStopDTO>;
   }
 
   @Get('/pit-stops')
-  getPitStops(@Queries() obj: PitStopQueryParams) {
-    const sorter = new Sorter<PitStopStorage>(
-      obj.orderBy || 'eventId',
-      obj.orderDir
-    );
+  async get(
+    @Queries() obj: PitStopQueryParams
+  ): Promise<PageMetadata & { data: PitStopDTO[] }> {
+    const paginator = Paginator.fromPageQueryParams(obj);
+    const sorter = new Sorter<PitStops>(obj.orderBy || 'eventId', obj.orderDir);
 
-    const paginator = new Paginator(obj.pageNo, obj.pageSize);
+    const mainSelect = this.db
+      .selectFrom('pitStops')
+      .selectAll()
+      .$if(obj.lap != undefined, (qb) => qb.where('lap', '==', obj.lap!));
 
-    let whereStatement = '';
-
-    const params = parseSearchQueryParams(obj);
-
-    if (Object.values(params).length) {
-      whereStatement += ' WHERE ';
-
-      let searchQueries: string[] = [];
-
-      if (params.eventId) searchQueries.push(`eventId = :eventId`);
-      if (params.driverId) searchQueries.push(`driverId = :driverId`);
-      if (params.chassisManufacturerId)
-        searchQueries.push(`chassisManufacturerId = :chassisManufacturerId`);
-      if (params.engineManufacturerId)
-        searchQueries.push(`engineManufacturerId = :engineManufacturerId`);
-      if (params.lap) searchQueries.push(`lap = :lap`);
-      if (params.year)
-        searchQueries.push(`cast(substr(eventId, 1, 4) as INT) = :year`);
-
-      whereStatement += searchQueries.join(' AND ');
-    }
-
-    const pitStopsInDB = this.db
-      .prepare(
-        'SELECT pitStops.eventId, pitStops.driverId, pitStops.lap, pitStops.annotation, \
-         pitStops.time, pitStops.timeOfDay, eventEntrants.*   \
-          FROM eventEntrants    \
-              INNER JOIN        \
-              pitStops USING (  \
-                  eventId,      \
-                  driverId      \
-              )' +
-          `${whereStatement} ${sorter.sqlStatement} ${paginator.sqlStatement}`
-      )
-      .all(params) as PitStopStorage[];
-
-    const totalElements = this.db
-      .prepare(
-        'SELECT COUNT(*) FROM eventEntrants    \
-              INNER JOIN        \
-              pitStops USING (  \
-                  eventId,      \
-                  driverId      \
-              )' + whereStatement
-      )
-      .get(params)['COUNT(*)'];
-
-    return {
-      pageData: new PageMetadata(
-        totalElements,
-        paginator.pageNo,
-        paginator.pageSize
-      ),
-      items: pitStopsInDB.map((x) => this.instanciateNewClass(x))
-    };
-  }
-
-  private get eventEntrantService() {
-    return new EventEntrantService();
+    return mainSelect
+      .select(({ fn, eb }) => [
+        fn.countAll<number>().as('totalElements'),
+        eb.val(paginator.pageSize).as('pageSize'),
+        eb.val(paginator.pageNo).as('currentPage'),
+        jsonArrayFrom(
+          PitStopService.getPitStopsSelect(mainSelect)
+            .limit(paginator.pageSize)
+            .offset(paginator.sqlOffset)
+            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+        ).as('data')
+      ])
+      .executeTakeFirstOrThrow();
   }
 }
