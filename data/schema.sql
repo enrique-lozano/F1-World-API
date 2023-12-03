@@ -227,18 +227,6 @@ CREATE TABLE IF NOT EXISTS events
 , posterURL VARCHAR(255) COLLATE NOCASE
 );
 
--- Table: warming_up_results
-DROP TABLE IF EXISTS warming_up_results;
-CREATE TABLE IF NOT EXISTS warming_up_results
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER 
-, PRIMARY KEY (eventId, entrantId)
-);
-
 -- Table: fp1_results
 DROP TABLE IF EXISTS fp1_results;
 CREATE TABLE IF NOT EXISTS fp1_results
