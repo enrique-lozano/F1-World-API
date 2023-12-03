@@ -175,6 +175,17 @@ export interface EventEntrantDTO
   engineManufacturer: CompanyDTO | null;
 }
 
+export interface Sessions {
+  id: string;
+  eventId: string;
+  abbreviation: string;
+  startDateTime: string;
+}
+
+export interface SessionDTO extends Omit<Sessions, 'eventId'> {
+  event: EventDTO | null;
+}
+
 export interface Events {
   id: string;
   raceDate: string;
@@ -239,7 +250,7 @@ export interface PreviousNextConstructors {
 
 export interface TimedSessionResults {
   entrantId: string;
-  eventId: string;
+  sessionId: string;
   positionOrder: number | null;
   positionText: string | null;
   laps: number | null;
@@ -247,8 +258,8 @@ export interface TimedSessionResults {
 }
 
 export interface TimedSessionResultsDTO
-  extends Omit<TimedSessionResults, 'eventId' | 'entrantId'> {
-  event: EventDTO | null;
+  extends Omit<TimedSessionResults, 'sessionId' | 'entrantId'> {
+  session: EventDTO | null;
   entrant: EventEntrantDTO | null;
 }
 
@@ -272,7 +283,7 @@ export interface QualifyingResultDTO
 
 export interface RaceResults {
   entrantId: string;
-  eventId: string;
+  sessionId: string;
   positionOrder: number;
   positionText: string;
   time: number | null;
@@ -288,8 +299,8 @@ export interface RaceResults {
 }
 
 export interface RaceResultDTO
-  extends Omit<RaceResults, 'eventId' | 'entrantId'> {
-  event: EventDTO | null;
+  extends Omit<RaceResults, 'sessionId' | 'entrantId'> {
+  session: EventDTO | null;
   entrant: EventEntrantDTO | null;
 }
 
@@ -365,6 +376,7 @@ export interface DB {
   engineManufacturers: EngineManufacturers;
   eventEntrants: EventEntrants;
   events: Events;
+  sessions: Sessions;
   fp1_results: TimedSessionResults;
   fp2_results: TimedSessionResults;
   fp3_results: TimedSessionResults;

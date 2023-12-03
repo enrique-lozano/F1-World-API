@@ -14,8 +14,8 @@ import {
   ErrorMessage,
   sendTsoaError
 } from '../../utils/custom-error/custom-error';
-import { EventService } from '../event.controller';
 import { EventEntrantService } from '../eventEntrant.controller';
+import { SessionService } from '../session.controller';
 
 export interface TimedSessionResultQueryParams
   extends ResultsFiltersQueryParams {
@@ -44,12 +44,12 @@ export class TimedSessionResultService extends DbService {
       .select(['time', 'laps', 'positionOrder', 'positionText'])
       .select((eb) => [
         jsonObjectFrom(
-          EventService.getEventSelect(eb.selectFrom('events')).whereRef(
-            `${tableToGet}.eventId`,
+          SessionService.getSessionSelect(eb.selectFrom('sessions')).whereRef(
+            `${tableToGet}.sessionId`,
             '==',
-            'events.id'
+            'sessions.id'
           )
-        ).as('event'),
+        ).as('session'),
         jsonObjectFrom(
           EventEntrantService.getEventEntrantSelect(
             eb.selectFrom('eventEntrants')
@@ -64,7 +64,7 @@ export class TimedSessionResultService extends DbService {
   ): Promise<PageMetadata & { data: TimedSessionResultsDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(filters);
     const sorter = new Sorter<TimedSessionResults>(
-      filters.orderBy || 'eventId',
+      filters.orderBy || 'sessionId',
       filters.orderDir
     );
 
@@ -117,7 +117,8 @@ export class TimedSessionResultService extends DbService {
         this.db.selectFrom(session),
         session
       )
-        .where('eventId', '==', eventId)
+        .where('sessionId', '==', eventId)
+        .orderBy('positionOrder', 'asc')
         .execute();
 
     if (!raceResultInDB) {
@@ -139,7 +140,7 @@ export class TimedSessionResultService extends DbService {
         session
       )
         .innerJoin('eventEntrants', 'eventEntrants.id', `${session}.entrantId`)
-        .where('eventId', '==', eventId)
+        .where('sessionId', '==', eventId)
         .where('eventEntrants.driverId', '==', driverId)
         .selectAll(session)
         .executeTakeFirst();

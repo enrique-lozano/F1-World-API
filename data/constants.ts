@@ -17,6 +17,7 @@ export const tableNames = [
   'engineManufacturers',
   'tyreManufacturers',
   'events',
+  'sessions',
   'redFlags',
   'safetyCars',
   'seasonEntrants',

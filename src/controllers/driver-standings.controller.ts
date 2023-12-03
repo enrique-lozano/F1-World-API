@@ -31,7 +31,11 @@ export class DriverStandingService extends DbService {
       .selectFrom('raceResults')
       .leftJoin('sprintQualifyingResults', (join) =>
         join
-          .onRef('raceResults.eventId', '=', 'sprintQualifyingResults.eventId')
+          .onRef(
+            sql`substr(raceResults.sessionId, 1, 7)`,
+            '=',
+            'sprintQualifyingResults.eventId'
+          )
           .onRef(
             'raceResults.entrantId',
             '=',
@@ -40,10 +44,14 @@ export class DriverStandingService extends DbService {
       )
       .leftJoin('eventEntrants', 'eventEntrants.id', 'raceResults.entrantId')
 
-      .where(sql`cast(substr(raceResults.eventId, 1, 4) as INT)`, '==', season)
+      .where(
+        sql`cast(substr(raceResults.sessionId, 1, 4) as INT)`,
+        '==',
+        season
+      )
       .$if(round != undefined, (qb) =>
         qb.where(
-          sql`cast(substr(raceResults.eventId, 6, 7) as INT)`,
+          sql`cast(substr(raceResults.sessionId, 6, 7) as INT)`,
           '<=',
           round
         )
@@ -75,11 +83,11 @@ export class DriverStandingService extends DbService {
           'SELECT CASE WHEN CAST(positionText as INT) > 0               \
             THEN CAST(positionText as INT) ELSE null END as position    \
             FROM raceResults LEFT JOIN eventEntrants ON eventEntrants.id = raceResults.entrantId \
-            WHERE driverId = :driverId AND cast(substr(eventId, 1, 4) as INT) = :season';
+            WHERE driverId = :driverId AND cast(substr(sessionId, 1, 4) as INT) = :season';
 
         if (round) {
           raceResultQuery +=
-            ' AND cast(substr(eventId, 6, 7) as INT) <= :round';
+            ' AND cast(substr(sessionId, 6, 7) as INT) <= :round';
         }
 
         const aResults = this.db245

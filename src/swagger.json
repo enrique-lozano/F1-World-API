@@ -140,137 +140,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"GrandsPrix": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"fullName": {
-						"type": "string"
-					},
-					"shortName": {
-						"type": "string"
-					},
-					"countryId": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"fullName",
-					"shortName",
-					"countryId"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"EventDTO": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"raceDate": {
-						"type": "string"
-					},
-					"qualyFormat": {
-						"type": "string"
-					},
-					"scheduledLaps": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
-					"posterURL": {
-						"type": "string",
-						"nullable": true
-					},
-					"grandPrix": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/GrandsPrix"
-							}
-						],
-						"nullable": true
-					},
-					"circuit": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/CircuitDTO"
-							}
-						],
-						"nullable": true
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"raceDate",
-					"qualyFormat",
-					"scheduledLaps",
-					"posterURL",
-					"grandPrix",
-					"circuit"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"OrderDir": {
-				"type": "string",
-				"enum": [
-					"asc",
-					"desc"
-				]
-			},
-			"EventQueryParams": {
-				"properties": {
-					"pageNo": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Page to retrieve, starting at 0",
-						"default": "0",
-						"minimum": 0
-					},
-					"pageSize": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Size of the page to retrieve",
-						"default": "10",
-						"minimum": 1
-					},
-					"orderDir": {
-						"$ref": "#/components/schemas/OrderDir",
-						"description": "Order of the results"
-					},
-					"circuitId": {
-						"type": "string"
-					},
-					"orderBy": {
-						"type": "string",
-						"enum": [
-							"id",
-							"name",
-							"grandPrixId",
-							"circuitId",
-							"raceDate",
-							"qualyFormat",
-							"scheduledLaps",
-							"posterURL"
-						],
-						"nullable": false,
-						"default": "id"
-					}
-				},
-				"type": "object",
-				"additionalProperties": false
-			},
 			"CompanyDTO": {
 				"properties": {
 					"id": {
@@ -500,6 +369,137 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"GrandsPrix": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"fullName": {
+						"type": "string"
+					},
+					"shortName": {
+						"type": "string"
+					},
+					"countryId": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"fullName",
+					"shortName",
+					"countryId"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"EventDTO": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"raceDate": {
+						"type": "string"
+					},
+					"qualyFormat": {
+						"type": "string"
+					},
+					"scheduledLaps": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"posterURL": {
+						"type": "string",
+						"nullable": true
+					},
+					"grandPrix": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/GrandsPrix"
+							}
+						],
+						"nullable": true
+					},
+					"circuit": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/CircuitDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"raceDate",
+					"qualyFormat",
+					"scheduledLaps",
+					"posterURL",
+					"grandPrix",
+					"circuit"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"OrderDir": {
+				"type": "string",
+				"enum": [
+					"asc",
+					"desc"
+				]
+			},
+			"EventQueryParams": {
+				"properties": {
+					"pageNo": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Page to retrieve, starting at 0",
+						"default": "0",
+						"minimum": 0
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Size of the page to retrieve",
+						"default": "10",
+						"minimum": 1
+					},
+					"orderDir": {
+						"$ref": "#/components/schemas/OrderDir",
+						"description": "Order of the results"
+					},
+					"circuitId": {
+						"type": "string"
+					},
+					"orderBy": {
+						"type": "string",
+						"enum": [
+							"id",
+							"name",
+							"grandPrixId",
+							"circuitId",
+							"raceDate",
+							"qualyFormat",
+							"scheduledLaps",
+							"posterURL"
+						],
+						"nullable": false,
+						"default": "id"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
 			"SeasonEntrantDTO": {
 				"properties": {
 					"id": {
@@ -632,7 +632,7 @@
 						"format": "double",
 						"nullable": true
 					},
-					"event": {
+					"session": {
 						"allOf": [
 							{
 								"$ref": "#/components/schemas/EventDTO"
@@ -654,7 +654,7 @@
 					"positionText",
 					"time",
 					"laps",
-					"event",
+					"session",
 					"entrant"
 				],
 				"type": "object",
@@ -701,7 +701,7 @@
 						"type": "string",
 						"enum": [
 							"entrantId",
-							"eventId",
+							"sessionId",
 							"positionOrder",
 							"positionText",
 							"time",
@@ -874,8 +874,8 @@
 						"type": "string",
 						"enum": [
 							"entrantId",
-							"eventId",
 							"time",
+							"eventId",
 							"lap",
 							"pos"
 						],
@@ -961,8 +961,8 @@
 						"type": "string",
 						"enum": [
 							"entrantId",
-							"eventId",
 							"time",
+							"eventId",
 							"lap",
 							"timeOfDay",
 							"annotation"
@@ -1030,7 +1030,7 @@
 						"type": "string",
 						"nullable": true
 					},
-					"event": {
+					"session": {
 						"allOf": [
 							{
 								"$ref": "#/components/schemas/EventDTO"
@@ -1060,7 +1060,7 @@
 					"gap",
 					"timePenalty",
 					"reasonRetired",
-					"event",
+					"session",
 					"entrant"
 				],
 				"type": "object",
@@ -1113,7 +1113,7 @@
 						"enum": [
 							"points",
 							"entrantId",
-							"eventId",
+							"sessionId",
 							"positionOrder",
 							"positionText",
 							"time",
@@ -1371,149 +1371,6 @@
 						"required": true,
 						"schema": {
 							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/events": {
-			"get": {
-				"operationId": "Get",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/PageMetadata"
-										},
-										{
-											"properties": {
-												"data": {
-													"items": {
-														"$ref": "#/components/schemas/EventDTO"
-													},
-													"type": "array"
-												}
-											},
-											"required": [
-												"data"
-											],
-											"type": "object"
-										}
-									]
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Events"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "Page to retrieve, starting at 0",
-						"in": "query",
-						"name": "pageNo",
-						"required": false,
-						"schema": {
-							"default": "0",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 0
-						}
-					},
-					{
-						"description": "Size of the page to retrieve",
-						"in": "query",
-						"name": "pageSize",
-						"required": false,
-						"schema": {
-							"default": "10",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 1
-						}
-					},
-					{
-						"description": "Order of the results",
-						"in": "query",
-						"name": "orderDir",
-						"required": false,
-						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
-						}
-					},
-					{
-						"in": "query",
-						"name": "circuitId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "orderBy",
-						"required": false,
-						"schema": {
-							"default": "id",
-							"type": "string",
-							"enum": [
-								"id",
-								"name",
-								"grandPrixId",
-								"circuitId",
-								"raceDate",
-								"qualyFormat",
-								"scheduledLaps",
-								"posterURL"
-							]
-						}
-					}
-				]
-			}
-		},
-		"/events/{season}/{round}": {
-			"get": {
-				"operationId": "GetById",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/EventDTO"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get a event by its ID",
-				"tags": [
-					"Events"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "season",
-						"required": true,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "path",
-						"name": "round",
-						"required": true,
-						"schema": {
-							"format": "double",
-							"type": "number"
 						}
 					}
 				]
@@ -2158,6 +2015,149 @@
 				]
 			}
 		},
+		"/events": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageMetadata"
+										},
+										{
+											"properties": {
+												"data": {
+													"items": {
+														"$ref": "#/components/schemas/EventDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"data"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Events"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"in": "query",
+						"name": "circuitId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "orderBy",
+						"required": false,
+						"schema": {
+							"default": "id",
+							"type": "string",
+							"enum": [
+								"id",
+								"name",
+								"grandPrixId",
+								"circuitId",
+								"raceDate",
+								"qualyFormat",
+								"scheduledLaps",
+								"posterURL"
+							]
+						}
+					}
+				]
+			}
+		},
+		"/events/{season}/{round}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/EventDTO"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get a event by its ID",
+				"tags": [
+					"Events"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "season",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "round",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
 		"/free-practices/{session}/results": {
 			"get": {
 				"operationId": "GetSessionsResults",
@@ -2291,7 +2291,7 @@
 							"type": "string",
 							"enum": [
 								"entrantId",
-								"eventId",
+								"sessionId",
 								"positionOrder",
 								"positionText",
 								"time",
@@ -2641,8 +2641,8 @@
 							"type": "string",
 							"enum": [
 								"entrantId",
-								"eventId",
 								"time",
+								"eventId",
 								"lap",
 								"pos"
 							]
@@ -2749,8 +2749,8 @@
 							"type": "string",
 							"enum": [
 								"entrantId",
-								"eventId",
 								"time",
+								"eventId",
 								"lap",
 								"pos"
 							]
@@ -2848,8 +2848,8 @@
 							"type": "string",
 							"enum": [
 								"entrantId",
-								"eventId",
 								"time",
+								"eventId",
 								"lap",
 								"timeOfDay",
 								"annotation"
@@ -2977,7 +2977,7 @@
 							"type": "string",
 							"enum": [
 								"entrantId",
-								"eventId",
+								"sessionId",
 								"positionOrder",
 								"positionText",
 								"time",
@@ -3212,7 +3212,7 @@
 							"enum": [
 								"points",
 								"entrantId",
-								"eventId",
+								"sessionId",
 								"positionOrder",
 								"positionText",
 								"time",
@@ -3230,7 +3230,7 @@
 				]
 			}
 		},
-		"/races/results/{eventId}": {
+		"/races/results/{sessionId}": {
 			"get": {
 				"operationId": "GetRaceResults",
 				"responses": {
@@ -3266,7 +3266,7 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "eventId",
+						"name": "sessionId",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -3275,7 +3275,7 @@
 				]
 			}
 		},
-		"/races/results/{eventId}/{driverId}": {
+		"/races/results/{sessionId}/{driverId}": {
 			"get": {
 				"operationId": "GetDriverRaceResult",
 				"responses": {
@@ -3308,7 +3308,7 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "eventId",
+						"name": "sessionId",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -3454,7 +3454,7 @@
 							"enum": [
 								"points",
 								"entrantId",
-								"eventId",
+								"sessionId",
 								"positionOrder",
 								"positionText",
 								"time",
