@@ -4,7 +4,7 @@ import { ErrorMessage } from '../utils/custom-error/custom-error';
 import {
   TimedSessionResultQueryParams,
   TimedSessionResultService
-} from './timedSessionResult.controller';
+} from './common/timedSessionResult.controller';
 
 @Route('pre-qualifyings')
 @Tags('Pre-Qualifying')

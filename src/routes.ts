@@ -7,13 +7,13 @@ import { CountryService } from './controllers/countries.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { CircuitService } from './controllers/circuit.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { CompanyService } from './controllers/company.controller';
+import { EventService } from './controllers/event.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { DriverService } from './controllers/driver.controller';
+import { CompanyService } from './controllers/company.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { DriverStandingService } from './controllers/driver-standings.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { EventService } from './controllers/event.controller';
+import { DriverService } from './controllers/driver.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { TyreManufacturerService } from './controllers/tyreManufacturer.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -85,6 +85,50 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "GrandsPrix": {
+        "dataType": "refObject",
+        "properties": {
+            "id": {"dataType":"string","required":true},
+            "name": {"dataType":"string","required":true},
+            "fullName": {"dataType":"string","required":true},
+            "shortName": {"dataType":"string","required":true},
+            "countryId": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "EventDTO": {
+        "dataType": "refObject",
+        "properties": {
+            "id": {"dataType":"string","required":true},
+            "name": {"dataType":"string","required":true},
+            "raceDate": {"dataType":"string","required":true},
+            "qualyFormat": {"dataType":"string","required":true},
+            "scheduledLaps": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
+            "posterURL": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+            "grandPrix": {"dataType":"union","subSchemas":[{"ref":"GrandsPrix"},{"dataType":"enum","enums":[null]}],"required":true},
+            "circuit": {"dataType":"union","subSchemas":[{"ref":"CircuitDTO"},{"dataType":"enum","enums":[null]}],"required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "OrderDir": {
+        "dataType": "refAlias",
+        "type": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["asc"]},{"dataType":"enum","enums":["desc"]}],"validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "EventQueryParams": {
+        "dataType": "refObject",
+        "properties": {
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
+            "orderDir": {"ref":"OrderDir","default":"asc"},
+            "circuitId": {"dataType":"string"},
+            "orderBy": {"dataType":"enum","enums":["id","name","grandPrixId","circuitId","raceDate","qualyFormat","scheduledLaps","posterURL"],"default":"id"},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "CompanyDTO": {
         "dataType": "refObject",
         "properties": {
@@ -148,50 +192,6 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "GrandsPrix": {
-        "dataType": "refObject",
-        "properties": {
-            "id": {"dataType":"string","required":true},
-            "name": {"dataType":"string","required":true},
-            "fullName": {"dataType":"string","required":true},
-            "shortName": {"dataType":"string","required":true},
-            "countryId": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "EventDTO": {
-        "dataType": "refObject",
-        "properties": {
-            "id": {"dataType":"string","required":true},
-            "name": {"dataType":"string","required":true},
-            "raceDate": {"dataType":"string","required":true},
-            "qualyFormat": {"dataType":"string","required":true},
-            "scheduledLaps": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
-            "posterURL": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
-            "grandPrix": {"dataType":"union","subSchemas":[{"ref":"GrandsPrix"},{"dataType":"enum","enums":[null]}],"required":true},
-            "circuit": {"dataType":"union","subSchemas":[{"ref":"CircuitDTO"},{"dataType":"enum","enums":[null]}],"required":true},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "OrderDir": {
-        "dataType": "refAlias",
-        "type": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["asc"]},{"dataType":"enum","enums":["desc"]}],"validators":{}},
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "EventQueryParams": {
-        "dataType": "refObject",
-        "properties": {
-            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
-            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
-            "orderDir": {"ref":"OrderDir","default":"asc"},
-            "circuitId": {"dataType":"string"},
-            "orderBy": {"dataType":"enum","enums":["id","name","grandPrixId","circuitId","raceDate","qualyFormat","scheduledLaps","posterURL"],"default":"id"},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "TyreManufacturerDTO": {
         "dataType": "refObject",
         "properties": {
@@ -227,6 +227,8 @@ const models: TsoaRoute.Models = {
             "driver": {"dataType":"union","subSchemas":[{"ref":"DriverDTO"},{"dataType":"enum","enums":[null]}],"required":true},
             "seasonEntrant": {"dataType":"union","subSchemas":[{"ref":"SeasonEntrantDTO"},{"dataType":"enum","enums":[null]}],"required":true},
             "tyreManufacturer": {"dataType":"union","subSchemas":[{"ref":"TyreManufacturerDTO"},{"dataType":"enum","enums":[null]}],"required":true},
+            "chassisManufacturer": {"dataType":"union","subSchemas":[{"ref":"CompanyDTO"},{"dataType":"enum","enums":[null]}],"required":true},
+            "engineManufacturer": {"dataType":"union","subSchemas":[{"ref":"CompanyDTO"},{"dataType":"enum","enums":[null]}],"required":true},
         },
         "additionalProperties": false,
     },
@@ -250,7 +252,10 @@ const models: TsoaRoute.Models = {
             "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
             "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"asc"},
-            "positionText": {"dataType":"double"},
+            "minPos": {"dataType":"double"},
+            "maxPos": {"dataType":"double"},
+            "driverId": {"dataType":"string"},
+            "positionText": {"dataType":"string"},
             "orderBy": {"dataType":"enum","enums":["entrantId","eventId","positionOrder","positionText","time","laps"],"default":"eventId"},
         },
         "additionalProperties": false,
@@ -342,13 +347,13 @@ const models: TsoaRoute.Models = {
     "RaceResultDTO": {
         "dataType": "refObject",
         "properties": {
+            "points": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "positionOrder": {"dataType":"double","required":true},
             "positionText": {"dataType":"string","required":true},
             "time": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "gridPosition": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "gridPenalty": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
             "laps": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
-            "points": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "pointsCountForWDC": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "pointsGained": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "gap": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
@@ -366,11 +371,12 @@ const models: TsoaRoute.Models = {
             "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
             "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"asc"},
-            "gridPos": {"dataType":"string"},
-            "positionText": {"dataType":"string"},
             "minPos": {"dataType":"double"},
             "maxPos": {"dataType":"double"},
-            "orderBy": {"dataType":"enum","enums":["entrantId","eventId","positionOrder","positionText","time","gridPosition","gridPenalty","laps","points","pointsCountForWDC","pointsGained","gap","timePenalty","reasonRetired"],"default":"eventId"},
+            "driverId": {"dataType":"string"},
+            "gridPos": {"dataType":"string"},
+            "positionText": {"dataType":"string"},
+            "orderBy": {"dataType":"enum","enums":["points","entrantId","eventId","positionOrder","positionText","time","gridPosition","gridPenalty","laps","pointsCountForWDC","pointsGained","gap","timePenalty","reasonRetired"],"default":"eventId"},
         },
         "additionalProperties": false,
     },
@@ -378,11 +384,11 @@ const models: TsoaRoute.Models = {
     "SprintQualifyingResultDTO": {
         "dataType": "refObject",
         "properties": {
+            "points": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "positionOrder": {"dataType":"double","required":true},
             "positionText": {"dataType":"string","required":true},
             "time": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "laps": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
-            "points": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "gap": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
             "timePenalty": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "reasonRetired": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
@@ -502,6 +508,57 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/events',
+            ...(fetchMiddlewares<RequestHandler>(EventService)),
+            ...(fetchMiddlewares<RequestHandler>(EventService.prototype.get)),
+
+            function EventService_get(request: any, response: any, next: any) {
+            const args = {
+                    obj: {"in":"queries","name":"obj","required":true,"ref":"EventQueryParams"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new EventService();
+
+
+              const promise = controller.get.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/events/:season/:round',
+            ...(fetchMiddlewares<RequestHandler>(EventService)),
+            ...(fetchMiddlewares<RequestHandler>(EventService.prototype.getById)),
+
+            function EventService_getById(request: any, response: any, next: any) {
+            const args = {
+                    season: {"in":"path","name":"season","required":true,"dataType":"double"},
+                    round: {"in":"path","name":"round","required":true,"dataType":"double"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new EventService();
+
+
+              const promise = controller.getById.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/companies',
             ...(fetchMiddlewares<RequestHandler>(CompanyService)),
             ...(fetchMiddlewares<RequestHandler>(CompanyService.prototype.get)),
@@ -546,6 +603,59 @@ export function RegisterRoutes(app: Router) {
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/championships/:season/drivers',
+            ...(fetchMiddlewares<RequestHandler>(DriverStandingService)),
+            ...(fetchMiddlewares<RequestHandler>(DriverStandingService.prototype.getDriverChampionshipResults)),
+
+            function DriverStandingService_getDriverChampionshipResults(request: any, response: any, next: any) {
+            const args = {
+                    season: {"in":"path","name":"season","required":true,"dataType":"double"},
+                    round: {"in":"query","name":"round","dataType":"double"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new DriverStandingService();
+
+
+              const promise = controller.getDriverChampionshipResults.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/championships/:season/drivers/:driverId',
+            ...(fetchMiddlewares<RequestHandler>(DriverStandingService)),
+            ...(fetchMiddlewares<RequestHandler>(DriverStandingService.prototype.getDriverChampionshipResult)),
+
+            function DriverStandingService_getDriverChampionshipResult(request: any, response: any, next: any) {
+            const args = {
+                    season: {"in":"path","name":"season","required":true,"dataType":"double"},
+                    driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
+                    round: {"in":"query","name":"round","dataType":"double"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new DriverStandingService();
+
+
+              const promise = controller.getDriverChampionshipResult.apply(controller, validatedArgs as any);
               promiseHandler(controller, promise, response, undefined, next);
             } catch (err) {
                 return next(err);
@@ -671,110 +781,6 @@ export function RegisterRoutes(app: Router) {
 
 
               const promise = controller.getChampionshipResults.apply(controller, validatedArgs as any);
-              promiseHandler(controller, promise, response, undefined, next);
-            } catch (err) {
-                return next(err);
-            }
-        });
-        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/championships/:season/drivers',
-            ...(fetchMiddlewares<RequestHandler>(DriverStandingService)),
-            ...(fetchMiddlewares<RequestHandler>(DriverStandingService.prototype.getDriverChampionshipResults)),
-
-            function DriverStandingService_getDriverChampionshipResults(request: any, response: any, next: any) {
-            const args = {
-                    season: {"in":"path","name":"season","required":true,"dataType":"double"},
-                    round: {"in":"query","name":"round","dataType":"double"},
-            };
-
-            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-
-            let validatedArgs: any[] = [];
-            try {
-                validatedArgs = getValidatedArgs(args, request, response);
-
-                const controller = new DriverStandingService();
-
-
-              const promise = controller.getDriverChampionshipResults.apply(controller, validatedArgs as any);
-              promiseHandler(controller, promise, response, undefined, next);
-            } catch (err) {
-                return next(err);
-            }
-        });
-        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/championships/:season/drivers/:driverId',
-            ...(fetchMiddlewares<RequestHandler>(DriverStandingService)),
-            ...(fetchMiddlewares<RequestHandler>(DriverStandingService.prototype.getDriverChampionshipResult)),
-
-            function DriverStandingService_getDriverChampionshipResult(request: any, response: any, next: any) {
-            const args = {
-                    season: {"in":"path","name":"season","required":true,"dataType":"double"},
-                    driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
-                    round: {"in":"query","name":"round","dataType":"double"},
-            };
-
-            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-
-            let validatedArgs: any[] = [];
-            try {
-                validatedArgs = getValidatedArgs(args, request, response);
-
-                const controller = new DriverStandingService();
-
-
-              const promise = controller.getDriverChampionshipResult.apply(controller, validatedArgs as any);
-              promiseHandler(controller, promise, response, undefined, next);
-            } catch (err) {
-                return next(err);
-            }
-        });
-        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/events',
-            ...(fetchMiddlewares<RequestHandler>(EventService)),
-            ...(fetchMiddlewares<RequestHandler>(EventService.prototype.get)),
-
-            function EventService_get(request: any, response: any, next: any) {
-            const args = {
-                    obj: {"in":"queries","name":"obj","required":true,"ref":"EventQueryParams"},
-            };
-
-            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-
-            let validatedArgs: any[] = [];
-            try {
-                validatedArgs = getValidatedArgs(args, request, response);
-
-                const controller = new EventService();
-
-
-              const promise = controller.get.apply(controller, validatedArgs as any);
-              promiseHandler(controller, promise, response, undefined, next);
-            } catch (err) {
-                return next(err);
-            }
-        });
-        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/events/:season/:round',
-            ...(fetchMiddlewares<RequestHandler>(EventService)),
-            ...(fetchMiddlewares<RequestHandler>(EventService.prototype.getById)),
-
-            function EventService_getById(request: any, response: any, next: any) {
-            const args = {
-                    season: {"in":"path","name":"season","required":true,"dataType":"double"},
-                    round: {"in":"path","name":"round","required":true,"dataType":"double"},
-            };
-
-            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-
-            let validatedArgs: any[] = [];
-            try {
-                validatedArgs = getValidatedArgs(args, request, response);
-
-                const controller = new EventService();
-
-
-              const promise = controller.getById.apply(controller, validatedArgs as any);
               promiseHandler(controller, promise, response, undefined, next);
             } catch (err) {
                 return next(err);

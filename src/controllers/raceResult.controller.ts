@@ -1,12 +1,9 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
-import {
-  PageMetadata,
-  PageQueryParams,
-  Paginator
-} from '../models/paginated-items';
-import { Sorter, SorterQueryParams } from '../models/sorter';
+import { PageMetadata, Paginator } from '../models/paginated-items';
+import { ResultsFiltersQueryParams } from '../models/results-filter';
+import { Sorter } from '../models/sorter';
 import { DB, RaceResultDTO, RaceResults } from '../models/types.dto';
 import { DbService } from '../services/db.service';
 import {
@@ -16,20 +13,12 @@ import {
 import { EventService } from './event.controller';
 import { EventEntrantService } from './eventEntrant.controller';
 
-export interface RaceResultQueryParams
-  extends PageQueryParams,
-    SorterQueryParams {
+export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
   /** Filter by a specific grid postion text */
   gridPos?: string;
 
   /** Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`... */
   positionText?: string;
-
-  /** Look for the results where the driver achieved a position worse than or equal to this number.  */
-  minPos?: number;
-
-  /** Look for the results where the driver achieved a position better than or equal to this number.  */
-  maxPos?: number;
 
   /** @default eventId */
   orderBy?: keyof RaceResults;
@@ -87,6 +76,21 @@ export class RaceResultService extends DbService {
       .selectFrom('raceResults')
       .$if(obj.positionText != undefined, (qb) =>
         qb.where('positionText', '==', obj.positionText!)
+      )
+      .$if(obj.maxPos != undefined, (qb) =>
+        qb.where('positionOrder', '<=', obj.maxPos!)
+      )
+      .$if(obj.minPos != undefined, (qb) =>
+        qb.where('positionOrder', '>=', obj.minPos!)
+      )
+      .$if(obj.driverId != undefined, (qb) =>
+        qb
+          .innerJoin(
+            'eventEntrants',
+            'eventEntrants.id',
+            'raceResults.entrantId'
+          )
+          .where('eventEntrants.driverId', '==', obj.driverId!)
       );
 
     return mainSelect

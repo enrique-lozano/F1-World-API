@@ -3,7 +3,6 @@ import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Query, Route, Tags } from 'tsoa';
 import { DriverDTO } from '../models/types.dto';
 import { DbService } from '../services/db.service';
-import { parseSearchQueryParams } from '../utils/objAttributesToStr';
 import { DriverService } from './driver.controller';
 
 export interface DriverChampResult {
@@ -28,13 +27,6 @@ export class DriverStandingService extends DbService {
     @Path() season: number,
     @Query() round?: number
   ) {
-    const params = parseSearchQueryParams({ season, round });
-
-    let whereStatement = ' WHERE CAST (substr(eventId, 1, 4) AS INT) = :season';
-
-    if (params.round)
-      whereStatement += ' AND CAST (substr(eventId, 6, 7) AS INT) <= :round';
-
     const results: DriverChampResult[] = (await this.db
       .selectFrom('raceResults')
       .leftJoin('sprintQualifyingResults', (join) =>
@@ -58,12 +50,14 @@ export class DriverStandingService extends DbService {
       )
       .groupBy('driverId')
       .select(({ fn, eb }) => [
-        sql<number>`${fn.sum('raceResults.pointsGained')} + ${fn.sum(
-          'sprintQualifyingResults.points'
+        sql<number>`${fn.sum('raceResults.pointsGained')} + ${fn.coalesce(
+          fn.sum('sprintQualifyingResults.points'),
+          sql<number>`0`
         )}`.as('points'),
-        sql<number>`${fn.sum('raceResults.points')} + ${fn.sum(
-          'sprintQualifyingResults.points'
-        )}`.as('points'),
+        sql<number>`${fn.sum('raceResults.points')} + ${fn.coalesce(
+          fn.sum('sprintQualifyingResults.points'),
+          sql<number>`0`
+        )}`.as('totalPoints'),
         jsonObjectFrom(
           DriverService.getDriversSelect(
             eb.selectFrom('drivers') as any
