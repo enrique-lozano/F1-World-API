@@ -312,25 +312,25 @@ CREATE TABLE IF NOT EXISTS preQualifyingResults
 -- Table: qualifying1_results
 DROP TABLE IF EXISTS qualifying1_results;
 CREATE TABLE IF NOT EXISTS qualifying1_results
-( eventId VARCHAR(10) NOT NULL
+( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
 , entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
 , positionOrder INTEGER
 , positionText VARCHAR(3)
 , laps INTEGER
 , time INTEGER
-, PRIMARY KEY (eventId, entrantId)
+, PRIMARY KEY (sessionId, entrantId)
 );
 
 -- Table: qualifying2_results
 DROP TABLE IF EXISTS qualifying2_results;
 CREATE TABLE IF NOT EXISTS qualifying2_results
-( eventId VARCHAR(10) NOT NULL
+( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
 , entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
 , positionOrder INTEGER
 , positionText VARCHAR(3)
 , laps INTEGER
 , time INTEGER
-, PRIMARY KEY (eventId, entrantId)
+, PRIMARY KEY (sessionId, entrantId)
 );
 
 -- Table: qualifyingResults
