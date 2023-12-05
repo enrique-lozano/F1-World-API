@@ -383,6 +383,17 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "SessionDTO": {
+        "dataType": "refObject",
+        "properties": {
+            "id": {"dataType":"string","required":true},
+            "abbreviation": {"dataType":"string","required":true},
+            "startDateTime": {"dataType":"string","required":true},
+            "event": {"dataType":"union","subSchemas":[{"ref":"EventDTO"},{"dataType":"enum","enums":[null]}],"required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "SprintQualifyingResultDTO": {
         "dataType": "refObject",
         "properties": {
@@ -395,7 +406,7 @@ const models: TsoaRoute.Models = {
             "timePenalty": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "reasonRetired": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
             "gridPos": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
-            "event": {"dataType":"union","subSchemas":[{"ref":"EventDTO"},{"dataType":"enum","enums":[null]}],"required":true},
+            "session": {"dataType":"union","subSchemas":[{"ref":"SessionDTO"},{"dataType":"enum","enums":[null]}],"required":true},
             "entrant": {"dataType":"union","subSchemas":[{"ref":"EventEntrantDTO"},{"dataType":"enum","enums":[null]}],"required":true},
         },
         "additionalProperties": false,
@@ -1226,13 +1237,13 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/sprint-qualifyings/results/:eventId',
+        app.get('/sprint-qualifyings/results/:sessionId',
             ...(fetchMiddlewares<RequestHandler>(sprintQualifyingResultService)),
             ...(fetchMiddlewares<RequestHandler>(sprintQualifyingResultService.prototype.getRaceResults)),
 
             function sprintQualifyingResultService_getRaceResults(request: any, response: any, next: any) {
             const args = {
-                    eventId: {"in":"path","name":"eventId","required":true,"dataType":"string"},
+                    sessionId: {"in":"path","name":"sessionId","required":true,"dataType":"string"},
                     notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
@@ -1252,13 +1263,13 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/sprint-qualifyings/results/:eventId/:driverId',
+        app.get('/sprint-qualifyings/results/:sessionId/:driverId',
             ...(fetchMiddlewares<RequestHandler>(sprintQualifyingResultService)),
             ...(fetchMiddlewares<RequestHandler>(sprintQualifyingResultService.prototype.getDriverRaceResult)),
 
             function sprintQualifyingResultService_getDriverRaceResult(request: any, response: any, next: any) {
             const args = {
-                    eventId: {"in":"path","name":"eventId","required":true,"dataType":"string"},
+                    sessionId: {"in":"path","name":"sessionId","required":true,"dataType":"string"},
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
                     notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };

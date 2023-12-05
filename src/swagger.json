@@ -1133,6 +1133,35 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"SessionDTO": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"abbreviation": {
+						"type": "string"
+					},
+					"startDateTime": {
+						"type": "string"
+					},
+					"event": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/EventDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"abbreviation",
+					"startDateTime",
+					"event"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"SprintQualifyingResultDTO": {
 				"properties": {
 					"points": {
@@ -1175,10 +1204,10 @@
 						"format": "double",
 						"nullable": true
 					},
-					"event": {
+					"session": {
 						"allOf": [
 							{
-								"$ref": "#/components/schemas/EventDTO"
+								"$ref": "#/components/schemas/SessionDTO"
 							}
 						],
 						"nullable": true
@@ -1202,7 +1231,7 @@
 					"timePenalty",
 					"reasonRetired",
 					"gridPos",
-					"event",
+					"session",
 					"entrant"
 				],
 				"type": "object",
@@ -3472,7 +3501,7 @@
 				]
 			}
 		},
-		"/sprint-qualifyings/results/{eventId}": {
+		"/sprint-qualifyings/results/{sessionId}": {
 			"get": {
 				"operationId": "GetRaceResults",
 				"responses": {
@@ -3508,7 +3537,7 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "eventId",
+						"name": "sessionId",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -3517,7 +3546,7 @@
 				]
 			}
 		},
-		"/sprint-qualifyings/results/{eventId}/{driverId}": {
+		"/sprint-qualifyings/results/{sessionId}/{driverId}": {
 			"get": {
 				"operationId": "GetDriverRaceResult",
 				"responses": {
@@ -3550,7 +3579,7 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "eventId",
+						"name": "sessionId",
 						"required": true,
 						"schema": {
 							"type": "string"

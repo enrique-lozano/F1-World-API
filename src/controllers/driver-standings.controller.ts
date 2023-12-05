@@ -34,7 +34,7 @@ export class DriverStandingService extends DbService {
           .onRef(
             sql`substr(raceResults.sessionId, 1, 7)`,
             '=',
-            'sprintQualifyingResults.eventId'
+            sql`substr(sprintQualifyingResults.sessionId, 1, 7)`
           )
           .onRef(
             'raceResults.entrantId',

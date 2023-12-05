@@ -332,7 +332,7 @@ export interface SeasonEntrantDTO extends Omit<SeasonEntrants, 'countryId'> {
 }
 
 export interface SprintQualifyingResults {
-  eventId: string;
+  sessionId: string;
   entrantId: string;
   positionText: string;
   positionOrder: number;
@@ -346,8 +346,8 @@ export interface SprintQualifyingResults {
 }
 
 export interface SprintQualifyingResultDTO
-  extends Omit<SprintQualifyingResults, 'eventId' | 'entrantId'> {
-  event: EventDTO | null;
+  extends Omit<SprintQualifyingResults, 'sessionId' | 'entrantId'> {
+  session: SessionDTO | null;
   entrant: EventEntrantDTO | null;
 }
 

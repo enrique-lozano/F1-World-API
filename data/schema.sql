@@ -371,7 +371,7 @@ CREATE TABLE IF NOT EXISTS raceResults
 -- Table: sprintQualifyingResults
 DROP TABLE IF EXISTS sprintQualifyingResults;
 CREATE TABLE IF NOT EXISTS sprintQualifyingResults
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
+( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
 , entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
 , positionText VARCHAR(4) NOT NULL
 , positionOrder INTEGER NOT NULL
@@ -382,7 +382,7 @@ CREATE TABLE IF NOT EXISTS sprintQualifyingResults
 , gap VARCHAR(255)
 , timePenalty INTEGER
 , reasonRetired VARCHAR(255)
-, PRIMARY KEY (eventId, entrantId)
+, PRIMARY KEY (sessionId, entrantId)
 );
 
 

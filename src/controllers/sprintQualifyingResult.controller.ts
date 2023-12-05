@@ -8,9 +8,9 @@ import {
   ErrorMessage,
   sendTsoaError
 } from '../utils/custom-error/custom-error';
-import { EventService } from './event.controller';
 import { EventEntrantService } from './eventEntrant.controller';
 import { RaceResultQueryParams } from './raceResult.controller';
+import { SessionService } from './session.controller';
 
 @Route('sprint-qualifyings/results')
 @Tags('Sprint Qualifyings')
@@ -33,12 +33,12 @@ export class sprintQualifyingResultService extends DbService {
       ])
       .select((eb) => [
         jsonObjectFrom(
-          EventService.getEventSelect(eb.selectFrom('events')).whereRef(
-            'sprintQualifyingResults.eventId',
+          SessionService.getSessionSelect(eb.selectFrom('sessions')).whereRef(
+            'sprintQualifyingResults.sessionId',
             '==',
-            'events.id'
+            'sessions.id'
           )
-        ).as('event'),
+        ).as('session'),
         jsonObjectFrom(
           EventEntrantService.getEventEntrantSelect(
             eb.selectFrom('eventEntrants')
@@ -82,9 +82,9 @@ export class sprintQualifyingResultService extends DbService {
       .executeTakeFirstOrThrow();
   }
 
-  /** Gets info about the results of a certain race */ @Get('/{eventId}')
+  /** Gets info about the results of a certain race */ @Get('/{sessionId}')
   async getRaceResults(
-    @Path() eventId: string,
+    @Path() sessionId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<SprintQualifyingResultDTO[]> {
     const raceResultInDB: SprintQualifyingResultDTO[] =
@@ -92,7 +92,7 @@ export class sprintQualifyingResultService extends DbService {
         .getSprintRaceResultSelect(
           this.db.selectFrom('sprintQualifyingResults')
         )
-        .where('eventId', '==', eventId)
+        .where('sessionId', '==', sessionId)
         .execute();
 
     if (!raceResultInDB || raceResultInDB.length === 0) {
@@ -103,10 +103,10 @@ export class sprintQualifyingResultService extends DbService {
   }
 
   /** Gets info about the result obtained by a driver in a certain race */ @Get(
-    '/{eventId}/{driverId}'
+    '/{sessionId}/{driverId}'
   )
   async getDriverRaceResult(
-    @Path() eventId: string,
+    @Path() sessionId: string,
     @Path() driverId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<SprintQualifyingResultDTO> {
@@ -120,7 +120,7 @@ export class sprintQualifyingResultService extends DbService {
           'eventEntrants.id',
           'sprintQualifyingResults.entrantId'
         )
-        .where('eventId', '==', eventId)
+        .where('sessionId', '==', sessionId)
         .where('eventEntrants.driverId', '==', driverId)
         .selectAll('sprintQualifyingResults')
         .executeTakeFirst();
