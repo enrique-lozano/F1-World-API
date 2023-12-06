@@ -377,24 +377,17 @@ export interface DB {
   eventEntrants: EventEntrants;
   events: Events;
   sessions: Sessions;
-  fp1_results: TimedSessionResults;
-  fp2_results: TimedSessionResults;
-  fp3_results: TimedSessionResults;
-  fp4_results: TimedSessionResults;
+  fpResults: TimedSessionResults;
   grandsPrix: GrandsPrix;
   lapTimes: LapTimes;
   pitStops: PitStops;
   preQualifyingResults: TimedSessionResults;
   previousNextConstructors: PreviousNextConstructors;
   qualifying1_results: TimedSessionResults;
-  qualifying2_results: TimedSessionResults;
-  qualifyingResults: QualifyingResults;
   raceResults: RaceResults;
   redFlags: RedFlags;
   safetyCars: SafetyCars;
   seasonEntrants: SeasonEntrants;
   sprintQualifyingResults: SprintQualifyingResults;
   tyreManufacturers: TyreManufacturers;
-  warming_up_results: TimedSessionResults;
-  warmingUpResults: TimedSessionResults;
 }

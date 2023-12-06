@@ -236,57 +236,9 @@ CREATE TABLE IF NOT EXISTS events
 , posterURL VARCHAR(255) COLLATE NOCASE
 );
 
--- Table: fp1_results
-DROP TABLE IF EXISTS fp1_results;
-CREATE TABLE IF NOT EXISTS fp1_results
-( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (sessionId, entrantId)
-);
-
--- Table: fp2_results
-DROP TABLE IF EXISTS fp2_results;
-CREATE TABLE IF NOT EXISTS fp2_results
-( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (sessionId, entrantId)
-);
-
--- Table: fp3_results
-DROP TABLE IF EXISTS fp3_results;
-CREATE TABLE IF NOT EXISTS fp3_results
-( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (sessionId, entrantId)
-);
-
--- Table: fp4_results
-DROP TABLE IF EXISTS fp4_results;
-CREATE TABLE IF NOT EXISTS fp4_results
-( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (sessionId, entrantId)
-);
-
--- Table: warmingUpResults
-DROP TABLE IF EXISTS warmingUpResults;
-CREATE TABLE IF NOT EXISTS warmingUpResults
+-- Table: fpResults
+DROP TABLE IF EXISTS fpResults;
+CREATE TABLE IF NOT EXISTS fpResults
 ( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
 , entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
 , positionOrder INTEGER
@@ -309,43 +261,16 @@ CREATE TABLE IF NOT EXISTS preQualifyingResults
 );
 
 
--- Table: qualifying1_results
-DROP TABLE IF EXISTS qualifying1_results;
-CREATE TABLE IF NOT EXISTS qualifying1_results
-( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (sessionId, entrantId)
-);
-
--- Table: qualifying2_results
-DROP TABLE IF EXISTS qualifying2_results;
-CREATE TABLE IF NOT EXISTS qualifying2_results
-( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (sessionId, entrantId)
-);
-
 -- Table: qualifyingResults
 DROP TABLE IF EXISTS qualifyingResults;
 CREATE TABLE IF NOT EXISTS qualifyingResults
-( eventId VARCHAR(10) NOT NULL
+( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
 , entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
 , positionOrder INTEGER
 , positionText VARCHAR(3)
-, time INTEGER
 , laps INTEGER
-, q1Time INTEGER
-, q2Time INTEGER
-, q3Time INTEGER
-, PRIMARY KEY (eventId, entrantId)
+, time INTEGER
+, PRIMARY KEY (sessionId, entrantId)
 );
 
 -- Table: raceResults

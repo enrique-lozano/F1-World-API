@@ -32,8 +32,7 @@ export type TimedSessionTables =
   | 'fp4_results'
   | 'warmingUpResults'
   | 'preQualifyingResults'
-  | 'qualifying1_results'
-  | 'qualifying2_results';
+  | 'qualifying1_results';
 
 export class TimedSessionResultService extends DbService {
   static getTimedSessionResultSelect<
