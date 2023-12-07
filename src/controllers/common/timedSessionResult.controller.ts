@@ -25,19 +25,12 @@ export interface TimedSessionResultQueryParams
   orderBy?: keyof TimedSessionResults;
 }
 
-export type TimedSessionTables =
-  | 'fp1_results'
-  | 'fp2_results'
-  | 'fp3_results'
-  | 'fp4_results'
-  | 'warmingUpResults'
-  | 'preQualifyingResults'
-  | 'qualifying1_results';
+export type ResultsTables = 'fpResults' | 'raceResults' | 'qualifyingResults';
 
 export class TimedSessionResultService extends DbService {
   static getTimedSessionResultSelect<
     T extends keyof DB,
-    TableToGet extends TimedSessionTables
+    TableToGet extends ResultsTables
   >(qb: SelectQueryBuilder<DB, T | TableToGet, {}>, tableToGet: TableToGet) {
     return (qb as SelectQueryBuilder<DB, any, {}>)
       .select(['time', 'laps', 'positionOrder', 'positionText'])
@@ -58,7 +51,7 @@ export class TimedSessionResultService extends DbService {
   }
 
   getTimedSessionsResults(
-    session: TimedSessionTables,
+    session: ResultsTables,
     filters: TimedSessionResultQueryParams
   ): Promise<PageMetadata & { data: TimedSessionResultsDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(filters);
@@ -107,7 +100,7 @@ export class TimedSessionResultService extends DbService {
   }
 
   async getTimedSessionResults(
-    session: TimedSessionTables,
+    session: ResultsTables,
     eventId: string,
     notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<TimedSessionResultsDTO[]> {
@@ -128,7 +121,7 @@ export class TimedSessionResultService extends DbService {
   }
 
   async getDriverTimedSessionResult(
-    session: TimedSessionTables,
+    session: ResultsTables,
     eventId: string,
     driverId: string,
     notFoundResponse: TsoaResponse<404, ErrorMessage<404>>

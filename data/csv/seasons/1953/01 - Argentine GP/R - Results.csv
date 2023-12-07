@@ -1,0 +1,17 @@
+sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+1953-01-R,633,1,1,10864600,1,,97,9,1,9,,,
+1953-01-R,635,2,2,,3,,96,6,1,6,+1 lap,,
+1953-01-R,630,3,3,,5,,96,4,1,4,+1 lap,,
+1953-01-R,636,4,4,,6,,96,3,1,3,+1 lap,,
+1953-01-R,632,5,5,,9,,96,2,1,2,+1 lap,,
+1953-01-R,643,6,6,,11,,94,0,1,0,+3 laps,,
+1953-01-R,642,7,7,,7,,91,0,1,0,+6 laps,,
+1953-01-R,638,8,8,,16,,90,0,1,0,+7 laps,,
+1953-01-R,637,9,9,,12,,87,0,1,0,+10 laps,,
+1953-01-R,640,10,DNF,,8,,67,0,1,0,,,Wheel
+1953-01-R,629,11,DNF,,2,,36,0,1,0,,,Transmission
+1953-01-R,631,12,DNF,,15,,31,0,1,0,,,Transmission
+1953-01-R,634,13,DNF,,4,,30,0,1,0,,,Accident
+1953-01-R,644,14,DNF,,10,,24,0,1,0,,,Gearbox
+1953-01-R,645,15,DNF,,14,,21,0,1,0,,,Differential
+1953-01-R,639,16,DNF,,13,,20,0,1,0,,,Wheel

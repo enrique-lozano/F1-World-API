@@ -13,23 +13,116 @@ async function main() {
 
   console.log(pc.green('[OK]: ') + 'Database file connected successfully!\n');
 
-  for (const tableName of tableNames) {
-    // Query the table to fetch all rows
-    const rows: any[] = db.prepare(`SELECT * FROM ${tableName}`).all();
+  console.log(
+    db
+      .prepare(
+        `select substr(sessionId,1,4) as year from fpResults group by substr(sessionId,1,4)`
+      )
+      .all()
+      .map((x: any) => x['year'])
+  );
 
-    if (rows.length === 0) {
-      console.log(`Table "${tableName}" is empty. Skipping export.`);
+  for (const tableName of tableNames) {
+    console.log('');
+    console.log(pc.blue('[INFO]: ') + `Exporting table "${tableName}"...`);
+
+    if (tableName.toLowerCase().indexOf('results') > -1) {
+      const years = db
+        .prepare(
+          `select substr(sessionId,1,4) as year from ${tableName} group by substr(sessionId,1,4)`
+        )
+        .all()
+        .map((x: any) => Number(x['year']));
+
+      for (const year of years) {
+        const rounds = db
+          .prepare(
+            `select substr(sessionId,6,2) as round from ${tableName} WHERE substr(sessionId,1,4) = '${year}' group by substr(sessionId,6,2)`
+          )
+          .all()
+          .map((x: any) => String(x['round']));
+
+        for (const round of rounds) {
+          const sessions = db
+            .prepare(
+              `select substr(sessionId,9,20) as sessionAbbr from ${tableName} \
+              WHERE substr(sessionId,1,4) = '${year}' AND substr(sessionId,6,2) = '${round}' \
+              group by substr(sessionId,9,20)`
+            )
+            .all()
+            .map((x: any) => String(x['sessionAbbr']));
+
+          for (const session of sessions) {
+            const name: any = db
+              .prepare(
+                `SELECT grandsPrix.shortName FROM events LEFT JOIN grandsPrix ON \
+                  grandsPrix.id = events.grandPrixId WHERE events.id = '${year}-${round}'`
+              )
+              .get();
+
+            const rows: any[] = db
+              .prepare(
+                `SELECT * FROM ${tableName} WHERE sessionId = '${year}-${round}-${session}' ORDER BY positionOrder`
+              )
+              .all();
+
+            await exportRowsToCSV({
+              rows,
+              dir: path.resolve(
+                csvDirectory,
+                'seasons',
+                year.toFixed(0),
+                `${round} - ${name['shortName']}`
+              ),
+              fileName: session + ' - Results'
+            });
+          }
+        }
+      }
+
+      // Finish with the results tables
       continue;
     }
 
-    // Determine the CSV file path
-    const csvFilePath = path.resolve(csvDirectory, tableName + '.csv');
+    const rows: any[] = db.prepare(`SELECT * FROM ${tableName}`).all();
 
-    fs.writeFileSync(
-      csvFilePath,
-      await json2csv(rows, { emptyFieldValue: '' })
-    );
+    if (rows.length === 0) {
+      console.log(
+        pc.yellow('[WARN]: ') +
+          `Table "${tableName}" is empty. Skipping export.`
+      );
+      continue;
+    }
 
-    console.log(`Table "${tableName}" exported to ${csvFilePath}`);
+    await exportRowsToCSV({ rows, dir: csvDirectory, fileName: tableName });
   }
+
+  return;
+}
+
+async function exportRowsToCSV(params: {
+  rows: any[];
+  dir: string;
+  fileName: string;
+}) {
+  if (!fs.existsSync(params.dir)) {
+    fs.mkdirSync(params.dir, {
+      recursive: true
+    });
+  }
+
+  const filepath = path.resolve(params.dir, params.fileName + '.csv');
+
+  fs.writeFileSync(
+    filepath,
+    await json2csv(params.rows, { emptyFieldValue: '' }),
+    {
+      flag: 'w+'
+    }
+  );
+
+  console.log(
+    pc.green('[OK]: ') +
+      `Export to ${path.relative(__dirname, filepath)} with success!`
+  );
 }

@@ -1,0 +1,21 @@
+sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+1982-06-R,5637,1,1,6851259,2,,76,9,1,9,,,
+1982-06-R,5628,2,2,,5,,75,6,1,6,,,Out of fuel
+1982-06-R,5644,3,3,,7,,75,4,1,4,,,Out of fuel
+1982-06-R,5640,4,4,,11,,75,3,1,3,+1 lap,,
+1982-06-R,5639,5,5,,15,,75,2,1,2,+1 lap,,
+1982-06-R,5655,6,6,,8,,74,1,1,1,,,Accident
+1982-06-R,5618,7,7,,4,,73,0,1,0,,,Accident
+1982-06-R,5652,8,8,,17,,72,0,1,0,+4 laps,,
+1982-06-R,5660,9,9,,19,,70,0,1,0,+6 laps,,
+1982-06-R,5607,10,10,,9,,69,0,1,0,,,Suspension
+1982-06-R,5656,11,DNF,,6,,64,0,1,0,,,Collision
+1982-06-R,5638,12,DNF,,12,,56,0,1,0,,,Engine
+1982-06-R,5605,13,DNF,,13,,49,0,1,0,,,Turbo
+1982-06-R,5611,14,DNF,,10,,35,0,1,0,,,Electrical
+1982-06-R,5657,15,DNF,,14,,31,0,1,0,,,Differential
+1982-06-R,5666,16,DNF,,18,,29,0,1,0,,,Handling
+1982-06-R,5665,17,DNF,,16,,27,0,1,0,,,Oil leak
+1982-06-R,5658,18,DNF,,20,,22,0,1,0,,,Mechanical
+1982-06-R,5619,19,DNF,,1,,14,0,1,0,,,Spun off
+1982-06-R,5645,20,DNF,,3,,4,0,1,0,,,Halfshaft

@@ -383,7 +383,7 @@ export interface DB {
   pitStops: PitStops;
   preQualifyingResults: TimedSessionResults;
   previousNextConstructors: PreviousNextConstructors;
-  qualifying1_results: TimedSessionResults;
+  qualifyingResults: TimedSessionResults;
   raceResults: RaceResults;
   redFlags: RedFlags;
   safetyCars: SafetyCars;
