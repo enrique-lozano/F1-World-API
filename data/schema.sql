@@ -285,7 +285,7 @@ CREATE TABLE IF NOT EXISTS raceResults
 , gridPenalty VARCHAR(10)
 , laps INTEGER
 , points INTEGER
-, pointsCountForWDC BOOLEAN
+, pointsCountForWDC BOOLEAN NOT NULL
 , pointsGained INTEGER
 , gap VARCHAR(255)
 , timePenalty INTEGER

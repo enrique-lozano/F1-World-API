@@ -291,7 +291,7 @@ export interface RaceResults {
   gridPenalty: string | null;
   laps: number | null;
   points: number | null;
-  pointsCountForWDC: number | null;
+  pointsCountForWDC: number;
   pointsGained: number | null;
   gap: string | null;
   timePenalty: number | null;
