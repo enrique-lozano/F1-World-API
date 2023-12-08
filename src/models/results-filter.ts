@@ -10,12 +10,12 @@ export interface SessionQueryParams extends PageQueryParams, SorterQueryParams {
   session?: string;
 }
 
-export interface SeasonEntrantQueryParams extends SessionQueryParams {
+export interface SessionEntrantQueryParams extends SessionQueryParams {
   /** Return only the items regarding this driver */
   driverId?: string;
 }
 
-export interface ResultsFiltersQueryParams extends SeasonEntrantQueryParams {
+export interface ResultsFiltersQueryParams extends SessionEntrantQueryParams {
   /** Look for the results where the driver achieved a position worse than or equal to this number.  */
   minPos?: number;
 
