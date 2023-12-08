@@ -1,23 +1,23 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
-import { PageMetadata, Paginator } from '../models/paginated-items';
-import { ResultsFiltersQueryParams } from '../models/results-filter';
-import { Sorter } from '../models/sorter';
+import { PageMetadata, Paginator } from '../../models/paginated-items';
+import { ResultsFiltersQueryParams } from '../../models/results-filter';
+import { Sorter } from '../../models/sorter';
 import {
   DB,
   RaceResultDTO,
   RaceResults,
   SessionDTO
-} from '../models/types.dto';
-import { DbService } from '../services/db.service';
+} from '../../models/types.dto';
+import { DbService } from '../../services/db.service';
 import {
   ErrorMessage,
   sendTsoaError
-} from '../utils/custom-error/custom-error';
-import { EventEntrantService } from './eventEntrant.controller';
-import { ResultsService } from './results.service';
-import { SessionService } from './session.controller';
+} from '../../utils/custom-error/custom-error';
+import { EventEntrantService } from '../eventEntrant.controller';
+import { ParamsBuilderService } from '../paramsBuilder.service';
+import { SessionService } from '../session.controller';
 
 export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
   maxGridPos?: number;
@@ -68,10 +68,8 @@ export class RaceResultService extends DbService {
   }
 
   private getResultsWithParams(obj: RaceResultQueryParams) {
-    return ResultsService.getResultsWithParamas(
-      this.db.selectFrom('raceResults'),
-      obj
-    )
+    return new ParamsBuilderService()
+      .getResultsWithParamas('raceResults', obj)
       .$if(obj.maxGridPos != undefined, (qb) =>
         qb.where('gridPosition', '<=', obj.maxGridPos!)
       )
@@ -129,7 +127,9 @@ export class RaceResultService extends DbService {
     }
 
     const sessionInfo = await new SessionService().getById(
-      `${season}-${round < 10 ? '0' + round : round}-${session}`
+      season,
+      round,
+      session
     );
 
     if (!sessionInfo) {

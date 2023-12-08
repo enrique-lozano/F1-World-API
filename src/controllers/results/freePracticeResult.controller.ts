@@ -1,23 +1,23 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
-import { PageMetadata, Paginator } from '../models/paginated-items';
-import { TimedSessionResultQueryParams } from '../models/results-filter';
-import { Sorter } from '../models/sorter';
+import { PageMetadata, Paginator } from '../../models/paginated-items';
+import { TimedSessionResultQueryParams } from '../../models/results-filter';
+import { Sorter } from '../../models/sorter';
 import {
   DB,
   SessionDTO,
   TimedSessionResults,
   TimedSessionResultsDTO
-} from '../models/types.dto';
-import { DbService } from '../services/db.service';
+} from '../../models/types.dto';
+import { DbService } from '../../services/db.service';
 import {
   ErrorMessage,
   sendTsoaError
-} from '../utils/custom-error/custom-error';
-import { EventEntrantService } from './eventEntrant.controller';
-import { ResultsService } from './results.service';
-import { SessionService } from './session.controller';
+} from '../../utils/custom-error/custom-error';
+import { EventEntrantService } from '../eventEntrant.controller';
+import { ParamsBuilderService } from '../paramsBuilder.service';
+import { SessionService } from '../session.controller';
 
 @Route('free-practices')
 @Tags('Free Practices')
@@ -45,10 +45,7 @@ export class FreePracticeResultService extends DbService {
   }
 
   private getResultsWithParams(obj: TimedSessionResultQueryParams) {
-    return ResultsService.getResultsWithParamas(
-      this.db.selectFrom('fpResults') as any,
-      obj
-    );
+    return new ParamsBuilderService().getResultsWithParamas('fpResults', obj);
   }
 
   /** Get driver race results based on some filters */ @Get('/')
@@ -100,7 +97,9 @@ export class FreePracticeResultService extends DbService {
     }
 
     const sessionInfo = await new SessionService().getById(
-      `${season}-${round < 10 ? '0' + round : round}-${session}`
+      season,
+      round,
+      session
     );
 
     if (!sessionInfo) {

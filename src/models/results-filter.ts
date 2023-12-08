@@ -2,17 +2,17 @@ import { PageQueryParams } from './paginated-items';
 import { SorterQueryParams } from './sorter';
 import { TimedSessionResults } from './types.dto';
 
-export interface SeasonEntrantQueryParams
-  extends PageQueryParams,
-    SorterQueryParams {
-  /** Return only the items regarding this driver */
-  driverId?: string;
-
+export interface SessionQueryParams extends PageQueryParams, SorterQueryParams {
   season?: number;
 
   round?: number;
 
   session?: string;
+}
+
+export interface SeasonEntrantQueryParams extends SessionQueryParams {
+  /** Return only the items regarding this driver */
+  driverId?: string;
 }
 
 export interface ResultsFiltersQueryParams extends SeasonEntrantQueryParams {

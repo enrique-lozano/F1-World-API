@@ -1,18 +1,11 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { Get, Route, Tags } from 'tsoa';
-import { PageQueryParams } from '../models/paginated-items';
-import { SorterQueryParams } from '../models/sorter';
+import { Get, Path, Route, Tags } from 'tsoa';
+import { SessionQueryParams } from '../models/results-filter';
 import { DbService } from '../services/db.service';
-import { DB, SessionDTO, Sessions } from './../models/types.dto';
+import { DB, SessionDTO } from './../models/types.dto';
 import { EventService } from './event.controller';
-
-interface SessionQueryParams extends PageQueryParams, SorterQueryParams {
-  circuitId?: string;
-
-  /** @default id */
-  orderBy?: keyof Sessions;
-}
+import { ParamsBuilderService } from './paramsBuilder.service';
 
 @Route('/sessions')
 @Tags('Sessions')
@@ -33,13 +26,30 @@ export class SessionService extends DbService {
       ]) as SelectQueryBuilder<DB, 'sessions' | T, SessionDTO>;
   }
 
-  /** Get a session by its ID
-   *
-   * @param id The ID of the session to get */
-  @Get('{id}')
-  getById(id: string): Promise<SessionDTO | undefined> {
-    return SessionService.getSessionSelect(this.db.selectFrom('sessions'))
-      .where('id', '==', id)
-      .executeTakeFirst();
+  private getSessionsWithParams(obj: SessionQueryParams) {
+    return new ParamsBuilderService().getSessionsWithParamas('sessions', obj);
+  }
+
+  /** Get a the sessions of a round or event */
+  @Get('/{season}/{round}')
+  getByEvent(
+    @Path() season: number,
+    @Path() round: number
+  ): Promise<SessionDTO[]> {
+    return SessionService.getSessionSelect(
+      this.getSessionsWithParams({ season, round })
+    ).execute();
+  }
+
+  /** Get a session */
+  @Get('/{season}/{round}/{session}')
+  getById(
+    @Path() season: number,
+    @Path() round: number,
+    @Path() session: string
+  ): Promise<SessionDTO | undefined> {
+    return SessionService.getSessionSelect(
+      this.getSessionsWithParams({ season, round, session })
+    ).executeTakeFirst();
   }
 }
