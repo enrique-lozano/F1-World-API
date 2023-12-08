@@ -1,15 +1,35 @@
 import { PageQueryParams } from './paginated-items';
 import { SorterQueryParams } from './sorter';
+import { TimedSessionResults } from './types.dto';
 
-export interface ResultsFiltersQueryParams
+export interface SeasonEntrantQueryParams
   extends PageQueryParams,
     SorterQueryParams {
+  /** Return only the items regarding this driver */
+  driverId?: string;
+
+  season?: number;
+
+  round?: number;
+
+  session?: string;
+}
+
+export interface ResultsFiltersQueryParams extends SeasonEntrantQueryParams {
   /** Look for the results where the driver achieved a position worse than or equal to this number.  */
   minPos?: number;
 
   /** Look for the results where the driver achieved a position better than or equal to this number.  */
   maxPos?: number;
 
-  /** Return only the results regarding this driver */
-  driverId?: string;
+  /** Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`... */
+  positionText?: string;
+}
+
+export interface TimedSessionResultQueryParams
+  extends ResultsFiltersQueryParams {
+  positionText?: string;
+
+  /** @default eventId */
+  orderBy?: keyof TimedSessionResults;
 }

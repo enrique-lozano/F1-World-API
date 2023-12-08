@@ -4,21 +4,25 @@ import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
 import { PageMetadata, Paginator } from '../models/paginated-items';
 import { ResultsFiltersQueryParams } from '../models/results-filter';
 import { Sorter } from '../models/sorter';
-import { DB, RaceResultDTO, RaceResults } from '../models/types.dto';
+import {
+  DB,
+  RaceResultDTO,
+  RaceResults,
+  SessionDTO
+} from '../models/types.dto';
 import { DbService } from '../services/db.service';
 import {
   ErrorMessage,
   sendTsoaError
 } from '../utils/custom-error/custom-error';
 import { EventEntrantService } from './eventEntrant.controller';
+import { ResultsService } from './results.service';
 import { SessionService } from './session.controller';
 
 export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
-  /** Filter by a specific grid postion text */
-  gridPos?: string;
+  maxGridPos?: number;
 
-  /** Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`... */
-  positionText?: string;
+  minGridPos?: number;
 
   /** @default eventId */
   orderBy?: keyof RaceResults;
@@ -28,7 +32,8 @@ export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
 @Tags('Races')
 export class RaceResultService extends DbService {
   static getRaceResultSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'raceResults', {}>
+    qb: SelectQueryBuilder<DB, T | 'raceResults', {}>,
+    getSessionDTO = true
   ) {
     return (qb as SelectQueryBuilder<DB, 'raceResults', {}>)
       .select([
@@ -62,6 +67,19 @@ export class RaceResultService extends DbService {
       ]) as SelectQueryBuilder<DB, 'raceResults' | T, RaceResultDTO>;
   }
 
+  private getResultsWithParams(obj: RaceResultQueryParams) {
+    return ResultsService.getResultsWithParamas(
+      this.db.selectFrom('raceResults'),
+      obj
+    )
+      .$if(obj.maxGridPos != undefined, (qb) =>
+        qb.where('gridPosition', '<=', obj.maxGridPos!)
+      )
+      .$if(obj.minGridPos != undefined, (qb) =>
+        qb.where('gridPosition', '>=', obj.minGridPos!)
+      );
+  }
+
   /** Get driver race results based on some filters */ @Get('/')
   getRacesResults(
     @Queries() obj: RaceResultQueryParams
@@ -72,26 +90,7 @@ export class RaceResultService extends DbService {
       obj.orderDir
     );
 
-    const mainSelect = this.db
-      .selectFrom('raceResults')
-      .$if(obj.positionText != undefined, (qb) =>
-        qb.where('positionText', '==', obj.positionText!)
-      )
-      .$if(obj.maxPos != undefined, (qb) =>
-        qb.where('positionOrder', '<=', obj.maxPos!)
-      )
-      .$if(obj.minPos != undefined, (qb) =>
-        qb.where('positionOrder', '>=', obj.minPos!)
-      )
-      .$if(obj.driverId != undefined, (qb) =>
-        qb
-          .innerJoin(
-            'eventEntrants',
-            'eventEntrants.id',
-            'raceResults.entrantId'
-          )
-          .where('eventEntrants.driverId', '==', obj.driverId!)
-      );
+    const mainSelect = this.getResultsWithParams(obj);
 
     return mainSelect
       .select(({ fn, eb }) => [
@@ -108,16 +107,20 @@ export class RaceResultService extends DbService {
       .executeTakeFirstOrThrow();
   }
 
-  /** Gets info about the results of a certain race */ @Get('/{sessionId}')
+  /** Gets info about the results of a certain race */ @Get(
+    '/{season}/{round}/{session}'
+  )
   async getRaceResults(
-    @Path() sessionId: string,
+    @Path() season: number,
+    @Path() round: number,
+    @Path() session: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
-  ): Promise<RaceResultDTO[]> {
+  ): Promise<SessionDTO & { results: RaceResultDTO[] }> {
     const raceResultInDB: RaceResultDTO[] =
       await RaceResultService.getRaceResultSelect(
-        this.db.selectFrom('raceResults')
+        this.getResultsWithParams({ session, season, round }),
+        false
       )
-        .where('sessionId', '==', sessionId)
         .orderBy('positionOrder', 'asc')
         .execute();
 
@@ -125,24 +128,35 @@ export class RaceResultService extends DbService {
       return sendTsoaError(notFoundResponse, 404, 'results.not.found');
     }
 
-    return raceResultInDB;
+    const sessionInfo = await new SessionService().getById(
+      `${season}-${round < 10 ? '0' + round : round}-${session}`
+    );
+
+    if (!sessionInfo) {
+      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
+    }
+
+    return {
+      ...sessionInfo,
+      results: raceResultInDB
+    };
   }
 
   /** Gets info about the result obtained by a driver in a certain race */ @Get(
-    '/{sessionId}/{driverId}'
+    '/{season}/{round}/{session}/{driverId}'
   )
   async getDriverRaceResult(
-    @Path() sessionId: string,
+    @Path() season: number,
+    @Path() round: number,
+    @Path() session: string,
     @Path() driverId: string,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<RaceResultDTO> {
     const raceResultInDB: RaceResultDTO | undefined =
       await RaceResultService.getRaceResultSelect(
-        this.db.selectFrom('raceResults')
+        this.getResultsWithParams({ session, season, round, driverId }),
+        false
       )
-        .innerJoin('eventEntrants', 'eventEntrants.id', 'raceResults.entrantId')
-        .where('sessionId', '==', sessionId)
-        .where('eventEntrants.driverId', '==', driverId)
         .selectAll('raceResults')
         .executeTakeFirst();
 

@@ -336,39 +336,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"TyreManufacturerDTO": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"primaryColor": {
-						"type": "string"
-					},
-					"secondaryColor": {
-						"type": "string"
-					},
-					"country": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/CountryDTO"
-							}
-						],
-						"nullable": true
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"primaryColor",
-					"secondaryColor",
-					"country"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"GrandsPrix": {
 				"properties": {
 					"id": {
@@ -497,6 +464,68 @@
 						"default": "id"
 					}
 				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"TyreManufacturerDTO": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"primaryColor": {
+						"type": "string"
+					},
+					"secondaryColor": {
+						"type": "string"
+					},
+					"country": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/CountryDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"primaryColor",
+					"secondaryColor",
+					"country"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SessionDTO": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"abbreviation": {
+						"type": "string"
+					},
+					"startDateTime": {
+						"type": "string"
+					},
+					"event": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/EventDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"abbreviation",
+					"startDateTime",
+					"event"
+				],
 				"type": "object",
 				"additionalProperties": false
 			},
@@ -680,6 +709,21 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
+					"driverId": {
+						"type": "string",
+						"description": "Return only the items regarding this driver"
+					},
+					"season": {
+						"type": "number",
+						"format": "double"
+					},
+					"round": {
+						"type": "number",
+						"format": "double"
+					},
+					"session": {
+						"type": "string"
+					},
 					"minPos": {
 						"type": "number",
 						"format": "double",
@@ -690,12 +734,9 @@
 						"format": "double",
 						"description": "Look for the results where the driver achieved a position better than or equal to this number."
 					},
-					"driverId": {
-						"type": "string",
-						"description": "Return only the results regarding this driver"
-					},
 					"positionText": {
-						"type": "string"
+						"type": "string",
+						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`..."
 					},
 					"orderBy": {
 						"type": "string",
@@ -976,11 +1017,6 @@
 			},
 			"RaceResultDTO": {
 				"properties": {
-					"points": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
 					"positionOrder": {
 						"type": "number",
 						"format": "double"
@@ -1003,6 +1039,11 @@
 						"nullable": true
 					},
 					"laps": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"points": {
 						"type": "number",
 						"format": "double",
 						"nullable": true
@@ -1048,13 +1089,13 @@
 					}
 				},
 				"required": [
-					"points",
 					"positionOrder",
 					"positionText",
 					"time",
 					"gridPosition",
 					"gridPenalty",
 					"laps",
+					"points",
 					"pointsCountForWDC",
 					"pointsGained",
 					"gap",
@@ -1086,6 +1127,21 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
+					"driverId": {
+						"type": "string",
+						"description": "Return only the items regarding this driver"
+					},
+					"season": {
+						"type": "number",
+						"format": "double"
+					},
+					"round": {
+						"type": "number",
+						"format": "double"
+					},
+					"session": {
+						"type": "string"
+					},
 					"minPos": {
 						"type": "number",
 						"format": "double",
@@ -1096,22 +1152,21 @@
 						"format": "double",
 						"description": "Look for the results where the driver achieved a position better than or equal to this number."
 					},
-					"driverId": {
-						"type": "string",
-						"description": "Return only the results regarding this driver"
-					},
-					"gridPos": {
-						"type": "string",
-						"description": "Filter by a specific grid postion text"
-					},
 					"positionText": {
 						"type": "string",
 						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`..."
 					},
+					"maxGridPos": {
+						"type": "number",
+						"format": "double"
+					},
+					"minGridPos": {
+						"type": "number",
+						"format": "double"
+					},
 					"orderBy": {
 						"type": "string",
 						"enum": [
-							"points",
 							"entrantId",
 							"sessionId",
 							"positionOrder",
@@ -1120,6 +1175,7 @@
 							"gridPosition",
 							"gridPenalty",
 							"laps",
+							"points",
 							"pointsCountForWDC",
 							"pointsGained",
 							"gap",
@@ -1133,42 +1189,8 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"SessionDTO": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"abbreviation": {
-						"type": "string"
-					},
-					"startDateTime": {
-						"type": "string"
-					},
-					"event": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/EventDTO"
-							}
-						],
-						"nullable": true
-					}
-				},
-				"required": [
-					"id",
-					"abbreviation",
-					"startDateTime",
-					"event"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"SprintQualifyingResultDTO": {
 				"properties": {
-					"points": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
 					"positionOrder": {
 						"type": "number",
 						"format": "double"
@@ -1182,6 +1204,11 @@
 						"nullable": true
 					},
 					"laps": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"points": {
 						"type": "number",
 						"format": "double",
 						"nullable": true
@@ -1222,11 +1249,11 @@
 					}
 				},
 				"required": [
-					"points",
 					"positionOrder",
 					"positionText",
 					"time",
 					"laps",
+					"points",
 					"gap",
 					"timePenalty",
 					"reasonRetired",
@@ -1523,149 +1550,6 @@
 				]
 			}
 		},
-		"/championships/{season}/drivers": {
-			"get": {
-				"operationId": "GetDriverChampionshipResults",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"properties": {
-											"totalPoints": {
-												"type": "number",
-												"format": "double"
-											},
-											"points": {
-												"type": "number",
-												"format": "double"
-											},
-											"driver": {
-												"$ref": "#/components/schemas/DriverDTO"
-											},
-											"position": {
-												"type": "number",
-												"format": "double"
-											}
-										},
-										"required": [
-											"totalPoints",
-											"points",
-											"driver",
-											"position"
-										],
-										"type": "object"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get the driver's world championship results for the specified season",
-				"tags": [
-					"Championships"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "season",
-						"required": true,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "If specified, the result obtained will be the championship situation immediately after that round.",
-						"in": "query",
-						"name": "round",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					}
-				]
-			}
-		},
-		"/championships/{season}/drivers/{driverId}": {
-			"get": {
-				"operationId": "GetDriverChampionshipResult",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"totalPoints": {
-											"type": "number",
-											"format": "double"
-										},
-										"points": {
-											"type": "number",
-											"format": "double"
-										},
-										"driver": {
-											"$ref": "#/components/schemas/DriverDTO"
-										},
-										"position": {
-											"type": "number",
-											"format": "double"
-										}
-									},
-									"required": [
-										"totalPoints",
-										"points",
-										"driver",
-										"position"
-									],
-									"type": "object"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get the driver's world championship result for a specified season and driver",
-				"tags": [
-					"Championships"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "season",
-						"required": true,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "path",
-						"name": "driverId",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"description": "If specified, the result obtained will be the championship situation of the driver immediately after that round.",
-						"in": "query",
-						"name": "round",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					}
-				]
-			}
-		},
 		"/drivers": {
 			"get": {
 				"operationId": "Get",
@@ -1947,98 +1831,144 @@
 				]
 			}
 		},
-		"/tyre-manufacturers": {
+		"/championships/{season}/drivers": {
 			"get": {
-				"operationId": "Get",
+				"operationId": "GetDriverChampionshipResults",
 				"responses": {
 					"200": {
 						"description": "Ok",
 						"content": {
 							"application/json": {
 								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/PageMetadata"
-										},
-										{
-											"properties": {
-												"data": {
-													"items": {
-														"$ref": "#/components/schemas/TyreManufacturerDTO"
-													},
-													"type": "array"
-												}
+									"items": {
+										"properties": {
+											"totalPoints": {
+												"type": "number",
+												"format": "double"
 											},
-											"required": [
-												"data"
-											],
-											"type": "object"
-										}
-									]
+											"points": {
+												"type": "number",
+												"format": "double"
+											},
+											"driver": {
+												"$ref": "#/components/schemas/DriverDTO"
+											},
+											"position": {
+												"type": "number",
+												"format": "double"
+											}
+										},
+										"required": [
+											"totalPoints",
+											"points",
+											"driver",
+											"position"
+										],
+										"type": "object"
+									},
+									"type": "array"
 								}
 							}
 						}
 					}
 				},
+				"description": "Get the driver's world championship results for the specified season",
 				"tags": [
-					"Tyre Manufacturers"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "Page to retrieve, starting at 0",
-						"in": "query",
-						"name": "pageNo",
-						"required": false,
-						"schema": {
-							"default": "0",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 0
-						}
-					},
-					{
-						"description": "Size of the page to retrieve",
-						"in": "query",
-						"name": "pageSize",
-						"required": false,
-						"schema": {
-							"default": "10",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 1
-						}
-					}
-				]
-			}
-		},
-		"/tyre-manufacturers/{id}": {
-			"get": {
-				"operationId": "GetById",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/TyreManufacturerDTO"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get a company by its ID",
-				"tags": [
-					"Tyre Manufacturers"
+					"Championships"
 				],
 				"security": [],
 				"parameters": [
 					{
 						"in": "path",
-						"name": "id",
+						"name": "season",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "If specified, the result obtained will be the championship situation immediately after that round.",
+						"in": "query",
+						"name": "round",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/championships/{season}/drivers/{driverId}": {
+			"get": {
+				"operationId": "GetDriverChampionshipResult",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"totalPoints": {
+											"type": "number",
+											"format": "double"
+										},
+										"points": {
+											"type": "number",
+											"format": "double"
+										},
+										"driver": {
+											"$ref": "#/components/schemas/DriverDTO"
+										},
+										"position": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"totalPoints",
+										"points",
+										"driver",
+										"position"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get the driver's world championship result for a specified season and driver",
+				"tags": [
+					"Championships"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "season",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "driverId",
 						"required": true,
 						"schema": {
 							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, the result obtained will be the championship situation of the driver immediately after that round.",
+						"in": "query",
+						"name": "round",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
 						}
 					}
 				]
@@ -2187,9 +2117,139 @@
 				]
 			}
 		},
-		"/free-practices/{session}/results": {
+		"/tyre-manufacturers": {
 			"get": {
-				"operationId": "GetSessionsResults",
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageMetadata"
+										},
+										{
+											"properties": {
+												"data": {
+													"items": {
+														"$ref": "#/components/schemas/TyreManufacturerDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"data"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Tyre Manufacturers"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
+						}
+					}
+				]
+			}
+		},
+		"/tyre-manufacturers/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TyreManufacturerDTO"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get a company by its ID",
+				"tags": [
+					"Tyre Manufacturers"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/sessions/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SessionDTO"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get a session by its ID",
+				"tags": [
+					"Sessions"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "The ID of the session to get",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/free-practices": {
+			"get": {
+				"operationId": "GetFreePracticesResults",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -2220,27 +2280,12 @@
 						}
 					}
 				},
-				"description": "Return driver results of a specific practice session based on some filters",
+				"description": "Get driver race results based on some filters",
 				"tags": [
 					"Free Practices"
 				],
 				"security": [],
 				"parameters": [
-					{
-						"in": "path",
-						"name": "session",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"enum": [
-								"fp1",
-								"fp2",
-								"fp3",
-								"fp4",
-								"warm-up"
-							]
-						}
-					},
 					{
 						"description": "Page to retrieve, starting at 0",
 						"in": "query",
@@ -2275,6 +2320,41 @@
 						}
 					},
 					{
+						"description": "Return only the items regarding this driver",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "season",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "round",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "session",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
 						"description": "Look for the results where the driver achieved a position worse than or equal to this number.",
 						"in": "query",
 						"name": "minPos",
@@ -2295,15 +2375,16 @@
 						}
 					},
 					{
-						"description": "Return only the results regarding this driver",
+						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`...",
 						"in": "query",
-						"name": "driverId",
+						"name": "positionText",
 						"required": false,
 						"schema": {
 							"type": "string"
 						}
 					},
 					{
+						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`...",
 						"in": "query",
 						"name": "positionText",
 						"required": false,
@@ -2331,25 +2412,40 @@
 				]
 			}
 		},
-		"/free-practices/{session}/results/{eventId}": {
+		"/free-practices/{season}/{round}/{session}": {
 			"get": {
-				"operationId": "GetSessionResults",
+				"operationId": "GetFreePracticeSessionResults",
 				"responses": {
 					"200": {
 						"description": "Ok",
 						"content": {
 							"application/json": {
 								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/TimedSessionResultsDTO"
-									},
-									"type": "array"
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/SessionDTO"
+										},
+										{
+											"properties": {
+												"results": {
+													"items": {
+														"$ref": "#/components/schemas/TimedSessionResultsDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"results"
+											],
+											"type": "object"
+										}
+									]
 								}
 							}
 						}
 					},
 					"404": {
-						"description": "Register not found",
+						"description": "",
 						"content": {
 							"application/json": {
 								"schema": {
@@ -2359,7 +2455,7 @@
 						}
 					}
 				},
-				"description": "Gets the results of a certain session of free practice",
+				"description": "Gets info about the results of a certain free practice",
 				"tags": [
 					"Free Practices"
 				],
@@ -2367,22 +2463,25 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "session",
+						"name": "season",
 						"required": true,
 						"schema": {
-							"type": "string",
-							"enum": [
-								"fp1",
-								"fp2",
-								"fp3",
-								"fp4",
-								"warm-up"
-							]
+							"format": "double",
+							"type": "number"
 						}
 					},
 					{
 						"in": "path",
-						"name": "eventId",
+						"name": "round",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "session",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -2391,9 +2490,9 @@
 				]
 			}
 		},
-		"/free-practices/{session}/results/{eventId}/{driverId}": {
+		"/free-practices/{season}/{round}/{session}/{driverId}": {
 			"get": {
-				"operationId": "GetDriverSessionResult",
+				"operationId": "GetDriverFreePracticeResult",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -2406,7 +2505,7 @@
 						}
 					},
 					"404": {
-						"description": "Register not found",
+						"description": "",
 						"content": {
 							"application/json": {
 								"schema": {
@@ -2416,7 +2515,7 @@
 						}
 					}
 				},
-				"description": "Gets info about the result obtained by a driver in a certain session of free practice",
+				"description": "Gets info about the result obtained by a driver in a certain free practice",
 				"tags": [
 					"Free Practices"
 				],
@@ -2424,22 +2523,25 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "session",
+						"name": "season",
 						"required": true,
 						"schema": {
-							"type": "string",
-							"enum": [
-								"fp1",
-								"fp2",
-								"fp3",
-								"fp4",
-								"warm-up"
-							]
+							"format": "double",
+							"type": "number"
 						}
 					},
 					{
 						"in": "path",
-						"name": "eventId",
+						"name": "round",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "session",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -2888,230 +2990,6 @@
 				]
 			}
 		},
-		"/pre-qualifyings/results": {
-			"get": {
-				"operationId": "GetPreQualifyingsResults",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/PageMetadata"
-										},
-										{
-											"properties": {
-												"data": {
-													"items": {
-														"$ref": "#/components/schemas/TimedSessionResultsDTO"
-													},
-													"type": "array"
-												}
-											},
-											"required": [
-												"data"
-											],
-											"type": "object"
-										}
-									]
-								}
-							}
-						}
-					}
-				},
-				"description": "Return driver results of a specific pre-qualifying session based on some filters",
-				"tags": [
-					"Pre-Qualifying"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "Page to retrieve, starting at 0",
-						"in": "query",
-						"name": "pageNo",
-						"required": false,
-						"schema": {
-							"default": "0",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 0
-						}
-					},
-					{
-						"description": "Size of the page to retrieve",
-						"in": "query",
-						"name": "pageSize",
-						"required": false,
-						"schema": {
-							"default": "10",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 1
-						}
-					},
-					{
-						"description": "Order of the results",
-						"in": "query",
-						"name": "orderDir",
-						"required": false,
-						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
-						}
-					},
-					{
-						"description": "Look for the results where the driver achieved a position worse than or equal to this number.",
-						"in": "query",
-						"name": "minPos",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "Look for the results where the driver achieved a position better than or equal to this number.",
-						"in": "query",
-						"name": "maxPos",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "Return only the results regarding this driver",
-						"in": "query",
-						"name": "driverId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "positionText",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "orderBy",
-						"required": false,
-						"schema": {
-							"default": "eventId",
-							"type": "string",
-							"enum": [
-								"entrantId",
-								"sessionId",
-								"positionOrder",
-								"positionText",
-								"time",
-								"laps"
-							]
-						}
-					}
-				]
-			}
-		},
-		"/pre-qualifyings/results/{eventId}": {
-			"get": {
-				"operationId": "GetSessionResults",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/TimedSessionResultsDTO"
-									},
-									"type": "array"
-								}
-							}
-						}
-					},
-					"404": {
-						"description": "Register not found",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorMessage_404_"
-								}
-							}
-						}
-					}
-				},
-				"description": "Gets the results of a certain pre-qualifying",
-				"tags": [
-					"Pre-Qualifying"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "eventId",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/pre-qualifyings/results/{eventId}/{driverId}": {
-			"get": {
-				"operationId": "GetDriverSessionResult",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/TimedSessionResultsDTO"
-								}
-							}
-						}
-					},
-					"404": {
-						"description": "Register not found",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/ErrorMessage_404_"
-								}
-							}
-						}
-					}
-				},
-				"description": "Gets info about the result obtained by a driver in a pre-qualifying session",
-				"tags": [
-					"Pre-Qualifying"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "eventId",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "path",
-						"name": "driverId",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
 		"/races/results": {
 			"get": {
 				"operationId": "GetRacesResults",
@@ -3185,6 +3063,41 @@
 						}
 					},
 					{
+						"description": "Return only the items regarding this driver",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "season",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "round",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "session",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
 						"description": "Look for the results where the driver achieved a position worse than or equal to this number.",
 						"in": "query",
 						"name": "minPos",
@@ -3205,24 +3118,6 @@
 						}
 					},
 					{
-						"description": "Return only the results regarding this driver",
-						"in": "query",
-						"name": "driverId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"description": "Filter by a specific grid postion text",
-						"in": "query",
-						"name": "gridPos",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
 						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`...",
 						"in": "query",
 						"name": "positionText",
@@ -3233,13 +3128,30 @@
 					},
 					{
 						"in": "query",
+						"name": "maxGridPos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "minGridPos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
 						"name": "orderBy",
 						"required": false,
 						"schema": {
 							"default": "eventId",
 							"type": "string",
 							"enum": [
-								"points",
 								"entrantId",
 								"sessionId",
 								"positionOrder",
@@ -3248,6 +3160,7 @@
 								"gridPosition",
 								"gridPenalty",
 								"laps",
+								"points",
 								"pointsCountForWDC",
 								"pointsGained",
 								"gap",
@@ -3259,7 +3172,7 @@
 				]
 			}
 		},
-		"/races/results/{sessionId}": {
+		"/races/results/{season}/{round}/{session}": {
 			"get": {
 				"operationId": "GetRaceResults",
 				"responses": {
@@ -3268,10 +3181,25 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/RaceResultDTO"
-									},
-									"type": "array"
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/SessionDTO"
+										},
+										{
+											"properties": {
+												"results": {
+													"items": {
+														"$ref": "#/components/schemas/RaceResultDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"results"
+											],
+											"type": "object"
+										}
+									]
 								}
 							}
 						}
@@ -3295,7 +3223,25 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "sessionId",
+						"name": "season",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "round",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "session",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -3304,7 +3250,7 @@
 				]
 			}
 		},
-		"/races/results/{sessionId}/{driverId}": {
+		"/races/results/{season}/{round}/{session}/{driverId}": {
 			"get": {
 				"operationId": "GetDriverRaceResult",
 				"responses": {
@@ -3337,7 +3283,25 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "sessionId",
+						"name": "season",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "round",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "session",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -3427,6 +3391,41 @@
 						}
 					},
 					{
+						"description": "Return only the items regarding this driver",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "season",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "round",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "session",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
 						"description": "Look for the results where the driver achieved a position worse than or equal to this number.",
 						"in": "query",
 						"name": "minPos",
@@ -3447,24 +3446,6 @@
 						}
 					},
 					{
-						"description": "Return only the results regarding this driver",
-						"in": "query",
-						"name": "driverId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"description": "Filter by a specific grid postion text",
-						"in": "query",
-						"name": "gridPos",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
 						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`...",
 						"in": "query",
 						"name": "positionText",
@@ -3475,13 +3456,30 @@
 					},
 					{
 						"in": "query",
+						"name": "maxGridPos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "minGridPos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
 						"name": "orderBy",
 						"required": false,
 						"schema": {
 							"default": "eventId",
 							"type": "string",
 							"enum": [
-								"points",
 								"entrantId",
 								"sessionId",
 								"positionOrder",
@@ -3490,6 +3488,7 @@
 								"gridPosition",
 								"gridPenalty",
 								"laps",
+								"points",
 								"pointsCountForWDC",
 								"pointsGained",
 								"gap",

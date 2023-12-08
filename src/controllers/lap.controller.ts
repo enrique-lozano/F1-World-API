@@ -49,7 +49,6 @@ export class LapService extends DbService {
     @Queries() obj: LapQueryParams
   ): Promise<PageMetadata & { data: LapTimeDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-
     const sorter = new Sorter<LapTimes>(obj.orderBy || 'lap', obj.orderDir);
 
     const mainSelect = this.db

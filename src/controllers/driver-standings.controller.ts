@@ -87,7 +87,7 @@ export class DriverStandingService extends DbService {
 
         if (round) {
           raceResultQuery +=
-            ' AND cast(substr(sessionId, 6, 7) as INT) <= :round';
+            ' AND cast(substr(sessionId, 6, 2) as INT) <= :round';
         }
 
         const aResults = this.db245
