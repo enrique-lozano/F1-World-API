@@ -361,7 +361,6 @@ export interface DB {
   grandsPrix: GrandsPrix;
   lapTimes: LapTimes;
   pitStops: PitStops;
-  preQualifyingResults: TimedSessionResults;
   previousNextConstructors: PreviousNextConstructors;
   qualifyingResults: TimedSessionResults;
   raceResults: RaceResults;

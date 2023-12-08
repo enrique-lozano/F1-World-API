@@ -248,19 +248,6 @@ CREATE TABLE IF NOT EXISTS fpResults
 , PRIMARY KEY (sessionId, entrantId)
 );
 
--- Table: preQualifyingResults
-DROP TABLE IF EXISTS preQualifyingResults;
-CREATE TABLE IF NOT EXISTS preQualifyingResults
-( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (sessionId, entrantId)
-);
-
-
 -- Table: qualifyingResults
 DROP TABLE IF EXISTS qualifyingResults;
 CREATE TABLE IF NOT EXISTS qualifyingResults

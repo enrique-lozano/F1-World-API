@@ -24,7 +24,6 @@ export const tableNames = [
   'eventEntrants',
   'pitStops',
   'lapTimes',
-  'preQualifyingResults',
   'qualifyingResults',
   'fpResults',
   'raceResults'
