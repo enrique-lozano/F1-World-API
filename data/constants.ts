@@ -27,6 +27,5 @@ export const tableNames = [
   'preQualifyingResults',
   'qualifyingResults',
   'fpResults',
-  'raceResults',
-  'sprintQualifyingResults'
+  'raceResults'
 ] as const;

@@ -146,7 +146,7 @@ export class DriverService extends DbService {
       .selectFrom('raceResults')
       .innerJoin('eventEntrants', 'eventEntrants.id', 'raceResults.entrantId')
       .where('driverId', '==', driverId)
-      .select([sql<number>`cast(substr(eventId, 1, 4) as INT)`.as('year')])
+      .select([sql<number>`cast(substr(sessionId, 1, 4) as INT)`.as('year')])
       .groupBy('year')
       .execute();
 

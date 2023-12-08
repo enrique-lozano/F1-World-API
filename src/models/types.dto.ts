@@ -331,26 +331,6 @@ export interface SeasonEntrantDTO extends Omit<SeasonEntrants, 'countryId'> {
   country: CountryDTO | null;
 }
 
-export interface SprintQualifyingResults {
-  sessionId: string;
-  entrantId: string;
-  positionText: string;
-  positionOrder: number;
-  time: number | null;
-  gridPos: number | null;
-  laps: number | null;
-  points: number | null;
-  gap: string | null;
-  timePenalty: number | null;
-  reasonRetired: string | null;
-}
-
-export interface SprintQualifyingResultDTO
-  extends Omit<SprintQualifyingResults, 'sessionId' | 'entrantId'> {
-  session: SessionDTO | null;
-  entrant: EventEntrantDTO | null;
-}
-
 export interface TyreManufacturers {
   id: string;
   name: string;
@@ -388,6 +368,5 @@ export interface DB {
   redFlags: RedFlags;
   safetyCars: SafetyCars;
   seasonEntrants: SeasonEntrants;
-  sprintQualifyingResults: SprintQualifyingResults;
   tyreManufacturers: TyreManufacturers;
 }

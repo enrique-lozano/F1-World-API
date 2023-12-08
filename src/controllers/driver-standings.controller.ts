@@ -29,19 +29,6 @@ export class DriverStandingService extends DbService {
   ) {
     const results: DriverChampResult[] = (await this.db
       .selectFrom('raceResults')
-      .leftJoin('sprintQualifyingResults', (join) =>
-        join
-          .onRef(
-            sql`substr(raceResults.sessionId, 1, 7)`,
-            '=',
-            sql`substr(sprintQualifyingResults.sessionId, 1, 7)`
-          )
-          .onRef(
-            'raceResults.entrantId',
-            '=',
-            'sprintQualifyingResults.entrantId'
-          )
-      )
       .leftJoin('eventEntrants', 'eventEntrants.id', 'raceResults.entrantId')
 
       .where(
@@ -58,14 +45,8 @@ export class DriverStandingService extends DbService {
       )
       .groupBy('driverId')
       .select(({ fn, eb }) => [
-        sql<number>`${fn.sum('raceResults.pointsGained')} + ${fn.coalesce(
-          fn.sum('sprintQualifyingResults.points'),
-          sql<number>`0`
-        )}`.as('points'),
-        sql<number>`${fn.sum('raceResults.points')} + ${fn.coalesce(
-          fn.sum('sprintQualifyingResults.points'),
-          sql<number>`0`
-        )}`.as('totalPoints'),
+        sql<number>`${fn.sum('raceResults.pointsGained')}`.as('points'),
+        sql<number>`${fn.sum('raceResults.points')}`.as('totalPoints'),
         jsonObjectFrom(
           DriverService.getDriversSelect(
             eb.selectFrom('drivers') as any

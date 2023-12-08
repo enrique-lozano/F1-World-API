@@ -59,7 +59,7 @@ async function populateDB() {
             await getInsertQueriesFromDir({
               folderPath: path.resolve(csvDirectory),
               triggerFilenameCondition: (filename) =>
-                ['R - '].some((prefix) => filename.startsWith(prefix)),
+                ['R - ', 'SR - '].some((prefix) => filename.startsWith(prefix)),
               toTable: csvFile
             })
           );
@@ -69,15 +69,6 @@ async function populateDB() {
               folderPath: path.resolve(csvDirectory),
               triggerFilenameCondition: (filename) =>
                 ['PQ - '].some((prefix) => filename.startsWith(prefix)),
-              toTable: csvFile
-            })
-          );
-        } else if (csvFile == 'sprintQualifyingResults') {
-          insertQueries(
-            await getInsertQueriesFromDir({
-              folderPath: path.resolve(csvDirectory),
-              triggerFilenameCondition: (filename) =>
-                ['SR - '].some((prefix) => filename.startsWith(prefix)),
               toTable: csvFile
             })
           );

@@ -293,24 +293,6 @@ CREATE TABLE IF NOT EXISTS raceResults
 , PRIMARY KEY (sessionId, entrantId, positionOrder)
 );
 
--- Table: sprintQualifyingResults
-DROP TABLE IF EXISTS sprintQualifyingResults;
-CREATE TABLE IF NOT EXISTS sprintQualifyingResults
-( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
-, positionText VARCHAR(4) NOT NULL
-, positionOrder INTEGER NOT NULL
-, time INTEGER
-, gridPos INTEGER
-, laps INTEGER
-, points INTEGER
-, gap VARCHAR(255)
-, timePenalty INTEGER
-, reasonRetired VARCHAR(255)
-, PRIMARY KEY (sessionId, entrantId)
-);
-
-
 -- Table: redFlags
 DROP TABLE IF EXISTS redFlags;
 CREATE TABLE IF NOT EXISTS redFlags
