@@ -24,7 +24,7 @@ export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
 
   minGridPos?: number;
 
-  /** @default eventId */
+  /** @default sessionId */
   orderBy?: keyof RaceResults;
 }
 

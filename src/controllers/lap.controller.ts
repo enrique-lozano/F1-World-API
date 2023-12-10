@@ -1,41 +1,43 @@
-import { SelectQueryBuilder } from 'kysely';
+import { SelectQueryBuilder, sql } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Queries, Route, Tags } from 'tsoa';
-import {
-  PageMetadata,
-  PageQueryParams,
-  Paginator
-} from '../models/paginated-items';
-import { Sorter, SorterQueryParams } from '../models/sorter';
+import { PageMetadata, Paginator } from '../models/paginated-items';
+import { SessionEntrantQueryParams } from '../models/results-filter';
+import { Sorter } from '../models/sorter';
 import { DbService } from '../services/db.service';
 import { DB, LapTimeDTO, LapTimes } from './../models/types.dto';
-import { EventService } from './event.controller';
 import { EventEntrantService } from './eventEntrant.controller';
+import { ParamsBuilderService } from './paramsBuilder.service';
+import { SessionService } from './session.controller';
 
-interface LapQueryParams extends PageQueryParams, SorterQueryParams {
+export interface LapQueryParams extends SessionEntrantQueryParams {
   pos?: number;
   lap?: number;
 
-  /** @default eventId */
+  /** @default sessionId */
   orderBy?: keyof LapTimes;
 }
 
-@Route('races')
-@Tags('Races')
+@Route('laps')
+@Tags('Laps')
 export class LapService extends DbService {
   static getLapsSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'lapTimes', {}>
+    qb: SelectQueryBuilder<DB, T | 'lapTimes', {}>,
+    getMinTime = false
   ) {
     return (qb as SelectQueryBuilder<DB, 'lapTimes', {}>)
-      .select(['pos', 'lap', 'time'])
+      .select(['pos', 'lap', ...(getMinTime ? ['time'] : ([] as any))])
+      .$if(getMinTime, (qb) =>
+        qb.select(({ fn, eb }) => [fn.min<number>('time' as any).as('time')])
+      )
       .select((eb) => [
         jsonObjectFrom(
-          EventService.getEventSelect(eb.selectFrom('events')).whereRef(
-            'lapTimes.eventId',
+          SessionService.getSessionSelect(eb.selectFrom('sessions')).whereRef(
+            'lapTimes.sessionId',
             '==',
-            'events.id'
+            'sessions.id'
           )
-        ).as('event'),
+        ).as('session'),
         jsonObjectFrom(
           EventEntrantService.getEventEntrantSelect(
             eb.selectFrom('eventEntrants')
@@ -44,16 +46,17 @@ export class LapService extends DbService {
       ]) as SelectQueryBuilder<DB, 'lapTimes' | T, LapTimeDTO>;
   }
 
-  @Get('/laps')
-  async get(
+  /** Get lap times based on some filters */ @Get('')
+  async getLaps(
     @Queries() obj: LapQueryParams
   ): Promise<PageMetadata & { data: LapTimeDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
     const sorter = new Sorter<LapTimes>(obj.orderBy || 'lap', obj.orderDir);
 
-    const mainSelect = this.db
-      .selectFrom('lapTimes')
-      .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!));
+    const mainSelect = new ParamsBuilderService()
+      .getSessionEntrantsWithParams('lapTimes', obj)
+      .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!))
+      .$if(obj.lap != undefined, (qb) => qb.where('lap', '==', obj.lap!));
 
     return mainSelect
       .select(({ fn, eb }) => [
@@ -70,24 +73,28 @@ export class LapService extends DbService {
       .executeTakeFirstOrThrow();
   }
 
-  @Get('/fastest-laps')
+  /** Get the fastest lap times grouped by session, based on some filters.
+   *
+   * Please take into account that this do not return only the global fastest laps. For example if we filter here by the driver Fernando Alonso, we will get his fastest lap times of each session. */
+  @Get('/fastest')
   getFastestLaps(
     @Queries() obj: LapQueryParams
   ): Promise<PageMetadata & { data: LapTimeDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
 
-    const mainSelect = this.db
-      .selectFrom('lapTimes')
+    const mainSelect = new ParamsBuilderService()
+      .getSessionEntrantsWithParams('lapTimes', obj)
       .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!))
-      .groupBy('eventId');
+      .$if(obj.lap != undefined, (qb) => qb.where('lap', '==', obj.lap!));
 
     return mainSelect
       .select(({ fn, eb }) => [
-        fn.countAll<number>().as('totalElements'),
+        fn.count<number>(sql`DISTINCT sessionId`).as('totalElements'),
         eb.val(paginator.pageSize).as('pageSize'),
         eb.val(paginator.pageNo).as('currentPage'),
         jsonArrayFrom(
-          LapService.getLapsSelect(mainSelect)
+          LapService.getLapsSelect(mainSelect, true)
+            .groupBy('sessionId')
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
         ).as('data')

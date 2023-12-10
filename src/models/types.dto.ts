@@ -215,15 +215,15 @@ export interface GrandsPrixDTO extends Omit<GrandsPrix, 'countryId'> {
 }
 
 export interface LapTimes {
-  eventId: string;
   entrantId: string;
+  sessionId: string;
   lap: number;
   time: number | null;
   pos: number | null;
 }
 
-export interface LapTimeDTO extends Omit<LapTimes, 'eventId' | 'entrantId'> {
-  event: EventDTO | null;
+export interface LapTimeDTO extends Omit<LapTimes, 'sessionId' | 'entrantId'> {
+  session: SessionDTO | null;
   entrant: EventEntrantDTO | null;
 }
 
@@ -260,24 +260,6 @@ export interface TimedSessionResults {
 export interface TimedSessionResultsDTO
   extends Omit<TimedSessionResults, 'sessionId' | 'entrantId'> {
   session: EventDTO | null;
-  entrant: EventEntrantDTO | null;
-}
-
-export interface QualifyingResults {
-  entrantId: string;
-  eventId: string;
-  positionOrder: number | null;
-  positionText: string | null;
-  time: number | null;
-  laps: number | null;
-  q1Time: number | null;
-  q2Time: number | null;
-  q3Time: number | null;
-}
-
-export interface QualifyingResultDTO
-  extends Omit<QualifyingResults, 'eventId' | 'entrantId'> {
-  event: EventDTO | null;
   entrant: EventEntrantDTO | null;
 }
 

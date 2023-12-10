@@ -1,9 +1,13 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { Get, Path, Res, Route, Tags, TsoaResponse } from 'tsoa';
+import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
+import { PageQueryParams } from '../models/paginated-items';
 import { SessionQueryParams } from '../models/results-filter';
 import { DbService } from '../services/db.service';
-import { ErrorMessage } from '../utils/custom-error/custom-error';
+import {
+  ErrorMessage,
+  sendTsoaError
+} from '../utils/custom-error/custom-error';
 import {
   DB,
   RaceResultDTO,
@@ -11,6 +15,7 @@ import {
   TimedSessionResultsDTO
 } from './../models/types.dto';
 import { EventService } from './event.controller';
+import { LapService } from './lap.controller';
 import { ParamsBuilderService } from './paramsBuilder.service';
 import { FreePracticeResultService } from './results/freePracticeResult.controller';
 import { QualifyingResultService } from './results/qualifyingResult.controller';
@@ -96,5 +101,37 @@ export class SessionService extends DbService {
         notFoundResponse
       );
     }
+  }
+
+  /** Get info about all the laps in this session */
+  @Get('/{season}/{round}/{session}/laps')
+  getSessionLaps(
+    @Path() season: number,
+    @Path() round: number,
+    @Path() session: string,
+    @Queries() obj: PageQueryParams
+  ) {
+    return new LapService().getLaps({ round, season, session, ...obj });
+  }
+
+  /** Get info about the fastest lap of this session */
+  @Get('/{season}/{round}/{session}/fastest-lap')
+  async getSessionFastestLap(
+    @Path() season: number,
+    @Path() round: number,
+    @Path() session: string,
+    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+  ) {
+    const res = await new LapService().getFastestLaps({
+      round,
+      season,
+      session
+    });
+
+    if (res.data.length == 0 || res.totalElements == 0) {
+      return sendTsoaError(notFoundResponse, 404, 'fastest-lap.not.found');
+    }
+
+    return res.data[0];
   }
 }

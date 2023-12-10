@@ -195,11 +195,11 @@ CREATE TABLE IF NOT EXISTS eventEntrants
 DROP TABLE IF EXISTS lapTimes;
 CREATE TABLE IF NOT EXISTS lapTimes 
 ( entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
-, eventId TEXT  NOT NULL REFERENCES events (id) ON UPDATE CASCADE
+, sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id) ON UPDATE CASCADE
 , lap INTEGER NOT NULL
 , time NUMERIC
 , pos INTEGER
-, PRIMARY KEY (entrantId, eventId, lap)
+, PRIMARY KEY (entrantId, sessionId, lap)
 );
 
 -- Table: pitStops

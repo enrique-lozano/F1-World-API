@@ -38,6 +38,6 @@ export interface TimedSessionResultQueryParams
   extends ResultsFiltersQueryParams {
   positionText?: string;
 
-  /** @default eventId */
+  /** @default sessionId */
   orderBy?: keyof TimedSessionResults;
 }

@@ -5,8 +5,10 @@ import { DbService } from '../services/db.service';
 
 type resultsTables = 'qualifyingResults' | 'raceResults' | 'fpResults';
 
+type sessionEntrantsTables = resultsTables | 'lapTimes' | 'pitStops';
+
 export class ParamsBuilderService extends DbService {
-  getSessionsWithParamas<T extends resultsTables | 'sessions'>(
+  getSessionsWithParamas<T extends sessionEntrantsTables | 'sessions'>(
     fromTable: T,
     obj: ResultsFiltersQueryParams
   ) {
@@ -35,11 +37,28 @@ export class ParamsBuilderService extends DbService {
       );
   }
 
+  getSessionEntrantsWithParams<T extends sessionEntrantsTables>(
+    fromTable: T,
+    obj: ResultsFiltersQueryParams
+  ): SelectQueryBuilder<DB, T, Partial<unknown>> {
+    return this.getSessionsWithParamas(fromTable as any, obj).$if(
+      obj.driverId != undefined,
+      (qb) =>
+        qb
+          .innerJoin(
+            'eventEntrants',
+            'eventEntrants.id',
+            `${fromTable}.entrantId`
+          )
+          .where('eventEntrants.driverId', '==', obj.driverId!)
+    );
+  }
+
   getResultsWithParamas<T extends resultsTables>(
     fromTable: T,
     obj: ResultsFiltersQueryParams
   ): SelectQueryBuilder<DB, T, Partial<unknown>> {
-    return this.getSessionsWithParamas(fromTable as any, obj)
+    return this.getSessionEntrantsWithParams(fromTable as any, obj)
       .$if(obj.maxPos != undefined, (qb) =>
         qb.where('positionOrder', '<=', obj.maxPos!)
       )
@@ -48,16 +67,6 @@ export class ParamsBuilderService extends DbService {
       )
       .$if(obj.positionText != undefined, (qb) =>
         qb.where('positionText', '==', obj.positionText!)
-      )
-
-      .$if(obj.driverId != undefined, (qb) =>
-        qb
-          .innerJoin(
-            'eventEntrants',
-            'eventEntrants.id',
-            'raceResults.entrantId'
-          )
-          .where('eventEntrants.driverId', '==', obj.driverId!)
       ) as any;
   }
 }
