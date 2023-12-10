@@ -2,7 +2,7 @@ import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
 import { PageQueryParams } from '../models/paginated-items';
-import { SessionQueryParams } from '../models/results-filter';
+import { SessionQueryParams } from '../models/query-params';
 import { DbService } from '../services/db.service';
 import {
   ErrorMessage,

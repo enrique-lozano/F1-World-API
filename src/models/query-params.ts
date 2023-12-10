@@ -36,8 +36,6 @@ export interface ResultsFiltersQueryParams extends SessionEntrantQueryParams {
 
 export interface TimedSessionResultQueryParams
   extends ResultsFiltersQueryParams {
-  positionText?: string;
-
   /** @default sessionId */
   orderBy?: keyof TimedSessionResults;
 }

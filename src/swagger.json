@@ -2412,15 +2412,6 @@
 						}
 					},
 					{
-						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`...",
-						"in": "query",
-						"name": "positionText",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
 						"in": "query",
 						"name": "orderBy",
 						"required": false,
@@ -2713,15 +2704,6 @@
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
-						}
-					},
-					{
-						"description": "Filter by a specific postion text, that can be `1`, `2`, `3`... or `DNF`, `DNS`...",
-						"in": "query",
-						"name": "positionText",
-						"required": false,
-						"schema": {
-							"type": "string"
 						}
 					},
 					{

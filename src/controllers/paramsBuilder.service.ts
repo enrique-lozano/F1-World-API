@@ -1,5 +1,5 @@
 import { SelectQueryBuilder, sql } from 'kysely';
-import { ResultsFiltersQueryParams } from '../models/results-filter';
+import { ResultsFiltersQueryParams } from '../models/query-params';
 import { DB } from '../models/types.dto';
 import { DbService } from '../services/db.service';
 
