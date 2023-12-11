@@ -745,6 +745,10 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
+					"fields": {
+						"type": "string",
+						"description": "Comma separated string containing the fields to return"
+					},
 					"season": {
 						"type": "number",
 						"format": "double"
@@ -793,32 +797,13 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"SessionDTO": {
+			"FieldsQueryParam": {
 				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"abbreviation": {
-						"type": "string"
-					},
-					"startDateTime": {
-						"type": "string"
-					},
-					"event": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/EventDTO"
-							}
-						],
-						"nullable": true
+					"fields": {
+						"type": "string",
+						"description": "Comma separated string containing the fields to return"
 					}
 				},
-				"required": [
-					"id",
-					"abbreviation",
-					"startDateTime",
-					"event"
-				],
 				"type": "object",
 				"additionalProperties": false
 			},
@@ -957,6 +942,10 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
+					"fields": {
+						"type": "string",
+						"description": "Comma separated string containing the fields to return"
+					},
 					"season": {
 						"type": "number",
 						"format": "double"
@@ -1018,6 +1007,35 @@
 						"default": "sessionId"
 					}
 				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SessionDTO": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"abbreviation": {
+						"type": "string"
+					},
+					"startDateTime": {
+						"type": "string"
+					},
+					"event": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/EventDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"abbreviation",
+					"startDateTime",
+					"event"
+				],
 				"type": "object",
 				"additionalProperties": false
 			},
@@ -1083,6 +1101,10 @@
 					"orderDir": {
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
+					},
+					"fields": {
+						"type": "string",
+						"description": "Comma separated string containing the fields to return"
 					},
 					"season": {
 						"type": "number",
@@ -2359,6 +2381,15 @@
 						}
 					},
 					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
 						"in": "query",
 						"name": "season",
 						"required": false,
@@ -2453,25 +2484,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/SessionDTO"
-										},
-										{
-											"properties": {
-												"results": {
-													"items": {
-														"$ref": "#/components/schemas/TimedSessionResultsDTO"
-													},
-													"type": "array"
-												}
-											},
-											"required": [
-												"results"
-											],
-											"type": "object"
-										}
-									]
+									"items": {
+										"$ref": "#/components/schemas/TimedSessionResultsDTO"
+									},
+									"type": "array"
 								}
 							}
 						}
@@ -2515,6 +2531,15 @@
 						"in": "path",
 						"name": "session",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -2583,6 +2608,15 @@
 						"in": "path",
 						"name": "driverId",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -2660,6 +2694,15 @@
 						"required": false,
 						"schema": {
 							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
+						"schema": {
+							"type": "string"
 						}
 					},
 					{
@@ -2757,25 +2800,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/SessionDTO"
-										},
-										{
-											"properties": {
-												"results": {
-													"items": {
-														"$ref": "#/components/schemas/TimedSessionResultsDTO"
-													},
-													"type": "array"
-												}
-											},
-											"required": [
-												"results"
-											],
-											"type": "object"
-										}
-									]
+									"items": {
+										"$ref": "#/components/schemas/TimedSessionResultsDTO"
+									},
+									"type": "array"
 								}
 							}
 						}
@@ -2819,6 +2847,15 @@
 						"in": "path",
 						"name": "session",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -2887,6 +2924,15 @@
 						"in": "path",
 						"name": "driverId",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -2964,6 +3010,15 @@
 						"required": false,
 						"schema": {
 							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
+						"schema": {
+							"type": "string"
 						}
 					},
 					{
@@ -3087,25 +3142,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/SessionDTO"
-										},
-										{
-											"properties": {
-												"results": {
-													"items": {
-														"$ref": "#/components/schemas/RaceResultDTO"
-													},
-													"type": "array"
-												}
-											},
-											"required": [
-												"results"
-											],
-											"type": "object"
-										}
-									]
+									"items": {
+										"$ref": "#/components/schemas/RaceResultDTO"
+									},
+									"type": "array"
 								}
 							}
 						}
@@ -3149,6 +3189,15 @@
 						"in": "path",
 						"name": "session",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3217,6 +3266,15 @@
 						"in": "path",
 						"name": "driverId",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3328,32 +3386,17 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/SessionDTO"
-										},
-										{
-											"properties": {
-												"results": {
-													"items": {
-														"anyOf": [
-															{
-																"$ref": "#/components/schemas/TimedSessionResultsDTO"
-															},
-															{
-																"$ref": "#/components/schemas/RaceResultDTO"
-															}
-														]
-													},
-													"type": "array"
-												}
+									"items": {
+										"anyOf": [
+											{
+												"$ref": "#/components/schemas/TimedSessionResultsDTO"
 											},
-											"required": [
-												"results"
-											],
-											"type": "object"
-										}
-									]
+											{
+												"$ref": "#/components/schemas/RaceResultDTO"
+											}
+										]
+									},
+									"type": "array"
 								}
 							}
 						}
@@ -3397,6 +3440,15 @@
 						"in": "path",
 						"name": "session",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3627,6 +3679,15 @@
 						}
 					},
 					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
 						"in": "query",
 						"name": "season",
 						"required": false,
@@ -3768,6 +3829,15 @@
 						"required": false,
 						"schema": {
 							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
+						"schema": {
+							"type": "string"
 						}
 					},
 					{

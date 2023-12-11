@@ -1,8 +1,12 @@
+import { FieldsQueryParam } from './fields-filter';
 import { PageQueryParams } from './paginated-items';
 import { SorterQueryParams } from './sorter';
 import { TimedSessionResults } from './types.dto';
 
-export interface SessionQueryParams extends PageQueryParams, SorterQueryParams {
+export interface SessionQueryParams
+  extends PageQueryParams,
+    SorterQueryParams,
+    FieldsQueryParam {
   season?: number;
 
   round?: number;

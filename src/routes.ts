@@ -274,6 +274,7 @@ const models: TsoaRoute.Models = {
             "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
             "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"asc"},
+            "fields": {"dataType":"string"},
             "season": {"dataType":"double"},
             "round": {"dataType":"double"},
             "session": {"dataType":"string"},
@@ -286,13 +287,10 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "SessionDTO": {
+    "FieldsQueryParam": {
         "dataType": "refObject",
         "properties": {
-            "id": {"dataType":"string","required":true},
-            "abbreviation": {"dataType":"string","required":true},
-            "startDateTime": {"dataType":"string","required":true},
-            "event": {"dataType":"union","subSchemas":[{"ref":"EventDTO"},{"dataType":"enum","enums":[null]}],"required":true},
+            "fields": {"dataType":"string"},
         },
         "additionalProperties": false,
     },
@@ -334,6 +332,7 @@ const models: TsoaRoute.Models = {
             "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
             "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"asc"},
+            "fields": {"dataType":"string"},
             "season": {"dataType":"double"},
             "round": {"dataType":"double"},
             "session": {"dataType":"string"},
@@ -344,6 +343,17 @@ const models: TsoaRoute.Models = {
             "maxGridPos": {"dataType":"double"},
             "minGridPos": {"dataType":"double"},
             "orderBy": {"dataType":"enum","enums":["entrantId","sessionId","positionOrder","positionText","time","gridPosition","gridPenalty","laps","points","pointsCountForWDC","pointsGained","gap","timePenalty","reasonRetired"],"default":"sessionId"},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "SessionDTO": {
+        "dataType": "refObject",
+        "properties": {
+            "id": {"dataType":"string","required":true},
+            "abbreviation": {"dataType":"string","required":true},
+            "startDateTime": {"dataType":"string","required":true},
+            "event": {"dataType":"union","subSchemas":[{"ref":"EventDTO"},{"dataType":"enum","enums":[null]}],"required":true},
         },
         "additionalProperties": false,
     },
@@ -366,6 +376,7 @@ const models: TsoaRoute.Models = {
             "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
             "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"asc"},
+            "fields": {"dataType":"string"},
             "season": {"dataType":"double"},
             "round": {"dataType":"double"},
             "session": {"dataType":"string"},
@@ -924,6 +935,7 @@ export function RegisterRoutes(app: Router) {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
+                    fields: {"in":"queries","name":"fields","required":true,"ref":"FieldsQueryParam"},
                     notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
@@ -953,6 +965,7 @@ export function RegisterRoutes(app: Router) {
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
+                    fields: {"in":"queries","name":"fields","required":true,"ref":"FieldsQueryParam"},
                     notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
@@ -1006,6 +1019,7 @@ export function RegisterRoutes(app: Router) {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
+                    fields: {"in":"queries","name":"fields","required":true,"ref":"FieldsQueryParam"},
                     notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
@@ -1035,6 +1049,7 @@ export function RegisterRoutes(app: Router) {
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
+                    fields: {"in":"queries","name":"fields","required":true,"ref":"FieldsQueryParam"},
                     notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
@@ -1088,6 +1103,7 @@ export function RegisterRoutes(app: Router) {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
+                    fields: {"in":"queries","name":"fields","required":true,"ref":"FieldsQueryParam"},
                     notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
@@ -1117,6 +1133,7 @@ export function RegisterRoutes(app: Router) {
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
+                    fields: {"in":"queries","name":"fields","required":true,"ref":"FieldsQueryParam"},
                     notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
@@ -1198,6 +1215,7 @@ export function RegisterRoutes(app: Router) {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
+                    fields: {"in":"queries","name":"fields","required":true,"ref":"FieldsQueryParam"},
                     notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 

@@ -1,12 +1,12 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
+import { FieldsParam, FieldsQueryParam } from '../../models/fields-filter';
 import { PageMetadata, Paginator } from '../../models/paginated-items';
 import { TimedSessionResultQueryParams } from '../../models/query-params';
 import { Sorter } from '../../models/sorter';
 import {
   DB,
-  SessionDTO,
   TimedSessionResults,
   TimedSessionResultsDTO
 } from '../../models/types.dto';
@@ -24,24 +24,41 @@ import { SessionService } from './../session.controller';
 export class QualifyingResultService extends DbService {
   static getQualifyingResultSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'qualifyingResults', {}>,
-    getSessionDTO = true
+    fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
+    const allSingleFields = [
+      'laps',
+      'positionText',
+      'positionOrder',
+      'time'
+    ] as const;
+
     return (qb as SelectQueryBuilder<DB, 'qualifyingResults', {}>)
-      .select(['laps', 'positionText', 'positionOrder', 'time'])
-      .select((eb) => [
-        jsonObjectFrom(
-          SessionService.getSessionSelect(eb.selectFrom('sessions')).whereRef(
-            'qualifyingResults.sessionId',
-            '==',
-            'sessions.id'
-          )
-        ).as('session'),
-        jsonObjectFrom(
-          EventEntrantService.getEventEntrantSelect(
-            eb.selectFrom('eventEntrants')
-          ).whereRef('qualifyingResults.entrantId', '==', 'eventEntrants.id')
-        ).as('entrant')
-      ]) as SelectQueryBuilder<
+      .select(
+        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
+      )
+      .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            SessionService.getSessionSelect(
+              eb.selectFrom('sessions'),
+              fieldsParam?.clone('session')
+            ).whereRef('qualifyingResults.sessionId', '==', 'sessions.id')
+          ).as('session')
+        )
+      )
+      .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            EventEntrantService.getEventEntrantSelect(
+              eb.selectFrom('eventEntrants'),
+              fieldsParam?.clone('entrant')
+            ).whereRef('qualifyingResults.entrantId', '==', 'eventEntrants.id')
+          ).as('entrant')
+        )
+      ) as SelectQueryBuilder<
       DB,
       'qualifyingResults' | T,
       TimedSessionResultsDTO
@@ -73,7 +90,10 @@ export class QualifyingResultService extends DbService {
         eb.val(paginator.pageSize).as('pageSize'),
         eb.val(paginator.pageNo).as('currentPage'),
         jsonArrayFrom(
-          QualifyingResultService.getQualifyingResultSelect(mainSelect)
+          QualifyingResultService.getQualifyingResultSelect(
+            mainSelect,
+            FieldsParam.fromFieldQueryParam(obj)
+          )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
             .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
@@ -89,34 +109,22 @@ export class QualifyingResultService extends DbService {
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
+    @Queries() fields: FieldsQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
-  ): Promise<SessionDTO & { results: TimedSessionResultsDTO[] }> {
-    const raceResultInDB: TimedSessionResultsDTO[] =
+  ): Promise<TimedSessionResultsDTO[]> {
+    const sessionResultsInDB: TimedSessionResultsDTO[] =
       await QualifyingResultService.getQualifyingResultSelect(
         this.getResultsWithParams({ session, season, round }),
-        false
+        FieldsParam.fromFieldQueryParam(fields)
       )
         .orderBy('positionOrder', 'asc')
         .execute();
 
-    if (!raceResultInDB || raceResultInDB.length === 0) {
+    if (!sessionResultsInDB || sessionResultsInDB.length === 0) {
       return sendTsoaError(notFoundResponse, 404, 'results.not.found');
     }
 
-    const sessionInfo = await new SessionService().getById(
-      season,
-      round,
-      session
-    );
-
-    if (!sessionInfo) {
-      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
-    }
-
-    return {
-      ...sessionInfo,
-      results: raceResultInDB
-    };
+    return sessionResultsInDB;
   }
 
   /** Gets info about the result obtained by a driver in a certain free practice */ @Get(
@@ -127,12 +135,13 @@ export class QualifyingResultService extends DbService {
     @Path() round: number,
     @Path() session: string,
     @Path() driverId: string,
+    @Queries() fields: FieldsQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<TimedSessionResultsDTO> {
     const raceResultInDB: TimedSessionResultsDTO | undefined =
       await QualifyingResultService.getQualifyingResultSelect(
         this.getResultsWithParams({ session, season, round, driverId }),
-        false
+        FieldsParam.fromFieldQueryParam(fields)
       )
         .selectAll('qualifyingResults')
         .executeTakeFirst();

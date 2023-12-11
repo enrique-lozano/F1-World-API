@@ -1,15 +1,11 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
+import { FieldsParam, FieldsQueryParam } from '../../models/fields-filter';
 import { PageMetadata, Paginator } from '../../models/paginated-items';
 import { ResultsFiltersQueryParams } from '../../models/query-params';
 import { Sorter } from '../../models/sorter';
-import {
-  DB,
-  RaceResultDTO,
-  RaceResults,
-  SessionDTO
-} from '../../models/types.dto';
+import { DB, RaceResultDTO, RaceResults } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import {
   ErrorMessage,
@@ -33,38 +29,50 @@ export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
 export class RaceResultService extends DbService {
   static getRaceResultSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'raceResults', {}>,
-    getSessionDTO = true
+    fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
+    const allSingleFields = [
+      'gap',
+      'gridPenalty',
+      'gridPosition',
+      'laps',
+      'points',
+      'pointsCountForWDC',
+      'pointsGained',
+      'positionText',
+      'positionOrder',
+      'gap',
+      'time',
+      'timePenalty',
+      'reasonRetired'
+    ] as const;
+
     return (qb as SelectQueryBuilder<DB, 'raceResults', {}>)
-      .select([
-        'gap',
-        'gridPenalty',
-        'gridPosition',
-        'laps',
-        'points',
-        'pointsCountForWDC',
-        'pointsGained',
-        'positionText',
-        'positionOrder',
-        'gap',
-        'time',
-        'timePenalty',
-        'reasonRetired'
-      ])
-      .select((eb) => [
-        jsonObjectFrom(
-          SessionService.getSessionSelect(eb.selectFrom('sessions')).whereRef(
-            'raceResults.sessionId',
-            '==',
-            'sessions.id'
-          )
-        ).as('session'),
-        jsonObjectFrom(
-          EventEntrantService.getEventEntrantSelect(
-            eb.selectFrom('eventEntrants')
-          ).whereRef('raceResults.entrantId', '==', 'eventEntrants.id')
-        ).as('entrant')
-      ]) as SelectQueryBuilder<DB, 'raceResults' | T, RaceResultDTO>;
+      .select(
+        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
+      )
+      .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            SessionService.getSessionSelect(
+              eb.selectFrom('sessions'),
+              fieldsParam?.clone('session')
+            ).whereRef('raceResults.sessionId', '==', 'sessions.id')
+          ).as('session')
+        )
+      )
+      .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            EventEntrantService.getEventEntrantSelect(
+              eb.selectFrom('eventEntrants'),
+              fieldsParam?.clone('entrant')
+            ).whereRef('raceResults.entrantId', '==', 'eventEntrants.id')
+          ).as('entrant')
+        )
+      ) as SelectQueryBuilder<DB, 'raceResults' | T, RaceResultDTO>;
   }
 
   private getResultsWithParams(obj: RaceResultQueryParams) {
@@ -96,7 +104,10 @@ export class RaceResultService extends DbService {
         eb.val(paginator.pageSize).as('pageSize'),
         eb.val(paginator.pageNo).as('currentPage'),
         jsonArrayFrom(
-          RaceResultService.getRaceResultSelect(mainSelect)
+          RaceResultService.getRaceResultSelect(
+            mainSelect,
+            FieldsParam.fromFieldQueryParam(obj)
+          )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
             .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
@@ -112,12 +123,13 @@ export class RaceResultService extends DbService {
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
+    @Queries() fields: FieldsQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
-  ): Promise<SessionDTO & { results: RaceResultDTO[] }> {
+  ): Promise<RaceResultDTO[]> {
     const raceResultInDB: RaceResultDTO[] =
       await RaceResultService.getRaceResultSelect(
         this.getResultsWithParams({ session, season, round }),
-        false
+        FieldsParam.fromFieldQueryParam(fields)
       )
         .orderBy('positionOrder', 'asc')
         .execute();
@@ -126,20 +138,7 @@ export class RaceResultService extends DbService {
       return sendTsoaError(notFoundResponse, 404, 'results.not.found');
     }
 
-    const sessionInfo = await new SessionService().getById(
-      season,
-      round,
-      session
-    );
-
-    if (!sessionInfo) {
-      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
-    }
-
-    return {
-      ...sessionInfo,
-      results: raceResultInDB
-    };
+    return raceResultInDB;
   }
 
   /** Gets info about the result obtained by a driver in a certain race */ @Get(
@@ -150,12 +149,13 @@ export class RaceResultService extends DbService {
     @Path() round: number,
     @Path() session: string,
     @Path() driverId: string,
+    @Queries() fields: FieldsQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<RaceResultDTO> {
     const raceResultInDB: RaceResultDTO | undefined =
       await RaceResultService.getRaceResultSelect(
         this.getResultsWithParams({ session, season, round, driverId }),
-        false
+        FieldsParam.fromFieldQueryParam(fields)
       )
         .selectAll('raceResults')
         .executeTakeFirst();

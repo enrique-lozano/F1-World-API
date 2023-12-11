@@ -1,12 +1,12 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
+import { FieldsParam, FieldsQueryParam } from '../../models/fields-filter';
 import { PageMetadata, Paginator } from '../../models/paginated-items';
 import { TimedSessionResultQueryParams } from '../../models/query-params';
 import { Sorter } from '../../models/sorter';
 import {
   DB,
-  SessionDTO,
   TimedSessionResults,
   TimedSessionResultsDTO
 } from '../../models/types.dto';
@@ -24,24 +24,41 @@ import { SessionService } from '../session.controller';
 export class FreePracticeResultService extends DbService {
   static getFreePracticeResultSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'fpResults', {}>,
-    getSessionDTO = true
+    fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
+    const allSingleFields = [
+      'laps',
+      'positionText',
+      'positionOrder',
+      'time'
+    ] as const;
+
     return (qb as SelectQueryBuilder<DB, 'fpResults', {}>)
-      .select(['laps', 'positionText', 'positionOrder', 'time'])
-      .select((eb) => [
-        jsonObjectFrom(
-          SessionService.getSessionSelect(eb.selectFrom('sessions')).whereRef(
-            'fpResults.sessionId',
-            '==',
-            'sessions.id'
-          )
-        ).as('session'),
-        jsonObjectFrom(
-          EventEntrantService.getEventEntrantSelect(
-            eb.selectFrom('eventEntrants')
-          ).whereRef('fpResults.entrantId', '==', 'eventEntrants.id')
-        ).as('entrant')
-      ]) as SelectQueryBuilder<DB, 'fpResults' | T, TimedSessionResultsDTO>;
+      .select(
+        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
+      )
+      .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            SessionService.getSessionSelect(
+              eb.selectFrom('sessions'),
+              fieldsParam?.clone('session')
+            ).whereRef('fpResults.sessionId', '==', 'sessions.id')
+          ).as('session')
+        )
+      )
+      .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            EventEntrantService.getEventEntrantSelect(
+              eb.selectFrom('eventEntrants'),
+              fieldsParam?.clone('entrant')
+            ).whereRef('fpResults.entrantId', '==', 'eventEntrants.id')
+          ).as('entrant')
+        )
+      ) as SelectQueryBuilder<DB, 'fpResults' | T, TimedSessionResultsDTO>;
   }
 
   private getResultsWithParams(obj: TimedSessionResultQueryParams) {
@@ -66,7 +83,10 @@ export class FreePracticeResultService extends DbService {
         eb.val(paginator.pageSize).as('pageSize'),
         eb.val(paginator.pageNo).as('currentPage'),
         jsonArrayFrom(
-          FreePracticeResultService.getFreePracticeResultSelect(mainSelect)
+          FreePracticeResultService.getFreePracticeResultSelect(
+            mainSelect,
+            FieldsParam.fromFieldQueryParam(obj)
+          )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
             .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
@@ -82,34 +102,22 @@ export class FreePracticeResultService extends DbService {
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
+    @Queries() fields: FieldsQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
-  ): Promise<SessionDTO & { results: TimedSessionResultsDTO[] }> {
-    const raceResultInDB: TimedSessionResultsDTO[] =
+  ): Promise<TimedSessionResultsDTO[]> {
+    const fpResultsInDB: TimedSessionResultsDTO[] =
       await FreePracticeResultService.getFreePracticeResultSelect(
         this.getResultsWithParams({ session, season, round }),
-        false
+        FieldsParam.fromFieldQueryParam(fields)
       )
         .orderBy('positionOrder', 'asc')
         .execute();
 
-    if (!raceResultInDB || raceResultInDB.length === 0) {
+    if (!fpResultsInDB || fpResultsInDB.length === 0) {
       return sendTsoaError(notFoundResponse, 404, 'results.not.found');
     }
 
-    const sessionInfo = await new SessionService().getById(
-      season,
-      round,
-      session
-    );
-
-    if (!sessionInfo) {
-      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
-    }
-
-    return {
-      ...sessionInfo,
-      results: raceResultInDB
-    };
+    return fpResultsInDB;
   }
 
   /** Gets info about the result obtained by a driver in a certain free practice */ @Get(
@@ -120,20 +128,21 @@ export class FreePracticeResultService extends DbService {
     @Path() round: number,
     @Path() session: string,
     @Path() driverId: string,
+    @Queries() fields: FieldsQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<TimedSessionResultsDTO> {
-    const raceResultInDB: TimedSessionResultsDTO | undefined =
+    const fpResultInDB: TimedSessionResultsDTO | undefined =
       await FreePracticeResultService.getFreePracticeResultSelect(
         this.getResultsWithParams({ session, season, round, driverId }),
-        false
+        FieldsParam.fromFieldQueryParam(fields)
       )
         .selectAll('fpResults')
         .executeTakeFirst();
 
-    if (!raceResultInDB) {
+    if (!fpResultInDB) {
       return sendTsoaError(notFoundResponse, 404, 'results.not.found');
     }
 
-    return raceResultInDB;
+    return fpResultInDB;
   }
 }

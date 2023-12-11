@@ -30,6 +30,8 @@ export class DriverService extends DbService {
     qb: SelectQueryBuilder<DB, T | 'drivers', {}>,
     fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
     const allSingleFields = [
       'abbreviation',
       'dateOfBirth',
@@ -43,63 +45,53 @@ export class DriverService extends DbService {
       'placeOfBirth',
       'gender',
       'placeOfBirth'
-    ];
-
-    const selectedFieldsArray = fieldsParam?.getFieldsArray();
+    ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'drivers', {}>)
       .select(
-        (selectedFieldsArray?.filter((x) =>
-          allSingleFields.includes(x)
-        ) as any) ?? allSingleFields
+        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
       )
-      .$if(
-        fieldsParam?.shouldSelectObject('countryOfBirthCountry') ?? true,
-        (qb) =>
-          qb.select((eb) => [
-            jsonObjectFrom(
-              CountryService.getCountriesSelect(
-                eb.selectFrom('countries'),
-                fieldsParam?.clone('countryOfBirthCountry')
-              ).whereRef(
-                'drivers.countryOfBirthCountryId',
-                '==',
-                'countries.alpha2Code'
-              )
-            ).as('countryOfBirthCountry')
-          ])
+      .$if(fieldsParam.shouldSelectObject('countryOfBirthCountry'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            CountryService.getCountriesSelect(
+              eb.selectFrom('countries'),
+              fieldsParam?.clone('countryOfBirthCountry')
+            ).whereRef(
+              'drivers.countryOfBirthCountryId',
+              '==',
+              'countries.alpha2Code'
+            )
+          ).as('countryOfBirthCountry')
+        )
       )
-      .$if(
-        fieldsParam?.shouldSelectObject('nationalityCountry') ?? true,
-        (qb) =>
-          qb.select((eb) => [
-            jsonObjectFrom(
-              CountryService.getCountriesSelect(
-                eb.selectFrom('countries'),
-                fieldsParam?.clone('nationalityCountry')
-              ).whereRef(
-                'drivers.nationalityCountryId',
-                '==',
-                'countries.alpha2Code'
-              )
-            ).as('nationalityCountry')
-          ])
+      .$if(fieldsParam.shouldSelectObject('nationalityCountry'), (qb) =>
+        qb.select((eb) => [
+          jsonObjectFrom(
+            CountryService.getCountriesSelect(
+              eb.selectFrom('countries'),
+              fieldsParam?.clone('nationalityCountry')
+            ).whereRef(
+              'drivers.nationalityCountryId',
+              '==',
+              'countries.alpha2Code'
+            )
+          ).as('nationalityCountry')
+        ])
       )
-      .$if(
-        fieldsParam?.shouldSelectObject('secondNationalityCountry') ?? true,
-        (qb) =>
-          qb.select((eb) => [
-            jsonObjectFrom(
-              CountryService.getCountriesSelect(
-                eb.selectFrom('countries'),
-                fieldsParam?.clone('secondNationalityCountry')
-              ).whereRef(
-                'drivers.secondNationalityCountryId',
-                '==',
-                'countries.alpha2Code'
-              )
-            ).as('secondNationalityCountry')
-          ])
+      .$if(fieldsParam.shouldSelectObject('secondNationalityCountry'), (qb) =>
+        qb.select((eb) => [
+          jsonObjectFrom(
+            CountryService.getCountriesSelect(
+              eb.selectFrom('countries'),
+              fieldsParam?.clone('secondNationalityCountry')
+            ).whereRef(
+              'drivers.secondNationalityCountryId',
+              '==',
+              'countries.alpha2Code'
+            )
+          ).as('secondNationalityCountry')
+        ])
       ) as SelectQueryBuilder<DB, 'drivers' | T, DriverDTO>;
   }
 

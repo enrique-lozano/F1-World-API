@@ -1,6 +1,7 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
+import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
 import { PageQueryParams } from '../models/paginated-items';
 import { SessionQueryParams } from '../models/query-params';
 import { DbService } from '../services/db.service';
@@ -25,19 +26,28 @@ import { RaceResultService } from './results/raceResult.controller';
 @Tags('Sessions')
 export class SessionService extends DbService {
   static getSessionSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'sessions', {}>
+    qb: SelectQueryBuilder<DB, T | 'sessions', {}>,
+    fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
+    const allSingleFields = ['id', 'abbreviation', 'startDateTime'] as const;
+
     return (qb as SelectQueryBuilder<DB, 'sessions', {}>)
-      .select(['id', 'abbreviation', 'startDateTime'])
-      .select((eb) => [
-        jsonObjectFrom(
-          EventService.getEventSelect(eb.selectFrom('events')).whereRef(
-            'sessions.eventId',
-            '==',
-            'events.id'
-          )
-        ).as('event')
-      ]) as SelectQueryBuilder<DB, 'sessions' | T, SessionDTO>;
+      .select(
+        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
+      )
+      .$if(fieldsParam.shouldSelectObject('event'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            EventService.getEventSelect(eb.selectFrom('events')).whereRef(
+              'sessions.eventId',
+              '==',
+              'events.id'
+            )
+          ).as('event')
+        )
+      ) as SelectQueryBuilder<DB, 'sessions' | T, SessionDTO>;
   }
 
   private getSessionsWithParams(obj: SessionQueryParams) {
@@ -73,17 +83,15 @@ export class SessionService extends DbService {
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
+    @Queries() fields: FieldsQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
-  ): Promise<
-    SessionDTO & {
-      results: (TimedSessionResultsDTO | RaceResultDTO)[];
-    }
-  > {
+  ): Promise<(TimedSessionResultsDTO | RaceResultDTO)[]> {
     if (['Q1', 'Q2', 'Q3', 'Q'].some((x) => x === session)) {
       return new QualifyingResultService().getQualifyingSessionResults(
         season,
         round,
         session,
+        fields,
         notFoundResponse
       );
     } else if (['R', 'SR'].some((x) => x === session)) {
@@ -91,6 +99,7 @@ export class SessionService extends DbService {
         season,
         round,
         session,
+        fields,
         notFoundResponse
       );
     } else {
@@ -98,6 +107,7 @@ export class SessionService extends DbService {
         season,
         round,
         session,
+        fields,
         notFoundResponse
       );
     }

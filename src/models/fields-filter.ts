@@ -10,6 +10,18 @@ export class FieldsParam implements FieldsQueryParam {
     if (fieldsString) this.fields = fieldsString;
   }
 
+  getFilteredFieldsArray<T extends string>(
+    fieldsThatCanBeReturned: Readonly<T[]>
+  ) {
+    const fieldsArray = this.getFieldsArray();
+
+    if (!fieldsArray || fieldsArray.length === 0) return null;
+
+    return fieldsArray.filter((x) =>
+      fieldsThatCanBeReturned.includes(x as any)
+    ) as T[];
+  }
+
   getFieldsArray(startWith?: string) {
     if (!this.fields) return null;
 
