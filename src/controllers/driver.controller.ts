@@ -1,6 +1,7 @@
 import { SelectQueryBuilder, sql } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Route, Tags } from 'tsoa';
+import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
 import {
   PageMetadata,
   PageQueryParams,
@@ -11,7 +12,7 @@ import { DB, DriverDTO, Gender } from './../models/types.dto';
 import { CountryService } from './countries.controller';
 import { DriverStandingService } from './driver-standings.controller';
 
-interface DriverQueryParams extends PageQueryParams {
+interface DriverQueryParams extends PageQueryParams, FieldsQueryParam {
   /** Filter drivers by its full name */
   name?: string;
 
@@ -26,52 +27,80 @@ interface DriverQueryParams extends PageQueryParams {
 @Tags('Drivers')
 export class DriverService extends DbService {
   static getDriversSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'drivers', {}>
+    qb: SelectQueryBuilder<DB, T | 'drivers', {}>,
+    fieldsParam?: FieldsParam
   ) {
+    const allSingleFields = [
+      'abbreviation',
+      'dateOfBirth',
+      'dateOfDeath',
+      'firstName',
+      'fullName',
+      'lastName',
+      'id',
+      'name',
+      'permanentNumber',
+      'placeOfBirth',
+      'gender',
+      'placeOfBirth'
+    ];
+
+    const selectedFieldsArray = fieldsParam?.getFieldsArray();
+
     return (qb as SelectQueryBuilder<DB, 'drivers', {}>)
-      .select([
-        'abbreviation',
-        'dateOfBirth',
-        'dateOfDeath',
-        'firstName',
-        'fullName',
-        'lastName',
-        'id',
-        'name',
-        'permanentNumber',
-        'placeOfBirth',
-        'gender',
-        'placeOfBirth'
-      ])
-      .select((eb) => [
-        jsonObjectFrom(
-          CountryService.getCountriesSelect(
-            eb.selectFrom('countries')
-          ).whereRef(
-            'drivers.countryOfBirthCountryId',
-            '==',
-            'countries.alpha2Code'
-          )
-        ).as('countryOfBirthCountry'),
-        jsonObjectFrom(
-          CountryService.getCountriesSelect(
-            eb.selectFrom('countries')
-          ).whereRef(
-            'drivers.nationalityCountryId',
-            '==',
-            'countries.alpha2Code'
-          )
-        ).as('nationalityCountry'),
-        jsonObjectFrom(
-          CountryService.getCountriesSelect(
-            eb.selectFrom('countries')
-          ).whereRef(
-            'drivers.secondNationalityCountryId',
-            '==',
-            'countries.alpha2Code'
-          )
-        ).as('secondNationalityCountry')
-      ]) as SelectQueryBuilder<DB, 'drivers' | T, DriverDTO>;
+      .select(
+        (selectedFieldsArray?.filter((x) =>
+          allSingleFields.includes(x)
+        ) as any) ?? allSingleFields
+      )
+      .$if(
+        fieldsParam?.shouldSelectObject('countryOfBirthCountry') ?? true,
+        (qb) =>
+          qb.select((eb) => [
+            jsonObjectFrom(
+              CountryService.getCountriesSelect(
+                eb.selectFrom('countries'),
+                fieldsParam?.clone('countryOfBirthCountry')
+              ).whereRef(
+                'drivers.countryOfBirthCountryId',
+                '==',
+                'countries.alpha2Code'
+              )
+            ).as('countryOfBirthCountry')
+          ])
+      )
+      .$if(
+        fieldsParam?.shouldSelectObject('nationalityCountry') ?? true,
+        (qb) =>
+          qb.select((eb) => [
+            jsonObjectFrom(
+              CountryService.getCountriesSelect(
+                eb.selectFrom('countries'),
+                fieldsParam?.clone('nationalityCountry')
+              ).whereRef(
+                'drivers.nationalityCountryId',
+                '==',
+                'countries.alpha2Code'
+              )
+            ).as('nationalityCountry')
+          ])
+      )
+      .$if(
+        fieldsParam?.shouldSelectObject('secondNationalityCountry') ?? true,
+        (qb) =>
+          qb.select((eb) => [
+            jsonObjectFrom(
+              CountryService.getCountriesSelect(
+                eb.selectFrom('countries'),
+                fieldsParam?.clone('secondNationalityCountry')
+              ).whereRef(
+                'drivers.secondNationalityCountryId',
+                '==',
+                'countries.alpha2Code'
+              )
+            ).as('secondNationalityCountry')
+          ])
+      ) as SelectQueryBuilder<DB, 'drivers' | T, DriverDTO>;
   }
 
   @Get('/')
@@ -79,6 +108,7 @@ export class DriverService extends DbService {
     @Queries() obj: DriverQueryParams
   ): Promise<PageMetadata & { data: DriverDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
+    const fields = FieldsParam.fromFieldQueryParam(obj);
 
     const mainSelect = this.db
       .selectFrom('drivers')
@@ -96,7 +126,7 @@ export class DriverService extends DbService {
         eb.val(paginator.pageSize).as('pageSize'),
         eb.val(paginator.pageNo).as('currentPage'),
         jsonArrayFrom(
-          DriverService.getDriversSelect(mainSelect)
+          DriverService.getDriversSelect(mainSelect, fields)
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
         ).as('data')

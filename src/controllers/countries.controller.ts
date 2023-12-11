@@ -1,5 +1,6 @@
 import { SelectQueryBuilder } from 'kysely';
 import { Get, Path, Route, Tags } from 'tsoa';
+import { FieldsParam } from '../models/fields-filter';
 import { DbService } from '../services/db.service';
 import { CountryDTO, DB } from './../models/types.dto';
 
@@ -7,7 +8,8 @@ import { CountryDTO, DB } from './../models/types.dto';
 @Tags('Countries')
 export class CountryService extends DbService {
   static getCountriesSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'countries', {}>
+    qb: SelectQueryBuilder<DB, T | 'countries', {}>,
+    fieldsParam?: FieldsParam
   ) {
     return (qb as SelectQueryBuilder<DB, 'countries', {}>)
       .innerJoin(
@@ -20,14 +22,24 @@ export class CountryService extends DbService {
         'countries.alpha2Code',
         'countriesOfficialNames.countryId'
       )
-      .select([
-        'countries.alpha2Code',
-        'countries.alpha3Code',
-        'countries.region',
-        'countries.subregion',
-        'countriesCommonNames.en as commonName',
-        'countriesOfficialNames.en as officialName'
-      ]) as SelectQueryBuilder<
+      .$if(fieldsParam?.shouldSelectKey('alpha2Code') ?? true, (qb) =>
+        qb.select('countries.alpha2Code')
+      )
+      .$if(fieldsParam?.shouldSelectKey('alpha3Code') ?? true, (qb) =>
+        qb.select('countries.alpha3Code')
+      )
+      .$if(fieldsParam?.shouldSelectKey('region') ?? true, (qb) =>
+        qb.select('countries.region')
+      )
+      .$if(fieldsParam?.shouldSelectKey('subregion') ?? true, (qb) =>
+        qb.select('countries.subregion')
+      )
+      .$if(fieldsParam?.shouldSelectKey('commonName') ?? true, (qb) =>
+        qb.select('countriesCommonNames.en as commonName')
+      )
+      .$if(fieldsParam?.shouldSelectKey('officialName') ?? true, (qb) =>
+        qb.select('countriesOfficialNames.en as officialName')
+      ) as SelectQueryBuilder<
       DB,
       'countries' | 'countriesCommonNames' | 'countriesOfficialNames' | T,
       CountryDTO
