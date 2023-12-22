@@ -3,10 +3,14 @@ import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Query, Route, Tags } from 'tsoa';
 import { DriverDTO } from '../models/types.dto';
 import { DbService } from '../services/db.service';
+import {
+  getRoundFromIdColumn,
+  getSeasonFromIdColumn
+} from '../utils/f1-sql-common-utils';
 import { DriverService } from './driver.controller';
 
 export interface DriverChampResult {
-  driver: DriverDTO | null;
+  driver: DriverDTO;
 
   /** Points that this entrant had for this championship season, in the specified round */
   points: number;
@@ -18,6 +22,30 @@ export interface DriverChampResult {
 @Route('championships')
 @Tags('Championships')
 export class DriverStandingService extends DbService {
+  private async resultsOrderer(
+    champResult: DriverChampResult,
+    season: number,
+    round?: number
+  ) {
+    return {
+      champResult,
+      raceResults: await this.db
+        .selectFrom('raceResults')
+        .leftJoin('eventEntrants', 'eventEntrants.id', 'raceResults.entrantId')
+        .select(
+          sql<string>`CASE WHEN CAST(positionText as INT) > 0               \
+            THEN CAST(positionText as INT) ELSE null END`.as('position')
+        )
+        .where(getSeasonFromIdColumn('sessionId'), '==', season)
+
+        .where('driverId', '==', champResult.driver?.id)
+        .$if(round != undefined, (qb) =>
+          qb.where(getRoundFromIdColumn('sessionId'), '==', round!)
+        )
+        .execute()
+    };
+  }
+
   /** Get the driver's world championship results for the specified season
    *
    * @param round If specified, the result obtained will be the championship situation immediately after that round. */ @Get(
@@ -27,21 +55,12 @@ export class DriverStandingService extends DbService {
     @Path() season: number,
     @Query() round?: number
   ) {
-    const results: DriverChampResult[] = (await this.db
+    let results: DriverChampResult[] = (await this.db
       .selectFrom('raceResults')
       .leftJoin('eventEntrants', 'eventEntrants.id', 'raceResults.entrantId')
-
-      .where(
-        sql`cast(substr(raceResults.sessionId, 1, 4) as INT)`,
-        '==',
-        season
-      )
+      .where(getSeasonFromIdColumn('raceResults.sessionId'), '==', season)
       .$if(round != undefined, (qb) =>
-        qb.where(
-          sql`cast(substr(raceResults.sessionId, 6, 7) as INT)`,
-          '<=',
-          round
-        )
+        qb.where(getRoundFromIdColumn('raceResults.sessionId'), '<=', round!)
       )
       .groupBy('driverId')
       .select(({ fn, eb }) => [
@@ -55,47 +74,37 @@ export class DriverStandingService extends DbService {
       ])
       .execute()) as DriverChampResult[];
 
-    // Resolve tie on points:
-    results.sort((a, b) => {
-      if (a.points < b.points) return 1;
-      else if (a.points > b.points) return -1;
-      else {
-        let raceResultQuery =
-          'SELECT CASE WHEN CAST(positionText as INT) > 0               \
-            THEN CAST(positionText as INT) ELSE null END as position    \
-            FROM raceResults LEFT JOIN eventEntrants ON eventEntrants.id = raceResults.entrantId \
-            WHERE driverId = :driverId AND cast(substr(sessionId, 1, 4) as INT) = :season';
+    // ---- Resolve ties in pints ----
+    const resultsWithAsyncData = await Promise.all(
+      results.map((result) => this.resultsOrderer(result, season, round))
+    );
 
-        if (round) {
-          raceResultQuery +=
-            ' AND cast(substr(sessionId, 6, 2) as INT) <= :round';
+    // TODO: ---->
+    /*  This is currently getting the results for all the drivers, 
+    when we need only the results when there is a tie in points */
+
+    results = resultsWithAsyncData
+      .sort((a, b) => {
+        if (a.champResult.points < b.champResult.points) return 1;
+        else if (a.champResult.points > b.champResult.points) return -1;
+        else {
+          let i = 0;
+          while (
+            a.raceResults.length - 1 >= i ||
+            b.raceResults.length - 1 >= i
+          ) {
+            if (a.raceResults[i] < b.raceResults[i] || !b.raceResults[i])
+              return -1;
+            else if (a.raceResults[i] > b.raceResults[i] || !a.raceResults[i])
+              return 1;
+
+            i = i + 1;
+          }
+
+          return 0;
         }
-
-        const aResults = this.db245
-          .prepare(raceResultQuery)
-          .all({ driverId: a.driver?.id, season, round })
-          .map((x: any) => x.position)
-          .filter((x) => x)
-          .sort((x, y) => x - y);
-
-        const bResults = this.db245
-          .prepare(raceResultQuery)
-          .all({ driverId: b.driver?.id, season, round })
-          .map((x: any) => x.position)
-          .filter((x) => x)
-          .sort((x, y) => x - y);
-
-        let i = 0;
-        while (aResults.length - 1 >= i || bResults.length - 1 >= i) {
-          if (aResults[i] < bResults[i] || !bResults[i]) return -1;
-          else if (aResults[i] > bResults[i] || !aResults[i]) return 1;
-
-          i = i + 1;
-        }
-
-        return 0;
-      }
-    });
+      })
+      .map((e) => e.champResult);
 
     return results.map((x, index) => {
       return {
