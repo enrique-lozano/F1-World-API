@@ -13,7 +13,7 @@ import { EventEntrantService } from './eventEntrant.controller';
 interface PitStopQueryParams extends SessionEntrantQueryParams {
   lap?: number;
 
-  /** @default "eventId" */
+  /** @default eventId */
   orderBy?: keyof PitStops;
 }
 

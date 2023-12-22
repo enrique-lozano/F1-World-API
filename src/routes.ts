@@ -303,7 +303,7 @@ const models: TsoaRoute.Models = {
             "session": {"dataType":"string"},
             "driverId": {"dataType":"string"},
             "lap": {"dataType":"double"},
-            "orderBy": {"dataType":"enum","enums":["entrantId","time","eventId","lap","timeOfDay","annotation"],"default":"\"eventId\""},
+            "orderBy": {"dataType":"enum","enums":["entrantId","time","eventId","lap","timeOfDay","annotation"],"default":"eventId"},
         },
         "additionalProperties": false,
     },

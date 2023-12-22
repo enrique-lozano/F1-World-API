@@ -850,7 +850,7 @@
 							"annotation"
 						],
 						"nullable": false,
-						"default": "\"eventId\""
+						"default": "eventId"
 					}
 				},
 				"type": "object",
@@ -2598,7 +2598,7 @@
 						"name": "orderBy",
 						"required": false,
 						"schema": {
-							"default": "\"eventId\"",
+							"default": "eventId",
 							"type": "string",
 							"enum": [
 								"entrantId",
