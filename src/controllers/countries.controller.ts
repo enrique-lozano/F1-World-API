@@ -11,6 +11,8 @@ export class CountryService extends DbService {
     qb: SelectQueryBuilder<DB, T | 'countries', object>,
     fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
     return (qb as SelectQueryBuilder<DB, 'countries', object>)
       .innerJoin(
         'countriesCommonNames',
@@ -22,22 +24,22 @@ export class CountryService extends DbService {
         'countries.alpha2Code',
         'countriesOfficialNames.countryId'
       )
-      .$if(fieldsParam?.shouldSelectKey('alpha2Code') ?? true, (qb) =>
+      .$if(fieldsParam.shouldSelectKey('alpha2Code'), (qb) =>
         qb.select('countries.alpha2Code')
       )
-      .$if(fieldsParam?.shouldSelectKey('alpha3Code') ?? true, (qb) =>
+      .$if(fieldsParam.shouldSelectKey('alpha3Code'), (qb) =>
         qb.select('countries.alpha3Code')
       )
-      .$if(fieldsParam?.shouldSelectKey('region') ?? true, (qb) =>
+      .$if(fieldsParam.shouldSelectKey('region'), (qb) =>
         qb.select('countries.region')
       )
-      .$if(fieldsParam?.shouldSelectKey('subregion') ?? true, (qb) =>
+      .$if(fieldsParam.shouldSelectKey('subregion'), (qb) =>
         qb.select('countries.subregion')
       )
-      .$if(fieldsParam?.shouldSelectKey('commonName') ?? true, (qb) =>
+      .$if(fieldsParam.shouldSelectKey('commonName'), (qb) =>
         qb.select('countriesCommonNames.en as commonName')
       )
-      .$if(fieldsParam?.shouldSelectKey('officialName') ?? true, (qb) =>
+      .$if(fieldsParam.shouldSelectKey('officialName'), (qb) =>
         qb.select('countriesOfficialNames.en as officialName')
       ) as SelectQueryBuilder<
       DB,
