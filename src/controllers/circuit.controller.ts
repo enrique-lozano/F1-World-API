@@ -15,9 +15,9 @@ import { CountryService } from './countries.controller';
 @Tags('Circuits')
 export class CircuitService extends DbService {
   static getCircuitsSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'circuits', {}>
+    qb: SelectQueryBuilder<DB, T | 'circuits', object>
   ) {
-    return (qb as SelectQueryBuilder<DB, 'circuits', {}>)
+    return (qb as SelectQueryBuilder<DB, 'circuits', object>)
       .select([
         'fullName',
         'id',

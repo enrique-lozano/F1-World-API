@@ -22,9 +22,9 @@ interface GrandPrixQueryParams extends PageQueryParams {
 @Tags('Grands Prix')
 export class GrandPrixService extends DbService {
   static getGrandPrixSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'grandsPrix', {}>
+    qb: SelectQueryBuilder<DB, T | 'grandsPrix', object>
   ) {
-    return (qb as SelectQueryBuilder<DB, 'grandsPrix', {}>)
+    return (qb as SelectQueryBuilder<DB, 'grandsPrix', object>)
       .select(['countryId', 'fullName', 'id', 'name', 'shortName'])
       .select((eb) => [
         jsonObjectFrom(

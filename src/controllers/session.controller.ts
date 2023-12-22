@@ -26,14 +26,14 @@ import { RaceResultService } from './results/raceResult.controller';
 @Tags('Sessions')
 export class SessionService extends DbService {
   static getSessionSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'sessions', {}>,
+    qb: SelectQueryBuilder<DB, T | 'sessions', object>,
     fieldsParam?: FieldsParam
   ) {
     fieldsParam ??= new FieldsParam();
 
     const allSingleFields = ['id', 'abbreviation', 'startDateTime'] as const;
 
-    return (qb as SelectQueryBuilder<DB, 'sessions', {}>)
+    return (qb as SelectQueryBuilder<DB, 'sessions', object>)
       .select(
         fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
       )

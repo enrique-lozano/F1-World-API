@@ -15,9 +15,9 @@ import { CountryService } from './countries.controller';
 @Tags('Tyre Manufacturers')
 export class TyreManufacturerService extends DbService {
   static getTyreManufacturerSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'tyreManufacturers', {}>
+    qb: SelectQueryBuilder<DB, T | 'tyreManufacturers', object>
   ) {
-    return (qb as SelectQueryBuilder<DB, 'tyreManufacturers', {}>)
+    return (qb as SelectQueryBuilder<DB, 'tyreManufacturers', object>)
       .select(['primaryColor', 'secondaryColor', 'id', 'name'])
       .select((eb) => [
         jsonObjectFrom(

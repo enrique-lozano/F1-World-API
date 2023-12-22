@@ -2,7 +2,7 @@ import { HttpStatusCodeLiteral, TsoaResponse } from 'tsoa';
 import { ErrorCodes } from './error-codes';
 
 export function sendTsoaError<T extends HttpStatusCodeLiteral>(
-  tsoaFunc: TsoaResponse<T, ErrorMessage<T>, {}>,
+  tsoaFunc: TsoaResponse<T, ErrorMessage<T>, object>,
   status: T,
   errorCode: keyof typeof ErrorCodes
 ) {

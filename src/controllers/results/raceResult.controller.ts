@@ -28,7 +28,7 @@ export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
 @Tags('Races')
 export class RaceResultService extends DbService {
   static getRaceResultSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'raceResults', {}>,
+    qb: SelectQueryBuilder<DB, T | 'raceResults', object>,
     fieldsParam?: FieldsParam
   ) {
     fieldsParam ??= new FieldsParam();
@@ -49,7 +49,7 @@ export class RaceResultService extends DbService {
       'reasonRetired'
     ] as const;
 
-    return (qb as SelectQueryBuilder<DB, 'raceResults', {}>)
+    return (qb as SelectQueryBuilder<DB, 'raceResults', object>)
       .select(
         fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
       )

@@ -16,6 +16,7 @@ export function objectAttributesToString<T extends object>(object: T) {
 /** Remove the null/undefined or the empty properties of an object */
 export function removeEmptyAttributes<T extends object>(obj: T) {
   return Object.fromEntries(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     Object.entries(obj).filter(([_, v]) => v != null && v != '')
   ) as Partial<T>;
 }
@@ -27,7 +28,7 @@ export function removeEmptyAttributes<T extends object>(obj: T) {
  */
 export function parseSearchQueryParams<T extends object, K extends keyof T>(
   queryParams: T,
-  toRemove: K[] = ['pageNo', 'pageSize', 'orderDir', 'orderBy'] as any
+  toRemove: K[] = ['pageNo', 'pageSize', 'orderDir', 'orderBy'] as K[]
 ) {
   if (typeof queryParams != 'object') {
     throw new Error(

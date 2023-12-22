@@ -8,10 +8,10 @@ import { CountryDTO, DB } from './../models/types.dto';
 @Tags('Countries')
 export class CountryService extends DbService {
   static getCountriesSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'countries', {}>,
+    qb: SelectQueryBuilder<DB, T | 'countries', object>,
     fieldsParam?: FieldsParam
   ) {
-    return (qb as SelectQueryBuilder<DB, 'countries', {}>)
+    return (qb as SelectQueryBuilder<DB, 'countries', object>)
       .innerJoin(
         'countriesCommonNames',
         'countries.alpha2Code',

@@ -21,9 +21,9 @@ interface CompanyQueryParams extends PageQueryParams {
 @Tags('Companies')
 export class CompanyService extends DbService {
   static getCompaniesSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'companies', {}>
+    qb: SelectQueryBuilder<DB, T | 'companies', object>
   ) {
-    return (qb as SelectQueryBuilder<DB, 'companies', {}>)
+    return (qb as SelectQueryBuilder<DB, 'companies', object>)
       .select(['fullName', 'id', 'name', 'founder', 'yearFounded'])
       .select((eb) => [
         jsonObjectFrom(

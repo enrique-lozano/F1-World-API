@@ -23,7 +23,7 @@ import { SessionService } from '../session.controller';
 @Tags('Free Practices')
 export class FreePracticeResultService extends DbService {
   static getFreePracticeResultSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'fpResults', {}>,
+    qb: SelectQueryBuilder<DB, T | 'fpResults', object>,
     fieldsParam?: FieldsParam
   ) {
     fieldsParam ??= new FieldsParam();
@@ -35,7 +35,7 @@ export class FreePracticeResultService extends DbService {
       'time'
     ] as const;
 
-    return (qb as SelectQueryBuilder<DB, 'fpResults', {}>)
+    return (qb as SelectQueryBuilder<DB, 'fpResults', object>)
       .select(
         fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
       )

@@ -22,13 +22,13 @@ export interface LapQueryParams extends SessionEntrantQueryParams {
 @Tags('Laps')
 export class LapService extends DbService {
   static getLapsSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'lapTimes', {}>,
+    qb: SelectQueryBuilder<DB, T | 'lapTimes', object>,
     getMinTime = false
   ) {
-    return (qb as SelectQueryBuilder<DB, 'lapTimes', {}>)
+    return (qb as SelectQueryBuilder<DB, 'lapTimes', object>)
       .select(['pos', 'lap', ...(getMinTime ? ['time'] : ([] as any))])
       .$if(getMinTime, (qb) =>
-        qb.select(({ fn, eb }) => [fn.min<number>('time' as any).as('time')])
+        qb.select(({ fn }) => [fn.min<number>('time' as any).as('time')])
       )
       .select((eb) => [
         jsonObjectFrom(

@@ -24,7 +24,7 @@ export function getTextFromOrderedArray(array: number[]) {
 export function getOrderedArrayFromRangeText(text: string) {
   const ranges = text.split(',');
 
-  let toReturn: number[] = [];
+  const toReturn: number[] = [];
 
   const genRangeArray = (start: number, end: number) => {
     return Array.from({ length: end + 1 - start }, (v, k) => start + k);

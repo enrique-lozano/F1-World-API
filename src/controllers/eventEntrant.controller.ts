@@ -10,7 +10,7 @@ import { TyreManufacturerService } from './tyreManufacturer.controller';
 
 export class EventEntrantService extends DbService {
   static getEventEntrantSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'eventEntrants', {}>,
+    qb: SelectQueryBuilder<DB, T | 'eventEntrants', object>,
     fieldsParam?: FieldsParam
   ) {
     fieldsParam ??= new FieldsParam();
@@ -24,7 +24,7 @@ export class EventEntrantService extends DbService {
       'note'
     ] as const;
 
-    return (qb as SelectQueryBuilder<DB, 'eventEntrants', {}>)
+    return (qb as SelectQueryBuilder<DB, 'eventEntrants', object>)
       .select(
         fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
       )

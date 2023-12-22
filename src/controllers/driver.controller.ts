@@ -27,7 +27,7 @@ interface DriverQueryParams extends PageQueryParams, FieldsQueryParam {
 @Tags('Drivers')
 export class DriverService extends DbService {
   static getDriversSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'drivers', {}>,
+    qb: SelectQueryBuilder<DB, T | 'drivers', object>,
     fieldsParam?: FieldsParam
   ) {
     fieldsParam ??= new FieldsParam();
@@ -47,7 +47,7 @@ export class DriverService extends DbService {
       'placeOfBirth'
     ] as const;
 
-    return (qb as SelectQueryBuilder<DB, 'drivers', {}>)
+    return (qb as SelectQueryBuilder<DB, 'drivers', object>)
       .select(
         fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
       )

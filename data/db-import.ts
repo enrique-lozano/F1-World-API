@@ -134,7 +134,7 @@ function readCSV(pathToFile: string) {
 }
 
 function getInsertQueriesFromCSV(pathToFile: string, tableName: string) {
-  return new Promise<querydef[]>((res, rej) => {
+  return new Promise<querydef[]>((res) => {
     const querys: querydef[] = [];
 
     console.log(

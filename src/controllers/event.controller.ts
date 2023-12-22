@@ -22,9 +22,9 @@ interface EventQueryParams extends PageQueryParams, SorterQueryParams {
 @Tags('Events')
 export class EventService extends DbService {
   static getEventSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'events', {}>
+    qb: SelectQueryBuilder<DB, T | 'events', object>
   ) {
-    return (qb as SelectQueryBuilder<DB, 'events', {}>)
+    return (qb as SelectQueryBuilder<DB, 'events', object>)
       .select([
         'id',
         'name',

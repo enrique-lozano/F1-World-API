@@ -23,7 +23,7 @@ import { SessionService } from './../session.controller';
 @Tags('Qualifyings')
 export class QualifyingResultService extends DbService {
   static getQualifyingResultSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'qualifyingResults', {}>,
+    qb: SelectQueryBuilder<DB, T | 'qualifyingResults', object>,
     fieldsParam?: FieldsParam
   ) {
     fieldsParam ??= new FieldsParam();
@@ -35,7 +35,7 @@ export class QualifyingResultService extends DbService {
       'time'
     ] as const;
 
-    return (qb as SelectQueryBuilder<DB, 'qualifyingResults', {}>)
+    return (qb as SelectQueryBuilder<DB, 'qualifyingResults', object>)
       .select(
         fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
       )

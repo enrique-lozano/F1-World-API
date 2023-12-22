@@ -6,9 +6,9 @@ import { CountryService } from './countries.controller';
 
 export class SeasonEntrantService extends DbService {
   static getSeasonEntrantsSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'seasonEntrants', {}>
+    qb: SelectQueryBuilder<DB, T | 'seasonEntrants', object>
   ) {
-    return (qb as SelectQueryBuilder<DB, 'seasonEntrants', {}>)
+    return (qb as SelectQueryBuilder<DB, 'seasonEntrants', object>)
       .select(['id', 'season', 'name'])
       .select((eb) => [
         jsonObjectFrom(

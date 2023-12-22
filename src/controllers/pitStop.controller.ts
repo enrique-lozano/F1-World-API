@@ -23,9 +23,9 @@ interface PitStopQueryParams extends PageQueryParams, SorterQueryParams {
 @Tags('Races')
 export class PitStopService extends DbService {
   static getPitStopsSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'pitStops', {}>
+    qb: SelectQueryBuilder<DB, T | 'pitStops', object>
   ) {
-    return (qb as SelectQueryBuilder<DB, 'pitStops', {}>)
+    return (qb as SelectQueryBuilder<DB, 'pitStops', object>)
       .select(['annotation', 'lap', 'time', 'timeOfDay'])
       .select((eb) => [
         jsonObjectFrom(
