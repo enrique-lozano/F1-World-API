@@ -1,7 +1,12 @@
-import { SelectQueryBuilder, sql } from 'kysely';
+import { SelectQueryBuilder } from 'kysely';
 import { ResultsFiltersQueryParams } from '../models/query-params';
 import { DB } from '../models/types.dto';
 import { DbService } from '../services/db.service';
+import {
+  getRoundFromIdColumn,
+  getSeasonFromIdColumn,
+  getSessionIdFromIdColumn
+} from '../utils/f1-sql-common-utils';
 
 type resultsTables = 'qualifyingResults' | 'raceResults' | 'fpResults';
 
@@ -19,21 +24,13 @@ export class ParamsBuilderService extends DbService {
     return this.db
       .selectFrom(fromTable)
       .$if(obj.season != undefined, (qb) =>
-        qb.where(
-          sql`cast(substr(${sql.ref(columnToGet)}, 1, 4) as INT)`,
-          '==',
-          obj.season
-        )
+        qb.where(getSeasonFromIdColumn(columnToGet), '==', obj.season!)
       )
       .$if(obj.round != undefined, (qb) =>
-        qb.where(
-          sql`cast(substr(${sql.ref(columnToGet)}, 6, 2) as INT)`,
-          '==',
-          obj.round
-        )
+        qb.where(getRoundFromIdColumn(columnToGet), '==', obj.round!)
       )
       .$if(obj.session != undefined, (qb) =>
-        qb.where(sql`substr(${sql.ref(columnToGet)},9,20)`, '=', obj.session)
+        qb.where(getSessionIdFromIdColumn(columnToGet), '=', obj.session!)
       );
   }
 

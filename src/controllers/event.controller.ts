@@ -1,4 +1,4 @@
-import { SelectQueryBuilder, sql } from 'kysely';
+import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Route, Tags } from 'tsoa';
 import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
@@ -9,6 +9,10 @@ import {
 } from '../models/paginated-items';
 import { Sorter, SorterQueryParams } from '../models/sorter';
 import { DbService } from '../services/db.service';
+import {
+  getRoundFromIdColumn,
+  getSeasonFromIdColumn
+} from '../utils/f1-sql-common-utils';
 import { DB, EventDTO, Events } from './../models/types.dto';
 import { CircuitService } from './circuit.controller';
 
@@ -110,8 +114,8 @@ export class EventService extends DbService {
       this.db.selectFrom('events'),
       FieldsParam.fromFieldQueryParam(fields)
     )
-      .where(sql`cast(substr(id, 1, 4) as INT)`, '==', season)
-      .where(sql`cast(substr(id, 6, 8) as INT)`, '==', round)
+      .where(getSeasonFromIdColumn('id'), '==', season)
+      .where(getRoundFromIdColumn('round'), '==', round)
       .executeTakeFirst();
   }
 }

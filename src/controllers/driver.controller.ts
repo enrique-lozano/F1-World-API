@@ -1,4 +1,4 @@
-import { SelectQueryBuilder, sql } from 'kysely';
+import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Route, Tags } from 'tsoa';
 import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
@@ -8,6 +8,7 @@ import {
   Paginator
 } from '../models/paginated-items';
 import { DbService } from '../services/db.service';
+import { getSeasonFromIdColumn } from '../utils/f1-sql-common-utils';
 import { DB, DriverDTO, Gender } from './../models/types.dto';
 import { CountryService } from './countries.controller';
 import { DriverStandingService } from './driver-standings.controller';
@@ -168,7 +169,7 @@ export class DriverService extends DbService {
       .selectFrom('raceResults')
       .innerJoin('eventEntrants', 'eventEntrants.id', 'raceResults.entrantId')
       .where('driverId', '==', driverId)
-      .select([sql<number>`cast(substr(sessionId, 1, 4) as INT)`.as('year')])
+      .select([getSeasonFromIdColumn('sessionId').as('year')])
       .groupBy('year')
       .execute();
 
