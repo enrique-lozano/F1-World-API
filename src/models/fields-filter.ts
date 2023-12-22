@@ -1,3 +1,4 @@
+/** A interface to define only the optional `field` param */
 export interface FieldsQueryParam {
   /** Comma separated string containing the fields to return  */
   fields?: string;

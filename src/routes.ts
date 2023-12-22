@@ -74,11 +74,19 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "PageQueryParams": {
+    "OrderDir": {
+        "dataType": "refAlias",
+        "type": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["asc"]},{"dataType":"enum","enums":["desc"]}],"validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "CircuitQueryParams": {
         "dataType": "refObject",
         "properties": {
             "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
             "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
+            "orderDir": {"ref":"OrderDir","default":"asc"},
+            "fields": {"dataType":"string"},
+            "orderBy": {"dataType":"enum","enums":["countryId","id","name","fullName","previousNames","type","placeName","latitude","longitude"],"default":"name"},
         },
         "additionalProperties": false,
     },
@@ -101,8 +109,10 @@ const models: TsoaRoute.Models = {
         "properties": {
             "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
             "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
-            "specialty": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["engine"]},{"dataType":"enum","enums":["chassis"]}]},
+            "orderDir": {"ref":"OrderDir","default":"asc"},
+            "fields": {"dataType":"string"},
             "name": {"dataType":"string"},
+            "orderBy": {"dataType":"enum","enums":["countryId","id","name","fullName","founder","yearFounded"],"default":"name"},
         },
         "additionalProperties": false,
     },
@@ -174,19 +184,23 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "OrderDir": {
-        "dataType": "refAlias",
-        "type": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["asc"]},{"dataType":"enum","enums":["desc"]}],"validators":{}},
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "EventQueryParams": {
         "dataType": "refObject",
         "properties": {
             "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
             "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "orderDir": {"ref":"OrderDir","default":"asc"},
+            "fields": {"dataType":"string"},
             "circuitId": {"dataType":"string"},
             "orderBy": {"dataType":"enum","enums":["id","name","grandPrixId","circuitId","raceDate","qualyFormat","scheduledLaps","posterURL"],"default":"id"},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "FieldsQueryParam": {
+        "dataType": "refObject",
+        "properties": {
+            "fields": {"dataType":"string"},
         },
         "additionalProperties": false,
     },
@@ -199,6 +213,15 @@ const models: TsoaRoute.Models = {
             "primaryColor": {"dataType":"string","required":true},
             "secondaryColor": {"dataType":"string","required":true},
             "country": {"dataType":"union","subSchemas":[{"ref":"CountryDTO"},{"dataType":"enum","enums":[null]}],"required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "PageQueryParams": {
+        "dataType": "refObject",
+        "properties": {
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
         },
         "additionalProperties": false,
     },
@@ -283,14 +306,6 @@ const models: TsoaRoute.Models = {
             "maxPos": {"dataType":"integer","validators":{"minimum":{"errorMsg":"The minimum value of `maxPos` should be 1","value":1},"isInt":{"errorMsg":"The `maxPos` param should be an integer"}}},
             "positionText": {"dataType":"string"},
             "orderBy": {"dataType":"enum","enums":["entrantId","sessionId","positionOrder","positionText","time","laps"],"default":"sessionId"},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "FieldsQueryParam": {
-        "dataType": "refObject",
-        "properties": {
-            "fields": {"dataType":"string"},
         },
         "additionalProperties": false,
     },
@@ -478,7 +493,7 @@ export function RegisterRoutes(app: Router) {
 
             function CircuitService_get(request: any, response: any, next: any) {
             const args = {
-                    obj: {"in":"queries","name":"obj","required":true,"ref":"PageQueryParams"},
+                    obj: {"in":"queries","name":"obj","required":true,"ref":"CircuitQueryParams"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -783,6 +798,7 @@ export function RegisterRoutes(app: Router) {
             const args = {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
+                    fields: {"in":"queries","name":"fields","required":true,"ref":"FieldsQueryParam"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa

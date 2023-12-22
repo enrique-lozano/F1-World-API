@@ -2,6 +2,7 @@ import { Get, Queries, Route, Tags } from 'tsoa';
 
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
+import { FieldsParam } from '../models/fields-filter';
 import {
   PageMetadata,
   PageQueryParams,
@@ -15,14 +16,27 @@ import { CountryService } from './countries.controller';
 @Tags('Tyre Manufacturers')
 export class TyreManufacturerService extends DbService {
   static getTyreManufacturerSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'tyreManufacturers', object>
+    qb: SelectQueryBuilder<DB, T | 'tyreManufacturers', object>,
+    fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
+    const allSingleFields = [
+      'primaryColor',
+      'secondaryColor',
+      'id',
+      'name'
+    ] as const;
+
     return (qb as SelectQueryBuilder<DB, 'tyreManufacturers', object>)
-      .select(['primaryColor', 'secondaryColor', 'id', 'name'])
+      .select(
+        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
+      )
       .select((eb) => [
         jsonObjectFrom(
           CountryService.getCountriesSelect(
-            eb.selectFrom('countries')
+            eb.selectFrom('countries'),
+            fieldsParam?.clone('country')
           ).whereRef(
             'tyreManufacturers.countryId',
             '==',

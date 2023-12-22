@@ -55,7 +55,8 @@ export class EventEntrantService extends DbService {
         qb.select((eb) =>
           jsonObjectFrom(
             TyreManufacturerService.getTyreManufacturerSelect(
-              eb.selectFrom('tyreManufacturers')
+              eb.selectFrom('tyreManufacturers'),
+              fieldsParam?.clone('tyreManufacturer')
             ).whereRef(
               'eventEntrants.tyreManufacturerId',
               '==',

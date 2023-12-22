@@ -1,6 +1,7 @@
 import { SelectQueryBuilder, sql } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { Get, Queries, Route, Tags } from 'tsoa';
+import { Get, Path, Queries, Route, Tags } from 'tsoa';
+import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
 import {
   PageMetadata,
   PageQueryParams,
@@ -11,7 +12,10 @@ import { DbService } from '../services/db.service';
 import { DB, EventDTO, Events } from './../models/types.dto';
 import { CircuitService } from './circuit.controller';
 
-interface EventQueryParams extends PageQueryParams, SorterQueryParams {
+interface EventQueryParams
+  extends PageQueryParams,
+    SorterQueryParams,
+    FieldsQueryParam {
   circuitId?: string;
 
   /** @default id */
@@ -22,26 +26,34 @@ interface EventQueryParams extends PageQueryParams, SorterQueryParams {
 @Tags('Events')
 export class EventService extends DbService {
   static getEventSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'events', object>
+    qb: SelectQueryBuilder<DB, T | 'events', object>,
+    fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
+    const allSingleFields = [
+      'id',
+      'name',
+      'posterURL',
+      'qualyFormat',
+      'raceDate',
+      'scheduledLaps'
+    ] as const;
+
     return (qb as SelectQueryBuilder<DB, 'events', object>)
-      .select([
-        'id',
-        'name',
-        'posterURL',
-        'qualyFormat',
-        'raceDate',
-        'scheduledLaps'
-      ])
-      .select((eb) => [
-        jsonObjectFrom(
-          CircuitService.getCircuitsSelect(eb.selectFrom('circuits')).whereRef(
-            'events.circuitId',
-            '==',
-            'circuits.id'
-          )
-        ).as('circuit')
-      ]) as SelectQueryBuilder<DB, 'events' | T, EventDTO>;
+      .select(
+        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
+      )
+      .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            CircuitService.getCircuitsSelect(
+              eb.selectFrom('circuits'),
+              fieldsParam?.clone('circuit')
+            ).whereRef('events.circuitId', '==', 'circuits.id')
+          ).as('circuit')
+        )
+      ) as SelectQueryBuilder<DB, 'events' | T, EventDTO>;
   }
 
   @Get('/')
@@ -65,7 +77,10 @@ export class EventService extends DbService {
         eb.val(paginator.pageSize).as('pageSize'),
         eb.val(paginator.pageNo).as('currentPage'),
         jsonArrayFrom(
-          EventService.getEventSelect(mainSelect)
+          EventService.getEventSelect(
+            mainSelect,
+            FieldsParam.fromFieldQueryParam(obj)
+          )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
             .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
@@ -86,8 +101,15 @@ export class EventService extends DbService {
 
   /** Get a event by its season and its round */
   @Get('{season}/{round}')
-  getById(season: number, round: number): Promise<EventDTO | undefined> {
-    return EventService.getEventSelect(this.db.selectFrom('events'))
+  getById(
+    @Path() season: number,
+    @Path() round: number,
+    @Queries() fields: FieldsQueryParam
+  ): Promise<EventDTO | undefined> {
+    return EventService.getEventSelect(
+      this.db.selectFrom('events'),
+      FieldsParam.fromFieldQueryParam(fields)
+    )
       .where(sql`cast(substr(id, 1, 4) as INT)`, '==', season)
       .where(sql`cast(substr(id, 6, 8) as INT)`, '==', round)
       .executeTakeFirst();

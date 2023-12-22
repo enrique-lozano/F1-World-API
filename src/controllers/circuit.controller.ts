@@ -2,36 +2,54 @@ import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 
 import { SelectQueryBuilder } from 'kysely';
 import { Get, Queries, Route, Tags } from 'tsoa';
+import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
 import {
   PageMetadata,
   PageQueryParams,
   Paginator
 } from '../models/paginated-items';
-import { CircuitDTO, DB } from '../models/types.dto';
+import { Sorter, SorterQueryParams } from '../models/sorter';
+import { CircuitDTO, Circuits, DB } from '../models/types.dto';
 import { DbService } from '../services/db.service';
 import { CountryService } from './countries.controller';
+
+interface CircuitQueryParams
+  extends PageQueryParams,
+    SorterQueryParams,
+    FieldsQueryParam {
+  /** @default name */
+  orderBy?: keyof Circuits;
+}
 
 @Route('circuits')
 @Tags('Circuits')
 export class CircuitService extends DbService {
   static getCircuitsSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'circuits', object>
+    qb: SelectQueryBuilder<DB, T | 'circuits', object>,
+    fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
+    const allSingleFields = [
+      'fullName',
+      'id',
+      'latitude',
+      'longitude',
+      'name',
+      'placeName',
+      'previousNames',
+      'type'
+    ] as const;
+
     return (qb as SelectQueryBuilder<DB, 'circuits', object>)
-      .select([
-        'fullName',
-        'id',
-        'latitude',
-        'longitude',
-        'name',
-        'placeName',
-        'previousNames',
-        'type'
-      ])
+      .select(
+        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
+      )
       .select((eb) => [
         jsonObjectFrom(
           CountryService.getCountriesSelect(
-            eb.selectFrom('countries')
+            eb.selectFrom('countries'),
+            fieldsParam?.clone('country')
           ).whereRef('circuits.countryId', '==', 'countries.alpha2Code')
         ).as('country')
       ]) as SelectQueryBuilder<DB, 'circuits' | T, CircuitDTO>;
@@ -39,9 +57,10 @@ export class CircuitService extends DbService {
 
   @Get('/')
   async get(
-    @Queries() obj: PageQueryParams
+    @Queries() obj: CircuitQueryParams
   ): Promise<PageMetadata & { data: CircuitDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
+    const sorter = new Sorter<Circuits>(obj.orderBy || 'name', obj.orderDir);
 
     return this.db
       .selectFrom('circuits')
@@ -50,9 +69,13 @@ export class CircuitService extends DbService {
         eb.val(paginator.pageSize).as('pageSize'),
         eb.val(paginator.pageNo).as('currentPage'),
         jsonArrayFrom(
-          CircuitService.getCircuitsSelect(eb.selectFrom('circuits'))
+          CircuitService.getCircuitsSelect(
+            eb.selectFrom('circuits'),
+            FieldsParam.fromFieldQueryParam(obj)
+          )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
+            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
         ).as('data')
       ])
       .executeTakeFirstOrThrow();

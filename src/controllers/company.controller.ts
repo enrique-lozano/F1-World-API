@@ -1,34 +1,57 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Queries, Route, Tags } from 'tsoa';
+import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
 import {
   PageMetadata,
   PageQueryParams,
   Paginator
 } from '../models/paginated-items';
+import { Sorter, SorterQueryParams } from '../models/sorter';
 import { DbService } from '../services/db.service';
-import { CompanyDTO, DB } from './../models/types.dto';
+import { Companies, CompanyDTO, DB } from './../models/types.dto';
 import { CountryService } from './countries.controller';
 
-interface CompanyQueryParams extends PageQueryParams {
+interface CompanyQueryParams
+  extends PageQueryParams,
+    SorterQueryParams,
+    FieldsQueryParam {
+  // TODO:
   /** Return only the companies that has manufactured in this specialty */
-  specialty?: 'engine' | 'chassis';
+  // specialty?: 'engine' | 'chassis';
 
   name?: string;
+
+  /** @default name */
+  orderBy?: keyof Companies;
 }
 
 @Route('/companies')
 @Tags('Companies')
 export class CompanyService extends DbService {
   static getCompaniesSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'companies', object>
+    qb: SelectQueryBuilder<DB, T | 'companies', object>,
+    fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
+    const allSingleFields = [
+      'fullName',
+      'id',
+      'name',
+      'founder',
+      'yearFounded'
+    ] as const;
+
     return (qb as SelectQueryBuilder<DB, 'companies', object>)
-      .select(['fullName', 'id', 'name', 'founder', 'yearFounded'])
+      .select(
+        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
+      )
       .select((eb) => [
         jsonObjectFrom(
           CountryService.getCountriesSelect(
-            eb.selectFrom('countries')
+            eb.selectFrom('countries'),
+            fieldsParam?.clone('country')
           ).whereRef('companies.countryId', '==', 'countries.alpha2Code')
         ).as('country')
       ]) as SelectQueryBuilder<DB, 'companies' | T, CompanyDTO>;
@@ -39,6 +62,7 @@ export class CompanyService extends DbService {
     @Queries() obj: CompanyQueryParams
   ): Promise<PageMetadata & { data: CompanyDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
+    const sorter = new Sorter<Companies>(obj.orderBy || 'name', obj.orderDir);
 
     const mainSelect = this.db
       .selectFrom('companies')
@@ -53,6 +77,7 @@ export class CompanyService extends DbService {
           CompanyService.getCompaniesSelect(mainSelect)
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
+            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
         ).as('data')
       ])
       .executeTakeFirstOrThrow();
@@ -66,35 +91,5 @@ export class CompanyService extends DbService {
     return CompanyService.getCompaniesSelect(this.db.selectFrom('companies'))
       .where('id', '==', id)
       .executeTakeFirst();
-  }
-
-  /** Common function to get an specific type of company */
-  private getManufacturers(
-    paginator: Paginator,
-    column: 'chassisManufacturerId' | 'engineManufacturerId'
-  ) {
-    // TODO
-
-    const manufacturers = this.db245
-      .prepare(
-        `SELECT DISTINCT ${column} FROM eventEntrants ORDER BY ${column} ${paginator.sqlStatement}`
-      )
-      .all()
-      .map((x: any) => this.getById(x[column]));
-
-    const totalElements = this.db245
-      .prepare(
-        `SELECT COUNT (DISTINCT ${column}) AS 'count' FROM eventEntrants`
-      )
-      .get() as any['count'];
-
-    return {
-      pageData: new PageMetadata(
-        totalElements,
-        paginator.pageNo,
-        paginator.pageSize
-      ),
-      items: manufacturers
-    };
   }
 }

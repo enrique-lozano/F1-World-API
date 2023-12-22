@@ -119,8 +119,14 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"PageQueryParams": {
-				"description": "Query params to be passed to the paginated routes in the controllers. They are optional for the user, the pagination will be created with default params when required",
+			"OrderDir": {
+				"type": "string",
+				"enum": [
+					"asc",
+					"desc"
+				]
+			},
+			"CircuitQueryParams": {
 				"properties": {
 					"pageNo": {
 						"type": "integer",
@@ -135,6 +141,30 @@
 						"description": "Size of the page to retrieve",
 						"default": "10",
 						"minimum": 1
+					},
+					"orderDir": {
+						"$ref": "#/components/schemas/OrderDir",
+						"description": "Order of the results"
+					},
+					"fields": {
+						"type": "string",
+						"description": "Comma separated string containing the fields to return"
+					},
+					"orderBy": {
+						"type": "string",
+						"enum": [
+							"countryId",
+							"id",
+							"name",
+							"fullName",
+							"previousNames",
+							"type",
+							"placeName",
+							"latitude",
+							"longitude"
+						],
+						"nullable": false,
+						"default": "name"
 					}
 				},
 				"type": "object",
@@ -196,16 +226,30 @@
 						"default": "10",
 						"minimum": 1
 					},
-					"specialty": {
+					"orderDir": {
+						"$ref": "#/components/schemas/OrderDir",
+						"description": "Order of the results"
+					},
+					"fields": {
 						"type": "string",
-						"enum": [
-							"engine",
-							"chassis"
-						],
-						"description": "Return only the companies that has manufactured in this specialty"
+						"description": "Comma separated string containing the fields to return"
 					},
 					"name": {
-						"type": "string"
+						"type": "string",
+						"description": "Return only the companies that has manufactured in this specialty"
+					},
+					"orderBy": {
+						"type": "string",
+						"enum": [
+							"countryId",
+							"id",
+							"name",
+							"fullName",
+							"founder",
+							"yearFounded"
+						],
+						"nullable": false,
+						"default": "name"
 					}
 				},
 				"type": "object",
@@ -422,13 +466,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"OrderDir": {
-				"type": "string",
-				"enum": [
-					"asc",
-					"desc"
-				]
-			},
 			"EventQueryParams": {
 				"properties": {
 					"pageNo": {
@@ -449,6 +486,10 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
+					"fields": {
+						"type": "string",
+						"description": "Comma separated string containing the fields to return"
+					},
 					"circuitId": {
 						"type": "string"
 					},
@@ -466,6 +507,17 @@
 						],
 						"nullable": false,
 						"default": "id"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"FieldsQueryParam": {
+				"description": "A interface to define only the optional `field` param",
+				"properties": {
+					"fields": {
+						"type": "string",
+						"description": "Comma separated string containing the fields to return"
 					}
 				},
 				"type": "object",
@@ -501,6 +553,27 @@
 					"secondaryColor",
 					"country"
 				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PageQueryParams": {
+				"description": "Query params to be passed to the paginated routes in the controllers. They are optional for the user, the pagination will be created with default params when required",
+				"properties": {
+					"pageNo": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Page to retrieve, starting at 0",
+						"default": "0",
+						"minimum": 0
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Size of the page to retrieve",
+						"default": "10",
+						"minimum": 1
+					}
+				},
 				"type": "object",
 				"additionalProperties": false
 			},
@@ -792,16 +865,6 @@
 						],
 						"nullable": false,
 						"default": "sessionId"
-					}
-				},
-				"type": "object",
-				"additionalProperties": false
-			},
-			"FieldsQueryParam": {
-				"properties": {
-					"fields": {
-						"type": "string",
-						"description": "Comma separated string containing the fields to return"
 					}
 				},
 				"type": "object",
@@ -1365,6 +1428,44 @@
 							"type": "integer",
 							"minimum": 1
 						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "orderBy",
+						"required": false,
+						"schema": {
+							"default": "name",
+							"type": "string",
+							"enum": [
+								"countryId",
+								"id",
+								"name",
+								"fullName",
+								"previousNames",
+								"type",
+								"placeName",
+								"latitude",
+								"longitude"
+							]
+						}
 					}
 				]
 			}
@@ -1464,24 +1565,47 @@
 						}
 					},
 					{
-						"description": "Return only the companies that has manufactured in this specialty",
+						"description": "Order of the results",
 						"in": "query",
-						"name": "specialty",
+						"name": "orderDir",
 						"required": false,
 						"schema": {
-							"type": "string",
-							"enum": [
-								"engine",
-								"chassis"
-							]
+							"$ref": "#/components/schemas/OrderDir"
 						}
 					},
 					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Return only the companies that has manufactured in this specialty",
 						"in": "query",
 						"name": "name",
 						"required": false,
 						"schema": {
 							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "orderBy",
+						"required": false,
+						"schema": {
+							"default": "name",
+							"type": "string",
+							"enum": [
+								"countryId",
+								"id",
+								"name",
+								"fullName",
+								"founder",
+								"yearFounded"
+							]
 						}
 					}
 				]
@@ -2024,6 +2148,15 @@
 						}
 					},
 					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
 						"in": "query",
 						"name": "circuitId",
 						"required": false,
@@ -2090,6 +2223,15 @@
 						"schema": {
 							"format": "double",
 							"type": "number"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
+						"schema": {
+							"type": "string"
 						}
 					}
 				]

@@ -40,11 +40,10 @@ export class SessionService extends DbService {
       .$if(fieldsParam.shouldSelectObject('event'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
-            EventService.getEventSelect(eb.selectFrom('events')).whereRef(
-              'sessions.eventId',
-              '==',
-              'events.id'
-            )
+            EventService.getEventSelect(
+              eb.selectFrom('events'),
+              fieldsParam?.clone('event')
+            ).whereRef('sessions.eventId', '==', 'events.id')
           ).as('event')
         )
       ) as SelectQueryBuilder<DB, 'sessions' | T, SessionDTO>;
