@@ -749,6 +749,113 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"PitStopDTO": {
+				"properties": {
+					"time": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"lap": {
+						"type": "number",
+						"format": "double"
+					},
+					"timeOfDay": {
+						"type": "string",
+						"nullable": true
+					},
+					"annotation": {
+						"type": "string",
+						"nullable": true
+					},
+					"event": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/EventDTO"
+							}
+						],
+						"nullable": true
+					},
+					"entrant": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/EventEntrantDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"time",
+					"lap",
+					"timeOfDay",
+					"annotation",
+					"event",
+					"entrant"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PitStopQueryParams": {
+				"properties": {
+					"pageNo": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Page to retrieve, starting at 0",
+						"default": "0",
+						"minimum": 0
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Size of the page to retrieve",
+						"default": "10",
+						"minimum": 1
+					},
+					"orderDir": {
+						"$ref": "#/components/schemas/OrderDir",
+						"description": "Order of the results"
+					},
+					"fields": {
+						"type": "string",
+						"description": "Comma separated string containing the fields to return"
+					},
+					"season": {
+						"type": "number",
+						"format": "double"
+					},
+					"round": {
+						"type": "number",
+						"format": "double"
+					},
+					"session": {
+						"type": "string"
+					},
+					"driverId": {
+						"type": "string",
+						"description": "Return only the items regarding this driver"
+					},
+					"lap": {
+						"type": "number",
+						"format": "double"
+					},
+					"orderBy": {
+						"type": "string",
+						"enum": [
+							"entrantId",
+							"time",
+							"eventId",
+							"lap",
+							"timeOfDay",
+							"annotation"
+						],
+						"nullable": false,
+						"default": "\"eventId\""
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
 			"TimedSessionResultsDTO": {
 				"properties": {
 					"positionOrder": {
@@ -1203,94 +1310,6 @@
 						],
 						"nullable": false,
 						"default": "sessionId"
-					}
-				},
-				"type": "object",
-				"additionalProperties": false
-			},
-			"PitStopDTO": {
-				"properties": {
-					"time": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
-					"lap": {
-						"type": "number",
-						"format": "double"
-					},
-					"timeOfDay": {
-						"type": "string",
-						"nullable": true
-					},
-					"annotation": {
-						"type": "string",
-						"nullable": true
-					},
-					"event": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/EventDTO"
-							}
-						],
-						"nullable": true
-					},
-					"entrant": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/EventEntrantDTO"
-							}
-						],
-						"nullable": true
-					}
-				},
-				"required": [
-					"time",
-					"lap",
-					"timeOfDay",
-					"annotation",
-					"event",
-					"entrant"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"PitStopQueryParams": {
-				"properties": {
-					"pageNo": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Page to retrieve, starting at 0",
-						"default": "0",
-						"minimum": 0
-					},
-					"pageSize": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Size of the page to retrieve",
-						"default": "10",
-						"minimum": 1
-					},
-					"orderDir": {
-						"$ref": "#/components/schemas/OrderDir",
-						"description": "Order of the results"
-					},
-					"lap": {
-						"type": "number",
-						"format": "double"
-					},
-					"orderBy": {
-						"type": "string",
-						"enum": [
-							"entrantId",
-							"time",
-							"eventId",
-							"lap",
-							"timeOfDay",
-							"annotation"
-						],
-						"nullable": false,
-						"default": "\"eventId\""
 					}
 				},
 				"type": "object",
@@ -2450,6 +2469,150 @@
 				]
 			}
 		},
+		"/pit-stops": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageMetadata"
+										},
+										{
+											"properties": {
+												"data": {
+													"items": {
+														"$ref": "#/components/schemas/PitStopDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"data"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Pit Stops"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
+						}
+					},
+					{
+						"description": "Order of the results",
+						"in": "query",
+						"name": "orderDir",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/OrderDir"
+						}
+					},
+					{
+						"description": "Comma separated string containing the fields to return",
+						"in": "query",
+						"name": "fields",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "season",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "round",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "session",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Return only the items regarding this driver",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "lap",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "orderBy",
+						"required": false,
+						"schema": {
+							"default": "\"eventId\"",
+							"type": "string",
+							"enum": [
+								"entrantId",
+								"time",
+								"eventId",
+								"lap",
+								"timeOfDay",
+								"annotation"
+							]
+						}
+					}
+				]
+			}
+		},
 		"/free-practices": {
 			"get": {
 				"operationId": "GetFreePracticesResults",
@@ -3598,6 +3761,98 @@
 				]
 			}
 		},
+		"/sessions/{season}/{round}/{session}/pit-stops": {
+			"get": {
+				"operationId": "GetSessionPitStops",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageMetadata"
+										},
+										{
+											"properties": {
+												"data": {
+													"items": {
+														"$ref": "#/components/schemas/PitStopDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"data"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "Get info about all the pit stops in this session",
+				"tags": [
+					"Sessions"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "season",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "round",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "session",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
+						}
+					}
+				]
+			}
+		},
 		"/sessions/{season}/{round}/{session}/laps": {
 			"get": {
 				"operationId": "GetSessionLaps",
@@ -4048,106 +4303,6 @@
 								"time",
 								"lap",
 								"pos"
-							]
-						}
-					}
-				]
-			}
-		},
-		"/races/pit-stops": {
-			"get": {
-				"operationId": "Get",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/PageMetadata"
-										},
-										{
-											"properties": {
-												"data": {
-													"items": {
-														"$ref": "#/components/schemas/PitStopDTO"
-													},
-													"type": "array"
-												}
-											},
-											"required": [
-												"data"
-											],
-											"type": "object"
-										}
-									]
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Races"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "Page to retrieve, starting at 0",
-						"in": "query",
-						"name": "pageNo",
-						"required": false,
-						"schema": {
-							"default": "0",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 0
-						}
-					},
-					{
-						"description": "Size of the page to retrieve",
-						"in": "query",
-						"name": "pageSize",
-						"required": false,
-						"schema": {
-							"default": "10",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 1
-						}
-					},
-					{
-						"description": "Order of the results",
-						"in": "query",
-						"name": "orderDir",
-						"required": false,
-						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
-						}
-					},
-					{
-						"in": "query",
-						"name": "lap",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "query",
-						"name": "orderBy",
-						"required": false,
-						"schema": {
-							"default": "\"eventId\"",
-							"type": "string",
-							"enum": [
-								"entrantId",
-								"time",
-								"eventId",
-								"lap",
-								"timeOfDay",
-								"annotation"
 							]
 						}
 					}

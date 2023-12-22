@@ -1,6 +1,7 @@
 import { SelectQueryBuilder, sql } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Queries, Route, Tags } from 'tsoa';
+import { FieldsParam } from '../models/fields-filter';
 import { PageMetadata, Paginator } from '../models/paginated-items';
 import { SessionEntrantQueryParams } from '../models/query-params';
 import { Sorter } from '../models/sorter';
@@ -23,27 +24,40 @@ export interface LapQueryParams extends SessionEntrantQueryParams {
 export class LapService extends DbService {
   static getLapsSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'lapTimes', object>,
-    getMinTime = false
+    getMinTime = false,
+    fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
+    const allSingleFields = ['pos', 'lap', 'time'] as const;
+
     return (qb as SelectQueryBuilder<DB, 'lapTimes', object>)
-      .select(['pos', 'lap', ...(getMinTime ? ['time'] : ([] as any))])
+      .select(
+        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
+      )
       .$if(getMinTime, (qb) =>
         qb.select(({ fn }) => [fn.min<number>('time' as any).as('time')])
       )
-      .select((eb) => [
-        jsonObjectFrom(
-          SessionService.getSessionSelect(eb.selectFrom('sessions')).whereRef(
-            'lapTimes.sessionId',
-            '==',
-            'sessions.id'
-          )
-        ).as('session'),
-        jsonObjectFrom(
-          EventEntrantService.getEventEntrantSelect(
-            eb.selectFrom('eventEntrants')
-          ).whereRef('lapTimes.entrantId', '==', 'eventEntrants.id')
-        ).as('entrant')
-      ]) as SelectQueryBuilder<DB, 'lapTimes' | T, LapTimeDTO>;
+      .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            SessionService.getSessionSelect(
+              eb.selectFrom('sessions'),
+              fieldsParam?.clone('session')
+            ).whereRef('lapTimes.sessionId', '==', 'sessions.id')
+          ).as('session')
+        )
+      )
+      .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            EventEntrantService.getEventEntrantSelect(
+              eb.selectFrom('eventEntrants'),
+              fieldsParam?.clone('entrant')
+            ).whereRef('lapTimes.entrantId', '==', 'eventEntrants.id')
+          ).as('entrant')
+        )
+      ) as SelectQueryBuilder<DB, 'lapTimes' | T, LapTimeDTO>;
   }
 
   /** Get lap times based on some filters */ @Get('')
@@ -64,7 +78,11 @@ export class LapService extends DbService {
         eb.val(paginator.pageSize).as('pageSize'),
         eb.val(paginator.pageNo).as('currentPage'),
         jsonArrayFrom(
-          LapService.getLapsSelect(mainSelect)
+          LapService.getLapsSelect(
+            mainSelect,
+            false,
+            FieldsParam.fromFieldQueryParam(obj)
+          )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
             .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
@@ -93,7 +111,11 @@ export class LapService extends DbService {
         eb.val(paginator.pageSize).as('pageSize'),
         eb.val(paginator.pageNo).as('currentPage'),
         jsonArrayFrom(
-          LapService.getLapsSelect(mainSelect, true)
+          LapService.getLapsSelect(
+            mainSelect,
+            true,
+            FieldsParam.fromFieldQueryParam(obj)
+          )
             .groupBy('sessionId')
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)

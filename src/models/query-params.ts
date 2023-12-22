@@ -17,6 +17,8 @@ export interface SessionQueryParams
 export interface SessionEntrantQueryParams extends SessionQueryParams {
   /** Return only the items regarding this driver */
   driverId?: string;
+
+  //TODO: Add filters by chassis, engines...
 }
 
 export interface ResultsFiltersQueryParams extends SessionEntrantQueryParams {

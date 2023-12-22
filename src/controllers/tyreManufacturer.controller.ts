@@ -32,22 +32,20 @@ export class TyreManufacturerService extends DbService {
       .select(
         fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
       )
-      .select((eb) => [
-        jsonObjectFrom(
-          CountryService.getCountriesSelect(
-            eb.selectFrom('countries'),
-            fieldsParam?.clone('country')
-          ).whereRef(
-            'tyreManufacturers.countryId',
-            '==',
-            'countries.alpha2Code'
-          )
-        ).as('country')
-      ]) as SelectQueryBuilder<
-      DB,
-      'tyreManufacturers' | T,
-      TyreManufacturerDTO
-    >;
+      .$if(fieldsParam.shouldSelectObject('country'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            CountryService.getCountriesSelect(
+              eb.selectFrom('countries'),
+              fieldsParam?.clone('country')
+            ).whereRef(
+              'tyreManufacturers.countryId',
+              '==',
+              'countries.alpha2Code'
+            )
+          ).as('country')
+        )
+      ) as SelectQueryBuilder<DB, 'tyreManufacturers' | T, TyreManufacturerDTO>;
   }
 
   @Get('/')

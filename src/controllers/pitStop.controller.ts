@@ -1,49 +1,61 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Queries, Route, Tags } from 'tsoa';
-import {
-  PageMetadata,
-  PageQueryParams,
-  Paginator
-} from '../models/paginated-items';
-import { Sorter, SorterQueryParams } from '../models/sorter';
+import { FieldsParam } from '../models/fields-filter';
+import { PageMetadata, Paginator } from '../models/paginated-items';
+import { SessionEntrantQueryParams } from '../models/query-params';
+import { Sorter } from '../models/sorter';
 import { DB, PitStopDTO, PitStops } from '../models/types.dto';
 import { DbService } from '../services/db.service';
 import { EventService } from './event.controller';
 import { EventEntrantService } from './eventEntrant.controller';
 
-interface PitStopQueryParams extends PageQueryParams, SorterQueryParams {
+interface PitStopQueryParams extends SessionEntrantQueryParams {
   lap?: number;
 
   /** @default "eventId" */
   orderBy?: keyof PitStops;
 }
 
-@Route('races')
-@Tags('Races')
+@Route('pit-stops')
+@Tags('Pit Stops')
 export class PitStopService extends DbService {
   static getPitStopsSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'pitStops', object>
+    qb: SelectQueryBuilder<DB, T | 'pitStops', object>,
+    fieldsParam?: FieldsParam
   ) {
+    fieldsParam ??= new FieldsParam();
+
+    const allSingleFields = ['annotation', 'lap', 'time', 'timeOfDay'] as const;
+
     return (qb as SelectQueryBuilder<DB, 'pitStops', object>)
-      .select(['annotation', 'lap', 'time', 'timeOfDay'])
-      .select((eb) => [
-        jsonObjectFrom(
-          EventService.getEventSelect(eb.selectFrom('events')).whereRef(
-            'pitStops.eventId',
-            '==',
-            'events.id'
-          )
-        ).as('event'),
-        jsonObjectFrom(
-          EventEntrantService.getEventEntrantSelect(
-            eb.selectFrom('eventEntrants')
-          ).whereRef('pitStops.entrantId', '==', 'eventEntrants.id')
-        ).as('entrant')
-      ]) as SelectQueryBuilder<DB, 'pitStops' | T, PitStopDTO>;
+      .select(
+        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
+      )
+      .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            EventEntrantService.getEventEntrantSelect(
+              eb.selectFrom('eventEntrants'),
+              fieldsParam?.clone('entrant')
+            ).whereRef('pitStops.entrantId', '==', 'eventEntrants.id')
+          ).as('entrant')
+        )
+      )
+      .$if(fieldsParam.shouldSelectObject('event'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            EventService.getEventSelect(eb.selectFrom('events')).whereRef(
+              'pitStops.eventId',
+              '==',
+              'events.id'
+            )
+          ).as('event')
+        )
+      ) as SelectQueryBuilder<DB, 'pitStops' | T, PitStopDTO>;
   }
 
-  @Get('/pit-stops')
+  @Get('/')
   async get(
     @Queries() obj: PitStopQueryParams
   ): Promise<PageMetadata & { data: PitStopDTO[] }> {

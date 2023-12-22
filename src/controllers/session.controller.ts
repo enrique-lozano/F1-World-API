@@ -18,6 +18,7 @@ import {
 import { EventService } from './event.controller';
 import { LapService } from './lap.controller';
 import { ParamsBuilderService } from './paramsBuilder.service';
+import { PitStopService } from './pitStop.controller';
 import { FreePracticeResultService } from './results/freePracticeResult.controller';
 import { QualifyingResultService } from './results/qualifyingResult.controller';
 import { RaceResultService } from './results/raceResult.controller';
@@ -110,6 +111,17 @@ export class SessionService extends DbService {
         notFoundResponse
       );
     }
+  }
+
+  /** Get info about all the pit stops in this session */
+  @Get('/{season}/{round}/{session}/pit-stops')
+  getSessionPitStops(
+    @Path() season: number,
+    @Path() round: number,
+    @Path() session: string,
+    @Queries() obj: PageQueryParams
+  ) {
+    return new PitStopService().get({ round, season, session, ...obj });
   }
 
   /** Get info about all the laps in this session */

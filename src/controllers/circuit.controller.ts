@@ -45,14 +45,16 @@ export class CircuitService extends DbService {
       .select(
         fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
       )
-      .select((eb) => [
-        jsonObjectFrom(
-          CountryService.getCountriesSelect(
-            eb.selectFrom('countries'),
-            fieldsParam?.clone('country')
-          ).whereRef('circuits.countryId', '==', 'countries.alpha2Code')
-        ).as('country')
-      ]) as SelectQueryBuilder<DB, 'circuits' | T, CircuitDTO>;
+      .$if(fieldsParam.shouldSelectObject('country'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            CountryService.getCountriesSelect(
+              eb.selectFrom('countries'),
+              fieldsParam?.clone('country')
+            ).whereRef('circuits.countryId', '==', 'countries.alpha2Code')
+          ).as('country')
+        )
+      ) as SelectQueryBuilder<DB, 'circuits' | T, CircuitDTO>;
   }
 
   @Get('/')
