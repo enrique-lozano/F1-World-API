@@ -7,14 +7,13 @@ import { RegisterRoutes } from './routes';
 import * as swaggerJSON from './swagger.json';
 
 const app = express();
-const port = 3200;
 
 // Register routes thanks to the tsoa generated file
 const router = express.Router();
 RegisterRoutes(router);
 
 // Base path for all the routes
-const BASE_PATH = '/api';
+export const BASE_PATH = '/api';
 app.use(BASE_PATH, router);
 
 // Swagger docs generator
@@ -67,10 +66,4 @@ app.use(function notFoundHandler(_req, res: Response) {
   });
 });
 
-app.listen(port, () => {
-  console.log(`\nServer ready and listening on port ${port}.`);
-  console.log('');
-  console.log(
-    `You can start making calls. Visit the docs at http://localhost:${port}/api/docs/ to check the avalaible endpoints.\n`
-  );
-});
+export default app;

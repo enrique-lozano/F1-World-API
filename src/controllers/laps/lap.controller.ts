@@ -1,15 +1,15 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Queries, Route, Tags } from 'tsoa';
-import { FieldsParam } from '../models/fields-filter';
-import { PageMetadata, Paginator } from '../models/paginated-items';
-import { SessionEntrantQueryParams } from '../models/query-params';
-import { Sorter } from '../models/sorter';
-import { DbService } from '../services/db.service';
-import { DB, LapTimeDTO, LapTimes } from './../models/types.dto';
-import { ParamsBuilderService } from './paramsBuilder.service';
-import { SessionService } from './session.controller';
-import { SessionEntrantService } from './sessionEntrant.controller';
+import { FieldsParam } from '../../models/fields-filter';
+import { PageMetadata, Paginator } from '../../models/paginated-items';
+import { SessionEntrantQueryParams } from '../../models/query-params';
+import { Sorter } from '../../models/sorter';
+import { DB, LapTimeDTO, LapTimes } from '../../models/types.dto';
+import { DbService } from '../../services/db.service';
+import { ParamsBuilderService } from '../paramsBuilder.service';
+import { SessionService } from '../session.controller';
+import { SessionEntrantService } from '../sessionEntrant.controller';
 
 export interface LapQueryParams extends SessionEntrantQueryParams {
   pos?: number;

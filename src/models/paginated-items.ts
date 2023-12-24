@@ -10,10 +10,7 @@ export class PageMetadata {
   }
 }
 
-export interface PaginatedItems<T> {
-  items: T[];
-  pageData: PageMetadata;
-}
+export type PaginatedItems<T> = { data: T[] } & PageMetadata;
 
 export class Paginator implements PageQueryParams {
   pageNo: number;

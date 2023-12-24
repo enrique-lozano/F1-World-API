@@ -16,7 +16,7 @@ import {
   TimedSessionResultsDTO
 } from './../models/types.dto';
 import { EventService } from './event.controller';
-import { LapService } from './lap.controller';
+import { LapService } from './laps/lap.controller';
 import { ParamsBuilderService } from './paramsBuilder.service';
 import { PitStopService } from './pitStop.controller';
 import { FreePracticeResultService } from './results/freePracticeResult.controller';
