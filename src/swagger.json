@@ -523,60 +523,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"TyreManufacturerDTO": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"primaryColor": {
-						"type": "string"
-					},
-					"secondaryColor": {
-						"type": "string"
-					},
-					"country": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/CountryDTO"
-							}
-						],
-						"nullable": true
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"primaryColor",
-					"secondaryColor",
-					"country"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"PageQueryParams": {
-				"description": "Query params to be passed to the paginated routes in the controllers. They are optional for the user, the pagination will be created with default params when required",
-				"properties": {
-					"pageNo": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Page to retrieve, starting at 0",
-						"default": "0",
-						"minimum": 0
-					},
-					"pageSize": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Size of the page to retrieve",
-						"default": "10",
-						"minimum": 1
-					}
-				},
-				"type": "object",
-				"additionalProperties": false
-			},
 			"GrandsPrixDTO": {
 				"properties": {
 					"id": {
@@ -633,6 +579,60 @@
 					"countryId": {
 						"type": "string",
 						"description": "Filter drivers by its nationality"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"TyreManufacturerDTO": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"primaryColor": {
+						"type": "string"
+					},
+					"secondaryColor": {
+						"type": "string"
+					},
+					"country": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/CountryDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"primaryColor",
+					"secondaryColor",
+					"country"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PageQueryParams": {
+				"description": "Query params to be passed to the paginated routes in the controllers. They are optional for the user, the pagination will be created with default params when required",
+				"properties": {
+					"pageNo": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Page to retrieve, starting at 0",
+						"default": "0",
+						"minimum": 0
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Size of the page to retrieve",
+						"default": "10",
+						"minimum": 1
 					}
 				},
 				"type": "object",
@@ -2256,103 +2256,6 @@
 				]
 			}
 		},
-		"/tyre-manufacturers": {
-			"get": {
-				"operationId": "Get",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/PageMetadata"
-										},
-										{
-											"properties": {
-												"data": {
-													"items": {
-														"$ref": "#/components/schemas/TyreManufacturerDTO"
-													},
-													"type": "array"
-												}
-											},
-											"required": [
-												"data"
-											],
-											"type": "object"
-										}
-									]
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Tyre Manufacturers"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "Page to retrieve, starting at 0",
-						"in": "query",
-						"name": "pageNo",
-						"required": false,
-						"schema": {
-							"default": "0",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 0
-						}
-					},
-					{
-						"description": "Size of the page to retrieve",
-						"in": "query",
-						"name": "pageSize",
-						"required": false,
-						"schema": {
-							"default": "10",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 1
-						}
-					}
-				]
-			}
-		},
-		"/tyre-manufacturers/{id}": {
-			"get": {
-				"operationId": "GetById",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/TyreManufacturerDTO"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get a company by its ID",
-				"tags": [
-					"Tyre Manufacturers"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
 		"/grands-prix": {
 			"get": {
 				"operationId": "Get",
@@ -2459,6 +2362,103 @@
 				"parameters": [
 					{
 						"description": "The ID of the grandPrix to get",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/tyre-manufacturers": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageMetadata"
+										},
+										{
+											"properties": {
+												"data": {
+													"items": {
+														"$ref": "#/components/schemas/TyreManufacturerDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"data"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Tyre Manufacturers"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
+						}
+					}
+				]
+			}
+		},
+		"/tyre-manufacturers/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TyreManufacturerDTO"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get a company by its ID",
+				"tags": [
+					"Tyre Manufacturers"
+				],
+				"security": [],
+				"parameters": [
+					{
 						"in": "path",
 						"name": "id",
 						"required": true,
@@ -4189,7 +4189,7 @@
 						}
 					}
 				},
-				"description": "Get the fastest lap times grouped by session, based on some filters.\r\n\r\nPlease take into account that this do not return only the global fastest laps. For example if we filter here by the driver Fernando Alonso, we will get his fastest lap times of each session.",
+				"description": "Get the fastest lap times grouped by session, based on some filters.\r\n\r\nPlease take into account that this call return only the global fastest laps inside a session. For example if we filter here by the driver Fernando Alonso, we will get only the sessions where he score the fastest lap",
 				"tags": [
 					"Laps"
 				],
