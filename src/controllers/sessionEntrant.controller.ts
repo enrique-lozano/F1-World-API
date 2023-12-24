@@ -1,16 +1,16 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { FieldsParam } from '../models/fields-filter';
+import { DB, EventEntrantDTO } from '../models/types.dto';
 import { DbService } from '../services/db.service';
-import { DB, EventEntrantDTO } from './../models/types.dto';
 import { CompanyService } from './company.controller';
 import { DriverService } from './driver.controller';
 import { SeasonEntrantService } from './seasonEntrant.controller';
 import { TyreManufacturerService } from './tyreManufacturer.controller';
 
-export class EventEntrantService extends DbService {
+export class SessionEntrantService extends DbService {
   static getEventEntrantSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'eventEntrants', object>,
+    qb: SelectQueryBuilder<DB, T | 'sessionEntrants', object>,
     fieldsParam?: FieldsParam
   ) {
     fieldsParam ??= new FieldsParam();
@@ -24,7 +24,7 @@ export class EventEntrantService extends DbService {
       'note'
     ] as const;
 
-    return (qb as SelectQueryBuilder<DB, 'eventEntrants', object>)
+    return (qb as SelectQueryBuilder<DB, 'sessionEntrants', object>)
       .select(
         fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
       )
@@ -34,7 +34,7 @@ export class EventEntrantService extends DbService {
             DriverService.getDriversSelect(
               eb.selectFrom('drivers'),
               fieldsParam?.clone('driver')
-            ).whereRef('eventEntrants.driverId', '==', 'drivers.id')
+            ).whereRef('sessionEntrants.driverId', '==', 'drivers.id')
           ).as('driver')
         )
       )
@@ -44,7 +44,7 @@ export class EventEntrantService extends DbService {
             SeasonEntrantService.getSeasonEntrantsSelect(
               eb.selectFrom('seasonEntrants')
             ).whereRef(
-              'eventEntrants.seasonEntrantId',
+              'sessionEntrants.seasonEntrantId',
               '==',
               'seasonEntrants.id'
             )
@@ -58,7 +58,7 @@ export class EventEntrantService extends DbService {
               eb.selectFrom('tyreManufacturers'),
               fieldsParam?.clone('tyreManufacturer')
             ).whereRef(
-              'eventEntrants.tyreManufacturerId',
+              'sessionEntrants.tyreManufacturerId',
               '==',
               'tyreManufacturers.id'
             )
@@ -71,7 +71,7 @@ export class EventEntrantService extends DbService {
             CompanyService.getCompaniesSelect(
               eb.selectFrom('companies')
             ).whereRef(
-              'eventEntrants.chassisManufacturerId',
+              'sessionEntrants.chassisManufacturerId',
               '==',
               'companies.id'
             )
@@ -84,12 +84,12 @@ export class EventEntrantService extends DbService {
             CompanyService.getCompaniesSelect(
               eb.selectFrom('companies')
             ).whereRef(
-              'eventEntrants.engineManufacturerId',
+              'sessionEntrants.engineManufacturerId',
               '==',
               'companies.id'
             )
           ).as('engineManufacturer')
         )
-      ) as SelectQueryBuilder<DB, 'eventEntrants' | T, EventEntrantDTO>;
+      ) as SelectQueryBuilder<DB, 'sessionEntrants' | T, EventEntrantDTO>;
   }
 }

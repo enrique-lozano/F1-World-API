@@ -43,11 +43,11 @@ export class ParamsBuilderService extends DbService {
       (qb) =>
         qb
           .innerJoin(
-            'eventEntrants',
-            'eventEntrants.id',
+            'sessionEntrants',
+            'sessionEntrants.id',
             `${fromTable}.entrantId`
           )
-          .where('eventEntrants.driverId', '==', obj.driverId!)
+          .where('sessionEntrants.driverId', '==', obj.driverId!)
     );
   }
 

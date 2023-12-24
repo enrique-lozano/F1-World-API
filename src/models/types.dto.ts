@@ -336,7 +336,7 @@ export interface DB {
   drivers: Drivers;
   driversFamilyRelationships: DriversFamilyRelationships;
   engineManufacturers: EngineManufacturers;
-  eventEntrants: EventEntrants;
+  sessionEntrants: EventEntrants;
   events: Events;
   sessions: Sessions;
   fpResults: TimedSessionResults;

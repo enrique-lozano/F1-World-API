@@ -31,7 +31,11 @@ export class DriverStandingService extends DbService {
       champResult,
       raceResults: await this.db
         .selectFrom('raceResults')
-        .leftJoin('eventEntrants', 'eventEntrants.id', 'raceResults.entrantId')
+        .leftJoin(
+          'sessionEntrants',
+          'sessionEntrants.id',
+          'raceResults.entrantId'
+        )
         .select(
           sql<string>`CASE WHEN CAST(positionText as INT) > 0               \
             THEN CAST(positionText as INT) ELSE null END`.as('position')
@@ -57,7 +61,11 @@ export class DriverStandingService extends DbService {
   ) {
     let results: DriverChampResult[] = (await this.db
       .selectFrom('raceResults')
-      .leftJoin('eventEntrants', 'eventEntrants.id', 'raceResults.entrantId')
+      .leftJoin(
+        'sessionEntrants',
+        'sessionEntrants.id',
+        'raceResults.entrantId'
+      )
       .where(getSeasonFromIdColumn('raceResults.sessionId'), '==', season)
       .$if(round != undefined, (qb) =>
         qb.where(getRoundFromIdColumn('raceResults.sessionId'), '<=', round!)
@@ -69,7 +77,7 @@ export class DriverStandingService extends DbService {
         jsonObjectFrom(
           DriverService.getDriversSelect(
             eb.selectFrom('drivers') as any
-          ).whereRef('eventEntrants.driverId', '==', 'drivers.id')
+          ).whereRef('sessionEntrants.driverId', '==', 'drivers.id')
         ).as('driver')
       ])
       .execute()) as DriverChampResult[];

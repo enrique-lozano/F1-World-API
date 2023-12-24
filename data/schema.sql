@@ -175,9 +175,9 @@ CREATE TABLE IF NOT EXISTS grandsPrix
 , countryId VARCHAR(255) COLLATE NOCASE REFERENCES countries(alpha2Code)
 );
 
--- Table: eventEntrants
-DROP TABLE IF EXISTS eventEntrants;
-CREATE TABLE IF NOT EXISTS eventEntrants
+-- Table: sessionEntrants
+DROP TABLE IF EXISTS sessionEntrants;
+CREATE TABLE IF NOT EXISTS sessionEntrants
 ( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY 
 , driverId TEXT NOT NULL REFERENCES drivers(id)
 , driverNumber INTEGER NOT NULL
@@ -194,7 +194,7 @@ CREATE TABLE IF NOT EXISTS eventEntrants
 -- Table: lapTimes
 DROP TABLE IF EXISTS lapTimes;
 CREATE TABLE IF NOT EXISTS lapTimes 
-( entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
+( entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
 , sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id) ON UPDATE CASCADE
 , lap INTEGER NOT NULL
 , time NUMERIC
@@ -205,7 +205,7 @@ CREATE TABLE IF NOT EXISTS lapTimes
 -- Table: pitStops
 DROP TABLE IF EXISTS pitStops;
 CREATE TABLE IF NOT EXISTS pitStops 
-( entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
+( entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
 , eventId TEXT NOT NULL REFERENCES events (id) ON UPDATE CASCADE
 , lap INTEGER NOT NULL
 , time NUMERIC
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS events
 DROP TABLE IF EXISTS fpResults;
 CREATE TABLE IF NOT EXISTS fpResults
 ( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
+, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
 , positionOrder INTEGER
 , positionText VARCHAR(3)
 , laps INTEGER
@@ -252,7 +252,7 @@ CREATE TABLE IF NOT EXISTS fpResults
 DROP TABLE IF EXISTS qualifyingResults;
 CREATE TABLE IF NOT EXISTS qualifyingResults
 ( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
+, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
 , positionOrder INTEGER
 , positionText VARCHAR(3)
 , laps INTEGER
@@ -264,7 +264,7 @@ CREATE TABLE IF NOT EXISTS qualifyingResults
 DROP TABLE IF EXISTS raceResults;
 CREATE TABLE IF NOT EXISTS raceResults
 ( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES eventEntrants(id)
+, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
 , positionOrder INTEGER NOT NULL
 , positionText VARCHAR(4) NOT NULL
 , time INTEGER

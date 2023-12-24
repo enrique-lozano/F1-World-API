@@ -167,7 +167,11 @@ export class DriverService extends DbService {
   async getDriverSeasons(@Path() driverId: string) {
     const toReturn = await this.db
       .selectFrom('raceResults')
-      .innerJoin('eventEntrants', 'eventEntrants.id', 'raceResults.entrantId')
+      .innerJoin(
+        'sessionEntrants',
+        'sessionEntrants.id',
+        'raceResults.entrantId'
+      )
       .where('driverId', '==', driverId)
       .select([getSeasonFromIdColumn('sessionId').as('year')])
       .groupBy('year')

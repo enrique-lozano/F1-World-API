@@ -15,9 +15,9 @@ import {
   ErrorMessage,
   sendTsoaError
 } from '../../utils/custom-error/custom-error';
-import { EventEntrantService } from './../eventEntrant.controller';
 import { ParamsBuilderService } from './../paramsBuilder.service';
 import { SessionService } from './../session.controller';
+import { SessionEntrantService } from './../sessionEntrant.controller';
 
 @Route('qualifyings')
 @Tags('Qualifyings')
@@ -52,10 +52,14 @@ export class QualifyingResultService extends DbService {
       .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
-            EventEntrantService.getEventEntrantSelect(
-              eb.selectFrom('eventEntrants'),
+            SessionEntrantService.getEventEntrantSelect(
+              eb.selectFrom('sessionEntrants'),
               fieldsParam?.clone('entrant')
-            ).whereRef('qualifyingResults.entrantId', '==', 'eventEntrants.id')
+            ).whereRef(
+              'qualifyingResults.entrantId',
+              '==',
+              'sessionEntrants.id'
+            )
           ).as('entrant')
         )
       ) as SelectQueryBuilder<

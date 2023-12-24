@@ -8,7 +8,7 @@ import { Sorter } from '../models/sorter';
 import { DB, PitStopDTO, PitStops } from '../models/types.dto';
 import { DbService } from '../services/db.service';
 import { EventService } from './event.controller';
-import { EventEntrantService } from './eventEntrant.controller';
+import { SessionEntrantService } from './sessionEntrant.controller';
 
 interface PitStopQueryParams extends SessionEntrantQueryParams {
   lap?: number;
@@ -35,10 +35,10 @@ export class PitStopService extends DbService {
       .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
-            EventEntrantService.getEventEntrantSelect(
-              eb.selectFrom('eventEntrants'),
+            SessionEntrantService.getEventEntrantSelect(
+              eb.selectFrom('sessionEntrants'),
               fieldsParam?.clone('entrant')
-            ).whereRef('pitStops.entrantId', '==', 'eventEntrants.id')
+            ).whereRef('pitStops.entrantId', '==', 'sessionEntrants.id')
           ).as('entrant')
         )
       )

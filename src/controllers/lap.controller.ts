@@ -7,9 +7,9 @@ import { SessionEntrantQueryParams } from '../models/query-params';
 import { Sorter } from '../models/sorter';
 import { DbService } from '../services/db.service';
 import { DB, LapTimeDTO, LapTimes } from './../models/types.dto';
-import { EventEntrantService } from './eventEntrant.controller';
 import { ParamsBuilderService } from './paramsBuilder.service';
 import { SessionService } from './session.controller';
+import { SessionEntrantService } from './sessionEntrant.controller';
 
 export interface LapQueryParams extends SessionEntrantQueryParams {
   pos?: number;
@@ -51,10 +51,10 @@ export class LapService extends DbService {
       .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
-            EventEntrantService.getEventEntrantSelect(
-              eb.selectFrom('eventEntrants'),
+            SessionEntrantService.getEventEntrantSelect(
+              eb.selectFrom('sessionEntrants'),
               fieldsParam?.clone('entrant')
-            ).whereRef('lapTimes.entrantId', '==', 'eventEntrants.id')
+            ).whereRef('lapTimes.entrantId', '==', 'sessionEntrants.id')
           ).as('entrant')
         )
       ) as SelectQueryBuilder<DB, 'lapTimes' | T, LapTimeDTO>;

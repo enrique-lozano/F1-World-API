@@ -11,9 +11,9 @@ import {
   ErrorMessage,
   sendTsoaError
 } from '../../utils/custom-error/custom-error';
-import { EventEntrantService } from '../eventEntrant.controller';
 import { ParamsBuilderService } from '../paramsBuilder.service';
 import { SessionService } from '../session.controller';
+import { SessionEntrantService } from '../sessionEntrant.controller';
 
 export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
   maxGridPos?: number;
@@ -66,10 +66,10 @@ export class RaceResultService extends DbService {
       .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
-            EventEntrantService.getEventEntrantSelect(
-              eb.selectFrom('eventEntrants'),
+            SessionEntrantService.getEventEntrantSelect(
+              eb.selectFrom('sessionEntrants'),
               fieldsParam?.clone('entrant')
-            ).whereRef('raceResults.entrantId', '==', 'eventEntrants.id')
+            ).whereRef('raceResults.entrantId', '==', 'sessionEntrants.id')
           ).as('entrant')
         )
       ) as SelectQueryBuilder<DB, 'raceResults' | T, RaceResultDTO>;
