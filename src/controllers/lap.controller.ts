@@ -1,4 +1,4 @@
-import { SelectQueryBuilder, sql } from 'kysely';
+import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Queries, Route, Tags } from 'tsoa';
 import { FieldsParam } from '../models/fields-filter';
@@ -24,7 +24,6 @@ export interface LapQueryParams extends SessionEntrantQueryParams {
 export class LapService extends DbService {
   static getLapsSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'lapTimes', object>,
-    getMinTime = false,
     fieldsParam?: FieldsParam
   ) {
     fieldsParam ??= new FieldsParam();
@@ -34,9 +33,6 @@ export class LapService extends DbService {
     return (qb as SelectQueryBuilder<DB, 'lapTimes', object>)
       .select(
         fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
-      )
-      .$if(getMinTime, (qb) =>
-        qb.select(({ fn }) => [fn.min<number>('time' as any).as('time')])
       )
       .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
         qb.select((eb) =>
@@ -80,7 +76,6 @@ export class LapService extends DbService {
         jsonArrayFrom(
           LapService.getLapsSelect(
             mainSelect,
-            false,
             FieldsParam.fromFieldQueryParam(obj)
           )
             .limit(paginator.pageSize)
@@ -91,11 +86,29 @@ export class LapService extends DbService {
       .executeTakeFirstOrThrow();
   }
 
+  private filterSelectWithFastestTimes<T extends object>(
+    select: SelectQueryBuilder<DB, 'lapTimes', T>
+  ) {
+    return select.innerJoin(
+      (eb) =>
+        eb
+          .selectFrom('lapTimes')
+          .select(['sessionId'])
+          .select(({ fn }) => [fn.min<number>('time' as any).as('minTime')])
+          .groupBy('sessionId')
+          .as('fastestLT'),
+      (join) =>
+        join
+          .onRef('lapTimes.sessionId', '==', 'fastestLT.sessionId')
+          .onRef('lapTimes.time', '==', 'fastestLT.minTime')
+    );
+  }
+
   /** Get the fastest lap times grouped by session, based on some filters.
    *
-   * Please take into account that this do not return only the global fastest laps. For example if we filter here by the driver Fernando Alonso, we will get his fastest lap times of each session. */
+   * Please take into account that this call return only the global fastest laps inside a session. For example if we filter here by the driver Fernando Alonso, we will get only the sessions where he score the fastest lap */
   @Get('/fastest')
-  getFastestLaps(
+  async getFastestLaps(
     @Queries() obj: LapQueryParams
   ): Promise<PageMetadata & { data: LapTimeDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
@@ -105,18 +118,18 @@ export class LapService extends DbService {
       .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!))
       .$if(obj.lap != undefined, (qb) => qb.where('lap', '==', obj.lap!));
 
-    return mainSelect
+    return this.filterSelectWithFastestTimes(mainSelect)
       .select(({ fn, eb }) => [
-        fn.count<number>(sql`DISTINCT sessionId`).as('totalElements'),
+        fn.countAll<number>().as('totalElements'),
         eb.val(paginator.pageSize).as('pageSize'),
         eb.val(paginator.pageNo).as('currentPage'),
         jsonArrayFrom(
-          LapService.getLapsSelect(
-            mainSelect,
-            true,
-            FieldsParam.fromFieldQueryParam(obj)
+          this.filterSelectWithFastestTimes(
+            LapService.getLapsSelect(
+              mainSelect,
+              FieldsParam.fromFieldQueryParam(obj)
+            )
           )
-            .groupBy('sessionId')
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
         ).as('data')

@@ -70,4 +70,8 @@ export class FieldsParam implements FieldsQueryParam {
   static fromFieldQueryParam(obj: FieldsQueryParam) {
     return new FieldsParam(obj.fields);
   }
+
+  static fromFieldsArray(fieldsArray?: string[]) {
+    return new FieldsParam(fieldsArray?.join(','));
+  }
 }
