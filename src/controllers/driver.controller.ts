@@ -1,7 +1,7 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Route, Tags } from 'tsoa';
-import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
+import { IncludeParam, IncludeQueryParam } from '../models/fields-filter';
 import {
   PageMetadata,
   PageQueryParams,
@@ -13,7 +13,7 @@ import { DB, DriverDTO, Gender } from './../models/types.dto';
 import { CountryService } from './countries.controller';
 import { DriverStandingService } from './driver-standings.controller';
 
-interface DriverQueryParams extends PageQueryParams, FieldsQueryParam {
+interface DriverQueryParams extends PageQueryParams, IncludeQueryParam {
   /** Filter drivers by its full name */
   name?: string;
 
@@ -29,9 +29,9 @@ interface DriverQueryParams extends PageQueryParams, FieldsQueryParam {
 export class DriverService extends DbService {
   static getDriversSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'drivers', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     const allSingleFields = [
       'abbreviation',
@@ -101,7 +101,7 @@ export class DriverService extends DbService {
     @Queries() obj: DriverQueryParams
   ): Promise<PageMetadata & { data: DriverDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-    const fields = FieldsParam.fromFieldQueryParam(obj);
+    const fields = IncludeParam.fromFieldQueryParam(obj);
 
     const mainSelect = this.db
       .selectFrom('drivers')

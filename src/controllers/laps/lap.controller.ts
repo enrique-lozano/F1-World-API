@@ -1,7 +1,7 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Queries, Route, Tags } from 'tsoa';
-import { FieldsParam } from '../../models/fields-filter';
+import { IncludeParam } from '../../models/fields-filter';
 import { PageMetadata, Paginator } from '../../models/paginated-items';
 import { SessionEntrantQueryParams } from '../../models/query-params';
 import { Sorter } from '../../models/sorter';
@@ -24,9 +24,9 @@ export interface LapQueryParams extends SessionEntrantQueryParams {
 export class LapService extends DbService {
   static getLapsSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'lapTimes', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     const allSingleFields = ['pos', 'lap', 'time'] as const;
 
@@ -76,7 +76,7 @@ export class LapService extends DbService {
         jsonArrayFrom(
           LapService.getLapsSelect(
             mainSelect,
-            FieldsParam.fromFieldQueryParam(obj)
+            IncludeParam.fromFieldQueryParam(obj)
           )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
@@ -127,7 +127,7 @@ export class LapService extends DbService {
           this.filterSelectWithFastestTimes(
             LapService.getLapsSelect(
               mainSelect,
-              FieldsParam.fromFieldQueryParam(obj)
+              IncludeParam.fromFieldQueryParam(obj)
             )
           )
             .limit(paginator.pageSize)

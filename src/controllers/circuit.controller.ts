@@ -2,7 +2,7 @@ import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 
 import { SelectQueryBuilder } from 'kysely';
 import { Get, Queries, Route, Tags } from 'tsoa';
-import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
+import { IncludeParam, IncludeQueryParam } from '../models/fields-filter';
 import {
   PageMetadata,
   PageQueryParams,
@@ -16,7 +16,7 @@ import { CountryService } from './countries.controller';
 interface CircuitQueryParams
   extends PageQueryParams,
     SorterQueryParams,
-    FieldsQueryParam {
+    IncludeQueryParam {
   /** @default name */
   orderBy?: keyof Circuits;
 }
@@ -26,9 +26,9 @@ interface CircuitQueryParams
 export class CircuitService extends DbService {
   static getCircuitsSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'circuits', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     const allSingleFields = [
       'fullName',
@@ -73,7 +73,7 @@ export class CircuitService extends DbService {
         jsonArrayFrom(
           CircuitService.getCircuitsSelect(
             eb.selectFrom('circuits'),
-            FieldsParam.fromFieldQueryParam(obj)
+            IncludeParam.fromFieldQueryParam(obj)
           )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)

@@ -1,7 +1,7 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
-import { FieldsParam, FieldsQueryParam } from '../../models/fields-filter';
+import { IncludeParam, IncludeQueryParam } from '../../models/fields-filter';
 import { PageMetadata, Paginator } from '../../models/paginated-items';
 import { TimedSessionResultQueryParams } from '../../models/query-params';
 import { Sorter } from '../../models/sorter';
@@ -24,9 +24,9 @@ import { SessionEntrantService } from '../sessionEntrant.controller';
 export class FreePracticeResultService extends DbService {
   static getFreePracticeResultSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'fpResults', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     const allSingleFields = [
       'laps',
@@ -85,7 +85,7 @@ export class FreePracticeResultService extends DbService {
         jsonArrayFrom(
           FreePracticeResultService.getFreePracticeResultSelect(
             mainSelect,
-            FieldsParam.fromFieldQueryParam(obj)
+            IncludeParam.fromFieldQueryParam(obj)
           )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
@@ -102,13 +102,13 @@ export class FreePracticeResultService extends DbService {
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
-    @Queries() fields: FieldsQueryParam,
+    @Queries() fields: IncludeQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<TimedSessionResultsDTO[]> {
     const fpResultsInDB: TimedSessionResultsDTO[] =
       await FreePracticeResultService.getFreePracticeResultSelect(
         this.getResultsWithParams({ session, season, round }),
-        FieldsParam.fromFieldQueryParam(fields)
+        IncludeParam.fromFieldQueryParam(fields)
       )
         .orderBy('positionOrder', 'asc')
         .execute();
@@ -128,13 +128,13 @@ export class FreePracticeResultService extends DbService {
     @Path() round: number,
     @Path() session: string,
     @Path() driverId: string,
-    @Queries() fields: FieldsQueryParam,
+    @Queries() fields: IncludeQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<TimedSessionResultsDTO> {
     const fpResultInDB: TimedSessionResultsDTO | undefined =
       await FreePracticeResultService.getFreePracticeResultSelect(
         this.getResultsWithParams({ session, season, round, driverId }),
-        FieldsParam.fromFieldQueryParam(fields)
+        IncludeParam.fromFieldQueryParam(fields)
       )
         .selectAll('fpResults')
         .executeTakeFirst();

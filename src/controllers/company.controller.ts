@@ -1,7 +1,7 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Queries, Route, Tags } from 'tsoa';
-import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
+import { IncludeParam, IncludeQueryParam } from '../models/fields-filter';
 import {
   PageMetadata,
   PageQueryParams,
@@ -15,7 +15,7 @@ import { CountryService } from './countries.controller';
 interface CompanyQueryParams
   extends PageQueryParams,
     SorterQueryParams,
-    FieldsQueryParam {
+    IncludeQueryParam {
   // TODO:
   /** Return only the companies that has manufactured in this specialty */
   // specialty?: 'engine' | 'chassis';
@@ -31,9 +31,9 @@ interface CompanyQueryParams
 export class CompanyService extends DbService {
   static getCompaniesSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'companies', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     const allSingleFields = [
       'fullName',

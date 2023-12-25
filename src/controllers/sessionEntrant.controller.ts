@@ -1,6 +1,6 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { FieldsParam } from '../models/fields-filter';
+import { IncludeParam } from '../models/fields-filter';
 import { DB, EventEntrantDTO } from '../models/types.dto';
 import { DbService } from '../services/db.service';
 import { CompanyService } from './company.controller';
@@ -11,9 +11,9 @@ import { TyreManufacturerService } from './tyreManufacturer.controller';
 export class SessionEntrantService extends DbService {
   static getEventEntrantSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'sessionEntrants', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     const allSingleFields = [
       'chassisName',

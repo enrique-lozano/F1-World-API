@@ -1,7 +1,7 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Queries, Route, Tags } from 'tsoa';
-import { FieldsParam } from '../models/fields-filter';
+import { IncludeParam } from '../models/fields-filter';
 import { PageMetadata, Paginator } from '../models/paginated-items';
 import { SessionEntrantQueryParams } from '../models/query-params';
 import { Sorter } from '../models/sorter';
@@ -22,9 +22,9 @@ interface PitStopQueryParams extends SessionEntrantQueryParams {
 export class PitStopService extends DbService {
   static getPitStopsSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'pitStops', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     const allSingleFields = ['annotation', 'lap', 'time', 'timeOfDay'] as const;
 

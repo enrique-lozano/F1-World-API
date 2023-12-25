@@ -2,7 +2,7 @@ import { Get, Queries, Route, Tags } from 'tsoa';
 
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { FieldsParam } from '../models/fields-filter';
+import { IncludeParam } from '../models/fields-filter';
 import {
   PageMetadata,
   PageQueryParams,
@@ -17,9 +17,9 @@ import { CountryService } from './countries.controller';
 export class TyreManufacturerService extends DbService {
   static getTyreManufacturerSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'tyreManufacturers', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     const allSingleFields = [
       'primaryColor',

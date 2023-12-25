@@ -1,7 +1,7 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
-import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
+import { IncludeParam, IncludeQueryParam } from '../models/fields-filter';
 import { PageQueryParams } from '../models/paginated-items';
 import { SessionQueryParams } from '../models/query-params';
 import { DbService } from '../services/db.service';
@@ -28,9 +28,9 @@ import { RaceResultService } from './results/raceResult.controller';
 export class SessionService extends DbService {
   static getSessionSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'sessions', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     const allSingleFields = ['id', 'abbreviation', 'startDateTime'] as const;
 
@@ -83,7 +83,7 @@ export class SessionService extends DbService {
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
-    @Queries() fields: FieldsQueryParam,
+    @Queries() fields: IncludeQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<(TimedSessionResultsDTO | RaceResultDTO)[]> {
     if (['Q1', 'Q2', 'Q3', 'Q'].some((x) => x === session)) {

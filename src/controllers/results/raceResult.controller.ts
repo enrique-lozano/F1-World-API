@@ -1,7 +1,7 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
-import { FieldsParam, FieldsQueryParam } from '../../models/fields-filter';
+import { IncludeParam, IncludeQueryParam } from '../../models/fields-filter';
 import { PageMetadata, Paginator } from '../../models/paginated-items';
 import { ResultsFiltersQueryParams } from '../../models/query-params';
 import { Sorter } from '../../models/sorter';
@@ -29,9 +29,9 @@ export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
 export class RaceResultService extends DbService {
   static getRaceResultSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'raceResults', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     const allSingleFields = [
       'gap',
@@ -106,7 +106,7 @@ export class RaceResultService extends DbService {
         jsonArrayFrom(
           RaceResultService.getRaceResultSelect(
             mainSelect,
-            FieldsParam.fromFieldQueryParam(obj)
+            IncludeParam.fromFieldQueryParam(obj)
           )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
@@ -123,13 +123,13 @@ export class RaceResultService extends DbService {
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
-    @Queries() fields: FieldsQueryParam,
+    @Queries() fields: IncludeQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<RaceResultDTO[]> {
     const raceResultInDB: RaceResultDTO[] =
       await RaceResultService.getRaceResultSelect(
         this.getResultsWithParams({ session, season, round }),
-        FieldsParam.fromFieldQueryParam(fields)
+        IncludeParam.fromFieldQueryParam(fields)
       )
         .orderBy('positionOrder', 'asc')
         .execute();
@@ -149,13 +149,13 @@ export class RaceResultService extends DbService {
     @Path() round: number,
     @Path() session: string,
     @Path() driverId: string,
-    @Queries() fields: FieldsQueryParam,
+    @Queries() fields: IncludeQueryParam,
     @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
   ): Promise<RaceResultDTO> {
     const raceResultInDB: RaceResultDTO | undefined =
       await RaceResultService.getRaceResultSelect(
         this.getResultsWithParams({ session, season, round, driverId }),
-        FieldsParam.fromFieldQueryParam(fields)
+        IncludeParam.fromFieldQueryParam(fields)
       )
         .selectAll('raceResults')
         .executeTakeFirst();

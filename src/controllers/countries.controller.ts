@@ -1,6 +1,6 @@
 import { SelectQueryBuilder } from 'kysely';
 import { Get, Path, Route, Tags } from 'tsoa';
-import { FieldsParam } from '../models/fields-filter';
+import { IncludeParam } from '../models/fields-filter';
 import { DbService } from '../services/db.service';
 import { CountryDTO, DB } from './../models/types.dto';
 
@@ -9,9 +9,9 @@ import { CountryDTO, DB } from './../models/types.dto';
 export class CountryService extends DbService {
   static getCountriesSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'countries', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     return (qb as SelectQueryBuilder<DB, 'countries', object>)
       .innerJoin(

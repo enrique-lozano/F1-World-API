@@ -146,9 +146,9 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
-					"fields": {
+					"include": {
 						"type": "string",
-						"description": "Comma separated string containing the fields to return"
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
 					},
 					"orderBy": {
 						"type": "string",
@@ -230,9 +230,9 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
-					"fields": {
+					"include": {
 						"type": "string",
-						"description": "Comma separated string containing the fields to return"
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
 					},
 					"name": {
 						"type": "string",
@@ -364,9 +364,9 @@
 						"default": "10",
 						"minimum": 1
 					},
-					"fields": {
+					"include": {
 						"type": "string",
-						"description": "Comma separated string containing the fields to return"
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
 					},
 					"name": {
 						"type": "string",
@@ -486,9 +486,9 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
-					"fields": {
+					"include": {
 						"type": "string",
-						"description": "Comma separated string containing the fields to return"
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
 					},
 					"circuitId": {
 						"type": "string"
@@ -512,12 +512,12 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"FieldsQueryParam": {
-				"description": "A interface to define only the optional `field` param",
+			"IncludeQueryParam": {
+				"description": "Interface to define the optional `include` query parameter according to JSON API specifications.\r\nThe `include` parameter allows clients to request related resources be included in the response.",
 				"properties": {
-					"fields": {
+					"include": {
 						"type": "string",
-						"description": "Comma separated string containing the fields to return"
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
 					}
 				},
 				"type": "object",
@@ -816,9 +816,9 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
-					"fields": {
+					"include": {
 						"type": "string",
-						"description": "Comma separated string containing the fields to return"
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
 					},
 					"season": {
 						"type": "number",
@@ -925,9 +925,9 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
-					"fields": {
+					"include": {
 						"type": "string",
-						"description": "Comma separated string containing the fields to return"
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
 					},
 					"season": {
 						"type": "number",
@@ -1112,9 +1112,9 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
-					"fields": {
+					"include": {
 						"type": "string",
-						"description": "Comma separated string containing the fields to return"
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
 					},
 					"season": {
 						"type": "number",
@@ -1272,9 +1272,9 @@
 						"$ref": "#/components/schemas/OrderDir",
 						"description": "Order of the results"
 					},
-					"fields": {
+					"include": {
 						"type": "string",
-						"description": "Comma separated string containing the fields to return"
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
 					},
 					"season": {
 						"type": "number",
@@ -1458,9 +1458,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -1593,9 +1593,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -1725,9 +1725,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -2167,9 +2167,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -2245,9 +2245,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -2541,9 +2541,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -2686,9 +2686,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -2841,9 +2841,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -2918,9 +2918,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -3002,9 +3002,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -3157,9 +3157,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -3234,9 +3234,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -3318,9 +3318,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -3499,9 +3499,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -3576,9 +3576,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -3750,9 +3750,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -4076,9 +4076,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -4229,9 +4229,9 @@
 						}
 					},
 					{
-						"description": "Comma separated string containing the fields to return",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
-						"name": "fields",
+						"name": "include",
 						"required": false,
 						"schema": {
 							"type": "string"

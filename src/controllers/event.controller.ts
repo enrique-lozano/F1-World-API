@@ -1,7 +1,7 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Route, Tags } from 'tsoa';
-import { FieldsParam, FieldsQueryParam } from '../models/fields-filter';
+import { IncludeParam, IncludeQueryParam } from '../models/fields-filter';
 import {
   PageMetadata,
   PageQueryParams,
@@ -19,7 +19,7 @@ import { CircuitService } from './circuit.controller';
 interface EventQueryParams
   extends PageQueryParams,
     SorterQueryParams,
-    FieldsQueryParam {
+    IncludeQueryParam {
   circuitId?: string;
 
   /** @default id */
@@ -31,9 +31,9 @@ interface EventQueryParams
 export class EventService extends DbService {
   static getEventSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'events', object>,
-    fieldsParam?: FieldsParam
+    fieldsParam?: IncludeParam
   ) {
-    fieldsParam ??= new FieldsParam();
+    fieldsParam ??= new IncludeParam();
 
     const allSingleFields = [
       'id',
@@ -83,7 +83,7 @@ export class EventService extends DbService {
         jsonArrayFrom(
           EventService.getEventSelect(
             mainSelect,
-            FieldsParam.fromFieldQueryParam(obj)
+            IncludeParam.fromFieldQueryParam(obj)
           )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
@@ -108,11 +108,11 @@ export class EventService extends DbService {
   getById(
     @Path() season: number,
     @Path() round: number,
-    @Queries() fields: FieldsQueryParam
+    @Queries() fields: IncludeQueryParam
   ): Promise<EventDTO | undefined> {
     return EventService.getEventSelect(
       this.db.selectFrom('events'),
-      FieldsParam.fromFieldQueryParam(fields)
+      IncludeParam.fromFieldQueryParam(fields)
     )
       .where(getSeasonFromIdColumn('id'), '==', season)
       .where(getRoundFromIdColumn('round'), '==', round)
