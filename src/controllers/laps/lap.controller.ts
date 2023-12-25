@@ -14,9 +14,6 @@ import { SessionEntrantService } from '../sessionEntrant.controller';
 export interface LapQueryParams extends SessionEntrantQueryParams {
   pos?: number;
   lap?: number;
-
-  /** @default sessionId */
-  orderBy?: keyof LapTimes;
 }
 
 @Route('laps')
@@ -59,7 +56,7 @@ export class LapService extends DbService {
     @Queries() obj: LapQueryParams
   ): Promise<PageMetadata & { data: LapTimeDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-    const sorter = new Sorter<LapTimes>(obj.orderBy || 'lap', obj.orderDir);
+    const sorter = new Sorter<LapTimes>(obj.sort || 'lap');
 
     const mainSelect = new ParamsBuilderService()
       .getSessionEntrantsWithParams('lapTimes', obj)
@@ -78,7 +75,7 @@ export class LapService extends DbService {
           )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
-            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+            .orderBy(sorter.sqlStatementList!)
         ).as('data')
       ])
       .executeTakeFirstOrThrow();

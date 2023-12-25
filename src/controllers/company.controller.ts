@@ -21,9 +21,6 @@ interface CompanyQueryParams
   // specialty?: 'engine' | 'chassis';
 
   name?: string;
-
-  /** @default name */
-  orderBy?: keyof Companies;
 }
 
 @Route('/companies')
@@ -62,7 +59,7 @@ export class CompanyService extends DbService {
     @Queries() obj: CompanyQueryParams
   ): Promise<PageMetadata & { data: CompanyDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-    const sorter = new Sorter<Companies>(obj.orderBy || 'name', obj.orderDir);
+    const sorter = new Sorter<Companies>(obj.sort || 'name');
 
     const mainSelect = this.db
       .selectFrom('companies')
@@ -77,7 +74,7 @@ export class CompanyService extends DbService {
           CompanyService.getCompaniesSelect(mainSelect)
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
-            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+            .orderBy(sorter.sqlStatementList!)
         ).as('data')
       ])
       .executeTakeFirstOrThrow();

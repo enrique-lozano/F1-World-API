@@ -16,10 +16,7 @@ import { CountryService } from './countries.controller';
 interface CircuitQueryParams
   extends PageQueryParams,
     SorterQueryParams,
-    IncludeQueryParam {
-  /** @default name */
-  orderBy?: keyof Circuits;
-}
+    IncludeQueryParam {}
 
 @Route('circuits')
 @Tags('Circuits')
@@ -60,7 +57,7 @@ export class CircuitService extends DbService {
     @Queries() obj: CircuitQueryParams
   ): Promise<PageMetadata & { data: CircuitDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-    const sorter = new Sorter<Circuits>(obj.orderBy || 'name', obj.orderDir);
+    const sorter = new Sorter<Circuits>(obj.sort || 'name');
 
     return this.db
       .selectFrom('circuits')
@@ -75,7 +72,7 @@ export class CircuitService extends DbService {
           )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
-            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+            .orderBy(sorter.sqlStatementList!)
         ).as('data')
       ])
       .executeTakeFirstOrThrow();

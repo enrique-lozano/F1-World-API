@@ -119,13 +119,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"OrderDir": {
-				"type": "string",
-				"enum": [
-					"asc",
-					"desc"
-				]
-			},
 			"CircuitQueryParams": {
 				"properties": {
 					"pageNo": {
@@ -142,9 +135,9 @@
 						"default": "10",
 						"minimum": 1
 					},
-					"orderDir": {
-						"$ref": "#/components/schemas/OrderDir",
-						"description": "Order of the results"
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
 					},
 					"include": {
 						"type": "string",
@@ -226,9 +219,9 @@
 						"default": "10",
 						"minimum": 1
 					},
-					"orderDir": {
-						"$ref": "#/components/schemas/OrderDir",
-						"description": "Order of the results"
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
 					},
 					"include": {
 						"type": "string",
@@ -482,9 +475,9 @@
 						"default": "10",
 						"minimum": 1
 					},
-					"orderDir": {
-						"$ref": "#/components/schemas/OrderDir",
-						"description": "Order of the results"
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
 					},
 					"include": {
 						"type": "string",
@@ -812,9 +805,9 @@
 						"default": "10",
 						"minimum": 1
 					},
-					"orderDir": {
-						"$ref": "#/components/schemas/OrderDir",
-						"description": "Order of the results"
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
 					},
 					"include": {
 						"type": "string",
@@ -921,9 +914,9 @@
 						"default": "10",
 						"minimum": 1
 					},
-					"orderDir": {
-						"$ref": "#/components/schemas/OrderDir",
-						"description": "Order of the results"
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
 					},
 					"include": {
 						"type": "string",
@@ -1108,9 +1101,9 @@
 						"default": "10",
 						"minimum": 1
 					},
-					"orderDir": {
-						"$ref": "#/components/schemas/OrderDir",
-						"description": "Order of the results"
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
 					},
 					"include": {
 						"type": "string",
@@ -1177,6 +1170,30 @@
 						"default": "sessionId"
 					}
 				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ErrorMessage_400_": {
+				"properties": {
+					"status": {
+						"type": "number",
+						"enum": [
+							400
+						],
+						"nullable": false
+					},
+					"code": {
+						"type": "string"
+					},
+					"details": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"status",
+					"code",
+					"details"
+				],
 				"type": "object",
 				"additionalProperties": false
 			},
@@ -1268,9 +1285,9 @@
 						"default": "10",
 						"minimum": 1
 					},
-					"orderDir": {
-						"$ref": "#/components/schemas/OrderDir",
-						"description": "Order of the results"
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
 					},
 					"include": {
 						"type": "string",
@@ -1449,12 +1466,12 @@
 						}
 					},
 					{
-						"description": "Order of the results",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
 						"in": "query",
-						"name": "orderDir",
+						"name": "sort",
 						"required": false,
 						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
+							"type": "string"
 						}
 					},
 					{
@@ -1584,12 +1601,12 @@
 						}
 					},
 					{
-						"description": "Order of the results",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
 						"in": "query",
-						"name": "orderDir",
+						"name": "sort",
 						"required": false,
 						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
+							"type": "string"
 						}
 					},
 					{
@@ -2158,12 +2175,12 @@
 						}
 					},
 					{
-						"description": "Order of the results",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
 						"in": "query",
-						"name": "orderDir",
+						"name": "sort",
 						"required": false,
 						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
+							"type": "string"
 						}
 					},
 					{
@@ -2532,12 +2549,12 @@
 						}
 					},
 					{
-						"description": "Order of the results",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
 						"in": "query",
-						"name": "orderDir",
+						"name": "sort",
 						"required": false,
 						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
+							"type": "string"
 						}
 					},
 					{
@@ -2677,12 +2694,12 @@
 						}
 					},
 					{
-						"description": "Order of the results",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
 						"in": "query",
-						"name": "orderDir",
+						"name": "sort",
 						"required": false,
 						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
+							"type": "string"
 						}
 					},
 					{
@@ -2993,12 +3010,12 @@
 						}
 					},
 					{
-						"description": "Order of the results",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
 						"in": "query",
-						"name": "orderDir",
+						"name": "sort",
 						"required": false,
 						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
+							"type": "string"
 						}
 					},
 					{
@@ -3276,6 +3293,16 @@
 								}
 							}
 						}
+					},
+					"400": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorMessage_400_"
+								}
+							}
+						}
 					}
 				},
 				"description": "Get driver race results based on some filters",
@@ -3309,12 +3336,12 @@
 						}
 					},
 					{
-						"description": "Order of the results",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
 						"in": "query",
-						"name": "orderDir",
+						"name": "sort",
 						"required": false,
 						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
+							"type": "string"
 						}
 					},
 					{
@@ -4067,12 +4094,12 @@
 						}
 					},
 					{
-						"description": "Order of the results",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
 						"in": "query",
-						"name": "orderDir",
+						"name": "sort",
 						"required": false,
 						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
+							"type": "string"
 						}
 					},
 					{
@@ -4220,12 +4247,12 @@
 						}
 					},
 					{
-						"description": "Order of the results",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
 						"in": "query",
-						"name": "orderDir",
+						"name": "sort",
 						"required": false,
 						"schema": {
-							"$ref": "#/components/schemas/OrderDir"
+							"type": "string"
 						}
 					},
 					{

@@ -21,9 +21,6 @@ interface EventQueryParams
     SorterQueryParams,
     IncludeQueryParam {
   circuitId?: string;
-
-  /** @default id */
-  orderBy?: keyof Events;
 }
 
 @Route('/events')
@@ -63,7 +60,7 @@ export class EventService extends DbService {
     @Queries() obj: EventQueryParams
   ): Promise<PageMetadata & { data: EventDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-    const sorter = new Sorter<Events>(obj.orderBy || 'raceDate', obj.orderDir);
+    const sorter = new Sorter<Events>(obj.sort || 'raceDate');
 
     const mainSelect = this.db
       .selectFrom('events')
@@ -85,7 +82,7 @@ export class EventService extends DbService {
           )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
-            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+            .orderBy(sorter.sqlStatementList!)
         ).as('data')
       ])
       .executeTakeFirstOrThrow();

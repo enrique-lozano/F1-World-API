@@ -79,10 +79,7 @@ export class QualifyingResultService extends DbService {
     @Queries() obj: TimedSessionResultQueryParams
   ): Promise<PageMetadata & { data: TimedSessionResultsDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-    const sorter = new Sorter<TimedSessionResults>(
-      obj.orderBy || 'sessionId',
-      obj.orderDir
-    );
+    const sorter = new Sorter<TimedSessionResults>(obj.sort || 'sessionId');
 
     const mainSelect = this.getResultsWithParams(obj);
 
@@ -98,7 +95,7 @@ export class QualifyingResultService extends DbService {
           )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
-            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+            .orderBy(sorter.sqlStatementList!)
         ).as('data')
       ])
       .executeTakeFirstOrThrow();
@@ -112,7 +109,7 @@ export class QualifyingResultService extends DbService {
     @Path() round: number,
     @Path() session: string,
     @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
   ): Promise<TimedSessionResultsDTO[]> {
     const sessionResultsInDB: TimedSessionResultsDTO[] =
       await QualifyingResultService.getQualifyingResultSelect(
@@ -138,7 +135,7 @@ export class QualifyingResultService extends DbService {
     @Path() session: string,
     @Path() driverId: string,
     @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
   ): Promise<TimedSessionResultsDTO> {
     const raceResultInDB: TimedSessionResultsDTO | undefined =
       await QualifyingResultService.getQualifyingResultSelect(

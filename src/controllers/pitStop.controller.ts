@@ -12,9 +12,6 @@ import { SessionEntrantService } from './sessionEntrant.controller';
 
 interface PitStopQueryParams extends SessionEntrantQueryParams {
   lap?: number;
-
-  /** @default eventId */
-  orderBy?: keyof PitStops;
 }
 
 @Route('pit-stops')
@@ -58,7 +55,7 @@ export class PitStopService extends DbService {
     @Queries() obj: PitStopQueryParams
   ): Promise<PageMetadata & { data: PitStopDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-    const sorter = new Sorter<PitStops>(obj.orderBy || 'eventId', obj.orderDir);
+    const sorter = new Sorter<PitStops>(obj.sort || 'eventId');
 
     const mainSelect = this.db
       .selectFrom('pitStops')
@@ -74,7 +71,7 @@ export class PitStopService extends DbService {
           PitStopService.getPitStopsSelect(mainSelect)
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
-            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+            .orderBy(sorter.sqlStatementList!)
         ).as('data')
       ])
       .executeTakeFirstOrThrow();

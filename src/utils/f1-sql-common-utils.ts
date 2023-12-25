@@ -1,4 +1,5 @@
-import { sql } from 'kysely';
+import { Kysely, sql } from 'kysely';
+import { DB } from './../models/types.dto';
 
 /** Get the season year number from a column with the format "YYYY-..." */
 export function getSeasonFromIdColumn(columnToGet: string) {
@@ -19,4 +20,33 @@ export function getRoundFromIdColumn(columnToGet: string) {
  */
 export function getSessionIdFromIdColumn(columnToGet: string) {
   return sql<string>`substr(${sql.ref(columnToGet)}, 9, 20)`;
+}
+
+export async function isColumnInTable(
+  db: Kysely<DB>,
+  column: string,
+  table: keyof DB
+) {
+  const res = await db
+    .selectFrom(`pragma_table_info('${table}')` as any)
+    .select(({ fn }) => fn.countAll<number>().as('totalElements'))
+    .where('name', '==', column)
+    .executeTakeFirstOrThrow();
+
+  return res.totalElements === 1;
+}
+
+export async function tableColumnNames(db: Kysely<DB>, table: keyof DB) {
+  const res = await db
+    .selectFrom(`pragma_table_info('${table}')` as any)
+    .select(['name'])
+    .execute();
+
+  return res.map((e) => e.name);
+}
+
+type SQLiteErrorCodes = 'SQLITE_ERROR';
+
+export interface KyselyExecutionError extends Error {
+  code?: SQLiteErrorCodes;
 }

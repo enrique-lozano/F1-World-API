@@ -1,28 +1,98 @@
+import { NestedKeyOf } from './../../src/utils/types/util-types';
+
 type OrderDir = 'asc' | 'desc';
 
-export class Sorter<T> implements SorterQueryParams {
-  orderBy: keyof T;
-  orderDir: OrderDir;
+class SortItem<T extends string> {
+  key: T;
+  direction: OrderDir;
 
-  /** Statement to put at the of a SQL query to get only certain results, that is `ORDER BY x {ASC|DESC}` */
-  sqlStatement: string;
+  constructor(data: Pick<SortItem<T>, 'direction' | 'key'>) {
+    this.key = data.key;
+    this.direction = data.direction;
+  }
 
-  constructor(orderBy: keyof T, orderDir?: OrderDir) {
-    this.orderBy = orderBy;
-    this.orderDir = orderDir ?? defaultOrderDir;
+  get sqlStatement() {
+    return `${this.key} ${this.direction}` as const;
+  }
 
-    this.sqlStatement = `ORDER BY ${String(this.orderBy)} ${this.orderDir}`;
+  get queryParam() {
+    return `${this.direction == 'desc' ? '-' : ''}${this.key}` as const;
   }
 }
 
+export class Sorter<T extends object> implements SorterQueryParams {
+  sort?: string;
+
+  constructor(sort?: string) {
+    this.sort = sort;
+  }
+
+  static fromSortItems<T extends object>(items: SortItem<NestedKeyOf<T>>[]) {
+    return new Sorter<T>(items.map((e) => e.queryParam).join(','));
+  }
+
+  get sortItems() {
+    if (!this.sort) return null;
+
+    const arrayToReturn = this.sort.replaceAll(' ', '').split(',');
+
+    if (arrayToReturn.length === 0) return null;
+
+    const sortItemsArray = arrayToReturn.map((sortString) => {
+      const direction: OrderDir = sortString.startsWith('-') ? 'desc' : 'asc';
+      const key = (
+        direction === 'desc' ? sortString.slice(1) : sortString
+      ) as NestedKeyOf<T>;
+
+      // TODO: Check that key is valid
+
+      return new SortItem({ key, direction });
+    });
+
+    return sortItemsArray;
+  }
+
+  /** The list of SQL statements to sort by all the specified attributes in the `sort` query param
+   *
+   * #### Examples (`input` --> `output`):
+   * - `'-name'` --> `['name DESC']`
+   * - `'created_at,-name'` --> `['created_at ASC', 'name DESC']`
+   */
+  get sqlStatementList() {
+    return this.sortItems?.map((e) => e.sqlStatement);
+  }
+
+  /** The SQL statement to sort by all the specified attributes in the `sort` query param
+   *
+   * #### Examples (`input` --> `output`):
+   * - `'-name'` --> `'name DESC'`
+   * - `'created_at,-name'` --> `'created_at ASC, name DESC'`
+   */
+  get sqlStatement() {
+    return this.sqlStatementList?.join(', ');
+  }
+}
+
+/**
+ * Interface to define the optional `include` query parameter according to JSON API specifications.
+ * The `include` parameter allows clients to request related resources be included in the response.
+ *
+ * @interface SorterQueryParams
+ * @see {@link https://jsonapi.org/format/#fetching-sorting | JSON API Specification - Fetching Sorting}
+ * */
 export interface SorterQueryParams {
   /**
-   * Order of the results
+   * Comma-separated list of fields/directions used to sort the primary resource's collection.
+   * Each item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).
    *
-   * @default asc */
-  orderDir?: OrderDir;
-
-  // * TSOA do not accept generics by the moment, so we can not include the orderBy here. We have to include this attribute manually on each query interface
+   * #### Examples:
+   * - To sort by 'created_at' in ascending order: `sort=created_at`
+   * - To sort by 'name' in descending order: `sort=-name`
+   * - To sort by multiple fields: `sort=created_at,-name`
+   *
+   * @see {@link https://jsonapi.org/format/#fetching-sorting | JSON API Specification - Fetching Sorting}
+   * */
+  sort?: string;
 }
 
 export const defaultOrderDir: OrderDir = 'asc';

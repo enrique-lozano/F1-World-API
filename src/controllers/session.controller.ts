@@ -82,7 +82,7 @@ export class SessionService extends DbService {
     @Path() round: number,
     @Path() session: string,
     @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
   ): Promise<(TimedSessionResultsDTO | RaceResultDTO)[]> {
     if (['Q1', 'Q2', 'Q3', 'Q'].some((x) => x === session)) {
       return new QualifyingResultService().getQualifyingSessionResults(
@@ -139,7 +139,7 @@ export class SessionService extends DbService {
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
   ) {
     const res = await new LapService().getFastestLaps({
       round,

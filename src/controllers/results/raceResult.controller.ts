@@ -14,14 +14,12 @@ import {
 import { ParamsBuilderService } from '../paramsBuilder.service';
 import { SessionService } from '../session.controller';
 import { SessionEntrantService } from '../sessionEntrant.controller';
+import { KyselyExecutionError } from './../../../src/utils/f1-sql-common-utils';
 
 export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
   maxGridPos?: number;
 
   minGridPos?: number;
-
-  /** @default sessionId */
-  orderBy?: keyof RaceResults;
 }
 
 @Route('races/results')
@@ -85,14 +83,12 @@ export class RaceResultService extends DbService {
   }
 
   /** Get driver race results based on some filters */ @Get('/')
-  getRacesResults(
-    @Queries() obj: RaceResultQueryParams
+  async getRacesResults(
+    @Queries() obj: RaceResultQueryParams,
+    @Res() notFoundResponse: TsoaResponse<400, ErrorMessage>
   ): Promise<PageMetadata & { data: RaceResultDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-    const sorter = new Sorter<RaceResults>(
-      obj.orderBy || 'sessionId',
-      obj.orderDir
-    );
+    const sorter = new Sorter<RaceResults>(obj.sort || 'sessionId');
 
     const mainSelect = this.getResultsWithParams(obj);
 
@@ -108,10 +104,26 @@ export class RaceResultService extends DbService {
           )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
-            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+            .orderBy(sorter.sqlStatementList!)
         ).as('data')
       ])
-      .executeTakeFirstOrThrow();
+      .executeTakeFirstOrThrow()
+      .catch((err: KyselyExecutionError) => {
+        if (!err.message) throw err;
+
+        const match = /no such column: (\w+)/.exec(err.message);
+
+        if (err.code == 'SQLITE_ERROR' && match) {
+          const missingColumn = match[1];
+
+          return notFoundResponse(
+            400,
+            ErrorMessage.columnNotFound(missingColumn)
+          );
+        }
+
+        throw err;
+      });
   }
 
   /** Gets info about the results of a certain race */ @Get(
@@ -122,7 +134,7 @@ export class RaceResultService extends DbService {
     @Path() round: number,
     @Path() session: string,
     @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
   ): Promise<RaceResultDTO[]> {
     const raceResultInDB: RaceResultDTO[] =
       await RaceResultService.getRaceResultSelect(
@@ -148,7 +160,7 @@ export class RaceResultService extends DbService {
     @Path() session: string,
     @Path() driverId: string,
     @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
   ): Promise<RaceResultDTO> {
     const raceResultInDB: RaceResultDTO | undefined =
       await RaceResultService.getRaceResultSelect(

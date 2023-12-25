@@ -68,10 +68,7 @@ export class FreePracticeResultService extends DbService {
     @Queries() obj: TimedSessionResultQueryParams
   ): Promise<PageMetadata & { data: TimedSessionResultsDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-    const sorter = new Sorter<TimedSessionResults>(
-      obj.orderBy || 'sessionId',
-      obj.orderDir
-    );
+    const sorter = new Sorter<TimedSessionResults>(obj.sort || 'sessionId');
 
     const mainSelect = this.getResultsWithParams(obj);
 
@@ -87,7 +84,7 @@ export class FreePracticeResultService extends DbService {
           )
             .limit(paginator.pageSize)
             .offset(paginator.sqlOffset)
-            .orderBy(`${sorter.orderBy} ${sorter.orderDir}`)
+            .orderBy(sorter.sqlStatementList!)
         ).as('data')
       ])
       .executeTakeFirstOrThrow();
@@ -101,7 +98,7 @@ export class FreePracticeResultService extends DbService {
     @Path() round: number,
     @Path() session: string,
     @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
   ): Promise<TimedSessionResultsDTO[]> {
     const fpResultsInDB: TimedSessionResultsDTO[] =
       await FreePracticeResultService.getFreePracticeResultSelect(
@@ -127,7 +124,7 @@ export class FreePracticeResultService extends DbService {
     @Path() session: string,
     @Path() driverId: string,
     @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage<404>>
+    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
   ): Promise<TimedSessionResultsDTO> {
     const fpResultInDB: TimedSessionResultsDTO | undefined =
       await FreePracticeResultService.getFreePracticeResultSelect(
