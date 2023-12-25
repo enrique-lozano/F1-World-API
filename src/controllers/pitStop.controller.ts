@@ -29,9 +29,7 @@ export class PitStopService extends DbService {
     const allSingleFields = ['annotation', 'lap', 'time', 'timeOfDay'] as const;
 
     return (qb as SelectQueryBuilder<DB, 'pitStops', object>)
-      .select(
-        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
-      )
+      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
       .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(

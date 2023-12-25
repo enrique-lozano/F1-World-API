@@ -42,9 +42,7 @@ export class CircuitService extends DbService {
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'circuits', object>)
-      .select(
-        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
-      )
+      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
       .$if(fieldsParam.shouldSelectObject('country'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(

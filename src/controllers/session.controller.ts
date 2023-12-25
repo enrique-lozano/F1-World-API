@@ -35,9 +35,7 @@ export class SessionService extends DbService {
     const allSingleFields = ['id', 'abbreviation', 'startDateTime'] as const;
 
     return (qb as SelectQueryBuilder<DB, 'sessions', object>)
-      .select(
-        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
-      )
+      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
       .$if(fieldsParam.shouldSelectObject('event'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(

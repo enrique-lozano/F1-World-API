@@ -50,9 +50,7 @@ export class RaceResultService extends DbService {
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'raceResults', object>)
-      .select(
-        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
-      )
+      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
       .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(

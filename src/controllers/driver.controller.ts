@@ -49,9 +49,7 @@ export class DriverService extends DbService {
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'drivers', object>)
-      .select(
-        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
-      )
+      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
       .$if(fieldsParam.shouldSelectObject('countryOfBirthCountry'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(

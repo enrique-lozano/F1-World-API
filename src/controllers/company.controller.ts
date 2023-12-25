@@ -44,9 +44,7 @@ export class CompanyService extends DbService {
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'companies', object>)
-      .select(
-        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
-      )
+      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
       .$if(fieldsParam.shouldSelectObject('country'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(

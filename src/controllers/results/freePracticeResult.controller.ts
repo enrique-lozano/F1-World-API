@@ -36,9 +36,7 @@ export class FreePracticeResultService extends DbService {
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'fpResults', object>)
-      .select(
-        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
-      )
+      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
       .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(

@@ -25,9 +25,7 @@ export class SessionEntrantService extends DbService {
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'sessionEntrants', object>)
-      .select(
-        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
-      )
+      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
       .$if(fieldsParam.shouldSelectObject('driver'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(

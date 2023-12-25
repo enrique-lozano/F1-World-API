@@ -31,9 +31,7 @@ export class LapService extends DbService {
     const allSingleFields = ['pos', 'lap', 'time'] as const;
 
     return (qb as SelectQueryBuilder<DB, 'lapTimes', object>)
-      .select(
-        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
-      )
+      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
       .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(

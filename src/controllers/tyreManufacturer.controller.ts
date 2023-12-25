@@ -29,9 +29,7 @@ export class TyreManufacturerService extends DbService {
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'tyreManufacturers', object>)
-      .select(
-        fieldsParam.getFilteredFieldsArray(allSingleFields) ?? allSingleFields
-      )
+      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
       .$if(fieldsParam.shouldSelectObject('country'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
