@@ -1,20 +1,16 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
+import { Get, Path, Queries, Route, Tags } from 'tsoa';
 import { IncludeParam, IncludeQueryParam } from '../../models/fields-filter';
 import { PageMetadata, Paginator } from '../../models/paginated-items';
 import { ResultsFiltersQueryParams } from '../../models/query-params';
 import { Sorter } from '../../models/sorter';
 import { DB, RaceResultDTO, RaceResults } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
-import {
-  ErrorMessage,
-  sendTsoaError
-} from '../../utils/custom-error/custom-error';
+import { HttpException } from '../../utils/custom-error';
 import { ParamsBuilderService } from '../paramsBuilder.service';
 import { SessionService } from '../session.controller';
 import { SessionEntrantService } from '../sessionEntrant.controller';
-import { KyselyExecutionError } from './../../../src/utils/f1-sql-common-utils';
 
 export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
   maxGridPos?: number;
@@ -84,8 +80,7 @@ export class RaceResultService extends DbService {
 
   /** Get driver race results based on some filters */ @Get('/')
   async getRacesResults(
-    @Queries() obj: RaceResultQueryParams,
-    @Res() notFoundResponse: TsoaResponse<400, ErrorMessage>
+    @Queries() obj: RaceResultQueryParams
   ): Promise<PageMetadata & { data: RaceResultDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
     const sorter = new Sorter<RaceResults>(obj.sort || 'sessionId');
@@ -107,23 +102,7 @@ export class RaceResultService extends DbService {
             .orderBy(sorter.sqlStatementList!)
         ).as('data')
       ])
-      .executeTakeFirstOrThrow()
-      .catch((err: KyselyExecutionError) => {
-        if (!err.message) throw err;
-
-        const match = /no such column: (\w+)/.exec(err.message);
-
-        if (err.code == 'SQLITE_ERROR' && match) {
-          const missingColumn = match[1];
-
-          return notFoundResponse(
-            400,
-            ErrorMessage.columnNotFound(missingColumn)
-          );
-        }
-
-        throw err;
-      });
+      .executeTakeFirstOrThrow();
   }
 
   /** Gets info about the results of a certain race */ @Get(
@@ -133,8 +112,7 @@ export class RaceResultService extends DbService {
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
-    @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
+    @Queries() fields: IncludeQueryParam
   ): Promise<RaceResultDTO[]> {
     const raceResultInDB: RaceResultDTO[] =
       await RaceResultService.getRaceResultSelect(
@@ -145,7 +123,7 @@ export class RaceResultService extends DbService {
         .execute();
 
     if (!raceResultInDB || raceResultInDB.length === 0) {
-      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
+      throw HttpException.resourceNotFound('results');
     }
 
     return raceResultInDB;
@@ -159,8 +137,7 @@ export class RaceResultService extends DbService {
     @Path() round: number,
     @Path() session: string,
     @Path() driverId: string,
-    @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
+    @Queries() fields: IncludeQueryParam
   ): Promise<RaceResultDTO> {
     const raceResultInDB: RaceResultDTO | undefined =
       await RaceResultService.getRaceResultSelect(
@@ -171,7 +148,7 @@ export class RaceResultService extends DbService {
         .executeTakeFirst();
 
     if (!raceResultInDB) {
-      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
+      throw HttpException.resourceNotFound('results');
     }
 
     return raceResultInDB;

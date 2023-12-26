@@ -1,15 +1,8 @@
-import { SelectQueryBuilder } from 'kysely';
-import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { Get, Queries, Route, Tags } from 'tsoa';
-import { IncludeParam } from '../../models/fields-filter';
-import { PageMetadata, Paginator } from '../../models/paginated-items';
+import { Get, Queries, Response, Route, Tags } from 'tsoa';
 import { SessionEntrantQueryParams } from '../../models/query-params';
-import { Sorter } from '../../models/sorter';
-import { DB, LapTimeDTO, LapTimes } from '../../models/types.dto';
-import { DbService } from '../../services/db.service';
-import { ParamsBuilderService } from '../paramsBuilder.service';
-import { SessionService } from '../session.controller';
-import { SessionEntrantService } from '../sessionEntrant.controller';
+import { CommonController } from '../../services/common.controller';
+import { JsonApiError } from '../../utils/custom-error';
+import { LapService } from './lap.service';
 
 export interface LapQueryParams extends SessionEntrantQueryParams {
   pos?: number;
@@ -18,117 +11,20 @@ export interface LapQueryParams extends SessionEntrantQueryParams {
 
 @Route('laps')
 @Tags('Laps')
-export class LapService extends DbService {
-  static getLapsSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'lapTimes', object>,
-    fieldsParam?: IncludeParam
-  ) {
-    fieldsParam ??= new IncludeParam();
-
-    const allSingleFields = ['pos', 'lap', 'time'] as const;
-
-    return (qb as SelectQueryBuilder<DB, 'lapTimes', object>)
-      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
-      .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
-        qb.select((eb) =>
-          jsonObjectFrom(
-            SessionService.getSessionSelect(
-              eb.selectFrom('sessions'),
-              fieldsParam?.clone('session')
-            ).whereRef('lapTimes.sessionId', '==', 'sessions.id')
-          ).as('session')
-        )
-      )
-      .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
-        qb.select((eb) =>
-          jsonObjectFrom(
-            SessionEntrantService.getEventEntrantSelect(
-              eb.selectFrom('sessionEntrants'),
-              fieldsParam?.clone('entrant')
-            ).whereRef('lapTimes.entrantId', '==', 'sessionEntrants.id')
-          ).as('entrant')
-        )
-      ) as SelectQueryBuilder<DB, 'lapTimes' | T, LapTimeDTO>;
-  }
-
-  /** Get lap times based on some filters */ @Get('')
-  async getLaps(
-    @Queries() obj: LapQueryParams
-  ): Promise<PageMetadata & { data: LapTimeDTO[] }> {
-    const paginator = Paginator.fromPageQueryParams(obj);
-    const sorter = new Sorter<LapTimes>(obj.sort || 'lap');
-
-    const mainSelect = new ParamsBuilderService()
-      .getSessionEntrantsWithParams('lapTimes', obj)
-      .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!))
-      .$if(obj.lap != undefined, (qb) => qb.where('lap', '==', obj.lap!));
-
-    return mainSelect
-      .select(({ fn, eb }) => [
-        fn.countAll<number>().as('totalElements'),
-        eb.val(paginator.pageSize).as('pageSize'),
-        eb.val(paginator.pageNo).as('currentPage'),
-        jsonArrayFrom(
-          LapService.getLapsSelect(
-            mainSelect,
-            IncludeParam.fromFieldQueryParam(obj)
-          )
-            .limit(paginator.pageSize)
-            .offset(paginator.sqlOffset)
-            .orderBy(sorter.sqlStatementList!)
-        ).as('data')
-      ])
-      .executeTakeFirstOrThrow();
-  }
-
-  private filterSelectWithFastestTimes<T extends object>(
-    select: SelectQueryBuilder<DB, 'lapTimes', T>
-  ) {
-    return select.innerJoin(
-      (eb) =>
-        eb
-          .selectFrom('lapTimes')
-          .select(['sessionId'])
-          .select(({ fn }) => [fn.min<number>('time' as any).as('minTime')])
-          .groupBy('sessionId')
-          .as('fastestLT'),
-      (join) =>
-        join
-          .onRef('lapTimes.sessionId', '==', 'fastestLT.sessionId')
-          .onRef('lapTimes.time', '==', 'fastestLT.minTime')
-    );
+export class LapController extends CommonController {
+  /** Get lap times based on some filters */
+  @Get('')
+  @Response<JsonApiError>('4XX', 'Client error')
+  async getLaps(@Queries() obj: LapQueryParams) {
+    return this.tryKyselyExecution(new LapService().getLaps(obj));
   }
 
   /** Get the fastest lap times grouped by session, based on some filters.
    *
    * Please take into account that this call return only the global fastest laps inside a session. For example if we filter here by the driver Fernando Alonso, we will get only the sessions where he score the fastest lap */
   @Get('/fastest')
-  async getFastestLaps(
-    @Queries() obj: LapQueryParams
-  ): Promise<PageMetadata & { data: LapTimeDTO[] }> {
-    const paginator = Paginator.fromPageQueryParams(obj);
-
-    const mainSelect = new ParamsBuilderService()
-      .getSessionEntrantsWithParams('lapTimes', obj)
-      .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!))
-      .$if(obj.lap != undefined, (qb) => qb.where('lap', '==', obj.lap!));
-
-    return this.filterSelectWithFastestTimes(mainSelect)
-      .select(({ fn, eb }) => [
-        fn.countAll<number>().as('totalElements'),
-        eb.val(paginator.pageSize).as('pageSize'),
-        eb.val(paginator.pageNo).as('currentPage'),
-        jsonArrayFrom(
-          this.filterSelectWithFastestTimes(
-            LapService.getLapsSelect(
-              mainSelect,
-              IncludeParam.fromFieldQueryParam(obj)
-            )
-          )
-            .limit(paginator.pageSize)
-            .offset(paginator.sqlOffset)
-        ).as('data')
-      ])
-      .executeTakeFirstOrThrow();
+  @Response<JsonApiError>('4XX', 'Client error')
+  async getFastestLaps(@Queries() obj: LapQueryParams) {
+    return this.tryKyselyExecution(new LapService().getFastestLaps(obj));
   }
 }

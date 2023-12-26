@@ -1,6 +1,6 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
+import { Get, Path, Queries, Route, Tags } from 'tsoa';
 import { IncludeParam, IncludeQueryParam } from '../../models/fields-filter';
 import { PageMetadata, Paginator } from '../../models/paginated-items';
 import { TimedSessionResultQueryParams } from '../../models/query-params';
@@ -11,10 +11,7 @@ import {
   TimedSessionResultsDTO
 } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
-import {
-  ErrorMessage,
-  sendTsoaError
-} from '../../utils/custom-error/custom-error';
+import { HttpException } from '../../utils/custom-error';
 import { ParamsBuilderService } from './../paramsBuilder.service';
 import { SessionService } from './../session.controller';
 import { SessionEntrantService } from './../sessionEntrant.controller';
@@ -108,8 +105,7 @@ export class QualifyingResultService extends DbService {
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
-    @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
+    @Queries() fields: IncludeQueryParam
   ): Promise<TimedSessionResultsDTO[]> {
     const sessionResultsInDB: TimedSessionResultsDTO[] =
       await QualifyingResultService.getQualifyingResultSelect(
@@ -120,7 +116,7 @@ export class QualifyingResultService extends DbService {
         .execute();
 
     if (!sessionResultsInDB || sessionResultsInDB.length === 0) {
-      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
+      throw HttpException.resourceNotFound('results');
     }
 
     return sessionResultsInDB;
@@ -134,8 +130,7 @@ export class QualifyingResultService extends DbService {
     @Path() round: number,
     @Path() session: string,
     @Path() driverId: string,
-    @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
+    @Queries() fields: IncludeQueryParam
   ): Promise<TimedSessionResultsDTO> {
     const raceResultInDB: TimedSessionResultsDTO | undefined =
       await QualifyingResultService.getQualifyingResultSelect(
@@ -146,7 +141,7 @@ export class QualifyingResultService extends DbService {
         .executeTakeFirst();
 
     if (!raceResultInDB) {
-      return sendTsoaError(notFoundResponse, 404, 'results.not.found');
+      throw HttpException.resourceNotFound('results');
     }
 
     return raceResultInDB;

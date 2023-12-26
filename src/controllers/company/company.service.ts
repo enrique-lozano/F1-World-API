@@ -1,30 +1,14 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { Get, Queries, Route, Tags } from 'tsoa';
-import { IncludeParam, IncludeQueryParam } from '../models/fields-filter';
-import {
-  PageMetadata,
-  PageQueryParams,
-  Paginator
-} from '../models/paginated-items';
-import { Sorter, SorterQueryParams } from '../models/sorter';
-import { DbService } from '../services/db.service';
-import { Companies, CompanyDTO, DB } from './../models/types.dto';
-import { CountryService } from './countries.controller';
+import { IncludeParam } from '../../models/fields-filter';
+import { PageMetadata, Paginator } from '../../models/paginated-items';
+import { Sorter } from '../../models/sorter';
+import { Companies, CompanyDTO, DB } from '../../models/types.dto';
+import { DbService } from '../../services/db.service';
+import { HttpException } from '../../utils/custom-error';
+import { CountryService } from '../countries.controller';
+import { CompanyQueryParams } from './company.controller';
 
-interface CompanyQueryParams
-  extends PageQueryParams,
-    SorterQueryParams,
-    IncludeQueryParam {
-  // TODO:
-  /** Return only the companies that has manufactured in this specialty */
-  // specialty?: 'engine' | 'chassis';
-
-  name?: string;
-}
-
-@Route('/companies')
-@Tags('Companies')
 export class CompanyService extends DbService {
   static getCompaniesSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'companies', object>,
@@ -54,9 +38,8 @@ export class CompanyService extends DbService {
       ) as SelectQueryBuilder<DB, 'companies' | T, CompanyDTO>;
   }
 
-  @Get('/')
   async get(
-    @Queries() obj: CompanyQueryParams
+    obj: CompanyQueryParams
   ): Promise<PageMetadata & { data: CompanyDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
     const sorter = new Sorter<Companies>(obj.sort || 'name');
@@ -82,11 +65,11 @@ export class CompanyService extends DbService {
 
   /** Get a company by its ID
    *
-   * @param companyId The ID of the company to get */
-  @Get('{id}')
+   * @param companyId The ID of the company to get
+   * */
   getById(id: string): Promise<CompanyDTO | undefined> {
     return CompanyService.getCompaniesSelect(this.db.selectFrom('companies'))
       .where('id', '==', id)
-      .executeTakeFirst();
+      .executeTakeFirstOrThrow(() => HttpException.resourceNotFound('default'));
   }
 }

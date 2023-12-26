@@ -1,0 +1,29 @@
+{
+  "HTTP_ERRORS": {
+    "not_found": {
+      "title": "Resource not found",
+      "descriptions": {
+        "default": "There is no element that meets the search criteria. Try other search parameters",
+        "driver_result": "We could not find any record that satisfies your request. Check that this session actually took place and that the specified driver participated in it",
+        "results": "We could not find any record that satisfies your request. Check that this session actually took place",
+        "fastest_lap": "We could not find the fastest lap of this session. Probably there aren't information about lap times in this session"
+      }
+    },
+    "no_such_column": {
+      "title": "Attribute not found",
+      "detail": "The column {{ column }} was not found in the resource. We can not make any action with it"
+    },
+    "validation_error": {
+      "title": "Validation error",
+      "detail": "One or more method params has validation errors. The errors are:\n\n{{ fieldsErrors }}"
+    },
+    "internal_server_error": {
+      "title": "Internal Server Error",
+      "detail": "An unexpected error occurred on the server"
+    },
+    "route_not_found": {
+      "title": "Route or path not found",
+      "detail": "The specified URL is not valid. Please verify that this route exists."
+    }
+  }
+}

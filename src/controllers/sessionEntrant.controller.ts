@@ -3,7 +3,7 @@ import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam } from '../models/fields-filter';
 import { DB, EventEntrantDTO } from '../models/types.dto';
 import { DbService } from '../services/db.service';
-import { CompanyService } from './company.controller';
+import { CompanyService } from './company/company.service';
 import { DriverService } from './driver.controller';
 import { SeasonEntrantService } from './seasonEntrant.controller';
 import { TyreManufacturerService } from './tyreManufacturer.controller';

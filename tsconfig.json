@@ -17,7 +17,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "useUnknownInCatchVariables": true,
+    "useUnknownInCatchVariables": false,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ESNext",

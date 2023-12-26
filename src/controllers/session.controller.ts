@@ -1,14 +1,11 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { Get, Path, Queries, Res, Route, Tags, TsoaResponse } from 'tsoa';
+import { Get, Path, Queries, Route, Tags } from 'tsoa';
 import { IncludeParam, IncludeQueryParam } from '../models/fields-filter';
 import { PageQueryParams } from '../models/paginated-items';
 import { SessionQueryParams } from '../models/query-params';
 import { DbService } from '../services/db.service';
-import {
-  ErrorMessage,
-  sendTsoaError
-} from '../utils/custom-error/custom-error';
+import { HttpException } from '../utils/custom-error';
 import {
   DB,
   RaceResultDTO,
@@ -16,7 +13,7 @@ import {
   TimedSessionResultsDTO
 } from './../models/types.dto';
 import { EventService } from './event.controller';
-import { LapService } from './laps/lap.controller';
+import { LapService } from './laps/lap.service';
 import { ParamsBuilderService } from './paramsBuilder.service';
 import { PitStopService } from './pitStop.controller';
 import { FreePracticeResultService } from './results/freePracticeResult.controller';
@@ -81,32 +78,28 @@ export class SessionService extends DbService {
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
-    @Queries() fields: IncludeQueryParam,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
+    @Queries() fields: IncludeQueryParam
   ): Promise<(TimedSessionResultsDTO | RaceResultDTO)[]> {
     if (['Q1', 'Q2', 'Q3', 'Q'].some((x) => x === session)) {
       return new QualifyingResultService().getQualifyingSessionResults(
         season,
         round,
         session,
-        fields,
-        notFoundResponse
+        fields
       );
     } else if (['R', 'SR'].some((x) => x === session)) {
       return new RaceResultService().getRaceResults(
         season,
         round,
         session,
-        fields,
-        notFoundResponse
+        fields
       );
     } else {
       return new FreePracticeResultService().getFreePracticeSessionResults(
         season,
         round,
         session,
-        fields,
-        notFoundResponse
+        fields
       );
     }
   }
@@ -138,8 +131,7 @@ export class SessionService extends DbService {
   async getSessionFastestLap(
     @Path() season: number,
     @Path() round: number,
-    @Path() session: string,
-    @Res() notFoundResponse: TsoaResponse<404, ErrorMessage>
+    @Path() session: string
   ) {
     const res = await new LapService().getFastestLaps({
       round,
@@ -148,7 +140,7 @@ export class SessionService extends DbService {
     });
 
     if (res.data.length == 0 || res.totalElements == 0) {
-      return sendTsoaError(notFoundResponse, 404, 'fastest-lap.not.found');
+      throw HttpException.resourceNotFound('fastest_lap');
     }
 
     return res.data[0];

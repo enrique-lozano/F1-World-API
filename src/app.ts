@@ -5,6 +5,7 @@ import { ValidateError } from 'tsoa';
 import { RegisterRoutes } from './routes';
 
 import * as swaggerJSON from './swagger.json';
+import { HttpException } from './utils/custom-error';
 
 const app = express();
 
@@ -42,18 +43,30 @@ app.use(function errorHandler(
   next: NextFunction
 ): Response | void {
   if (err instanceof ValidateError) {
-    // Invalid params
-    console.warn(`Caught Validation Error for ${req.path}:`, err.fields);
-    return res.status(422).json({
-      message: 'Validation Failed',
-      details: err?.fields
-    });
+    return res.status(422).json(
+      HttpException.fromStatusAndCode(422, 'validation_error', {
+        detail: {
+          fieldsErrors: Object.keys(err?.fields)
+            .map(
+              (x) =>
+                `\t - ${err.fields[x].message}. Current value is: ${err.fields[x].value}`
+            )
+            .join('\n')
+        }
+      })
+    );
   }
+
+  if (err instanceof HttpException) {
+    return res.status(err.status).json(err);
+  }
+
   if (err instanceof Error) {
     console.error(err);
-    return res.status(500).json({
-      message: 'Internal Server Error'
-    });
+
+    return res
+      .status(500)
+      .json(HttpException.fromStatusAndCode(500, 'internal_server_error'));
   }
 
   next();
@@ -61,9 +74,7 @@ app.use(function errorHandler(
 
 // Send 404 if the route does not exists
 app.use(function notFoundHandler(_req, res: Response) {
-  res.status(404).send({
-    message: 'Route not found. Please verify that the URL is valid'
-  });
+  res.status(404).send(HttpException.fromStatusAndCode(404, 'route_not_found'));
 });
 
 export default app;

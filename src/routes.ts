@@ -7,7 +7,7 @@ import { CountryService } from './controllers/countries.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { CircuitService } from './controllers/circuit.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { CompanyService } from './controllers/company.controller';
+import { CompanyController } from './controllers/company/company.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { DriverService } from './controllers/driver.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -29,7 +29,7 @@ import { RaceResultService } from './controllers/results/raceResult.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { SessionService } from './controllers/session.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { LapService } from './controllers/laps/lap.controller';
+import { LapController } from './controllers/laps/lap.controller';
 import type { RequestHandler, Router } from 'express';
 
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -81,7 +81,6 @@ const models: TsoaRoute.Models = {
             "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
             "sort": {"dataType":"string"},
             "include": {"dataType":"string"},
-            "orderBy": {"dataType":"enum","enums":["countryId","id","name","fullName","previousNames","type","placeName","latitude","longitude"],"default":"name"},
         },
         "additionalProperties": false,
     },
@@ -99,6 +98,22 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "HttpStatusCodeLiteral": {
+        "dataType": "refAlias",
+        "type": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":[100]},{"dataType":"enum","enums":[101]},{"dataType":"enum","enums":[102]},{"dataType":"enum","enums":[200]},{"dataType":"enum","enums":[201]},{"dataType":"enum","enums":[202]},{"dataType":"enum","enums":[203]},{"dataType":"enum","enums":[204]},{"dataType":"enum","enums":[205]},{"dataType":"enum","enums":[206]},{"dataType":"enum","enums":[207]},{"dataType":"enum","enums":[208]},{"dataType":"enum","enums":[226]},{"dataType":"enum","enums":[300]},{"dataType":"enum","enums":[301]},{"dataType":"enum","enums":[302]},{"dataType":"enum","enums":[303]},{"dataType":"enum","enums":[304]},{"dataType":"enum","enums":[305]},{"dataType":"enum","enums":[307]},{"dataType":"enum","enums":[308]},{"dataType":"enum","enums":[400]},{"dataType":"enum","enums":[401]},{"dataType":"enum","enums":[402]},{"dataType":"enum","enums":[403]},{"dataType":"enum","enums":[404]},{"dataType":"enum","enums":[405]},{"dataType":"enum","enums":[406]},{"dataType":"enum","enums":[407]},{"dataType":"enum","enums":[408]},{"dataType":"enum","enums":[409]},{"dataType":"enum","enums":[410]},{"dataType":"enum","enums":[411]},{"dataType":"enum","enums":[412]},{"dataType":"enum","enums":[413]},{"dataType":"enum","enums":[414]},{"dataType":"enum","enums":[415]},{"dataType":"enum","enums":[416]},{"dataType":"enum","enums":[417]},{"dataType":"enum","enums":[418]},{"dataType":"enum","enums":[422]},{"dataType":"enum","enums":[423]},{"dataType":"enum","enums":[424]},{"dataType":"enum","enums":[426]},{"dataType":"enum","enums":[428]},{"dataType":"enum","enums":[429]},{"dataType":"enum","enums":[431]},{"dataType":"enum","enums":[451]},{"dataType":"enum","enums":[500]},{"dataType":"enum","enums":[501]},{"dataType":"enum","enums":[502]},{"dataType":"enum","enums":[503]},{"dataType":"enum","enums":[504]},{"dataType":"enum","enums":[505]},{"dataType":"enum","enums":[506]},{"dataType":"enum","enums":[507]},{"dataType":"enum","enums":[508]},{"dataType":"enum","enums":[510]},{"dataType":"enum","enums":[511]}],"validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "JsonApiError": {
+        "dataType": "refObject",
+        "properties": {
+            "status": {"ref":"HttpStatusCodeLiteral","required":true},
+            "code": {"dataType":"string","required":true},
+            "title": {"dataType":"string","required":true},
+            "detail": {"dataType":"string"},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "CompanyQueryParams": {
         "dataType": "refObject",
         "properties": {
@@ -107,7 +122,6 @@ const models: TsoaRoute.Models = {
             "sort": {"dataType":"string"},
             "include": {"dataType":"string"},
             "name": {"dataType":"string"},
-            "orderBy": {"dataType":"enum","enums":["countryId","id","name","fullName","founder","yearFounded"],"default":"name"},
         },
         "additionalProperties": false,
     },
@@ -187,7 +201,6 @@ const models: TsoaRoute.Models = {
             "sort": {"dataType":"string"},
             "include": {"dataType":"string"},
             "circuitId": {"dataType":"string"},
-            "orderBy": {"dataType":"enum","enums":["id","name","grandPrixId","circuitId","raceDate","qualyFormat","scheduledLaps","posterURL"],"default":"id"},
         },
         "additionalProperties": false,
     },
@@ -298,7 +311,6 @@ const models: TsoaRoute.Models = {
             "session": {"dataType":"string"},
             "driverId": {"dataType":"string"},
             "lap": {"dataType":"double"},
-            "orderBy": {"dataType":"enum","enums":["entrantId","time","eventId","lap","timeOfDay","annotation"],"default":"eventId"},
         },
         "additionalProperties": false,
     },
@@ -331,16 +343,6 @@ const models: TsoaRoute.Models = {
             "maxPos": {"dataType":"integer","validators":{"minimum":{"errorMsg":"The minimum value of `maxPos` should be 1","value":1},"isInt":{"errorMsg":"The `maxPos` param should be an integer"}}},
             "positionText": {"dataType":"string"},
             "orderBy": {"dataType":"enum","enums":["entrantId","sessionId","positionOrder","positionText","time","laps"],"default":"sessionId"},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "ErrorMessage_404_": {
-        "dataType": "refObject",
-        "properties": {
-            "status": {"dataType":"enum","enums":[404],"required":true},
-            "code": {"dataType":"string","required":true},
-            "details": {"dataType":"string","required":true},
         },
         "additionalProperties": false,
     },
@@ -382,17 +384,6 @@ const models: TsoaRoute.Models = {
             "positionText": {"dataType":"string"},
             "maxGridPos": {"dataType":"double"},
             "minGridPos": {"dataType":"double"},
-            "orderBy": {"dataType":"enum","enums":["entrantId","sessionId","positionOrder","positionText","time","gridPosition","gridPenalty","laps","points","pointsCountForWDC","pointsGained","gap","timePenalty","reasonRetired"],"default":"sessionId"},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "ErrorMessage_400_": {
-        "dataType": "refObject",
-        "properties": {
-            "status": {"dataType":"enum","enums":[400],"required":true},
-            "code": {"dataType":"string","required":true},
-            "details": {"dataType":"string","required":true},
         },
         "additionalProperties": false,
     },
@@ -433,7 +424,6 @@ const models: TsoaRoute.Models = {
             "driverId": {"dataType":"string"},
             "pos": {"dataType":"double"},
             "lap": {"dataType":"double"},
-            "orderBy": {"dataType":"enum","enums":["entrantId","sessionId","time","lap","pos"],"default":"sessionId"},
         },
         "additionalProperties": false,
     },
@@ -548,10 +538,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/companies',
-            ...(fetchMiddlewares<RequestHandler>(CompanyService)),
-            ...(fetchMiddlewares<RequestHandler>(CompanyService.prototype.get)),
+            ...(fetchMiddlewares<RequestHandler>(CompanyController)),
+            ...(fetchMiddlewares<RequestHandler>(CompanyController.prototype.get)),
 
-            function CompanyService_get(request: any, response: any, next: any) {
+            function CompanyController_get(request: any, response: any, next: any) {
             const args = {
                     obj: {"in":"queries","name":"obj","required":true,"ref":"CompanyQueryParams"},
             };
@@ -562,7 +552,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new CompanyService();
+                const controller = new CompanyController();
 
 
               const promise = controller.get.apply(controller, validatedArgs as any);
@@ -573,10 +563,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/companies/:id',
-            ...(fetchMiddlewares<RequestHandler>(CompanyService)),
-            ...(fetchMiddlewares<RequestHandler>(CompanyService.prototype.getById)),
+            ...(fetchMiddlewares<RequestHandler>(CompanyController)),
+            ...(fetchMiddlewares<RequestHandler>(CompanyController.prototype.getById)),
 
-            function CompanyService_getById(request: any, response: any, next: any) {
+            function CompanyController_getById(request: any, response: any, next: any) {
             const args = {
                     id: {"in":"path","name":"id","required":true,"dataType":"string"},
             };
@@ -587,7 +577,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new CompanyService();
+                const controller = new CompanyController();
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
@@ -987,7 +977,6 @@ export function RegisterRoutes(app: Router) {
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
                     fields: {"in":"queries","name":"fields","required":true,"ref":"IncludeQueryParam"},
-                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -1017,7 +1006,6 @@ export function RegisterRoutes(app: Router) {
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
                     fields: {"in":"queries","name":"fields","required":true,"ref":"IncludeQueryParam"},
-                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -1071,7 +1059,6 @@ export function RegisterRoutes(app: Router) {
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
                     fields: {"in":"queries","name":"fields","required":true,"ref":"IncludeQueryParam"},
-                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -1101,7 +1088,6 @@ export function RegisterRoutes(app: Router) {
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
                     fields: {"in":"queries","name":"fields","required":true,"ref":"IncludeQueryParam"},
-                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -1127,7 +1113,6 @@ export function RegisterRoutes(app: Router) {
             function RaceResultService_getRacesResults(request: any, response: any, next: any) {
             const args = {
                     obj: {"in":"queries","name":"obj","required":true,"ref":"RaceResultQueryParams"},
-                    notFoundResponse: {"in":"res","name":"400","required":true,"ref":"ErrorMessage_400_"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -1156,7 +1141,6 @@ export function RegisterRoutes(app: Router) {
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
                     fields: {"in":"queries","name":"fields","required":true,"ref":"IncludeQueryParam"},
-                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -1186,7 +1170,6 @@ export function RegisterRoutes(app: Router) {
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
                     fields: {"in":"queries","name":"fields","required":true,"ref":"IncludeQueryParam"},
-                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -1268,7 +1251,6 @@ export function RegisterRoutes(app: Router) {
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
                     fields: {"in":"queries","name":"fields","required":true,"ref":"IncludeQueryParam"},
-                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -1352,7 +1334,6 @@ export function RegisterRoutes(app: Router) {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
                     session: {"in":"path","name":"session","required":true,"dataType":"string"},
-                    notFoundResponse: {"in":"res","name":"404","required":true,"ref":"ErrorMessage_404_"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -1372,10 +1353,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/laps',
-            ...(fetchMiddlewares<RequestHandler>(LapService)),
-            ...(fetchMiddlewares<RequestHandler>(LapService.prototype.getLaps)),
+            ...(fetchMiddlewares<RequestHandler>(LapController)),
+            ...(fetchMiddlewares<RequestHandler>(LapController.prototype.getLaps)),
 
-            function LapService_getLaps(request: any, response: any, next: any) {
+            function LapController_getLaps(request: any, response: any, next: any) {
             const args = {
                     obj: {"in":"queries","name":"obj","required":true,"ref":"LapQueryParams"},
             };
@@ -1386,7 +1367,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new LapService();
+                const controller = new LapController();
 
 
               const promise = controller.getLaps.apply(controller, validatedArgs as any);
@@ -1397,10 +1378,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/laps/fastest',
-            ...(fetchMiddlewares<RequestHandler>(LapService)),
-            ...(fetchMiddlewares<RequestHandler>(LapService.prototype.getFastestLaps)),
+            ...(fetchMiddlewares<RequestHandler>(LapController)),
+            ...(fetchMiddlewares<RequestHandler>(LapController.prototype.getFastestLaps)),
 
-            function LapService_getFastestLaps(request: any, response: any, next: any) {
+            function LapController_getFastestLaps(request: any, response: any, next: any) {
             const args = {
                     obj: {"in":"queries","name":"obj","required":true,"ref":"LapQueryParams"},
             };
@@ -1411,7 +1392,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new LapService();
+                const controller = new LapController();
 
 
               const promise = controller.getFastestLaps.apply(controller, validatedArgs as any);
