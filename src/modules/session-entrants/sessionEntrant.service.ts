@@ -1,14 +1,24 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { IncludeParam } from '../models/include-filter';
-import { DB, EventEntrantDTO } from '../models/types.dto';
-import { DbService } from '../services/db.service';
-import { CompanyService } from './company/company.service';
-import { DriverService } from './driver/driver.service';
-import { SeasonEntrantService } from './seasonEntrant.controller';
-import { TyreManufacturerService } from './tyreManufacturer.controller';
+import { IncludeParam } from '../../models/include-filter';
+import { PageMetadata, Paginator } from '../../models/pagination';
+import { SessionEntrantQueryParams } from '../../models/query-params';
+import { Sorter } from '../../models/sorter';
+import { DB, EventEntrantDTO, EventEntrants } from '../../models/types.dto';
+import { DbService } from '../../services/db.service';
+import { CompanyService } from '../company/company.service';
+import { DriverService } from '../driver/driver.service';
+import { SeasonEntrantService } from '../seasonEntrant.controller';
+import { TyreManufacturerService } from '../tyreManufacturer.controller';
+import { SessionEntrantController } from './sessionEntrant.controller';
 
-export class SessionEntrantService extends DbService {
+export interface EntrantQueryParam
+  extends Omit<SessionEntrantQueryParams, 'round' | 'session'> {}
+
+export class SessionEntrantService
+  extends DbService
+  implements Pick<SessionEntrantController, 'get'>
+{
   static getEventEntrantSelect<T extends keyof DB>(
     qb: SelectQueryBuilder<DB, T | 'sessionEntrants', object>,
     fieldsParam?: IncludeParam
@@ -25,7 +35,12 @@ export class SessionEntrantService extends DbService {
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'sessionEntrants', object>)
-      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
+      .select(
+        fieldsParam.getFilteredFieldsArrayWithPrefix(
+          allSingleFields,
+          'sessionEntrants.'
+        )
+      )
       .$if(fieldsParam.shouldSelectObject('driver'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
@@ -89,5 +104,39 @@ export class SessionEntrantService extends DbService {
           ).as('engineManufacturer')
         )
       ) as SelectQueryBuilder<DB, 'sessionEntrants' | T, EventEntrantDTO>;
+  }
+
+  get(
+    obj: EntrantQueryParam
+  ): Promise<PageMetadata & { data: EventEntrantDTO[] }> {
+    const paginator = Paginator.fromPageQueryParams(obj);
+    const sorter = new Sorter<EventEntrants>(obj.sort || 'sessionEntrants.id');
+
+    const mainSelect = this.db
+      .selectFrom('sessionEntrants')
+      .$if(obj.driverId != undefined, (qb) =>
+        qb
+          .innerJoin('drivers', 'drivers.id', `sessionEntrants.driverId`)
+          .where('sessionEntrants.driverId', '==', obj.driverId!)
+      )
+      .$if(obj.season != undefined, (qb) =>
+        qb
+          .innerJoin(
+            'seasonEntrants',
+            'seasonEntrants.id',
+            `sessionEntrants.seasonEntrantId`
+          )
+          .where('seasonEntrants.season', '==', obj.season!)
+      );
+
+    return this.paginateSelect(
+      mainSelect,
+      SessionEntrantService.getEventEntrantSelect(
+        mainSelect,
+        IncludeParam.fromFieldQueryParam(obj)
+      ),
+      paginator,
+      sorter
+    ).executeTakeFirstOrThrow();
   }
 }

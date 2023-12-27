@@ -1,5 +1,9 @@
 import { SelectQueryBuilder } from 'kysely';
-import { ResultsFiltersQueryParams } from '../models/query-params';
+import {
+  ResultsFiltersQueryParams,
+  SessionEntrantQueryParams,
+  SessionQueryParams
+} from '../models/query-params';
 import { DB } from '../models/types.dto';
 import { DbService } from '../services/db.service';
 import {
@@ -15,7 +19,7 @@ type sessionEntrantsTables = resultsTables | 'lapTimes' | 'pitStops';
 export class ParamsBuilderService extends DbService {
   getSessionsWithParamas<T extends sessionEntrantsTables | 'sessions'>(
     fromTable: T,
-    obj: ResultsFiltersQueryParams
+    obj: SessionQueryParams
   ) {
     let columnToGet = `${fromTable}.sessionId`;
 
@@ -36,7 +40,7 @@ export class ParamsBuilderService extends DbService {
 
   getSessionEntrantsWithParams<T extends sessionEntrantsTables>(
     fromTable: T,
-    obj: ResultsFiltersQueryParams
+    obj: SessionEntrantQueryParams
   ): SelectQueryBuilder<DB, T, Partial<unknown>> {
     return this.getSessionsWithParamas(fromTable as any, obj).$if(
       obj.driverId != undefined,

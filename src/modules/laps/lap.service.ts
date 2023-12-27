@@ -7,8 +7,8 @@ import { Sorter } from '../../models/sorter';
 import { DB, LapTimeDTO, LapTimes } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { ParamsBuilderService } from '../paramsBuilder.service';
+import { SessionEntrantService } from '../session-entrants/sessionEntrant.service';
 import { SessionService } from '../session/session.service';
-import { SessionEntrantService } from '../sessionEntrant.controller';
 import { LapController } from './lap.controller';
 
 export interface LapQueryParams extends SessionEntrantQueryParams {

@@ -27,18 +27,36 @@ export class IncludeParam implements IncludeQueryParam {
     if (fieldsString != undefined) this.include = fieldsString;
   }
 
-  /** Filter the `include` query param to return only the specified elements */
-  getFilteredFieldsArray<T extends string>(
-    fieldsThatCanBeReturned: Readonly<T[]>
+  /** Filter the `include` query param to return only the specified elements and
+   * add a custom prefix to all the returned elements in the array
+   *  */
+  getFilteredFieldsArrayWithPrefix<T extends string, K extends string = ''>(
+    fieldsThatCanBeReturned: Readonly<T[]>,
+    prefixToInclude: K
   ) {
     const fieldsArray = this.getFieldsArray();
 
     if (!fieldsArray || fieldsArray.length === 0)
-      return fieldsThatCanBeReturned;
+      return fieldsThatCanBeReturned.map(
+        (x) => `${prefixToInclude}${x}`
+      ) as `${K}${T}`[];
 
-    return fieldsArray.filter((x) =>
+    const toReturn = fieldsArray.filter((x) =>
       fieldsThatCanBeReturned.includes(x as any)
     ) as T[];
+
+    if (prefixToInclude) {
+      return toReturn.map((x) => `${prefixToInclude}${x}`) as `${K}${T}`[];
+    }
+
+    return toReturn as `${K}${T}`[];
+  }
+
+  /** Filter the `include` query param to return only the specified elements */
+  getFilteredFieldsArray<T extends string>(
+    fieldsThatCanBeReturned: Readonly<T[]>
+  ) {
+    return this.getFilteredFieldsArrayWithPrefix(fieldsThatCanBeReturned, '');
   }
 
   /** Get the array of fields that the `include` attribute represents. That is, split the `include` query param using the comma as a separator.

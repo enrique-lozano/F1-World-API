@@ -13,8 +13,8 @@ import {
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { ParamsBuilderService } from '../paramsBuilder.service';
+import { SessionEntrantService } from '../session-entrants/sessionEntrant.service';
 import { SessionService } from '../session/session.service';
-import { SessionEntrantService } from '../sessionEntrant.controller';
 
 @Route('free-practices')
 @Tags('Free Practices')

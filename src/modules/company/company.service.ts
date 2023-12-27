@@ -28,7 +28,12 @@ export class CompanyService
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'companies', object>)
-      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
+      .select(
+        fieldsParam.getFilteredFieldsArrayWithPrefix(
+          allSingleFields,
+          'companies.'
+        )
+      )
       .$if(fieldsParam.shouldSelectObject('country'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(

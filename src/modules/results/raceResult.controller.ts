@@ -9,8 +9,8 @@ import { DB, RaceResultDTO, RaceResults } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { ParamsBuilderService } from '../paramsBuilder.service';
+import { SessionEntrantService } from '../session-entrants/sessionEntrant.service';
 import { SessionService } from '../session/session.service';
-import { SessionEntrantService } from '../sessionEntrant.controller';
 
 export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
   maxGridPos?: number;

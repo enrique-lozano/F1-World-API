@@ -805,6 +805,42 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"EntrantQueryParam": {
+				"properties": {
+					"driverId": {
+						"type": "string",
+						"description": "Return only the items regarding this driver"
+					},
+					"season": {
+						"type": "number",
+						"format": "double"
+					},
+					"pageNo": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Page to retrieve, starting at 0",
+						"default": "0",
+						"minimum": 0
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Size of the page to retrieve",
+						"default": "10",
+						"minimum": 1
+					},
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
+					},
+					"include": {
+						"type": "string",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
 			"TimedSessionResultsDTO": {
 				"properties": {
 					"positionOrder": {
@@ -2545,6 +2581,118 @@
 						"in": "path",
 						"name": "id",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/session-entrants": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageMetadata"
+										},
+										{
+											"properties": {
+												"data": {
+													"items": {
+														"$ref": "#/components/schemas/EventEntrantDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"data"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					},
+					"4XX": {
+						"description": "Client error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/JsonApiError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get entrants based on some filters. The return data will be paginated",
+				"tags": [
+					"Session entrants"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Return only the items regarding this driver",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "season",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": "0",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": "10",
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
+						}
+					},
+					{
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
+						"in": "query",
+						"name": "sort",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
+						"in": "query",
+						"name": "include",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}

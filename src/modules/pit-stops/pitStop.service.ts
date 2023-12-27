@@ -6,7 +6,7 @@ import { Sorter } from '../../models/sorter';
 import { DB, PitStopDTO, PitStops } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { EventService } from '../event/event.service';
-import { SessionEntrantService } from '../sessionEntrant.controller';
+import { SessionEntrantService } from '../session-entrants/sessionEntrant.service';
 import { PitStopController, PitStopQueryParams } from './pitStop.controller';
 
 export class PitStopService

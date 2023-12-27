@@ -19,6 +19,8 @@ import { GrandPrixController } from './modules/grands-prix/grandPrix.controller'
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { TyreManufacturerService } from './modules/tyreManufacturer.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+import { SessionEntrantController } from './modules/session-entrants/sessionEntrant.controller';
+// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { FreePracticeResultService } from './modules/results/freePracticeResult.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { QualifyingResultService } from './modules/results/qualifyingResult.controller';
@@ -285,6 +287,19 @@ const models: TsoaRoute.Models = {
             "tyreManufacturer": {"dataType":"union","subSchemas":[{"ref":"TyreManufacturerDTO"},{"dataType":"enum","enums":[null]}],"required":true},
             "chassisManufacturer": {"dataType":"union","subSchemas":[{"ref":"CompanyDTO"},{"dataType":"enum","enums":[null]}],"required":true},
             "engineManufacturer": {"dataType":"union","subSchemas":[{"ref":"CompanyDTO"},{"dataType":"enum","enums":[null]}],"required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "EntrantQueryParam": {
+        "dataType": "refObject",
+        "properties": {
+            "driverId": {"dataType":"string"},
+            "season": {"dataType":"double"},
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
+            "sort": {"dataType":"string"},
+            "include": {"dataType":"string"},
         },
         "additionalProperties": false,
     },
@@ -914,6 +929,31 @@ export function RegisterRoutes(app: Router) {
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/session-entrants',
+            ...(fetchMiddlewares<RequestHandler>(SessionEntrantController)),
+            ...(fetchMiddlewares<RequestHandler>(SessionEntrantController.prototype.get)),
+
+            function SessionEntrantController_get(request: any, response: any, next: any) {
+            const args = {
+                    obj: {"in":"queries","name":"obj","required":true,"ref":"EntrantQueryParam"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new SessionEntrantController();
+
+
+              const promise = controller.get.apply(controller, validatedArgs as any);
               promiseHandler(controller, promise, response, undefined, next);
             } catch (err) {
                 return next(err);
