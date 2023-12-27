@@ -203,15 +203,15 @@ export interface LapTimeDTO extends Omit<LapTimes, 'sessionId' | 'entrantId'> {
 
 export interface PitStops {
   entrantId: string;
-  eventId: string;
+  sessionId: string;
   lap: number;
   time: number | null;
   timeOfDay: string | null;
   annotation: string | null;
 }
 
-export interface PitStopDTO extends Omit<PitStops, 'eventId' | 'entrantId'> {
-  event: EventDTO | null;
+export interface PitStopDTO extends Omit<PitStops, 'sessionId' | 'entrantId'> {
+  session: SessionDTO | null;
   entrant: EventEntrantDTO | null;
 }
 

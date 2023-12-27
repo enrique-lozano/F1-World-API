@@ -5,8 +5,8 @@ import { PageMetadata, Paginator } from '../../models/pagination';
 import { Sorter } from '../../models/sorter';
 import { DB, PitStopDTO, PitStops } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
-import { EventService } from '../event/event.service';
 import { SessionEntrantService } from '../session-entrants/sessionEntrant.service';
+import { SessionService } from '../session/session.service';
 import { PitStopController, PitStopQueryParams } from './pitStop.controller';
 
 export class PitStopService
@@ -33,15 +33,14 @@ export class PitStopService
           ).as('entrant')
         )
       )
-      .$if(fieldsParam.shouldSelectObject('event'), (qb) =>
+      .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
-            EventService.getEventSelect(eb.selectFrom('events')).whereRef(
-              'pitStops.eventId',
-              '==',
-              'events.id'
-            )
-          ).as('event')
+            SessionService.getSessionSelect(
+              eb.selectFrom('sessions'),
+              fieldsParam?.clone('session')
+            ).whereRef('pitStops.sessionId', '==', 'sessions.id')
+          ).as('session')
         )
       ) as SelectQueryBuilder<DB, 'pitStops' | T, PitStopDTO>;
   }
@@ -50,11 +49,10 @@ export class PitStopService
     obj: PitStopQueryParams
   ): Promise<PageMetadata & { data: PitStopDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-    const sorter = new Sorter<PitStops>(obj.sort || 'eventId');
+    const sorter = new Sorter<PitStops>(obj.sort || 'sessionId');
 
     const mainSelect = this.db
       .selectFrom('pitStops')
-      .selectAll()
       .$if(obj.lap != undefined, (qb) => qb.where('lap', '==', obj.lap!));
 
     return this.paginateSelect(
