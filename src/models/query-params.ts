@@ -1,12 +1,23 @@
-import { IncludeQueryParam } from './fields-filter';
-import { PageQueryParams } from './paginated-items';
+import { IncludeQueryParam } from './include-filter';
+import { PageQueryParams } from './pagination';
 import { SorterQueryParams } from './sorter';
 import { TimedSessionResults } from './types.dto';
 
-export interface SessionQueryParams
+/** A interface that define the query parameters needed for pagination, sorting and including resources.
+ *
+ * Internally, this interface extends this 3 interfaces:
+ * - `PageQueryParams`
+ * - `SorterQueryParams`
+ * - `IncludeQueryParams`
+ *
+ * If you don't want to extend any of this interfaces you can always extend this interfaces individually
+ */
+export interface CommonQueryParams
   extends PageQueryParams,
     SorterQueryParams,
-    IncludeQueryParam {
+    IncludeQueryParam {}
+
+export interface SessionQueryParams extends CommonQueryParams {
   season?: number;
 
   round?: number;

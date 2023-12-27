@@ -74,8 +74,8 @@ export class Sorter<T extends object> implements SorterQueryParams {
 }
 
 /**
- * Interface to define the optional `include` query parameter according to JSON API specifications.
- * The `include` parameter allows clients to request related resources be included in the response.
+ * Interface to define the optional `sort` query parameter according to JSON API specifications.
+ * The `sort` parameter allows clients to sort the data of the responses.
  *
  * @interface SorterQueryParams
  * @see {@link https://jsonapi.org/format/#fetching-sorting | JSON API Specification - Fetching Sorting}

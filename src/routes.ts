@@ -3,33 +3,33 @@
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute, HttpStatusCodeLiteral, TsoaResponse, fetchMiddlewares } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { CountryService } from './controllers/countries.controller';
+import { CountryController } from './modules/countries/countries.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { CircuitService } from './controllers/circuit.controller';
+import { CircuitController } from './modules/circuit/circuit.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { CompanyController } from './controllers/company/company.controller';
+import { CompanyController } from './modules/company/company.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { DriverService } from './controllers/driver.controller';
+import { DriverController } from './modules/driver/driver.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { DriverStandingService } from './controllers/driver-standings.controller';
+import { DriverStandingService } from './modules/driver-standings.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { EventService } from './controllers/event.controller';
+import { EventController } from './modules/event/event.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { GrandPrixService } from './controllers/grandPrix.controller';
+import { GrandPrixController } from './modules/grands-prix/grandPrix.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { TyreManufacturerService } from './controllers/tyreManufacturer.controller';
+import { TyreManufacturerService } from './modules/tyreManufacturer.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { PitStopService } from './controllers/pitStop.controller';
+import { FreePracticeResultService } from './modules/results/freePracticeResult.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { FreePracticeResultService } from './controllers/results/freePracticeResult.controller';
+import { QualifyingResultService } from './modules/results/qualifyingResult.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { QualifyingResultService } from './controllers/results/qualifyingResult.controller';
+import { RaceResultService } from './modules/results/raceResult.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { RaceResultService } from './controllers/results/raceResult.controller';
+import { PitStopController } from './modules/pit-stops/pitStop.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { SessionService } from './controllers/session.controller';
+import { SessionController } from './modules/session/session.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { LapController } from './controllers/laps/lap.controller';
+import { LapController } from './modules/laps/lap.controller';
 import type { RequestHandler, Router } from 'express';
 
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -44,6 +44,22 @@ const models: TsoaRoute.Models = {
             "subregion": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
             "commonName": {"dataType":"string","required":true},
             "officialName": {"dataType":"string","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "HttpStatusCodeLiteral": {
+        "dataType": "refAlias",
+        "type": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":[100]},{"dataType":"enum","enums":[101]},{"dataType":"enum","enums":[102]},{"dataType":"enum","enums":[200]},{"dataType":"enum","enums":[201]},{"dataType":"enum","enums":[202]},{"dataType":"enum","enums":[203]},{"dataType":"enum","enums":[204]},{"dataType":"enum","enums":[205]},{"dataType":"enum","enums":[206]},{"dataType":"enum","enums":[207]},{"dataType":"enum","enums":[208]},{"dataType":"enum","enums":[226]},{"dataType":"enum","enums":[300]},{"dataType":"enum","enums":[301]},{"dataType":"enum","enums":[302]},{"dataType":"enum","enums":[303]},{"dataType":"enum","enums":[304]},{"dataType":"enum","enums":[305]},{"dataType":"enum","enums":[307]},{"dataType":"enum","enums":[308]},{"dataType":"enum","enums":[400]},{"dataType":"enum","enums":[401]},{"dataType":"enum","enums":[402]},{"dataType":"enum","enums":[403]},{"dataType":"enum","enums":[404]},{"dataType":"enum","enums":[405]},{"dataType":"enum","enums":[406]},{"dataType":"enum","enums":[407]},{"dataType":"enum","enums":[408]},{"dataType":"enum","enums":[409]},{"dataType":"enum","enums":[410]},{"dataType":"enum","enums":[411]},{"dataType":"enum","enums":[412]},{"dataType":"enum","enums":[413]},{"dataType":"enum","enums":[414]},{"dataType":"enum","enums":[415]},{"dataType":"enum","enums":[416]},{"dataType":"enum","enums":[417]},{"dataType":"enum","enums":[418]},{"dataType":"enum","enums":[422]},{"dataType":"enum","enums":[423]},{"dataType":"enum","enums":[424]},{"dataType":"enum","enums":[426]},{"dataType":"enum","enums":[428]},{"dataType":"enum","enums":[429]},{"dataType":"enum","enums":[431]},{"dataType":"enum","enums":[451]},{"dataType":"enum","enums":[500]},{"dataType":"enum","enums":[501]},{"dataType":"enum","enums":[502]},{"dataType":"enum","enums":[503]},{"dataType":"enum","enums":[504]},{"dataType":"enum","enums":[505]},{"dataType":"enum","enums":[506]},{"dataType":"enum","enums":[507]},{"dataType":"enum","enums":[508]},{"dataType":"enum","enums":[510]},{"dataType":"enum","enums":[511]}],"validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "JsonApiError": {
+        "dataType": "refObject",
+        "properties": {
+            "status": {"ref":"HttpStatusCodeLiteral","required":true},
+            "code": {"dataType":"string","required":true},
+            "title": {"dataType":"string","required":true},
+            "detail": {"dataType":"string"},
         },
         "additionalProperties": false,
     },
@@ -94,22 +110,6 @@ const models: TsoaRoute.Models = {
             "founder": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
             "yearFounded": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
             "country": {"dataType":"union","subSchemas":[{"ref":"CountryDTO"},{"dataType":"enum","enums":[null]}],"required":true},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "HttpStatusCodeLiteral": {
-        "dataType": "refAlias",
-        "type": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":[100]},{"dataType":"enum","enums":[101]},{"dataType":"enum","enums":[102]},{"dataType":"enum","enums":[200]},{"dataType":"enum","enums":[201]},{"dataType":"enum","enums":[202]},{"dataType":"enum","enums":[203]},{"dataType":"enum","enums":[204]},{"dataType":"enum","enums":[205]},{"dataType":"enum","enums":[206]},{"dataType":"enum","enums":[207]},{"dataType":"enum","enums":[208]},{"dataType":"enum","enums":[226]},{"dataType":"enum","enums":[300]},{"dataType":"enum","enums":[301]},{"dataType":"enum","enums":[302]},{"dataType":"enum","enums":[303]},{"dataType":"enum","enums":[304]},{"dataType":"enum","enums":[305]},{"dataType":"enum","enums":[307]},{"dataType":"enum","enums":[308]},{"dataType":"enum","enums":[400]},{"dataType":"enum","enums":[401]},{"dataType":"enum","enums":[402]},{"dataType":"enum","enums":[403]},{"dataType":"enum","enums":[404]},{"dataType":"enum","enums":[405]},{"dataType":"enum","enums":[406]},{"dataType":"enum","enums":[407]},{"dataType":"enum","enums":[408]},{"dataType":"enum","enums":[409]},{"dataType":"enum","enums":[410]},{"dataType":"enum","enums":[411]},{"dataType":"enum","enums":[412]},{"dataType":"enum","enums":[413]},{"dataType":"enum","enums":[414]},{"dataType":"enum","enums":[415]},{"dataType":"enum","enums":[416]},{"dataType":"enum","enums":[417]},{"dataType":"enum","enums":[418]},{"dataType":"enum","enums":[422]},{"dataType":"enum","enums":[423]},{"dataType":"enum","enums":[424]},{"dataType":"enum","enums":[426]},{"dataType":"enum","enums":[428]},{"dataType":"enum","enums":[429]},{"dataType":"enum","enums":[431]},{"dataType":"enum","enums":[451]},{"dataType":"enum","enums":[500]},{"dataType":"enum","enums":[501]},{"dataType":"enum","enums":[502]},{"dataType":"enum","enums":[503]},{"dataType":"enum","enums":[504]},{"dataType":"enum","enums":[505]},{"dataType":"enum","enums":[506]},{"dataType":"enum","enums":[507]},{"dataType":"enum","enums":[508]},{"dataType":"enum","enums":[510]},{"dataType":"enum","enums":[511]}],"validators":{}},
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "JsonApiError": {
-        "dataType": "refObject",
-        "properties": {
-            "status": {"ref":"HttpStatusCodeLiteral","required":true},
-            "code": {"dataType":"string","required":true},
-            "title": {"dataType":"string","required":true},
-            "detail": {"dataType":"string"},
         },
         "additionalProperties": false,
     },
@@ -286,35 +286,6 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "PitStopDTO": {
-        "dataType": "refObject",
-        "properties": {
-            "time": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
-            "lap": {"dataType":"double","required":true},
-            "timeOfDay": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
-            "annotation": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
-            "event": {"dataType":"union","subSchemas":[{"ref":"EventDTO"},{"dataType":"enum","enums":[null]}],"required":true},
-            "entrant": {"dataType":"union","subSchemas":[{"ref":"EventEntrantDTO"},{"dataType":"enum","enums":[null]}],"required":true},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    "PitStopQueryParams": {
-        "dataType": "refObject",
-        "properties": {
-            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
-            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
-            "sort": {"dataType":"string"},
-            "include": {"dataType":"string"},
-            "season": {"dataType":"double"},
-            "round": {"dataType":"double"},
-            "session": {"dataType":"string"},
-            "driverId": {"dataType":"string"},
-            "lap": {"dataType":"double"},
-        },
-        "additionalProperties": false,
-    },
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "TimedSessionResultsDTO": {
         "dataType": "refObject",
         "properties": {
@@ -388,6 +359,35 @@ const models: TsoaRoute.Models = {
         "additionalProperties": false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "PitStopDTO": {
+        "dataType": "refObject",
+        "properties": {
+            "time": {"dataType":"union","subSchemas":[{"dataType":"double"},{"dataType":"enum","enums":[null]}],"required":true},
+            "lap": {"dataType":"double","required":true},
+            "timeOfDay": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+            "annotation": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+            "event": {"dataType":"union","subSchemas":[{"ref":"EventDTO"},{"dataType":"enum","enums":[null]}],"required":true},
+            "entrant": {"dataType":"union","subSchemas":[{"ref":"EventEntrantDTO"},{"dataType":"enum","enums":[null]}],"required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "PitStopQueryParams": {
+        "dataType": "refObject",
+        "properties": {
+            "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
+            "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
+            "sort": {"dataType":"string"},
+            "include": {"dataType":"string"},
+            "season": {"dataType":"double"},
+            "round": {"dataType":"double"},
+            "session": {"dataType":"string"},
+            "driverId": {"dataType":"string"},
+            "lap": {"dataType":"double"},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "SessionDTO": {
         "dataType": "refObject",
         "properties": {
@@ -439,10 +439,10 @@ export function RegisterRoutes(app: Router) {
     //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
     // ###########################################################################################################
         app.get('/countries',
-            ...(fetchMiddlewares<RequestHandler>(CountryService)),
-            ...(fetchMiddlewares<RequestHandler>(CountryService.prototype.get)),
+            ...(fetchMiddlewares<RequestHandler>(CountryController)),
+            ...(fetchMiddlewares<RequestHandler>(CountryController.prototype.get)),
 
-            function CountryService_get(request: any, response: any, next: any) {
+            function CountryController_get(request: any, response: any, next: any) {
             const args = {
             };
 
@@ -452,7 +452,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new CountryService();
+                const controller = new CountryController();
 
 
               const promise = controller.get.apply(controller, validatedArgs as any);
@@ -463,10 +463,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/countries/:countryId',
-            ...(fetchMiddlewares<RequestHandler>(CountryService)),
-            ...(fetchMiddlewares<RequestHandler>(CountryService.prototype.getById)),
+            ...(fetchMiddlewares<RequestHandler>(CountryController)),
+            ...(fetchMiddlewares<RequestHandler>(CountryController.prototype.getById)),
 
-            function CountryService_getById(request: any, response: any, next: any) {
+            function CountryController_getById(request: any, response: any, next: any) {
             const args = {
                     countryId: {"in":"path","name":"countryId","required":true,"dataType":"string"},
             };
@@ -477,7 +477,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new CountryService();
+                const controller = new CountryController();
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
@@ -488,10 +488,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/circuits',
-            ...(fetchMiddlewares<RequestHandler>(CircuitService)),
-            ...(fetchMiddlewares<RequestHandler>(CircuitService.prototype.get)),
+            ...(fetchMiddlewares<RequestHandler>(CircuitController)),
+            ...(fetchMiddlewares<RequestHandler>(CircuitController.prototype.get)),
 
-            function CircuitService_get(request: any, response: any, next: any) {
+            function CircuitController_get(request: any, response: any, next: any) {
             const args = {
                     obj: {"in":"queries","name":"obj","required":true,"ref":"CircuitQueryParams"},
             };
@@ -502,7 +502,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new CircuitService();
+                const controller = new CircuitController();
 
 
               const promise = controller.get.apply(controller, validatedArgs as any);
@@ -513,10 +513,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/circuits/:id',
-            ...(fetchMiddlewares<RequestHandler>(CircuitService)),
-            ...(fetchMiddlewares<RequestHandler>(CircuitService.prototype.getById)),
+            ...(fetchMiddlewares<RequestHandler>(CircuitController)),
+            ...(fetchMiddlewares<RequestHandler>(CircuitController.prototype.getById)),
 
-            function CircuitService_getById(request: any, response: any, next: any) {
+            function CircuitController_getById(request: any, response: any, next: any) {
             const args = {
                     id: {"in":"path","name":"id","required":true,"dataType":"string"},
             };
@@ -527,7 +527,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new CircuitService();
+                const controller = new CircuitController();
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
@@ -588,10 +588,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/drivers',
-            ...(fetchMiddlewares<RequestHandler>(DriverService)),
-            ...(fetchMiddlewares<RequestHandler>(DriverService.prototype.get)),
+            ...(fetchMiddlewares<RequestHandler>(DriverController)),
+            ...(fetchMiddlewares<RequestHandler>(DriverController.prototype.get)),
 
-            function DriverService_get(request: any, response: any, next: any) {
+            function DriverController_get(request: any, response: any, next: any) {
             const args = {
                     obj: {"in":"queries","name":"obj","required":true,"ref":"DriverQueryParams"},
             };
@@ -602,7 +602,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new DriverService();
+                const controller = new DriverController();
 
 
               const promise = controller.get.apply(controller, validatedArgs as any);
@@ -613,10 +613,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/drivers/:driverId',
-            ...(fetchMiddlewares<RequestHandler>(DriverService)),
-            ...(fetchMiddlewares<RequestHandler>(DriverService.prototype.getById)),
+            ...(fetchMiddlewares<RequestHandler>(DriverController)),
+            ...(fetchMiddlewares<RequestHandler>(DriverController.prototype.getById)),
 
-            function DriverService_getById(request: any, response: any, next: any) {
+            function DriverController_getById(request: any, response: any, next: any) {
             const args = {
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
             };
@@ -627,7 +627,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new DriverService();
+                const controller = new DriverController();
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
@@ -638,10 +638,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/drivers/:driverId/relationships',
-            ...(fetchMiddlewares<RequestHandler>(DriverService)),
-            ...(fetchMiddlewares<RequestHandler>(DriverService.prototype.getDriverFamilyRelationships)),
+            ...(fetchMiddlewares<RequestHandler>(DriverController)),
+            ...(fetchMiddlewares<RequestHandler>(DriverController.prototype.getDriverFamilyRelationships)),
 
-            function DriverService_getDriverFamilyRelationships(request: any, response: any, next: any) {
+            function DriverController_getDriverFamilyRelationships(request: any, response: any, next: any) {
             const args = {
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
             };
@@ -652,7 +652,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new DriverService();
+                const controller = new DriverController();
 
 
               const promise = controller.getDriverFamilyRelationships.apply(controller, validatedArgs as any);
@@ -663,10 +663,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/drivers/:driverId/seasons',
-            ...(fetchMiddlewares<RequestHandler>(DriverService)),
-            ...(fetchMiddlewares<RequestHandler>(DriverService.prototype.getDriverSeasons)),
+            ...(fetchMiddlewares<RequestHandler>(DriverController)),
+            ...(fetchMiddlewares<RequestHandler>(DriverController.prototype.getDriverSeasons)),
 
-            function DriverService_getDriverSeasons(request: any, response: any, next: any) {
+            function DriverController_getDriverSeasons(request: any, response: any, next: any) {
             const args = {
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
             };
@@ -677,7 +677,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new DriverService();
+                const controller = new DriverController();
 
 
               const promise = controller.getDriverSeasons.apply(controller, validatedArgs as any);
@@ -688,10 +688,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/drivers/:driverId/championship-results',
-            ...(fetchMiddlewares<RequestHandler>(DriverService)),
-            ...(fetchMiddlewares<RequestHandler>(DriverService.prototype.getChampionshipResults)),
+            ...(fetchMiddlewares<RequestHandler>(DriverController)),
+            ...(fetchMiddlewares<RequestHandler>(DriverController.prototype.getChampionshipResults)),
 
-            function DriverService_getChampionshipResults(request: any, response: any, next: any) {
+            function DriverController_getChampionshipResults(request: any, response: any, next: any) {
             const args = {
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
             };
@@ -702,7 +702,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new DriverService();
+                const controller = new DriverController();
 
 
               const promise = controller.getChampionshipResults.apply(controller, validatedArgs as any);
@@ -766,10 +766,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/events',
-            ...(fetchMiddlewares<RequestHandler>(EventService)),
-            ...(fetchMiddlewares<RequestHandler>(EventService.prototype.get)),
+            ...(fetchMiddlewares<RequestHandler>(EventController)),
+            ...(fetchMiddlewares<RequestHandler>(EventController.prototype.get)),
 
-            function EventService_get(request: any, response: any, next: any) {
+            function EventController_get(request: any, response: any, next: any) {
             const args = {
                     obj: {"in":"queries","name":"obj","required":true,"ref":"EventQueryParams"},
             };
@@ -780,7 +780,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new EventService();
+                const controller = new EventController();
 
 
               const promise = controller.get.apply(controller, validatedArgs as any);
@@ -791,10 +791,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/events/:season/:round',
-            ...(fetchMiddlewares<RequestHandler>(EventService)),
-            ...(fetchMiddlewares<RequestHandler>(EventService.prototype.getById)),
+            ...(fetchMiddlewares<RequestHandler>(EventController)),
+            ...(fetchMiddlewares<RequestHandler>(EventController.prototype.getById)),
 
-            function EventService_getById(request: any, response: any, next: any) {
+            function EventController_getById(request: any, response: any, next: any) {
             const args = {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
@@ -807,7 +807,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new EventService();
+                const controller = new EventController();
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
@@ -818,10 +818,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/grands-prix',
-            ...(fetchMiddlewares<RequestHandler>(GrandPrixService)),
-            ...(fetchMiddlewares<RequestHandler>(GrandPrixService.prototype.get)),
+            ...(fetchMiddlewares<RequestHandler>(GrandPrixController)),
+            ...(fetchMiddlewares<RequestHandler>(GrandPrixController.prototype.get)),
 
-            function GrandPrixService_get(request: any, response: any, next: any) {
+            function GrandPrixController_get(request: any, response: any, next: any) {
             const args = {
                     obj: {"in":"queries","name":"obj","required":true,"ref":"GrandPrixQueryParams"},
             };
@@ -832,7 +832,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new GrandPrixService();
+                const controller = new GrandPrixController();
 
 
               const promise = controller.get.apply(controller, validatedArgs as any);
@@ -843,10 +843,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/grands-prix/:id',
-            ...(fetchMiddlewares<RequestHandler>(GrandPrixService)),
-            ...(fetchMiddlewares<RequestHandler>(GrandPrixService.prototype.getById)),
+            ...(fetchMiddlewares<RequestHandler>(GrandPrixController)),
+            ...(fetchMiddlewares<RequestHandler>(GrandPrixController.prototype.getById)),
 
-            function GrandPrixService_getById(request: any, response: any, next: any) {
+            function GrandPrixController_getById(request: any, response: any, next: any) {
             const args = {
                     id: {"in":"path","name":"id","required":true,"dataType":"string"},
             };
@@ -857,7 +857,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new GrandPrixService();
+                const controller = new GrandPrixController();
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
@@ -911,31 +911,6 @@ export function RegisterRoutes(app: Router) {
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
-              promiseHandler(controller, promise, response, undefined, next);
-            } catch (err) {
-                return next(err);
-            }
-        });
-        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/pit-stops',
-            ...(fetchMiddlewares<RequestHandler>(PitStopService)),
-            ...(fetchMiddlewares<RequestHandler>(PitStopService.prototype.get)),
-
-            function PitStopService_get(request: any, response: any, next: any) {
-            const args = {
-                    obj: {"in":"queries","name":"obj","required":true,"ref":"PitStopQueryParams"},
-            };
-
-            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-
-            let validatedArgs: any[] = [];
-            try {
-                validatedArgs = getValidatedArgs(args, request, response);
-
-                const controller = new PitStopService();
-
-
-              const promise = controller.get.apply(controller, validatedArgs as any);
               promiseHandler(controller, promise, response, undefined, next);
             } catch (err) {
                 return next(err);
@@ -1188,11 +1163,36 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/sessions/:season/:round',
-            ...(fetchMiddlewares<RequestHandler>(SessionService)),
-            ...(fetchMiddlewares<RequestHandler>(SessionService.prototype.getByEvent)),
+        app.get('/pit-stops',
+            ...(fetchMiddlewares<RequestHandler>(PitStopController)),
+            ...(fetchMiddlewares<RequestHandler>(PitStopController.prototype.get)),
 
-            function SessionService_getByEvent(request: any, response: any, next: any) {
+            function PitStopController_get(request: any, response: any, next: any) {
+            const args = {
+                    obj: {"in":"queries","name":"obj","required":true,"ref":"PitStopQueryParams"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new PitStopController();
+
+
+              const promise = controller.get.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/sessions/:season/:round',
+            ...(fetchMiddlewares<RequestHandler>(SessionController)),
+            ...(fetchMiddlewares<RequestHandler>(SessionController.prototype.getByEvent)),
+
+            function SessionController_getByEvent(request: any, response: any, next: any) {
             const args = {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
@@ -1204,7 +1204,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new SessionService();
+                const controller = new SessionController();
 
 
               const promise = controller.getByEvent.apply(controller, validatedArgs as any);
@@ -1215,10 +1215,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/sessions/:season/:round/:session',
-            ...(fetchMiddlewares<RequestHandler>(SessionService)),
-            ...(fetchMiddlewares<RequestHandler>(SessionService.prototype.getById)),
+            ...(fetchMiddlewares<RequestHandler>(SessionController)),
+            ...(fetchMiddlewares<RequestHandler>(SessionController.prototype.getById)),
 
-            function SessionService_getById(request: any, response: any, next: any) {
+            function SessionController_getById(request: any, response: any, next: any) {
             const args = {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
@@ -1231,7 +1231,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new SessionService();
+                const controller = new SessionController();
 
 
               const promise = controller.getById.apply(controller, validatedArgs as any);
@@ -1242,10 +1242,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/sessions/:season/:round/:session/results',
-            ...(fetchMiddlewares<RequestHandler>(SessionService)),
-            ...(fetchMiddlewares<RequestHandler>(SessionService.prototype.getSessionResults)),
+            ...(fetchMiddlewares<RequestHandler>(SessionController)),
+            ...(fetchMiddlewares<RequestHandler>(SessionController.prototype.getSessionResults)),
 
-            function SessionService_getSessionResults(request: any, response: any, next: any) {
+            function SessionController_getSessionResults(request: any, response: any, next: any) {
             const args = {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
@@ -1259,7 +1259,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new SessionService();
+                const controller = new SessionController();
 
 
               const promise = controller.getSessionResults.apply(controller, validatedArgs as any);
@@ -1270,10 +1270,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/sessions/:season/:round/:session/pit-stops',
-            ...(fetchMiddlewares<RequestHandler>(SessionService)),
-            ...(fetchMiddlewares<RequestHandler>(SessionService.prototype.getSessionPitStops)),
+            ...(fetchMiddlewares<RequestHandler>(SessionController)),
+            ...(fetchMiddlewares<RequestHandler>(SessionController.prototype.getSessionPitStops)),
 
-            function SessionService_getSessionPitStops(request: any, response: any, next: any) {
+            function SessionController_getSessionPitStops(request: any, response: any, next: any) {
             const args = {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
@@ -1287,7 +1287,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new SessionService();
+                const controller = new SessionController();
 
 
               const promise = controller.getSessionPitStops.apply(controller, validatedArgs as any);
@@ -1298,10 +1298,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/sessions/:season/:round/:session/laps',
-            ...(fetchMiddlewares<RequestHandler>(SessionService)),
-            ...(fetchMiddlewares<RequestHandler>(SessionService.prototype.getSessionLaps)),
+            ...(fetchMiddlewares<RequestHandler>(SessionController)),
+            ...(fetchMiddlewares<RequestHandler>(SessionController.prototype.getSessionLaps)),
 
-            function SessionService_getSessionLaps(request: any, response: any, next: any) {
+            function SessionController_getSessionLaps(request: any, response: any, next: any) {
             const args = {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
@@ -1315,7 +1315,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new SessionService();
+                const controller = new SessionController();
 
 
               const promise = controller.getSessionLaps.apply(controller, validatedArgs as any);
@@ -1326,10 +1326,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/sessions/:season/:round/:session/fastest-lap',
-            ...(fetchMiddlewares<RequestHandler>(SessionService)),
-            ...(fetchMiddlewares<RequestHandler>(SessionService.prototype.getSessionFastestLap)),
+            ...(fetchMiddlewares<RequestHandler>(SessionController)),
+            ...(fetchMiddlewares<RequestHandler>(SessionController.prototype.getSessionFastestLap)),
 
-            function SessionService_getSessionFastestLap(request: any, response: any, next: any) {
+            function SessionController_getSessionFastestLap(request: any, response: any, next: any) {
             const args = {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"path","name":"round","required":true,"dataType":"double"},
@@ -1342,7 +1342,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new SessionService();
+                const controller = new SessionController();
 
 
               const promise = controller.getSessionFastestLap.apply(controller, validatedArgs as any);

@@ -49,33 +49,7 @@ export interface CountryDTO extends Countries {
   officialName: string;
 }
 
-export interface CountriesCommonNames {
-  countryId: string;
-  en: string;
-  ces: string | null;
-  deu: string | null;
-  est: string | null;
-  fin: string | null;
-  fra: string | null;
-  hrv: string | null;
-  hun: string | null;
-  ita: string | null;
-  jpn: string | null;
-  kor: string | null;
-  nld: string | null;
-  per: string | null;
-  pol: string | null;
-  por: string | null;
-  rus: string | null;
-  slk: string | null;
-  spa: string | null;
-  swe: string | null;
-  urd: string | null;
-  zho: string | null;
-  cym: string | null;
-}
-
-export interface CountriesOfficialNames {
+export interface CountriesNames {
   countryId: string;
   en: string;
   ces: string | null;
@@ -331,8 +305,8 @@ export interface DB {
   companies: Companies;
   constructors: Constructors;
   countries: Countries;
-  countriesCommonNames: CountriesCommonNames;
-  countriesOfficialNames: CountriesOfficialNames;
+  countriesCommonNames: CountriesNames;
+  countriesOfficialNames: CountriesNames;
   drivers: Drivers;
   driversFamilyRelationships: DriversFamilyRelationships;
   engineManufacturers: EngineManufacturers;
