@@ -44,8 +44,6 @@ export class Sorter<T extends object> implements SorterQueryParams {
         direction === 'desc' ? sortString.slice(1) : sortString
       ) as NestedKeyOf<T>;
 
-      // TODO: Check that key is valid
-
       return new SortItem({ key, direction });
     });
 

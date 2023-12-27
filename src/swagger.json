@@ -419,21 +419,37 @@
 						"default": "10",
 						"minimum": 1
 					},
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
+					},
 					"include": {
 						"type": "string",
 						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
 					},
 					"name": {
 						"type": "string",
-						"description": "Filter drivers by its full name"
+						"description": "If specified, returns only drivers whose full name contains this value"
 					},
 					"nationalityId": {
 						"type": "string",
-						"description": "Filter drivers by its nationality"
+						"description": "If specified, returns only drivers of this nationality"
+					},
+					"birthBefore": {
+						"type": "string",
+						"description": "If specified, return only the drivers whose birth is before this value.\r\nThe param value should have the format `YYYY-MM-DD`",
+						"example": "1972-03-23",
+						"pattern": "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+					},
+					"birthAfter": {
+						"type": "string",
+						"description": "If specified, return only the drivers whose birth is after this value.\r\nThe param value should have the format `YYYY-MM-DD`",
+						"example": "1972-03-23",
+						"pattern": "[0-9]{4}-[0-9]{2}-[0-9]{2}"
 					},
 					"gender": {
 						"$ref": "#/components/schemas/Gender",
-						"description": "Filter drivers by its gender"
+						"description": "If specified, returns only drivers of this gender"
 					}
 				},
 				"type": "object",
@@ -1733,6 +1749,15 @@
 						}
 					},
 					{
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
+						"in": "query",
+						"name": "sort",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
 						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
 						"in": "query",
 						"name": "include",
@@ -1742,7 +1767,7 @@
 						}
 					},
 					{
-						"description": "Filter drivers by its full name",
+						"description": "If specified, returns only drivers whose full name contains this value",
 						"in": "query",
 						"name": "name",
 						"required": false,
@@ -1751,7 +1776,7 @@
 						}
 					},
 					{
-						"description": "Filter drivers by its nationality",
+						"description": "If specified, returns only drivers of this nationality",
 						"in": "query",
 						"name": "nationalityId",
 						"required": false,
@@ -1760,7 +1785,29 @@
 						}
 					},
 					{
-						"description": "Filter drivers by its gender",
+						"description": "If specified, return only the drivers whose birth is before this value.\r\nThe param value should have the format `YYYY-MM-DD`",
+						"in": "query",
+						"name": "birthBefore",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"pattern": "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+						},
+						"example": "1972-03-23"
+					},
+					{
+						"description": "If specified, return only the drivers whose birth is after this value.\r\nThe param value should have the format `YYYY-MM-DD`",
+						"in": "query",
+						"name": "birthAfter",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"pattern": "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+						},
+						"example": "1972-03-23"
+					},
+					{
+						"description": "If specified, returns only drivers of this gender",
 						"in": "query",
 						"name": "gender",
 						"required": false,

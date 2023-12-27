@@ -1,26 +1,40 @@
-import { SelectQueryBuilder } from 'kysely';
+import { SelectQueryBuilder, sql } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
-import {
-  PageMetadata,
-  PageQueryParams,
-  Paginator
-} from '../../models/pagination';
-import { DB, DriverDTO, Gender } from '../../models/types.dto';
+import { IncludeParam } from '../../models/include-filter';
+import { PageMetadata, Paginator } from '../../models/pagination';
+import { CommonQueryParams } from '../../models/query-params';
+import { Sorter } from '../../models/sorter';
+import { DB, DriverDTO, Drivers, Gender } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { getSeasonFromIdColumn } from '../../utils/f1-sql-common-utils';
 import { CountryService } from '../countries/countries.service';
 import { DriverStandingService } from '../driver-standings.controller';
 import { DriverController } from './driver.controller';
 
-export interface DriverQueryParams extends PageQueryParams, IncludeQueryParam {
-  /** Filter drivers by its full name */
+export interface DriverQueryParams extends CommonQueryParams {
+  /** If specified, returns only drivers whose full name contains this value */
   name?: string;
 
-  /** Filter drivers by its nationality */
+  /** If specified, returns only drivers of this nationality */
   nationalityId?: string;
 
-  /** Filter drivers by its gender */
+  /** If specified, return only the drivers whose birth is before this value.
+   * The param value should have the format `YYYY-MM-DD`
+   *
+   * @example "1972-03-23"
+   * @pattern [0-9]{4}-[0-9]{2}-[0-9]{2}
+   */
+  birthBefore?: string;
+
+  /** If specified, return only the drivers whose birth is after this value.
+   * The param value should have the format `YYYY-MM-DD`
+   *
+   * @example "1972-03-23"
+   * @pattern [0-9]{4}-[0-9]{2}-[0-9]{2}
+   */
+  birthAfter?: string;
+
+  /** If specified, returns only drivers of this gender */
   gender?: Gender;
 }
 
@@ -107,15 +121,26 @@ export class DriverService
     obj: DriverQueryParams
   ): Promise<PageMetadata & { data: DriverDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
+    const sorter = new Sorter<Drivers>(obj.sort || 'fullName');
 
     const mainSelect = this.db
       .selectFrom('drivers')
-      .where('drivers.fullName', 'like', `%${obj.name ?? ''}%`)
+      .where(
+        sql`LOWER(drivers.fullName)`,
+        'like',
+        `%${obj.name?.toLocaleLowerCase() ?? ''}%`
+      )
       .$if(obj.nationalityId != undefined, (qb) =>
         qb.where('nationalityCountryId', '==', obj.nationalityId!)
       )
       .$if(obj.gender != undefined, (qb) =>
         qb.where('gender', '==', obj.gender!)
+      )
+      .$if(obj.birthAfter != undefined, (qb) =>
+        qb.where('dateOfBirth', '>', obj.birthAfter!)
+      )
+      .$if(obj.birthBefore != undefined, (qb) =>
+        qb.where('dateOfBirth', '<', obj.birthBefore!)
       );
 
     return this.paginateSelect(
@@ -124,7 +149,8 @@ export class DriverService
         mainSelect,
         IncludeParam.fromFieldQueryParam(obj)
       ),
-      paginator
+      paginator,
+      sorter
     ).executeTakeFirstOrThrow();
   }
 

@@ -158,9 +158,12 @@ const models: TsoaRoute.Models = {
         "properties": {
             "pageNo": {"dataType":"integer","default":"0","validators":{"isInt":{"errorMsg":"The `pageNo` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageNo` should be 0","value":0}}},
             "pageSize": {"dataType":"integer","default":"10","validators":{"isInt":{"errorMsg":"The `pageSize` param should be an integer"},"minimum":{"errorMsg":"The minimum value of `pageSize` should be 1","value":1}}},
+            "sort": {"dataType":"string"},
             "include": {"dataType":"string"},
             "name": {"dataType":"string"},
             "nationalityId": {"dataType":"string"},
+            "birthBefore": {"dataType":"string","validators":{"pattern":{"value":"[0-9]{4}-[0-9]{2}-[0-9]{2}"}}},
+            "birthAfter": {"dataType":"string","validators":{"pattern":{"value":"[0-9]{4}-[0-9]{2}-[0-9]{2}"}}},
             "gender": {"ref":"Gender"},
         },
         "additionalProperties": false,
