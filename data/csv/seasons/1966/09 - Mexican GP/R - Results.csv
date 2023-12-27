@@ -1,19 +1,19 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1966-09-R,3412,1,1,7595340,1,,65,9,1,9,,,
-1966-09-R,3465,2,2,7603220,4,,65,6,1,3,7880,,
-1966-09-R,3371,3,3,,6,,64,4,1,4,+1 lap,,
-1966-09-R,3468,4,4,,3,,64,3,1,3,+1 lap,,
-1966-09-R,3480,5,5,,9,,64,2,1,2,+1 lap,,
-1966-09-R,3476,6,6,,12,,63,1,1,1,+2 laps,,
-1966-09-R,3477,7,7,,17,,61,0,1,0,+4 laps,,
-1966-09-R,3469,8,8,,13,,60,0,1,0,+5 laps,,
-1966-09-R,3479,9,DNF,,8,,49,0,1,0,,,Differential
-1966-09-R,3472,10,DNF,,14,,40,0,1,0,,,Engine
-1966-09-R,3474,11,DNF,,11,,33,0,1,0,,,Suspension
-1966-09-R,3413,12,DNF,,5,,32,0,1,0,,,Suspension
-1966-09-R,3466,13,DNF,,16,,28,0,1,0,,,Transmission
-1966-09-R,3464,14,DNF,,10,,26,0,1,0,,,Oil leak
-1966-09-R,3481,15,DNF,,18,,24,0,1,0,,,Fuel system
-1966-09-R,3463,16,DNF,,7,,18,0,1,0,,,Engine
-1966-09-R,3478,17,DNF,,15,,9,0,1,0,,,Overheating
-1966-09-R,3461,18,DNF,,2,,9,0,1,0,,,Gearbox
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+3412,1,1,7595340,1,,65,9,1,9,,,
+3465,2,2,7603220,4,,65,6,1,3,7880,,
+3371,3,3,,6,,64,4,1,4,+1 lap,,
+3468,4,4,,3,,64,3,1,3,+1 lap,,
+3480,5,5,,9,,64,2,1,2,+1 lap,,
+3476,6,6,,12,,63,1,1,1,+2 laps,,
+3477,7,7,,17,,61,0,1,0,+4 laps,,
+3469,8,8,,13,,60,0,1,0,+5 laps,,
+3479,9,DNF,,8,,49,0,1,0,,,Differential
+3472,10,DNF,,14,,40,0,1,0,,,Engine
+3474,11,DNF,,11,,33,0,1,0,,,Suspension
+3413,12,DNF,,5,,32,0,1,0,,,Suspension
+3466,13,DNF,,16,,28,0,1,0,,,Transmission
+3464,14,DNF,,10,,26,0,1,0,,,Oil leak
+3481,15,DNF,,18,,24,0,1,0,,,Fuel system
+3463,16,DNF,,7,,18,0,1,0,,,Engine
+3478,17,DNF,,15,,9,0,1,0,,,Overheating
+3461,18,DNF,,2,,9,0,1,0,,,Gearbox

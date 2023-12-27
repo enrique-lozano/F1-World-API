@@ -1,17 +1,17 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1960-02-R,2170,1,1,10425500,1,,100,8,1,8,,,
-1960-02-R,2161,2,2,10477600,11,,100,6,1,6,52100,,
-1960-02-R,2175,3,3,10487400,10,,100,4,1,4,"01:01,90",,
-1960-02-R,2165,4,4,,3,,99,3,1,3,+1 lap,,
-1960-02-R,2157,5,5,,5,,83,2,1,2,+17 laps,,
-1960-02-R,2174,6,6,,9,,70,1,1,1,+30 laps,,
-1960-02-R,2159,7,7,,6,,66,0,1,0,,,Spun off
-1960-02-R,2176,8,8,,8,,61,0,1,0,,,Clutch
-1960-02-R,2167,9,9,,7,,56,0,1,0,+44 laps,,
-1960-02-R,2158,10,DNF,,14,,44,0,1,0,,,Suspension
-1960-02-R,2163,11,DNF,,12,,29,0,1,0,,,Overheating
-1960-02-R,2168,12,DNF,,13,,23,0,1,0,,,Chassis
-1960-02-R,2169,13,DNF,,15,,17,0,1,0,,,Transmission
-1960-02-R,2164,14,DNF,,4,,17,0,1,0,,,Gearbox
-1960-02-R,2179,15,DNF,,16,,4,0,1,0,,,Gearbox
-1960-02-R,2160,16,DSQ,,2,,40,0,1,0,,,Received outside assistance
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+2170,1,1,10425500,1,,100,8,1,8,,,
+2161,2,2,10477600,11,,100,6,1,6,52100,,
+2175,3,3,10487400,10,,100,4,1,4,"01:01,90",,
+2165,4,4,,3,,99,3,1,3,+1 lap,,
+2157,5,5,,5,,83,2,1,2,+17 laps,,
+2174,6,6,,9,,70,1,1,1,+30 laps,,
+2159,7,7,,6,,66,0,1,0,,,Spun off
+2176,8,8,,8,,61,0,1,0,,,Clutch
+2167,9,9,,7,,56,0,1,0,+44 laps,,
+2158,10,DNF,,14,,44,0,1,0,,,Suspension
+2163,11,DNF,,12,,29,0,1,0,,,Overheating
+2168,12,DNF,,13,,23,0,1,0,,,Chassis
+2169,13,DNF,,15,,17,0,1,0,,,Transmission
+2164,14,DNF,,4,,17,0,1,0,,,Gearbox
+2179,15,DNF,,16,,4,0,1,0,,,Gearbox
+2160,16,DSQ,,2,,40,0,1,0,,,Received outside assistance

@@ -1,17 +1,17 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1959-01-R,1927,1,1,10551300,3,,100,9,1,9,,,
-1959-01-R,1940,2,2,10571700,4,,100,6,1,6,20400,,
-1959-01-R,1931,3,3,,6,,98,4,1,4,+2 laps,,
-1959-01-R,1939,4,4,,5,,97,3,1,3,+3 laps,,
-1959-01-R,1926,5,5,,13,,96,2,1,2,+4 laps,,
-1959-01-R,1934,6,6,,8,,83,0,1,0,+17 laps,,
-1959-01-R,1930,7,DNF,,1,,81,0,1,0,,,Transmission
-1959-01-R,1925,8,DNF,,10,,64,0,1,0,,,Spun off
-1959-01-R,1923,9,DNF,,9,,48,0,1,0,,,Accident
-1959-01-R,1924,10,DNF,,7,,44,0,1,0,,,Brakes
-1959-01-R,1916,11,DNF,,2,,24,0,1,0,,,Engine
-1959-01-R,1935,12,DNF,,14,,21,0,1,0,,,Fire
-1959-01-R,1928,13,DNF,,11,,6,0,1,0,,,Gearbox
-1959-01-R,1937,14,DNF,,16,,1,0,1,0,,,Collision
-1959-01-R,1941,15,DNF,,15,,1,0,1,0,,,Collision
-1959-01-R,1918,16,DNF,,12,,1,0,1,0,,,Collision
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+1927,1,1,10551300,3,,100,9,1,9,,,
+1940,2,2,10571700,4,,100,6,1,6,20400,,
+1931,3,3,,6,,98,4,1,4,+2 laps,,
+1939,4,4,,5,,97,3,1,3,+3 laps,,
+1926,5,5,,13,,96,2,1,2,+4 laps,,
+1934,6,6,,8,,83,0,1,0,+17 laps,,
+1930,7,DNF,,1,,81,0,1,0,,,Transmission
+1925,8,DNF,,10,,64,0,1,0,,,Spun off
+1923,9,DNF,,9,,48,0,1,0,,,Accident
+1924,10,DNF,,7,,44,0,1,0,,,Brakes
+1916,11,DNF,,2,,24,0,1,0,,,Engine
+1935,12,DNF,,14,,21,0,1,0,,,Fire
+1928,13,DNF,,11,,6,0,1,0,,,Gearbox
+1937,14,DNF,,16,,1,0,1,0,,,Collision
+1941,15,DNF,,15,,1,0,1,0,,,Collision
+1918,16,DNF,,12,,1,0,1,0,,,Collision

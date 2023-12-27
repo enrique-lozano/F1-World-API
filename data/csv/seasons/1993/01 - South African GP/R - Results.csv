@@ -1,27 +1,27 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1993-01-R,6245,1,1,5925082,1,,72,10,1,10,,,
-1993-01-R,6251,2,2,6004906,2,,72,6,1,6,"01:19,82",,
-1993-01-R,6267,3,3,,8,,71,4,1,4,+1 lap,,
-1993-01-R,6264,4,4,,13,,71,3,1,3,+1 lap,,
-1993-01-R,6271,5,5,,6,,70,2,1,2,+2 laps,,
-1993-01-R,6269,6,6,,15,,69,1,1,1,,,Engine
-1993-01-R,6252,7,7,,22,,69,0,1,0,,,Spun off
-1993-01-R,6266,8,DNF,,12,,57,0,1,0,,,Spun off
-1993-01-R,6262,9,DNF,,25,,55,0,1,0,,,Overheating
-1993-01-R,6261,10,DNF,,19,,51,0,1,0,,,Engine
-1993-01-R,6249,11,DNF,,7,,46,0,1,0,,,Spun off
-1993-01-R,6248,12,DNF,,3,,39,0,1,0,,,Spun off
-1993-01-R,6255,13,DNF,,17,,38,0,1,0,,,Fuel system
-1993-01-R,6270,14,DNF,,10,,33,0,1,0,,,Engine
-1993-01-R,6256,15,DNF,,14,,31,0,1,0,,,Gearbox
-1993-01-R,6268,16,DNF,,5,,30,0,1,0,,,Suspension
-1993-01-R,6260,17,DNF,,11,,27,0,1,0,,,Spun off
-1993-01-R,6265,18,DNF,,24,,21,0,1,0,,,Collision
-1993-01-R,6253,19,DNF,,20,,21,0,1,0,,,Collision
-1993-01-R,6263,20,DNF,,26,,20,0,1,0,,,Gearbox
-1993-01-R,6244,21,DNF,,4,,16,0,1,0,,,Collision
-1993-01-R,6254,22,DNF,,16,,16,0,1,0,,,Collision
-1993-01-R,6250,23,DNF,,9,,4,0,1,0,,,Collision
-1993-01-R,6257,24,DNF,,18,,2,0,1,0,,,Spun off
-1993-01-R,6246,25,DNF,,21,,1,0,1,0,,,Transmission
-1993-01-R,6247,26,DNF,,23,,0,0,1,0,,,Transmission
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+6245,1,1,5925082,1,,72,10,1,10,,,
+6251,2,2,6004906,2,,72,6,1,6,"01:19,82",,
+6267,3,3,,8,,71,4,1,4,+1 lap,,
+6264,4,4,,13,,71,3,1,3,+1 lap,,
+6271,5,5,,6,,70,2,1,2,+2 laps,,
+6269,6,6,,15,,69,1,1,1,,,Engine
+6252,7,7,,22,,69,0,1,0,,,Spun off
+6266,8,DNF,,12,,57,0,1,0,,,Spun off
+6262,9,DNF,,25,,55,0,1,0,,,Overheating
+6261,10,DNF,,19,,51,0,1,0,,,Engine
+6249,11,DNF,,7,,46,0,1,0,,,Spun off
+6248,12,DNF,,3,,39,0,1,0,,,Spun off
+6255,13,DNF,,17,,38,0,1,0,,,Fuel system
+6270,14,DNF,,10,,33,0,1,0,,,Engine
+6256,15,DNF,,14,,31,0,1,0,,,Gearbox
+6268,16,DNF,,5,,30,0,1,0,,,Suspension
+6260,17,DNF,,11,,27,0,1,0,,,Spun off
+6265,18,DNF,,24,,21,0,1,0,,,Collision
+6253,19,DNF,,20,,21,0,1,0,,,Collision
+6263,20,DNF,,26,,20,0,1,0,,,Gearbox
+6244,21,DNF,,4,,16,0,1,0,,,Collision
+6254,22,DNF,,16,,16,0,1,0,,,Collision
+6250,23,DNF,,9,,4,0,1,0,,,Collision
+6257,24,DNF,,18,,2,0,1,0,,,Spun off
+6246,25,DNF,,21,,1,0,1,0,,,Transmission
+6247,26,DNF,,23,,0,0,1,0,,,Transmission

@@ -51,7 +51,8 @@ async function populateDB() {
                 ['Q1 -', 'Q2 -', 'Q3 -', 'Q - ', 'PQ -'].some((prefix) =>
                   filename.startsWith(prefix)
                 ),
-              toTable: csvFile
+              toTable: csvFile,
+              rowTransformFn: setSessionID
             })
           );
         } else if (csvFile == 'raceResults') {
@@ -60,7 +61,8 @@ async function populateDB() {
               folderPath: path.resolve(csvDirectory),
               triggerFilenameCondition: (filename) =>
                 ['R - ', 'SR - '].some((prefix) => filename.startsWith(prefix)),
-              toTable: csvFile
+              toTable: csvFile,
+              rowTransformFn: setSessionID
             })
           );
         } else if (csvFile == 'fpResults') {
@@ -71,7 +73,8 @@ async function populateDB() {
                 ['FP1 -', 'FP2 -', 'FP3 -', 'FP4 - ', 'WU -'].some((prefix) =>
                   filename.startsWith(prefix)
                 ),
-              toTable: csvFile
+              toTable: csvFile,
+              rowTransformFn: setSessionID
             })
           );
         }
@@ -133,7 +136,21 @@ function readCSV(pathToFile: string) {
   });
 }
 
-function getInsertQueriesFromCSV(pathToFile: string, tableName: string) {
+function setSessionID(row: object, filepath: string) {
+  const splittedPath = filepath.split(path.sep);
+
+  row['sessionId'] = `${splittedPath.at(-3)}-${
+    splittedPath.at(-2)?.split(' -')[0]
+  }-${splittedPath.at(-1)?.split(' -')[0]}`;
+
+  return row;
+}
+
+function getInsertQueriesFromCSV(
+  pathToFile: string,
+  tableName: string,
+  rowTransformFn?: (row: object) => object
+) {
   return new Promise<querydef[]>((res) => {
     const querys: querydef[] = [];
 
@@ -145,7 +162,11 @@ function getInsertQueriesFromCSV(pathToFile: string, tableName: string) {
     );
 
     readCSV(pathToFile).then((rows) => {
-      for (const row of rows) {
+      for (let row of rows) {
+        if (rowTransformFn) {
+          row = rowTransformFn(row);
+        }
+
         // Insert each row into the corresponding table
         const placeholders = Object.keys(row)
           .map(() => '?')
@@ -171,10 +192,12 @@ function getInsertQueriesFromCSV(pathToFile: string, tableName: string) {
   });
 }
 
+/** Get all the insert queries of a set of files */
 async function getInsertQueriesFromDir(params: {
   folderPath: string;
   triggerFilenameCondition: (filename: string) => boolean;
   toTable: string;
+  rowTransformFn?: (row: object, filepath: string) => object;
 }) {
   let queries: querydef[] = [];
 
@@ -192,11 +215,16 @@ async function getInsertQueriesFromDir(params: {
   });
 
   for (const file of filesToProcess) {
+    const filepath = path.join(file.path, file.name);
+
     queries = [
       ...queries,
       ...(await getInsertQueriesFromCSV(
-        path.join(file.path, file.name),
-        params.toTable
+        filepath,
+        params.toTable,
+        params.rowTransformFn
+          ? (row) => params.rowTransformFn!(row, filepath)
+          : undefined
       ))
     ];
   }

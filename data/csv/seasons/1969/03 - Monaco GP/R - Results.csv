@@ -1,17 +1,17 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1969-03-R,3861,1,1,7019400,4,,80,9,1,9,,,
-1969-03-R,3902,2,2,7036700,9,,80,6,1,6,17300,,
-1969-03-R,3897,3,3,7054000,5,,80,4,1,4,34600,,
-1969-03-R,3892,4,4,7072300,10,,80,3,1,3,52900,,
-1969-03-R,3894,5,5,,11,,79,2,1,2,+1 lap,,
-1969-03-R,3893,6,6,,12,,78,1,1,1,+2 laps,,
-1969-03-R,3900,7,7,,16,,74,0,1,0,+6 laps,,
-1969-03-R,3896,8,DNF,,7,,48,0,1,0,,,Suspension
-1969-03-R,3884,9,DNF,,1,,22,0,1,0,,,Halfshaft
-1969-03-R,3885,10,DNF,,3,,20,0,1,0,,,Halfshaft
-1969-03-R,3899,11,DNF,,2,,16,0,1,0,,,Differential
-1969-03-R,3898,12,DNF,,14,,15,0,1,0,,,Engine
-1969-03-R,3903,13,DNF,,15,,15,0,1,0,,,Halfshaft
-1969-03-R,3890,14,DNF,,6,,9,0,1,0,,,Gearbox
-1969-03-R,3895,15,DNF,,8,,9,0,1,0,,,Accident
-1969-03-R,3901,16,DNF,,13,,0,0,1,0,,,Accident
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+3861,1,1,7019400,4,,80,9,1,9,,,
+3902,2,2,7036700,9,,80,6,1,6,17300,,
+3897,3,3,7054000,5,,80,4,1,4,34600,,
+3892,4,4,7072300,10,,80,3,1,3,52900,,
+3894,5,5,,11,,79,2,1,2,+1 lap,,
+3893,6,6,,12,,78,1,1,1,+2 laps,,
+3900,7,7,,16,,74,0,1,0,+6 laps,,
+3896,8,DNF,,7,,48,0,1,0,,,Suspension
+3884,9,DNF,,1,,22,0,1,0,,,Halfshaft
+3885,10,DNF,,3,,20,0,1,0,,,Halfshaft
+3899,11,DNF,,2,,16,0,1,0,,,Differential
+3898,12,DNF,,14,,15,0,1,0,,,Engine
+3903,13,DNF,,15,,15,0,1,0,,,Halfshaft
+3890,14,DNF,,6,,9,0,1,0,,,Gearbox
+3895,15,DNF,,8,,9,0,1,0,,,Accident
+3901,16,DNF,,13,,0,0,1,0,,,Accident

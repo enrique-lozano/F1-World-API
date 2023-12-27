@@ -1,23 +1,23 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1996-06-R,6408,1,1,7245629,14,,75,10,1,10,,,
-1996-06-R,6407,2,2,7250457,5,,75,6,1,6,4828,,
-1996-06-R,6412,3,3,7283132,13,,75,4,1,4,37503,,
-1996-06-R,6413,4,4,,9,,74,3,1,3,,,Retirement
-1996-06-R,6417,5,5,,11,,70,2,1,2,,,Collision
-1996-06-R,6406,6,6,,8,,70,1,1,1,,,Collision
-1996-06-R,6401,7,7,,7,,68,0,1,0,,,Collision
-1996-06-R,6405,8,DNF,,10,,66,0,1,0,,,Collision
-1996-06-R,6402,9,DNF,,3,,60,0,1,0,,,Suspension
-1996-06-R,6423,10,DNF,,21,,60,0,1,0,,,Collision
-1996-06-R,6404,11,DNF,,2,,40,0,1,0,,,Engine
-1996-06-R,6411,12,DNF,,16,,30,0,1,0,,,Spun off
-1996-06-R,6403,13,DNF,,4,,9,0,1,0,,,Gearbox
-1996-06-R,6409,14,DNF,,17,,5,0,1,0,,,Transmission
-1996-06-R,6414,15,DNF,,20,,3,0,1,0,,,Accident
-1996-06-R,6416,16,DNF,,15,,2,0,1,0,,,Accident
-1996-06-R,6400,17,DNF,,1,,0,0,1,0,,,Accident
-1996-06-R,6415,18,DNF,,12,,0,0,1,0,,,Accident
-1996-06-R,6410,19,DNF,,6,,0,0,1,0,,,Spun off
-1996-06-R,6418,20,DNF,,19,,0,0,1,0,,,Collision
-1996-06-R,6419,21,DNF,,18,,0,0,1,0,,,Collision
-1996-06-R,6424,22,DNS,,22,,,0,1,0,,,Accident in warm-up
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+6408,1,1,7245629,14,,75,10,1,10,,,
+6407,2,2,7250457,5,,75,6,1,6,4828,,
+6412,3,3,7283132,13,,75,4,1,4,37503,,
+6413,4,4,,9,,74,3,1,3,,,Retirement
+6417,5,5,,11,,70,2,1,2,,,Collision
+6406,6,6,,8,,70,1,1,1,,,Collision
+6401,7,7,,7,,68,0,1,0,,,Collision
+6405,8,DNF,,10,,66,0,1,0,,,Collision
+6402,9,DNF,,3,,60,0,1,0,,,Suspension
+6423,10,DNF,,21,,60,0,1,0,,,Collision
+6404,11,DNF,,2,,40,0,1,0,,,Engine
+6411,12,DNF,,16,,30,0,1,0,,,Spun off
+6403,13,DNF,,4,,9,0,1,0,,,Gearbox
+6409,14,DNF,,17,,5,0,1,0,,,Transmission
+6414,15,DNF,,20,,3,0,1,0,,,Accident
+6416,16,DNF,,15,,2,0,1,0,,,Accident
+6400,17,DNF,,1,,0,0,1,0,,,Accident
+6415,18,DNF,,12,,0,0,1,0,,,Accident
+6410,19,DNF,,6,,0,0,1,0,,,Spun off
+6418,20,DNF,,19,,0,0,1,0,,,Collision
+6419,21,DNF,,18,,0,0,1,0,,,Collision
+6424,22,DNS,,22,,,0,1,0,,,Accident in warm-up

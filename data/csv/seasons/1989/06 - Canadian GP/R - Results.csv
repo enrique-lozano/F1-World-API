@@ -1,27 +1,27 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1989-06-R,5989,1,1,7284073,6,,69,9,1,9,,,
-1989-06-R,5990,2,2,7314080,3,,69,6,1,6,30007,,
-1989-06-R,6004,3,3,7380722,9,,69,4,1,4,"01:36,65",,
-1989-06-R,5995,4,4,7385557,19,,69,3,1,3,"01:41,48",,
-1989-06-R,6007,5,5,,22,,68,2,1,2,+1 lap,,
-1989-06-R,6003,6,6,,8,,67,1,1,1,+2 laps,,
-1989-06-R,5985,7,7,,2,,66,0,1,0,,,Engine
-1989-06-R,6020,8,8,,23,,66,0,1,0,+3 laps,,
-1989-06-R,6034,9,DNF,,26,,57,0,1,0,,,Differential
-1989-06-R,5993,10,DNF,,12,,40,0,1,0,,,Engine
-1989-06-R,6024,11,DNF,,14,,35,0,1,0,,,Spun off
-1989-06-R,5999,12,DNF,,15,,33,0,1,0,,,Electrical
-1989-06-R,6029,13,DNF,,21,,28,0,1,0,,,Spun off
-1989-06-R,6027,14,DNF,,10,,26,0,1,0,,,Spun off
-1989-06-R,6033,15,DNF,,24,,11,0,1,0,,,Accident
-1989-06-R,6030,16,DNF,,17,,11,0,1,0,,,Electrical
-1989-06-R,6010,17,DNF,,4,,6,0,1,0,,,Alternator
-1989-06-R,6028,18,DNF,,25,,6,0,1,0,,,Spun off
-1989-06-R,5994,19,DNF,,16,,3,0,1,0,,,Electrical
-1989-06-R,5986,20,DNF,,1,,2,0,1,0,,,Suspension
-1989-06-R,5992,21,DNF,,7,,0,0,1,0,,,Accident
-1989-06-R,6032,22,DNF,,11,,0,0,1,0,,,Accident
-1989-06-R,6025,23,DNF,,20,,0,0,1,0,,,Electrical
-1989-06-R,6018,24,DSQ,,18,,13,0,1,0,,,Ignored black flag
-1989-06-R,6009,25,DSQ,,5,,0,0,1,0,,,Illegal start
-1989-06-R,6001,26,DSQ,,13,,0,0,1,0,,,Illegal start
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+5989,1,1,7284073,6,,69,9,1,9,,,
+5990,2,2,7314080,3,,69,6,1,6,30007,,
+6004,3,3,7380722,9,,69,4,1,4,"01:36,65",,
+5995,4,4,7385557,19,,69,3,1,3,"01:41,48",,
+6007,5,5,,22,,68,2,1,2,+1 lap,,
+6003,6,6,,8,,67,1,1,1,+2 laps,,
+5985,7,7,,2,,66,0,1,0,,,Engine
+6020,8,8,,23,,66,0,1,0,+3 laps,,
+6034,9,DNF,,26,,57,0,1,0,,,Differential
+5993,10,DNF,,12,,40,0,1,0,,,Engine
+6024,11,DNF,,14,,35,0,1,0,,,Spun off
+5999,12,DNF,,15,,33,0,1,0,,,Electrical
+6029,13,DNF,,21,,28,0,1,0,,,Spun off
+6027,14,DNF,,10,,26,0,1,0,,,Spun off
+6033,15,DNF,,24,,11,0,1,0,,,Accident
+6030,16,DNF,,17,,11,0,1,0,,,Electrical
+6010,17,DNF,,4,,6,0,1,0,,,Alternator
+6028,18,DNF,,25,,6,0,1,0,,,Spun off
+5994,19,DNF,,16,,3,0,1,0,,,Electrical
+5986,20,DNF,,1,,2,0,1,0,,,Suspension
+5992,21,DNF,,7,,0,0,1,0,,,Accident
+6032,22,DNF,,11,,0,0,1,0,,,Accident
+6025,23,DNF,,20,,0,0,1,0,,,Electrical
+6018,24,DSQ,,18,,13,0,1,0,,,Ignored black flag
+6009,25,DSQ,,5,,0,0,1,0,,,Illegal start
+6001,26,DSQ,,13,,0,0,1,0,,,Illegal start

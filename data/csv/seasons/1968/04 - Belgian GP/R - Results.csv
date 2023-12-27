@@ -1,19 +1,19 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1968-04-R,3724,1,1,6002100,6,,28,9,1,9,,,
-1968-04-R,3729,2,2,6014200,8,,28,6,1,6,12100,,
-1968-04-R,3739,3,3,6041700,3,,28,4,1,4,39600,,
-1968-04-R,3726,4,4,,2,,27,3,1,3,,,Out of fuel
-1968-04-R,3722,5,5,,15,,26,2,1,2,,,Transmission
-1968-04-R,3732,6,6,,12,,26,1,1,1,+2 laps,,
-1968-04-R,3723,7,7,,9,,25,0,1,0,,,Oil pressure
-1968-04-R,3728,8,8,,13,,25,0,1,0,+3 laps,,
-1968-04-R,3731,9,DNF,,7,,22,0,1,0,,,Engine
-1968-04-R,3725,10,DNF,,5,,18,0,1,0,,,Halfshaft
-1968-04-R,3736,11,DNF,,4,,11,0,1,0,,,Suspension
-1968-04-R,3738,12,DNF,,1,,8,0,1,0,,,Radiator
-1968-04-R,3730,13,DNF,,11,,6,0,1,0,,,Oil pipe
-1968-04-R,3734,14,DNF,,18,,6,0,1,0,,,Throttle
-1968-04-R,3733,15,DNF,,10,,6,0,1,0,,,Spun off
-1968-04-R,3735,16,DNF,,17,,5,0,1,0,,,Engine
-1968-04-R,3721,17,DNF,,14,,5,0,1,0,,,Halfshaft
-1968-04-R,3697,18,DNF,,16,,1,0,1,0,,,Wheel
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+3724,1,1,6002100,6,,28,9,1,9,,,
+3729,2,2,6014200,8,,28,6,1,6,12100,,
+3739,3,3,6041700,3,,28,4,1,4,39600,,
+3726,4,4,,2,,27,3,1,3,,,Out of fuel
+3722,5,5,,15,,26,2,1,2,,,Transmission
+3732,6,6,,12,,26,1,1,1,+2 laps,,
+3723,7,7,,9,,25,0,1,0,,,Oil pressure
+3728,8,8,,13,,25,0,1,0,+3 laps,,
+3731,9,DNF,,7,,22,0,1,0,,,Engine
+3725,10,DNF,,5,,18,0,1,0,,,Halfshaft
+3736,11,DNF,,4,,11,0,1,0,,,Suspension
+3738,12,DNF,,1,,8,0,1,0,,,Radiator
+3730,13,DNF,,11,,6,0,1,0,,,Oil pipe
+3734,14,DNF,,18,,6,0,1,0,,,Throttle
+3733,15,DNF,,10,,6,0,1,0,,,Spun off
+3735,16,DNF,,17,,5,0,1,0,,,Engine
+3721,17,DNF,,14,,5,0,1,0,,,Halfshaft
+3697,18,DNF,,16,,1,0,1,0,,,Wheel

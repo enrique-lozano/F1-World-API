@@ -1,19 +1,19 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1950-04-R,107,1,1,7373700,2,,42,9,1,9,,,
-1950-04-R,105,2,2,7374100,3,,42,6,1,6,400,,
-1950-04-R,104,3,3,,10,,41,4,1,4,+1 lap,,
-1950-04-R,114,4,4,,8,,40,3,1,3,+2 laps,,
-1950-04-R,116,5,5,,12,,40,2,1,2,+2 laps,,
-1950-04-R,115,6,6,,11,,40,0,1,0,+2 laps,,
-1950-04-R,100,7,7,,15,,39,0,1,0,+3 laps,,
-1950-04-R,120,8,8,,18,,39,0,1,0,+3 laps,,
-1950-04-R,112,9,9,,16,,39,0,1,0,+3 laps,,
-1950-04-R,101,10,10,,14,,39,0,1,0,+3 laps,,
-1950-04-R,118,11,11,,17,,35,0,1,0,+7 laps,,
-1950-04-R,106,12,DNF,,1,,33,0,1,0,,,Engine
-1950-04-R,119,13,DNF,,6,,25,0,1,0,,,Gearbox
-1950-04-R,109,14,DNF,,13,,19,0,1,0,,,Suspension
-1950-04-R,103,15,DNF,,9,,19,0,1,0,,,Accident
-1950-04-R,110,16,DNF,,4,,9,0,1,0,,,Engine
-1950-04-R,108,17,DNF,,5,,4,0,1,0,,,Oil pump
-1950-04-R,102,18,DNF,,7,,0,0,1,0,,,Accident
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+107,1,1,7373700,2,,42,9,1,9,,,
+105,2,2,7374100,3,,42,6,1,6,400,,
+104,3,3,,10,,41,4,1,4,+1 lap,,
+114,4,4,,8,,40,3,1,3,+2 laps,,
+116,5,5,,12,,40,2,1,2,+2 laps,,
+115,6,6,,11,,40,0,1,0,+2 laps,,
+100,7,7,,15,,39,0,1,0,+3 laps,,
+120,8,8,,18,,39,0,1,0,+3 laps,,
+112,9,9,,16,,39,0,1,0,+3 laps,,
+101,10,10,,14,,39,0,1,0,+3 laps,,
+118,11,11,,17,,35,0,1,0,+7 laps,,
+106,12,DNF,,1,,33,0,1,0,,,Engine
+119,13,DNF,,6,,25,0,1,0,,,Gearbox
+109,14,DNF,,13,,19,0,1,0,,,Suspension
+103,15,DNF,,9,,19,0,1,0,,,Accident
+110,16,DNF,,4,,9,0,1,0,,,Engine
+108,17,DNF,,5,,4,0,1,0,,,Oil pump
+102,18,DNF,,7,,0,0,1,0,,,Accident

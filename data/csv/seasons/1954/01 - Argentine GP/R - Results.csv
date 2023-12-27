@@ -1,19 +1,19 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1954-01-R,886,1,1,10855800,3,,87,8,1,8,,,
-1954-01-R,890,2,2,10934800,1,,87,6,1,6,"01:19,00",,
-1954-01-R,891,3,3,10976800,2,,87,5,1,5,"02:01,00",,
-1954-01-R,898,4,4,,5,,86,3,1,3,+1 lap,,
-1954-01-R,895,5,5,,15,,85,2,1,2,+2 laps,,
-1954-01-R,899,6,6,,11,,84,0,1,0,+3 laps,,
-1954-01-R,889,7,7,,10,,83,0,1,0,+4 laps,,
-1954-01-R,900,8,8,,13,,83,0,1,0,+4 laps,,
-1954-01-R,893,9,9,,12,,82,0,1,0,+5 laps,,
-1954-01-R,887,10,DNF,,6,,5,0,1,0,,,Engine
-1954-01-R,901,11,DNF,,8,,37,0,1,0,,,Oil leak
-1954-01-R,902,12,DNF,,18,,19,0,1,0,,,Gearbox
-1954-01-R,896,13,DNF,,16,,19,0,1,0,,,Oil pressure
-1954-01-R,897,14,DNF,,14,,2,0,1,0,,,Accident
-1954-01-R,894,15,DSQ,,17,,61,0,1,0,,,Push start
-1954-01-R,892,16,DSQ,,4,,52,0,1,0,,,Push start
-1954-01-R,888,17,DNS,,7,,,0,1,0,,,Engine
-1954-01-R,903,18,DNS,,9,,,0,1,0,,,Engine
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+886,1,1,10855800,3,,87,8,1,8,,,
+890,2,2,10934800,1,,87,6,1,6,"01:19,00",,
+891,3,3,10976800,2,,87,5,1,5,"02:01,00",,
+898,4,4,,5,,86,3,1,3,+1 lap,,
+895,5,5,,15,,85,2,1,2,+2 laps,,
+899,6,6,,11,,84,0,1,0,+3 laps,,
+889,7,7,,10,,83,0,1,0,+4 laps,,
+900,8,8,,13,,83,0,1,0,+4 laps,,
+893,9,9,,12,,82,0,1,0,+5 laps,,
+887,10,DNF,,6,,5,0,1,0,,,Engine
+901,11,DNF,,8,,37,0,1,0,,,Oil leak
+902,12,DNF,,18,,19,0,1,0,,,Gearbox
+896,13,DNF,,16,,19,0,1,0,,,Oil pressure
+897,14,DNF,,14,,2,0,1,0,,,Accident
+894,15,DSQ,,17,,61,0,1,0,,,Push start
+892,16,DSQ,,4,,52,0,1,0,,,Push start
+888,17,DNS,,7,,,0,1,0,,,Engine
+903,18,DNS,,9,,,0,1,0,,,Engine

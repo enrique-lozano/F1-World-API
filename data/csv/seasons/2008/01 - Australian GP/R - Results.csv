@@ -1,23 +1,23 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-2008-01-R,6814,1,1,5690616,1,,58,10,1,10,,,
-2008-01-R,6796,2,2,5696094,5,,58,8,1,8,5478,,
-2008-01-R,6800,3,3,5698779,7,,58,6,1,6,8163,,
-2008-01-R,6798,4,4,5707797,11,,58,5,1,5,17181,,
-2008-01-R,6815,5,5,5708630,3,,58,4,1,4,18014,,
-2008-01-R,6801,6,6,,13,,57,3,1,3,+1 lap,,
-2008-01-R,6806,7,7,,17,,55,2,1,2,,,Engine
-2008-01-R,6794,8,8,,15,,53,1,1,1,,,Engine
-2008-01-R,6797,9,DNF,,2,,47,0,1,0,,,Collision
-2008-01-R,6805,10,DNF,,18,10,43,0,1,0,,,Accident
-2008-01-R,6810,11,DNF,,19,,32,0,1,0,,,Transmission
-2008-01-R,6799,12,DNF,,20,,30,0,1,0,,,Collision damage
-2008-01-R,6795,13,DNF,,4,,29,0,1,0,,,Engine
-2008-01-R,6802,14,DNF,,8,,25,0,1,0,,,Collision
-2008-01-R,6804,15,DNF,,6,,19,0,1,0,,,Electrical
-2008-01-R,6812,16,DNF,,PL,,8,0,1,0,,,Hydraulics
-2008-01-R,6807,17,DNF,,9,,0,0,1,0,,,Collision
-2008-01-R,6808,18,DNF,,12,,0,0,1,0,,,Collision
-2008-01-R,6803,19,DNF,,14,,0,0,1,0,,,Collision
-2008-01-R,6813,20,DNF,,16,,0,0,1,0,,,Collision
-2008-01-R,6811,21,DNF,,21,,0,0,1,0,,,Collision
-2008-01-R,6809,22,DSQ,,10,,58,0,1,0,,,Ignored red light
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+6814,1,1,5690616,1,,58,10,1,10,,,
+6796,2,2,5696094,5,,58,8,1,8,5478,,
+6800,3,3,5698779,7,,58,6,1,6,8163,,
+6798,4,4,5707797,11,,58,5,1,5,17181,,
+6815,5,5,5708630,3,,58,4,1,4,18014,,
+6801,6,6,,13,,57,3,1,3,+1 lap,,
+6806,7,7,,17,,55,2,1,2,,,Engine
+6794,8,8,,15,,53,1,1,1,,,Engine
+6797,9,DNF,,2,,47,0,1,0,,,Collision
+6805,10,DNF,,18,10,43,0,1,0,,,Accident
+6810,11,DNF,,19,,32,0,1,0,,,Transmission
+6799,12,DNF,,20,,30,0,1,0,,,Collision damage
+6795,13,DNF,,4,,29,0,1,0,,,Engine
+6802,14,DNF,,8,,25,0,1,0,,,Collision
+6804,15,DNF,,6,,19,0,1,0,,,Electrical
+6812,16,DNF,,PL,,8,0,1,0,,,Hydraulics
+6807,17,DNF,,9,,0,0,1,0,,,Collision
+6808,18,DNF,,12,,0,0,1,0,,,Collision
+6803,19,DNF,,14,,0,0,1,0,,,Collision
+6813,20,DNF,,16,,0,0,1,0,,,Collision
+6811,21,DNF,,21,,0,0,1,0,,,Collision
+6809,22,DSQ,,10,,58,0,1,0,,,Ignored red light

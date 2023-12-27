@@ -59,7 +59,9 @@ async function main() {
               .all() as object[];
 
             await exportRowsToCSV({
-              rows,
+              rows: rows.map((e) =>
+                omitAttributesFromObject(e as any, ['sessionId'])
+              ),
               dir: path.resolve(
                 csvDirectory,
                 'seasons',
@@ -90,6 +92,19 @@ async function main() {
   }
 
   return;
+}
+
+function omitAttributesFromObject<Data extends object, Keys extends keyof Data>(
+  data: Data,
+  keys: Keys[]
+): Omit<Data, Keys> {
+  const result = { ...data };
+
+  for (const key of keys) {
+    delete result[key];
+  }
+
+  return result as Omit<Data, Keys>;
 }
 
 async function exportRowsToCSV(params: {

@@ -1,17 +1,17 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1957-07-R,1644,1,1,10762700,2,,18,9,1,9,,,
-1957-07-R,1498,2,2,10956600,1,,18,6,1,6,"03:13,90",,
-1957-07-R,1586,3,3,11169500,5,,18,4,1,4,"06:46,80",,
-1957-07-R,1638,4,4,11259200,7,,18,3,1,3,"08:16,50",,
-1957-07-R,1646,5,5,,8,,17,2,1,2,+1 lap,,
-1957-07-R,1635,6,6,,10,,17,0,1,0,+1 lap,,
-1957-07-R,1643,7,7,,16,,15,0,1,0,+3 laps,,
-1957-07-R,1636,8,DNF,,12,,10,0,1,0,,,Engine
-1957-07-R,1641,9,DNF,,14,,9,0,1,0,,,Transmission
-1957-07-R,1647,10,DNF,,3,,9,0,1,0,,,Oil leak
-1957-07-R,1639,11,DNF,,9,,7,0,1,0,,,Overheating
-1957-07-R,1585,12,DNF,,4,,4,0,1,0,,,Oil leak
-1957-07-R,1642,13,DNF,,15,,3,0,1,0,,,Accident
-1957-07-R,1637,14,DNF,,13,,1,0,1,0,,,Engine
-1957-07-R,1640,15,DNF,,11,,1,0,1,0,,,Accident
-1957-07-R,1645,16,DNF,,6,,1,0,1,0,,,Engine
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+1644,1,1,10762700,2,,18,9,1,9,,,
+1498,2,2,10956600,1,,18,6,1,6,"03:13,90",,
+1586,3,3,11169500,5,,18,4,1,4,"06:46,80",,
+1638,4,4,11259200,7,,18,3,1,3,"08:16,50",,
+1646,5,5,,8,,17,2,1,2,+1 lap,,
+1635,6,6,,10,,17,0,1,0,+1 lap,,
+1643,7,7,,16,,15,0,1,0,+3 laps,,
+1636,8,DNF,,12,,10,0,1,0,,,Engine
+1641,9,DNF,,14,,9,0,1,0,,,Transmission
+1647,10,DNF,,3,,9,0,1,0,,,Oil leak
+1639,11,DNF,,9,,7,0,1,0,,,Overheating
+1585,12,DNF,,4,,4,0,1,0,,,Oil leak
+1642,13,DNF,,15,,3,0,1,0,,,Accident
+1637,14,DNF,,13,,1,0,1,0,,,Engine
+1640,15,DNF,,11,,1,0,1,0,,,Accident
+1645,16,DNF,,6,,1,0,1,0,,,Engine

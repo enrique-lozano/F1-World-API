@@ -1,18 +1,18 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1966-05-R,3398,1,1,8432500,1,,90,9,1,9,,,
-1966-05-R,3396,2,2,,7,,89,6,1,6,+1 lap,,
-1966-05-R,3393,3,3,,3,,88,4,1,4,+2 laps,,
-1966-05-R,3397,4,4,,8,,88,3,1,3,+2 laps,,
-1966-05-R,3359,5,5,,12,,87,2,1,2,+3 laps,,
-1966-05-R,3391,6,6,,9,,87,1,1,1,+3 laps,,
-1966-05-R,3405,7,7,,13,,84,0,1,0,+6 laps,,
-1966-05-R,3408,8,8,,17,,84,0,1,0,+6 laps,,
-1966-05-R,3407,9,9,,16,,84,0,1,0,+6 laps,,
-1966-05-R,3404,10,DNF,,11,,79,0,1,0,,,Engine
-1966-05-R,3406,11,DNF,,14,,73,0,1,0,,,Suspension
-1966-05-R,3402,12,DNF,,10,,44,0,1,0,,,Electrical
-1966-05-R,3399,13,DNF,,2,,37,0,1,0,,,Ignition
-1966-05-R,3394,14,DNF,,15,,28,0,1,0,,,Ignition
-1966-05-R,3395,15,DNF,,4,,26,0,1,0,,,Oil leak
-1966-05-R,3392,16,DNF,,5,,10,0,1,0,,,Accident
-1966-05-R,3403,17,DNF,,6,,2,0,1,0,,,Accident
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+3398,1,1,8432500,1,,90,9,1,9,,,
+3396,2,2,,7,,89,6,1,6,+1 lap,,
+3393,3,3,,3,,88,4,1,4,+2 laps,,
+3397,4,4,,8,,88,3,1,3,+2 laps,,
+3359,5,5,,12,,87,2,1,2,+3 laps,,
+3391,6,6,,9,,87,1,1,1,+3 laps,,
+3405,7,7,,13,,84,0,1,0,+6 laps,,
+3408,8,8,,17,,84,0,1,0,+6 laps,,
+3407,9,9,,16,,84,0,1,0,+6 laps,,
+3404,10,DNF,,11,,79,0,1,0,,,Engine
+3406,11,DNF,,14,,73,0,1,0,,,Suspension
+3402,12,DNF,,10,,44,0,1,0,,,Electrical
+3399,13,DNF,,2,,37,0,1,0,,,Ignition
+3394,14,DNF,,15,,28,0,1,0,,,Ignition
+3395,15,DNF,,4,,26,0,1,0,,,Oil leak
+3392,16,DNF,,5,,10,0,1,0,,,Accident
+3403,17,DNF,,6,,2,0,1,0,,,Accident

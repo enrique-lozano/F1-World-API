@@ -1,19 +1,19 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1967-10-R,3526,1,1,7393200,2,,108,9,1,9,,,
-1967-10-R,3527,2,2,7399500,1,,108,6,1,6,6300,,
-1967-10-R,3580,3,3,,6,,107,4,1,4,+1 lap,,
-1967-10-R,3651,4,4,,12,,106,3,1,3,+2 laps,,
-1967-10-R,3579,5,5,,5,,104,2,0,2,+4 laps,,
-1967-10-R,3601,6,6,,15,,101,1,1,1,+7 laps,,
-1967-10-R,3655,7,7,,18,,101,0,1,0,+7 laps,,
-1967-10-R,3644,8,DNF,,11,,96,0,1,0,,,Alternator
-1967-10-R,3648,9,DNF,,4,,95,0,1,0,,,Engine
-1967-10-R,3646,10,DNF,,10,,72,0,1,0,,,Injection
-1967-10-R,3654,11,DNF,,16,,45,0,1,0,,,Overheating
-1967-10-R,3653,12,DNF,,17,,43,0,1,0,,,Engine
-1967-10-R,3622,13,DNF,,14,,41,0,1,0,,,Engine
-1967-10-R,3647,14,DNF,,13,,35,0,1,0,,,Engine
-1967-10-R,3645,15,DNF,,8,,33,0,1,0,,,Engine
-1967-10-R,3649,16,DNF,,3,,24,0,1,0,,,Suspension
-1967-10-R,3650,17,DNF,,9,,16,0,1,0,,,Water leak
-1967-10-R,3652,18,DNF,,7,,7,0,1,0,,,Ignition
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+3526,1,1,7393200,2,,108,9,1,9,,,
+3527,2,2,7399500,1,,108,6,1,6,6300,,
+3580,3,3,,6,,107,4,1,4,+1 lap,,
+3651,4,4,,12,,106,3,1,3,+2 laps,,
+3579,5,5,,5,,104,2,0,2,+4 laps,,
+3601,6,6,,15,,101,1,1,1,+7 laps,,
+3655,7,7,,18,,101,0,1,0,+7 laps,,
+3644,8,DNF,,11,,96,0,1,0,,,Alternator
+3648,9,DNF,,4,,95,0,1,0,,,Engine
+3646,10,DNF,,10,,72,0,1,0,,,Injection
+3654,11,DNF,,16,,45,0,1,0,,,Overheating
+3653,12,DNF,,17,,43,0,1,0,,,Engine
+3622,13,DNF,,14,,41,0,1,0,,,Engine
+3647,14,DNF,,13,,35,0,1,0,,,Engine
+3645,15,DNF,,8,,33,0,1,0,,,Engine
+3649,16,DNF,,3,,24,0,1,0,,,Suspension
+3650,17,DNF,,9,,16,0,1,0,,,Water leak
+3652,18,DNF,,7,,7,0,1,0,,,Ignition

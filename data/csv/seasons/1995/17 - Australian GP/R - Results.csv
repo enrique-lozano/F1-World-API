@@ -1,24 +1,24 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1995-17-R,6393,1,1,6555946,1,,81,10,1,10,,,
-1995-17-R,6373,2,2,,12,,79,6,1,6,+2 laps,,
-1995-17-R,6360,3,3,,13,,79,4,1,4,+2 laps,,
-1995-17-R,6383,4,4,,10,,79,3,1,3,+2 laps,,
-1995-17-R,6355,5,5,,14,,78,2,1,2,+3 laps,,
-1995-17-R,6389,6,6,,17,,78,1,1,1,+3 laps,,
-1995-17-R,6368,7,7,,21,,77,0,1,0,+4 laps,,
-1995-17-R,6366,8,8,,23,,76,0,1,0,+5 laps,,
-1995-17-R,6354,9,DNF,,16,,70,0,1,0,,,Engine
-1995-17-R,6353,10,DNF,,8,,69,0,1,0,,,Driveshaft
-1995-17-R,6365,11,DNF,,9,,62,0,1,0,,,Engine
-1995-17-R,6377,12,DNF,,6,,39,0,1,0,,,Gearbox
-1995-17-R,6375,13,DNF,,4,,34,0,1,0,,,Engine
-1995-17-R,6382,14,DNF,,11,,29,0,1,0,,,Spun off
-1995-17-R,6352,15,DNF,,3,,25,0,1,0,,,Collision
-1995-17-R,6374,16,DNF,,5,,23,0,1,0,,,Collision
-1995-17-R,6369,17,DNF,,20,,21,0,1,0,,,Spun off
-1995-17-R,6364,18,DNF,,7,,20,0,1,0,,,Spun off
-1995-17-R,6394,19,DNF,,2,,19,0,1,0,,,Accident
-1995-17-R,6361,20,DNF,,19,,15,0,1,0,,,Spun off
-1995-17-R,6376,21,DNF,,18,,8,0,1,0,,,Physical
-1995-17-R,6367,22,DNF,,22,,2,0,1,0,,,Gearbox
-1995-17-R,6371,23,DNS,,15,,,0,1,0,,,Electrical
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+6393,1,1,6555946,1,,81,10,1,10,,,
+6373,2,2,,12,,79,6,1,6,+2 laps,,
+6360,3,3,,13,,79,4,1,4,+2 laps,,
+6383,4,4,,10,,79,3,1,3,+2 laps,,
+6355,5,5,,14,,78,2,1,2,+3 laps,,
+6389,6,6,,17,,78,1,1,1,+3 laps,,
+6368,7,7,,21,,77,0,1,0,+4 laps,,
+6366,8,8,,23,,76,0,1,0,+5 laps,,
+6354,9,DNF,,16,,70,0,1,0,,,Engine
+6353,10,DNF,,8,,69,0,1,0,,,Driveshaft
+6365,11,DNF,,9,,62,0,1,0,,,Engine
+6377,12,DNF,,6,,39,0,1,0,,,Gearbox
+6375,13,DNF,,4,,34,0,1,0,,,Engine
+6382,14,DNF,,11,,29,0,1,0,,,Spun off
+6352,15,DNF,,3,,25,0,1,0,,,Collision
+6374,16,DNF,,5,,23,0,1,0,,,Collision
+6369,17,DNF,,20,,21,0,1,0,,,Spun off
+6364,18,DNF,,7,,20,0,1,0,,,Spun off
+6394,19,DNF,,2,,19,0,1,0,,,Accident
+6361,20,DNF,,19,,15,0,1,0,,,Spun off
+6376,21,DNF,,18,,8,0,1,0,,,Physical
+6367,22,DNF,,22,,2,0,1,0,,,Gearbox
+6371,23,DNS,,15,,,0,1,0,,,Electrical

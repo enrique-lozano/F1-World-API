@@ -1,25 +1,25 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1980-04-R,5460,1,1,6618550,1,,80,9,1,9,,,
-1980-04-R,5481,2,2,6667760,8,,80,6,1,6,49210,,
-1980-04-R,5473,3,3,6697110,24,,80,4,1,4,"01:18,56",,
-1980-04-R,5462,4,4,,21,,79,3,1,3,+1 lap,,
-1980-04-R,5456,5,5,,16,,79,2,1,2,+1 lap,,
-1980-04-R,5477,6,6,,9,,79,1,1,1,+1 lap,,
-1980-04-R,5482,7,7,,17,,79,0,1,0,+1 lap,,
-1980-04-R,5486,8,8,,14,,79,0,1,0,+1 lap,,
-1980-04-R,5470,9,9,,2,,78,0,1,0,+2 laps,,
-1980-04-R,5469,10,10,,11,,71,0,1,0,+9 laps,,
-1980-04-R,5474,11,DNF,,22,,58,0,1,0,,,Overheating
-1980-04-R,5468,12,DNF,,23,,50,0,1,0,,,Accident
-1980-04-R,5476,13,DNF,,6,,49,0,1,0,,,Collision
-1980-04-R,5484,14,DNF,,5,,47,0,1,0,,,Collision
-1980-04-R,5457,15,DNF,,10,,46,0,1,0,,,Transmission
-1980-04-R,5475,16,DNF,,3,,40,0,1,0,,,Suspension
-1980-04-R,5478,17,DNF,,13,,36,0,1,0,,,Puncture
-1980-04-R,5483,18,DNF,,19,,11,0,1,0,,,Transmission
-1980-04-R,5480,19,DNF,,7,,3,0,1,0,,,Transmission
-1980-04-R,5485,20,DNF,,12,,3,0,1,0,,,Accident
-1980-04-R,5467,21,DNF,,20,,3,0,1,0,,,Accident
-1980-04-R,5461,22,DNF,,18,,0,0,1,0,,,Accident
-1980-04-R,5466,23,DNF,,15,,0,0,1,0,,,Accident
-1980-04-R,5491,24,DNF,,4,,0,0,1,0,,,Transmission
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+5460,1,1,6618550,1,,80,9,1,9,,,
+5481,2,2,6667760,8,,80,6,1,6,49210,,
+5473,3,3,6697110,24,,80,4,1,4,"01:18,56",,
+5462,4,4,,21,,79,3,1,3,+1 lap,,
+5456,5,5,,16,,79,2,1,2,+1 lap,,
+5477,6,6,,9,,79,1,1,1,+1 lap,,
+5482,7,7,,17,,79,0,1,0,+1 lap,,
+5486,8,8,,14,,79,0,1,0,+1 lap,,
+5470,9,9,,2,,78,0,1,0,+2 laps,,
+5469,10,10,,11,,71,0,1,0,+9 laps,,
+5474,11,DNF,,22,,58,0,1,0,,,Overheating
+5468,12,DNF,,23,,50,0,1,0,,,Accident
+5476,13,DNF,,6,,49,0,1,0,,,Collision
+5484,14,DNF,,5,,47,0,1,0,,,Collision
+5457,15,DNF,,10,,46,0,1,0,,,Transmission
+5475,16,DNF,,3,,40,0,1,0,,,Suspension
+5478,17,DNF,,13,,36,0,1,0,,,Puncture
+5483,18,DNF,,19,,11,0,1,0,,,Transmission
+5480,19,DNF,,7,,3,0,1,0,,,Transmission
+5485,20,DNF,,12,,3,0,1,0,,,Accident
+5467,21,DNF,,20,,3,0,1,0,,,Accident
+5461,22,DNF,,18,,0,0,1,0,,,Accident
+5466,23,DNF,,15,,0,0,1,0,,,Accident
+5491,24,DNF,,4,,0,0,1,0,,,Transmission

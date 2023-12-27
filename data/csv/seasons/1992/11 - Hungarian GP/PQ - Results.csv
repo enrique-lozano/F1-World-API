@@ -1,5 +1,5 @@
-sessionId,entrantId,positionOrder,positionText,laps,time
-1992-11-PQ,6232,1,1.0,,82412
-1992-11-PQ,6238,2,2.0,,83398
-1992-11-PQ,6214,3,3.0,,84421
-1992-11-PQ,6224,5,5.0,,
+entrantId,positionOrder,positionText,laps,time
+6232,1,1.0,,82412
+6238,2,2.0,,83398
+6214,3,3.0,,84421
+6224,5,5.0,,

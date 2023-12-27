@@ -1,23 +1,23 @@
-sessionId,entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1999-03-R,6486,1,1,5624792,3,,62,10,1,10,,,
-1999-03-R,6485,2,2,5629057,2,,62,6,1,6,4265,,
-1999-03-R,6498,3,3,,6,,61,4,1,4,+1 lap,,
-1999-03-R,6490,4,4,,8,,61,3,1,3,+1 lap,,
-1999-03-R,6492,5,5,,16,,61,2,1,2,+1 lap,,
-1999-03-R,6494,6,6,,13,,61,1,1,1,+1 lap,,
-1999-03-R,6507,7,7,,19,,59,0,1,0,,,Electrical
-1999-03-R,6502,8,8,,22,,59,0,1,0,+3 laps,,
-1999-03-R,6503,9,9,,21,,59,0,1,0,+3 laps,,
-1999-03-R,6499,10,10,,12,,58,0,1,0,,,Engine
-1999-03-R,6488,11,11,,10,,58,0,1,0,,,Spun off
-1999-03-R,6495,12,DNF,,15,,49,0,1,0,,,Spun off
-1999-03-R,6500,13,DNF,,11,,48,0,1,0,,,Throttle
-1999-03-R,6487,14,DNF,,4,,46,0,1,0,,,Engine
-1999-03-R,6491,15,DNF,,7,,46,0,1,0,,,Spun off
-1999-03-R,6497,16,DNF,,20,,29,0,1,0,,,Fuel pressure
-1999-03-R,6489,17,DNF,,9,,28,0,1,0,,,Electrical
-1999-03-R,6484,18,DNF,,1,,17,0,1,0,,,Accident
-1999-03-R,6496,19,DNF,,18,,5,0,1,0,,,Collision
-1999-03-R,6493,20,DNF,,17,,5,0,1,0,,,Collision
-1999-03-R,6504,21,DNF,,5,,0,0,1,0,,,Gearbox
-1999-03-R,6501,22,DNF,,14,,0,0,1,0,,,Spun off
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
+6486,1,1,5624792,3,,62,10,1,10,,,
+6485,2,2,5629057,2,,62,6,1,6,4265,,
+6498,3,3,,6,,61,4,1,4,+1 lap,,
+6490,4,4,,8,,61,3,1,3,+1 lap,,
+6492,5,5,,16,,61,2,1,2,+1 lap,,
+6494,6,6,,13,,61,1,1,1,+1 lap,,
+6507,7,7,,19,,59,0,1,0,,,Electrical
+6502,8,8,,22,,59,0,1,0,+3 laps,,
+6503,9,9,,21,,59,0,1,0,+3 laps,,
+6499,10,10,,12,,58,0,1,0,,,Engine
+6488,11,11,,10,,58,0,1,0,,,Spun off
+6495,12,DNF,,15,,49,0,1,0,,,Spun off
+6500,13,DNF,,11,,48,0,1,0,,,Throttle
+6487,14,DNF,,4,,46,0,1,0,,,Engine
+6491,15,DNF,,7,,46,0,1,0,,,Spun off
+6497,16,DNF,,20,,29,0,1,0,,,Fuel pressure
+6489,17,DNF,,9,,28,0,1,0,,,Electrical
+6484,18,DNF,,1,,17,0,1,0,,,Accident
+6496,19,DNF,,18,,5,0,1,0,,,Collision
+6493,20,DNF,,17,,5,0,1,0,,,Collision
+6504,21,DNF,,5,,0,0,1,0,,,Gearbox
+6501,22,DNF,,14,,0,0,1,0,,,Spun off
