@@ -40,52 +40,66 @@ async function populateDB() {
     console.log('\n');
     console.log(pc.blue('[INFO]: ') + 'Poulating the database...');
 
+    const tablesMap: {
+      filenames: (filename: string) => boolean;
+      tableName: string;
+    }[] = [
+      {
+        filenames: (filename) =>
+          ['Q1 - Res', 'Q2 - Res', 'Q3 - Res', 'Q - ', 'PQ - Res'].some(
+            (prefix) => filename.startsWith(prefix)
+          ),
+        tableName: 'qualifyingResults'
+      },
+      {
+        filenames: (filename) =>
+          ['R - Res', 'SR - Res'].some((prefix) => filename.startsWith(prefix)),
+        tableName: 'raceResults'
+      },
+      {
+        filenames: (filename) =>
+          ['FP1 - Res', 'FP2 - Res', 'FP3 - Res', 'FP4 - Res', 'WU - Res'].some(
+            (prefix) => filename.startsWith(prefix)
+          ),
+        tableName: 'fpResults'
+      },
+      {
+        filenames: (filename) => filename.includes('Lap times'),
+        tableName: 'lapTimes'
+      },
+      {
+        filenames: (filename) => filename.includes('Pit stops'),
+        tableName: 'pitStops'
+      }
+    ];
+
     // Loop through each CSV file and populate the corresponding table
-    for (const csvFile of tableNames) {
-      if (csvFile.indexOf('Results') > -1) {
-        if (csvFile == 'qualifyingResults') {
+    for (const tableName of tableNames) {
+      for (const tableMap of tablesMap) {
+        if (tableMap.tableName == tableName) {
           insertQueries(
             await getInsertQueriesFromDir({
               folderPath: path.resolve(csvDirectory),
-              triggerFilenameCondition: (filename) =>
-                ['Q1 -', 'Q2 -', 'Q3 -', 'Q - ', 'PQ -'].some((prefix) =>
-                  filename.startsWith(prefix)
-                ),
-              toTable: csvFile,
-              rowTransformFn: setSessionID
-            })
-          );
-        } else if (csvFile == 'raceResults') {
-          insertQueries(
-            await getInsertQueriesFromDir({
-              folderPath: path.resolve(csvDirectory),
-              triggerFilenameCondition: (filename) =>
-                ['R - ', 'SR - '].some((prefix) => filename.startsWith(prefix)),
-              toTable: csvFile,
-              rowTransformFn: setSessionID
-            })
-          );
-        } else if (csvFile == 'fpResults') {
-          insertQueries(
-            await getInsertQueriesFromDir({
-              folderPath: path.resolve(csvDirectory),
-              triggerFilenameCondition: (filename) =>
-                ['FP1 -', 'FP2 -', 'FP3 -', 'FP4 - ', 'WU -'].some((prefix) =>
-                  filename.startsWith(prefix)
-                ),
-              toTable: csvFile,
+              triggerFilenameCondition: tableMap.filenames,
+              toTable: tableName,
               rowTransformFn: setSessionID
             })
           );
         }
+      }
 
+      if (tablesMap.some((x) => x.tableName == tableName)) {
+        // Go to next iteration since we already insert data
         continue;
       }
 
+      // Other tables will be in the root directory, with the csv file having
+      // the same name as the table name:
+
       console.log('\n');
       const queries = await getInsertQueriesFromCSV(
-        path.resolve(csvDirectory, csvFile + '.csv'),
-        csvFile
+        path.resolve(csvDirectory, tableName + '.csv'),
+        tableName
       );
 
       insertQueries(queries);
@@ -112,9 +126,7 @@ function insertQueries(queries: querydef[]) {
   });
 
   console.log(pc.blue('[INFO]: ') + 'Inserting the rows...');
-
   insertMany(queries);
-
   console.log(pc.green('[OK]: ') + 'All the rows successfully inserted!');
 }
 

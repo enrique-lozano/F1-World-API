@@ -1,0 +1,64 @@
+entrantId,lap,time,timeOfDay,annotation
+7114,1,36262,17:07:00,
+7099,3,20776,17:09:40,
+7096,5,23361,17:13:04,
+7095,5,21423,17:13:19,
+7114,11,20407,17:25:58,
+7112,12,20418,17:25:22,
+7097,12,20059,17:25:26,
+7101,12,20598,17:25:35,
+7098,12,23237,17:25:39,
+7104,12,21453,17:25:43,
+7109,12,20493,17:25:45,
+7105,12,20391,17:26:11,
+7102,12,21217,17:26:36,
+7113,12,21040,17:26:37,
+7100,12,23906,17:26:45,
+7115,12,31122,17:26:49,
+7103,13,22625,17:28:26,
+7107,13,21263,17:28:32,
+7096,13,20198,17:29:01,
+7115,13,22356,17:29:45,
+7099,14,21069,17:31:36,
+7112,17,15234,17:39:17,All cars follow the SC through the pit lane
+7097,17,15174,17:39:18,All cars follow the SC through the pit lane
+7101,17,15278,17:39:19,All cars follow the SC through the pit lane
+7104,17,15033,17:39:20,All cars follow the SC through the pit lane
+7109,17,15061,17:39:21,All cars follow the SC through the pit lane
+7098,17,15049,17:39:22,All cars follow the SC through the pit lane
+7103,17,15327,17:39:23,All cars follow the SC through the pit lane
+7107,17,15638,17:39:24,All cars follow the SC through the pit lane
+7096,17,15135,17:39:26,All cars follow the SC through the pit lane
+7105,17,15128,17:39:27,All cars follow the SC through the pit lane
+7102,17,15104,17:39:29,All cars follow the SC through the pit lane
+7113,17,14966,17:39:31,All cars follow the SC through the pit lane
+7095,17,15097,17:39:32,All cars follow the SC through the pit lane
+7099,17,15073,17:39:33,All cars follow the SC through the pit lane
+7100,17,26051,17:39:34,All cars follow the SC through the pit lane
+7115,17,34847,17:39:36,All cars follow the SC through the pit lane
+7114,17,14978,17:39:52,All cars follow the SC through the pit lane
+7101,20,1594609,17:47:36,Red flag
+7109,20,31657,17:47:51,Red flag
+7098,20,1583848,17:48:02,Red flag
+7115,21,22390,17:50:37,Red flag
+7112,22,1310768,17:53:26,Red flag
+7097,22,1310808,17:53:28,Red flag
+7104,22,1310671,17:53:30,Red flag
+7103,22,1312728,17:53:32,Red flag
+7096,22,1313343,17:53:34,Red flag
+7107,22,1313641,17:53:35,Red flag
+7105,22,1312704,17:53:37,Red flag
+7102,22,1313187,17:53:38,Red flag
+7113,22,1313693,17:53:40,Red flag
+7099,22,1313665,17:53:42,Red flag
+7100,22,1314950,17:53:45,Red flag
+7095,22,1314189,17:53:48,Red flag
+7114,22,1313511,17:53:50,Red flag
+7109,22,1313873,17:53:52,Red flag
+7115,22,1315645,17:53:54,Red flag
+7112,31,27025,18:32:21,
+7097,33,29317,18:35:52,Ten-second stop-go penalty
+7095,33,20446,18:36:35,
+7101,33,14951,18:38:09,
+7098,33,14943,18:38:11,
+7099,36,24486,18:42:11,

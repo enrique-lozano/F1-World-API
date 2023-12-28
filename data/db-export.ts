@@ -15,7 +15,11 @@ async function main() {
     console.log('');
     console.log(pc.blue('[INFO]: ') + `Exporting table "${tableName}"...`);
 
-    if (tableName.toLowerCase().indexOf('results') > -1) {
+    if (
+      tableName.toLowerCase().indexOf('results') > -1 ||
+      tableName == 'pitStops' ||
+      tableName == 'lapTimes'
+    ) {
       const years = (
         db
           .prepare(
@@ -52,13 +56,20 @@ async function main() {
               )
               .get() as object;
 
+            // Final select to get the rows regarding a session:
             const rows = db
               .prepare(
-                `SELECT * FROM ${tableName} WHERE sessionId = '${year}-${round}-${session}' ORDER BY positionOrder`
+                `SELECT * FROM ${tableName} WHERE sessionId = '${year}-${round}-${session}' ORDER BY ${
+                  tableName.toLowerCase().indexOf('results') > -1
+                    ? 'positionOrder'
+                    : 'lap'
+                }`
               )
               .all() as object[];
 
             await exportRowsToCSV({
+              // Remove the session info since it will be present in the directory.
+              // Should be added manually from the directory when importing again
               rows: rows.map((e) =>
                 omitAttributesFromObject(e as any, ['sessionId'])
               ),
@@ -68,13 +79,19 @@ async function main() {
                 year.toFixed(0),
                 `${round} - ${name['shortName']}`
               ),
-              fileName: session + ' - Results'
+              fileName: `${session} - ${
+                tableName == 'lapTimes'
+                  ? 'Lap times'
+                  : tableName == 'pitStops'
+                  ? 'Pit stops'
+                  : 'Results'
+              }`
             });
           }
         }
       }
 
-      // Finish with the results tables
+      // Finish with the tables that are relative to a session
       continue;
     }
 
