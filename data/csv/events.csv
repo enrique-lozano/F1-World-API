@@ -13,7 +13,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1951-05,1951-07-14,great-britain,1951 RAC British Grand Prix,TWO_SESSION,silverstone,90,https://www.progcovers.com/motor/silver51.jpg
 1951-06,1951-07-29,germany,Grosser Preis von Deutschland 1951,TWO_SESSION,nurburgring,20,https://www.progcovers.com/motor/nurburgring510729.jpg
 1951-07,1951-09-16,italy,Gran Premio d'Italia 1951,TWO_SESSION,monza,80,https://www.progcovers.com/motor/monza51_2.jpg
-1951-08,1951-10-28,spain,Gran Premio de EspaÃ±a 1951,TWO_SESSION,pedralbes,70,https://www.progcovers.com/motor/pedralbes511028.jpg
+1951-08,1951-10-28,spain,Gran Premio de España 1951,TWO_SESSION,pedralbes,70,https://www.progcovers.com/motor/pedralbes511028.jpg
 1952-01,1952-05-18,switzerland,Grosser Preis der Schweiz 1952,TWO_SESSION,bremgarten,62,https://www.progcovers.com/motor/bern520518.jpg
 1952-02,1952-05-30,indianapolis,1952 Indianapolis 500,FOUR_LAPS,indianapolis,200,https://www.progcovers.com/motor/indianapolis52.jpg
 1952-03,1952-06-22,belgium,1952 Belgian Grand Prix,TWO_SESSION,spa-francorchamps,36,https://www.progcovers.com/motor/spa520622.jpg
@@ -39,7 +39,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1954-06,1954-08-01,germany,Grosser Preis von Deutschland 1954,TWO_SESSION,nurburgring,22,https://www.progcovers.com/motor/nurburgring540801.jpg
 1954-07,1954-08-22,switzerland,Grosser Preis der Schweiz 1954,TWO_SESSION,bremgarten,66,https://www.progcovers.com/motor/bern540822.jpg
 1954-08,1954-09-05,italy,Gran Premio d'Italia 1954,TWO_SESSION,monza,80,https://www.progcovers.com/motor/monza5409052.jpg
-1954-09,1954-10-24,spain,Gran Premio de EspaÃ±a 1954,TWO_SESSION,pedralbes,80,https://www.progcovers.com/motor/pedralbes541024.jpg
+1954-09,1954-10-24,spain,Gran Premio de España 1954,TWO_SESSION,pedralbes,80,https://www.progcovers.com/motor/pedralbes541024.jpg
 1955-01,1955-01-16,argentina,Gran Premio de Argentina 1955,TWO_SESSION,buenos-aires,96,https://www.progcovers.com/motor/buenosaires550116.jpg
 1955-02,1955-05-22,monaco,Grand Prix de Monaco 1955,TWO_SESSION,monaco,100,https://www.progcovers.com/motor/monaco550522.jpg
 1955-03,1955-05-30,indianapolis,1955 Indianapolis 500,FOUR_LAPS,indianapolis,200,https://www.progcovers.com/motor/indianapolis550530.jpg
@@ -118,7 +118,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1963-06,1963-08-04,germany,Grosser Preis von Deutschland 1963,TWO_SESSION,nurburgring,15,https://www.progcovers.com/motor/nurburgring630804.jpg
 1963-07,1963-09-08,italy,Gran Premio d'Italia 1963,TWO_SESSION,monza,86,https://www.progcovers.com/motor/monza63.jpg
 1963-08,1963-10-06,united-states,1963 United States Grand Prix,TWO_SESSION,watkins-glen,110,https://www.progcovers.com/motor/watglen63.jpg
-1963-09,1963-10-27,mexico,Gran Premio de MÃ©xico 1963,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico631027.jpg
+1963-09,1963-10-27,mexico,Gran Premio de México 1963,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico631027.jpg
 1963-10,1963-12-28,south-africa,South African Grand Prix 1963,TWO_SESSION,east-london,85,https://www.progcovers.com/motor/63_EL.jpg
 1964-01,1964-05-10,monaco,Grand Prix de Monaco 1964,TWO_SESSION,monaco,100,https://www.progcovers.com/motor/monaco64.jpg
 1964-02,1964-05-24,netherlands,Grote Prijs van Nederland 1964,TWO_SESSION,zandvoort,80,https://www.progcovers.com/motor/zandvoort640524.jpg
@@ -129,7 +129,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1964-07,1964-08-23,austria,Grosser Preis von Ã–sterreich 1964,TWO_SESSION,zeltweg,105,https://www.progcovers.com/motor/zeltweg640823.jpg
 1964-08,1964-09-06,italy,Gran Premio d'Italia 1964,TWO_SESSION,monza,78,https://www.progcovers.com/motor/monza640906.jpg
 1964-09,1964-10-04,united-states,1964 United States Grand Prix,TWO_SESSION,watkins-glen,110,https://www.progcovers.com/motor/watkinsglen641004.jpg
-1964-10,1964-10-25,mexico,Gran Premio de MÃ©xico 1964,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico64.jpeg
+1964-10,1964-10-25,mexico,Gran Premio de México 1964,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico64.jpeg
 1965-01,1965-01-01,south-africa,South African Grand Prix 1965,TWO_SESSION,east-london,85,
 1965-02,1965-05-30,monaco,Grand Prix de Monaco 1965,TWO_SESSION,monaco,100,https://www.progcovers.com/motor/monaco650530.jpg
 1965-03,1965-06-13,belgium,1965 Belgian Grand Prix,TWO_SESSION,spa-francorchamps,32,https://www.progcovers.com/motor/spa650613.jpg
@@ -139,7 +139,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1965-07,1965-08-01,germany,Grosser Preis von Deutschland 1965,TWO_SESSION,nurburgring,15,https://www.progcovers.com/motor/nurburgring650801.jpg
 1965-08,1965-09-12,italy,Gran Premio d'Italia 1965,TWO_SESSION,monza,76,https://www.progcovers.com/motor/monza650912.jpg
 1965-09,1965-10-03,united-states,1965 United States Grand Prix,TWO_SESSION,watkins-glen,110,https://www.progcovers.com/motor/watglen65.jpg
-1965-10,1965-10-24,mexico,Gran Premio de MÃ©xico 1965,TWO_SESSION,mexico-city,65,
+1965-10,1965-10-24,mexico,Gran Premio de México 1965,TWO_SESSION,mexico-city,65,
 1966-01,1966-05-22,monaco,Grand Prix de Monaco 1966,TWO_SESSION,monaco,100,https://www.progcovers.com/motor/monaco660522.jpg
 1966-02,1966-06-12,belgium,1966 Belgian Grand Prix,TWO_SESSION,spa-francorchamps,28,https://www.progcovers.com/motor/spa120666.jpg
 1966-03,1966-07-03,france,Grand Prix de France 1966,TWO_SESSION,reims,48,https://www.progcovers.com/motor/reims3big.jpg
@@ -148,7 +148,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1966-06,1966-08-07,germany,Grosser Preis von Deutschland 1966,TWO_SESSION,nurburgring,15,https://www.progcovers.com/motor/nurburgring660807.jpg
 1966-07,1966-09-04,italy,Gran Premio d'Italia 1966,TWO_SESSION,monza,68,https://www.progcovers.com/motor/monza66.jpg
 1966-08,1966-10-02,united-states,1966 United States Grand Prix,TWO_SESSION,watkins-glen,108,https://www.progcovers.com/motor/watglen66.jpg
-1966-09,1966-10-23,mexico,Gran Premio de MÃ©xico 1966,TWO_SESSION,mexico-city,65,
+1966-09,1966-10-23,mexico,Gran Premio de México 1966,TWO_SESSION,mexico-city,65,
 1967-01,1967-01-02,south-africa,South African Grand Prix 1967,TWO_SESSION,kyalami,80,https://www.progcovers.com/motor/kyalami670102.jpg
 1967-02,1967-05-07,monaco,Grand Prix de Monaco 1967,TWO_SESSION,monaco,100,https://www.progcovers.com/motor/monaco670507.jpg
 1967-03,1967-06-04,netherlands,Grote Prijs van Nederland 1967,TWO_SESSION,zandvoort,90,https://www.progcovers.com/motor/zandvoort670604.jpg
@@ -159,9 +159,9 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1967-08,1967-08-27,canada,Player's Canadian Grand Prix 1967,TWO_SESSION,mosport,90,https://www.progcovers.com/motor/mosport_cover_gp67.jpg
 1967-09,1967-09-10,italy,Gran Premio d'Italia 1967,TWO_SESSION,monza,68,https://www.progcovers.com/motor/monza_programme.jpg
 1967-10,1967-10-01,united-states,1967 United States Grand Prix,TWO_SESSION,watkins-glen,108,https://www.progcovers.com/motor/glen67.jpg
-1967-11,1967-10-22,mexico,Gran Premio de MÃ©xico 1967,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico67.jpeg
+1967-11,1967-10-22,mexico,Gran Premio de México 1967,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico67.jpeg
 1968-01,1968-01-01,south-africa,South African Grand Prix 1968,TWO_SESSION,kyalami,80,https://www.progcovers.com/motor/kyalami680101.jpg
-1968-02,1968-05-12,spain,Gran Premio de EspaÃ±a 1968,TWO_SESSION,jarama,90,
+1968-02,1968-05-12,spain,Gran Premio de España 1968,TWO_SESSION,jarama,90,
 1968-03,1968-05-26,monaco,Grand Prix de Monaco 1968,TWO_SESSION,monaco,80,https://www.progcovers.com/motor/monaco680526.jpg
 1968-04,1968-06-09,belgium,1968 Belgian Grand Prix,TWO_SESSION,spa-francorchamps,28,https://www.progcovers.com/motor/spa68_2.jpg
 1968-05,1968-06-23,netherlands,Grote Prijs van Nederland 1968,TWO_SESSION,zandvoort,90,https://www.progcovers.com/motor/zandvoort680623.jpg
@@ -171,9 +171,9 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1968-09,1968-09-08,italy,Gran Premio d'Italia 1968,TWO_SESSION,monza,68,https://www.progcovers.com/motor/monza680908.jpg
 1968-10,1968-09-22,canada,Player's Canadian Grand Prix 1968,TWO_SESSION,mont-tremblant,90,https://www.progcovers.com/motor/monttremblant680922.jpg
 1968-11,1968-10-06,united-states,1968 United States Grand Prix,TWO_SESSION,watkins-glen,108,https://www.progcovers.com/motor/watglen68.jpg
-1968-12,1968-11-03,mexico,Gran Premio de MÃ©xico 1968,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico68.jpeg
+1968-12,1968-11-03,mexico,Gran Premio de México 1968,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico68.jpeg
 1969-01,1969-03-01,south-africa,South African Grand Prix 1969,TWO_SESSION,kyalami,80,https://www.progcovers.com/motor/kya69.jpg
-1969-02,1969-05-04,spain,Gran Premio de EspaÃ±a 1969,TWO_SESSION,montjuic,90,https://www.progcovers.com/motor/montjuic690504.jpg
+1969-02,1969-05-04,spain,Gran Premio de España 1969,TWO_SESSION,montjuic,90,https://www.progcovers.com/motor/montjuic690504.jpg
 1969-03,1969-05-18,monaco,Grand Prix de Monaco 1969,TWO_SESSION,monaco,80,https://www.progcovers.com/motor/monaco690518.jpg
 1969-04,1969-06-21,netherlands,Grote Prijs van Nederland 1969,TWO_SESSION,zandvoort,90,https://www.progcovers.com/motor/zandvoort690621.jpg
 1969-05,1969-07-06,france,Grand Prix de France 1969,TWO_SESSION,clermont-ferrand,38,https://www.progcovers.com/motor/clermont690706.jpg
@@ -182,9 +182,9 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1969-08,1969-09-07,italy,Gran Premio d'Italia 1969,TWO_SESSION,monza,68,https://www.progcovers.com/motor/monza69.jpg
 1969-09,1969-09-20,canada,Player's Canadian Grand Prix 1969,TWO_SESSION,mosport,90,https://www.progcovers.com/motor/mosport69.jpg
 1969-10,1969-10-05,united-states,1969 United States Grand Prix,TWO_SESSION,watkins-glen,108,https://www.progcovers.com/motor/watkinsglen691005.jpg
-1969-11,1969-10-19,mexico,Gran Premio de MÃ©xico 1969,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico691019.jpg
+1969-11,1969-10-19,mexico,Gran Premio de México 1969,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico691019.jpg
 1970-01,1970-03-07,south-africa,South African Grand Prix 1970,TWO_SESSION,kyalami,80,https://www.progcovers.com/motor/southafrica70.jpg
-1970-02,1970-04-19,spain,Gran Premio de EspaÃ±a 1970,TWO_SESSION,jarama,90,https://www.progcovers.com/motor/jarama700419.jpg
+1970-02,1970-04-19,spain,Gran Premio de España 1970,TWO_SESSION,jarama,90,https://www.progcovers.com/motor/jarama700419.jpg
 1970-03,1970-05-10,monaco,Grand Prix de Monaco 1970,TWO_SESSION,monaco,80,https://www.progcovers.com/motor/monaco700510.jpg
 1970-04,1970-06-07,belgium,1970 Belgian Grand Prix,TWO_SESSION,spa-francorchamps,28,https://www.progcovers.com/motor/spa70.jpg
 1970-05,1970-06-21,netherlands,Grote Prijs van Nederland 1970,TWO_SESSION,zandvoort,80,https://www.progcovers.com/motor/zandvoort700621.jpg
@@ -195,9 +195,9 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1970-10,1970-09-06,italy,Gran Premio d'Italia 1970,TWO_SESSION,monza,68,https://www.progcovers.com/motor/monza700906.jpg
 1970-11,1970-09-20,canada,Player's Canadian Grand Prix 1970,TWO_SESSION,mont-tremblant,90,https://www.progcovers.com/motor/mttremblant700920.jpg
 1970-12,1970-10-04,united-states,1970 United States Grand Prix,TWO_SESSION,watkins-glen,108,https://www.progcovers.com/motor/watkinsglen701004.jpg
-1970-13,1970-10-25,mexico,Gran Premio de MÃ©xico 1970,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico701025.jpg
+1970-13,1970-10-25,mexico,Gran Premio de México 1970,TWO_SESSION,mexico-city,65,https://www.progcovers.com/motor/mexico701025.jpg
 1971-01,1971-03-06,south-africa,South African Grand Prix 1971,TWO_SESSION,kyalami,79,https://www.progcovers.com/motor/kyalami710306.jpg
-1971-02,1971-04-18,spain,Gran Premio de EspaÃ±a 1971,TWO_SESSION,montjuic,75,https://www.progcovers.com/motor/montjuic710418.jpg
+1971-02,1971-04-18,spain,Gran Premio de España 1971,TWO_SESSION,montjuic,75,https://www.progcovers.com/motor/montjuic710418.jpg
 1971-03,1971-05-23,monaco,Grand Prix de Monaco 1971,TWO_SESSION,monaco,80,https://www.progcovers.com/motor/monaco710523.jpg
 1971-04,1971-06-20,netherlands,Grote Prijs van Nederland 1971,TWO_SESSION,zandvoort,70,https://www.progcovers.com/motor/zandvoort710620.jpg
 1971-05,1971-07-04,france,Grand Prix de France 1971,TWO_SESSION,paul-ricard,55,https://www.progcovers.com/motor/paulricard710704.jpg
@@ -209,7 +209,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1971-11,1971-10-03,united-states,1971 United States Grand Prix,TWO_SESSION,watkins-glen,59,https://www.progcovers.com/motor/watkinsglen711003.jpg
 1972-01,1972-01-23,argentina,Gran Premio de Argentina 1972,TWO_SESSION,buenos-aires,95,https://www.progcovers.com/motor/buenosaires720123.jpg
 1972-02,1972-03-04,south-africa,South African Grand Prix 1972,TWO_SESSION,kyalami,79,https://www.progcovers.com/motor/kyalami720304.jpg
-1972-03,1972-05-01,spain,Gran Premio de EspaÃ±a 1972,TWO_SESSION,jarama,90,https://www.progcovers.com/motor/jarama720501.jpg
+1972-03,1972-05-01,spain,Gran Premio de España 1972,TWO_SESSION,jarama,90,https://www.progcovers.com/motor/jarama720501.jpg
 1972-04,1972-05-14,monaco,Grand Prix de Monaco 1972,TWO_SESSION,monaco,80,https://www.progcovers.com/motor/monaco720514.jpg
 1972-05,1972-06-04,belgium,1972 Belgian Grand Prix,TWO_SESSION,nivelles,85,https://www.progcovers.com/motor/nivelles72.jpg
 1972-06,1972-07-02,france,Grand Prix de France 1972,TWO_SESSION,clermont-ferrand,38,https://www.progcovers.com/motor/clermont_ferrand72.jpg
@@ -222,7 +222,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1973-01,1973-01-28,argentina,Gran Premio de Argentina 1973,TWO_SESSION,buenos-aires,96,https://www.progcovers.com/motor/kyalami730303.jpg
 1973-02,1973-02-11,brazil,Grande PrÃªmio do Brasil 1973,TWO_SESSION,interlagos,40,https://www.progcovers.com/motor/montjuic730429.jpg
 1973-03,1973-03-03,south-africa,South African Grand Prix 1973,TWO_SESSION,kyalami,79,https://www.progcovers.com/motor/zolder730520.jpg
-1973-04,1973-04-29,spain,Gran Premio de EspaÃ±a 1973,TWO_SESSION,montjuic,75,https://www.progcovers.com/motor/monaco730603.jpg
+1973-04,1973-04-29,spain,Gran Premio de España 1973,TWO_SESSION,montjuic,75,https://www.progcovers.com/motor/monaco730603.jpg
 1973-05,1973-05-20,belgium,1973 Belgian Grand Prix,TWO_SESSION,zolder,70,https://www.progcovers.com/motor/anderstorp-3-73.JPG
 1973-06,1973-06-03,monaco,Grand Prix de Monaco 1973,TWO_SESSION,monaco,78,https://www.progcovers.com/motor/paulricard730701.jpg
 1973-07,1973-06-17,sweden,Hitachi Sveriges Grand Prix 1973,TWO_SESSION,anderstorp,80,https://www.progcovers.com/motor/silverstone730714.jpg
@@ -237,7 +237,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1974-01,1974-01-13,argentina,Gran Premio de Argentina 1974,TWO_SESSION,buenos-aires,53,https://www.progcovers.com/motor/buenosaires740113.jpg
 1974-02,1974-01-27,brazil,Grande PrÃªmio do Brasil 1974,TWO_SESSION,interlagos,40,
 1974-03,1974-03-30,south-africa,Lucky Strike Grand Prix of South Africa 1974,TWO_SESSION,kyalami,78,https://www.progcovers.com/motor/kyalami74.jpg
-1974-04,1974-04-28,spain,Gran Premio de EspaÃ±a 1974,TWO_SESSION,jarama,90,https://www.progcovers.com/motor/jarama74.jpg
+1974-04,1974-04-28,spain,Gran Premio de España 1974,TWO_SESSION,jarama,90,https://www.progcovers.com/motor/jarama74.jpg
 1974-05,1974-05-12,belgium,1974 Belgian Grand Prix,TWO_SESSION,nivelles,85,https://www.progcovers.com/motor/nivelles740512.jpg
 1974-06,1974-05-26,monaco,Grand Prix de Monaco 1974,TWO_SESSION,monaco,78,https://www.progcovers.com/motor/monaco740526.jpg
 1974-07,1974-06-09,sweden,Texaco Sveriges Grand Prix 1974,TWO_SESSION,anderstorp,80,https://www.progcovers.com/motor/anderstorp-74-4.JPG
@@ -252,7 +252,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1975-01,1975-01-12,argentina,Gran Premio de Argentina 1975,TWO_SESSION,buenos-aires,53,
 1975-02,1975-01-26,brazil,Grande PrÃªmio do Brasil 1975,TWO_SESSION,interlagos,40,
 1975-03,1975-03-01,south-africa,Lucky Strike Grand Prix of South Africa 1975,TWO_SESSION,kyalami,78,https://www.progcovers.com/motor/kyalami75.jpg
-1975-04,1975-04-27,spain,Gran Premio de EspaÃ±a 1975,TWO_SESSION,montjuic,75,https://www.progcovers.com/motor/montjuic750427.jpg
+1975-04,1975-04-27,spain,Gran Premio de España 1975,TWO_SESSION,montjuic,75,https://www.progcovers.com/motor/montjuic750427.jpg
 1975-05,1975-05-11,monaco,Grand Prix de Monaco 1975,TWO_SESSION,monaco,78,https://www.progcovers.com/motor/monaco750511.jpg
 1975-06,1975-05-25,belgium,1975 Belgian Grand Prix,TWO_SESSION,zolder,70,https://www.progcovers.com/motor/zolder750525.jpg
 1975-07,1975-06-08,sweden,Polar Sveriges Grand Prix 1975,TWO_SESSION,anderstorp,80,https://www.progcovers.com/motor/anderstorp750608.jpg
@@ -266,7 +266,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1976-01,1976-01-25,brazil,Grande PrÃªmio do Brasil 1976,TWO_SESSION,interlagos,40,
 1976-02,1976-03-06,south-africa,The Citizen Grand Prix of South Africa 1976,TWO_SESSION,kyalami,78,https://www.progcovers.com/motor/kyalami760306.jpg
 1976-03,1976-03-28,united-states-west,1976 Long Beach Grand Prix,TWO_SESSION,long-beach,80,https://www.progcovers.com/motor/longbeach760328.jpg
-1976-04,1976-05-02,spain,Gran Premio de EspaÃ±a 1976,TWO_SESSION,jarama,75,https://www.progcovers.com/motor/jarama76.jpg
+1976-04,1976-05-02,spain,Gran Premio de España 1976,TWO_SESSION,jarama,75,https://www.progcovers.com/motor/jarama76.jpg
 1976-05,1976-05-16,belgium,1976 Belgian Grand Prix,TWO_SESSION,zolder,70,https://www.progcovers.com/motor/zolder760516.jpg
 1976-06,1976-05-30,monaco,Grand Prix de Monaco 1976,TWO_SESSION,monaco,78,https://www.progcovers.com/motor/monaco760530.jpg
 1976-07,1976-06-13,sweden,Gislaved Sveriges Grand Prix 1976,TWO_SESSION,anderstorp,72,https://www.progcovers.com/motor/anderstorp760613.jpg
@@ -283,7 +283,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1977-02,1977-01-23,brazil,Grande PrÃªmio do Brasil 1977,TWO_SESSION,interlagos,40,https://www.progcovers.com/motor/longbeach77.jpg
 1977-03,1977-03-05,south-africa,The Citizen Grand Prix of South Africa 1977,TWO_SESSION,kyalami,78,https://www.progcovers.com/motor/jarama77.jpg
 1977-04,1977-04-03,united-states-west,1977 Long Beach Grand Prix,TWO_SESSION,long-beach,80,https://www.progcovers.com/motor/monaco770522.jpg
-1977-05,1977-05-08,spain,Gran Premio de EspaÃ±a 1977,TWO_SESSION,jarama,75,https://www.progcovers.com/motor/zolder770605.jpg
+1977-05,1977-05-08,spain,Gran Premio de España 1977,TWO_SESSION,jarama,75,https://www.progcovers.com/motor/zolder770605.jpg
 1977-06,1977-05-22,monaco,Grand Prix de Monaco 1977,TWO_SESSION,monaco,76,https://www.progcovers.com/motor/anderstorp77.jpg
 1977-07,1977-06-05,belgium,1977 Belgian Grand Prix,TWO_SESSION,zolder,70,https://www.progcovers.com/motor/dijon77.jpg
 1977-08,1977-06-19,sweden,Gislaved Sveriges Grand Prix 1977,TWO_SESSION,anderstorp,72,https://www.progcovers.com/motor/silverstone770716.jpg
@@ -302,7 +302,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1978-04,1978-04-02,united-states-west,1978 Long Beach Grand Prix,TWO_SESSION,long-beach,80,https://www.progcovers.com/motor/longbeach78_2.jpg
 1978-05,1978-05-07,monaco,Grand Prix de Monaco 1978,TWO_SESSION,monaco,75,https://www.progcovers.com/motor/monaco780507.jpg
 1978-06,1978-05-21,belgium,1978 Belgian Grand Prix,TWO_SESSION,zolder,70,https://www.progcovers.com/motor/zolder780521.jpg
-1978-07,1978-06-04,spain,Gran Premio de EspaÃ±a 1978,TWO_SESSION,jarama,75,https://www.progcovers.com/motor/jarama78.jpg
+1978-07,1978-06-04,spain,Gran Premio de España 1978,TWO_SESSION,jarama,75,https://www.progcovers.com/motor/jarama78.jpg
 1978-08,1978-06-17,sweden,Sveriges Grand Prix 1978,TWO_SESSION,anderstorp,70,https://www.progcovers.com/motor/anderstorp780617.jpg
 1978-09,1978-07-02,france,Grand Prix de France 1978,TWO_SESSION,paul-ricard,54,https://www.progcovers.com/motor/paulricard780702.jpg
 1978-10,1978-07-16,great-britain,1978 John Player British Grand Prix,TWO_SESSION,brands-hatch,76,https://www.progcovers.com/motor/brands780716.jpg
@@ -316,7 +316,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1979-02,1979-02-04,brazil,Grande PrÃªmio do Brasil 1979,TWO_SESSION,interlagos,40,https://www.progcovers.com/motor/kya79.jpg
 1979-03,1979-03-03,south-africa,Simba Grand Prix of South Africa 1979,TWO_SESSION,kyalami,78,https://www.progcovers.com/motor/longbeach79.jpg
 1979-04,1979-04-08,united-states-west,1979 Lubri Lon Long Beach Grand Prix,TWO_SESSION,long-beach,80,https://www.progcovers.com/motor/jarama790429.jpg
-1979-05,1979-04-29,spain,Gran Premio de EspaÃ±a 1979,TWO_SESSION,jarama,75,https://www.progcovers.com/motor/zolder790513.jpg
+1979-05,1979-04-29,spain,Gran Premio de España 1979,TWO_SESSION,jarama,75,https://www.progcovers.com/motor/zolder790513.jpg
 1979-06,1979-05-13,belgium,1979 Belgian Grand Prix,TWO_SESSION,zolder,70,https://www.progcovers.com/motor/monaco790527.jpg
 1979-07,1979-05-27,monaco,Grand Prix de Monaco 1979,TWO_SESSION,monaco,76,https://www.progcovers.com/motor/dijon79.jpg
 1979-08,1979-07-01,france,Grand Prix de France 1979,TWO_SESSION,dijon,80,https://www.progcovers.com/motor/silverstone790714.jpg
@@ -347,7 +347,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1981-04,1981-05-03,san-marino,Gran Premio di San Marino 1981,TWO_SESSION,imola,60,https://www.progcovers.com/motor/zolder810517.jpg
 1981-05,1981-05-17,belgium,1981 Belgian Grand Prix,TWO_SESSION,zolder,70,https://www.progcovers.com/motor/monaco810531.jpg
 1981-06,1981-05-31,monaco,Grand Prix de Monaco 1981,TWO_SESSION,monaco,76,https://www.progcovers.com/motor/jarama81.jpg
-1981-07,1981-06-21,spain,Gran Premio de EspaÃ±a 1981,TWO_SESSION,jarama,80,https://www.progcovers.com/motor/dijon81.jpg
+1981-07,1981-06-21,spain,Gran Premio de España 1981,TWO_SESSION,jarama,80,https://www.progcovers.com/motor/dijon81.jpg
 1981-08,1981-07-05,france,Grand Prix de France 1981,TWO_SESSION,dijon,80,https://www.progcovers.com/motor/silverstone810718.jpg
 1981-09,1981-07-18,great-britain,1981 Marlboro British Grand Prix,TWO_SESSION,silverstone,68,https://www.progcovers.com/motor/hockenheim810802.jpg
 1981-10,1981-08-02,germany,Grosser Preis von Deutschland 1981,TWO_SESSION,hockenheimring,45,https://www.progcovers.com/motor/oster81.jpg
@@ -433,7 +433,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1986-12,1986-08-17,austria,Grosser Preis von Ã–sterreich 1986,TWO_SESSION,spielberg,52,https://www.progcovers.com/motor/zeltweg86.jpg
 1986-13,1986-09-07,italy,Gran Premio d'Italia 1986,TWO_SESSION,monza,51,https://www.progcovers.com/motor/monza860907.jpg
 1986-14,1986-09-21,portugal,Grande PrÃ©mio de Portugal 1986,TWO_SESSION,estoril,70,https://www.progcovers.com/motor/estoril860921.jpg
-1986-15,1986-10-12,mexico,Gran Premio de MÃ©xico 1986,TWO_SESSION,mexico-city,68,https://www.progcovers.com/motor/mexico861012.jpg
+1986-15,1986-10-12,mexico,Gran Premio de México 1986,TWO_SESSION,mexico-city,68,https://www.progcovers.com/motor/mexico861012.jpg
 1986-16,1986-10-26,australia,1986 Foster's Australian Grand Prix,TWO_SESSION,adelaide,82,https://www.progcovers.com/motor/adelaide86.jpg
 1987-01,1987-04-12,brazil,Grande PrÃªmio do Brasil 1987,TWO_SESSION,jacarepagua,61,https://www.progcovers.com/motor/rio870412.jpg
 1987-02,1987-05-03,san-marino,Gran Premio di San Marino 1987,TWO_SESSION,imola,59,https://www.progcovers.com/motor/imola870503.jpg
@@ -448,13 +448,13 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1987-11,1987-09-06,italy,Gran Premio d'Italia 1987,TWO_SESSION,monza,50,https://www.progcovers.com/motor/zeltweg870816.jpg
 1987-12,1987-09-20,portugal,Grande PrÃ©mio de Portugal 1987,TWO_SESSION,estoril,70,https://www.progcovers.com/motor/monza870906.jpg
 1987-13,1987-09-27,spain,Gran Premio Tio Pepe de EspaÃ±a 1987,TWO_SESSION,jerez,72,https://www.progcovers.com/motor/estoril870920.jpg
-1987-14,1987-10-18,mexico,Gran Premio de MÃ©xico 1987,TWO_SESSION,mexico-city,63,https://www.progcovers.com/motor/jerez87.jpg
+1987-14,1987-10-18,mexico,Gran Premio de México 1987,TWO_SESSION,mexico-city,63,https://www.progcovers.com/motor/jerez87.jpg
 1987-15,1987-11-01,japan,1987 Fuji Television Japanese Grand Prix,TWO_SESSION,suzuka,51,https://www.progcovers.com/motor/mexico871018.jpg
 1987-16,1987-11-15,australia,1987 Foster's Australian Grand Prix,TWO_SESSION,adelaide,82,https://www.progcovers.com/motor/suzuka87.jpg
 1988-01,1988-04-03,brazil,Grande PrÃªmio do Brasil 1988,TWO_SESSION,jacarepagua,61,https://www.progcovers.com/motor/rio88.jpg
 1988-02,1988-05-01,san-marino,Gran Premio Kronenbourg di San Marino 1988,TWO_SESSION,imola,60,https://www.progcovers.com/motor/imola880501.jpg
 1988-03,1988-05-15,monaco,Grand Prix de Monaco 1988,TWO_SESSION,monaco,78,https://www.progcovers.com/motor/monaco880515.jpg
-1988-04,1988-05-29,mexico,Gran Premio de MÃ©xico 1988,TWO_SESSION,mexico-city,67,https://www.progcovers.com/motor/mexico880529.jpg
+1988-04,1988-05-29,mexico,Gran Premio de México 1988,TWO_SESSION,mexico-city,67,https://www.progcovers.com/motor/mexico880529.jpg
 1988-05,1988-06-12,canada,Grand Prix Molson du Canada 1988,TWO_SESSION,montreal,69,https://www.progcovers.com/motor/montreal880612.jpg
 1988-06,1988-06-19,detroit,1988 Enichem Detroit Grand Prix,TWO_SESSION,detroit,63,https://www.progcovers.com/motor/detroit88.jpg
 1988-07,1988-07-03,france,Rhone Poulenc Grand Prix de France 1988,TWO_SESSION,paul-ricard,80,https://www.progcovers.com/motor/paulricard880703.jpg
@@ -470,7 +470,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1989-01,1989-03-26,brazil,Grande PrÃªmio do Brasil 1989,TWO_SESSION,jacarepagua,61,https://www.progcovers.com/motor/jacarepagua890326.jpg
 1989-02,1989-04-23,san-marino,Gran Premio Kronenbourg di San Marino 1989,TWO_SESSION,imola,61,https://www.progcovers.com/motor/imola890423.jpg
 1989-03,1989-05-07,monaco,Grand Prix de Monaco 1989,TWO_SESSION,monaco,78,https://www.progcovers.com/motor/monaco890507.jpg
-1989-04,1989-05-28,mexico,Gran Premio de MÃ©xico 1989,TWO_SESSION,mexico-city,69,https://www.progcovers.com/motor/mexico89.jpg
+1989-04,1989-05-28,mexico,Gran Premio de México 1989,TWO_SESSION,mexico-city,69,https://www.progcovers.com/motor/mexico89.jpg
 1989-05,1989-06-04,united-states,1989 Iceberg USA Grand Prix,TWO_SESSION,phoenix,75,https://www.progcovers.com/motor/phoenix89.jpg
 1989-06,1989-06-18,canada,Grand Prix Molson du Canada 1989,TWO_SESSION,montreal,69,https://www.progcovers.com/motor/montreal890618.jpg
 1989-07,1989-07-09,france,Rhone Poulenc Grand Prix de France 1989,TWO_SESSION,paul-ricard,80,https://www.progcovers.com/motor/paulricard89.jpg
@@ -488,7 +488,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1990-03,1990-05-13,san-marino,Gran Premio di San Marino 1990,TWO_SESSION,imola,61,https://www.progcovers.com/motor/imola900513.jpg
 1990-04,1990-05-27,monaco,Grand Prix de Monaco 1990,TWO_SESSION,monaco,78,https://www.progcovers.com/motor/monaco900527.jpg
 1990-05,1990-06-10,canada,Grand Prix Molson du Canada 1990,TWO_SESSION,montreal,70,https://www.progcovers.com/motor/montreal90.jpg
-1990-06,1990-06-24,mexico,Gran Premio de MÃ©xico 1990,TWO_SESSION,mexico-city,69,https://www.progcovers.com/motor/mexico90.jpg
+1990-06,1990-06-24,mexico,Gran Premio de México 1990,TWO_SESSION,mexico-city,69,https://www.progcovers.com/motor/mexico90.jpg
 1990-07,1990-07-08,france,Rhone Poulenc Grand Prix de France 1990,TWO_SESSION,paul-ricard,80,https://www.progcovers.com/motor/paulricard900708.jpg
 1990-08,1990-07-15,great-britain,1990 Foster's British Grand Prix,TWO_SESSION,silverstone,64,https://www.progcovers.com/motor/silverstone900715.jpg
 1990-09,1990-07-29,germany,Grosser Mobil 1 Preis von Deutschland 1990,TWO_SESSION,hockenheimring,45,https://www.progcovers.com/motor/hockenheim900729.jpg
@@ -504,7 +504,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1991-03,1991-04-28,san-marino,Gran Premio di San Marino 1991,TWO_SESSION,imola,61,https://www.progcovers.com/motor/imola910428.jpg
 1991-04,1991-05-12,monaco,Grand Prix de Monaco 1991,TWO_SESSION,monaco,78,https://www.progcovers.com/motor/montecarlo910512.jpg
 1991-05,1991-06-02,canada,Grand Prix Molson du Canada 1991,TWO_SESSION,montreal,69,https://www.progcovers.com/motor/montreal1991.jpg
-1991-06,1991-06-16,mexico,Gran Premio de MÃ©xico 1991,TWO_SESSION,mexico-city,69,https://www.progcovers.com/motor/mexico91.jpg
+1991-06,1991-06-16,mexico,Gran Premio de México 1991,TWO_SESSION,mexico-city,69,https://www.progcovers.com/motor/mexico91.jpg
 1991-07,1991-07-07,france,Rhone Poulenc Grand Prix de France 1991,TWO_SESSION,magny-cours,72,https://www.progcovers.com/motor/magnycours910707.jpg
 1991-08,1991-07-14,great-britain,1991 Foster's British Grand Prix,TWO_SESSION,silverstone,59,https://www.progcovers.com/motor/silverstone910714.jpg
 1991-09,1991-07-28,germany,Grosser Mobil 1 Preis von Deutschland 1991,TWO_SESSION,hockenheimring,45,https://www.progcovers.com/motor/hockenheim910728.jpg
@@ -516,7 +516,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1991-15,1991-10-20,japan,1991 Fuji Television Japanese Grand Prix,TWO_SESSION,suzuka,53,https://www.progcovers.com/motor/suzuka911020.jpg
 1991-16,1991-11-03,australia,1991 Foster's Australian Grand Prix,TWO_SESSION,adelaide,81,https://www.progcovers.com/motor/adelaide911103.jpg
 1992-01,1992-03-01,south-africa,Yellow Pages South African Grand Prix 1992,TWO_SESSION,kyalami,72,https://www.progcovers.com/motor/kyalami920301.jpg
-1992-02,1992-03-22,mexico,Gran Premio de MÃ©xico 1992,TWO_SESSION,mexico-city,69,https://www.progcovers.com/motor/mexico92.jpg
+1992-02,1992-03-22,mexico,Gran Premio de México 1992,TWO_SESSION,mexico-city,69,https://www.progcovers.com/motor/mexico92.jpg
 1992-03,1992-04-05,brazil,Grande PrÃªmio do Brasil 1992,TWO_SESSION,interlagos,71,https://www.progcovers.com/motor/interlagos920405.jpg
 1992-04,1992-05-03,spain,Gran Premio Tio Pepe de EspaÃ±a 1992,TWO_SESSION,catalunya,65,https://www.progcovers.com/motor/catalunya920503.jpg
 1992-05,1992-05-17,san-marino,Gran Premio Iceberg di San Marino 1992,TWO_SESSION,imola,60,https://www.progcovers.com/motor/imola920517.jpg
@@ -535,7 +535,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 1993-02,1993-03-28,brazil,Grande PrÃªmio do Brasil 1993,TWO_SESSION,interlagos,71,https://www.progcovers.com/motor/interlagos930328.jpg
 1993-03,1993-04-11,europe,1993 SEGA European Grand Prix,TWO_SESSION,donington,76,https://www.progcovers.com/motor/donington930411.jpg
 1993-04,1993-04-25,san-marino,Gran Premio di San Marino 1993,TWO_SESSION,imola,61,https://www.progcovers.com/motor/imola930425.jpg
-1993-05,1993-05-09,spain,Gran Premio de EspaÃ±a 1993,TWO_SESSION,catalunya,65,https://www.progcovers.com/motor/catalunya930509.jpg
+1993-05,1993-05-09,spain,Gran Premio de España 1993,TWO_SESSION,catalunya,65,https://www.progcovers.com/motor/catalunya930509.jpg
 1993-06,1993-05-23,monaco,Grand Prix de Monaco 1993,TWO_SESSION,monaco,78,https://www.progcovers.com/motor/monaco930523.jpg
 1993-07,1993-06-13,canada,Grand Prix Molson du Canada 1993,TWO_SESSION,montreal,69,https://www.progcovers.com/motor/montreal930613.jpg
 1993-08,1993-07-04,france,Rhone Poulenc Grand Prix de France 1993,TWO_SESSION,magny-cours,72,https://www.progcovers.com/motor/magnycours930704.jpg
@@ -770,7 +770,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2007-01,2007-03-18,australia,2007 Formula 1 ING Australian Grand Prix,KNOCKOUT,melbourne,58,https://www.progcovers.com/motor/melbourne070318.jpg
 2007-02,2007-04-08,malaysia,2007 Formula 1 Petronas Malaysian Grand Prix,KNOCKOUT,sepang,56,https://www.progcovers.com/motor/kualalumpur070408.jpg
 2007-03,2007-04-15,bahrain,2007 Formula 1 Gulf Air Bahrain Grand Prix,KNOCKOUT,bahrain,57,https://www.progcovers.com/motor/bahrain070415.jpg
-2007-04,2007-05-13,spain,Formula 1 Gran Premio de EspaÃ±a TelefÃ³nica 2007,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/barcelona070513.jpg
+2007-04,2007-05-13,spain,Formula 1 Gran Premio de España TelefÃ³nica 2007,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/barcelona070513.jpg
 2007-05,2007-05-27,monaco,Formula 1 Grand Prix de Monaco 2007,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/monaco070527.jpg
 2007-06,2007-06-10,canada,Formula 1 Grand Prix du Canada 2007,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal070610.jpg
 2007-07,2007-06-17,united-states,2007 RBS United States Grand Prix,KNOCKOUT,indianapolis,73,https://www.progcovers.com/motor/indianapolis070617.jpg
@@ -787,7 +787,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2008-01,2008-03-16,australia,2008 Formula 1 ING Australian Grand Prix,KNOCKOUT,melbourne,58,https://www.progcovers.com/motor/albertpark080316.jpg
 2008-02,2008-03-23,malaysia,2008 Formula 1 Petronas Malaysian Grand Prix,KNOCKOUT,sepang,56,https://www.progcovers.com/motor/kualalumpur080323.jpg
 2008-03,2008-04-06,bahrain,2008 Formula 1 Gulf Air Bahrain Grand Prix,KNOCKOUT,bahrain,57,https://www.progcovers.com/motor/sakhir080406.jpg
-2008-04,2008-04-27,spain,Formula 1 Gran Premio de EspaÃ±a TelefÃ³nica 2008,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya080427.jpg
+2008-04,2008-04-27,spain,Formula 1 Gran Premio de España TelefÃ³nica 2008,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya080427.jpg
 2008-05,2008-05-11,turkey,2008 Formula 1 Petrol Ofisi Turkish Grand Prix,KNOCKOUT,istanbul,58,https://www.progcovers.com/motor/istanbul080511.jpg
 2008-06,2008-05-25,monaco,Formula 1 Grand Prix de Monaco 2008,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/montecarlo080525.jpg
 2008-07,2008-06-08,canada,Formula 1 Grand Prix du Canada 2008,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal080608.jpg
@@ -806,7 +806,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2009-02,2009-04-05,malaysia,2009 Formula 1 Petronas Malaysian Grand Prix,KNOCKOUT,sepang,56,https://www.progcovers.com/motor/kualalumpur090405.jpg
 2009-03,2009-04-19,china,2009 Formula 1 Chinese Grand Prix,KNOCKOUT,shanghai,56,https://www.progcovers.com/motor/shanghai090419.jpg
 2009-04,2009-04-26,bahrain,2009 Formula 1 Gulf Air Bahrain Grand Prix,KNOCKOUT,bahrain,57,
-2009-05,2009-05-10,spain,Formula 1 Gran Premio de EspaÃ±a TelefÃ³nica 2009,KNOCKOUT,catalunya,66,
+2009-05,2009-05-10,spain,Formula 1 Gran Premio de España TelefÃ³nica 2009,KNOCKOUT,catalunya,66,
 2009-06,2009-05-24,monaco,Formula 1 Grand Prix de Monaco 2009,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/monaco090524.jpg
 2009-07,2009-06-07,turkey,2009 Formula 1 ING Turkish Grand Prix,KNOCKOUT,istanbul,58,https://www.progcovers.com/motor/istanbul090607.jpg
 2009-08,2009-06-21,great-britain,2009 Formula 1 Santander British Grand Prix,KNOCKOUT,silverstone,60,https://www.progcovers.com/motor/silverstone090621.jpg
@@ -823,7 +823,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2010-02,2010-03-28,australia,2010 Formula 1 Qantas Australian Grand Prix,KNOCKOUT,melbourne,58,https://www.progcovers.com/motor/melbourne100328.jpg
 2010-03,2010-04-04,malaysia,2010 Formula 1 Petronas Malaysian Grand Prix,KNOCKOUT,sepang,56,https://www.progcovers.com/motor/kualalumpur100404.jpg
 2010-04,2010-04-18,china,2010 Formula 1 Chinese Grand Prix,KNOCKOUT,shanghai,56,https://www.progcovers.com/motor/shanghai100418.jpg
-2010-05,2010-05-09,spain,Formula 1 Gran Premio de EspaÃ±a TelefÃ³nica 2010,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya100509.jpg
+2010-05,2010-05-09,spain,Formula 1 Gran Premio de España TelefÃ³nica 2010,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya100509.jpg
 2010-06,2010-05-16,monaco,Formula 1 Grand Prix de Monaco 2010,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/montecarlo100516.jpg
 2010-07,2010-05-30,turkey,2010 Formula 1 Turkish Grand Prix,KNOCKOUT,istanbul,58,https://www.progcovers.com/motor/istanbul100530.jpg
 2010-08,2010-06-13,canada,Formula 1 Grand Prix du Canada 2010,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal100613.jpg
@@ -842,7 +842,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2011-02,2011-04-10,malaysia,2011 Petronas Malaysia Grand Prix,KNOCKOUT,sepang,56,https://www.progcovers.com/motor/kualalumpur110410.jpg
 2011-03,2011-04-17,china,2011 Formula 1 UBS Chinese Grand Prix,KNOCKOUT,shanghai,56,https://www.progcovers.com/motor/shanghai110417.jpg
 2011-04,2011-05-08,turkey,2011 Formula 1 DHL Turkish Grand Prix,KNOCKOUT,istanbul,58,https://www.progcovers.com/motor/istanbul110508.jpg
-2011-05,2011-05-22,spain,Formula 1 Gran Premio de EspaÃ±a Santander 2011,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya110522.jpg
+2011-05,2011-05-22,spain,Formula 1 Gran Premio de España Santander 2011,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya110522.jpg
 2011-06,2011-05-29,monaco,Formula 1 Grand Prix de Monaco 2011,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/monaco110529.jpg
 2011-07,2011-06-12,canada,Formula 1 Grand Prix du Canada 2011,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal110612.jpg
 2011-08,2011-06-26,europe,2011 Formula 1 Grand Prix of Europe,KNOCKOUT,valencia,57,https://www.progcovers.com/motor/valencia110626.jpg
@@ -861,7 +861,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2012-02,2012-03-25,malaysia,2012 Formula 1 Petronas Malaysia Grand Prix,KNOCKOUT,sepang,56,https://www.progcovers.com/motor/kualalumpur120325.jpg
 2012-03,2012-04-15,china,2012 Formula 1 UBS Chinese Grand Prix,KNOCKOUT,shanghai,56,https://www.progcovers.com/motor/shanghai120415.jpg
 2012-04,2012-04-22,bahrain,2012 Formula 1 Gulf Air Bahrain Grand Prix,KNOCKOUT,bahrain,57,https://www.progcovers.com/motor/bahrain120422.jpg
-2012-05,2012-05-13,spain,Formula 1 Gran Premio de EspaÃ±a Santander 2012,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya120513.jpg
+2012-05,2012-05-13,spain,Formula 1 Gran Premio de España Santander 2012,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya120513.jpg
 2012-06,2012-05-27,monaco,Formula 1 Grand Prix de Monaco 2012,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/montecarlo120527.jpg
 2012-07,2012-06-10,canada,Formula 1 Grand Prix du Canada 2012,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal120610.jpg
 2012-08,2012-06-24,europe,2012 Formula 1 Grand Prix of Europe,KNOCKOUT,valencia,57,https://www.progcovers.com/motor/valencia120624.jpg
@@ -881,7 +881,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2013-02,2013-03-24,malaysia,2013 Formula 1 Petronas Malaysia Grand Prix,KNOCKOUT,sepang,56,https://www.progcovers.com/motor/kualalumpur130324.jpg
 2013-03,2013-04-14,china,2013 Formula 1 UBS Chinese Grand Prix,KNOCKOUT,shanghai,56,https://www.progcovers.com/motor/shanghai130414.jpg
 2013-04,2013-04-21,bahrain,2013 Formula 1 Gulf Air Bahrain Grand Prix,KNOCKOUT,bahrain,57,https://www.progcovers.com/motor/bahrain130421.jpg
-2013-05,2013-05-12,spain,Formula 1 Gran Premio de EspaÃ±a 2013,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya130512.jpg
+2013-05,2013-05-12,spain,Formula 1 Gran Premio de España 2013,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya130512.jpg
 2013-06,2013-05-26,monaco,Formula 1 Grand Prix de Monaco 2013,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/monaco130526.jpg
 2013-07,2013-06-09,canada,Formula 1 Grand Prix du Canada 2013,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal130609.jpg
 2013-08,2013-06-30,great-britain,2013 Formula 1 Santander British Grand Prix,KNOCKOUT,silverstone,52,https://www.progcovers.com/motor/silverstone130630.jpg
@@ -900,7 +900,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2014-02,2014-03-30,malaysia,2014 Formula 1 Petronas Malaysia Grand Prix,KNOCKOUT,sepang,56,https://www.progcovers.com/motor/kualalumpur140330.jpg
 2014-03,2014-06-04,bahrain,2014 Formula 1 Gulf Air Bahrain Grand Prix,KNOCKOUT,bahrain,57,https://www.progcovers.com/motor/bahrain140406.jpg
 2014-04,2014-04-20,china,2014 Formula 1 UBS Chinese Grand Prix,KNOCKOUT,shanghai,56,https://www.progcovers.com/motor/shanghai140420.jpg
-2014-05,2014-05-11,spain,Formula 1 Gran Premio de EspaÃ±a Pirelli 2014,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya140511.jpg
+2014-05,2014-05-11,spain,Formula 1 Gran Premio de España Pirelli 2014,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya140511.jpg
 2014-06,2014-05-25,monaco,Formula 1 Grand Prix de Monaco 2014,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/montecarlo140525.jpg
 2014-07,2014-06-08,canada,Formula 1 Grand Prix du Canada 2014,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal140608.jpg
 2014-08,2014-06-22,austria,Formula 1 DHL Grosser Preis Von Ã–sterreich 2014,KNOCKOUT,spielberg,71,https://www.progcovers.com/motor/redbullring140622.jpg
@@ -919,7 +919,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2015-02,2015-03-29,malaysia,2015 Formula 1 Petronas Malaysia Grand Prix,KNOCKOUT,sepang,56,https://www.progcovers.com/motor/kualalumpur150329.jpg
 2015-03,2015-04-12,china,2015 Formula 1 Chinese Grand Prix,KNOCKOUT,shanghai,56,https://www.progcovers.com/motor/shanghai150412.jpg
 2015-04,2015-04-19,bahrain,2015  Formula 1 Gulf Air Bahrain Grand Prix,KNOCKOUT,bahrain,57,https://www.progcovers.com/motor/sakhir150419.jpg
-2015-05,2015-05-10,spain,Formula 1 Gran Premio de EspaÃ±a Pirelli 2015,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya150510.jpg
+2015-05,2015-05-10,spain,Formula 1 Gran Premio de España Pirelli 2015,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya150510.jpg
 2015-06,2015-05-24,monaco,Formula 1 Grand Prix de Monaco 2015,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/montecarlo150524.jpg
 2015-07,2015-06-07,canada,Formula 1 Grand Prix du Canada 2015,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal150607.jpg
 2015-08,2015-06-21,austria,Formula 1 Rolex Grosser Preis von Ã–sterreich 2015,KNOCKOUT,spielberg,71,https://www.progcovers.com/motor/redbullring150621.jpg
@@ -931,14 +931,14 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2015-14,2015-09-27,japan,2015 Formula 1 Japanese Grand Prix,KNOCKOUT,suzuka,53,https://www.progcovers.com/motor/suzuka150927.jpg
 2015-15,2015-10-11,russia,2015 Formula 1 Russian Grand Prix,KNOCKOUT,sochi,53,https://www.progcovers.com/motor/sochi151011.jpg
 2015-16,2015-10-25,united-states,2015 Formula 1 United States Grand Prix,KNOCKOUT,austin,56,https://www.progcovers.com/motor/austin151025.jpg
-2015-17,2015-11-01,mexico,Formula 1 Gran Premio de MÃ©xico 2015,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico151101.jpg
+2015-17,2015-11-01,mexico,Formula 1 Gran Premio de México 2015,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico151101.jpg
 2015-18,2015-11-15,brazil,Formula 1 Grande PrÃªmio Petrobras do Brasil 2015,KNOCKOUT,interlagos,71,https://www.progcovers.com/motor/interlagos151115.jpg
 2015-19,2015-11-29,abu-dhabi,2015 Formula 1 Etihad Airways Abu Dhabi Grand Prix,KNOCKOUT,yas-marina,55,https://www.progcovers.com/motor/yasmarina151129.jpg
 2016-01,2016-03-20,australia,2016 Formula 1 Rolex Australian Grand Prix,ELIMINATION,melbourne,58,https://www.progcovers.com/motor/melbourne160320.jpg
 2016-02,2016-04-03,bahrain,2016 Formula 1 Gulf Air Bahrain Grand Prix,ELIMINATION,bahrain,57,https://www.progcovers.com/motor/bahrain160403.jpg
 2016-03,2016-04-17,china,2016 Formula 1 Pirelli Chinese Grand Prix,KNOCKOUT,shanghai,56,https://www.progcovers.com/motor/shanghai160417.jpg
 2016-04,2016-05-01,russia,2016 Formula 1 Russian Grand Prix,KNOCKOUT,sochi,53,https://www.progcovers.com/motor/sochi160501.jpg
-2016-05,2016-05-15,spain,Formula 1 Gran Premio de EspaÃ±a Pirelli 2016,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya160515.jpg
+2016-05,2016-05-15,spain,Formula 1 Gran Premio de España Pirelli 2016,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya160515.jpg
 2016-06,2016-05-29,monaco,Formula 1 Grand Prix de Monaco 2016,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/montecarlo160529.jpg
 2016-07,2016-06-12,canada,Formula 1 Grand Prix du Canada 2016,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal160612.jpg
 2016-08,2016-06-19,europe,Formula 1 Rolex Grand Prix of Europe 2016,KNOCKOUT,baku,51,https://www.progcovers.com/motor/baku160619.jpg
@@ -952,14 +952,14 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2016-16,2016-10-02,malaysia,2016 Formula 1 Petronas Malaysia Grand Prix,KNOCKOUT,sepang,56,https://www.progcovers.com/motor/kualalumpur161002.jpg
 2016-17,2016-10-09,japan,2016 Formula 1 Emirates Japanese Grand Prix,KNOCKOUT,suzuka,53,https://www.progcovers.com/motor/suzuka161009.jpg
 2016-18,2016-10-23,united-states,2016 Formula 1 United States Grand Prix,KNOCKOUT,austin,56,https://www.progcovers.com/motor/austin161023.jpg
-2016-19,2016-10-30,mexico,Formula 1 Gran Premio de MÃ©xico 2016,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico161030.jpg
+2016-19,2016-10-30,mexico,Formula 1 Gran Premio de México 2016,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico161030.jpg
 2016-20,2016-11-13,brazil,Formula 1 Grande PrÃªmio do Brasil 2016,KNOCKOUT,interlagos,71,https://www.progcovers.com/motor/interlagos161113.jpg
 2016-21,2016-11-27,abu-dhabi,2016 Formula 1 Etihad Airways Abu Dhabi Grand Prix,KNOCKOUT,yas-marina,55,https://www.progcovers.com/motor/yasmarina161127.jpg
 2017-01,2017-03-26,australia,2017 Formula 1 Rolex Australian Grand Prix,KNOCKOUT,melbourne,58,https://www.progcovers.com/motor/melbourne170326.jpg
 2017-02,2017-04-09,china,2017 Formula 1 Heineken Chinese Grand Prix,KNOCKOUT,shanghai,56,https://www.progcovers.com/motor/shanghai170409.jpg
 2017-03,2017-04-16,bahrain,2017 Formula 1 Gulf Air Bahrain Grand Prix,KNOCKOUT,bahrain,57,https://www.progcovers.com/motor/bahrain170416.jpg
 2017-04,2017-04-30,russia,2017 Formula 1 VTB Russian Grand Prix,KNOCKOUT,sochi,53,https://www.progcovers.com/motor/sochi170430.jpg
-2017-05,2017-05-14,spain,Formula 1 Gran Premio de EspaÃ±a Pirelli 2017,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya170514.jpg
+2017-05,2017-05-14,spain,Formula 1 Gran Premio de España Pirelli 2017,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya170514.jpg
 2017-06,2017-05-28,monaco,Formula 1 Grand Prix de Monaco 2017,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/monaco170528.jpg
 2017-07,2017-06-11,canada,Formula 1 Grand Prix du Canada 2017,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal170611.jpg
 2017-08,2017-06-25,azerbaijan,Formula 1 FlyEmirates Azerbaijan Grand Prix 2017,KNOCKOUT,baku,51,https://www.progcovers.com/motor/baku170625.jpg
@@ -972,14 +972,14 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2017-15,2017-10-01,malaysia,2017 Formula 1 Petronas Malaysia Grand Prix,KNOCKOUT,sepang,56,https://www.progcovers.com/motor/kualalumpur171001.jpg
 2017-16,2017-10-08,japan,2017 Formula 1 Japanese Grand Prix,KNOCKOUT,suzuka,53,https://www.progcovers.com/motor/suzuka171008.jpg
 2017-17,2017-10-22,united-states,2017 Formula 1 United States Grand Prix,KNOCKOUT,austin,56,https://www.progcovers.com/motor/austin171022.jpg
-2017-18,2017-10-29,mexico,Formula 1 Gran Premio de MÃ©xico 2017,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico171029.jpg
+2017-18,2017-10-29,mexico,Formula 1 Gran Premio de México 2017,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico171029.jpg
 2017-19,2017-11-12,brazil,Formula 1 Grande PrÃªmio Heineken do Brasil 2017,KNOCKOUT,interlagos,71,https://www.progcovers.com/motor/interlagos171112.jpg
 2017-20,2017-11-26,abu-dhabi,2017 Formula 1 Etihad Airways Abu Dhabi Grand Prix,KNOCKOUT,yas-marina,55,https://www.progcovers.com/motor/yasmarina171126.jpg
 2018-01,2018-03-25,australia,Formula 1 2018 Rolex Australian Grand Prix,KNOCKOUT,melbourne,58,https://www.progcovers.com/motor/melbourne180325.jpg
 2018-02,2018-04-08,bahrain,Formula 1 2018 Gulf Air Bahrain Grand Prix,KNOCKOUT,bahrain,57,https://www.progcovers.com/motor/bahrain180408.jpg
 2018-03,2018-04-15,china,Formula 1 2018 Heineken Chinese Grand Prix,KNOCKOUT,shanghai,56,https://www.progcovers.com/motor/shanghai180415.jpg
 2018-04,2018-04-29,azerbaijan,Formula 1 2018 Rolex Azerbaijan Grand Prix,KNOCKOUT,baku,51,https://www.progcovers.com/motor/baku180429.jpg
-2018-05,2018-05-13,spain,Formula 1 Gran Premio de EspaÃ±a Emirates 2018,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya180513.jpg
+2018-05,2018-05-13,spain,Formula 1 Gran Premio de España Emirates 2018,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya180513.jpg
 2018-06,2018-05-27,monaco,Formula 1 Grand Prix de Monaco 2018,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/monaco180527.jpg
 2018-07,2018-06-10,canada,Formula 1 Grand Prix Heineken du Canada 2018,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal180610.jpg
 2018-08,2018-06-24,france,Formula 1 Pirelli Grand Prix de France 2018,KNOCKOUT,paul-ricard,53,https://www.progcovers.com/motor/paulricard180624.jpg
@@ -993,14 +993,14 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2018-16,2018-09-30,russia,Formula 1 2018 VTB Russian Grand Prix,KNOCKOUT,sochi,53,https://www.progcovers.com/motor/sochi180930.jpg
 2018-17,2018-10-07,japan,Formula 1 2018 Honda Japanese Grand Prix,KNOCKOUT,suzuka,53,https://www.progcovers.com/motor/suzuka181007.jpg
 2018-18,2018-10-21,united-states,Formula 1 Pirelli 2018 United States Grand Prix,KNOCKOUT,austin,56,https://www.progcovers.com/motor/austin181021.jpg
-2018-19,2018-10-28,mexico,Formula 1 Gran Premio de MÃ©xico 2018,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico181028.jpg
+2018-19,2018-10-28,mexico,Formula 1 Gran Premio de México 2018,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico181028.jpg
 2018-20,2018-11-11,brazil,Formula 1 Grande PrÃªmio Heineken do Brasil 2018,KNOCKOUT,interlagos,71,https://www.progcovers.com/motor/interlagos181111.jpg
 2018-21,2018-11-25,abu-dhabi,Formula 1 2018 Etihad Airways Abu Dhabi Grand Prix,KNOCKOUT,yas-marina,55,https://www.progcovers.com/motor/yasmarina181125.jpg
 2019-01,2019-03-17,australia,Formula 1 Rolex Australian Grand Prix 2019,KNOCKOUT,melbourne,58,https://www.progcovers.com/motor/albertpark190317.jpg
 2019-02,2019-03-31,bahrain,Formula 1 Gulf Air Bahrain Grand Prix 2019,KNOCKOUT,bahrain,57,https://www.progcovers.com/motor/bahrain190331.jpg
 2019-03,2019-04-14,china,Formula 1 Heineken Chinese Grand Prix 2019,KNOCKOUT,shanghai,56,https://www.progcovers.com/motor/shanghai190414.jpg
 2019-04,2019-04-28,azerbaijan,Formula 1 SOCAR Azerbaijan Grand Prix 2019,KNOCKOUT,baku,51,https://www.progcovers.com/motor/baku190428.jpg
-2019-05,2019-05-12,spain,Formula 1 Emirates Gran Premio de EspaÃ±a 2019,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya190512.jpg
+2019-05,2019-05-12,spain,Formula 1 Emirates Gran Premio de España 2019,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya190512.jpg
 2019-06,2019-05-26,monaco,Formula 1 Grand Prix de Monaco 2019,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/monaco190526.jpg
 2019-07,2019-06-09,canada,Formula 1 Pirelli Grand Prix du Canada 2019,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal190609.jpg
 2019-08,2019-06-23,france,Formula 1 Pirelli Grand Prix de France 2019,KNOCKOUT,paul-ricard,53,https://www.progcovers.com/motor/paulricard190623.jpg
@@ -1013,7 +1013,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2019-15,2019-09-22,singapore,Formula 1 Singapore Airlines Singapore Grand Prix 2019,KNOCKOUT,marina-bay,61,https://www.progcovers.com/motor/singapore190922.jpg
 2019-16,2019-09-29,russia,Formula 1 VTB Russian Grand Prix 2019,KNOCKOUT,sochi,53,https://www.progcovers.com/motor/sochi190929.jpg
 2019-17,2019-10-13,japan,Formula 1 Japanese Grand Prix 2019,KNOCKOUT,suzuka,53,https://www.progcovers.com/motor/suzuka191013.jpg
-2019-18,2019-10-27,mexico,Formula 1 Gran Premio de MÃ©xico 2019,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico191027.jpg
+2019-18,2019-10-27,mexico,Formula 1 Gran Premio de México 2019,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico191027.jpg
 2019-19,2019-11-03,united-states,Formula 1 Emirates United States Grand Prix 2019,KNOCKOUT,austin,56,https://www.progcovers.com/motor/austin191103.jpg
 2019-20,2019-11-17,brazil,Formula 1 Heineken Grande PrÃªmio do Brasil 2019,KNOCKOUT,interlagos,71,https://www.progcovers.com/motor/interlagos191117.jpg
 2019-21,2019-12-01,abu-dhabi,Formula 1 Etihad Airways Abu Dhabi Grand Prix 2019,KNOCKOUT,yas-marina,55,https://www.progcovers.com/motor/yasmarina191201.jpg
@@ -1022,7 +1022,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2020-03,2020-07-19,hungary,Formula 1 Aramco Magyar NagydÃ­j 2020,KNOCKOUT,hungaroring,70,https://www.progcovers.com/motor/mugello200913.jpg
 2020-04,2020-08-02,great-britain,Formula 1 Pirelli British Grand Prix 2020,KNOCKOUT,silverstone,52,https://www.progcovers.com/motor/sochi200927.jpg
 2020-05,2020-08-09,70th-anniversary,Emirates Formula 1 70th Anniversary Grand Prix 2020,KNOCKOUT,silverstone,52,https://www.progcovers.com/motor/nurburgring201011.jpg
-2020-06,2020-08-16,spain,Formula 1 Aramco Gran Premio de EspaÃ±a 2020,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/portimao201025.jpg
+2020-06,2020-08-16,spain,Formula 1 Aramco Gran Premio de España 2020,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/portimao201025.jpg
 2020-07,2020-08-30,belgium,Formula 1 Rolex Belgian Grand Prix 2020,KNOCKOUT,spa-francorchamps,44,https://www.progcovers.com/motor/imola201101.jpg
 2020-08,2020-09-06,italy,Formula 1 Gran Premio Heineken d'Italia 2020,KNOCKOUT,monza,53,https://www.progcovers.com/motor/istanbul201115.jpg
 2020-09,2020-09-13,tuscany,Formula 1 Gran Premio Della Toscana Ferrari 1000 2020,KNOCKOUT,mugello,59,https://www.progcovers.com/motor/bahrain201129.jpg
@@ -1037,7 +1037,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2021-01,2021-03-28,bahrain,Formula 1 Gulf Air Bahrain Grand Prix 2021,KNOCKOUT,bahrain,57,https://www.progcovers.com/motor/bahrain210328.jpg
 2021-02,2021-04-18,emilia-romagna,Formula 1 Pirelli Gran Premio del Made in Italy e dell'Emilia Romagna 2021,KNOCKOUT,imola,63,https://www.progcovers.com/motor/imola210418.jpg
 2021-03,2021-05-02,portugal,Formula 1 Heineken Grande PrÃ©mio de Portugal 2021,KNOCKOUT,portimao,66,https://www.progcovers.com/motor/portimao210502.jpg
-2021-04,2021-05-09,spain,Formula 1 Aramco Gran Premio de EspaÃ±a 2021,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya210509.jpg
+2021-04,2021-05-09,spain,Formula 1 Aramco Gran Premio de España 2021,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya210509.jpg
 2021-05,2021-05-23,monaco,Formula 1 Grand Prix de Monaco 2021,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/monaco210523.jpg
 2021-06,2021-06-06,azerbaijan,Formula 1 Azerbaijan Grand Prix 2021,KNOCKOUT,baku,51,https://www.progcovers.com/motor/baku210606.jpg
 2021-07,2021-06-20,france,Formula 1 Emirates Grand Prix de France 2021,KNOCKOUT,paul-ricard,53,https://www.progcovers.com/motor/paulricard210620.jpg
@@ -1051,7 +1051,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2021-15,2021-09-26,russia,Formula 1 VTB Russian Grand Prix 2021,KNOCKOUT,sochi,53,https://www.progcovers.com/motor/sochi210926.jpg
 2021-16,2021-10-03,turkey,Formula 1 Rolex Turkish Grand Prix 2021,KNOCKOUT,istanbul,58,https://www.progcovers.com/motor/istanbul211010.jpg
 2021-17,2021-10-24,united-states,Formula 1 Aramco United States Grand Prix 2021,KNOCKOUT,austin,56,https://www.progcovers.com/motor/austin211024.jpg
-2021-18,2021-11-07,mexico,Formula 1 Gran Premio de la Ciudad de MÃ©xico 2021,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico211107.jpg
+2021-18,2021-11-07,mexico,Formula 1 Gran Premio de la Ciudad de México 2021,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico211107.jpg
 2021-19,2021-11-14,brazil,Formula 1 Heinken Grande PrÃªmio de SÃ£o Paulo 2021,SPRINT_RACE,interlagos,71,https://www.progcovers.com/motor/interlagos211114.jpg
 2021-20,2021-11-21,qatar,Formula 1 Ooredoo Qatar Grand Prix 2021,KNOCKOUT,losail,57,https://www.progcovers.com/motor/losail211121.jpg
 2021-21,2021-12-05,saudi-arabia,Formula 1 stc Saudi Arabian Grand Prix 2021,KNOCKOUT,jeddah,50,https://www.progcovers.com/motor/jeddah211205.jpg
@@ -1061,7 +1061,7 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2022-03,2022-04-10,australia,Formula 1 Heineken Australian Grand Prix 2022,KNOCKOUT,melbourne,58,https://www.progcovers.com/motor/albertpark2204102.jpg
 2022-04,2022-04-24,emilia-romagna,Formula 1 Rolex Gran Premio dell'Emilia Romagna 2022,SPRINT_RACE,imola,63,https://www.progcovers.com/motor/imola220424.jpg
 2022-05,2022-05-08,miami,Formula 1 Crypto.com Miami Grand Prix 2022,KNOCKOUT,miami,57,https://www.progcovers.com/motor/miami220508.jpg
-2022-06,2022-05-22,spain,Formula 1 Pirelli Gran Premio de EspaÃ±a 2022,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya220522.jpg
+2022-06,2022-05-22,spain,Formula 1 Pirelli Gran Premio de España 2022,KNOCKOUT,catalunya,66,https://www.progcovers.com/motor/catalunya220522.jpg
 2022-07,2022-05-29,monaco,Formula 1 Grand Prix de Monaco 2022,KNOCKOUT,monaco,78,https://www.progcovers.com/motor/monaco2205292.jpg
 2022-08,2022-06-12,azerbaijan,Formula 1 Azerbaijan Grand Prix 2022,KNOCKOUT,baku,51,https://www.progcovers.com/motor/baku220612.jpg
 2022-09,2022-06-19,canada,Formula 1 Grand Prix du Canada 2022,KNOCKOUT,montreal,70,https://www.progcovers.com/motor/montreal220619.jpg
@@ -1075,6 +1075,6 @@ id,raceDate,grandPrixId,name,qualyFormat,circuitId,scheduledLaps,posterURL
 2022-17,2022-10-02,singapore,Formula 1 Singapore Airlines Singapore Grand Prix 2022,KNOCKOUT,marina-bay,61,https://www.progcovers.com/motor/singapore221002.jpg
 2022-18,2022-10-09,japan,Formula 1 Honda Japanese Grand Prix 2022,KNOCKOUT,suzuka,53,
 2022-19,2022-10-23,united-states,Formula 1 Aramco United States Grand Prix 2022,KNOCKOUT,austin,56,https://www.progcovers.com/motor/austin221023.jpg
-2022-20,2022-10-30,mexico,Formula 1 Gran Premio de la Ciudad de MÃ©xico 2022,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico221030.jpg
+2022-20,2022-10-30,mexico,Formula 1 Gran Premio de la Ciudad de México 2022,KNOCKOUT,mexico-city,71,https://www.progcovers.com/motor/mexico221030.jpg
 2022-21,2022-11-13,brazil,Formula 1 Heineken Grande PrÃªmio de SÃ£o Paulo 2022,SPRINT_RACE,interlagos,71,https://www.progcovers.com/motor/interlagos221113.jpg
 2022-22,2022-11-20,abu-dhabi,Formula 1 Etihad Airways Abu Dhabi Grand Prix 2022,KNOCKOUT,yas-marina,58,https://www.progcovers.com/motor/yasmarina221120.jpg
