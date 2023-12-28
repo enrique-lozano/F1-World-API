@@ -5,18 +5,18 @@ import {
   getUrlResponseForTesting
 } from '../../utils/test/test-utils';
 
-describe('Test drivers functionality', () => {
-  test('Drivers should trigger validation errors', (done) => {
-    getUrlForTesting('/drivers', {
-      birthAfter: 'ddcc'
+describe('Test companies functionality', () => {
+  test('Companies should trigger validation errors', (done) => {
+    getUrlForTesting('/companies', {
+      pageSize: 'ddcc'
     })
       .expect(422)
       .end(done);
   });
 
-  test('Get all drivers without filters', async () => {
+  test('Get all companies without filters', async () => {
     const res = await getUrlResponseForTesting<PaginatedItems<DriverDTO>>(
-      '/drivers',
+      '/companies',
       {}
     );
 
@@ -24,9 +24,9 @@ describe('Test drivers functionality', () => {
     expect(res.data.length).toBe(10);
   });
 
-  test('Custom drivers pagination size works', async () => {
+  test('Custom companies pagination size works', async () => {
     const res = await getUrlResponseForTesting<PaginatedItems<DriverDTO>>(
-      '/drivers',
+      '/companies',
       {
         pageSize: '20'
       }
@@ -36,22 +36,11 @@ describe('Test drivers functionality', () => {
     expect(res.data.length).toBe(20);
   });
 
-  test('Get drivers by name', async () => {
-    const res = await getUrlResponseForTesting<PaginatedItems<DriverDTO>>(
-      '/drivers',
-      {
-        name: 'alonso'
-      }
-    );
-
-    expect(res.data.some((x) => x.id == 'fernando-alonso')).toBe(true);
-  });
-
-  test('Get driver by ID', async () => {
-    const idToGet = 'adrian-sutil';
+  test('Get company by ID', async () => {
+    const idToGet = 'ferrari';
 
     const res = await getUrlResponseForTesting<DriverDTO>(
-      `/drivers/${idToGet}`
+      `/companies/${idToGet}`
     );
 
     expect(res.id).toBe(idToGet);
