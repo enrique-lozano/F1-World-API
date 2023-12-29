@@ -1,25 +1,25 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-6374,1,1,6294171,5,,68,10,1,10,,,
-6364,2,2,6325648,9,,68,6,1,6,31477,,
-6365,3,3,6330151,8,,68,4,1,4,35980,,
-6373,4,4,6335485,11,,68,3,1,3,41314,,
-6352,5,5,6338847,1,,68,2,1,2,44676,,
-6360,6,6,,13,,67,1,1,1,+1 lap,,
-6355,7,7,,15,,67,0,1,0,+1 lap,,
-6371,8,8,,19,,67,0,1,0,+1 lap,,
-6361,9,9,,22,,66,0,1,0,+2 laps,,
-6382,10,DNF,,14,,61,0,1,0,,,Collision
-6375,11,DNF,,4,,61,0,1,0,,,Collision
-6370,12,DNF,,17,,60,0,1,0,,,Throttle
-6369,13,DNF,,23,,54,0,1,0,,,Fuel system
-6356,14,DNF,,2,,50,0,1,0,,,Gearbox
-6383,15,DNF,,10,,47,0,1,0,,,Engine
-6354,16,DNF,,16,,42,0,1,0,,,Engine
-6366,17,DNF,,20,,36,0,1,0,,,Battery
-6377,18,DNF,,12,,26,0,1,0,,,Engine
-6368,19,DNF,,24,,26,0,1,0,,,Gearbox
-6385,20,DNF,,18,,19,0,1,0,,,Spun off
-6367,21,DNF,,21,,5,0,1,0,,,Gearbox
-6357,22,DNF,,3,,1,0,1,0,,,Spun off
-6353,23,DNF,,6,,0,0,1,0,,,Collision
-6384,24,DNF,,7,,0,0,1,0,,,Collision
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+6374,1,1,6294171,5,,68,10,1,10,,
+6364,2,2,6325648,9,,68,6,1,6,,
+6365,3,3,6330151,8,,68,4,1,4,,
+6373,4,4,6335485,11,,68,3,1,3,,
+6352,5,5,6338847,1,,68,2,1,2,,
+6360,6,6,,13,,67,1,1,1,,
+6355,7,7,,15,,67,0,1,0,,
+6371,8,8,,19,,67,0,1,0,,
+6361,9,9,,22,,66,0,1,0,,
+6382,10,DNF,,14,,61,0,1,0,,Collision
+6375,11,DNF,,4,,61,0,1,0,,Collision
+6370,12,DNF,,17,,60,0,1,0,,Throttle
+6369,13,DNF,,23,,54,0,1,0,,Fuel system
+6356,14,DNF,,2,,50,0,1,0,,Gearbox
+6383,15,DNF,,10,,47,0,1,0,,Engine
+6354,16,DNF,,16,,42,0,1,0,,Engine
+6366,17,DNF,,20,,36,0,1,0,,Battery
+6377,18,DNF,,12,,26,0,1,0,,Engine
+6368,19,DNF,,24,,26,0,1,0,,Gearbox
+6385,20,DNF,,18,,19,0,1,0,,Spun off
+6367,21,DNF,,21,,5,0,1,0,,Gearbox
+6357,22,DNF,,3,,1,0,1,0,,Spun off
+6353,23,DNF,,6,,0,0,1,0,,Collision
+6384,24,DNF,,7,,0,0,1,0,,Collision

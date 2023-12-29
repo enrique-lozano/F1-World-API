@@ -1,21 +1,21 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-4140,1,1,5946880,3,,68,9,1,9,,,
-4209,2,2,5952610,4,,68,6,1,6,5730,,
-4220,3,3,5952680,14,,68,4,1,4,5800,,
-4215,4,4,5953030,9,,68,3,1,3,6150,,
-4223,5,5,5953290,17,,68,2,1,2,6410,,
-4210,6,6,6010340,11,,68,1,1,1,"01:03,46",,
-4224,7,7,,18,,67,0,1,0,+1 lap,,
-4217,8,8,,12,,61,0,1,0,+7 laps,,
-4216,9,NC,,16,,60,0,1,0,+8 laps,,
-4206,10,DNF,,6,,36,0,1,0,,,Engine
-4226,11,DNF,,13,,35,0,1,0,,,Engine
-4222,12,DNF,,8,,31,0,1,0,,,Accident
-4021,13,DNF,,1,,25,0,1,0,,,Clutch
-4207,14,DNF,,20,,21,0,1,0,,,Overheating
-4227,15,DNF,,19,,17,0,1,0,,,Engine
-4221,16,DNF,,15,,14,0,1,0,,,Engine
-4205,17,DNF,,5,,14,0,1,0,,,Fuel system
-4029,18,DNF,,2,,12,0,1,0,,,Engine
-4225,19,DNF,,7,,3,0,1,0,,,Engine
-4208,20,DNF,,10,,0,0,1,0,,,Electrical
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+4140,1,1,5946880,3,,68,9,1,9,,
+4209,2,2,5952610,4,,68,6,1,6,,
+4220,3,3,5952680,14,,68,4,1,4,,
+4215,4,4,5953030,9,,68,3,1,3,,
+4223,5,5,5953290,17,,68,2,1,2,,
+4210,6,6,6010340,11,,68,1,1,1,,
+4224,7,7,,18,,67,0,1,0,,
+4217,8,8,,12,,61,0,1,0,,
+4216,9,NC,,16,,60,0,1,0,,
+4206,10,DNF,,6,,36,0,1,0,,Engine
+4226,11,DNF,,13,,35,0,1,0,,Engine
+4222,12,DNF,,8,,31,0,1,0,,Accident
+4021,13,DNF,,1,,25,0,1,0,,Clutch
+4207,14,DNF,,20,,21,0,1,0,,Overheating
+4227,15,DNF,,19,,17,0,1,0,,Engine
+4221,16,DNF,,15,,14,0,1,0,,Engine
+4205,17,DNF,,5,,14,0,1,0,,Fuel system
+4029,18,DNF,,2,,12,0,1,0,,Engine
+4225,19,DNF,,7,,3,0,1,0,,Engine
+4208,20,DNF,,10,,0,0,1,0,,Electrical

@@ -1,15 +1,15 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-125,1,1,10046000,2,,35,8,1,8,,,
-105,2,2,10060000,3,,35,6,1,6,14000,,
-126,3,3,10185000,8,,35,4,1,4,"02:19,00",,
-124,4,4,10291000,1,,35,4,1,4,"04:05,00",,
-122,5,5,,7,,34,2,1,2,+1 lap,,
-121,6,6,,4,,33,0,1,0,+2 laps,,
-35,7,7,,10,,33,0,1,0,+2 laps,,
-130,8,8,,14,,32,0,1,0,+3 laps,,
-131,9,9,,12,,30,0,1,0,+5 laps,,
-132,10,10,,11,,29,0,1,0,+6 laps,,
-129,11,DNF,,13,,22,0,1,0,,,Oil pipe
-123,12,DNF,,5,,20,0,1,0,,,Oil pressure
-127,13,DNF,,6,,15,0,1,0,,,Overheating
-128,14,DNF,,9,,2,0,1,0,,,Oil pipe
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+125,1,1,10046000,2,,35,8,1,8,,
+105,2,2,10060000,3,,35,6,1,6,,
+126,3,3,10185000,8,,35,4,1,4,,
+124,4,4,10291000,1,,35,4,1,4,,
+122,5,5,,7,,34,2,1,2,,
+121,6,6,,4,,33,0,1,0,,
+35,7,7,,10,,33,0,1,0,,
+130,8,8,,14,,32,0,1,0,,
+131,9,9,,12,,30,0,1,0,,
+132,10,10,,11,,29,0,1,0,,
+129,11,DNF,,13,,22,0,1,0,,Oil pipe
+123,12,DNF,,5,,20,0,1,0,,Oil pressure
+127,13,DNF,,6,,15,0,1,0,,Overheating
+128,14,DNF,,9,,2,0,1,0,,Oil pipe

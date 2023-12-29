@@ -1,20 +1,20 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-2120,1,1,7955700,10,,42,8,1,8,,,
-2119,2,2,7956300,5,,42,7,1,7,600,,
-2000,3,3,8136600,4,,42,4,1,4,"03:00,90",,
-2006,4,4,8253000,2,,42,3,0,0,"04:57,30",,
-2121,5,5,,9,,39,2,1,2,+3 laps,,
-2118,6,6,,6,,38,0,1,0,+4 laps,,
-2127,7,7,,16,,38,0,1,0,+4 laps,,
-2123,8,DNF,,11,,23,0,1,0,,,Transmission
-2117,9,DNF,,7,,23,0,1,0,,,Clutch
-2116,10,DNF,,19,,20,0,1,0,,,Clutch
-2124,11,DNF,,14,,13,0,1,0,,,Brakes
-2070,12,DNF,,8,,8,0,1,0,,,Clutch
-2125,13,DNF,,17,,6,0,1,0,,,Oil leak
-2129,14,DNF,,3,,5,0,1,0,,,Clutch
-2126,15,DNF,,15,,5,0,1,0,,,Overheating
-2072,16,DNF,,1,,5,0,1,0,,,Transmission
-2122,17,DNF,,12,,1,0,1,0,,,Clutch
-2128,18,DNF,,13,,0,0,1,0,,,Accident
-2131,19,DNS,,18,,,0,1,0,,,
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+2120,1,1,7955700,10,,42,8,1,8,,
+2119,2,2,7956300,5,,42,7,1,7,,
+2000,3,3,8136600,4,,42,4,1,4,,
+2006,4,4,8253000,2,,42,3,0,0,,
+2121,5,5,,9,,39,2,1,2,,
+2118,6,6,,6,,38,0,1,0,,
+2127,7,7,,16,,38,0,1,0,,
+2123,8,DNF,,11,,23,0,1,0,,Transmission
+2117,9,DNF,,7,,23,0,1,0,,Clutch
+2116,10,DNF,,19,,20,0,1,0,,Clutch
+2124,11,DNF,,14,,13,0,1,0,,Brakes
+2070,12,DNF,,8,,8,0,1,0,,Clutch
+2125,13,DNF,,17,,6,0,1,0,,Oil leak
+2129,14,DNF,,3,,5,0,1,0,,Clutch
+2126,15,DNF,,15,,5,0,1,0,,Overheating
+2072,16,DNF,,1,,5,0,1,0,,Transmission
+2122,17,DNF,,12,,1,0,1,0,,Clutch
+2128,18,DNF,,13,,0,0,1,0,,Accident
+2131,19,DNS,,18,,,0,1,0,,

@@ -1,22 +1,22 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1121,1,1,11632100,3,,80,8,1,8,,,
-1108,2,2,11705300,7,,80,6,1,6,"01:13,20",,
-1103,3,3,,2,,79,4,0,0,+1 lap,,
-1106,4,4,,11,,79,3,1,3,+1 lap,,
-1104,5,5,,12,,79,2,1,2,+1 lap,,
-1109,6,6,,13,,76,0,1,0,+4 laps,,
-1115,7,7,,20,,74,0,1,0,+6 laps,,
-1116,8,8,,14,,74,0,1,0,+6 laps,,
-1110,9,9,,15,,68,0,1,0,+12 laps,,
-1107,10,DNF,,10,,58,0,1,0,,,Brakes
-1112,11,DNF,,21,,57,0,1,0,,,Engine
-1064,12,DNF,,9,,50,0,1,0,,,Injection
-1122,13,DNF,,8,,47,0,1,0,,,Gearbox
-1126,14,DNF,,16,,37,0,1,0,,,Engine
-1114,15,DNF,,4,,29,0,1,0,,,Transmission
-1105,16,DNF,,6,,20,0,1,0,,,Oil pump
-1125,17,DNF,,18,,17,0,1,0,,,Brakes
-1117,18,DNF,,19,,16,0,1,0,,,Engine
-1119,19,DNF,,1,,10,1,1,1,,,Clutch
-1120,20,DNF,,5,,2,0,1,0,,,Brakes
-1111,21,DNF,,17,,2,0,1,0,,,Engine
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+1121,1,1,11632100,3,,80,8,1,8,,
+1108,2,2,11705300,7,,80,6,1,6,,
+1103,3,3,,2,,79,4,0,0,,
+1106,4,4,,11,,79,3,1,3,,
+1104,5,5,,12,,79,2,1,2,,
+1109,6,6,,13,,76,0,1,0,,
+1115,7,7,,20,,74,0,1,0,,
+1116,8,8,,14,,74,0,1,0,,
+1110,9,9,,15,,68,0,1,0,,
+1107,10,DNF,,10,,58,0,1,0,,Brakes
+1112,11,DNF,,21,,57,0,1,0,,Engine
+1064,12,DNF,,9,,50,0,1,0,,Injection
+1122,13,DNF,,8,,47,0,1,0,,Gearbox
+1126,14,DNF,,16,,37,0,1,0,,Engine
+1114,15,DNF,,4,,29,0,1,0,,Transmission
+1105,16,DNF,,6,,20,0,1,0,,Oil pump
+1125,17,DNF,,18,,17,0,1,0,,Brakes
+1117,18,DNF,,19,,16,0,1,0,,Engine
+1119,19,DNF,,1,,10,1,1,1,,Clutch
+1120,20,DNF,,5,,2,0,1,0,,Brakes
+1111,21,DNF,,17,,2,0,1,0,,Engine

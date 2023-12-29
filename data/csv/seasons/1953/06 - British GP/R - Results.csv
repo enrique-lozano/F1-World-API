@@ -1,29 +1,29 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-776,1,1,10200000,1,,90,8.5,1,5.5,,,
-791,2,2,10260000,4,,90,6,1,6,"01:00,00",,
-712,3,3,,5,,88,4,0,4,+2 laps,,
-792,4,4,,2,,88,3.5,1,2.5,+2 laps,,
-713,5,5,,3,,87,2,0,2,+3 laps,,
-793,6,6,,16,,82,0,1,0,+8 laps,,
-779,7,7,,19,,82,0,1,0,+8 laps,,
-784,8,8,,11,,80,0,1,0,+10 laps,,
-788,9,9,,14,,79,0,1,0,+11 laps,,
-778,10,10,,24,,78,0,1,0,+12 laps,,
-786,11,DNF,,15,,79,0,1,0,,,Spun off
-782,12,DNF,,10,,71,0,1,0,,,Halfshaft
-777,13,DNF,,6,,67,0,1,0,,,Axle
-794,14,DNF,,7,,67,0,1,0,,,Engine
-773,15,DNF,,23,,56,0,1,0,,,Spun off
-787,16,DNF,,21,,56,0,1,0,,,Overheating
-775,17,DNF,,27,,54,0,1,0,,,Clutch
-781,18,DNF,,28,,50,0,1,0,,,Wheel
-797,19,DNF,,26,,34,0,1,0,,,Clutch
-772,20,DNF,,12,,31,0,1,0,,,Clutch
-643,21,DNF,,22,,30,0,1,0,,,Fuel pump
-783,22,DNF,,20,,26,0,1,0,,,Ignition
-796,23,DNF,,8,,15,0,1,0,,,Axle
-774,24,DNF,,17,,14,0,1,0,,,Clutch
-785,25,DNF,,18,,8,0,1,0,,,Suspension
-641,26,DNF,,9,,5,0,1,0,,,Electrical
-790,27,DNF,,25,,0,0,1,0,,,Fuel system
-780,28,DNF,,13,,0,0,1,0,,,Retirement
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+776,1,1,10200000,1,,90,8.5,1,5.5,,
+791,2,2,10260000,4,,90,6,1,6,,
+712,3,3,,5,,88,4,0,4,,
+792,4,4,,2,,88,3.5,1,2.5,,
+713,5,5,,3,,87,2,0,2,,
+793,6,6,,16,,82,0,1,0,,
+779,7,7,,19,,82,0,1,0,,
+784,8,8,,11,,80,0,1,0,,
+788,9,9,,14,,79,0,1,0,,
+778,10,10,,24,,78,0,1,0,,
+786,11,DNF,,15,,79,0,1,0,,Spun off
+782,12,DNF,,10,,71,0,1,0,,Halfshaft
+777,13,DNF,,6,,67,0,1,0,,Axle
+794,14,DNF,,7,,67,0,1,0,,Engine
+773,15,DNF,,23,,56,0,1,0,,Spun off
+787,16,DNF,,21,,56,0,1,0,,Overheating
+775,17,DNF,,27,,54,0,1,0,,Clutch
+781,18,DNF,,28,,50,0,1,0,,Wheel
+797,19,DNF,,26,,34,0,1,0,,Clutch
+772,20,DNF,,12,,31,0,1,0,,Clutch
+643,21,DNF,,22,,30,0,1,0,,Fuel pump
+783,22,DNF,,20,,26,0,1,0,,Ignition
+796,23,DNF,,8,,15,0,1,0,,Axle
+774,24,DNF,,17,,14,0,1,0,,Clutch
+785,25,DNF,,18,,8,0,1,0,,Suspension
+641,26,DNF,,9,,5,0,1,0,,Electrical
+790,27,DNF,,25,,0,0,1,0,,Fuel system
+780,28,DNF,,13,,0,0,1,0,,Retirement

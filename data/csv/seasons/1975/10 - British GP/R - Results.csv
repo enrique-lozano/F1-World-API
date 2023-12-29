@@ -1,27 +1,27 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-5002,1,1,4925000,7,,56,9,1,9,,,
-5009,2,2,,2,,55,6,1,6,,,Accident
-5004,3,3,,6,,55,4,1,4,,,Accident
-5021,4,4,,9,,55,3,1,3,,,Accident
-5072,5,5,,15,,55,2,1,2,,,Accident
-5027,6,6,,5,,55,1,1,1,+1 lap,,
-5003,7,7,,10,,55,0,1,0,,,Accident
-5030,8,8,,3,,54,0,1,0,+2 laps,,
-5005,9,9,,17,,54,0,1,0,,,Accident
-5060,10,10,,20,,54,0,1,0,+2 laps,,
-5016,11,11,,18,,54,0,1,0,,,Accident
-5025,12,12,,12,,54,0,1,0,+2 laps,,
-5029,13,13,,4,,54,0,1,0,+2 laps,,
-5015,14,14,,11,,53,0,1,0,,,Accident
-5052,15,15,,13,,53,0,1,0,,,Accident
-5069,16,16,,21,,53,0,1,0,,,Accident
-5075,17,17,,26,,51,0,1,0,,,Accident
-5070,18,18,,23,,50,0,1,0,,,Accident
-5061,19,19,,24,,50,0,1,0,,,Accident
-5068,20,DNF,,14,,45,0,1,0,,,Accident
-5067,21,DNF,,25,,28,0,1,0,,,Accident
-5032,22,DNF,,1,,20,0,1,0,,,Accident
-5073,23,DNF,,22,,18,0,1,0,,,Engine
-5006,24,DNF,,16,,7,0,1,0,,,Engine
-5046,25,DNF,,19,,5,0,1,0,,,Gearbox
-5008,26,DNF,,8,,4,0,1,0,,,Engine
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5002,1,1,4925000,7,,56,9,1,9,,
+5009,2,2,,2,,55,6,1,6,,Accident
+5004,3,3,,6,,55,4,1,4,,Accident
+5021,4,4,,9,,55,3,1,3,,Accident
+5072,5,5,,15,,55,2,1,2,,Accident
+5027,6,6,,5,,55,1,1,1,,
+5003,7,7,,10,,55,0,1,0,,Accident
+5030,8,8,,3,,54,0,1,0,,
+5005,9,9,,17,,54,0,1,0,,Accident
+5060,10,10,,20,,54,0,1,0,,
+5016,11,11,,18,,54,0,1,0,,Accident
+5025,12,12,,12,,54,0,1,0,,
+5029,13,13,,4,,54,0,1,0,,
+5015,14,14,,11,,53,0,1,0,,Accident
+5052,15,15,,13,,53,0,1,0,,Accident
+5069,16,16,,21,,53,0,1,0,,Accident
+5075,17,17,,26,,51,0,1,0,,Accident
+5070,18,18,,23,,50,0,1,0,,Accident
+5061,19,19,,24,,50,0,1,0,,Accident
+5068,20,DNF,,14,,45,0,1,0,,Accident
+5067,21,DNF,,25,,28,0,1,0,,Accident
+5032,22,DNF,,1,,20,0,1,0,,Accident
+5073,23,DNF,,22,,18,0,1,0,,Engine
+5006,24,DNF,,16,,7,0,1,0,,Engine
+5046,25,DNF,,19,,5,0,1,0,,Gearbox
+5008,26,DNF,,8,,4,0,1,0,,Engine

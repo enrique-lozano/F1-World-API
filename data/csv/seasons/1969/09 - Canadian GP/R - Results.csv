@@ -1,21 +1,21 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-3921,1,1,7165700,1,,90,9,1,9,,,
-3977,2,2,7211900,6,,90,6,1,6,46200,,
-3862,3,3,7217700,3,,90,4,1,4,52000,,
-3981,4,4,,2,,89,3,1,3,+1 lap,,
-3894,5,5,,9,,87,2,1,2,+3 laps,,
-3982,6,6,,15,,84,1,1,1,+6 laps,,
-3986,7,7,,16,,81,0,1,0,+9 laps,,
-3979,8,NC,,18,,80,0,1,0,+10 laps,,
-3861,9,DNF,,7,,42,0,1,0,,,Engine
-3897,10,DNF,,8,,40,0,1,0,,,Halfshaft
-3975,11,DNF,,11,,40,0,1,0,,,Gearbox
-3976,12,DNF,,13,,37,0,1,0,,,Oil pressure
-3980,13,DNF,,4,,32,0,1,0,,,Collision
-3931,14,DNF,,14,,15,0,1,0,,,Engine
-3984,15,DNF,,10,,13,0,1,0,,,Fuel leak
-3987,16,DNF,,19,,10,0,1,0,,,Oil leak
-3865,17,DNF,,5,,9,0,1,0,,,Distributor
-3978,18,DNF,,12,,2,0,1,0,,,Engine
-3983,19,DNF,,20,,0,0,1,0,,,Accident
-3988,20,DSQ,,17,,22,0,1,0,,,Driving too slowly
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+3921,1,1,7165700,1,,90,9,1,9,,
+3977,2,2,7211900,6,,90,6,1,6,,
+3862,3,3,7217700,3,,90,4,1,4,,
+3981,4,4,,2,,89,3,1,3,,
+3894,5,5,,9,,87,2,1,2,,
+3982,6,6,,15,,84,1,1,1,,
+3986,7,7,,16,,81,0,1,0,,
+3979,8,NC,,18,,80,0,1,0,,
+3861,9,DNF,,7,,42,0,1,0,,Engine
+3897,10,DNF,,8,,40,0,1,0,,Halfshaft
+3975,11,DNF,,11,,40,0,1,0,,Gearbox
+3976,12,DNF,,13,,37,0,1,0,,Oil pressure
+3980,13,DNF,,4,,32,0,1,0,,Collision
+3931,14,DNF,,14,,15,0,1,0,,Engine
+3984,15,DNF,,10,,13,0,1,0,,Fuel leak
+3987,16,DNF,,19,,10,0,1,0,,Oil leak
+3865,17,DNF,,5,,9,0,1,0,,Distributor
+3978,18,DNF,,12,,2,0,1,0,,Engine
+3983,19,DNF,,20,,0,0,1,0,,Accident
+3988,20,DSQ,,17,,22,0,1,0,,Driving too slowly

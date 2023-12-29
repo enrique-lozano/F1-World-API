@@ -1,23 +1,23 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-6432,1,1,7205654,2,,62,10,1,10,,,
-6448,2,2,7258960,10,,62,6,1,6,53306,,
-6433,3,3,7287762,15,,62,4,1,4,"01:22,11",,
-6440,4,4,7310056,12,,62,3,1,3,"01:44,40",,
-6445,5,5,,14,,61,2,1,2,+1 lap,,
-6439,6,6,,4,,61,1,1,1,+1 lap,,
-6449,7,7,,19,,61,0,1,0,+1 lap,,
-6444,8,8,,22,,60,0,1,0,+2 laps,,
-6435,9,9,,17,,60,0,1,0,+2 laps,,
-6446,10,10,,20,,60,0,1,0,+2 laps,,
-6431,11,DNF,,1,,39,0,1,0,,,Accident
-6441,12,DNF,,21,,36,0,1,0,,,Accident
-6443,13,DNF,,11,,24,0,1,0,,,Accident
-6434,14,DNF,,9,,16,0,1,0,,,Spun off
-6430,15,DNF,,3,,16,0,1,0,,,Accident damage
-6438,16,DNF,,6,,10,0,1,0,,,Accident
-6442,17,DNF,,7,,9,0,1,0,,,Accident
-6447,18,DNF,,18,,7,0,1,0,,,Accident
-6437,19,DNF,,5,,1,0,1,0,,,Accident
-6436,20,DNF,,8,,1,0,1,0,,,Collision
-6428,21,DNF,,13,,1,0,1,0,,,Collision
-6429,22,DNF,,16,,0,0,1,0,,,Spun off
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+6432,1,1,7205654,2,,62,10,1,10,,
+6448,2,2,7258960,10,,62,6,1,6,,
+6433,3,3,7287762,15,,62,4,1,4,,
+6440,4,4,7310056,12,,62,3,1,3,,
+6445,5,5,,14,,61,2,1,2,,
+6439,6,6,,4,,61,1,1,1,,
+6449,7,7,,19,,61,0,1,0,,
+6444,8,8,,22,,60,0,1,0,,
+6435,9,9,,17,,60,0,1,0,,
+6446,10,10,,20,,60,0,1,0,,
+6431,11,DNF,,1,,39,0,1,0,,Accident
+6441,12,DNF,,21,,36,0,1,0,,Accident
+6443,13,DNF,,11,,24,0,1,0,,Accident
+6434,14,DNF,,9,,16,0,1,0,,Spun off
+6430,15,DNF,,3,,16,0,1,0,,Accident damage
+6438,16,DNF,,6,,10,0,1,0,,Accident
+6442,17,DNF,,7,,9,0,1,0,,Accident
+6447,18,DNF,,18,,7,0,1,0,,Accident
+6437,19,DNF,,5,,1,0,1,0,,Accident
+6436,20,DNF,,8,,1,0,1,0,,Collision
+6428,21,DNF,,13,,1,0,1,0,,Collision
+6429,22,DNF,,16,,0,0,1,0,,Spun off

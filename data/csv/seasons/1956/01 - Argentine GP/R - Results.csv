@@ -1,15 +1,15 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1314,1,1,10803700,3,,98,4,1,4,,,
-1316,1,1,10803700,3,,98,4,1,4,,,
-1303,2,2,10828100,4,,98,6,1,6,24400,,
-1309,3,3,,8,,96,4,1,4,+2 laps,,
-1307,4,4,,11,,92,1.5,1,1.5,+6 laps,,
-1318,5,5,,10,,91,2,1,2,+7 laps,,
-1311,6,6,,13,,88,0,1,0,+10 laps,,
-1302,7,DNF,,7,,81,0,1,0,,,Engine
-1317,8,DNF,,9,,58,0,1,0,,,Accident
-1305,9,DNF,,12,,57,0,1,0,,,Accident
-1304,10,DNF,,6,,42,0,1,0,,,Halfshaft
-1315,11,DNF,,2,,40,0,1,0,,,Gearbox
-1308,12,DNF,,5,,24,0,1,0,,,Engine
-1314,13,DNF,,1,,22,0,1,0,,,Fuel pump
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+1314,1,1,10803700,3,,98,4,1,4,,
+1316,1,1,10803700,3,,98,4,1,4,,
+1303,2,2,10828100,4,,98,6,1,6,,
+1309,3,3,,8,,96,4,1,4,,
+1307,4,4,,11,,92,1.5,1,1.5,,
+1318,5,5,,10,,91,2,1,2,,
+1311,6,6,,13,,88,0,1,0,,
+1302,7,DNF,,7,,81,0,1,0,,Engine
+1317,8,DNF,,9,,58,0,1,0,,Accident
+1305,9,DNF,,12,,57,0,1,0,,Accident
+1304,10,DNF,,6,,42,0,1,0,,Halfshaft
+1315,11,DNF,,2,,40,0,1,0,,Gearbox
+1308,12,DNF,,5,,24,0,1,0,,Engine
+1314,13,DNF,,1,,22,0,1,0,,Fuel pump

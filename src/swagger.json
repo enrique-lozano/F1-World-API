@@ -1004,10 +1004,6 @@
 						"format": "double",
 						"nullable": true
 					},
-					"gap": {
-						"type": "string",
-						"nullable": true
-					},
 					"timePenalty": {
 						"type": "number",
 						"format": "double",
@@ -1044,7 +1040,6 @@
 					"points",
 					"pointsCountForWDC",
 					"pointsGained",
-					"gap",
 					"timePenalty",
 					"reasonRetired",
 					"session",
@@ -1120,6 +1115,35 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"SessionDTO": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"abbreviation": {
+						"type": "string"
+					},
+					"startDateTime": {
+						"type": "string"
+					},
+					"event": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/EventDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"abbreviation",
+					"startDateTime",
+					"event"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"PitStopDTO": {
 				"properties": {
 					"time": {
@@ -1139,10 +1163,10 @@
 						"type": "string",
 						"nullable": true
 					},
-					"event": {
+					"session": {
 						"allOf": [
 							{
-								"$ref": "#/components/schemas/EventDTO"
+								"$ref": "#/components/schemas/SessionDTO"
 							}
 						],
 						"nullable": true
@@ -1161,7 +1185,7 @@
 					"lap",
 					"timeOfDay",
 					"annotation",
-					"event",
+					"session",
 					"entrant"
 				],
 				"type": "object",
@@ -1211,35 +1235,6 @@
 						"format": "double"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
-			},
-			"SessionDTO": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"abbreviation": {
-						"type": "string"
-					},
-					"startDateTime": {
-						"type": "string"
-					},
-					"event": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/EventDTO"
-							}
-						],
-						"nullable": true
-					}
-				},
-				"required": [
-					"id",
-					"abbreviation",
-					"startDateTime",
-					"event"
-				],
 				"type": "object",
 				"additionalProperties": false
 			},

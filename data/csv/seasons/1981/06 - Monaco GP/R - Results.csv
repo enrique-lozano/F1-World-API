@@ -1,21 +1,21 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-5539,1,1,6863380,2,,76,9,1,9,,,
-5517,2,2,6903290,7,,76,6,1,6,39910,,
-5538,3,3,6952620,8,,76,4,1,4,"01:29,24",,
-5540,4,4,,17,,75,3,1,3,+1 lap,,
-5519,5,5,,15,,74,2,1,2,+2 laps,,
-5528,6,6,,19,,74,1,1,1,+2 laps,,
-5545,7,7,,16,,72,0,1,0,+4 laps,,
-5521,8,DNF,,1,,53,0,1,0,,,Spun off
-5549,9,DNF,,10,,53,0,1,0,,,Engine
-5550,10,DNF,,20,,50,0,1,0,,,Collision
-5536,11,DNF,,18,,50,0,1,0,,,Collision
-5567,12,DNF,,9,,45,0,1,0,,,Engine
-5518,13,DNF,,4,,34,0,1,0,,,Gearbox
-5565,14,DNF,,6,,32,0,1,0,,,Engine
-5530,15,DNF,,13,,32,0,1,0,,,Spun off
-5541,16,DNF,,5,,29,0,1,0,,,Gearbox
-5566,17,DNF,,3,,16,0,1,0,,,Suspension
-5542,18,DNF,,14,,15,0,1,0,,,Fuel system
-5564,19,DNF,,11,,0,0,1,0,,,Collision
-5535,20,DNF,,12,,0,0,1,0,,,Collision
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5539,1,1,6863380,2,,76,9,1,9,,
+5517,2,2,6903290,7,,76,6,1,6,,
+5538,3,3,6952620,8,,76,4,1,4,,
+5540,4,4,,17,,75,3,1,3,,
+5519,5,5,,15,,74,2,1,2,,
+5528,6,6,,19,,74,1,1,1,,
+5545,7,7,,16,,72,0,1,0,,
+5521,8,DNF,,1,,53,0,1,0,,Spun off
+5549,9,DNF,,10,,53,0,1,0,,Engine
+5550,10,DNF,,20,,50,0,1,0,,Collision
+5536,11,DNF,,18,,50,0,1,0,,Collision
+5567,12,DNF,,9,,45,0,1,0,,Engine
+5518,13,DNF,,4,,34,0,1,0,,Gearbox
+5565,14,DNF,,6,,32,0,1,0,,Engine
+5530,15,DNF,,13,,32,0,1,0,,Spun off
+5541,16,DNF,,5,,29,0,1,0,,Gearbox
+5566,17,DNF,,3,,16,0,1,0,,Suspension
+5542,18,DNF,,14,,15,0,1,0,,Fuel system
+5564,19,DNF,,11,,0,0,1,0,,Collision
+5535,20,DNF,,12,,0,0,1,0,,Collision

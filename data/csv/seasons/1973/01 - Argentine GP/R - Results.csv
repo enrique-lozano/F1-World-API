@@ -1,20 +1,20 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-4759,1,1,6978220,2,,96,9,1,9,,,
-4762,2,2,6982910,6,,96,6,1,6,4690,,
-4761,3,3,7011410,4,,96,4,1,4,33190,,
-4767,4,4,7020790,3,,96,3,1,3,42570,,
-4765,5,5,,8,,95,2,1,2,+1 lap,,
-4764,6,6,,12,,95,1,1,1,+1 lap,,
-4774,7,7,,1,,93,0,1,0,+3 laps,,
-4766,8,8,,11,,92,0,1,0,+4 laps,,
-4768,9,9,,14,,92,0,1,0,+4 laps,,
-4769,10,10,,18,,90,0,1,0,,,Suspension
-4770,11,DNF,,17,,84,0,1,0,,,Radiator
-4773,12,DNF,,7,,79,0,1,0,,,Engine
-4777,13,NC,,19,,79,0,1,0,+17 laps,,
-4760,14,DNF,,5,,66,0,1,0,,,Oil pressure
-4775,15,DNF,,13,,66,0,1,0,,,Oil pressure
-4763,16,DNF,,9,,16,0,1,0,,,Gearbox
-4772,17,DNF,,15,,10,0,1,0,,,Suspension
-4771,18,DNF,,10,,10,0,1,0,,,Halfshaft
-4776,19,DNF,,16,,0,0,1,0,,,Engine
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+4759,1,1,6978220,2,,96,9,1,9,,
+4762,2,2,6982910,6,,96,6,1,6,,
+4761,3,3,7011410,4,,96,4,1,4,,
+4767,4,4,7020790,3,,96,3,1,3,,
+4765,5,5,,8,,95,2,1,2,,
+4764,6,6,,12,,95,1,1,1,,
+4774,7,7,,1,,93,0,1,0,,
+4766,8,8,,11,,92,0,1,0,,
+4768,9,9,,14,,92,0,1,0,,
+4769,10,10,,18,,90,0,1,0,,Suspension
+4770,11,DNF,,17,,84,0,1,0,,Radiator
+4773,12,DNF,,7,,79,0,1,0,,Engine
+4777,13,NC,,19,,79,0,1,0,,
+4760,14,DNF,,5,,66,0,1,0,,Oil pressure
+4775,15,DNF,,13,,66,0,1,0,,Oil pressure
+4763,16,DNF,,9,,16,0,1,0,,Gearbox
+4772,17,DNF,,15,,10,0,1,0,,Suspension
+4771,18,DNF,,10,,10,0,1,0,,Halfshaft
+4776,19,DNF,,16,,0,0,1,0,,Engine

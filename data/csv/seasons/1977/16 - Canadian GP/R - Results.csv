@@ -1,26 +1,26 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-5211,1,1,6000000,9,,80,9,1,9,,,
-5197,2,2,6006770,6,,80,6,1,6,6770,,
-5259,3,3,6015760,5,,80,4,1,4,15760,,
-5227,4,4,6046690,7,,80,3,1,3,46690,,
-5261,5,5,6063260,16,,80,2,1,2,"01:03,26",,
-5210,6,6,,15,,78,1,1,1,,,Accident
-5286,7,7,,22,,78,0,1,0,+2 laps,,
-5202,8,8,,23,,78,0,1,0,+2 laps,,
-5198,9,9,,1,,77,0,1,0,,,Engine
-5241,10,10,,8,,76,0,1,0,,,Spun off
-5247,11,11,,20,,76,0,1,0,,,Engine
-5288,12,12,,17,,76,0,1,0,,,Transmission
-5231,13,DNF,,2,,61,0,1,0,,,Accident
-5234,14,DNF,,21,,56,0,1,0,,,Engine
-5196,15,DNF,,3,,34,0,1,0,,,Fuel leak
-5228,16,DNF,,25,,32,0,1,0,,,Accident
-5209,17,DNF,,24,,31,0,1,0,,,Accident
-5246,18,DNF,,19,,29,0,1,0,,,Engine
-5277,19,DNF,,18,,29,0,1,0,,,Engine
-5205,20,DNF,,12,,20,0,1,0,,,Fuel system
-5224,21,DNF,,13,,19,0,1,0,,,Engine
-5199,22,DNF,,4,,17,0,1,0,,,Accident
-5213,23,DNF,,11,,12,0,1,0,,,Transmission
-5223,24,DNF,,10,,1,0,1,0,,,Suspension
-5212,25,DNF,,14,,0,0,1,0,,,Accident
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5211,1,1,6000000,9,,80,9,1,9,,
+5197,2,2,6006770,6,,80,6,1,6,,
+5259,3,3,6015760,5,,80,4,1,4,,
+5227,4,4,6046690,7,,80,3,1,3,,
+5261,5,5,6063260,16,,80,2,1,2,,
+5210,6,6,,15,,78,1,1,1,,Accident
+5286,7,7,,22,,78,0,1,0,,
+5202,8,8,,23,,78,0,1,0,,
+5198,9,9,,1,,77,0,1,0,,Engine
+5241,10,10,,8,,76,0,1,0,,Spun off
+5247,11,11,,20,,76,0,1,0,,Engine
+5288,12,12,,17,,76,0,1,0,,Transmission
+5231,13,DNF,,2,,61,0,1,0,,Accident
+5234,14,DNF,,21,,56,0,1,0,,Engine
+5196,15,DNF,,3,,34,0,1,0,,Fuel leak
+5228,16,DNF,,25,,32,0,1,0,,Accident
+5209,17,DNF,,24,,31,0,1,0,,Accident
+5246,18,DNF,,19,,29,0,1,0,,Engine
+5277,19,DNF,,18,,29,0,1,0,,Engine
+5205,20,DNF,,12,,20,0,1,0,,Fuel system
+5224,21,DNF,,13,,19,0,1,0,,Engine
+5199,22,DNF,,4,,17,0,1,0,,Accident
+5213,23,DNF,,11,,12,0,1,0,,Transmission
+5223,24,DNF,,10,,1,0,1,0,,Suspension
+5212,25,DNF,,14,,0,0,1,0,,Accident

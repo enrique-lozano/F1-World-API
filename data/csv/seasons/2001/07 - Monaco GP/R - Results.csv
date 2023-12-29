@@ -1,23 +1,23 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-6534,1,1,6442561,2,,78,10,1,10,,,
-6535,2,2,6442992,4,,78,6,1,6,431,,
-6550,3,3,6473259,6,,78,4,1,4,30698,,
-6543,4,4,6475015,9,,78,3,1,3,32454,,
-6537,5,5,,1,,77,2,1,2,+1 lap,,
-6554,6,6,,11,,77,1,1,1,+1 lap,,
-6541,7,7,,17,,77,0,1,0,+1 lap,,
-6546,8,8,,19,,77,0,1,0,+1 lap,,
-6547,9,9,,20,,76,0,1,0,+2 laps,,
-6549,10,10,,15,,73,0,1,0,+5 laps,,
-6538,11,DNF,,5,,57,0,1,0,,,Electrical
-6552,12,DNF,,22,,56,0,1,0,,,Transmission
-6553,13,DNF,,18,,54,0,1,0,,,Gearbox
-6544,14,DNF,,13,,49,0,1,0,,,Accident
-6540,15,DNF,,10,,43,0,1,0,,,Gearbox
-6545,16,DNF,,8,,30,0,1,0,,,Hydraulics
-6557,17,DNF,,21,,24,0,1,0,,,Gearbox
-6556,18,DNF,,14,,18,0,1,0,,,Hydraulics
-6536,19,DNF,,3,,15,0,1,0,,,Steering
-6542,20,DNF,,12,,13,0,1,0,,,Steering
-6539,21,DNF,,7,,2,0,1,0,,,Accident
-6548,22,DNF,,16,,0,0,1,0,,,Collision
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+6534,1,1,6442561,2,,78,10,1,10,,
+6535,2,2,6442992,4,,78,6,1,6,,
+6550,3,3,6473259,6,,78,4,1,4,,
+6543,4,4,6475015,9,,78,3,1,3,,
+6537,5,5,,1,,77,2,1,2,,
+6554,6,6,,11,,77,1,1,1,,
+6541,7,7,,17,,77,0,1,0,,
+6546,8,8,,19,,77,0,1,0,,
+6547,9,9,,20,,76,0,1,0,,
+6549,10,10,,15,,73,0,1,0,,
+6538,11,DNF,,5,,57,0,1,0,,Electrical
+6552,12,DNF,,22,,56,0,1,0,,Transmission
+6553,13,DNF,,18,,54,0,1,0,,Gearbox
+6544,14,DNF,,13,,49,0,1,0,,Accident
+6540,15,DNF,,10,,43,0,1,0,,Gearbox
+6545,16,DNF,,8,,30,0,1,0,,Hydraulics
+6557,17,DNF,,21,,24,0,1,0,,Gearbox
+6556,18,DNF,,14,,18,0,1,0,,Hydraulics
+6536,19,DNF,,3,,15,0,1,0,,Steering
+6542,20,DNF,,12,,13,0,1,0,,Steering
+6539,21,DNF,,7,,2,0,1,0,,Accident
+6548,22,DNF,,16,,0,0,1,0,,Collision

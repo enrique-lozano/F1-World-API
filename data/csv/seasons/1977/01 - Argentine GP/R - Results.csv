@@ -1,22 +1,22 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-5211,1,1,6011190,11,,53,9,1,9,,,
-5201,2,2,6054430,6,,53,6,1,6,43240,,
-5205,3,3,6057210,7,,53,4,1,4,46020,,
-5214,4,4,6066670,16,,53,3,1,3,55480,,
-5198,5,5,,8,,51,2,1,2,,,Wheel bearing
-5212,6,6,,12,,51,1,1,1,+2 laps,,
-5210,7,7,,13,,48,0,1,0,,,Out of fuel
-5207,8,NC,,9,,45,0,1,0,+8 laps,,
-5203,9,DNF,,17,,45,0,1,0,,,Electrical
-5200,10,DNF,,2,,41,0,1,0,,,Suspension
-5202,11,DNF,,20,,39,0,1,0,,,Transmission
-5213,12,NC,,15,,37,0,1,0,+16 laps,,
-5197,13,DNF,,3,,32,0,1,0,,,Overheating
-5194,14,DNF,,1,,31,0,1,0,,,Suspension
-5195,15,DNF,,5,,28,0,1,0,,,Spun off
-5196,16,DNF,,14,,28,0,1,0,,,Spun off
-5215,17,DNF,,19,,22,0,1,0,,,Engine
-5204,18,DNF,,4,,20,0,1,0,,,Fuel system
-5209,19,DNF,,18,,18,0,1,0,,,Accident
-5208,20,DNF,,21,,2,0,1,0,,,Gearbox
-5199,21,DNS,,10,,,0,1,0,,,
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5211,1,1,6011190,11,,53,9,1,9,,
+5201,2,2,6054430,6,,53,6,1,6,,
+5205,3,3,6057210,7,,53,4,1,4,,
+5214,4,4,6066670,16,,53,3,1,3,,
+5198,5,5,,8,,51,2,1,2,,Wheel bearing
+5212,6,6,,12,,51,1,1,1,,
+5210,7,7,,13,,48,0,1,0,,Out of fuel
+5207,8,NC,,9,,45,0,1,0,,
+5203,9,DNF,,17,,45,0,1,0,,Electrical
+5200,10,DNF,,2,,41,0,1,0,,Suspension
+5202,11,DNF,,20,,39,0,1,0,,Transmission
+5213,12,NC,,15,,37,0,1,0,,
+5197,13,DNF,,3,,32,0,1,0,,Overheating
+5194,14,DNF,,1,,31,0,1,0,,Suspension
+5195,15,DNF,,5,,28,0,1,0,,Spun off
+5196,16,DNF,,14,,28,0,1,0,,Spun off
+5215,17,DNF,,19,,22,0,1,0,,Engine
+5204,18,DNF,,4,,20,0,1,0,,Fuel system
+5209,19,DNF,,18,,18,0,1,0,,Accident
+5208,20,DNF,,21,,2,0,1,0,,Gearbox
+5199,21,DNS,,10,,,0,1,0,,

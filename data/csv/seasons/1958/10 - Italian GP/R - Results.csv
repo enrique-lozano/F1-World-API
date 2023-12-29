@@ -1,23 +1,23 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-1886,1,1,7427800,2,,70,8,1,8,,,
-1880,2,2,7452000,3,,70,6,1,4,24200,,
-1882,3,3,7456100,7,,70,5,1,5,28300,,
-1888,4,4,,11,,69,0,1,0,+1 lap,,
-1889,4,4,,11,,69,0,1,0,+1 lap,,
-1878,5,5,,14,,62,2,1,2,+8 laps,,
-1891,6,6,,12,,62,0,1,0,+8 laps,,
-1890,7,7,,16,,61,0,1,0,+9 laps,,
-1893,8,DNF,,21,,57,0,1,0,,,Engine
-1883,9,DNF,,20,,51,0,1,0,,,Engine
-1783,10,DNF,,8,,42,0,1,0,,,Clutch
-1884,11,DNF,,18,,32,0,1,0,,,Engine
-1887,12,DNF,,4,,30,0,1,0,,,Overheating
-1876,13,DNF,,13,,24,0,1,0,,,Gearbox
-1885,14,DNF,,1,,17,0,1,0,,,Gearbox
-1879,15,DNF,,10,,14,0,1,0,,,Transmission
-1789,16,DNF,,5,,4,0,1,0,,,Suspension
-1892,17,DNF,,19,,2,0,1,0,,,Accident
-1889,18,DNF,,17,,1,0,1,0,,,Handling
-1784,19,DNF,,9,,0,0,1,0,,,Accident
-1881,20,DNF,,6,,0,0,1,0,,,Accident
-1877,21,DNF,,15,,0,0,1,0,,,Suspension
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+1886,1,1,7427800,2,,70,8,1,8,,
+1880,2,2,7452000,3,,70,6,1,4,,
+1882,3,3,7456100,7,,70,5,1,5,,
+1888,4,4,,11,,69,0,1,0,,
+1889,4,4,,11,,69,0,1,0,,
+1878,5,5,,14,,62,2,1,2,,
+1891,6,6,,12,,62,0,1,0,,
+1890,7,7,,16,,61,0,1,0,,
+1893,8,DNF,,21,,57,0,1,0,,Engine
+1883,9,DNF,,20,,51,0,1,0,,Engine
+1783,10,DNF,,8,,42,0,1,0,,Clutch
+1884,11,DNF,,18,,32,0,1,0,,Engine
+1887,12,DNF,,4,,30,0,1,0,,Overheating
+1876,13,DNF,,13,,24,0,1,0,,Gearbox
+1885,14,DNF,,1,,17,0,1,0,,Gearbox
+1879,15,DNF,,10,,14,0,1,0,,Transmission
+1789,16,DNF,,5,,4,0,1,0,,Suspension
+1892,17,DNF,,19,,2,0,1,0,,Accident
+1889,18,DNF,,17,,1,0,1,0,,Handling
+1784,19,DNF,,9,,0,0,1,0,,Accident
+1881,20,DNF,,6,,0,0,1,0,,Accident
+1877,21,DNF,,15,,0,0,1,0,,Suspension

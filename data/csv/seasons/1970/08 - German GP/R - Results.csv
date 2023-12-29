@@ -1,22 +1,22 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-4167,1,1,6120300,2,,50,9,1,9,,,
-4124,2,2,6121000,1,,50,6,1,6,700,,
-4169,3,3,6202100,16,,50,4,1,4,"01:21,80",,
-4178,4,4,6235400,13,,50,3,1,3,"01:55,10",,
-4182,5,5,,11,,49,2,1,2,+1 lap,,
-4175,6,6,,5,,49,1,1,1,+1 lap,,
-4183,7,7,,14,,49,0,1,0,+1 lap,,
-4126,8,8,,4,,47,0,1,0,,,Ignition
-4172,9,9,,15,,46,0,1,0,,,Engine
-4173,10,DNF,,20,,37,0,1,0,,,Engine
-4170,11,DNF,,6,,34,0,1,0,,,Engine
-4176,12,DNF,,3,,30,0,1,0,,,Engine
-4177,13,DNF,,10,,24,0,1,0,,,Engine
-3998,14,DNF,,7,,20,0,1,0,,,Engine
-4174,15,DNF,,9,,15,0,1,0,,,Gearbox
-4106,16,DNF,,19,,11,0,1,0,,,Engine
-4171,17,DNF,,8,,7,0,1,0,,,Ignition
-4179,18,DNF,,18,,5,0,1,0,,,Engine
-4168,19,DNF,,12,,4,0,1,0,,,Oil leak
-4050,20,DNF,,21,,4,0,1,0,,,Suspension
-4184,21,DNF,,17,,3,0,1,0,,,Throttle
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+4167,1,1,6120300,2,,50,9,1,9,,
+4124,2,2,6121000,1,,50,6,1,6,,
+4169,3,3,6202100,16,,50,4,1,4,,
+4178,4,4,6235400,13,,50,3,1,3,,
+4182,5,5,,11,,49,2,1,2,,
+4175,6,6,,5,,49,1,1,1,,
+4183,7,7,,14,,49,0,1,0,,
+4126,8,8,,4,,47,0,1,0,,Ignition
+4172,9,9,,15,,46,0,1,0,,Engine
+4173,10,DNF,,20,,37,0,1,0,,Engine
+4170,11,DNF,,6,,34,0,1,0,,Engine
+4176,12,DNF,,3,,30,0,1,0,,Engine
+4177,13,DNF,,10,,24,0,1,0,,Engine
+3998,14,DNF,,7,,20,0,1,0,,Engine
+4174,15,DNF,,9,,15,0,1,0,,Gearbox
+4106,16,DNF,,19,,11,0,1,0,,Engine
+4171,17,DNF,,8,,7,0,1,0,,Ignition
+4179,18,DNF,,18,,5,0,1,0,,Engine
+4168,19,DNF,,12,,4,0,1,0,,Oil leak
+4050,20,DNF,,21,,4,0,1,0,,Suspension
+4184,21,DNF,,17,,3,0,1,0,,Throttle

@@ -28,7 +28,6 @@ export class RaceResultService extends DbService {
     fieldsParam ??= new IncludeParam();
 
     const allSingleFields = [
-      'gap',
       'gridPenalty',
       'gridPosition',
       'laps',
@@ -37,7 +36,6 @@ export class RaceResultService extends DbService {
       'pointsGained',
       'positionText',
       'positionOrder',
-      'gap',
       'time',
       'timePenalty',
       'reasonRetired'

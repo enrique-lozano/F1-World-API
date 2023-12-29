@@ -1,27 +1,27 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-5703,1,1,6511838,1,,70,9,1,9,,,
-5717,2,2,6553867,6,,70,6,1,6,42029,,
-5702,3,3,6564448,4,,70,4,1,4,52610,,
-5684,4,4,6588886,9,,70,3,1,3,"01:17,05",,
-5713,5,5,,2,,69,2,1,2,+1 lap,,
-5719,6,6,,20,,69,1,1,1,+1 lap,,
-5722,7,7,,15,,69,0,1,0,+1 lap,,
-5721,8,8,,17,,68,0,1,0,+2 laps,,
-5692,9,9,,7,,67,0,1,0,+3 laps,,
-5699,10,10,,26,,67,0,1,0,+3 laps,,
-5689,11,DNF,,5,,56,0,1,0,,,Gearbox
-5710,12,DNF,,12,,47,0,1,0,,,Turbo
-5711,13,DNF,,10,,43,0,1,0,,,Engine
-5716,14,DNF,,18,,43,0,1,0,,,Handling
-5698,15,DNF,,8,,42,0,1,0,,,Engine
-5685,16,DNF,,13,,37,0,1,0,,,Gearbox
-5701,17,DNF,,24,,32,0,1,0,,,Halfshaft
-5708,18,DNF,,21,,27,0,1,0,,,Engine
-5706,19,DNF,,25,,26,0,1,0,,,Engine
-5709,20,DNF,,23,,17,0,1,0,,,Differential
-5688,21,DNF,,3,,15,0,1,0,,,Throttle
-5715,22,DNF,,19,,11,0,1,0,,,Spun off
-5712,23,DNF,,11,,1,0,1,0,,,Throttle
-5704,24,DNF,,14,,1,0,1,0,,,Transmission
-5700,25,DNF,,16,,0,0,1,0,,,Gearbox
-5723,26,DSQ,,22,,68,0,1,0,,,Car underweight
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5703,1,1,6511838,1,,70,9,1,9,,
+5717,2,2,6553867,6,,70,6,1,6,,
+5702,3,3,6564448,4,,70,4,1,4,,
+5684,4,4,6588886,9,,70,3,1,3,,
+5713,5,5,,2,,69,2,1,2,,
+5719,6,6,,20,,69,1,1,1,,
+5722,7,7,,15,,69,0,1,0,,
+5721,8,8,,17,,68,0,1,0,,
+5692,9,9,,7,,67,0,1,0,,
+5699,10,10,,26,,67,0,1,0,,
+5689,11,DNF,,5,,56,0,1,0,,Gearbox
+5710,12,DNF,,12,,47,0,1,0,,Turbo
+5711,13,DNF,,10,,43,0,1,0,,Engine
+5716,14,DNF,,18,,43,0,1,0,,Handling
+5698,15,DNF,,8,,42,0,1,0,,Engine
+5685,16,DNF,,13,,37,0,1,0,,Gearbox
+5701,17,DNF,,24,,32,0,1,0,,Halfshaft
+5708,18,DNF,,21,,27,0,1,0,,Engine
+5706,19,DNF,,25,,26,0,1,0,,Engine
+5709,20,DNF,,23,,17,0,1,0,,Differential
+5688,21,DNF,,3,,15,0,1,0,,Throttle
+5715,22,DNF,,19,,11,0,1,0,,Spun off
+5712,23,DNF,,11,,1,0,1,0,,Throttle
+5704,24,DNF,,14,,1,0,1,0,,Transmission
+5700,25,DNF,,16,,0,0,1,0,,Gearbox
+5723,26,DSQ,,22,,68,0,1,0,,Car underweight

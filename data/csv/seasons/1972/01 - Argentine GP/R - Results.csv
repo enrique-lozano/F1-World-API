@@ -1,23 +1,23 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-4483,1,1,7078820,2,,95,9,1,9,,,
-4479,2,2,7104780,4,,95,6,1,6,25960,,
-4471,3,3,7138210,8,,95,4,1,4,59390,,
-4472,4,4,7145540,6,,95,3,1,3,"01:06,72",,
-4481,5,5,7147930,11,,95,2,1,2,"01:09,11",,
-4476,6,6,,10,,94,1,1,1,+1 lap,,
-4465,7,7,,1,,93,0,1,0,+2 laps,,
-4485,8,8,,15,,93,0,1,0,+2 laps,,
-4466,9,9,,13,,93,0,1,0,+2 laps,,
-4470,10,10,,19,,93,0,1,0,+2 laps,,
-4477,11,11,,22,,93,0,1,0,+2 laps,,
-4474,12,DNF,,5,,61,0,1,0,,,Suspension
-4467,13,DNF,,17,,59,0,1,0,,,Water leak
-4484,14,DNF,,7,,59,0,1,0,,,Gearbox
-4480,15,DNF,,3,,49,0,1,0,,,Engine
-4473,16,DNF,,9,,20,0,1,0,,,Engine
-4464,17,DNF,,16,,11,0,1,0,,,Fuel pump
-4482,18,DNF,,14,,11,0,1,0,,,Fuel system
-4468,19,DNF,,18,,1,0,1,0,,,Oil leak
-4469,20,DNF,,21,,1,0,1,0,,,Accident
-4475,21,DSQ,,20,,8,0,1,0,,,Received outside assistance
-4478,22,DNS,,12,,,0,1,0,,,Gearbox
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+4483,1,1,7078820,2,,95,9,1,9,,
+4479,2,2,7104780,4,,95,6,1,6,,
+4471,3,3,7138210,8,,95,4,1,4,,
+4472,4,4,7145540,6,,95,3,1,3,,
+4481,5,5,7147930,11,,95,2,1,2,,
+4476,6,6,,10,,94,1,1,1,,
+4465,7,7,,1,,93,0,1,0,,
+4485,8,8,,15,,93,0,1,0,,
+4466,9,9,,13,,93,0,1,0,,
+4470,10,10,,19,,93,0,1,0,,
+4477,11,11,,22,,93,0,1,0,,
+4474,12,DNF,,5,,61,0,1,0,,Suspension
+4467,13,DNF,,17,,59,0,1,0,,Water leak
+4484,14,DNF,,7,,59,0,1,0,,Gearbox
+4480,15,DNF,,3,,49,0,1,0,,Engine
+4473,16,DNF,,9,,20,0,1,0,,Engine
+4464,17,DNF,,16,,11,0,1,0,,Fuel pump
+4482,18,DNF,,14,,11,0,1,0,,Fuel system
+4468,19,DNF,,18,,1,0,1,0,,Oil leak
+4469,20,DNF,,21,,1,0,1,0,,Accident
+4475,21,DSQ,,20,,8,0,1,0,,Received outside assistance
+4478,22,DNS,,12,,,0,1,0,,Gearbox

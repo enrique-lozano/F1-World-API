@@ -1,27 +1,27 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-6352,1,1,6791258,2,,78,10,1,10,,,
-6356,2,2,6826075,1,,78,6,1,6,34817,,
-6375,3,3,6862705,4,,78,4,1,4,"01:11,45",,
-6353,4,4,,7,,77,3,1,3,+1 lap,,
-6383,5,5,,10,,77,2,1,2,+1 lap,,
-6377,6,6,,14,,76,1,1,1,+2 laps,,
-6370,7,7,,18,,76,0,1,0,+2 laps,,
-6385,8,8,,19,,74,0,1,0,,,Spun off
-6360,9,9,,13,,74,0,1,0,+4 laps,,
-6368,10,10,,22,,72,0,1,0,+6 laps,,
-6371,11,DNF,,16,,68,0,1,0,,,Suspension
-6373,12,DNF,,12,,65,0,1,0,,,Accident
-6355,13,DNF,,17,,63,0,1,0,,,Gearbox
-6364,14,DNF,,11,,60,0,1,0,,,Throttle
-6366,15,DNF,,21,,42,0,1,0,,,Gearbox
-6374,16,DNF,,5,,41,0,1,0,,,Accident
-6382,17,DNF,,8,,40,0,1,0,,,Spun off
-6361,18,DNF,,26,,27,0,1,0,,,Gearbox
-6354,19,DNF,,15,,26,0,1,0,,,Spun off
-6365,20,DNF,,9,,22,0,1,0,,,Spun off
-6357,21,DNF,,3,,16,0,1,0,,,Gearbox
-6369,22,DNF,,24,,9,0,1,0,,,Brakes
-6384,23,DNF,,6,,8,0,1,0,,,Engine
-6367,24,DSQ,,25,,23,0,1,0,,,Serving stop-and-go penalty too late
-6362,25,DNS,,20,,,0,1,0,,,Accident
-6363,26,DNS,,23,,,0,1,0,,,Gearbox
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+6352,1,1,6791258,2,,78,10,1,10,,
+6356,2,2,6826075,1,,78,6,1,6,,
+6375,3,3,6862705,4,,78,4,1,4,,
+6353,4,4,,7,,77,3,1,3,,
+6383,5,5,,10,,77,2,1,2,,
+6377,6,6,,14,,76,1,1,1,,
+6370,7,7,,18,,76,0,1,0,,
+6385,8,8,,19,,74,0,1,0,,Spun off
+6360,9,9,,13,,74,0,1,0,,
+6368,10,10,,22,,72,0,1,0,,
+6371,11,DNF,,16,,68,0,1,0,,Suspension
+6373,12,DNF,,12,,65,0,1,0,,Accident
+6355,13,DNF,,17,,63,0,1,0,,Gearbox
+6364,14,DNF,,11,,60,0,1,0,,Throttle
+6366,15,DNF,,21,,42,0,1,0,,Gearbox
+6374,16,DNF,,5,,41,0,1,0,,Accident
+6382,17,DNF,,8,,40,0,1,0,,Spun off
+6361,18,DNF,,26,,27,0,1,0,,Gearbox
+6354,19,DNF,,15,,26,0,1,0,,Spun off
+6365,20,DNF,,9,,22,0,1,0,,Spun off
+6357,21,DNF,,3,,16,0,1,0,,Gearbox
+6369,22,DNF,,24,,9,0,1,0,,Brakes
+6384,23,DNF,,6,,8,0,1,0,,Engine
+6367,24,DSQ,,25,,23,0,1,0,,Serving stop-and-go penalty too late
+6362,25,DNS,,20,,,0,1,0,,Accident
+6363,26,DNS,,23,,,0,1,0,,Gearbox

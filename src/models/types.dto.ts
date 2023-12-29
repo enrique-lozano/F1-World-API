@@ -249,7 +249,6 @@ export interface RaceResults {
   points: number | null;
   pointsCountForWDC: number;
   pointsGained: number | null;
-  gap: string | null;
   timePenalty: number | null;
   reasonRetired: string | null;
 }

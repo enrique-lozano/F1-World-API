@@ -1,27 +1,27 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-5954,1,1,7037077,2,,78,9,1,9,,,
-5970,2,2,7057530,3,,78,6,1,6,20453,,
-5969,3,3,7078306,4,,78,4,1,4,41229,,
-5959,4,4,,7,,77,3,1,3,+1 lap,,
-5948,5,5,,10,,77,2,1,2,+1 lap,,
-5951,6,6,,8,,77,1,1,1,+1 lap,,
-5971,7,7,,21,,77,0,1,0,+1 lap,,
-5962,8,8,,16,,76,0,1,0,+2 laps,,
-5977,9,9,,25,,75,0,1,0,+3 laps,,
-5958,10,10,,22,,72,0,1,0,+6 laps,,
-5955,11,DNF,,1,,66,0,1,0,,,Accident
-5972,12,DNF,,13,,50,0,1,0,,,Collision
-5957,13,DNF,,14,,45,0,1,0,,,Fuel system
-5952,14,DNF,,23,,43,0,1,0,,,Gearbox
-5961,15,DNF,,6,,38,0,1,0,,,Gearbox
-5966,16,DNF,,15,,36,0,1,0,,,Halfshaft
-5950,17,DNF,,5,,32,0,1,0,,,Collision
-5964,18,DNF,,19,,28,0,1,0,,,Engine
-5967,19,DNF,,20,,17,0,1,0,,,Engine
-5974,20,DNF,,18,,14,0,1,0,,,Brakes
-5960,21,DNF,,9,,8,0,1,0,,,Engine
-5968,22,DNF,,26,,6,0,1,0,,,Engine
-5973,23,DNF,,24,,5,0,1,0,,,Suspension
-5946,24,DNF,,11,,1,0,1,0,,,Collision
-5978,25,DNF,,17,,0,0,1,0,,,Spun off
-5956,26,DNF,,12,,0,0,1,0,,,Throttle
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5954,1,1,7037077,2,,78,9,1,9,,
+5970,2,2,7057530,3,,78,6,1,6,,
+5969,3,3,7078306,4,,78,4,1,4,,
+5959,4,4,,7,,77,3,1,3,,
+5948,5,5,,10,,77,2,1,2,,
+5951,6,6,,8,,77,1,1,1,,
+5971,7,7,,21,,77,0,1,0,,
+5962,8,8,,16,,76,0,1,0,,
+5977,9,9,,25,,75,0,1,0,,
+5958,10,10,,22,,72,0,1,0,,
+5955,11,DNF,,1,,66,0,1,0,,Accident
+5972,12,DNF,,13,,50,0,1,0,,Collision
+5957,13,DNF,,14,,45,0,1,0,,Fuel system
+5952,14,DNF,,23,,43,0,1,0,,Gearbox
+5961,15,DNF,,6,,38,0,1,0,,Gearbox
+5966,16,DNF,,15,,36,0,1,0,,Halfshaft
+5950,17,DNF,,5,,32,0,1,0,,Collision
+5964,18,DNF,,19,,28,0,1,0,,Engine
+5967,19,DNF,,20,,17,0,1,0,,Engine
+5974,20,DNF,,18,,14,0,1,0,,Brakes
+5960,21,DNF,,9,,8,0,1,0,,Engine
+5968,22,DNF,,26,,6,0,1,0,,Engine
+5973,23,DNF,,24,,5,0,1,0,,Suspension
+5946,24,DNF,,11,,1,0,1,0,,Collision
+5978,25,DNF,,17,,0,0,1,0,,Spun off
+5956,26,DNF,,12,,0,0,1,0,,Throttle

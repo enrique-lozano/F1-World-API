@@ -1,16 +1,16 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-3327,1,1,7751300,1,,28,9,1,9,,,
-3338,2,2,7793400,2,,28,6,1,6,42100,,
-3328,3,3,,5,,27,4,1,4,+1 lap,,
-3325,4,4,,4,,26,3,0,3,+2 laps,,
-3337,5,5,,8,,25,2,1,2,+3 laps,,
-3341,6,NC,,12,,24,0,1,0,+4 laps,,
-3344,7,NC,,15,,23,0,1,0,+5 laps,,
-3329,8,DNF,,11,,0,0,1,0,,,Accident
-3339,9,DNF,,6,,0,0,1,0,,,Accident
-3331,10,DNF,,10,,0,0,1,0,,,Engine
-3333,11,DNF,,9,,0,0,1,0,,,Accident
-3326,12,DNF,,13,,0,0,1,0,,,Accident
-3340,13,DNF,,14,,0,0,1,0,,,Accident
-3335,14,DNF,,7,,0,0,1,0,,,Accident
-3334,15,DNF,,3,,0,0,1,0,,,Accident
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+3327,1,1,7751300,1,,28,9,1,9,,
+3338,2,2,7793400,2,,28,6,1,6,,
+3328,3,3,,5,,27,4,1,4,,
+3325,4,4,,4,,26,3,0,3,,
+3337,5,5,,8,,25,2,1,2,,
+3341,6,NC,,12,,24,0,1,0,,
+3344,7,NC,,15,,23,0,1,0,,
+3329,8,DNF,,11,,0,0,1,0,,Accident
+3339,9,DNF,,6,,0,0,1,0,,Accident
+3331,10,DNF,,10,,0,0,1,0,,Engine
+3333,11,DNF,,9,,0,0,1,0,,Accident
+3326,12,DNF,,13,,0,0,1,0,,Accident
+3340,13,DNF,,14,,0,0,1,0,,Accident
+3335,14,DNF,,7,,0,0,1,0,,Accident
+3334,15,DNF,,3,,0,0,1,0,,Accident

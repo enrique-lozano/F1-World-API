@@ -1,27 +1,27 @@
-entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,gap,timePenalty,reasonRetired
-5350,1,1,6081570,1,,54,9,1,9,,,
-5297,2,2,6129010,13,,54,6,1,6,47440,,
-5326,3,3,6181330,11,,54,4,1,4,"01:39,76",,
-5306,4,4,,6,,53,3,1,3,+1 lap,,
-5352,5,5,,5,,53,2,1,2,+1 lap,,
-5340,6,6,,21,,53,1,1,1,+1 lap,,
-5324,7,7,,10,,53,0,1,0,+1 lap,,
-5343,8,8,,17,,52,0,1,0,+2 laps,,
-5331,9,9,,26,,52,0,1,0,+2 laps,,
-5339,10,NC,,22,,50,0,1,0,+4 laps,,
-5360,11,NC,,25,,49,0,1,0,+5 laps,,
-5301,12,DNF,,14,,40,0,1,0,,,Accident
-5335,13,DNF,,23,,33,0,1,0,,,Accident
-5327,14,DNF,,3,,31,0,1,0,,,Gearbox
-5323,15,DNF,,12,,28,0,1,0,,,Accident
-5296,16,DNF,,9,,20,0,1,0,,,Accident
-5300,17,DNF,,8,,8,0,1,0,,,Accident
-5317,18,DNF,,15,,7,0,1,0,,,Accident
-5363,19,DNF,,24,,6,0,1,0,,,Accident
-5367,20,DNF,,16,,6,0,1,0,,,Accident
-5346,21,DNF,,7,,3,0,1,0,,,Accident
-5366,22,DNF,,20,,2,0,1,0,,,Accident
-5315,23,DNF,,18,,1,0,1,0,,,Accident
-5344,24,DNF,,2,,0,0,1,0,,,Accident
-5358,25,DSQ,,19,,43,0,1,0,,,Push start
-5325,26,DSQ,,4,,27,0,1,0,,,Push start
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5350,1,1,6081570,1,,54,9,1,9,,
+5297,2,2,6129010,13,,54,6,1,6,,
+5326,3,3,6181330,11,,54,4,1,4,,
+5306,4,4,,6,,53,3,1,3,,
+5352,5,5,,5,,53,2,1,2,,
+5340,6,6,,21,,53,1,1,1,,
+5324,7,7,,10,,53,0,1,0,,
+5343,8,8,,17,,52,0,1,0,,
+5331,9,9,,26,,52,0,1,0,,
+5339,10,NC,,22,,50,0,1,0,,
+5360,11,NC,,25,,49,0,1,0,,
+5301,12,DNF,,14,,40,0,1,0,,Accident
+5335,13,DNF,,23,,33,0,1,0,,Accident
+5327,14,DNF,,3,,31,0,1,0,,Gearbox
+5323,15,DNF,,12,,28,0,1,0,,Accident
+5296,16,DNF,,9,,20,0,1,0,,Accident
+5300,17,DNF,,8,,8,0,1,0,,Accident
+5317,18,DNF,,15,,7,0,1,0,,Accident
+5363,19,DNF,,24,,6,0,1,0,,Accident
+5367,20,DNF,,16,,6,0,1,0,,Accident
+5346,21,DNF,,7,,3,0,1,0,,Accident
+5366,22,DNF,,20,,2,0,1,0,,Accident
+5315,23,DNF,,18,,1,0,1,0,,Accident
+5344,24,DNF,,2,,0,0,1,0,,Accident
+5358,25,DSQ,,19,,43,0,1,0,,Push start
+5325,26,DSQ,,4,,27,0,1,0,,Push start

@@ -274,7 +274,6 @@ CREATE TABLE IF NOT EXISTS raceResults
 , points INTEGER
 , pointsCountForWDC BOOLEAN NOT NULL
 , pointsGained INTEGER
-, gap VARCHAR(255)
 , timePenalty INTEGER
 , reasonRetired VARCHAR(255)
 , PRIMARY KEY (sessionId, entrantId, positionOrder)
