@@ -30,7 +30,7 @@ If the list of tasks is too small for you, or you can't find one that suits you,
 - You can create an issue about the thing that you consider to work on.
 - You can always make code improvements and pull requests without having an opened issue.
 - Ask questions or suggest ideas in the comments section of any issue.
-- Some recurring tasks such as adding new languages to the application, improving marketplace screenshots, or improving documentation do not usually have a related issue. These tasks are easy to perform, maybe you can start there.
+- Some recurring tasks, such as helping with translations, improving documentation, or reviewing and correcting historical data, usually do not have a related issue. These tasks are easy to do, maybe you can start there.
 
 ## 3. Create a new working branch in your fork
 
@@ -40,7 +40,7 @@ Once you've decided on what you want to contribute it's time to create a new bra
 
 > **NOTE**: You should replace `your-branch-name` with a good name to give to your branch. For example `fix/XXXX` where XXXX is the Issue number, or `feature/some-new-feature`.
 
-This will be the branch in which you will code, make commits, etc. Before start coding it **is strongly recommended to read the [git branch workflow](https://github.com/enrique-lozano/Monekin/blob/main/docs/GIT_BRANCHES_WORKFLOW.md) and the [commit message convention](https://github.com/enrique-lozano/Monekin/blob/main/docs/COMMIT_MSG.md) that we use in this project**.
+This will be the branch in which you will code, make commits, etc. Before start coding it **is strongly recommended to read the [git branch workflow](https://github.com/enrique-lozano/F1-World-API/blob/main/docs/GIT_BRANCHES_WORKFLOW.md) and the [commit message convention](https://github.com/enrique-lozano/F1-World-API/blob/main/docs/COMMIT_MSG.md) that we use in this project**.
 
 If you see that your commits and your pushes take a little longer than usual, it may be because we use [Husky](https://github.com/typicode/husky), a library with which we check that all the code that is uploaded to the repository is valid and passes our tests.
 
