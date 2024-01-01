@@ -29,6 +29,8 @@ If your suggestion has already been made by someone else, please instead of crea
 
 If you are interested in writing code to fix issues or to create new features please refer to this [guide](https://github.com/enrique-lozano/F1-World-API/blob/main/docs/CODE_CONTRIBUTING.md).
 
+If you are only interested in correcting some historical data, you don't necessarily need a lot of programming experience. The only thing you have to do is edit the CSV files and make a pull request. You can consult more information in the guide mentioned above and [here](https://github.com/enrique-lozano/F1-World-API/blob/main/data).
+
 # Thank you!
 
 Your contributions to this project and other open source projects, large or small, make great projects like this possible. Thank you for taking the time to contribute.
