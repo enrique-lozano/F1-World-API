@@ -46,9 +46,14 @@ async function populateDB() {
     }[] = [
       {
         filenames: (filename) =>
-          ['Q1 - Res', 'Q2 - Res', 'Q3 - Res', 'Q - ', 'PQ - Res'].some(
-            (prefix) => filename.startsWith(prefix)
-          ),
+          [
+            'Q1 - Res',
+            'Q2 - Res',
+            'Q3 - Res',
+            'Q - ',
+            'PQ - Res',
+            'SQ - Res'
+          ].some((prefix) => filename.startsWith(prefix)),
         tableName: 'qualifyingResults'
       },
       {

@@ -112,7 +112,7 @@ def convert_to_milliseconds_based_on_first(
 
     if "lap" not in series[columnName]:
         to_return = convert_to_milliseconds(
-            str(series[columnName]).replace("+", "").replace("s", "")
+            str(series[columnName]).replace("+", "").replace("s", "").replace("*", "")
         )
 
         if to_return is not None:
