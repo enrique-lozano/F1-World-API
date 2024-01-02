@@ -52,7 +52,9 @@ async function populateDB() {
             'Q3 - Res',
             'Q - ',
             'PQ - Res',
-            'SQ - Res'
+            'SQ1 - Res',
+            'SQ2 - Res',
+            'SQ3 - Res'
           ].some((prefix) => filename.startsWith(prefix)),
         tableName: 'qualifyingResults'
       },
