@@ -8,7 +8,7 @@ import { DB, DriverDTO, Drivers, Gender } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { getSeasonFromIdColumn } from '../../utils/f1-sql-common-utils';
 import { CountryService } from '../countries/countries.service';
-import { DriverStandingService } from '../driver-standings.controller';
+import { DriverStandingService } from '../driver-standings/driver-standings.service';
 import { DriverController } from './driver.controller';
 
 export interface DriverQueryParams extends CommonQueryParams {

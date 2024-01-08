@@ -11,7 +11,7 @@ import { CompanyController } from './modules/company/company.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { DriverController } from './modules/driver/driver.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { DriverStandingService } from './modules/driver-standings.controller';
+import { DriverStandingController } from './modules/driver-standings/driver-standings.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { EventController } from './modules/event/event.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -730,10 +730,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/championships/:season/drivers',
-            ...(fetchMiddlewares<RequestHandler>(DriverStandingService)),
-            ...(fetchMiddlewares<RequestHandler>(DriverStandingService.prototype.getDriverChampionshipResults)),
+            ...(fetchMiddlewares<RequestHandler>(DriverStandingController)),
+            ...(fetchMiddlewares<RequestHandler>(DriverStandingController.prototype.getDriverChampionshipResults)),
 
-            function DriverStandingService_getDriverChampionshipResults(request: any, response: any, next: any) {
+            function DriverStandingController_getDriverChampionshipResults(request: any, response: any, next: any) {
             const args = {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     round: {"in":"query","name":"round","dataType":"double"},
@@ -745,7 +745,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new DriverStandingService();
+                const controller = new DriverStandingController();
 
 
               const promise = controller.getDriverChampionshipResults.apply(controller, validatedArgs as any);
@@ -756,10 +756,10 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/championships/:season/drivers/:driverId',
-            ...(fetchMiddlewares<RequestHandler>(DriverStandingService)),
-            ...(fetchMiddlewares<RequestHandler>(DriverStandingService.prototype.getDriverChampionshipResult)),
+            ...(fetchMiddlewares<RequestHandler>(DriverStandingController)),
+            ...(fetchMiddlewares<RequestHandler>(DriverStandingController.prototype.getDriverChampionshipResult)),
 
-            function DriverStandingService_getDriverChampionshipResult(request: any, response: any, next: any) {
+            function DriverStandingController_getDriverChampionshipResult(request: any, response: any, next: any) {
             const args = {
                     season: {"in":"path","name":"season","required":true,"dataType":"double"},
                     driverId: {"in":"path","name":"driverId","required":true,"dataType":"string"},
@@ -772,7 +772,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new DriverStandingService();
+                const controller = new DriverStandingController();
 
 
               const promise = controller.getDriverChampionshipResult.apply(controller, validatedArgs as any);

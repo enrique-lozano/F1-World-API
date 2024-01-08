@@ -1,27 +1,25 @@
 import { sql } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
-import { Get, Path, Query, Route, Tags } from 'tsoa';
-import { DriverDTO } from '../models/types.dto';
-import { DbService } from '../services/db.service';
+import { DbService } from '../../services/db.service';
 import {
   getRoundFromIdColumn,
-  getSeasonFromIdColumn
-} from '../utils/f1-sql-common-utils';
-import { DriverService } from './driver/driver.service';
+  getSeasonFromIdColumn,
+  orderNullsLast
+} from '../../utils/f1-sql-common-utils';
+import { DriverService } from '../driver/driver.service';
+import {
+  DriverChampResult,
+  DriverStandingController
+} from './driver-standings.controller';
 
-export interface DriverChampResult {
-  driver: DriverDTO;
-
-  /** Points that this entrant had for this championship season, in the specified round */
-  points: number;
-
-  /** Points that this entrant would have for this championship season, without excluding any result (until 1990, only the best N results count, check https://en.wikipedia.org/wiki/List_of_Formula_One_World_Championship_points_scoring_systems)*/
-  totalPoints: number;
-}
-
-@Route('championships')
-@Tags('Championships')
-export class DriverStandingService extends DbService {
+export class DriverStandingService
+  extends DbService
+  implements
+    Pick<
+      DriverStandingController,
+      'getDriverChampionshipResult' | 'getDriverChampionshipResults'
+    >
+{
   private async resultsOrderer(
     champResult: DriverChampResult,
     season: number,
@@ -37,28 +35,22 @@ export class DriverStandingService extends DbService {
           'raceResults.entrantId'
         )
         .select(
-          sql<string>`CASE WHEN CAST(positionText as INT) > 0               \
+          sql<
+            number | null
+          >`CASE WHEN CAST(positionText as INT) > 0               \
             THEN CAST(positionText as INT) ELSE null END`.as('position')
         )
         .where(getSeasonFromIdColumn('sessionId'), '==', season)
-
         .where('driverId', '==', champResult.driver?.id)
         .$if(round != undefined, (qb) =>
           qb.where(getRoundFromIdColumn('sessionId'), '==', round!)
         )
+        .orderBy('position', orderNullsLast('asc'))
         .execute()
     };
   }
 
-  /** Get the driver's world championship results for the specified season
-   *
-   * @param round If specified, the result obtained will be the championship situation immediately after that round. */ @Get(
-    '/{season}/drivers'
-  )
-  async getDriverChampionshipResults(
-    @Path() season: number,
-    @Query() round?: number
-  ) {
+  async getDriverChampionshipResults(season: number, round?: number) {
     let results: DriverChampResult[] = (await this.db
       .selectFrom('raceResults')
       .leftJoin(
@@ -97,13 +89,24 @@ export class DriverStandingService extends DbService {
         else if (a.champResult.points > b.champResult.points) return -1;
         else {
           let i = 0;
+
           while (
             a.raceResults.length - 1 >= i ||
             b.raceResults.length - 1 >= i
           ) {
-            if (a.raceResults[i] < b.raceResults[i] || !b.raceResults[i])
+            if (
+              !b.raceResults[i] ||
+              (a.raceResults[i] &&
+                (a.raceResults[i].position ?? Infinity) <
+                  (b.raceResults[i].position ?? Infinity))
+            )
               return -1;
-            else if (a.raceResults[i] > b.raceResults[i] || !a.raceResults[i])
+            else if (
+              !a.raceResults[i] ||
+              (b.raceResults[i] &&
+                (a.raceResults[i].position ?? Infinity) >
+                  (b.raceResults[i].position ?? Infinity))
+            )
               return 1;
 
             i = i + 1;
@@ -124,15 +127,10 @@ export class DriverStandingService extends DbService {
     });
   }
 
-  /** Get the driver's world championship result for a specified season and driver
-   *
-   * @param round If specified, the result obtained will be the championship situation of the driver immediately after that round. */ @Get(
-    '/{season}/drivers/{driverId}'
-  )
   async getDriverChampionshipResult(
-    @Path() season: number,
-    @Path() driverId: string,
-    @Query() round?: number
+    season: number,
+    driverId: string,
+    round?: number
   ) {
     return (await this.getDriverChampionshipResults(season, round)).find(
       (x) => x.driver?.id == driverId

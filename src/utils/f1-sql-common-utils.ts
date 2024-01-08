@@ -1,5 +1,10 @@
 import { Kysely, sql } from 'kysely';
+import { OrderByDirection } from 'kysely/dist/cjs/parser/order-by-parser';
 import { DB } from './../models/types.dto';
+
+/** Support for order with nulls (see [this GitHub issue](https://github.com/kysely-org/kysely/issues/714)) */
+export const orderNullsLast = (direction: OrderByDirection) =>
+  sql`${sql.raw(direction)} nulls last`;
 
 /** Get the season year number from a column with the format "YYYY-..." */
 export function getSeasonFromIdColumn(columnToGet: string) {
