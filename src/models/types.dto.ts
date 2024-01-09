@@ -162,7 +162,6 @@ export interface SessionDTO extends Omit<Sessions, 'eventId'> {
 
 export interface Events {
   id: string;
-  raceDate: string;
   grandPrixId: string;
   name: string;
   qualyFormat: string;

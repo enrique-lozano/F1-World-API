@@ -492,9 +492,6 @@
 					"name": {
 						"type": "string"
 					},
-					"raceDate": {
-						"type": "string"
-					},
 					"qualyFormat": {
 						"type": "string"
 					},
@@ -527,7 +524,6 @@
 				"required": [
 					"id",
 					"name",
-					"raceDate",
 					"qualyFormat",
 					"scheduledLaps",
 					"posterURL",

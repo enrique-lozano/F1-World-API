@@ -27,7 +27,6 @@ export class EventService
       'name',
       'posterURL',
       'qualyFormat',
-      'raceDate',
       'scheduledLaps'
     ] as const;
 
@@ -49,7 +48,7 @@ export class EventService
     obj: EventQueryParams
   ): Promise<PageMetadata & { data: EventDTO[] }> {
     const paginator = Paginator.fromPageQueryParams(obj);
-    const sorter = new Sorter<Events>(obj.sort || 'raceDate');
+    const sorter = new Sorter<Events>(obj.sort || 'id');
 
     const mainSelect = this.db
       .selectFrom('events')
@@ -80,7 +79,7 @@ export class EventService
       IncludeParam.fromFieldQueryParam(fields)
     )
       .where(getSeasonFromIdColumn('id'), '==', season)
-      .where(getRoundFromIdColumn('round'), '==', round)
+      .where(getRoundFromIdColumn('id'), '==', round)
       .executeTakeFirst();
   }
 }

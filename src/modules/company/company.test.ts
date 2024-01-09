@@ -1,5 +1,5 @@
 import { PaginatedItems } from '../../models/pagination';
-import { DriverDTO } from '../../models/types.dto';
+import { CompanyDTO } from '../../models/types.dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting
@@ -15,7 +15,7 @@ describe('Test companies functionality', () => {
   });
 
   test('Get all companies without filters', async () => {
-    const res = await getUrlResponseForTesting<PaginatedItems<DriverDTO>>(
+    const res = await getUrlResponseForTesting<PaginatedItems<CompanyDTO>>(
       '/companies',
       {}
     );
@@ -25,7 +25,7 @@ describe('Test companies functionality', () => {
   });
 
   test('Custom companies pagination size works', async () => {
-    const res = await getUrlResponseForTesting<PaginatedItems<DriverDTO>>(
+    const res = await getUrlResponseForTesting<PaginatedItems<CompanyDTO>>(
       '/companies',
       {
         pageSize: '20'
@@ -39,7 +39,7 @@ describe('Test companies functionality', () => {
   test('Get company by ID', async () => {
     const idToGet = 'ferrari';
 
-    const res = await getUrlResponseForTesting<DriverDTO>(
+    const res = await getUrlResponseForTesting<CompanyDTO>(
       `/companies/${idToGet}`
     );
 
