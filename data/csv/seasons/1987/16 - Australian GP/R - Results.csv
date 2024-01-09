@@ -1,0 +1,27 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5928,1,1,6776144,1,,82,9,1,9,,
+5927,2,2,6844028,6,,82,6,1,6,,
+5922,3,3,,5,,81,4,1,4,,
+5906,4,4,,19,,80,3,1,3,,
+5941,5,5,,21,,79,0,1,0,,
+5942,6,6,,25,,79,1,1,1,,
+5935,7,7,,24,,79,0,1,0,,
+5912,8,8,,10,,78,0,1,0,,Spun off
+5944,9,9,,7,,76,0,1,0,,Oil leak
+5909,10,DNF,,3,,58,0,1,0,,Brakes
+5931,11,DNF,,23,,58,0,1,0,,Spun off
+5904,12,DNF,,2,,53,0,1,0,,Brakes
+5920,13,DNF,,11,,53,0,1,0,,Overheating
+5905,14,DNF,,8,,48,0,1,0,,Brakes
+5921,15,DNF,,9,,46,0,1,0,,Brakes
+5924,16,DNF,,26,,46,0,1,0,,Transmission
+5929,17,DNF,,17,,45,0,1,0,,Electrical
+5936,18,DNF,,20,,41,0,1,0,,Ignition
+5945,19,DNF,,15,,31,0,1,0,,Physical
+5937,20,DNF,,22,,26,0,1,0,,Ignition
+5915,21,DNF,,14,,22,0,1,0,,Hydraulics
+5919,22,DNF,,12,,19,0,1,0,,Transmission
+5930,23,DNF,,16,,18,0,1,0,,Engine
+5907,24,DNF,,18,,6,0,1,0,,Spun off
+5925,25,DNF,,13,,0,0,1,0,,Accident
+5916,26,DSQ,,4,,82,0,1,0,,Illegal brake ducts

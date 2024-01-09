@@ -1,0 +1,27 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5955,1,1,6896035,1,,63,9,1,9,,
+5954,2,2,6934748,4,,63,6,1,6,,
+5962,3,3,,5,,62,4,1,4,,
+5964,4,4,,12,,62,3,1,3,,
+5948,5,5,,17,,62,2,1,2,,
+5979,6,6,,16,,62,1,1,1,,
+5971,7,7,,24,,61,0,1,0,,
+5978,8,8,,21,,61,0,1,0,,
+5949,9,9,,22,,59,0,1,0,,Spun off
+5966,10,DNF,,25,,54,0,1,0,,Gearbox
+5972,11,DNF,,14,,46,0,1,0,,Halfshaft
+5975,12,DNF,,19,,46,0,1,0,,Spun off
+5969,13,DNF,,3,,45,0,1,0,,Collision
+5967,14,DNF,,20,,45,0,1,0,,Overheating
+5957,15,DNF,,13,,34,0,1,0,,Engine
+5951,16,DNF,,10,,26,0,1,0,,Electrical
+5946,17,DNF,,8,,26,0,1,0,,Spun off
+5974,18,DNF,,23,,26,0,1,0,,Gearbox
+5959,19,DNF,,9,,24,0,1,0,,Spun off
+5950,20,DNF,,6,,18,0,1,0,,Engine
+5956,21,DNF,,11,,15,0,1,0,,Suspension
+5961,22,DNF,,7,,14,0,1,0,,Suspension
+5960,23,DNF,,15,,14,0,1,0,,Electrical
+5977,24,DNF,,26,,7,0,1,0,,Engine
+5970,25,DNF,,2,,6,0,1,0,,Puncture
+5968,26,DNF,,18,,2,0,1,0,,Overheating

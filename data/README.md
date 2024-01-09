@@ -16,9 +16,9 @@ This files are the only data files that are saved to the remote repository. Befo
 
 ### DB Files
 
-Inside the `db` directory, once we imported the database (see [here](https://github.com/enrique-lozano/F1-World-API?tab=readme-ov-file#create-the-database-in-sqlite)), a database file (a SQLite database) called `myDB.db` will be created, along with other temporary files that are usually produced during the execution of other scripts, and that can be ignored. 
+Inside the `db` directory, once we imported the database (see [here](https://github.com/enrique-lozano/F1-World-API?tab=readme-ov-file#create-the-database-in-sqlite)), a database file (a SQLite database) called `myDB.db` will be created, along with other temporary files that are usually produced during the execution of other scripts, and that can be ignored.
 
-The `myDB.db` will be the source of data for the API. You can modify the content of this database with programs like [SQLite Studio](https://sqlitestudio.pl/). 
+The `myDB.db` will be the source of data for the API. You can modify the content of this database with programs like [SQLite Studio](https://sqlitestudio.pl/).
 
 If you modify the database file directly here, you probably want to export the updated data to the CSV files, since the database files will be not saved in git. For that, you can run:
 

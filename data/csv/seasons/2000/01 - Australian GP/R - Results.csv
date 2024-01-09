@@ -1,0 +1,23 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+6511,1,1,5641987,3,,58,10,1,10,,
+6512,2,2,5653402,4,,58,6,1,6,,
+6517,3,3,5661996,11,,58,4,1,4,,
+6529,4,4,5686434,8,,58,3,1,3,,
+6519,5,5,5687152,9,,58,2,1,2,,
+6530,6,6,5688455,16,,58,1,1,1,,
+6520,7,7,5688902,14,,58,0,1,0,,
+6527,8,8,,18,,57,0,1,0,,
+6522,9,9,,15,,56,0,1,0,,
+6518,10,DNF,,21,,46,0,1,0,,Engine
+6523,11,DNF,,19,,41,0,1,0,,Transmission
+6528,12,DNF,,22,,40,0,1,0,,Gearbox
+6513,13,DNF,,5,,39,0,1,0,,Hydraulics
+6514,14,DNF,,6,,35,0,1,0,,Engine
+6521,15,DNF,,PL,,27,0,1,0,,Hydraulics
+6509,16,DNF,,1,,18,0,1,0,,Engine
+6526,17,DNF,,13,,16,0,1,0,,Suspension
+6510,18,DNF,,2,,11,0,1,0,,Engine
+6525,19,DNF,,12,,6,0,1,0,,Suspension
+6515,20,DNF,,7,,6,0,1,0,,Spun off
+6516,21,DNF,,20,,1,0,1,0,,Clutch
+6524,22,DSQ,5687611,10,,58,0,1,0,,Illegal bodywork

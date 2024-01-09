@@ -1,0 +1,23 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+6486,1,1,6571812,2,,78,10,1,10,,
+6487,2,2,6602288,4,,78,6,1,6,,
+6484,3,3,6609295,1,,78,4,1,4,,
+6491,4,4,6625821,6,,78,3,1,3,,
+6492,5,5,,9,,77,2,1,2,,
+6493,6,6,,10,,77,1,1,1,,
+6501,7,7,,7,,77,0,1,0,,
+6488,8,8,,11,,76,0,1,0,,
+6498,9,9,,5,,71,0,1,0,,Suspension
+6489,10,DNF,,16,,54,0,1,0,,Accident
+6494,11,DNF,,14,,50,0,1,0,,Suspension
+6495,12,DNF,,15,,49,0,1,0,,Suspension
+6500,13,DNF,,18,,40,0,1,0,,Engine
+6485,14,DNF,,3,,36,0,1,0,,Gearbox
+6507,15,DNF,,12,,36,0,1,0,,Brakes
+6497,16,DNF,,19,,36,0,1,0,,Engine
+6504,17,DNF,,8,,32,0,1,0,,Oil leak
+6499,18,DNF,,13,,32,0,1,0,,Suspension
+6496,19,DNF,,21,,30,0,1,0,,Gearbox
+6503,20,DNF,,22,,24,0,1,0,,Accident
+6502,21,DNF,,20,,10,0,1,0,,Gearbox
+6490,22,DNF,,17,,3,0,1,0,,Collision

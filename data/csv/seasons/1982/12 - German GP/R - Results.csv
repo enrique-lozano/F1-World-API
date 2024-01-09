@@ -1,0 +1,27 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5671,1,1,5245178,5,,45,9,1,9,,
+5619,2,2,5261558,3,,45,6,1,6,,
+5656,3,3,,9,,44,4,1,4,,
+5607,4,4,,7,,44,3,1,3,,
+5645,5,5,,11,,44,2,1,2,,
+5660,6,6,,26,,44,1,1,1,,
+5652,7,7,,17,,44,0,1,0,,
+5668,8,8,,21,,44,0,1,0,,
+5640,9,9,,18,,43,0,1,0,,
+5653,10,10,,14,,43,0,1,0,,
+5674,11,11,,25,,43,0,1,0,,
+5611,12,DNF,,10,,36,0,1,0,,Spun off
+5666,13,DNF,,15,,36,0,1,0,,Handling
+5655,14,DNF,,19,,25,0,1,0,,Engine
+5663,15,DNF,,24,,22,0,1,0,,Tyre
+5639,16,DNF,,13,,21,0,1,0,,Handling
+5605,17,DNF,,4,,18,0,1,0,,Collision
+5658,18,DNF,,22,,17,0,1,0,,Collision
+5618,19,DNF,,2,,14,0,1,0,,Injection
+5606,20,DNF,,6,,13,0,1,0,,Engine
+5644,21,DNF,,8,,9,0,1,0,,Gearbox
+5665,22,DNF,,12,,8,0,1,0,,Fuel system
+5630,23,DNF,,23,,6,0,1,0,,Fuel system
+5676,24,DNF,,20,,3,0,1,0,,Steering
+5657,25,DNF,,16,,3,0,1,0,,Clutch
+5628,26,DNS,,1,,,0,1,0,,Accident in practice

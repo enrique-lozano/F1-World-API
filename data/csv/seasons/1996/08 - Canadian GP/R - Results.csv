@@ -1,0 +1,23 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+6404,1,1,5763465,1,,69,10,1,10,,
+6405,2,2,5767648,2,,69,6,1,6,,
+6402,3,3,5818121,4,,69,4,1,4,,
+6407,4,4,5827138,10,,69,3,1,3,,
+6406,5,5,,6,,68,2,1,2,,
+6411,6,6,,9,,68,1,1,1,,
+6412,7,7,,15,,68,0,1,0,,
+6419,8,8,,16,,67,0,1,0,,
+6418,9,DNF,,19,,44,0,1,0,,Collision
+6423,10,DNF,,20,,44,0,1,0,,Gearbox
+6403,11,DNF,,7,,42,0,1,0,,Spun off
+6400,12,DNF,,3,,41,0,1,0,,Halfshaft
+6408,13,DNF,,11,,39,0,1,0,,Engine
+6417,14,DNF,,14,,39,0,1,0,,Engine
+6409,15,DNF,,18,,38,0,1,0,,Engine
+6410,16,DNF,,8,,22,0,1,0,,Clutch
+6424,17,DNF,,22,,22,0,1,0,,Electrical
+6413,18,DNF,,12,,19,0,1,0,,Gearbox
+6415,19,DNF,,13,,10,0,1,0,,Engine
+6414,20,DNF,,21,,6,0,1,0,,Collision damage
+6416,21,DNF,,17,,6,0,1,0,,Collision
+6401,22,DNF,,5,,1,0,1,0,,Suspension

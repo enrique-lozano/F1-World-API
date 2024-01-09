@@ -1,0 +1,23 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+1170,1,1,10689700,9,,100,8,1,8,,
+1163,2,2,10710000,4,,100,6,1,6,,
+1165,3,3,,5,,99,2,1,2,,
+1168,3,3,,5,,99,2,1,2,,
+1169,4,4,,14,,99,3,1,3,,
+1162,5,5,,7,,99,2,1,2,,
+1164,6,6,,19,,95,0,1,0,,
+1153,7,7,,20,,91,0,1,0,,
+1173,8,8,,15,,86,0,1,0,,
+1130,9,9,,3,,81,0,1,0,,
+1165,10,DNF,,11,,86,0,1,0,,Spun off
+1168,10,DNF,,11,,86,0,1,0,,Spun off
+1161,11,DNF,,2,,80,0,1,0,,Accident
+1171,12,DNF,,18,,68,0,1,0,,Engine
+1166,13,DNF,,6,,64,0,1,0,,Transmission
+1154,14,DNF,,16,,63,0,1,0,,Transmission
+1128,15,DNF,,1,,49,1,0,1,,Transmission
+1152,16,DNF,,13,,38,0,1,0,,Gearbox
+1151,17,DNF,,10,,24,0,1,0,,Engine
+1157,18,DNF,,12,,22,0,1,0,,Throttle
+1155,19,DNF,,17,,8,0,1,0,,Fuel leak
+1167,20,DNF,,8,,7,0,1,0,,Transmission

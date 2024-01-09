@@ -1,0 +1,22 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+3049,1,1,8198000,4,,110,9,1,7,,
+3123,2,2,8228500,2,,110,6,1,6,,
+3128,3,3,,12,,109,4,1,4,,
+3050,4,4,,13,,107,3,1,3,,
+3127,5,5,,17,,107,2,1,2,,
+3125,6,6,,15,,106,1,1,1,,
+3046,7,7,,6,,102,0,1,0,,Out of fuel
+3070,7,7,,6,,102,0,1,0,,Out of fuel
+3057,8,8,,16,,101,0,1,0,,Oil pipe
+2971,9,DNF,,3,,69,0,1,0,,Oil pressure
+3129,10,NC,,18,,65,0,1,0,,
+3124,11,DNF,,8,,58,0,1,0,,Engine
+3046,12,DNF,,1,,54,0,1,0,,Fuel injection
+3070,12,DNF,,1,,54,0,1,0,,Fuel injection
+3131,13,DNF,,14,,50,0,1,0,,Engine
+3058,14,DNF,,11,,47,0,1,0,,Starter
+3126,15,DNF,,9,,37,0,1,0,,Axle
+3053,16,DNF,,5,,26,0,1,0,,Engine valve
+3122,17,DNF,,7,,14,0,1,0,,Engine
+3054,18,DNF,,19,,4,0,1,0,,Ignition
+3055,19,DNF,,10,,2,0,1,0,,Gearbox

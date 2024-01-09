@@ -1,0 +1,27 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5132,1,1,6259660,1,,76,9,1,9,,
+5143,2,2,6275840,8,,76,6,1,6,,
+5148,3,3,,11,,75,4,1,4,,
+5111,4,4,,20,,75,3,1,3,,
+5129,5,5,,19,,75,2,1,2,,
+5117,6,6,,21,,74,1,1,1,,
+5127,7,7,,23,,73,0,1,0,,
+5105,8,8,,16,,73,0,1,0,,
+5112,9,9,,24,,70,0,1,0,,
+5121,10,DNF,,14,,67,0,1,0,,Engine
+5122,11,DNF,,7,,60,0,1,0,,Fuel system
+5124,12,DNF,,18,,55,0,1,0,,Gearbox
+5134,13,DNF,,5,,47,0,1,0,,Engine
+5104,14,DNF,,15,,46,0,1,0,,Oil pressure
+5131,15,DNF,,9,,39,0,1,0,,Engine
+5153,16,DNF,,22,,31,0,1,0,,Gearbox
+5106,17,DNF,,10,,22,0,1,0,,Accident
+5146,18,DNF,,26,,16,0,1,0,,Fuel system
+5138,19,DNF,,6,,8,0,1,0,,Water leak
+5135,20,DNF,,3,,4,0,1,0,,Ignition
+5109,21,DNF,,12,,1,0,1,0,,Clutch
+5119,22,DNF,,17,,0,0,1,0,,Accident
+5144,23,DNF,,25,,0,0,1,0,,Accident
+5108,24,DSQ,,2,,76,0,1,0,,Illegal car change
+5133,25,DSQ,,4,,36,0,1,0,,Illegal car change
+5115,26,DSQ,,13,,31,0,1,0,,Illegal car change

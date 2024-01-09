@@ -1,0 +1,19 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+3485,1,1,7545900,4,,80,9,1,9,,
+3497,2,2,7572300,5,,80,6,1,6,,
+3492,3,3,,6,,79,4,1,4,,
+3483,4,4,,2,,78,3,1,3,,
+3494,5,5,,10,,78,2,1,2,,
+3482,6,6,,1,,76,1,1,1,,
+3499,7,NC,,8,,63,0,1,0,,
+3500,8,NC,,17,,60,0,1,0,,
+3498,9,DNF,,14,,56,0,1,0,,Accident
+3496,10,DNF,,18,,51,0,1,0,,Fuel system
+3490,11,DNF,,11,,44,0,1,0,,Suspension
+3493,12,DNF,,16,,41,0,1,0,,Engine
+3484,13,DNF,,7,,38,0,1,0,,Engine
+3487,14,DNF,,13,,31,0,1,0,,Oil leak
+3495,15,DNF,,12,,30,0,1,0,,Engine
+3488,16,DNF,,3,,22,0,1,0,,Engine
+3489,17,DNF,,15,,6,0,1,0,,Accident
+3486,18,DNF,,9,,2,0,1,0,,Engine

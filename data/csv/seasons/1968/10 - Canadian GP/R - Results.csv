@@ -1,0 +1,21 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+3683,1,1,8831200,6,,90,9,1,9,,
+3684,2,2,,8,,89,6,1,6,,
+3834,3,3,,12,,88,4,1,4,,
+3740,4,4,,5,,86,3,1,3,,
+3838,5,5,,16,,86,2,1,2,,
+3783,6,6,,11,,83,1,1,1,,
+3787,7,DNF,,15,,77,0,1,0,,Gearbox
+3813,8,DNF,,2,,72,0,1,0,,Transmission
+3833,9,DNF,,13,,71,0,1,0,,Accident
+3837,10,NC,,18,,56,0,1,0,,
+3836,11,DNF,,19,,54,0,1,0,,Oil pressure
+3743,12,DNF,,1,,39,0,1,0,,Overheating
+3741,13,DNF,,9,,32,0,1,0,,Halfshaft
+3742,14,DNF,,10,,31,0,1,0,,Suspension
+3832,15,DNF,,3,,29,0,1,0,,Oil leak
+3831,16,DNF,,4,,29,0,1,0,,Radiator
+3840,17,DNF,,14,,22,0,1,0,,Gearbox
+3842,18,DNF,,20,,18,0,1,0,,Halfshaft
+3707,19,DNF,,7,,10,0,1,0,,Gearbox
+3839,20,DNF,,17,,0,0,1,0,,Fuel system

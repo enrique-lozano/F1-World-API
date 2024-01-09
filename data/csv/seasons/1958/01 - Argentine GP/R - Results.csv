@@ -1,0 +1,11 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+1667,1,1,8373700,7,,80,8,1,8,,
+1668,2,2,8376400,5,,80,6,1,6,,
+1670,3,3,8386300,2,,80,4,0,4,,
+1661,4,4,8426700,1,,80,4,1,4,,
+1662,5,5,,4,,78,2,1,2,,
+1664,6,6,,8,,77,0,1,0,,
+1663,7,7,,6,,76,0,1,0,,
+1665,8,8,,9,,75,0,1,0,,
+1666,9,9,,10,,71,0,1,0,,
+1669,10,DNF,,3,,0,0,1,0,,Halfshaft

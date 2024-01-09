@@ -1,0 +1,26 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5003,1,1,2573700,11,,29,4.5,1,4.5,,
+5007,2,2,2574800,16,,29,3,1,3,,
+5008,3,3,,15,,28,2,1,2,,
+5015,4,4,,10,,28,1.5,1,1.5,,
+5027,5,5,,5,,28,1,1,1,,
+5038,6,6,,24,,27,0.5,1,0.5,,
+5040,7,7,,18,,27,0,1,0,,
+5016,8,8,,6,,26,0,1,0,,
+5029,9,NC,,2,,25,0,1,0,,
+5041,10,DNF,,9,,25,0,1,0,,Collision
+5009,11,DNF,,14,,25,0,1,0,,Collision
+5006,12,DNF,,12,,23,0,1,0,,Suspension
+5032,13,DNF,,8,,23,0,1,0,,Accident
+5044,14,DNF,,19,,20,0,1,0,,Transmission
+5042,15,NC,,22,,18,0,1,0,,
+5025,16,DNF,,4,,16,0,1,0,,Suspension
+5031,17,DNF,,23,,7,0,1,0,,Fuel system
+5021,18,DNF,,3,,6,0,1,0,,Accident
+5004,19,DNF,,13,,3,0,1,0,,Engine
+5023,20,DNF,,17,,3,0,1,0,,Collision
+5043,21,DNF,,20,,3,0,1,0,,Collision
+5005,22,DNF,,7,,1,0,1,0,,Collision damage
+5039,23,DNF,,25,,1,0,1,0,,Withdrew
+5026,24,DNF,,21,,1,0,1,0,,Withdrew
+5030,25,DNF,,1,,0,0,1,0,,Collision

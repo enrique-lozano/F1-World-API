@@ -6,7 +6,7 @@ In this article you will find information about the steps you should take to hel
 
 To start, fork the project. If you are new to this, don't worry! We leave you a guide below, and if you still have problems, you can contact us whenever you wish.
 
-[How To Fork Guide by GitHub](https://docs.github.com/en/get-started/quickstart/fork-a-repo). After that you should [run your app](https://github.com/enrique-lozano/F1-World-API#run-the-api-) to check that everything is correct.
+[How To Fork Guide by GitHub](https://docs.github.com/en/get-started/quickstart/fork-a-repo). After that you should [run your app](https://github.com/enrique-lozano/F1-World-API/#run-the-api-locally-) to check that everything is correct.
 
 ## 2. Configure your developer workspace
 

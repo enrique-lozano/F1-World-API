@@ -1,0 +1,21 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+6511,1,1,5495271,3,,71,10,1,10,,
+6519,2,2,5535169,5,,71,6,1,6,,
+6513,3,3,5537539,7,,71,4,1,4,,
+6514,4,4,5568051,12,,71,3,1,3,,
+6517,5,5,,11,,70,2,1,2,,
+6518,6,6,,9,,70,1,1,1,,
+6526,7,7,,14,,70,0,1,0,,
+6525,8,8,,16,,70,0,1,0,,
+6530,9,9,,8,,69,0,1,0,,
+6528,10,10,,20,,69,0,1,0,,
+6516,11,DNF,,17,,51,0,1,0,,Gearbox
+6527,12,DNF,,18,,31,0,1,0,,Engine
+6509,13,DNF,,1,,30,0,1,0,,Oil pressure
+6512,14,DNF,,4,,27,0,1,0,,Hydraulics
+6515,15,DNF,,6,,20,0,1,0,,Spun off
+6529,16,DNF,,10,,16,0,1,0,,Gearbox
+6521,17,DNF,,15,,11,0,1,0,,Electrical
+6522,18,DNF,,19,,9,0,1,0,,Engine
+6520,19,DNF,,13,,6,0,1,0,,Engine
+6510,20,DSQ,5499573,2,,71,0,1,0,,Illegal front wing endplates

@@ -1,0 +1,17 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+3509,1,1,9274300,4,,100,9,1,9,,
+3513,2,2,,8,,99,6,1,6,,
+3519,3,3,,14,,98,4,1,4,,
+3515,4,4,,10,,97,3,1,3,,
+3511,5,5,,16,,96,2,1,2,,
+3505,6,6,,12,,96,1,1,1,,
+3517,7,DNF,,2,,81,0,1,0,,Fatal accident
+3506,8,DNF,,13,,64,0,1,0,,Spun off
+3512,9,DNF,,5,,42,0,1,0,,Suspension
+3507,10,DNF,,3,,32,0,1,0,,Engine
+3516,11,DNF,,9,,31,0,1,0,,Oil pressure
+3510,12,DNF,,15,,14,0,1,0,,Gearbox
+3504,13,DNF,,6,,14,0,1,0,,Differential
+3522,14,DNF,,7,,4,0,1,0,,Fuel pump
+3502,15,DNF,,11,,4,0,1,0,,Injection
+3508,16,DNF,,1,,0,0,1,0,,Engine

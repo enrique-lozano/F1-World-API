@@ -31,3 +31,15 @@ export type ConvertAttributesToString<
 
 /** Merge the attributes of the second object in the attributes of the first */
 export type Modify<T, R> = Omit<T, keyof R> & R;
+
+type DotPrefix<T extends string> = T extends '' ? '' : `.${T}`;
+
+export type NestedKeyOf<T> = (
+  T extends object
+    ? {
+        [K in Exclude<keyof T, symbol>]: `${K}${DotPrefix<NestedKeyOf<T[K]>>}`;
+      }[Exclude<keyof T, symbol>]
+    : ''
+) extends infer D
+  ? Extract<D, string>
+  : never;

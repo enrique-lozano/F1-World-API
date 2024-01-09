@@ -1,0 +1,27 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+6051,1,1,7217421,5,,70,9,1,9,,
+6038,2,2,7246079,4,,70,6,1,6,,
+6052,3,3,7255104,6,,70,4,1,4,,
+5996,4,4,7259752,23,,70,3,1,3,,
+6043,5,5,,13,,68,2,1,2,,
+6032,6,6,,3,,67,1,1,1,,
+6030,7,7,,25,,66,0,1,0,,
+5992,8,8,,8,,64,0,1,0,,
+5994,9,DNF,,22,,42,0,1,0,,Spun off
+6053,10,DNF,,17,,27,0,1,0,,Electrical
+6008,11,DNF,,24,,22,0,1,0,,Spun off
+5995,12,DNF,,18,,19,0,1,0,,Collision
+6000,13,DNF,,21,,18,0,1,0,,Collision
+6009,14,DNF,,7,,17,0,1,0,,Spun off
+5985,15,DNF,,1,,13,0,1,0,,Collision
+6003,16,DNF,,10,,13,0,1,0,,Spun off
+6029,17,DNF,,16,,13,0,1,0,,Radiator
+6004,18,DNF,,9,,12,0,1,0,,Spun off
+5991,19,DNF,,12,,12,0,1,0,,Collision
+5993,20,DNF,,20,,7,0,1,0,,Spun off
+6027,21,DNF,,19,,6,0,1,0,,Collision
+6010,22,DNF,,14,,6,0,1,0,,Collision
+6036,23,DNF,,15,,5,0,1,0,,Electrical
+6007,24,DNF,,26,,4,0,1,0,,Collision
+5986,25,DNF,,2,,0,0,1,0,,Withdrew
+5999,26,DNF,,11,,0,0,1,0,,Electrical

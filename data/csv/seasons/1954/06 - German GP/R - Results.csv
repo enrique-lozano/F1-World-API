@@ -1,0 +1,25 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+1056,1,1,13545800,1,,22,8,1,8,,
+1040,2,2,13642300,5,,22,3,1,3,,
+1042,2,2,13642300,5,,22,3,1,3,,
+1041,3,3,13854400,7,,22,4,1,4,,
+1057,4,4,13912300,23,,22,4,1,4,,
+1046,5,5,14076300,15,,22,2,1,2,,
+1043,6,6,,13,,21,0,1,0,,
+1053,7,7,,14,,21,0,1,0,,
+1062,8,8,,18,,21,0,1,0,,
+1061,9,9,,12,,20,0,1,0,,
+1048,10,10,,9,,20,0,1,0,,
+1052,11,DNF,,19,,18,0,1,0,,Steering
+1059,12,DNF,,11,,10,0,1,0,,Spun off
+1050,13,DNF,,16,,8,0,1,0,,Wheel
+1060,14,DNF,,21,,8,0,1,0,,Engine
+1058,15,DNF,,4,,7,0,1,0,,Fuel leak
+1049,16,DNF,,6,,4,0,1,0,,Wheel
+1042,17,DNF,,2,,3,0,1,0,,Transmission
+1047,18,DNF,,17,,2,0,1,0,,Fuel leak
+1054,19,DNF,,3,,1,0,1,0,,Wheel bearing
+1051,20,DNF,,20,,0,0,1,0,,Suspension
+1045,21,DNS,,8,,,0,1,0,,Fatal accident in practice
+1044,22,DNS,,10,,,0,1,0,,Withdrew
+1055,23,DNS,,22,,,0,1,0,,Withdrew

@@ -175,34 +175,58 @@ CREATE TABLE IF NOT EXISTS grandsPrix
 , countryId VARCHAR(255) COLLATE NOCASE REFERENCES countries(alpha2Code)
 );
 
+-- Table: sessionEntrants
+DROP TABLE IF EXISTS sessionEntrants;
+CREATE TABLE IF NOT EXISTS sessionEntrants
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY 
+, driverId TEXT NOT NULL REFERENCES drivers(id)
+, driverNumber INTEGER NOT NULL
+, seasonEntrantId VARCHAR(255) REFERENCES seasonEntrants(id)
+, entrantName VARCHAR(255) NOT NULL
+, chassisManufacturerId VARCHAR(255) REFERENCES companies(id) NOT NULL
+, chassisName VARCHAR(255)
+, engineName VARCHAR(255)
+, engineManufacturerId VARCHAR(255)  REFERENCES companies(id) NOT NULL
+, tyreManufacturerId VARCHAR(255) REFERENCES tyreManufacturers(id)
+, note VARCHAR(255)
+);
+
 -- Table: lapTimes
 DROP TABLE IF EXISTS lapTimes;
 CREATE TABLE IF NOT EXISTS lapTimes 
-( driverId TEXT NOT NULL REFERENCES drivers (id)
-, eventId TEXT  NOT NULL REFERENCES events (id)
+( entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
+, sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id) ON UPDATE CASCADE
 , lap INTEGER NOT NULL
 , time NUMERIC
 , pos INTEGER
-, PRIMARY KEY (driverId, eventId, lap)
+, PRIMARY KEY (entrantId, sessionId, lap)
 );
 
 -- Table: pitStops
 DROP TABLE IF EXISTS pitStops;
 CREATE TABLE IF NOT EXISTS pitStops 
-( eventId TEXT REFERENCES events (id) NOT NULL
-, driverId TEXT REFERENCES drivers (id) NOT NULL
+( entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
+, sessionId TEXT NOT NULL REFERENCES sessions(id) ON UPDATE CASCADE
 , lap INTEGER NOT NULL
 , time NUMERIC
 , timeOfDay VARCHAR(10)
 , annotation VARCHAR(255)
-, PRIMARY KEY (driverId, eventId, lap)
+, PRIMARY KEY (entrantId, sessionId, lap)
+);
+
+-- Table: session
+DROP TABLE IF EXISTS sessions;
+CREATE TABLE IF NOT EXISTS sessions 
+( id VARCHAR(10) NOT NULL PRIMARY KEY
+, eventId TEXT  NOT NULL REFERENCES events (id) ON UPDATE CASCADE
+, abbreviation NOT NULL
+, startDateTime VARCHAR(255)
 );
 
 -- Table: events
 DROP TABLE IF EXISTS events;
 CREATE TABLE IF NOT EXISTS events
 ( id VARCHAR(10) NOT NULL PRIMARY KEY
-, raceDate VARCHAR(11) NOT NULL
 , grandPrixId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES grandsPrix(id)
 , name VARCHAR(255) NOT NULL COLLATE NOCASE
 , qualyFormat VARCHAR(255) NOT NULL COLLATE NOCASE
@@ -211,134 +235,35 @@ CREATE TABLE IF NOT EXISTS events
 , posterURL VARCHAR(255) COLLATE NOCASE
 );
 
--- Table: warming_up_results
-DROP TABLE IF EXISTS warming_up_results;
-CREATE TABLE IF NOT EXISTS warming_up_results
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER 
-, PRIMARY KEY (eventId, driverId)
-);
-
--- Table: fp1_results
-DROP TABLE IF EXISTS fp1_results;
-CREATE TABLE IF NOT EXISTS fp1_results
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+-- Table: fpResults
+DROP TABLE IF EXISTS fpResults;
+CREATE TABLE IF NOT EXISTS fpResults
+( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
+, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
 , positionOrder INTEGER
 , positionText VARCHAR(3)
 , laps INTEGER
 , time INTEGER
-, PRIMARY KEY (eventId, driverId)
-);
-
--- Table: fp2_results
-DROP TABLE IF EXISTS fp2_results;
-CREATE TABLE IF NOT EXISTS fp2_results
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (eventId, driverId)
-);
-
--- Table: fp3_results
-DROP TABLE IF EXISTS fp3_results;
-CREATE TABLE IF NOT EXISTS fp3_results
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (eventId, driverId)
-);
-
--- Table: fp4_results
-DROP TABLE IF EXISTS fp4_results;
-CREATE TABLE IF NOT EXISTS fp4_results
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (eventId, driverId)
-);
-
--- Table: warmingUpResults
-DROP TABLE IF EXISTS warmingUpResults;
-CREATE TABLE IF NOT EXISTS warmingUpResults
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (eventId, driverId)
-);
-
--- Table: preQualifyingResults
-DROP TABLE IF EXISTS preQualifyingResults;
-CREATE TABLE IF NOT EXISTS preQualifyingResults
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (eventId, driverId)
-);
-
--- Table: qualifying1_results
-DROP TABLE IF EXISTS qualifying1_results;
-CREATE TABLE IF NOT EXISTS qualifying1_results
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (eventId, driverId)
-);
-
--- Table: qualifying2_results
-DROP TABLE IF EXISTS qualifying2_results;
-CREATE TABLE IF NOT EXISTS qualifying2_results
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, positionOrder INTEGER
-, positionText VARCHAR(3)
-, laps INTEGER
-, time INTEGER
-, PRIMARY KEY (eventId, driverId)
+, PRIMARY KEY (sessionId, entrantId)
 );
 
 -- Table: qualifyingResults
 DROP TABLE IF EXISTS qualifyingResults;
 CREATE TABLE IF NOT EXISTS qualifyingResults
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
+, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
 , positionOrder INTEGER
 , positionText VARCHAR(3)
-, time INTEGER
 , laps INTEGER
-, q1Time INTEGER
-, q2Time INTEGER
-, q3Time INTEGER
-, PRIMARY KEY (eventId, driverId)
+, time INTEGER
+, PRIMARY KEY (sessionId, entrantId)
 );
 
 -- Table: raceResults
 DROP TABLE IF EXISTS raceResults;
 CREATE TABLE IF NOT EXISTS raceResults
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
+( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
+, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
 , positionOrder INTEGER NOT NULL
 , positionText VARCHAR(4) NOT NULL
 , time INTEGER
@@ -346,31 +271,12 @@ CREATE TABLE IF NOT EXISTS raceResults
 , gridPenalty VARCHAR(10)
 , laps INTEGER
 , points INTEGER
-, pointsCountForWDC BOOLEAN
+, pointsCountForWDC BOOLEAN NOT NULL
 , pointsGained INTEGER
-, gap VARCHAR(255)
 , timePenalty INTEGER
 , reasonRetired VARCHAR(255)
-, PRIMARY KEY (eventId, driverId, positionOrder)
+, PRIMARY KEY (sessionId, entrantId, positionOrder)
 );
-
--- Table: sprintQualifyingResults
-DROP TABLE IF EXISTS sprintQualifyingResults;
-CREATE TABLE IF NOT EXISTS sprintQualifyingResults
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
-, positionText VARCHAR(4) NOT NULL
-, positionOrder INTEGER NOT NULL
-, time INTEGER
-, gridPos INTEGER
-, laps INTEGER
-, points INTEGER
-, gap VARCHAR(255)
-, timePenalty INTEGER
-, reasonRetired VARCHAR(255)
-, PRIMARY KEY (eventId, driverId)
-);
-
 
 -- Table: redFlags
 DROP TABLE IF EXISTS redFlags;
@@ -401,23 +307,6 @@ CREATE TABLE IF NOT EXISTS seasonEntrants
 , season INTEGER NOT NULL 
 , name VARCHAR(255) NOT NULL COLLATE NOCASE
 , countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
-);
-
--- Table: eventEntrants
-DROP TABLE IF EXISTS eventEntrants;
-CREATE TABLE IF NOT EXISTS eventEntrants
-( eventId VARCHAR(8) NOT NULL REFERENCES events(id)
-, driverId TEXT NOT NULL REFERENCES drivers(id)
-, driverNumber INTEGER NOT NULL
-, seasonEntrantId VARCHAR(255) REFERENCES seasonEntrants(id)
-, entrantName VARCHAR(255) NOT NULL
-, chassisManufacturerId VARCHAR(255) REFERENCES companies(id) NOT NULL
-, chassisName VARCHAR(255)
-, engineName VARCHAR(255)
-, engineManufacturerId VARCHAR(255)  REFERENCES companies(id) NOT NULL
-, tyreManufacturerId VARCHAR(255) REFERENCES tyreManufacturers(id)
-, note VARCHAR(255)
-, PRIMARY KEY (eventId, driverId, driverNumber, entrantName, chassisManufacturerId)
 );
 
 COMMIT TRANSACTION;

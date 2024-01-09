@@ -1,0 +1,14 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+3692,1,1,8120100,6,,90,9,1,9,,
+3683,2,2,8136000,3,,90,6,1,6,,
+3694,3,3,,13,,89,4,1,4,,
+3695,4,4,,12,,89,3,1,3,,
+3688,5,5,,5,,81,2,1,2,,
+3684,6,DNF,,4,,77,0,1,0,,Oil leak
+3689,7,DNF,,7,,74,0,1,0,,Gearbox
+3696,8,DNF,,10,,62,0,1,0,,Transmission
+3698,9,DNF,,1,,57,0,1,0,,Fuel pump
+3687,10,DNF,,11,,52,0,1,0,,Fuel pump
+3691,11,DNF,,2,,27,0,1,0,,Accident
+3700,12,DNF,,8,,13,0,1,0,,Ignition
+3686,13,DNF,,9,,10,0,1,0,,Oil pressure

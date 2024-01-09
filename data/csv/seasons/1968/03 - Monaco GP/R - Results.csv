@@ -1,0 +1,17 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+3708,1,1,7232300,1,,80,9,1,9,,
+3713,2,2,7234500,6,,80,6,1,6,,
+3706,3,3,,14,,76,4,1,4,,
+3705,4,4,,15,,76,3,1,3,,
+3711,5,5,,10,,73,2,1,2,,
+3707,6,DNF,,4,,16,0,1,0,,Gearbox
+3703,7,DNF,,9,,16,0,1,0,,Accident
+3714,8,DNF,,11,,12,0,1,0,,Chassis
+3701,9,DNF,,8,,11,0,1,0,,Accident
+3715,10,DNF,,3,,11,0,1,0,,Differential
+3717,11,DNF,,16,,9,0,1,0,,Engine
+3662,12,DNF,,5,,8,0,1,0,,Accident
+3702,13,DNF,,12,,7,0,1,0,,Suspension
+3710,14,DNF,,2,,3,0,1,0,,Halfshaft
+3709,15,DNF,,13,,0,0,1,0,,Accident
+3712,16,DNF,,7,,0,0,1,0,,Accident

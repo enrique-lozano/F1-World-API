@@ -1,0 +1,15 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5628,1,1,5798887,4,,60,9,1,9,,
+5627,2,2,5799257,3,,60,6,1,6,,
+5607,3,3,5866567,5,,60,4,1,4,,
+5631,4,4,,9,,59,3,1,3,,
+5614,5,5,,14,,57,2,1,2,,
+5654,6,NC,,10,,52,0,1,0,,
+5619,7,DNF,,1,,44,0,1,0,,Turbo
+5645,8,DNF,,6,,24,0,1,0,,Engine
+5632,9,DNF,,13,,7,0,1,0,,Suspension
+5618,10,DNF,,2,,6,0,1,0,,Engine
+5644,11,DNF,,7,,4,0,1,0,,Electrical
+5652,12,DNF,,11,,0,0,1,0,,Transmission
+5653,13,DNF,,8,,0,0,1,0,,Electrical
+5613,14,DSQ,,12,,54,0,1,0,,Car underweight

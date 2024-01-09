@@ -1,0 +1,26 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+5867,1,1,6527735,1,,72,9,1,9,,
+5861,2,2,6527749,3,,72,6,1,6,,
+5857,3,3,6549287,4,,72,4,1,4,,
+5858,4,4,,5,,71,3,1,3,,
+5873,5,5,,9,,71,2,1,2,,
+5874,6,6,,7,,71,1,1,1,,
+5872,7,7,,19,,68,0,1,0,,
+5870,8,8,,18,,66,0,1,0,,
+5866,9,DNF,,10,,52,0,1,0,,Gearbox
+5859,10,DNF,,12,,41,0,1,0,,Engine
+5880,11,DNF,,8,,40,0,1,0,,Halfshaft
+5862,12,DNF,,2,,39,0,1,0,,Engine
+5871,13,DNF,,22,,39,0,1,0,,Fuel system
+5864,14,DNF,,15,,29,0,1,0,,Gearbox
+5879,15,DNF,,6,,79,0,1,0,,Halfshaft
+5881,16,DNF,,13,,22,0,1,0,,Wheel bearing
+5860,17,DNF,,20,,22,0,1,0,,Engine
+5876,18,DNF,,23,,14,0,1,0,,Engine
+5882,19,DNF,,11,,11,0,1,0,,Brakes
+5875,20,DNF,,21,,10,0,1,0,,Engine
+5863,21,DNF,,14,,8,0,1,0,,Gearbox
+5877,22,DNF,,24,,1,0,1,0,,Differential
+5869,23,DNF,,17,,0,0,1,0,,Collision
+5868,24,DNF,,16,,0,0,1,0,,Collision
+5878,25,DNF,,25,,0,0,1,0,,Differential

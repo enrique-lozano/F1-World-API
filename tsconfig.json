@@ -8,6 +8,7 @@
     "strict": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
+    "noImplicitAny": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -16,6 +17,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "useUnknownInCatchVariables": false,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ESNext",
@@ -26,5 +28,5 @@
       "*": ["node_modules/*"]
     }
   },
-  "include": ["src/**/*", "src/services/.service.ts"]
+  "include": ["src/**/*", "src/controllers/.controller.ts", "data/**/*"]
 }

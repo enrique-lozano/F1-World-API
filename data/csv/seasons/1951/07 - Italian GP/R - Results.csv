@@ -1,0 +1,24 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+337,1,1,9759300,3,,80,8,1,8,,
+339,2,2,9803900,4,,80,6,1,6,,
+351,3,3,,7,,79,3,1,2,,
+355,3,3,,7,,79,2,1,2,,
+338,4,4,,5,,79,3,0,0,,
+340,5,5,,6,,78,2,1,2,,
+358,6,6,,11,,74,0,1,0,,
+343,7,7,,15,,73,0,1,0,,
+345,8,8,,14,,72,0,1,0,,
+356,9,9,,18,,67,0,1,0,,
+354,10,DNF,,1,,39,0,1,0,,Engine
+360,11,DNF,,12,,29,0,1,0,,Engine
+357,12,DNF,,13,,29,0,1,0,,Engine
+344,13,DNF,,17,,23,0,1,0,,Ignition
+35,14,DNF,,20,,9,0,1,0,,Engine
+347,15,DNF,,22,,7,0,1,0,,Overheating
+351,16,DNF,,2,,6,0,1,0,,Engine
+346,17,DNF,,21,,4,0,1,0,,Oil pump
+352,18,DNF,,9,,1,0,1,0,,Compressor
+186,19,DNF,,19,,1,0,1,0,,Magneto
+341,20,DNF,,16,,1,0,1,0,,Transmission
+348,21,DNS,,8,,,0,1,0,,
+349,22,DNS,,10,,,0,1,0,,

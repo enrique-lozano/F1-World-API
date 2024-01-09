@@ -1,0 +1,20 @@
+entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
+3744,1,1,9971260,5,,90,9,1,9,,
+3751,2,2,10065190,16,,90,6,1,6,,
+3749,3,3,,11,,89,4,1,4,,
+3746,4,4,,6,,88,3,1,3,,
+3756,5,5,,17,,87,2,1,2,,
+3745,6,6,,1,,85,1,1,1,,
+3750,7,7,,15,,85,0,1,0,,
+3753,8,8,,19,,82,0,1,0,,
+3740,9,9,,3,,81,0,1,0,,Accident
+3741,10,NC,,10,,80,0,1,0,,
+3752,11,DNF,,12,,63,0,1,0,,Throttle
+3755,12,DNF,,13,,55,0,1,0,,Gearbox
+3689,13,DNF,,9,,50,0,1,0,,Alternator
+3754,14,DNF,,14,,50,0,1,0,,Spun off
+3743,15,DNF,,2,,39,0,1,0,,Ignition
+3742,16,DNF,,4,,22,0,1,0,,Spun off
+3684,17,DNF,,8,,19,0,1,0,,Accident
+3683,18,DNF,,7,,10,0,1,0,,Ignition
+3748,19,DNF,,18,,9,0,1,0,,Accident
