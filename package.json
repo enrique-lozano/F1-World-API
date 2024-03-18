@@ -30,7 +30,7 @@
     "picocolors": "^1.0.0",
     "swagger-ui-express": "^5.0.0",
     "tslib": "^2.6.2",
-    "tsoa": "^5.1.1"
+    "tsoa": "^6.1.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.0",
