@@ -53,6 +53,6 @@ export interface ResultsFiltersQueryParams extends SessionEntrantQueryParams {
 
 export interface TimedSessionResultQueryParams
   extends ResultsFiltersQueryParams {
-  /** @default sessionId */
+  /** @default "sessionId" */
   orderBy?: keyof TimedSessionResults;
 }

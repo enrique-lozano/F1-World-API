@@ -1,4 +1,5 @@
 {
+	"openapi": "3.0.0",
 	"components": {
 		"examples": {},
 		"headers": {},
@@ -153,7 +154,7 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"CircuitDTO": {
+			"Pick_TyreManufacturers.Exclude_keyofTyreManufacturers.countryId__": {
 				"properties": {
 					"id": {
 						"type": "string"
@@ -161,31 +162,35 @@
 					"name": {
 						"type": "string"
 					},
-					"fullName": {
+					"primaryColor": {
 						"type": "string"
 					},
-					"previousNames": {
-						"type": "string",
-						"nullable": true
-					},
-					"type": {
-						"type": "string",
-						"enum": [
-							"RACE",
-							"ROAD",
-							"STREET"
-						]
-					},
-					"placeName": {
+					"secondaryColor": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"primaryColor",
+					"secondaryColor"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
+			"TyreManufacturerDTO": {
+				"properties": {
+					"id": {
 						"type": "string"
 					},
-					"latitude": {
-						"type": "string",
-						"nullable": true
+					"name": {
+						"type": "string"
 					},
-					"longitude": {
-						"type": "string",
-						"nullable": true
+					"primaryColor": {
+						"type": "string"
+					},
+					"secondaryColor": {
+						"type": "string"
 					},
 					"country": {
 						"allOf": [
@@ -199,44 +204,62 @@
 				"required": [
 					"id",
 					"name",
-					"fullName",
-					"previousNames",
-					"type",
-					"placeName",
-					"latitude",
-					"longitude",
+					"primaryColor",
+					"secondaryColor",
 					"country"
 				],
 				"type": "object",
 				"additionalProperties": false
 			},
-			"CircuitQueryParams": {
+			"PageQueryParams": {
+				"description": "Query params to be passed to the paginated routes in the controllers. They are optional for the user, the pagination will be created with default params when required",
 				"properties": {
 					"pageNo": {
 						"type": "integer",
 						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0",
+						"default": 0,
 						"minimum": 0
 					},
 					"pageSize": {
 						"type": "integer",
 						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10",
+						"default": 10,
 						"minimum": 1
-					},
-					"sort": {
-						"type": "string",
-						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
-					},
-					"include": {
-						"type": "string",
-						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
 					}
 				},
 				"type": "object",
 				"additionalProperties": false
+			},
+			"Pick_Companies.Exclude_keyofCompanies.countryId__": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"fullName": {
+						"type": "string"
+					},
+					"founder": {
+						"type": "string"
+					},
+					"yearFounded": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"fullName",
+					"founder",
+					"yearFounded"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
 			},
 			"CompanyDTO": {
 				"properties": {
@@ -250,13 +273,11 @@
 						"type": "string"
 					},
 					"founder": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
 					},
 					"yearFounded": {
 						"type": "number",
-						"format": "double",
-						"nullable": true
+						"format": "double"
 					},
 					"country": {
 						"allOf": [
@@ -284,14 +305,14 @@
 						"type": "integer",
 						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0",
+						"default": 0,
 						"minimum": 0
 					},
 					"pageSize": {
 						"type": "integer",
 						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10",
+						"default": 10,
 						"minimum": 1
 					},
 					"sort": {
@@ -317,6 +338,62 @@
 					"FEMALE"
 				]
 			},
+			"Pick_Drivers.Exclude_keyofDrivers.driverOmittedAttr__": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"fullName": {
+						"type": "string"
+					},
+					"firstName": {
+						"type": "string"
+					},
+					"lastName": {
+						"type": "string"
+					},
+					"abbreviation": {
+						"type": "string"
+					},
+					"permanentNumber": {
+						"type": "string"
+					},
+					"gender": {
+						"$ref": "#/components/schemas/Gender"
+					},
+					"dateOfBirth": {
+						"type": "string"
+					},
+					"dateOfDeath": {
+						"type": "string"
+					},
+					"placeOfBirth": {
+						"type": "string"
+					},
+					"photo": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"fullName",
+					"firstName",
+					"lastName",
+					"abbreviation",
+					"permanentNumber",
+					"gender",
+					"dateOfBirth",
+					"dateOfDeath",
+					"placeOfBirth",
+					"photo"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
 			"DriverDTO": {
 				"properties": {
 					"id": {
@@ -338,8 +415,7 @@
 						"type": "string"
 					},
 					"permanentNumber": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
 					},
 					"gender": {
 						"$ref": "#/components/schemas/Gender"
@@ -348,15 +424,13 @@
 						"type": "string"
 					},
 					"dateOfDeath": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
 					},
 					"placeOfBirth": {
 						"type": "string"
 					},
 					"photo": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
 					},
 					"countryOfBirthCountry": {
 						"allOf": [
@@ -409,14 +483,14 @@
 						"type": "integer",
 						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0",
+						"default": 0,
 						"minimum": 0
 					},
 					"pageSize": {
 						"type": "integer",
 						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10",
+						"default": 10,
 						"minimum": 1
 					},
 					"sort": {
@@ -455,7 +529,7 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"GrandsPrix": {
+			"Pick_SeasonEntrants.Exclude_keyofSeasonEntrants.countryId__": {
 				"properties": {
 					"id": {
 						"type": "string"
@@ -463,232 +537,18 @@
 					"name": {
 						"type": "string"
 					},
-					"fullName": {
-						"type": "string"
-					},
-					"shortName": {
-						"type": "string"
-					},
-					"countryId": {
-						"type": "string",
-						"nullable": true
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"fullName",
-					"shortName",
-					"countryId"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"EventDTO": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"qualyFormat": {
-						"type": "string"
-					},
-					"scheduledLaps": {
+					"season": {
 						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
-					"posterURL": {
-						"type": "string",
-						"nullable": true
-					},
-					"grandPrix": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/GrandsPrix"
-							}
-						],
-						"nullable": true
-					},
-					"circuit": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/CircuitDTO"
-							}
-						],
-						"nullable": true
+						"format": "double"
 					}
 				},
 				"required": [
 					"id",
 					"name",
-					"qualyFormat",
-					"scheduledLaps",
-					"posterURL",
-					"grandPrix",
-					"circuit"
+					"season"
 				],
 				"type": "object",
-				"additionalProperties": false
-			},
-			"EventQueryParams": {
-				"properties": {
-					"pageNo": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Page to retrieve, starting at 0",
-						"default": "0",
-						"minimum": 0
-					},
-					"pageSize": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Size of the page to retrieve",
-						"default": "10",
-						"minimum": 1
-					},
-					"sort": {
-						"type": "string",
-						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
-					},
-					"include": {
-						"type": "string",
-						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
-					},
-					"circuitId": {
-						"type": "string"
-					}
-				},
-				"type": "object",
-				"additionalProperties": false
-			},
-			"IncludeQueryParam": {
-				"description": "Interface to define the optional `include` query parameter according to JSON API specifications.\r\nThe `include` parameter allows clients to request related resources be included in the response.",
-				"properties": {
-					"include": {
-						"type": "string",
-						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
-					}
-				},
-				"type": "object",
-				"additionalProperties": false
-			},
-			"GrandsPrixDTO": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"fullName": {
-						"type": "string"
-					},
-					"shortName": {
-						"type": "string"
-					},
-					"country": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/CountryDTO"
-							}
-						],
-						"nullable": true
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"fullName",
-					"shortName",
-					"country"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"GrandPrixQueryParams": {
-				"properties": {
-					"pageNo": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Page to retrieve, starting at 0",
-						"default": "0",
-						"minimum": 0
-					},
-					"pageSize": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Size of the page to retrieve",
-						"default": "10",
-						"minimum": 1
-					},
-					"name": {
-						"type": "string",
-						"description": "Filter drivers by its full name"
-					},
-					"countryId": {
-						"type": "string",
-						"description": "Filter drivers by its nationality"
-					}
-				},
-				"type": "object",
-				"additionalProperties": false
-			},
-			"TyreManufacturerDTO": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"primaryColor": {
-						"type": "string"
-					},
-					"secondaryColor": {
-						"type": "string"
-					},
-					"country": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/CountryDTO"
-							}
-						],
-						"nullable": true
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"primaryColor",
-					"secondaryColor",
-					"country"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"PageQueryParams": {
-				"description": "Query params to be passed to the paginated routes in the controllers. They are optional for the user, the pagination will be created with default params when required",
-				"properties": {
-					"pageNo": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Page to retrieve, starting at 0",
-						"default": "0",
-						"minimum": 0
-					},
-					"pageSize": {
-						"type": "integer",
-						"format": "int32",
-						"description": "Size of the page to retrieve",
-						"default": "10",
-						"minimum": 1
-					}
-				},
-				"type": "object",
-				"additionalProperties": false
+				"description": "From T, pick a set of properties whose keys are in the union K"
 			},
 			"SeasonEntrantDTO": {
 				"properties": {
@@ -720,6 +580,39 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"Pick_EventEntrants.Exclude_keyofEventEntrants.EventEntrantOmittedAttr__": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"driverNumber": {
+						"type": "number",
+						"format": "double"
+					},
+					"entrantName": {
+						"type": "string"
+					},
+					"chassisName": {
+						"type": "string"
+					},
+					"engineName": {
+						"type": "string"
+					},
+					"note": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"driverNumber",
+					"entrantName",
+					"chassisName",
+					"engineName",
+					"note"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
 			"EventEntrantDTO": {
 				"properties": {
 					"id": {
@@ -733,16 +626,13 @@
 						"type": "string"
 					},
 					"chassisName": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
 					},
 					"engineName": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
 					},
 					"note": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
 					},
 					"driver": {
 						"allOf": [
@@ -801,6 +691,42 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"Pick_SessionEntrantQueryParams.Exclude_keyofSessionEntrantQueryParams.round-or-session__": {
+				"properties": {
+					"driverId": {
+						"type": "string",
+						"description": "Return only the items regarding this driver"
+					},
+					"season": {
+						"type": "number",
+						"format": "double"
+					},
+					"pageNo": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Page to retrieve, starting at 0",
+						"default": 0,
+						"minimum": 0
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Size of the page to retrieve",
+						"default": 10,
+						"minimum": 1
+					},
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
+					},
+					"include": {
+						"type": "string",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
+					}
+				},
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
 			"EntrantQueryParam": {
 				"properties": {
 					"driverId": {
@@ -815,14 +741,14 @@
 						"type": "integer",
 						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0",
+						"default": 0,
 						"minimum": 0
 					},
 					"pageSize": {
 						"type": "integer",
 						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10",
+						"default": 10,
 						"minimum": 1
 					},
 					"sort": {
@@ -837,26 +763,323 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"Pick_Circuits.Exclude_keyofCircuits.countryId__": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"fullName": {
+						"type": "string"
+					},
+					"previousNames": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string",
+						"enum": [
+							"RACE",
+							"ROAD",
+							"STREET"
+						]
+					},
+					"placeName": {
+						"type": "string"
+					},
+					"latitude": {
+						"type": "string"
+					},
+					"longitude": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"fullName",
+					"previousNames",
+					"type",
+					"placeName",
+					"latitude",
+					"longitude"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
+			"CircuitDTO": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"fullName": {
+						"type": "string"
+					},
+					"previousNames": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string",
+						"enum": [
+							"RACE",
+							"ROAD",
+							"STREET"
+						]
+					},
+					"placeName": {
+						"type": "string"
+					},
+					"latitude": {
+						"type": "string"
+					},
+					"longitude": {
+						"type": "string"
+					},
+					"country": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/CountryDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"fullName",
+					"previousNames",
+					"type",
+					"placeName",
+					"latitude",
+					"longitude",
+					"country"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CircuitQueryParams": {
+				"properties": {
+					"pageNo": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Page to retrieve, starting at 0",
+						"default": 0,
+						"minimum": 0
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Size of the page to retrieve",
+						"default": 10,
+						"minimum": 1
+					},
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
+					},
+					"include": {
+						"type": "string",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GrandsPrix": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"fullName": {
+						"type": "string"
+					},
+					"shortName": {
+						"type": "string"
+					},
+					"countryId": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"fullName",
+					"shortName",
+					"countryId"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Pick_Events.Exclude_keyofEvents.grandPrixId-or-circuitId__": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"qualyFormat": {
+						"type": "string"
+					},
+					"scheduledLaps": {
+						"type": "number",
+						"format": "double"
+					},
+					"posterURL": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"qualyFormat",
+					"scheduledLaps",
+					"posterURL"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
+			"EventDTO": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"qualyFormat": {
+						"type": "string"
+					},
+					"scheduledLaps": {
+						"type": "number",
+						"format": "double"
+					},
+					"posterURL": {
+						"type": "string"
+					},
+					"grandPrix": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/GrandsPrix"
+							}
+						],
+						"nullable": true
+					},
+					"circuit": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/CircuitDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"qualyFormat",
+					"scheduledLaps",
+					"posterURL",
+					"grandPrix",
+					"circuit"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"EventQueryParams": {
+				"properties": {
+					"pageNo": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Page to retrieve, starting at 0",
+						"default": 0,
+						"minimum": 0
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Size of the page to retrieve",
+						"default": 10,
+						"minimum": 1
+					},
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
+					},
+					"include": {
+						"type": "string",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
+					},
+					"circuitId": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IncludeQueryParam": {
+				"description": "Interface to define the optional `include` query parameter according to JSON API specifications.\r\nThe `include` parameter allows clients to request related resources be included in the response.",
+				"properties": {
+					"include": {
+						"type": "string",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Pick_TimedSessionResults.Exclude_keyofTimedSessionResults.sessionId-or-entrantId__": {
+				"properties": {
+					"positionOrder": {
+						"type": "number",
+						"format": "double"
+					},
+					"positionText": {
+						"type": "string"
+					},
+					"time": {
+						"type": "number",
+						"format": "double"
+					},
+					"laps": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"positionOrder",
+					"positionText",
+					"time",
+					"laps"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
 			"TimedSessionResultsDTO": {
 				"properties": {
 					"positionOrder": {
 						"type": "number",
-						"format": "double",
-						"nullable": true
+						"format": "double"
 					},
 					"positionText": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
 					},
 					"time": {
 						"type": "number",
-						"format": "double",
-						"nullable": true
+						"format": "double"
 					},
 					"laps": {
 						"type": "number",
-						"format": "double",
-						"nullable": true
+						"format": "double"
 					},
 					"session": {
 						"allOf": [
@@ -892,14 +1115,14 @@
 						"type": "integer",
 						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0",
+						"default": 0,
 						"minimum": 0
 					},
 					"pageSize": {
 						"type": "integer",
 						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10",
+						"default": 10,
 						"minimum": 1
 					},
 					"sort": {
@@ -958,8 +1181,12 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"RaceResultDTO": {
+			"Pick_RaceResults.Exclude_keyofRaceResults.sessionId-or-entrantId__": {
 				"properties": {
+					"points": {
+						"type": "number",
+						"format": "double"
+					},
 					"positionOrder": {
 						"type": "number",
 						"format": "double"
@@ -969,27 +1196,18 @@
 					},
 					"time": {
 						"type": "number",
-						"format": "double",
-						"nullable": true
+						"format": "double"
 					},
 					"gridPosition": {
 						"type": "number",
-						"format": "double",
-						"nullable": true
+						"format": "double"
 					},
 					"gridPenalty": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
 					},
 					"laps": {
 						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
-					"points": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
+						"format": "double"
 					},
 					"pointsCountForWDC": {
 						"type": "number",
@@ -997,17 +1215,74 @@
 					},
 					"pointsGained": {
 						"type": "number",
-						"format": "double",
-						"nullable": true
+						"format": "double"
 					},
 					"timePenalty": {
 						"type": "number",
-						"format": "double",
-						"nullable": true
+						"format": "double"
 					},
 					"reasonRetired": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
+					}
+				},
+				"required": [
+					"points",
+					"positionOrder",
+					"positionText",
+					"time",
+					"gridPosition",
+					"gridPenalty",
+					"laps",
+					"pointsCountForWDC",
+					"pointsGained",
+					"timePenalty",
+					"reasonRetired"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
+			"RaceResultDTO": {
+				"properties": {
+					"points": {
+						"type": "number",
+						"format": "double"
+					},
+					"positionOrder": {
+						"type": "number",
+						"format": "double"
+					},
+					"positionText": {
+						"type": "string"
+					},
+					"time": {
+						"type": "number",
+						"format": "double"
+					},
+					"gridPosition": {
+						"type": "number",
+						"format": "double"
+					},
+					"gridPenalty": {
+						"type": "string"
+					},
+					"laps": {
+						"type": "number",
+						"format": "double"
+					},
+					"pointsCountForWDC": {
+						"type": "number",
+						"format": "double"
+					},
+					"pointsGained": {
+						"type": "number",
+						"format": "double"
+					},
+					"timePenalty": {
+						"type": "number",
+						"format": "double"
+					},
+					"reasonRetired": {
+						"type": "string"
 					},
 					"session": {
 						"allOf": [
@@ -1027,13 +1302,13 @@
 					}
 				},
 				"required": [
+					"points",
 					"positionOrder",
 					"positionText",
 					"time",
 					"gridPosition",
 					"gridPenalty",
 					"laps",
-					"points",
 					"pointsCountForWDC",
 					"pointsGained",
 					"timePenalty",
@@ -1050,14 +1325,14 @@
 						"type": "integer",
 						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0",
+						"default": 0,
 						"minimum": 0
 					},
 					"pageSize": {
 						"type": "integer",
 						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10",
+						"default": 10,
 						"minimum": 1
 					},
 					"sort": {
@@ -1111,6 +1386,26 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"Pick_Sessions.Exclude_keyofSessions.eventId__": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"abbreviation": {
+						"type": "string"
+					},
+					"startDateTime": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"abbreviation",
+					"startDateTime"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
 			"SessionDTO": {
 				"properties": {
 					"id": {
@@ -1140,24 +1435,162 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"PitStopDTO": {
+			"Pick_LapTimes.Exclude_keyofLapTimes.sessionId-or-entrantId__": {
 				"properties": {
 					"time": {
 						"type": "number",
-						"format": "double",
+						"format": "double"
+					},
+					"lap": {
+						"type": "number",
+						"format": "double"
+					},
+					"pos": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"time",
+					"lap",
+					"pos"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
+			"LapTimeDTO": {
+				"properties": {
+					"time": {
+						"type": "number",
+						"format": "double"
+					},
+					"lap": {
+						"type": "number",
+						"format": "double"
+					},
+					"pos": {
+						"type": "number",
+						"format": "double"
+					},
+					"session": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/SessionDTO"
+							}
+						],
 						"nullable": true
+					},
+					"entrant": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/EventEntrantDTO"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"time",
+					"lap",
+					"pos",
+					"session",
+					"entrant"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"LapQueryParams": {
+				"properties": {
+					"pageNo": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Page to retrieve, starting at 0",
+						"default": 0,
+						"minimum": 0
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Size of the page to retrieve",
+						"default": 10,
+						"minimum": 1
+					},
+					"sort": {
+						"type": "string",
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
+					},
+					"include": {
+						"type": "string",
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
+					},
+					"season": {
+						"type": "number",
+						"format": "double"
+					},
+					"round": {
+						"type": "number",
+						"format": "double"
+					},
+					"session": {
+						"type": "string"
+					},
+					"driverId": {
+						"type": "string",
+						"description": "Return only the items regarding this driver"
+					},
+					"pos": {
+						"type": "number",
+						"format": "double"
+					},
+					"lap": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Pick_PitStops.Exclude_keyofPitStops.sessionId-or-entrantId__": {
+				"properties": {
+					"time": {
+						"type": "number",
+						"format": "double"
 					},
 					"lap": {
 						"type": "number",
 						"format": "double"
 					},
 					"timeOfDay": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
 					},
 					"annotation": {
-						"type": "string",
-						"nullable": true
+						"type": "string"
+					}
+				},
+				"required": [
+					"time",
+					"lap",
+					"timeOfDay",
+					"annotation"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
+			"PitStopDTO": {
+				"properties": {
+					"time": {
+						"type": "number",
+						"format": "double"
+					},
+					"lap": {
+						"type": "number",
+						"format": "double"
+					},
+					"timeOfDay": {
+						"type": "string"
+					},
+					"annotation": {
+						"type": "string"
 					},
 					"session": {
 						"allOf": [
@@ -1193,14 +1626,14 @@
 						"type": "integer",
 						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0",
+						"default": 0,
 						"minimum": 0
 					},
 					"pageSize": {
 						"type": "integer",
 						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10",
+						"default": 10,
 						"minimum": 1
 					},
 					"sort": {
@@ -1234,95 +1667,86 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"LapTimeDTO": {
+			"Pick_GrandsPrix.Exclude_keyofGrandsPrix.countryId__": {
 				"properties": {
-					"time": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
+					"id": {
+						"type": "string"
 					},
-					"lap": {
-						"type": "number",
-						"format": "double"
+					"name": {
+						"type": "string"
 					},
-					"pos": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
+					"fullName": {
+						"type": "string"
 					},
-					"session": {
+					"shortName": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"fullName",
+					"shortName"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
+			"GrandsPrixDTO": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"fullName": {
+						"type": "string"
+					},
+					"shortName": {
+						"type": "string"
+					},
+					"country": {
 						"allOf": [
 							{
-								"$ref": "#/components/schemas/SessionDTO"
-							}
-						],
-						"nullable": true
-					},
-					"entrant": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/EventEntrantDTO"
+								"$ref": "#/components/schemas/CountryDTO"
 							}
 						],
 						"nullable": true
 					}
 				},
 				"required": [
-					"time",
-					"lap",
-					"pos",
-					"session",
-					"entrant"
+					"id",
+					"name",
+					"fullName",
+					"shortName",
+					"country"
 				],
 				"type": "object",
 				"additionalProperties": false
 			},
-			"LapQueryParams": {
+			"GrandPrixQueryParams": {
 				"properties": {
 					"pageNo": {
 						"type": "integer",
 						"format": "int32",
 						"description": "Page to retrieve, starting at 0",
-						"default": "0",
+						"default": 0,
 						"minimum": 0
 					},
 					"pageSize": {
 						"type": "integer",
 						"format": "int32",
 						"description": "Size of the page to retrieve",
-						"default": "10",
+						"default": 10,
 						"minimum": 1
 					},
-					"sort": {
+					"name": {
 						"type": "string",
-						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`"
+						"description": "Filter drivers by its full name"
 					},
-					"include": {
+					"countryId": {
 						"type": "string",
-						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`"
-					},
-					"season": {
-						"type": "number",
-						"format": "double"
-					},
-					"round": {
-						"type": "number",
-						"format": "double"
-					},
-					"session": {
-						"type": "string"
-					},
-					"driverId": {
-						"type": "string",
-						"description": "Return only the items regarding this driver"
-					},
-					"pos": {
-						"type": "number",
-						"format": "double"
-					},
-					"lap": {
-						"type": "number",
-						"format": "double"
+						"description": "Filter drivers by its nationality"
 					}
 				},
 				"type": "object",
@@ -1339,7 +1763,6 @@
 		},
 		"contact": {}
 	},
-	"openapi": "3.0.0",
 	"paths": {
 		"/countries": {
 			"get": {
@@ -1364,6 +1787,9 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
@@ -1397,6 +1823,9 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
@@ -1420,7 +1849,7 @@
 				]
 			}
 		},
-		"/circuits": {
+		"/tyre-manufacturers": {
 			"get": {
 				"operationId": "Get",
 				"responses": {
@@ -1437,7 +1866,7 @@
 											"properties": {
 												"data": {
 													"items": {
-														"$ref": "#/components/schemas/CircuitDTO"
+														"$ref": "#/components/schemas/TyreManufacturerDTO"
 													},
 													"type": "array"
 												}
@@ -1451,21 +1880,10 @@
 								}
 							}
 						}
-					},
-					"4XX": {
-						"description": "Client error",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonApiError"
-								}
-							}
-						}
 					}
 				},
-				"description": "Get circuits based on some optional filters. The results will be returned paginated",
 				"tags": [
-					"Circuits"
+					"Tyre Manufacturers"
 				],
 				"security": [],
 				"parameters": [
@@ -1475,7 +1893,7 @@
 						"name": "pageNo",
 						"required": false,
 						"schema": {
-							"default": "0",
+							"default": 0,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 0
@@ -1487,34 +1905,16 @@
 						"name": "pageSize",
 						"required": false,
 						"schema": {
-							"default": "10",
+							"default": 10,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
-						}
-					},
-					{
-						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
-						"in": "query",
-						"name": "sort",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
-						"in": "query",
-						"name": "include",
-						"required": false,
-						"schema": {
-							"type": "string"
 						}
 					}
 				]
 			}
 		},
-		"/circuits/{id}": {
+		"/tyre-manufacturers/{id}": {
 			"get": {
 				"operationId": "GetById",
 				"responses": {
@@ -1523,30 +1923,19 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/CircuitDTO"
-								}
-							}
-						}
-					},
-					"4XX": {
-						"description": "Client error",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonApiError"
+									"$ref": "#/components/schemas/TyreManufacturerDTO"
 								}
 							}
 						}
 					}
 				},
-				"description": "Get a circuit by its ID",
+				"description": "Get a company by its ID",
 				"tags": [
-					"Circuits"
+					"Tyre Manufacturers"
 				],
 				"security": [],
 				"parameters": [
 					{
-						"description": "The ID of the circuit to get",
 						"in": "path",
 						"name": "id",
 						"required": true,
@@ -1595,6 +1984,9 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
@@ -1612,7 +2004,7 @@
 						"name": "pageNo",
 						"required": false,
 						"schema": {
-							"default": "0",
+							"default": 0,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 0
@@ -1624,7 +2016,7 @@
 						"name": "pageSize",
 						"required": false,
 						"schema": {
-							"default": "10",
+							"default": 10,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
@@ -1680,6 +2072,9 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
@@ -1697,6 +2092,149 @@
 						"required": true,
 						"schema": {
 							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/championships/{season}/drivers": {
+			"get": {
+				"operationId": "GetDriverChampionshipResults",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"properties": {
+											"totalPoints": {
+												"type": "number",
+												"format": "double"
+											},
+											"points": {
+												"type": "number",
+												"format": "double"
+											},
+											"driver": {
+												"$ref": "#/components/schemas/DriverDTO"
+											},
+											"position": {
+												"type": "number",
+												"format": "double"
+											}
+										},
+										"required": [
+											"totalPoints",
+											"points",
+											"driver",
+											"position"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get the driver's world championship results for the specified season",
+				"tags": [
+					"Championships"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "season",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "If specified, the result obtained will be the championship situation immediately after that round.",
+						"in": "query",
+						"name": "round",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/championships/{season}/drivers/{driverId}": {
+			"get": {
+				"operationId": "GetDriverChampionshipResult",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"totalPoints": {
+											"type": "number",
+											"format": "double"
+										},
+										"points": {
+											"type": "number",
+											"format": "double"
+										},
+										"driver": {
+											"$ref": "#/components/schemas/DriverDTO"
+										},
+										"position": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"totalPoints",
+										"points",
+										"driver",
+										"position"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get the driver's world championship result for a specified season and driver",
+				"tags": [
+					"Championships"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "season",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "path",
+						"name": "driverId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "If specified, the result obtained will be the championship situation of the driver immediately after that round.",
+						"in": "query",
+						"name": "round",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
 						}
 					}
 				]
@@ -1740,6 +2278,9 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
@@ -1757,7 +2298,7 @@
 						"name": "pageNo",
 						"required": false,
 						"schema": {
-							"default": "0",
+							"default": 0,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 0
@@ -1769,7 +2310,7 @@
 						"name": "pageSize",
 						"required": false,
 						"schema": {
-							"default": "10",
+							"default": 10,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
@@ -1865,6 +2406,9 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
@@ -2039,144 +2583,259 @@
 				]
 			}
 		},
-		"/championships/{season}/drivers": {
+		"/session-entrants": {
 			"get": {
-				"operationId": "GetDriverChampionshipResults",
+				"operationId": "Get",
 				"responses": {
 					"200": {
 						"description": "Ok",
 						"content": {
 							"application/json": {
 								"schema": {
-									"items": {
-										"properties": {
-											"totalPoints": {
-												"type": "number",
-												"format": "double"
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageMetadata"
+										},
+										{
+											"properties": {
+												"data": {
+													"items": {
+														"$ref": "#/components/schemas/EventEntrantDTO"
+													},
+													"type": "array"
+												}
 											},
-											"points": {
-												"type": "number",
-												"format": "double"
-											},
-											"driver": {
-												"$ref": "#/components/schemas/DriverDTO"
-											},
-											"position": {
-												"type": "number",
-												"format": "double"
-											}
-										},
-										"required": [
-											"totalPoints",
-											"points",
-											"driver",
-											"position"
-										],
-										"type": "object"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get the driver's world championship results for the specified season",
-				"tags": [
-					"Championships"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "season",
-						"required": true,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "If specified, the result obtained will be the championship situation immediately after that round.",
-						"in": "query",
-						"name": "round",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					}
-				]
-			}
-		},
-		"/championships/{season}/drivers/{driverId}": {
-			"get": {
-				"operationId": "GetDriverChampionshipResult",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"totalPoints": {
-											"type": "number",
-											"format": "double"
-										},
-										"points": {
-											"type": "number",
-											"format": "double"
-										},
-										"driver": {
-											"$ref": "#/components/schemas/DriverDTO"
-										},
-										"position": {
-											"type": "number",
-											"format": "double"
+											"required": [
+												"data"
+											],
+											"type": "object"
 										}
-									},
-									"required": [
-										"totalPoints",
-										"points",
-										"driver",
-										"position"
-									],
-									"type": "object"
+									]
+								}
+							}
+						}
+					},
+					"4XX": {
+						"description": "Client error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
 					}
 				},
-				"description": "Get the driver's world championship result for a specified season and driver",
+				"description": "Get entrants based on some filters. The return data will be paginated",
 				"tags": [
-					"Championships"
+					"Session entrants"
 				],
 				"security": [],
 				"parameters": [
 					{
-						"in": "path",
-						"name": "season",
-						"required": true,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "path",
+						"description": "Return only the items regarding this driver",
+						"in": "query",
 						"name": "driverId",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
 					},
 					{
-						"description": "If specified, the result obtained will be the championship situation of the driver immediately after that round.",
 						"in": "query",
-						"name": "round",
+						"name": "season",
 						"required": false,
 						"schema": {
 							"format": "double",
 							"type": "number"
+						}
+					},
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": 0,
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": 10,
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
+						}
+					},
+					{
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
+						"in": "query",
+						"name": "sort",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
+						"in": "query",
+						"name": "include",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/circuits": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageMetadata"
+										},
+										{
+											"properties": {
+												"data": {
+													"items": {
+														"$ref": "#/components/schemas/CircuitDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"data"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					},
+					"4XX": {
+						"description": "Client error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
+								}
+							}
+						}
+					}
+				},
+				"description": "Get circuits based on some optional filters. The results will be returned paginated",
+				"tags": [
+					"Circuits"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": 0,
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": 10,
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
+						}
+					},
+					{
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
+						"in": "query",
+						"name": "sort",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
+						"in": "query",
+						"name": "include",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/circuits/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CircuitDTO"
+								}
+							}
+						}
+					},
+					"4XX": {
+						"description": "Client error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
+								}
+							}
+						}
+					}
+				},
+				"description": "Get a circuit by its ID",
+				"tags": [
+					"Circuits"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "The ID of the circuit to get",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
 						}
 					}
 				]
@@ -2220,6 +2879,9 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
@@ -2237,7 +2899,7 @@
 						"name": "pageNo",
 						"required": false,
 						"schema": {
-							"default": "0",
+							"default": 0,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 0
@@ -2249,7 +2911,7 @@
 						"name": "pageSize",
 						"required": false,
 						"schema": {
-							"default": "10",
+							"default": 10,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
@@ -2304,6 +2966,9 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
@@ -2331,352 +2996,6 @@
 						"schema": {
 							"format": "double",
 							"type": "number"
-						}
-					},
-					{
-						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
-						"in": "query",
-						"name": "include",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/grands-prix": {
-			"get": {
-				"operationId": "Get",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/PageMetadata"
-										},
-										{
-											"properties": {
-												"data": {
-													"items": {
-														"$ref": "#/components/schemas/GrandsPrixDTO"
-													},
-													"type": "array"
-												}
-											},
-											"required": [
-												"data"
-											],
-											"type": "object"
-										}
-									]
-								}
-							}
-						}
-					},
-					"4XX": {
-						"description": "Client error",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonApiError"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get grands prix based on some optional filters. The results will be returned paginated",
-				"tags": [
-					"Grands Prix"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "Page to retrieve, starting at 0",
-						"in": "query",
-						"name": "pageNo",
-						"required": false,
-						"schema": {
-							"default": "0",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 0
-						}
-					},
-					{
-						"description": "Size of the page to retrieve",
-						"in": "query",
-						"name": "pageSize",
-						"required": false,
-						"schema": {
-							"default": "10",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 1
-						}
-					},
-					{
-						"description": "Filter drivers by its full name",
-						"in": "query",
-						"name": "name",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"description": "Filter drivers by its nationality",
-						"in": "query",
-						"name": "countryId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/grands-prix/{id}": {
-			"get": {
-				"operationId": "GetById",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/GrandsPrixDTO"
-								}
-							}
-						}
-					},
-					"4XX": {
-						"description": "Client error",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonApiError"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get a grandPrix by its ID",
-				"tags": [
-					"Grands Prix"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "The ID of the grandPrix to get",
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/tyre-manufacturers": {
-			"get": {
-				"operationId": "Get",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/PageMetadata"
-										},
-										{
-											"properties": {
-												"data": {
-													"items": {
-														"$ref": "#/components/schemas/TyreManufacturerDTO"
-													},
-													"type": "array"
-												}
-											},
-											"required": [
-												"data"
-											],
-											"type": "object"
-										}
-									]
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Tyre Manufacturers"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "Page to retrieve, starting at 0",
-						"in": "query",
-						"name": "pageNo",
-						"required": false,
-						"schema": {
-							"default": "0",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 0
-						}
-					},
-					{
-						"description": "Size of the page to retrieve",
-						"in": "query",
-						"name": "pageSize",
-						"required": false,
-						"schema": {
-							"default": "10",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 1
-						}
-					}
-				]
-			}
-		},
-		"/tyre-manufacturers/{id}": {
-			"get": {
-				"operationId": "GetById",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/TyreManufacturerDTO"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get a company by its ID",
-				"tags": [
-					"Tyre Manufacturers"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/session-entrants": {
-			"get": {
-				"operationId": "Get",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/PageMetadata"
-										},
-										{
-											"properties": {
-												"data": {
-													"items": {
-														"$ref": "#/components/schemas/EventEntrantDTO"
-													},
-													"type": "array"
-												}
-											},
-											"required": [
-												"data"
-											],
-											"type": "object"
-										}
-									]
-								}
-							}
-						}
-					},
-					"4XX": {
-						"description": "Client error",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonApiError"
-								}
-							}
-						}
-					}
-				},
-				"description": "Get entrants based on some filters. The return data will be paginated",
-				"tags": [
-					"Session entrants"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"description": "Return only the items regarding this driver",
-						"in": "query",
-						"name": "driverId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "season",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"description": "Page to retrieve, starting at 0",
-						"in": "query",
-						"name": "pageNo",
-						"required": false,
-						"schema": {
-							"default": "0",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 0
-						}
-					},
-					{
-						"description": "Size of the page to retrieve",
-						"in": "query",
-						"name": "pageSize",
-						"required": false,
-						"schema": {
-							"default": "10",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 1
-						}
-					},
-					{
-						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
-						"in": "query",
-						"name": "sort",
-						"required": false,
-						"schema": {
-							"type": "string"
 						}
 					},
 					{
@@ -2736,7 +3055,7 @@
 						"name": "pageNo",
 						"required": false,
 						"schema": {
-							"default": "0",
+							"default": 0,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 0
@@ -2748,7 +3067,7 @@
 						"name": "pageSize",
 						"required": false,
 						"schema": {
-							"default": "10",
+							"default": 10,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
@@ -3032,7 +3351,7 @@
 						"name": "pageNo",
 						"required": false,
 						"schema": {
-							"default": "0",
+							"default": 0,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 0
@@ -3044,7 +3363,7 @@
 						"name": "pageSize",
 						"required": false,
 						"schema": {
-							"default": "10",
+							"default": 10,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
@@ -3328,7 +3647,7 @@
 						"name": "pageNo",
 						"required": false,
 						"schema": {
-							"default": "0",
+							"default": 0,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 0
@@ -3340,7 +3659,7 @@
 						"name": "pageSize",
 						"required": false,
 						"schema": {
-							"default": "10",
+							"default": 10,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
@@ -3580,6 +3899,306 @@
 				]
 			}
 		},
+		"/laps": {
+			"get": {
+				"operationId": "GetLaps",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageMetadata"
+										},
+										{
+											"properties": {
+												"data": {
+													"items": {
+														"$ref": "#/components/schemas/LapTimeDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"data"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					},
+					"4XX": {
+						"description": "Client error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
+								}
+							}
+						}
+					}
+				},
+				"description": "Get lap times based on some optional filters. The results will be returned paginated",
+				"tags": [
+					"Laps"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": 0,
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": 10,
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
+						}
+					},
+					{
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
+						"in": "query",
+						"name": "sort",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
+						"in": "query",
+						"name": "include",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "season",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "round",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "session",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Return only the items regarding this driver",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "pos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "lap",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/laps/fastest": {
+			"get": {
+				"operationId": "GetFastestLaps",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageMetadata"
+										},
+										{
+											"properties": {
+												"data": {
+													"items": {
+														"$ref": "#/components/schemas/LapTimeDTO"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"data"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					},
+					"4XX": {
+						"description": "Client error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
+								}
+							}
+						}
+					}
+				},
+				"description": "Get the fastest lap times grouped by session, based on some filters.\r\n\r\nPlease take into account that this call return only the global fastest laps inside a session. For example if we filter here by the driver Fernando Alonso, we will get only the sessions where he score the fastest lap",
+				"tags": [
+					"Laps"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Page to retrieve, starting at 0",
+						"in": "query",
+						"name": "pageNo",
+						"required": false,
+						"schema": {
+							"default": 0,
+							"format": "int32",
+							"type": "integer",
+							"minimum": 0
+						}
+					},
+					{
+						"description": "Size of the page to retrieve",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"default": 10,
+							"format": "int32",
+							"type": "integer",
+							"minimum": 1
+						}
+					},
+					{
+						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
+						"in": "query",
+						"name": "sort",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
+						"in": "query",
+						"name": "include",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "season",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "round",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "session",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Return only the items regarding this driver",
+						"in": "query",
+						"name": "driverId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "pos",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "lap",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
 		"/pit-stops": {
 			"get": {
 				"operationId": "Get",
@@ -3618,6 +4237,9 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
@@ -3635,7 +4257,7 @@
 						"name": "pageNo",
 						"required": false,
 						"schema": {
-							"default": "0",
+							"default": 0,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 0
@@ -3647,7 +4269,7 @@
 						"name": "pageSize",
 						"required": false,
 						"schema": {
-							"default": "10",
+							"default": 10,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
@@ -3953,7 +4575,7 @@
 						"name": "pageNo",
 						"required": false,
 						"schema": {
-							"default": "0",
+							"default": 0,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 0
@@ -3965,7 +4587,7 @@
 						"name": "pageSize",
 						"required": false,
 						"schema": {
-							"default": "10",
+							"default": 10,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
@@ -4045,7 +4667,7 @@
 						"name": "pageNo",
 						"required": false,
 						"schema": {
-							"default": "0",
+							"default": 0,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 0
@@ -4057,7 +4679,7 @@
 						"name": "pageSize",
 						"required": false,
 						"schema": {
-							"default": "10",
+							"default": 10,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
@@ -4116,9 +4738,9 @@
 				]
 			}
 		},
-		"/laps": {
+		"/grands-prix": {
 			"get": {
-				"operationId": "GetLaps",
+				"operationId": "Get",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -4133,7 +4755,7 @@
 											"properties": {
 												"data": {
 													"items": {
-														"$ref": "#/components/schemas/LapTimeDTO"
+														"$ref": "#/components/schemas/GrandsPrixDTO"
 													},
 													"type": "array"
 												}
@@ -4154,14 +4776,17 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
 					}
 				},
-				"description": "Get lap times based on some optional filters. The results will be returned paginated",
+				"description": "Get grands prix based on some optional filters. The results will be returned paginated",
 				"tags": [
-					"Laps"
+					"Grands Prix"
 				],
 				"security": [],
 				"parameters": [
@@ -4171,7 +4796,7 @@
 						"name": "pageNo",
 						"required": false,
 						"schema": {
-							"default": "0",
+							"default": 0,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 0
@@ -4183,114 +4808,43 @@
 						"name": "pageSize",
 						"required": false,
 						"schema": {
-							"default": "10",
+							"default": 10,
 							"format": "int32",
 							"type": "integer",
 							"minimum": 1
 						}
 					},
 					{
-						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
+						"description": "Filter drivers by its full name",
 						"in": "query",
-						"name": "sort",
+						"name": "name",
 						"required": false,
 						"schema": {
 							"type": "string"
 						}
 					},
 					{
-						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
+						"description": "Filter drivers by its nationality",
 						"in": "query",
-						"name": "include",
+						"name": "countryId",
 						"required": false,
 						"schema": {
 							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "season",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "query",
-						"name": "round",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "query",
-						"name": "session",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"description": "Return only the items regarding this driver",
-						"in": "query",
-						"name": "driverId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "pos",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "query",
-						"name": "lap",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
 						}
 					}
 				]
 			}
 		},
-		"/laps/fastest": {
+		"/grands-prix/{id}": {
 			"get": {
-				"operationId": "GetFastestLaps",
+				"operationId": "GetById",
 				"responses": {
 					"200": {
 						"description": "Ok",
 						"content": {
 							"application/json": {
 								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/PageMetadata"
-										},
-										{
-											"properties": {
-												"data": {
-													"items": {
-														"$ref": "#/components/schemas/LapTimeDTO"
-													},
-													"type": "array"
-												}
-											},
-											"required": [
-												"data"
-											],
-											"type": "object"
-										}
-									]
+									"$ref": "#/components/schemas/GrandsPrixDTO"
 								}
 							}
 						}
@@ -4301,110 +4855,27 @@
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/JsonApiError"
+								},
+								"examples": {
+									"Example 1": {}
 								}
 							}
 						}
 					}
 				},
-				"description": "Get the fastest lap times grouped by session, based on some filters.\r\n\r\nPlease take into account that this call return only the global fastest laps inside a session. For example if we filter here by the driver Fernando Alonso, we will get only the sessions where he score the fastest lap",
+				"description": "Get a grandPrix by its ID",
 				"tags": [
-					"Laps"
+					"Grands Prix"
 				],
 				"security": [],
 				"parameters": [
 					{
-						"description": "Page to retrieve, starting at 0",
-						"in": "query",
-						"name": "pageNo",
-						"required": false,
-						"schema": {
-							"default": "0",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 0
-						}
-					},
-					{
-						"description": "Size of the page to retrieve",
-						"in": "query",
-						"name": "pageSize",
-						"required": false,
-						"schema": {
-							"default": "10",
-							"format": "int32",
-							"type": "integer",
-							"minimum": 1
-						}
-					},
-					{
-						"description": "Comma-separated list of fields/directions used to sort the primary resource's collection.\r\nEach item in the list represents a field to sort by, with an optional `-` prefix for descending order (the default behavior is ascending).\r\n\r\n#### Examples:\r\n- To sort by 'created_at' in ascending order: `sort=created_at`\r\n- To sort by 'name' in descending order: `sort=-name`\r\n- To sort by multiple fields: `sort=created_at,-name`",
-						"in": "query",
-						"name": "sort",
-						"required": false,
+						"description": "The ID of the grandPrix to get",
+						"in": "path",
+						"name": "id",
+						"required": true,
 						"schema": {
 							"type": "string"
-						}
-					},
-					{
-						"description": "A comma-separated string specifying the related resources or fields to include in the response.\r\nIf a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.\r\n\r\n#### Examples:\r\n- To include the author and comments for a post: `include=author,comments`\r\n- To include only specific attributes of related objects: `include=author.name,comments.text`",
-						"in": "query",
-						"name": "include",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "season",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "query",
-						"name": "round",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "query",
-						"name": "session",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"description": "Return only the items regarding this driver",
-						"in": "query",
-						"name": "driverId",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "pos",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "query",
-						"name": "lap",
-						"required": false,
-						"schema": {
-							"format": "double",
-							"type": "number"
 						}
 					}
 				]
