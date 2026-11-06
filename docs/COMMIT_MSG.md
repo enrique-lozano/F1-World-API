@@ -1,4 +1,4 @@
-# Commit message convention in F1-World-API
+# Commit message convention in RaceDex API
 
 To ensure a correct reading of commits and to facilitate their subsequent search or enable automation processes for the app, we use well-defined criteria when formulating commit messages. This criterion is based on the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), and is explained below:
 
@@ -27,7 +27,7 @@ In addition, in order to simplify the process we have reduced the number of poss
 
 Usually you are going to use only the `fix` and the `feat` type.
 
-For our project, the valid scopes are defined [here](https://github.com/enrique-lozano/F1-World-API/blob/main/docs/VALID_COMMIT_SCOPES.ts) along with a brief description of when to use them.
+For our project, the valid scopes are defined [here](https://github.com/enrique-lozano/RaceDex-API/blob/main/docs/VALID_COMMIT_SCOPES.ts) along with a brief description of when to use them.
 
 So, the final commit header (the first line of the commit, before the body and the footers) should look something like this:
 
@@ -41,7 +41,7 @@ So, the final commit header (the first line of the commit, before the body and t
   └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
 ```
 
-If you have doubts you can check our [last commits](https://github.com/enrique-lozano/F1-World-API/commits/main) and see how they meet all of this conditions.
+If you have doubts you can check our [last commits](https://github.com/enrique-lozano/RaceDex-API/commits/main) and see how they meet all of this conditions.
 
 ## Too much, right? 🤯
 
@@ -49,7 +49,7 @@ We know that following all this convention can be somewhat difficult, therefore,
 
 ### Husky
 
-As you may have already read in the [Contribution Guide](https://github.com/enrique-lozano/F1-World-API/blob/main/docs/CODE_CONTRIBUTING.md), we use Husky to prevent anything wrong from being pushed to the repository. Well, this extension is also used to validate the messages of your commits before they are carried out. It will also indicate the errors about them, so that you can correct them easily. Examples:
+As you may have already read in the [Contribution Guide](https://github.com/enrique-lozano/RaceDex-API/blob/main/docs/CODE_CONTRIBUTING.md), we use Husky to prevent anything wrong from being pushed to the repository. Well, this extension is also used to validate the messages of your commits before they are carried out. It will also indicate the errors about them, so that you can correct them easily. Examples:
 
 ![image](https://user-images.githubusercontent.com/61509169/207724827-e3d939e6-a98e-4782-bee6-39ee65e6587f.png)
 

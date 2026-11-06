@@ -1,4 +1,4 @@
-# Contributing to F1 World
+# Contributing to RaceDex API
 
 First off, thank you for considering contributing to this project. It's people like you that make this application such a great tool.
 
@@ -8,28 +8,28 @@ There are many ways in which you can contribute, beyond writing code. The goal o
 
 Have you identified a reproducible problem in this project? If so, we will be very grateful to hear from you to solve it as soon as possible.
 
-Before reporting an issue, please do a search in [open issues](https://github.com/enrique-lozano/F1-World-API/issues) to see if the issue or feature request has already been filed. If you find your issue already exists, make relevant comments and add your [reaction](https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments). Use a reaction in place of a "+1" comment:
+Before reporting an issue, please do a search in [open issues](https://github.com/enrique-lozano/RaceDex-API/issues) to see if the issue or feature request has already been filed. If you find your issue already exists, make relevant comments and add your [reaction](https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments). Use a reaction in place of a "+1" comment:
 
 - 👍 - upvote
 - 👎 - downvote
 
-To report an issue, go to the [open issues page](https://github.com/enrique-lozano/f1-World-API/issues) and create a new issue clicking the green bottom at the right-top of the section. We provide a template to fill the required data that we need to solve the issue. Try to be as detailed as possible in your explanations and descriptions. Attach screenshots or videos if necessary.
+To report an issue, go to the [open issues page](https://github.com/enrique-lozano/RaceDex-API/issues) and create a new issue clicking the green bottom at the right-top of the section. We provide a template to fill the required data that we need to solve the issue. Try to be as detailed as possible in your explanations and descriptions. Attach screenshots or videos if necessary.
 
 ## Asking questions
 
-Have a question? Rather than opening an issue, please go to the [F1-World-API Forum](https://github.com/enrique-lozano/F1-World-API/discussions/categories/q-a). The active community will be eager to assist you. Your well-worded question will serve as a resource to others searching for help.
+Have a question? Rather than opening an issue, please go to the [RaceDex API Forum](https://github.com/enrique-lozano/RaceDex-API/discussions/categories/q-a). The active community will be eager to assist you. Your well-worded question will serve as a resource to others searching for help.
 
 ## Feature request
 
-As with questions, for feature requests and suggestions we encourage you to use the [forum](https://github.com/enrique-lozano/F1-World-API/discussions/categories/ideas). If your request/suggestion is well-accepted, we will create an issue with it to take it into account for future releases.
+As with questions, for feature requests and suggestions we encourage you to use the [forum](https://github.com/enrique-lozano/RaceDex-API/discussions/categories/ideas). If your request/suggestion is well-accepted, we will create an issue with it to take it into account for future releases.
 
 If your suggestion has already been made by someone else, please instead of creating a new thread, react or reply to this one. Suggestions with more interactions/upvotes will have a better chance of being selected.
 
 ## Create something new / Fix a bug
 
-If you are interested in writing code to fix issues or to create new features please refer to this [guide](https://github.com/enrique-lozano/F1-World-API/blob/main/docs/CODE_CONTRIBUTING.md).
+If you are interested in writing code to fix issues or to create new features please refer to this [guide](https://github.com/enrique-lozano/RaceDex-API/blob/main/docs/CODE_CONTRIBUTING.md).
 
-If you are only interested in correcting some historical data, you don't necessarily need a lot of programming experience. The only thing you have to do is edit the CSV files and make a pull request. You can consult more information in the guide mentioned above and [here](https://github.com/enrique-lozano/F1-World-API/blob/main/data).
+If you are only interested in correcting some historical data, you don't necessarily need a lot of programming experience. The only thing you have to do is edit the CSV files and make a pull request. You can consult more information in the guide mentioned above and [here](https://github.com/enrique-lozano/RaceDex-API/blob/main/data).
 
 # Thank you!
 

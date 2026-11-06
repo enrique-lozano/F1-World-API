@@ -1,4 +1,4 @@
-# Code contributions in F1-World-API
+# Code contributions in RaceDex API
 
 In this article you will find information about the steps you should take to help us with the development of code for the application.
 
@@ -6,7 +6,7 @@ In this article you will find information about the steps you should take to hel
 
 To start, fork the project. If you are new to this, don't worry! We leave you a guide below, and if you still have problems, you can contact us whenever you wish.
 
-[How To Fork Guide by GitHub](https://docs.github.com/en/get-started/quickstart/fork-a-repo). After that you should [run your app](https://github.com/enrique-lozano/F1-World-API/#run-the-api-locally-) to check that everything is correct.
+[How To Fork Guide by GitHub](https://docs.github.com/en/get-started/quickstart/fork-a-repo). After that you should [run your app](README.md#run-the-api-locally-) to check that everything is correct.
 
 ## 2. Configure your developer workspace
 
@@ -23,7 +23,7 @@ And that's it! You're are ready to start.
 
 ## 2. Choose what to do
 
-You can see a list of tasks to do [here](https://github.com/enrique-lozano/F1-World-API/issues). Once you see one that suits you and is not assigned to anyone else, you can leave a comment on the task, so that other users and administrators know who is working on it.
+You can see a list of tasks to do [here](https://github.com/enrique-lozano/RaceDex-API/issues). Once you see one that suits you and is not assigned to anyone else, you can leave a comment on the task, so that other users and administrators know who is working on it.
 
 If the list of tasks is too small for you, or you can't find one that suits you, here are some tips on how to help:
 
@@ -40,15 +40,15 @@ Once you've decided on what you want to contribute it's time to create a new bra
 
 > **NOTE**: You should replace `your-branch-name` with a good name to give to your branch. For example `fix/XXXX` where XXXX is the Issue number, or `feature/some-new-feature`.
 
-This will be the branch in which you will code, make commits, etc. Before start coding it **is strongly recommended to read the [git branch workflow](https://github.com/enrique-lozano/F1-World-API/blob/main/docs/GIT_BRANCHES_WORKFLOW.md) and the [commit message convention](https://github.com/enrique-lozano/F1-World-API/blob/main/docs/COMMIT_MSG.md) that we use in this project**.
+This will be the branch in which you will code, make commits, etc. Before start coding it **is strongly recommended to read the [git branch workflow](https://github.com/enrique-lozano/RaceDex-API/blob/main/docs/GIT_BRANCHES_WORKFLOW.md) and the [commit message convention](https://github.com/enrique-lozano/RaceDex-API/blob/main/docs/COMMIT_MSG.md) that we use in this project**.
 
-If you see that your commits and your pushes take a little longer than usual, it may be because we use [Husky](https://github.com/typicode/husky), a library with which we check that all the code that is uploaded to the repository is valid and passes our tests.
+If you see that your commits and your pushes take a little longer than usual, it may be because we use [Husky](https://github.com/typicode/husky), a library with which we check that all the code that is uploaded to the repository is valid and passes the type, lint and format checks.
 
 `main` and `develop` branches are protected and only administrators can upload changes to them directly. All other users will have to make a Pull Request (step 4).
 
 ## 4. Submit a PR to `develop` branch
 
-So far you should have pushed your work to your working branch and have tested that it works on all the compatible devices. Then final step is to open a pull request to the `develop` branch of the official [F1-World-API repo](https://github.com/enrique-lozano/F1-World-API).
+So far you should have pushed your work to your working branch and have tested that it works on all the compatible devices. Then final step is to open a pull request to the `develop` branch of the official [RaceDex API repo](https://github.com/enrique-lozano/RaceDex-API).
 
 [How To Submit a PR Guide by GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
