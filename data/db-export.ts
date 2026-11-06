@@ -1,153 +1,155 @@
-import { default as Database } from 'better-sqlite3';
+import Database from 'better-sqlite3';
 import fs from 'fs';
 import { json2csv } from 'json-2-csv';
 import path from 'path';
 import pc from 'picocolors';
-import { csvDirectory, dbFilePath, tableNames } from './constants';
+import {
+  csvDirectory,
+  dbFilePath,
+  isSessionTable,
+  sessionTables,
+  tableNames,
+  type SessionTableName
+} from './constants';
 
-main();
+type Row = Record<string, unknown>;
 
-async function main() {
-  /** The current DB instance */
-  const db = new Database(dbFilePath, { fileMustExist: true });
+const info = (msg: string) => console.log(pc.blue('[INFO]: ') + msg);
+const ok = (msg: string) => console.log(pc.green('[OK]: ') + msg);
+
+/** Counters used to report how many files really changed */
+const stats = { written: 0, unchanged: 0 };
+
+/**
+ * Exports the database to the CSV files (the inverse of `db-import.ts`).
+ * Files whose content did not change are not touched, so the git diff only
+ * contains real changes.
+ */
+export function exportDatabase() {
+  const start = performance.now();
+  const db = new Database(dbFilePath, { fileMustExist: true, readonly: true });
+
+  // Session folders are named after the Grand Prix: `<round> - <short name>`
+  const gpNames = new Map(
+    (
+      db
+        .prepare(
+          `SELECT events.id, grandsPrix.shortName
+           FROM events JOIN grandsPrix ON grandsPrix.id = events.grandPrixId`
+        )
+        .all() as { id: string; shortName: string }[]
+    ).map((x) => [x.id, x.shortName])
+  );
 
   for (const tableName of tableNames) {
-    console.log('');
-    console.log(pc.blue('[INFO]: ') + `Exporting table "${tableName}"...`);
-
-    if (
-      tableName.toLowerCase().indexOf('results') > -1 ||
-      tableName == 'pitStops' ||
-      tableName == 'lapTimes'
-    ) {
-      const years = (
-        db
-          .prepare(
-            `select substr(sessionId,1,4) as year from ${tableName} group by substr(sessionId,1,4)`
-          )
-          .all() as object[]
-      ).map((x) => Number(x['year']));
-
-      for (const year of years) {
-        const rounds = (
-          db
-            .prepare(
-              `select substr(sessionId,6,2) as round from ${tableName} WHERE substr(sessionId,1,4) = '${year}' group by substr(sessionId,6,2)`
-            )
-            .all() as object[]
-        ).map((x) => String(x['round']));
-
-        for (const round of rounds) {
-          const sessions = (
-            db
-              .prepare(
-                `select substr(sessionId,9,20) as sessionAbbr from ${tableName} \
-              WHERE substr(sessionId,1,4) = '${year}' AND substr(sessionId,6,2) = '${round}' \
-              group by substr(sessionId,9,20)`
-              )
-              .all() as object[]
-          ).map((x) => String(x['sessionAbbr']));
-
-          for (const session of sessions) {
-            const name = db
-              .prepare(
-                `SELECT grandsPrix.shortName FROM events LEFT JOIN grandsPrix ON \
-                  grandsPrix.id = events.grandPrixId WHERE events.id = '${year}-${round}'`
-              )
-              .get() as object;
-
-            // Final select to get the rows regarding a session:
-            const rows = db
-              .prepare(
-                `SELECT * FROM ${tableName} WHERE sessionId = '${year}-${round}-${session}' ORDER BY ${
-                  tableName.toLowerCase().indexOf('results') > -1
-                    ? 'positionOrder'
-                    : 'lap'
-                }`
-              )
-              .all() as object[];
-
-            await exportRowsToCSV({
-              // Remove the session info since it will be present in the directory.
-              // Should be added manually from the directory when importing again
-              rows: rows.map((e) =>
-                omitAttributesFromObject(e as any, ['sessionId'])
-              ),
-              dir: path.resolve(
-                csvDirectory,
-                'seasons',
-                year.toFixed(0),
-                `${round} - ${name['shortName']}`
-              ),
-              fileName: `${session} - ${
-                tableName == 'lapTimes'
-                  ? 'Lap times'
-                  : tableName == 'pitStops'
-                  ? 'Pit stops'
-                  : 'Results'
-              }`
-            });
-          }
-        }
-      }
-
-      // Finish with the tables that are relative to a session
+    if (isSessionTable(tableName)) {
+      exportSessionTable(db, tableName, gpNames);
       continue;
     }
 
-    const rows = db.prepare(`SELECT * FROM ${tableName}`).all();
+    const rows = db.prepare(`SELECT * FROM ${tableName}`).all() as Row[];
 
     if (rows.length === 0) {
       console.log(
-        pc.yellow('[WARN]: ') +
-          `Table "${tableName}" is empty. Skipping export.`
+        pc.yellow('[WARN]: ') + `Table "${tableName}" is empty. Skipping.`
       );
       continue;
     }
 
-    await exportRowsToCSV({ rows, dir: csvDirectory, fileName: tableName });
+    writeCSV(path.join(csvDirectory, tableName + '.csv'), rows);
+    ok(`${tableName}: ${rows.length} rows`);
   }
 
-  return;
+  db.close();
+
+  const seconds = ((performance.now() - start) / 1000).toFixed(1);
+  ok(
+    `Export finished in ${seconds}s: ${stats.written} files written, ${stats.unchanged} unchanged`
+  );
 }
 
-function omitAttributesFromObject<Data extends object, Keys extends keyof Data>(
-  data: Data,
-  keys: Keys[]
-): Omit<Data, Keys> {
-  const result = { ...data };
+/**
+ * Tables with one CSV file per session. Everything is read with a single
+ * ordered query and split into files while iterating, instead of querying
+ * the database once per year, round and session.
+ */
+function exportSessionTable(
+  db: Database.Database,
+  tableName: SessionTableName,
+  gpNames: Map<string, string>
+) {
+  const { fileSuffix, orderBy } = sessionTables[tableName];
+  const rows = db.prepare(
+    `SELECT * FROM ${tableName} ORDER BY sessionId, ${orderBy}, rowid`
+  );
 
-  for (const key of keys) {
-    delete result[key];
-  }
+  let currentSession: string | undefined;
+  let buffer: Row[] = [];
+  let sessions = 0;
+  let total = 0;
 
-  return result as Omit<Data, Keys>;
-}
+  const flush = () => {
+    if (currentSession === undefined) return;
 
-async function exportRowsToCSV(params: {
-  rows: unknown[] | object[];
-  dir: string;
-  fileName: string;
-}) {
-  if (!fs.existsSync(params.dir)) {
-    fs.mkdirSync(params.dir, {
-      recursive: true
-    });
-  }
+    // sessionId = `<year>-<round>-<session abbreviation>`
+    const [year, round, ...abbr] = currentSession.split('-');
+    const gpName = gpNames.get(`${year}-${round}`);
 
-  const filepath = path.resolve(params.dir, params.fileName + '.csv');
-
-  fs.writeFileSync(
-    filepath,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await json2csv(params.rows as any[], { emptyFieldValue: '' }),
-    {
-      flag: 'w+'
+    if (!gpName) {
+      throw new Error(`Event ${year}-${round} not found (${tableName})`);
     }
-  );
 
-  console.log(
-    pc.green('[OK]: ') +
-      `Export to ${path.relative(__dirname, filepath)} with success!`
-  );
+    // The session info is already in the path, so it's removed from the rows
+    writeCSV(
+      path.join(
+        csvDirectory,
+        'seasons',
+        year,
+        `${round} - ${gpName}`,
+        `${abbr.join('-')} - ${fileSuffix}.csv`
+      ),
+      buffer
+    );
+    sessions++;
+    total += buffer.length;
+  };
+
+  for (const { sessionId, ...row } of rows.iterate() as IterableIterator<Row>) {
+    if (sessionId !== currentSession) {
+      flush();
+      currentSession = sessionId as string;
+      buffer = [];
+    }
+    buffer.push(row);
+  }
+  flush();
+
+  ok(`${tableName}: ${total} rows in ${sessions} files`);
+}
+
+function writeCSV(filepath: string, rows: Row[]) {
+  const content = json2csv(rows, { emptyFieldValue: '' });
+
+  if (
+    fs.existsSync(filepath) &&
+    fs.readFileSync(filepath, 'utf8') === content
+  ) {
+    stats.unchanged++;
+    return;
+  }
+
+  fs.mkdirSync(path.dirname(filepath), { recursive: true });
+  fs.writeFileSync(filepath, content);
+  stats.written++;
+}
+
+if (require.main === module) {
+  info(`Exporting ${dbFilePath} to ${csvDirectory}`);
+
+  try {
+    exportDatabase();
+  } catch (err) {
+    console.error(pc.red('[ERROR]: ') + 'Export failed', err);
+    process.exit(1);
+  }
 }

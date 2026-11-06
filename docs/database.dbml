@@ -1,0 +1,288 @@
+Project racedex {
+  database_type: 'SQLite'
+}
+
+Table countries {
+  alpha2Code varchar [pk]
+  alpha3Code varchar [not null]
+  region varchar [not null]
+  subregion varchar
+}
+
+Table countriesCommonNames {
+  countryId varchar [pk]
+  en varchar [not null]
+  ces varchar
+  deu varchar
+  est varchar
+  fin varchar
+  fra varchar
+  hrv varchar
+  hun varchar
+  ita varchar
+  jpn varchar
+  kor varchar
+  nld varchar
+  per varchar
+  pol varchar
+  por varchar
+  rus varchar
+  slk varchar
+  spa varchar
+  swe varchar
+  urd varchar
+  zho varchar
+  cym varchar
+}
+
+Table countriesOfficialNames {
+  countryId varchar [pk]
+  en varchar [not null]
+  ces varchar
+  deu varchar
+  est varchar
+  fin varchar
+  fra varchar
+  hrv varchar
+  hun varchar
+  ita varchar
+  jpn varchar
+  kor varchar
+  nld varchar
+  per varchar
+  pol varchar
+  por varchar
+  rus varchar
+  slk varchar
+  spa varchar
+  swe varchar
+  urd varchar
+  zho varchar
+  cym varchar
+}
+
+Table constructors {
+  id varchar [pk]
+  name varchar [not null]
+  fullName varchar [not null]
+  countryId varchar [not null]
+  wikiUrl varchar
+  summary varchar
+  photo varchar
+}
+
+Table companies {
+  id varchar [pk]
+  name varchar [not null]
+  fullName varchar [not null]
+  countryId varchar [not null]
+  founder varchar
+  yearFounded integer
+}
+
+Table previousNextConstructors {
+  constructorId varchar [pk]
+  parentConstructorId varchar [pk]
+  yearFrom integer [pk]
+  yearTo integer
+}
+
+Table circuits {
+  id varchar [pk]
+  name varchar [not null]
+  fullName varchar [not null]
+  previousNames varchar
+  type varchar [not null]
+  placeName varchar [not null]
+  countryId varchar [not null]
+  latitude decimal
+  longitude decimal
+}
+
+Table grandsPrix {
+  id varchar [pk]
+  name varchar [not null]
+  fullName varchar [not null]
+  shortName varchar [not null]
+  countryId varchar
+}
+
+Table drivers {
+  id varchar [pk]
+  name varchar [not null]
+  firstName varchar [not null]
+  lastName varchar [not null]
+  fullName varchar [not null]
+  abbreviation varchar [not null]
+  permanentNumber varchar
+  gender varchar [not null]
+  dateOfBirth varchar [not null]
+  dateOfDeath varchar
+  placeOfBirth varchar [not null]
+  countryOfBirthCountryId varchar [not null]
+  nationalityCountryId varchar [not null]
+  secondNationalityCountryId varchar
+  photo varchar
+}
+
+Table driversFamilyRelationships {
+  driverA varchar [pk]
+  driverB varchar [pk]
+  AisToB varchar [pk]
+}
+
+Table engineManufacturers {
+  id varchar [pk]
+  name varchar [not null]
+  countryId varchar [not null]
+}
+
+Table tyreManufacturers {
+  id varchar [pk]
+  name varchar [not null]
+  countryId varchar [not null]
+  primaryColor varchar [not null]
+  secondaryColor varchar [not null]
+}
+
+Table events {
+  id varchar [pk]
+  grandPrixId varchar [not null]
+  name varchar [not null]
+  qualyFormat varchar [not null]
+  circuitId varchar [not null]
+  scheduledLaps integer
+  posterURL varchar
+}
+
+Table sessions {
+  id varchar [pk]
+  eventId text [not null]
+  abbreviation text [not null]
+  startDateTime varchar
+}
+
+Table redFlags {
+  eventId varchar [pk]
+  lap integer [pk]
+  incident varchar [pk]
+  excluded varchar
+  resumed varchar
+}
+
+Table safetyCars {
+  eventId varchar [pk]
+  deployed integer [pk]
+  fullLaps integer
+  retreated integer
+  cause varchar
+}
+
+Table seasonEntrants {
+  id varchar [pk]
+  season integer [not null]
+  name varchar [not null]
+  countryId varchar [not null]
+}
+
+Table sessionEntrants {
+  id varchar [pk]
+  driverId text [not null]
+  driverNumber integer [not null]
+  seasonEntrantId varchar
+  entrantName varchar [not null]
+  chassisManufacturerId varchar [not null]
+  chassisName varchar
+  engineName varchar
+  engineManufacturerId varchar [not null]
+  tyreManufacturerId varchar
+  note varchar
+}
+
+Table pitStops {
+  entrantId varchar [pk]
+  sessionId text [pk]
+  lap integer [pk]
+  time numeric
+  timeOfDay varchar
+  annotation varchar
+}
+
+Table lapTimes {
+  entrantId varchar [pk]
+  sessionId varchar [pk]
+  lap integer [pk]
+  time numeric
+  pos integer
+}
+
+Table qualifyingResults {
+  sessionId varchar [pk]
+  entrantId varchar [pk]
+  positionOrder integer
+  positionText varchar
+  laps integer
+  time integer
+}
+
+Table fpResults {
+  sessionId varchar [pk]
+  entrantId varchar [pk]
+  positionOrder integer
+  positionText varchar
+  laps integer
+  time integer
+}
+
+Table raceResults {
+  sessionId varchar [pk]
+  entrantId varchar [pk]
+  positionOrder integer [pk]
+  positionText varchar [not null]
+  time integer
+  gridPosition integer
+  gridPenalty varchar
+  laps integer
+  points integer
+  pointsCountForWDC boolean [not null]
+  pointsGained integer
+  timePenalty integer
+  reasonRetired varchar
+}
+
+Ref: countriesCommonNames.countryId > countries.alpha2Code
+Ref: countriesOfficialNames.countryId > countries.alpha2Code
+Ref: constructors.countryId > countries.alpha2Code
+Ref: companies.countryId > countries.alpha2Code
+Ref: previousNextConstructors.parentConstructorId > constructors.id
+Ref: previousNextConstructors.constructorId > constructors.id
+Ref: circuits.countryId > countries.alpha2Code
+Ref: grandsPrix.countryId > countries.alpha2Code
+Ref: drivers.secondNationalityCountryId > countries.alpha2Code
+Ref: drivers.nationalityCountryId > countries.alpha2Code
+Ref: drivers.countryOfBirthCountryId > countries.alpha2Code
+Ref: driversFamilyRelationships.driverB > drivers.id
+Ref: driversFamilyRelationships.driverA > drivers.id
+Ref: engineManufacturers.countryId > countries.alpha2Code
+Ref: tyreManufacturers.countryId > countries.alpha2Code
+Ref: events.circuitId > circuits.id
+Ref: events.grandPrixId > grandsPrix.id
+Ref: sessions.eventId > events.id
+Ref: redFlags.eventId > events.id
+Ref: safetyCars.eventId > events.id
+Ref: seasonEntrants.countryId > countries.alpha2Code
+Ref: sessionEntrants.tyreManufacturerId > tyreManufacturers.id
+Ref: sessionEntrants.engineManufacturerId > companies.id
+Ref: sessionEntrants.chassisManufacturerId > companies.id
+Ref: sessionEntrants.seasonEntrantId > seasonEntrants.id
+Ref: sessionEntrants.driverId > drivers.id
+Ref: pitStops.sessionId > sessions.id
+Ref: pitStops.entrantId > sessionEntrants.id
+Ref: lapTimes.sessionId > sessions.id
+Ref: lapTimes.entrantId > sessionEntrants.id
+Ref: qualifyingResults.entrantId > sessionEntrants.id
+Ref: qualifyingResults.sessionId > sessions.id
+Ref: fpResults.entrantId > sessionEntrants.id
+Ref: fpResults.sessionId > sessions.id
+Ref: raceResults.entrantId > sessionEntrants.id
+Ref: raceResults.sessionId > sessions.id

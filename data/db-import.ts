@@ -1,252 +1,218 @@
-import { default as Database } from 'better-sqlite3';
+import Database from 'better-sqlite3';
 import csvParser from 'csv-parser';
 import * as fs from 'fs';
 import path from 'path';
 import pc from 'picocolors';
-import { csvDirectory, dbFilePath, tableNames } from './constants';
+import {
+  csvDirectory,
+  dbFilePath,
+  isSessionTable,
+  resultsTableBySessionPrefix,
+  schemaFilePath,
+  sessionTables,
+  tableNames,
+  type TableName
+} from './constants';
 
-type querydef = { sql: string; values: any[] };
+type CsvRow = Record<string, string>;
+type SessionFile = { filepath: string; sessionId: string };
 
-console.log('\n');
+const info = (msg: string) => console.log(pc.blue('[INFO]: ') + msg);
+const ok = (msg: string) => console.log(pc.green('[OK]: ') + msg);
 
-const schemaFilePath = path.resolve(__dirname, 'schema.sql'); // Path to your schema.sql file
+/**
+ * Creates the SQLite database from the CSV files.
+ *
+ * The data is written to a temporary file that replaces the real database
+ * only when everything succeeded, so a failed import never leaves a
+ * half-populated database behind.
+ */
+export async function importDatabase() {
+  const start = performance.now();
+  const tmpPath = dbFilePath + '.tmp';
 
-// Read the SQL schema file
-const schemaSQL = fs.readFileSync(schemaFilePath, 'utf8');
+  fs.mkdirSync(path.dirname(dbFilePath), { recursive: true });
+  fs.rmSync(tmpPath, { force: true });
 
-/** The current DB instance */
-const db = new Database(dbFilePath); // Read the SQLite database file. Create an empty DB file if don't exist
+  const db = new Database(tmpPath);
 
-console.log(pc.green('[OK]: ') + 'Database file connected successfully!\n');
+  try {
+    // The DB is rebuilt from scratch, so durability is not needed while importing
+    db.pragma('journal_mode = OFF');
+    db.pragma('synchronous = OFF');
 
-try {
-  // Execute the schema SQL to create tables
-  console.log(pc.blue('[INFO]: ') + 'Creating database tables...');
-  db.exec(schemaSQL);
-  console.log(pc.green('[OK]: ') + 'Database schema created successfully!');
-} catch (err) {
-  console.error('Error executing schema SQL:', err);
+    info('Creating database tables...');
+    db.exec(fs.readFileSync(schemaFilePath, 'utf8'));
+    // The schema re-enables the foreign keys, but the rows are inserted in
+    // bulk and verified once at the end, which is much faster:
+    db.pragma('foreign_keys = OFF');
 
-  throw new Error();
+    const sessionFiles = indexSessionFiles();
+    let totalRows = 0;
+
+    for (const tableName of tableNames) {
+      totalRows += await importTable(db, tableName, sessionFiles);
+    }
+
+    const violations = db.pragma('foreign_key_check') as {
+      table: string;
+      rowid: number;
+      parent: string;
+    }[];
+
+    if (violations.length > 0) {
+      console.log(
+        pc.yellow('[WARN]: ') +
+          `${violations.length} rows reference a missing parent row. First one: ` +
+          JSON.stringify(violations[0])
+      );
+    }
+
+    db.pragma('optimize');
+    db.close();
+
+    fs.renameSync(tmpPath, dbFilePath);
+
+    const seconds = ((performance.now() - start) / 1000).toFixed(1);
+    ok(`${totalRows} rows imported in ${seconds}s into ${dbFilePath}`);
+  } catch (err) {
+    db.close();
+    fs.rmSync(tmpPath, { force: true });
+    throw err;
+  }
 }
 
-populateDB();
+/** Import into a table all the rows of its CSV file(s) */
+async function importTable(
+  db: Database.Database,
+  tableName: TableName,
+  sessionFiles: Map<string, SessionFile[]>
+) {
+  const files: SessionFile[] = isSessionTable(tableName)
+    ? (sessionFiles.get(tableName) ?? [])
+    : [
+        { filepath: path.join(csvDirectory, tableName + '.csv'), sessionId: '' }
+      ];
 
-async function populateDB() {
-  try {
-    // Execute the schema SQL to create tables
-    console.log('\n');
-    console.log('-----------------------------------');
-    console.log('\n');
-    console.log(pc.blue('[INFO]: ') + 'Poulating the database...');
+  let inserted = 0;
+  let insert: Database.Statement | undefined;
 
-    const tablesMap: {
-      filenames: (filename: string) => boolean;
-      tableName: string;
-    }[] = [
-      {
-        filenames: (filename) =>
-          [
-            'Q1 - Res',
-            'Q2 - Res',
-            'Q3 - Res',
-            'Q - ',
-            'PQ - Res',
-            'SQ1 - Res',
-            'SQ2 - Res',
-            'SQ3 - Res'
-          ].some((prefix) => filename.startsWith(prefix)),
-        tableName: 'qualifyingResults'
-      },
-      {
-        filenames: (filename) =>
-          ['R - Res', 'SR - Res'].some((prefix) => filename.startsWith(prefix)),
-        tableName: 'raceResults'
-      },
-      {
-        filenames: (filename) =>
-          ['FP1 - Res', 'FP2 - Res', 'FP3 - Res', 'FP4 - Res', 'WU - Res'].some(
-            (prefix) => filename.startsWith(prefix)
-          ),
-        tableName: 'fpResults'
-      },
-      {
-        filenames: (filename) => filename.includes('Lap times'),
-        tableName: 'lapTimes'
-      },
-      {
-        filenames: (filename) => filename.includes('Pit stops'),
-        tableName: 'pitStops'
-      }
-    ];
+  for (const file of files) {
+    const rows = await readCSV(file.filepath);
+    if (rows.length === 0) continue;
 
-    // Loop through each CSV file and populate the corresponding table
-    for (const tableName of tableNames) {
-      for (const tableMap of tablesMap) {
-        if (tableMap.tableName == tableName) {
-          insertQueries(
-            await getInsertQueriesFromDir({
-              folderPath: path.resolve(csvDirectory),
-              triggerFilenameCondition: tableMap.filenames,
-              toTable: tableName,
-              rowTransformFn: setSessionID
-            })
+    if (!insert) {
+      // Prepared only once per table instead of once per row
+      const columns = Object.keys(rows[0]);
+      if (isSessionTable(tableName)) columns.push('sessionId');
+
+      insert = db.prepare(
+        `INSERT INTO ${tableName} (${columns.join(', ')}) VALUES (${columns
+          .map(() => '?')
+          .join(', ')})`
+      );
+    }
+
+    const stmt = insert;
+    db.transaction(() => {
+      for (const row of rows) {
+        const values = Object.values(row).map((x) => x || null);
+        if (isSessionTable(tableName)) values.push(file.sessionId);
+
+        try {
+          stmt.run(values);
+        } catch (error) {
+          console.error(
+            `Error inserting ${JSON.stringify(row)} from ${file.filepath}`
           );
+          throw error;
         }
       }
+    })();
 
-      if (tablesMap.some((x) => x.tableName == tableName)) {
-        // Go to next iteration since we already insert data
-        continue;
-      }
-
-      // Other tables will be in the root directory, with the csv file having
-      // the same name as the table name:
-
-      console.log('\n');
-      const queries = await getInsertQueriesFromCSV(
-        path.resolve(csvDirectory, tableName + '.csv'),
-        tableName
-      );
-
-      insertQueries(queries);
-    }
-  } catch (err) {
-    console.error('Error populating the database:', err);
+    inserted += rows.length;
   }
 
-  console.log(pc.bold('\nAll ready! Thanks for using the F1 World API!'));
-}
+  ok(
+    `${tableName}: ${pc.bold(inserted)} rows from ${files.length} file${
+      files.length === 1 ? '' : 's'
+    }`
+  );
 
-function insertQueries(queries: querydef[]) {
-  const insertMany = db.transaction((queries) => {
-    for (const query of queries) {
-      try {
-        db.prepare(query.sql).run(query.values);
-      } catch (error) {
-        console.log(
-          'ERROR: While executing ' + query.sql + ' with values ' + query.values
-        );
-        throw error;
-      }
-    }
-  });
-
-  console.log(pc.blue('[INFO]: ') + 'Inserting the rows...');
-  insertMany(queries);
-  console.log(pc.green('[OK]: ') + 'All the rows successfully inserted!');
+  return inserted;
 }
 
 function readCSV(pathToFile: string) {
-  const rows: object[] = [];
+  return new Promise<CsvRow[]>((resolve, reject) => {
+    const rows: CsvRow[] = [];
 
-  return new Promise<object[]>((res, rej) => {
     fs.createReadStream(pathToFile)
-      .pipe(csvParser({}))
-      .on('data', (row: object) => {
-        rows.push(row);
-      })
-      .on('end', () => {
-        res(rows);
-      })
-      .on('error', (err) => {
-        rej(err);
-      });
+      .on('error', reject)
+      .pipe(csvParser())
+      .on('data', (row: CsvRow) => rows.push(row))
+      .on('end', () => resolve(rows))
+      .on('error', reject);
   });
 }
 
-function setSessionID(row: object, filepath: string) {
-  const splittedPath = filepath.split(path.sep);
+/**
+ * Walks `csv/seasons` once and groups its files by destination table. The
+ * `sessionId` (`<year>-<round>-<session>`) is deduced from the file path:
+ * `seasons/<year>/<round> - <GP>/<session> - <Results|Lap times|Pit stops>.csv`
+ */
+function indexSessionFiles() {
+  const index = new Map<string, SessionFile[]>();
+  const seasonsDir = path.join(csvDirectory, 'seasons');
 
-  row['sessionId'] = `${splittedPath.at(-3)}-${
-    splittedPath.at(-2)?.split(' -')[0]
-  }-${splittedPath.at(-1)?.split(' -')[0]}`;
+  if (!fs.existsSync(seasonsDir)) return index;
 
-  return row;
-}
-
-function getInsertQueriesFromCSV(
-  pathToFile: string,
-  tableName: string,
-  rowTransformFn?: (row: object) => object
-) {
-  return new Promise<querydef[]>((res) => {
-    const querys: querydef[] = [];
-
-    console.log(
-      pc.blue('[INFO]: ') +
-        'Parsing ' +
-        pc.italic(path.relative(process.cwd(), pathToFile)) +
-        '...'
-    );
-
-    readCSV(pathToFile).then((rows) => {
-      for (let row of rows) {
-        if (rowTransformFn) {
-          row = rowTransformFn(row);
-        }
-
-        // Insert each row into the corresponding table
-        const placeholders = Object.keys(row)
-          .map(() => '?')
-          .join(', ');
-
-        const values = Object.values(row).map((x) => x || null);
-        const insertQuery = `INSERT INTO ${tableName} (${Object.keys(row).join(
-          ', '
-        )}) VALUES (${placeholders})`;
-
-        querys.push({ sql: insertQuery, values });
-      }
-
-      res(querys);
-
-      console.log(
-        pc.green('[OK]: ') +
-          `Readed ${pc.bold(querys.length)} registers from file ${pc.italic(
-            path.relative(process.cwd(), pathToFile)
-          )}`
-      );
-    });
-  });
-}
-
-/** Get all the insert queries of a set of files */
-async function getInsertQueriesFromDir(params: {
-  folderPath: string;
-  triggerFilenameCondition: (filename: string) => boolean;
-  toTable: string;
-  rowTransformFn?: (row: object, filepath: string) => object;
-}) {
-  let queries: querydef[] = [];
-
-  const files = fs.readdirSync(params.folderPath, {
+  for (const entry of fs.readdirSync(seasonsDir, {
     recursive: true,
     withFileTypes: true
-  });
+  })) {
+    if (!entry.isFile() || !entry.name.endsWith('.csv')) continue;
 
-  const filesToProcess = files.filter((file) => {
-    const filename = file.name;
+    const filepath = path.join(entry.parentPath, entry.name);
+    const [session, kind] = entry.name.slice(0, -4).split(' - ');
 
-    return (
-      filename.endsWith('.csv') && params.triggerFilenameCondition(filename)
-    );
-  });
+    const round = path.basename(entry.parentPath).split(' -')[0];
+    const year = path.basename(path.dirname(entry.parentPath));
+    const sessionId = `${year}-${round}-${session}`;
 
-  for (const file of filesToProcess) {
-    const filepath = path.join(file.path, file.name);
+    const table =
+      kind === 'Lap times'
+        ? 'lapTimes'
+        : kind === 'Pit stops'
+          ? 'pitStops'
+          : resultsTableBySessionPrefix.find((x) =>
+              x.prefixes.includes(session)
+            )?.table;
 
-    queries = [
-      ...queries,
-      ...(await getInsertQueriesFromCSV(
-        filepath,
-        params.toTable,
-        params.rowTransformFn
-          ? (row) => params.rowTransformFn!(row, filepath)
-          : undefined
-      ))
-    ];
+    if (!table || !(table in sessionTables)) {
+      console.log(pc.yellow('[WARN]: ') + `Ignoring unknown file ${filepath}`);
+      continue;
+    }
+
+    index.set(table, [...(index.get(table) ?? []), { filepath, sessionId }]);
   }
 
-  return queries;
+  // Deterministic order, so the same CSVs always produce the same database
+  for (const files of index.values()) {
+    files.sort((a, b) => a.filepath.localeCompare(b.filepath));
+  }
+
+  return index;
+}
+
+if (require.main === module) {
+  const onlyIfMissing = process.argv.includes('--if-missing');
+
+  if (onlyIfMissing && fs.existsSync(dbFilePath)) {
+    info('The database already exists, nothing to do.');
+  } else {
+    importDatabase().catch((err) => {
+      console.error(pc.red('[ERROR]: ') + 'Import failed', err);
+      process.exit(1);
+    });
+  }
 }
