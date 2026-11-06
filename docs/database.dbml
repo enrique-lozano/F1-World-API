@@ -9,58 +9,6 @@ Table countries {
   subregion varchar
 }
 
-Table countriesCommonNames {
-  countryId varchar [pk]
-  en varchar [not null]
-  ces varchar
-  deu varchar
-  est varchar
-  fin varchar
-  fra varchar
-  hrv varchar
-  hun varchar
-  ita varchar
-  jpn varchar
-  kor varchar
-  nld varchar
-  per varchar
-  pol varchar
-  por varchar
-  rus varchar
-  slk varchar
-  spa varchar
-  swe varchar
-  urd varchar
-  zho varchar
-  cym varchar
-}
-
-Table countriesOfficialNames {
-  countryId varchar [pk]
-  en varchar [not null]
-  ces varchar
-  deu varchar
-  est varchar
-  fin varchar
-  fra varchar
-  hrv varchar
-  hun varchar
-  ita varchar
-  jpn varchar
-  kor varchar
-  nld varchar
-  per varchar
-  pol varchar
-  por varchar
-  rus varchar
-  slk varchar
-  spa varchar
-  swe varchar
-  urd varchar
-  zho varchar
-  cym varchar
-}
-
 Table constructors {
   id varchar [pk]
   name varchar [not null]
@@ -157,7 +105,7 @@ Table events {
 
 Table sessions {
   id varchar [pk]
-  eventId text [not null]
+  eventId varchar [not null]
   abbreviation text [not null]
   startDateTime varchar
 }
@@ -187,7 +135,7 @@ Table seasonEntrants {
 
 Table sessionEntrants {
   id varchar [pk]
-  driverId text [not null]
+  driverId varchar [not null]
   driverNumber integer [not null]
   seasonEntrantId varchar
   entrantName varchar [not null]
@@ -201,9 +149,9 @@ Table sessionEntrants {
 
 Table pitStops {
   entrantId varchar [pk]
-  sessionId text [pk]
+  sessionId varchar [pk]
   lap integer [pk]
-  time numeric
+  time integer
   timeOfDay varchar
   annotation varchar
 }
@@ -212,7 +160,7 @@ Table lapTimes {
   entrantId varchar [pk]
   sessionId varchar [pk]
   lap integer [pk]
-  time numeric
+  time integer
   pos integer
 }
 
@@ -243,15 +191,13 @@ Table raceResults {
   gridPosition integer
   gridPenalty varchar
   laps integer
-  points integer
+  points real
   pointsCountForWDC boolean [not null]
   pointsGained integer
   timePenalty integer
   reasonRetired varchar
 }
 
-Ref: countriesCommonNames.countryId > countries.alpha2Code
-Ref: countriesOfficialNames.countryId > countries.alpha2Code
 Ref: constructors.countryId > countries.alpha2Code
 Ref: companies.countryId > countries.alpha2Code
 Ref: previousNextConstructors.parentConstructorId > constructors.id

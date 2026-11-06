@@ -5,9 +5,33 @@ import { ValidateError } from 'tsoa';
 import { RegisterRoutes } from './routes';
 
 import * as swaggerJSON from './swagger.json';
+import {
+  DEFAULT_LOCALE,
+  isSupportedLocale,
+  requestLocale
+} from './i18n/country-names';
 import { HttpException } from './utils/custom-error';
 
 const app = express();
+
+// Language of the translated content (e.g. the country names), from `?locale=es`
+app.use((req: Request, res: Response, next: NextFunction) => {
+  const locale = req.query['locale'];
+
+  if (locale === undefined) return requestLocale.run(DEFAULT_LOCALE, next);
+
+  if (typeof locale !== 'string' || !isSupportedLocale(locale)) {
+    return res.status(422).json(
+      HttpException.fromStatusAndCode(422, 'validation_error', {
+        detail: {
+          fieldsErrors: `\t - The locale "${String(locale)}" is not supported. Use a BCP 47 tag like "en", "es" or "pt-BR"`
+        }
+      })
+    );
+  }
+
+  return requestLocale.run(locale, next);
+});
 
 // Register routes thanks to the tsoa generated file
 const router = express.Router();

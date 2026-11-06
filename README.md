@@ -41,6 +41,10 @@ All the endpoints are documented with Swagger at <http://localhost:3200/api/docs
 
 > The content you see may differ from what is shown in the screenshots.
 
+### Translated content
+
+Country names are not stored in the database: they are translated on the fly with the ICU data of Node.js. Add `?locale=es` (any [BCP 47](https://www.rfc-editor.org/info/bcp47) tag) to a request to get them in another language, e.g. <http://localhost:3200/api/countries/ES?locale=es>. The default is `en`.
+
 ### Scripts
 
 | Script                               | What it does                                                                                                              |

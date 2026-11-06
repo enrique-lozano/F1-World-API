@@ -6,6 +6,7 @@ import pc from 'picocolors';
 import {
   csvDirectory,
   dbFilePath,
+  indexesFilePath,
   isSessionTable,
   resultsTableBySessionPrefix,
   schemaFilePath,
@@ -53,6 +54,10 @@ export async function importDatabase() {
     for (const tableName of tableNames) {
       totalRows += await importTable(db, tableName, sessionFiles);
     }
+
+    // Indexes after the rows: building them once is faster than maintaining them per insert
+    info('Creating indexes...');
+    db.exec(fs.readFileSync(indexesFilePath, 'utf8'));
 
     const violations = db.pragma('foreign_key_check') as {
       table: string;

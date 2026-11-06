@@ -1,9 +1,101 @@
+/**
+ * Type of circuit (keep in sync with the `CHECK` constraint in `data/schema.sql`):
+ * - `RACE`: permanent racing circuit, purpose built
+ * - `ROAD`: permanent course on public roads closed for the event (e.g. Reims, Pescara)
+ * - `STREET`: temporary circuit built on city streets (e.g. Baku, Las Vegas)
+ */
+export type CircuitType =
+  /** Permanent racing circuit, purpose built */
+  | 'RACE'
+  /** Permanent course laid out on public roads, closed for the event (e.g. Reims, Pescara) */
+  | 'ROAD'
+  /** Temporary circuit built on city streets (e.g. Baku, Las Vegas) */
+  | 'STREET';
+
+/** Relationship of the driver A *with respect to* the driver B. E.g. `PARENT` means "A is a parent of B" */
+export type FamilyRelationship =
+  | 'CHILD'
+  | 'CHILD_IN_LAW'
+  | 'GRANDCHILD'
+  | 'GRANDPARENT'
+  /** A is a sibling of B's grandparent (great-uncle/aunt) */
+  | 'GRANDPARENTS_SIBLING'
+  | 'HALF_SIBLING'
+  | 'PARENT'
+  | 'PARENT_IN_LAW'
+  /** A is a sibling of B's parent (uncle/aunt) */
+  | 'PARENTS_SIBLING'
+  /** A is a child of B's parent's sibling (cousin) */
+  | 'PARENTS_SIBLINGS_CHILD'
+  | 'SIBLING'
+  | 'SIBLING_IN_LAW'
+  /** A is a child of B's sibling (nephew/niece) */
+  | 'SIBLINGS_CHILD'
+  | 'SIBLINGS_CHILD_IN_LAW'
+  | 'SIBLINGS_GRANDCHILD';
+
+/**
+ * Format of the qualifying of an event:
+ * - `AGGREGATE`: two sessions whose times are added up (2005)
+ * - `ELIMINATION`: drivers are progressively eliminated during each session (2016)
+ * - `FOUR_LAPS`: qualifying over four laps, as at the Indianapolis 500 (1950-1960)
+ * - `KNOCKOUT`: Q1, Q2 and Q3 with the slowest drivers eliminated after each (2006 onwards)
+ * - `ONE_LAP`: a single timed lap per driver (2003-2005)
+ * - `ONE_SESSION`: one session where the best time counts (1996-2002)
+ * - `SPRINT_RACE`: grid decided by a sprint race (2021-2022)
+ * - `TWO_SESSION`: two sessions where the best time of both counts (1950-1995)
+ */
+export type QualyFormat =
+  /** Two sessions whose times are added up (2005) */
+  | 'AGGREGATE'
+  /** Drivers are progressively eliminated during each session (2016) */
+  | 'ELIMINATION'
+  /** Qualifying over four laps, as used at the Indianapolis 500 (1950-1960) */
+  | 'FOUR_LAPS'
+  /** Q1, Q2 and Q3 sessions with the slowest drivers eliminated after each one (2006 onwards) */
+  | 'KNOCKOUT'
+  /** A single timed lap per driver (2003-2005) */
+  | 'ONE_LAP'
+  /** One session in which the best time counts (1996-2002) */
+  | 'ONE_SESSION'
+  /** Grid decided by a sprint race (2021-2022) */
+  | 'SPRINT_RACE'
+  /** Two sessions in which the best time of both counts (1950-1995) */
+  | 'TWO_SESSION';
+
+/**
+ * Abbreviation of a session:
+ * - `FP1`-`FP4`: free practices
+ * - `WU`: warm-up
+ * - `PQ`: pre-qualifying
+ * - `Q`: single-session qualifying; `Q1`-`Q3`: parts of a knockout qualifying
+ * - `SQ1`-`SQ3`: parts of the sprint qualifying
+ * - `SR`: sprint race
+ * - `R`: main race
+ */
+export type SessionAbbreviation =
+  | 'FP1'
+  | 'FP2'
+  | 'FP3'
+  | 'FP4'
+  | 'WU'
+  | 'PQ'
+  | 'Q'
+  | 'Q1'
+  | 'Q2'
+  | 'Q3'
+  | 'SQ1'
+  | 'SQ2'
+  | 'SQ3'
+  | 'SR'
+  | 'R';
+
 export interface Circuits {
   id: string;
   name: string;
   fullName: string;
   previousNames: string | null;
-  type: 'RACE' | 'ROAD' | 'STREET';
+  type: CircuitType;
   placeName: string;
   countryId: string;
   latitude: string | null;
@@ -45,34 +137,8 @@ export interface Countries {
 }
 
 export interface CountryDTO extends Countries {
+  /** Name of the country in the requested `locale` (English by default) */
   commonName: string;
-  officialName: string;
-}
-
-export interface CountriesNames {
-  countryId: string;
-  en: string;
-  ces: string | null;
-  deu: string | null;
-  est: string | null;
-  fin: string | null;
-  fra: string | null;
-  hrv: string | null;
-  hun: string | null;
-  ita: string | null;
-  jpn: string | null;
-  kor: string | null;
-  nld: string | null;
-  per: string | null;
-  pol: string | null;
-  por: string | null;
-  rus: string | null;
-  slk: string | null;
-  spa: string | null;
-  swe: string | null;
-  urd: string | null;
-  zho: string | null;
-  cym: string | null;
 }
 
 export type Gender = 'MALE' | 'FEMALE';
@@ -110,7 +176,8 @@ export interface DriverDTO extends Omit<Drivers, driverOmittedAttr> {
 export interface DriversFamilyRelationships {
   driverA: string;
   driverB: string;
-  AisToB: string;
+  /** The relationship of `driverA` with respect to `driverB` */
+  AisToB: FamilyRelationship;
 }
 
 export interface EngineManufacturers {
@@ -154,7 +221,7 @@ export interface EventEntrantDTO extends Omit<
 export interface Sessions {
   id: string;
   eventId: string;
-  abbreviation: string;
+  abbreviation: SessionAbbreviation;
   startDateTime: string;
 }
 
@@ -166,7 +233,7 @@ export interface Events {
   id: string;
   grandPrixId: string;
   name: string;
-  qualyFormat: string;
+  qualyFormat: QualyFormat;
   circuitId: string;
   scheduledLaps: number | null;
   posterURL: string | null;
@@ -227,6 +294,7 @@ export interface TimedSessionResults {
   entrantId: string;
   sessionId: string;
   positionOrder: number | null;
+  /** The finishing position (`"1"`, `"2"`...) or a code: `DNF`, `NC` (not classified), `DNS`, `DSQ`, `WD` (withdrawn), `DNQ` */
   positionText: string | null;
   laps: number | null;
   time: number | null;
@@ -244,6 +312,7 @@ export interface RaceResults {
   entrantId: string;
   sessionId: string;
   positionOrder: number;
+  /** The finishing position (`"1"`, `"2"`...) or a code: `DNF`, `NC` (not classified), `DNS`, `DSQ`, `WD` (withdrawn), `DNQ` */
   positionText: string;
   time: number | null;
   gridPosition: number | null;
@@ -311,8 +380,6 @@ export interface DB {
   companies: Companies;
   constructors: Constructors;
   countries: Countries;
-  countriesCommonNames: CountriesNames;
-  countriesOfficialNames: CountriesNames;
   drivers: Drivers;
   driversFamilyRelationships: DriversFamilyRelationships;
   engineManufacturers: EngineManufacturers;

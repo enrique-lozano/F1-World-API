@@ -7,6 +7,7 @@ import {
 } from 'kysely';
 import { jsonArrayFrom } from 'kysely/helpers/sqlite';
 import { dbFilePath } from '../../data/constants';
+import { getCountryName } from '../i18n/country-names';
 import { Paginator } from '../models/pagination';
 import { Sorter } from '../models/sorter';
 import { DB } from '../models/types.dto';
@@ -15,10 +16,17 @@ let sharedDb: Kysely<DB> | undefined;
 
 /** A single connection is shared by all the services, and opened on first use */
 function getDb() {
-  sharedDb ??= new Kysely<DB>({
-    dialect: new SqliteDialect({
-      database: new SQLite(dbFilePath, { fileMustExist: true })
-    }),
+  if (sharedDb) return sharedDb;
+
+  const database = new SQLite(dbFilePath, { fileMustExist: true });
+
+  // `country_name(alpha2Code)`: country name translated to the request locale
+  database.function('country_name', { deterministic: false }, (code) =>
+    getCountryName(String(code))
+  );
+
+  sharedDb = new Kysely<DB>({
+    dialect: new SqliteDialect({ database }),
     plugins: [new ParseJSONResultsPlugin()]
   });
 

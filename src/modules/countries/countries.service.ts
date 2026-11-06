@@ -1,4 +1,4 @@
-import { SelectQueryBuilder } from 'kysely';
+import { SelectQueryBuilder, sql } from 'kysely';
 import { IncludeParam } from '../../models/include-filter';
 import { CountryDTO, DB } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
@@ -15,16 +15,6 @@ export class CountryService
     fieldsParam ??= new IncludeParam();
 
     return (qb as SelectQueryBuilder<DB, 'countries', object>)
-      .innerJoin(
-        'countriesCommonNames',
-        'countries.alpha2Code',
-        'countriesCommonNames.countryId'
-      )
-      .innerJoin(
-        'countriesOfficialNames',
-        'countries.alpha2Code',
-        'countriesOfficialNames.countryId'
-      )
       .$if(fieldsParam.shouldSelectKey('alpha2Code'), (qb) =>
         qb.select('countries.alpha2Code')
       )
@@ -38,15 +28,10 @@ export class CountryService
         qb.select('countries.subregion')
       )
       .$if(fieldsParam.shouldSelectKey('commonName'), (qb) =>
-        qb.select('countriesCommonNames.en as commonName')
-      )
-      .$if(fieldsParam.shouldSelectKey('officialName'), (qb) =>
-        qb.select('countriesOfficialNames.en as officialName')
-      ) as SelectQueryBuilder<
-      DB,
-      'countries' | 'countriesCommonNames' | 'countriesOfficialNames' | T,
-      CountryDTO
-    >;
+        qb.select(
+          sql<string>`country_name(countries.alpha2Code)`.as('commonName')
+        )
+      ) as SelectQueryBuilder<DB, 'countries' | T, CountryDTO>;
   }
 
   get(): Promise<CountryDTO[]> {

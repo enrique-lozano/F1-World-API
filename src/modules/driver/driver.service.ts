@@ -4,7 +4,13 @@ import { IncludeParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { CommonQueryParams } from '../../models/query-params';
 import { Sorter } from '../../models/sorter';
-import { DB, DriverDTO, Drivers, Gender } from '../../models/types.dto';
+import {
+  DB,
+  DriverDTO,
+  Drivers,
+  FamilyRelationship,
+  Gender
+} from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { getSeasonFromIdColumn } from '../../utils/f1-sql-common-utils';
 import { CountryService } from '../countries/countries.service';
@@ -162,7 +168,7 @@ export class DriverService
 
   getDriverFamilyRelationships(
     driverId: string
-  ): Promise<{ driver: DriverDTO | null; relationship: string }[]> {
+  ): Promise<{ driver: DriverDTO | null; relationship: FamilyRelationship }[]> {
     return this.db
       .selectFrom('driversFamilyRelationships')
       .select(['AisToB as relationship'])

@@ -54,6 +54,8 @@ The `.dbml` file can also be pasted into [dbdiagram.io](https://dbdiagram.io) to
 
 - The order of the tables in [`constants.ts`](constants.ts) matters: parents must come before the tables that reference them.
 - The import disables foreign keys while loading and runs a `foreign_key_check` at the end, printing a warning if some row references a missing parent.
+- Indexes live in [`indexes.sql`](indexes.sql) and are created after the rows are loaded. When adding a table or a foreign key, add its index there.
+- Foreign key columns must use the same type and `COLLATE` as the column they reference, otherwise SQLite cannot use their index in joins.
 - Both commands are around 5s (import) and 2s (export) for ~700k rows.
 
 Before sending a data change, read the [contributing guidelines](../CONTRIBUTING.md).

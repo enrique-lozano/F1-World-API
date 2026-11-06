@@ -17,6 +17,9 @@ export const dbFilePath = path.resolve(
 /** Path of the schema used to create the tables */
 export const schemaFilePath = path.join(dataDirectory, 'schema.sql');
 
+/** Path of the indexes, created after importing the rows */
+export const indexesFilePath = path.join(dataDirectory, 'indexes.sql');
+
 /** Path of the CSV files (the source of truth of the data) */
 export const csvDirectory = path.join(dataDirectory, 'csv');
 
@@ -26,8 +29,6 @@ export const csvDirectory = path.join(dataDirectory, 'csv');
  */
 export const tableNames = [
   'countries',
-  'countriesCommonNames',
-  'countriesOfficialNames',
   'constructors',
   'companies',
   'previousNextConstructors',
