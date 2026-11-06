@@ -13,9 +13,7 @@ import { TimedSessionResults } from './types.dto';
  * If you don't want to extend any of this interfaces you can always extend this interfaces individually
  */
 export interface CommonQueryParams
-  extends PageQueryParams,
-    SorterQueryParams,
-    IncludeQueryParam {}
+  extends PageQueryParams, SorterQueryParams, IncludeQueryParam {}
 
 export interface SessionQueryParams extends CommonQueryParams {
   season?: number;
@@ -51,8 +49,7 @@ export interface ResultsFiltersQueryParams extends SessionEntrantQueryParams {
   positionText?: string;
 }
 
-export interface TimedSessionResultQueryParams
-  extends ResultsFiltersQueryParams {
+export interface TimedSessionResultQueryParams extends ResultsFiltersQueryParams {
   /** @default "sessionId" */
   orderBy?: keyof TimedSessionResults;
 }

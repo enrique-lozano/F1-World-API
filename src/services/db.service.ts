@@ -6,22 +6,28 @@ import {
   SqliteDialect
 } from 'kysely';
 import { jsonArrayFrom } from 'kysely/helpers/sqlite';
+import { dbFilePath } from '../../data/constants';
 import { Paginator } from '../models/pagination';
 import { Sorter } from '../models/sorter';
 import { DB } from '../models/types.dto';
 
+let sharedDb: Kysely<DB> | undefined;
+
+/** A single connection is shared by all the services, and opened on first use */
+function getDb() {
+  sharedDb ??= new Kysely<DB>({
+    dialect: new SqliteDialect({
+      database: new SQLite(dbFilePath, { fileMustExist: true })
+    }),
+    plugins: [new ParseJSONResultsPlugin()]
+  });
+
+  return sharedDb;
+}
+
 export class DbService {
-  db: Kysely<DB>;
-
-  constructor() {
-    const dialect = new SqliteDialect({
-      database: new SQLite('data/db/test.db')
-    });
-
-    this.db = new Kysely<DB>({
-      dialect,
-      plugins: [new ParseJSONResultsPlugin()]
-    });
+  get db(): Kysely<DB> {
+    return getDb();
   }
 
   /**
@@ -37,7 +43,7 @@ export class DbService {
     ReturnType,
     SortType extends object
   >(
-    // eslint-disable-next-line @typescript-eslint/ban-types
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     selectFromAndWhere: SelectQueryBuilder<DB, TB, {}>,
     selectWithInclude: SelectQueryBuilder<DB, TB, ReturnType>,
     paginator: Paginator,

@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { PaginatedItems } from '../../models/pagination';
 import { CompanyDTO } from '../../models/types.dto';
 import {
@@ -6,12 +7,10 @@ import {
 } from '../../utils/test/test-utils';
 
 describe('Test companies functionality', () => {
-  test('Companies should trigger validation errors', (done) => {
-    getUrlForTesting('/companies', {
+  test('Companies should trigger validation errors', async () => {
+    await getUrlForTesting('/companies', {
       pageSize: 'ddcc'
-    })
-      .expect(422)
-      .end(done);
+    }).expect(422);
   });
 
   test('Get all companies without filters', async () => {

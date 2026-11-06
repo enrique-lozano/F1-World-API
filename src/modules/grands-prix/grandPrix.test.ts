@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { PaginatedItems } from '../../models/pagination';
 import { DriverDTO } from '../../models/types.dto';
 import {
@@ -6,12 +7,10 @@ import {
 } from '../../utils/test/test-utils';
 
 describe('Test grands prix functionality', () => {
-  test('Grands prix should trigger validation errors', (done) => {
-    getUrlForTesting('/grands-prix', {
+  test('Grands prix should trigger validation errors', async () => {
+    await getUrlForTesting('/grands-prix', {
       pageSize: 'ddcc'
-    })
-      .expect(422)
-      .end(done);
+    }).expect(422);
   });
 
   test('Get all grands prix without filters', async () => {

@@ -140,8 +140,10 @@ export interface EventEntrants {
   note: string | null;
 }
 
-export interface EventEntrantDTO
-  extends Omit<EventEntrants, EventEntrantOmittedAttr> {
+export interface EventEntrantDTO extends Omit<
+  EventEntrants,
+  EventEntrantOmittedAttr
+> {
   driver: DriverDTO | null;
   seasonEntrant: SeasonEntrantDTO | null;
   tyreManufacturer: TyreManufacturerDTO | null;
@@ -230,8 +232,10 @@ export interface TimedSessionResults {
   time: number | null;
 }
 
-export interface TimedSessionResultsDTO
-  extends Omit<TimedSessionResults, 'sessionId' | 'entrantId'> {
+export interface TimedSessionResultsDTO extends Omit<
+  TimedSessionResults,
+  'sessionId' | 'entrantId'
+> {
   session: EventDTO | null;
   entrant: EventEntrantDTO | null;
 }
@@ -252,8 +256,10 @@ export interface RaceResults {
   reasonRetired: string | null;
 }
 
-export interface RaceResultDTO
-  extends Omit<RaceResults, 'sessionId' | 'entrantId'> {
+export interface RaceResultDTO extends Omit<
+  RaceResults,
+  'sessionId' | 'entrantId'
+> {
   session: EventDTO | null;
   entrant: EventEntrantDTO | null;
 }
@@ -293,8 +299,10 @@ export interface TyreManufacturers {
   secondaryColor: string;
 }
 
-export interface TyreManufacturerDTO
-  extends Omit<TyreManufacturers, 'countryId'> {
+export interface TyreManufacturerDTO extends Omit<
+  TyreManufacturers,
+  'countryId'
+> {
   country: CountryDTO | null;
 }
 

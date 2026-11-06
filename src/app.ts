@@ -24,7 +24,7 @@ app.use(
   async (_req: Request, res: Response) => {
     return res.send(
       swaggerUi.generateHTML(swaggerJSON, {
-        customSiteTitle: 'Swagger - F1 World'
+        customSiteTitle: 'RaceDex API docs'
       })
     );
   }

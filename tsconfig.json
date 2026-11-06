@@ -1,32 +1,24 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
-    "baseUrl": ".",
     "outDir": "dist",
-    "emitDecoratorMetadata": true,
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "Node20",
     "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "strict": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
     "noImplicitAny": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
     "useUnknownInCatchVariables": false,
-    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "importHelpers": true,
-    "target": "ESNext",
-    "module": "CommonJS",
-    "lib": ["ESNext"],
-    "esModuleInterop": true,
-    "paths": {
-      "*": ["node_modules/*"]
-    }
+    "sourceMap": true,
+    "types": ["node"]
   },
-  "include": ["src/**/*", "src/controllers/.controller.ts", "data/**/*"]
+  "include": ["src/**/*", "data/**/*"]
 }

@@ -12,8 +12,10 @@ import { SeasonEntrantService } from '../seasonEntrant.controller';
 import { TyreManufacturerService } from '../tyreManufacturer.controller';
 import { SessionEntrantController } from './sessionEntrant.controller';
 
-export interface EntrantQueryParam
-  extends Omit<SessionEntrantQueryParams, 'round' | 'session'> {}
+export interface EntrantQueryParam extends Omit<
+  SessionEntrantQueryParams,
+  'round' | 'session'
+> {}
 
 export class SessionEntrantService
   extends DbService

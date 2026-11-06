@@ -52,7 +52,7 @@ export class ParamsBuilderService extends DbService {
             `${fromTable}.entrantId`
           )
           .where('sessionEntrants.driverId', '==', obj.driverId!)
-    );
+    ) as unknown as SelectQueryBuilder<DB, T, Partial<unknown>>;
   }
 
   getResultsWithParamas<T extends resultsTables>(

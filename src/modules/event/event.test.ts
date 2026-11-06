@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { PaginatedItems } from '../../models/pagination';
 import { EventDTO } from '../../models/types.dto';
 import {
@@ -6,12 +7,10 @@ import {
 } from '../../utils/test/test-utils';
 
 describe('Test events functionality', () => {
-  test('Companies should trigger validation errors', (done) => {
-    getUrlForTesting('/events', {
+  test('Companies should trigger validation errors', async () => {
+    await getUrlForTesting('/events', {
       pageSize: 'ddcc'
-    })
-      .expect(422)
-      .end(done);
+    }).expect(422);
   });
 
   test('Get all events without filters', async () => {

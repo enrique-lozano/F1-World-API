@@ -1,5 +1,4 @@
-import { Kysely, sql } from 'kysely';
-import { OrderByDirection } from 'kysely/dist/cjs/parser/order-by-parser';
+import { Kysely, sql, type OrderByDirection } from 'kysely';
 import { DB } from './../models/types.dto';
 
 /** Support for order with nulls (see [this GitHub issue](https://github.com/kysely-org/kysely/issues/714)) */

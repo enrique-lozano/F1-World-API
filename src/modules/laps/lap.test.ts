@@ -1,4 +1,4 @@
-import { describe } from 'node:test';
+import { describe, expect, test } from 'vitest';
 import { PaginatedItems } from '../../models/pagination';
 import { LapTimeDTO } from '../../models/types.dto';
 import {
@@ -7,20 +7,16 @@ import {
 } from '../../utils/test/test-utils';
 
 describe('Test lap times functionality', () => {
-  test('Laps should trigger validation errors', (done) => {
-    getUrlForTesting('/laps', {
+  test('Laps should trigger validation errors', async () => {
+    await getUrlForTesting('/laps', {
       season: 'ddcc'
-    })
-      .expect(422)
-      .end(done);
+    }).expect(422);
   });
 
-  test('Laps should trigger validation errors', (done) => {
-    getUrlForTesting('/laps/fastest', {
+  test('Laps should trigger validation errors', async () => {
+    await getUrlForTesting('/laps/fastest', {
       season: 'ddcc'
-    })
-      .expect(422)
-      .end(done);
+    }).expect(422);
   });
 
   test('Default laps pagination limit works', async () => {
@@ -99,10 +95,9 @@ describe('Test lap times functionality', () => {
     expect(res.data.length).toBe(1);
   });
 
-  test('There are a lot of laps registered in the F1-World database!', async () => {
-    const res = await getUrlResponseForTesting<PaginatedItems<LapTimeDTO>>(
-      '/laps'
-    );
+  test('There are a lot of laps registered in the RaceDex database!', async () => {
+    const res =
+      await getUrlResponseForTesting<PaginatedItems<LapTimeDTO>>('/laps');
 
     expect(res.totalElements).toBeGreaterThan(50000);
   });
