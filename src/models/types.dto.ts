@@ -361,7 +361,7 @@ export interface TimedSessionResultsDTO extends Omit<
   TimedSessionResults,
   'sessionId' | 'entrantId'
 > {
-  session: EventDTO | null;
+  session: SessionDTO | null;
   entrant: EventEntrantDTO | null;
 }
 
@@ -386,7 +386,7 @@ export interface RaceResultDTO extends Omit<
   RaceResults,
   'sessionId' | 'entrantId'
 > {
-  session: EventDTO | null;
+  session: SessionDTO | null;
   entrant: EventEntrantDTO | null;
 }
 
