@@ -84,7 +84,8 @@ export class SessionEntrantService
         qb.select((eb) =>
           jsonObjectFrom(
             CompanyService.getCompaniesSelect(
-              eb.selectFrom('companies')
+              eb.selectFrom('companies'),
+              fieldsParam?.clone('chassisManufacturer')
             ).whereRef(
               'sessionEntrants.chassisManufacturerId',
               '==',
@@ -97,7 +98,8 @@ export class SessionEntrantService
         qb.select((eb) =>
           jsonObjectFrom(
             CompanyService.getCompaniesSelect(
-              eb.selectFrom('companies')
+              eb.selectFrom('companies'),
+              fieldsParam?.clone('engineManufacturer')
             ).whereRef(
               'sessionEntrants.engineManufacturerId',
               '==',
