@@ -1,5 +1,6 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
+import { IncludeParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { DB, GrandsPrixDTO } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
@@ -14,17 +15,36 @@ export class GrandPrixService
   implements Pick<GrandPrixController, 'get' | 'getById'>
 {
   static getGrandPrixSelect<T extends keyof DB>(
-    qb: SelectQueryBuilder<DB, T | 'grandsPrix', object>
+    qb: SelectQueryBuilder<DB, T | 'grandsPrix', object>,
+    fieldsParam?: IncludeParam
   ) {
+    fieldsParam ??= new IncludeParam();
+
+    const allSingleFields = [
+      'countryId',
+      'fullName',
+      'id',
+      'name',
+      'shortName'
+    ] as const;
+
     return (qb as SelectQueryBuilder<DB, 'grandsPrix', object>)
-      .select(['countryId', 'fullName', 'id', 'name', 'shortName'])
-      .select((eb) => [
-        jsonObjectFrom(
-          CountryService.getCountriesSelect(
-            eb.selectFrom('countries')
-          ).whereRef('grandsPrix.countryId', '==', 'countries.alpha2Code')
-        ).as('country')
-      ]) as SelectQueryBuilder<DB, 'grandsPrix' | T, GrandsPrixDTO>;
+      .select(
+        fieldsParam.getFilteredFieldsArrayWithPrefix(
+          allSingleFields,
+          'grandsPrix.'
+        )
+      )
+      .$if(fieldsParam.shouldSelectObject('country'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            CountryService.getCountriesSelect(
+              eb.selectFrom('countries'),
+              fieldsParam?.clone('country')
+            ).whereRef('grandsPrix.countryId', '==', 'countries.alpha2Code')
+          ).as('country')
+        )
+      ) as SelectQueryBuilder<DB, 'grandsPrix' | T, GrandsPrixDTO>;
   }
 
   async get(

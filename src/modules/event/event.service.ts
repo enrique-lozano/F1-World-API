@@ -1,4 +1,4 @@
-import { SelectQueryBuilder } from 'kysely';
+import { SelectQueryBuilder, sql } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
@@ -10,6 +10,7 @@ import {
   getSeasonFromIdColumn
 } from '../../utils/f1-sql-common-utils';
 import { CircuitService } from '../circuit/circuit.service';
+import { GrandPrixService } from '../grands-prix/grandPrix.service';
 import { EventController, EventQueryParams } from './event.controller';
 
 export class EventService
@@ -31,8 +32,26 @@ export class EventService
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'events', object>)
-      .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
-      .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
+      .select(
+        fieldsParam.getFilteredFieldsArrayWithPrefix(allSingleFields, 'events.')
+      )
+      .$if(fieldsParam.shouldSelectKey('season'), (qb) =>
+        qb.select(getSeasonFromIdColumn('events.id').as('season'))
+      )
+      .$if(fieldsParam.shouldSelectKey('round'), (qb) =>
+        qb.select(getRoundFromIdColumn('events.id').as('round'))
+      )
+      .$if(fieldsParam.shouldSelectObject('grandPrix'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            GrandPrixService.getGrandPrixSelect(
+              eb.selectFrom('grandsPrix'),
+              fieldsParam?.clone('grandPrix')
+            ).whereRef('events.grandPrixId', '==', 'grandsPrix.id')
+          ).as('grandPrix')
+        )
+      )
+      .$if(fieldsParam.shouldSelectObject('circuit'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
             CircuitService.getCircuitsSelect(
@@ -52,10 +71,21 @@ export class EventService
 
     const mainSelect = this.db
       .selectFrom('events')
-      .where(
-        'events.circuitId',
-        obj.circuitId ? '=' : 'like',
-        obj.circuitId ? obj.circuitId : '%%'
+      .$if(obj.circuitId != undefined, (qb) =>
+        qb.where('events.circuitId', '==', obj.circuitId!)
+      )
+      .$if(obj.grandPrixId != undefined, (qb) =>
+        qb.where('events.grandPrixId', '==', obj.grandPrixId!)
+      )
+      .$if(obj.season != undefined, (qb) =>
+        qb.where(getSeasonFromIdColumn('events.id'), '==', obj.season!)
+      )
+      .$if(obj.name != undefined, (qb) =>
+        qb.where(
+          sql`LOWER(events.name)`,
+          'like',
+          `%${obj.name!.toLocaleLowerCase()}%`
+        )
       );
 
     return this.paginateSelect(
@@ -65,7 +95,13 @@ export class EventService
         IncludeParam.fromFieldQueryParam(obj)
       ),
       paginator,
-      sorter
+      sorter,
+      {
+        id: sql.ref('events.id'),
+        name: sql.ref('events.name'),
+        season: getSeasonFromIdColumn('events.id'),
+        round: getRoundFromIdColumn('events.id')
+      }
     ).executeTakeFirstOrThrow();
   }
 

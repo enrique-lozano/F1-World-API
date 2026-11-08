@@ -45,4 +45,64 @@ describe('Test events functionality', () => {
 
     expect(res.id).toBeDefined();
   });
+
+  test('Events expose the season, the round and the grand prix', async () => {
+    const res = await getUrlResponseForTesting<EventDTO>('/events/2021/1');
+
+    expect(res.season).toBe(2021);
+    expect(res.round).toBe(1);
+    expect(res.grandPrix?.id).toBe('bahrain');
+    expect(res.circuit?.id).toBe('bahrain');
+  });
+
+  test('The circuit can be included alone', async () => {
+    const res = await getUrlResponseForTesting<EventDTO>('/events/2021/1', {
+      include: 'id,circuit.id'
+    });
+
+    expect(res).toEqual({ id: '2021-01', circuit: { id: 'bahrain' } });
+  });
+
+  test('Filter events by season', async () => {
+    const res = await getUrlResponseForTesting<PaginatedItems<EventDTO>>(
+      '/events',
+      { season: '2021', pageSize: '50' }
+    );
+
+    expect(res.totalElements).toBe(22);
+    expect(res.data.every((x) => x.season === 2021)).toBe(true);
+    expect(res.data.map((x) => x.round)).toEqual(
+      Array.from({ length: 22 }, (_, i) => i + 1)
+    );
+  });
+
+  test('Filter events by grand prix and sort them in descending order', async () => {
+    const res = await getUrlResponseForTesting<PaginatedItems<EventDTO>>(
+      '/events',
+      { grandPrixId: 'monaco', sort: '-id' }
+    );
+
+    expect(res.totalElements).toBeGreaterThan(60);
+    expect(res.data.every((x) => x.grandPrix?.id === 'monaco')).toBe(true);
+    expect(res.data[0].season).toBeGreaterThan(res.data[1].season);
+  });
+
+  test('Search events by name (case-insensitive)', async () => {
+    const res = await getUrlResponseForTesting<PaginatedItems<EventDTO>>(
+      '/events',
+      { name: 'MONACO', season: '2021' }
+    );
+
+    expect(res.totalElements).toBe(1);
+    expect(res.data[0].id).toBe('2021-05');
+  });
+
+  test('Sort events by round inside a season', async () => {
+    const res = await getUrlResponseForTesting<PaginatedItems<EventDTO>>(
+      '/events',
+      { season: '2021', sort: '-round', include: 'id,round' }
+    );
+
+    expect(res.data[0]).toEqual({ id: '2021-22', round: 22 });
+  });
 });

@@ -240,7 +240,13 @@ export interface Events {
 }
 
 export interface EventDTO extends Omit<Events, 'grandPrixId' | 'circuitId'> {
-  grandPrix: GrandsPrix | null;
+  /** Season (year) of the event, deduced from its ID */
+  season: number;
+
+  /** Round of the event inside its season, deduced from its ID */
+  round: number;
+
+  grandPrix: GrandsPrixDTO | null;
   circuit: CircuitDTO | null;
 }
 
