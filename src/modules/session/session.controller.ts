@@ -1,7 +1,7 @@
 import { Get, Path, Queries, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
 import { IncludeQueryParam } from '../../models/include-filter';
-import { PageQueryParams } from '../../models/pagination';
+import { CommonQueryParams } from '../../models/query-params';
 import { LapService } from '../laps/lap.service';
 import { PitStopService } from '../pit-stops/pitStop.service';
 import { SessionService } from './session.service';
@@ -42,26 +42,26 @@ export class SessionController extends CommonController {
     );
   }
 
-  /** Get info about all the pit stops in this session */
+  /** Get info about all the pit stops in this session. The results will be returned paginated, and accept the `include` and `sort` params */
   @Get('/{season}/{round}/{session}/pit-stops')
   getSessionPitStops(
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
-    @Queries() obj: PageQueryParams
+    @Queries() obj: CommonQueryParams
   ) {
     return this.tryKyselyExecution(
       new PitStopService().get({ round, season, session, ...obj })
     );
   }
 
-  /** Get info about all the laps in this session */
+  /** Get info about all the laps in this session. The results will be returned paginated, and accept the `include` and `sort` params (e.g. `sort=lap,pos`) */
   @Get('/{season}/{round}/{session}/laps')
   getSessionLaps(
     @Path() season: number,
     @Path() round: number,
     @Path() session: string,
-    @Queries() obj: PageQueryParams
+    @Queries() obj: CommonQueryParams
   ) {
     return this.tryKyselyExecution(
       new LapService().getLaps({ round, season, session, ...obj })
