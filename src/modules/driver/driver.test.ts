@@ -13,6 +13,12 @@ describe('Test drivers functionality', () => {
     }).expect(422);
   });
 
+  test('Sorting by an unknown attribute is a client error', async () => {
+    const res = await getUrlForTesting('/drivers', { sort: 'foo' }).expect(400);
+
+    expect(res.body.code).toBe('NO_SUCH_COLUMN');
+  });
+
   test('Get all drivers without filters', async () => {
     const res = await getUrlResponseForTesting<PaginatedItems<DriverDTO>>(
       '/drivers',

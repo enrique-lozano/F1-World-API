@@ -6,16 +6,7 @@ export class CommonController extends Controller {
     try {
       return await toReturn;
     } catch (err) {
-      if (!err.message) throw err;
-
-      const match = /no such column: (\w+)/.exec(err.message);
-
-      if (err.code == 'SQLITE_ERROR' && match) {
-        const missingColumn = match[1];
-        throw HttpException.noSuchColumn(missingColumn);
-      }
-
-      throw err;
+      throw HttpException.fromSqliteError(err) ?? err;
     }
   }
 }

@@ -89,6 +89,13 @@ app.use(function errorHandler(
     return res.status(err.status).json(err);
   }
 
+  // E.g. sorting by an attribute that does not exist (`?sort=foo`)
+  const sqliteException = HttpException.fromSqliteError(err);
+
+  if (sqliteException) {
+    return res.status(sqliteException.status).json(sqliteException);
+  }
+
   if (err instanceof Error) {
     console.error(err);
 

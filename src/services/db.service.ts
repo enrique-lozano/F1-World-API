@@ -1,8 +1,10 @@
 import { default as SQLite } from 'better-sqlite3';
 import {
+  Expression,
   Kysely,
   ParseJSONResultsPlugin,
   SelectQueryBuilder,
+  sql,
   SqliteDialect
 } from 'kysely';
 import { jsonArrayFrom } from 'kysely/helpers/sqlite';
@@ -45,6 +47,7 @@ export class DbService {
    * @param selectWithInclude Similar to the main select, with the same source and filters, but in this case with the attributes to include in the response. This select will be paginated
    * @param paginator Pagination data to paginate the `selectWithInclude` query
    * @param sorter Sort data to order the pages
+   * @param sortExpressions SQL expressions to sort by some keys of the `sort` param that are not plain columns (e.g. calculated fields). The rest of the keys are sorted by the column with the same name
    */
   protected paginateSelect<
     TB extends keyof DB,
@@ -55,7 +58,8 @@ export class DbService {
     selectFromAndWhere: SelectQueryBuilder<DB, TB, {}>,
     selectWithInclude: SelectQueryBuilder<DB, TB, ReturnType>,
     paginator: Paginator,
-    sorter?: Sorter<SortType>
+    sorter?: Sorter<SortType>,
+    sortExpressions?: Record<string, Expression<unknown>>
   ) {
     return selectFromAndWhere.select(({ fn, eb }) => [
       fn.countAll<number>().as('totalElements'),
@@ -65,10 +69,16 @@ export class DbService {
         selectWithInclude
           .limit(paginator.pageSize)
           .offset(paginator.sqlOffset)
-          .$if(
-            sorter != undefined && sorter.sqlStatementList != undefined,
-            (qb) => qb.orderBy(sorter!.sqlStatementList!)
-          )
+          .$call((qb) => {
+            for (const item of sorter?.sortItems ?? []) {
+              qb = qb.orderBy(
+                sortExpressions?.[item.key] ?? sql.ref(item.key),
+                item.direction
+              );
+            }
+
+            return qb;
+          })
       ).as('data')
     ]);
   }

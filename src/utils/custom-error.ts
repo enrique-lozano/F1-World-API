@@ -91,6 +91,20 @@ export class HttpException extends Error implements JsonApiError {
     });
   }
 
+  /** A 400 `HttpException` if the error was thrown by SQLite because the request referenced a column that does not exist (e.g. `?sort=foo`), `undefined` otherwise */
+  static fromSqliteError(err: unknown) {
+    if (
+      !(err instanceof Error) ||
+      (err as { code?: string }).code !== 'SQLITE_ERROR'
+    ) {
+      return undefined;
+    }
+
+    const match = /no such column: "?([\w.]+)"?/.exec(err.message);
+
+    return match ? HttpException.noSuchColumn(match[1]) : undefined;
+  }
+
   static noSuchColumn(missingColumn: string) {
     return HttpException.fromStatusAndCode(400, 'no_such_column', {
       detail: { column: missingColumn }
