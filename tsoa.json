@@ -4,7 +4,8 @@
   "spec": {
     "outputDirectory": "src",
     "specVersion": 3,
-    "basePath": "/api"
+    "basePath": "/api",
+    "operationIdTemplate": "{{controllerName}}_{{method.name}}"
   },
   "controllerPathGlobs": ["src/**/*.controller{.ts,.js}"],
   "routes": {
