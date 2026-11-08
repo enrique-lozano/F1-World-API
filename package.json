@@ -26,6 +26,7 @@
   "license": "AGPL-3.0-only",
   "dependencies": {
     "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.6",
     "csv-parser": "^3.2.1",
     "express": "^5.1.0",
     "i18next": "^26.7.2",
@@ -42,6 +43,7 @@
     "@eslint/js": "^9.39.5",
     "@softwaretechnik/dbml-renderer": "^1.0.31",
     "@types/better-sqlite3": "^9.6.0",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^24",
     "@types/supertest": "^7.2.1",

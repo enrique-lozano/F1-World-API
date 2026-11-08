@@ -1,4 +1,5 @@
 //const express = require('express');
+import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { ValidateError } from 'tsoa';
@@ -13,6 +14,9 @@ import {
 import { HttpException } from './utils/custom-error';
 
 const app = express();
+
+// The API only serves public, read-only data, so any website can consume it
+app.use(cors({ origin: '*', methods: ['GET', 'HEAD', 'OPTIONS'] }));
 
 // Language of the translated content (e.g. the country names), from `?locale=es`
 app.use((req: Request, res: Response, next: NextFunction) => {
