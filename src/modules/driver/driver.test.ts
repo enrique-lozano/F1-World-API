@@ -62,6 +62,14 @@ describe('Test drivers functionality', () => {
     expect(res.id).toBe(idToGet);
   });
 
+  test('The permanent number of the drivers is an integer string', async () => {
+    const res = await getUrlResponseForTesting<DriverDTO>(
+      '/drivers/max-verstappen'
+    );
+
+    expect(res.permanentNumber).toBe('33');
+  });
+
   test('Drivers expose their first and last season', async () => {
     const res = await getUrlResponseForTesting<DriverDTO>(
       '/drivers/fernando-alonso'
