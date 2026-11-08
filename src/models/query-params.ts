@@ -1,17 +1,10 @@
 import { IncludeQueryParam } from './include-filter';
+import { LocaleQueryParam } from './locale';
 import { PageQueryParams } from './pagination';
 import { SorterQueryParams } from './sorter';
 import { TimedSessionResults } from './types.dto';
 
-/** The optional `locale` query parameter, used to translate some content (e.g. the country names) */
-export interface LocaleQueryParam {
-  /**
-   * Language of the translated content, as a BCP 47 tag (`en`, `es`, `pt-BR`...).
-   *
-   * @default "en"
-   */
-  locale?: string;
-}
+export type { LocaleQueryParam } from './locale';
 
 /** A interface that define the query parameters needed for pagination, sorting and including resources.
  *

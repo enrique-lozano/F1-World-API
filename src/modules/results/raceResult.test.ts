@@ -24,4 +24,15 @@ describe('Test race results functionality', () => {
     expect(res[0].positionOrder).toBe(1);
     expect(res[0].entrant?.driver?.id).toBe('lewis-hamilton');
   });
+
+  test('The locale param is accepted by the endpoints with an include param', async () => {
+    const res = await getUrlResponseForTesting<RaceResultDTO[]>(
+      '/races/results/2021/1/R',
+      { include: 'entrant.driver.nationalityCountry', locale: 'es' }
+    );
+
+    expect(res[0].entrant?.driver?.nationalityCountry?.commonName).toBe(
+      'Reino Unido'
+    );
+  });
 });

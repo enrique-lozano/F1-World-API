@@ -1,11 +1,15 @@
+import { LocaleQueryParam } from './locale';
+
 /**
  * Interface to define the optional `include` query parameter according to JSON API specifications.
  * The `include` parameter allows clients to request related resources be included in the response.
  *
+ * It also accepts the `locale` param, since the included resources can have translated content.
+ *
  * @interface IncludeQueryParam
  * @see {@link https://jsonapi.org/format/#fetching-includes | JSON API Specification - Fetching Includes}
  * */
-export interface IncludeQueryParam {
+export interface IncludeQueryParam extends LocaleQueryParam {
   /**
    * A comma-separated string specifying the related resources or fields to include in the response.
    * If a relationship attribute is an object or has nested attributes, you can use dot notation to specify the attributes to include for that object.

@@ -1,3 +1,5 @@
+import { LocaleQueryParam } from './locale';
+
 export class PageMetadata {
   pageSize: number;
   totalElements: number;
@@ -39,8 +41,10 @@ export class Paginator implements PageQueryParams {
   }
 }
 
-/** Query params to be passed to the paginated routes in the controllers. They are optional for the user, the pagination will be created with default params when required */
-export interface PageQueryParams {
+/** Query params to be passed to the paginated routes in the controllers. They are optional for the user, the pagination will be created with default params when required.
+ *
+ * It also accepts the `locale` param, since the paginated resources can have translated content. */
+export interface PageQueryParams extends LocaleQueryParam {
   /**
    * Page to retrieve, starting at 0
    *
