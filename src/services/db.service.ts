@@ -47,7 +47,7 @@ export class DbService {
    * @param selectWithInclude Similar to the main select, with the same source and filters, but in this case with the attributes to include in the response. This select will be paginated
    * @param paginator Pagination data to paginate the `selectWithInclude` query
    * @param sorter Sort data to order the pages
-   * @param sortExpressions SQL expressions to sort by some keys of the `sort` param that are not plain columns (e.g. calculated fields). The rest of the keys are sorted by the column with the same name
+   * @param sortExpressions SQL expressions to sort by some keys of the `sort` param that are not plain columns (e.g. calculated fields), with the `null` values at the end. The rest of the keys are sorted by the column with the same name
    */
   protected paginateSelect<
     TB extends keyof DB,
@@ -71,10 +71,17 @@ export class DbService {
           .offset(paginator.sqlOffset)
           .$call((qb) => {
             for (const item of sorter?.sortItems ?? []) {
-              qb = qb.orderBy(
-                sortExpressions?.[item.key] ?? sql.ref(item.key),
-                item.direction
-              );
+              const expression = sortExpressions?.[item.key];
+
+              qb = expression
+                ? // Calculated fields can be null if there is no data, so put them at the end
+                  qb.orderBy(expression, (ob) =>
+                    (item.direction === 'desc'
+                      ? ob.desc()
+                      : ob.asc()
+                    ).nullsLast()
+                  )
+                : qb.orderBy(sql.ref(item.key), item.direction);
             }
 
             return qb;

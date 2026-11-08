@@ -129,6 +129,47 @@ export interface Constructors {
   photo: string | null;
 }
 
+export interface ConstructorDTO extends Omit<Constructors, 'countryId'> {
+  country: CountryDTO | null;
+
+  /** First season in which the constructor had at least one entry, that is, a car with its chassis appears in the results of a race, qualifying or free practice session. `null` if there are no results of this constructor */
+  firstSeason: number | null;
+
+  /** Last season in which the constructor had at least one entry, that is, a car with its chassis appears in the results of a race, qualifying or free practice session. `null` if there are no results of this constructor */
+  lastSeason: number | null;
+}
+
+/**
+ * Career statistics of a driver or a constructor. Only the main races (session `R`) are taken into account, except for the points.
+ */
+export interface CareerStats {
+  /** Number of races (session `R`) with at least one race result entry, classified or not (it includes `DNS`, `DNQ` and `WD` results) */
+  races: number;
+
+  /** Number of races (session `R`) with at least one result different from `DNS` (did not start), `DNQ` (did not qualify) and `WD` (withdrawn) */
+  starts: number;
+
+  /** Number of races (session `R`) won, that is, with a result in the first position (`positionText` = `1`). Sprint races are not counted */
+  wins: number;
+
+  /** Number of podium positions (`positionText` = `1`, `2` or `3`) obtained in the races (session `R`). A disqualified result is not a podium. For the constructors, each podium position of its cars counts */
+  podiums: number;
+
+  /** Number of races (session `R`) started from the first position of the grid (`gridPosition` = `1` in the race results). This is the pole position in almost all the races, but it may differ from the qualifying result if there were grid penalties */
+  poles: number;
+
+  /** Number of races (session `R`) in which the fastest lap of the race was set (`time` of the lap equal to the minimum of the session). Only available for the races with lap times (from 1996 onwards) */
+  fastestLaps: number;
+
+  /** Sum of the points of all the race results (main races and sprint races), including the results that were dropped from the championship. For the constructors this is the sum of the points of its drivers, which is not the same as the points of the constructors' championship */
+  points: number;
+}
+
+export interface DriverCareerStats extends CareerStats {
+  /** Number of drivers' world championships won, that is, seasons that the driver finished in the first position of the standings (see `/championships/{season}/drivers`). A season still in progress is counted if the driver leads it */
+  championships: number;
+}
+
 export interface Countries {
   alpha2Code: string;
   alpha3Code: string;
@@ -171,6 +212,16 @@ export interface DriverDTO extends Omit<Drivers, driverOmittedAttr> {
   countryOfBirthCountry: CountryDTO | null;
   nationalityCountry: CountryDTO | null;
   secondNationalityCountry: CountryDTO | null;
+
+  /** First season in which the driver had at least one entry, that is, appears in the results of a race, qualifying or free practice session. `null` if there are no results of this driver.
+   *
+   * Only returned by the `/drivers` endpoints, not when the driver is nested inside other resources */
+  firstSeason?: number | null;
+
+  /** Last season in which the driver had at least one entry, that is, appears in the results of a race, qualifying or free practice session. `null` if there are no results of this driver.
+   *
+   * Only returned by the `/drivers` endpoints, not when the driver is nested inside other resources */
+  lastSeason?: number | null;
 }
 
 export interface DriversFamilyRelationships {
