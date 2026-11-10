@@ -15,7 +15,7 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 7302,14,14,6484307,18,,62,0,1,0,,
 7294,15,15,6485021,7,,62,0,1,0,,
 7314,16,16,,2,,61,0,1,0,,
-7287,17,DNF,,16,,51,0,1,0,,Falla técnica
-7291,18,DNF,,8,,42,0,1,0,,Caja de cambios
-7309,19,DNF,,15,,0,0,1,0,,Colisión
-7293,20,WD,,—,,0,0,1,0,,
+7287,17,DNF,,16,,51,0,1,0,,Hydraulics
+7291,18,DNF,,8,,42,0,1,0,,Gearbox
+7309,19,DNF,,15,,0,0,1,0,,Collision damage
+7293,20,WD,,,,0,0,1,0,,

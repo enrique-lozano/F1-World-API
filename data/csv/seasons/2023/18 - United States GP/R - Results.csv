@@ -14,8 +14,8 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 7288,13,13,,12,,55,0,1,0,,
 7296,14,14,,PL,,55,0,1,0,,
 7307,15,15,,14,,55,0,1,0,,
-7294,16,DNF,,PL,,49,0,1,0,,Suspensión
-7300,17,DNF,,10,,10,0,1,0,,Daños por colisión
-7291,18,DNF,,8,,6,0,1,0,,Daños por colisión
+7294,16,DNF,,PL,,49,0,1,0,,Undertray
+7300,17,DNF,,10,,10,0,1,0,,Collision damage
+7291,18,DNF,,8,,6,0,1,0,,Collision damage
 7313,19,DSQ,,3,,56,0,1,0,,
 7311,20,DSQ,,1,,56,0,1,0,,

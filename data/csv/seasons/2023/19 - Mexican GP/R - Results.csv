@@ -16,6 +16,6 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 7287,15,15,7436411,9,,71,0,1,0,,
 7302,16,16,,19,,70,0,1,0,,
 7293,17,17,,PL,,66,0,1,0,,
-7294,18,DNF,,13,,47,0,1,0,,Retirado
-7296,19,DNF,,16,,31,0,1,0,,Accidente
-7284,20,DNF,,5,,1,0,1,0,,Daños por colisión
+7294,18,DNF,,13,,47,0,1,0,,Collision damage
+7296,19,DNF,,16,,31,0,1,0,,Suspension/Accident
+7284,20,DNF,,5,,1,0,1,0,,Collision damage
