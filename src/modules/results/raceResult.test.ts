@@ -36,3 +36,33 @@ describe('Test race results functionality', () => {
     );
   });
 });
+
+describe('Shared cars', () => {
+  test('A car driven by two drivers is marked as shared in both results', async () => {
+    const res = await getUrlResponseForTesting<RaceResultDTO[]>(
+      '/races/results/1951/4/R',
+      {
+        include:
+          'positionOrder,sharedCar,entrant.driver.id,entrant.driverNumber'
+      }
+    );
+
+    const winners = res.filter((x) => x.positionOrder === 1);
+
+    expect(winners.map((x) => x.entrant?.driver?.id).sort()).toEqual([
+      'juan-manuel-fangio',
+      'luigi-fagioli'
+    ]);
+    expect(winners.every((x) => x.sharedCar === 1)).toBe(true);
+    expect(winners.every((x) => x.entrant?.driverNumber === 8)).toBe(true);
+  });
+
+  test('A car driven by one driver is not shared', async () => {
+    const res = await getUrlResponseForTesting<RaceResultDTO[]>(
+      '/races/results/2021/1/R',
+      { include: 'sharedCar' }
+    );
+
+    expect(res.every((x) => x.sharedCar === 0)).toBe(true);
+  });
+});

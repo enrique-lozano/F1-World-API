@@ -1,4 +1,4 @@
-import { SelectQueryBuilder } from 'kysely';
+import { SelectQueryBuilder, sql } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { Get, Path, Queries, Route, Tags } from 'tsoa';
 import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
@@ -43,6 +43,22 @@ export class RaceResultService extends DbService {
 
     return (qb as SelectQueryBuilder<DB, 'raceResults', object>)
       .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
+      .$if(fieldsParam.shouldSelectKey('sharedCar'), (qb) =>
+        qb.select(
+          // Another row of the same session in the same position and with the same car number: a car driven by
+          // several drivers. Two cars tied in the same position would have different numbers.
+          // 1 or 0, like the other flags of the results (SQLite has no booleans)
+          sql<number>`EXISTS (
+            SELECT 1 FROM raceResults AS other
+            JOIN sessionEntrants AS otherEntrant ON otherEntrant.id = other.entrantId
+            JOIN sessionEntrants AS entrant ON entrant.id = raceResults.entrantId
+            WHERE other.sessionId = raceResults.sessionId
+              AND other.positionOrder = raceResults.positionOrder
+              AND other.entrantId != raceResults.entrantId
+              AND otherEntrant.driverNumber = entrant.driverNumber
+          )`.as('sharedCar')
+        )
+      )
       .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(

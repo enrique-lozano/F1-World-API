@@ -388,6 +388,8 @@ export interface RaceResultDTO extends Omit<
 > {
   session: SessionDTO | null;
   entrant: EventEntrantDTO | null;
+  /** 1 if the car was shared with other drivers (another result of this race has the same position and car number), 0 otherwise */
+  sharedCar: number;
 }
 
 export interface RedFlags {
