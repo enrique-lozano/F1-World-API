@@ -19,7 +19,7 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 1215,18,18,,31,,142,0,1,0,,Transmission
 1180,19,19,,6,,134,0,1,0,,Transmission
 1199,20,20,,28,,120,0,1,0,,Fuel pump
-1181,21,21,,27,,119,0,1,0,,Magneto
+1188,21,21,,27,,119,0,1,0,,Magneto
 1201,22,22,,13,,112,0,1,0,,Ignition
 1207,23,23,,23,,111,0,1,0,,Engine
 1174,24,24,,11,,90,0,1,0,,Fuel pump
@@ -28,7 +28,7 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 1204,27,27,,22,,54,0,1,0,,Accident
 1196,28,28,,30,,53,0,1,0,,Accident
 1202,29,29,,26,,53,0,1,0,,Accident
-1195,30,30,,29,,53,0,1,0,,Retirement
+1208,30,30,,29,,53,0,1,0,,Retirement
 1193,31,31,,1,,40,0,1,0,,Oil leak
 1186,32,32,,4,,39,0,1,0,,Spun off
 1177,33,33,,15,,10,0,1,0,,Engine

@@ -1,6 +1,6 @@
 entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsGained,timePenalty,reasonRetired
 1422,1,1,10787000,2,,101,8,1,8,,
-1423,2,2,,12,,100,3,1,3,,
+7378,2,2,,12,,100,3,1,3,,
 1425,2,2,,12,,100,3,1,3,,
 1429,3,3,,13,,99,4,1,4,,
 1440,4,4,,21,,98,3,1,3,,
@@ -10,7 +10,7 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 1431,8,8,,25,,94,0,1,0,,
 1435,9,9,,18,,94,0,1,0,,
 1424,10,10,,8,,92,0,1,0,,
-1425,10,10,,8,,92,0,1,0,,
+7379,10,10,,8,,92,0,1,0,,
 1445,11,11,,22,,88,0,1,0,,
 1428,12,DNF,,1,,94,1,0,1,,Axle
 1327,13,DNF,,5,,86,0,1,0,,Fuel system

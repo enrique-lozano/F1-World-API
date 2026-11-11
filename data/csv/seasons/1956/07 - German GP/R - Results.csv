@@ -6,11 +6,11 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 1462,5,5,,14,,19,2,1,2,,
 1471,6,NC,,19,,16,0,1,0,,
 1458,7,DNF,,21,,15,0,1,0,,Engine
-1423,8,DNF,,10,,14,0,1,0,,Accident
+7380,8,DNF,,10,,14,0,1,0,,Accident
 1453,8,DNF,,10,,14,0,1,0,,Accident
 1465,9,DNF,,20,,13,0,1,0,,Engine
 1460,10,DNF,,12,,13,0,1,0,,Overheating
-1424,11,DNF,,5,,11,0,1,0,,Accident
+1385,11,DNF,,5,,11,0,1,0,,Accident
 1452,11,DNF,,5,,11,0,1,0,,Accident
 1423,12,DNF,,2,,8,0,1,0,,Fuel leak
 1424,13,DNF,,3,,5,0,1,0,,Electrical
