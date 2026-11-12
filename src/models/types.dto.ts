@@ -94,6 +94,7 @@ export interface Circuits {
   id: string;
   name: string;
   fullName: string;
+  /** JSON array with the previous names of the circuit */
   previousNames: string | null;
   type: CircuitType;
   placeName: string;
@@ -102,8 +103,13 @@ export interface Circuits {
   longitude: string | null;
 }
 
-export interface CircuitDTO extends Omit<Circuits, 'countryId'> {
+// Separate type for the omitted attributes, see https://github.com/lukeautry/tsoa/issues/1238
+type circuitOmittedAttr = 'countryId' | 'previousNames';
+
+export interface CircuitDTO extends Omit<Circuits, circuitOmittedAttr> {
   country: CountryDTO | null;
+  /** Previous names of the circuit, from the oldest to the newest */
+  previousNames: string[] | null;
 }
 
 export interface Companies {
