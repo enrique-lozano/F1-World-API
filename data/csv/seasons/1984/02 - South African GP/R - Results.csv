@@ -23,3 +23,5 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 5757,22,DNF,,21,,22,0,1,0,,Gearbox
 5749,23,DNF,,6,,18,0,1,0,,Turbo
 5769,24,DNF,,16,,4,0,1,0,,Radiator
+5750,25,DSQ,,25,,71,0,1,0,,Illegal fuel and ballast
+5751,26,DSQ,,24,,60,0,1,0,,Illegal fuel and ballast

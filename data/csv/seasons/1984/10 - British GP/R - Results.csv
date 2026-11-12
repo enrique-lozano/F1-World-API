@@ -24,3 +24,5 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 5769,23,DNF,,18,,0,0,1,0,,Accident
 5756,24,DNF,,24,,0,0,1,0,,Accident
 5789,25,DNF,,25,,0,0,1,0,,Accident
+5751,26,DSQ,,26,,68,0,1,0,,Illegal fuel and ballast
+5786,27,DSQ,,25,,1,0,1,0,,Illegal fuel and ballast

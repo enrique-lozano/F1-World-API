@@ -23,3 +23,5 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 5748,22,DNF,,3,,11,0,1,0,,Turbo
 5760,23,DNF,,8,,5,0,1,0,,Clutch
 5756,24,DNF,,21,,4,0,1,0,,Electrical
+5750,25,DSQ,,23,,76,0,1,0,,Illegal fuel and ballast
+5751,26,DSQ,,20,,11,0,1,0,,Illegal fuel and ballast

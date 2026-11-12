@@ -23,3 +23,5 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 5775,22,DNF,,22,,2,0,1,0,,Tyre
 5760,23,DNF,,13,,0,0,1,0,,Engine
 5763,24,DNF,,20,,0,0,1,0,,Accident
+5750,25,DSQ,,11,,63,0,1,0,,Car underweight
+5751,26,DSQ,,16,,33,0,1,0,,Illegal fuel and ballast

@@ -24,3 +24,5 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 5748,23,DNF,,2,,10,0,1,0,,Oil pressure
 5770,24,DNF,,21,,8,0,1,0,,Fuel pump
 5773,25,DNF,,9,,7,0,1,0,,Engine
+5751,26,DSQ,,26,,69,0,1,0,,Illegal fuel and ballast
+5786,27,DSQ,,25,,69,0,1,0,,Illegal fuel and ballast

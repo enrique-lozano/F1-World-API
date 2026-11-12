@@ -14,11 +14,11 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 2132,12,12,,16,,76,0,1,0,,
 2139,13,13,,19,,72,0,1,0,,
 2137,14,14,,20,,70,0,1,0,,
-2141,14,DNF,,10,,42,0,1,0,,Gearbox
-2143,15,DNF,,14,,24,0,1,0,,Physical
-2150,15,DNF,,1,,40,0,1,0,,Suspension
-2135,16,DNF,,18,,10,0,1,0,,Overheating
-2149,16,DNF,,9,,63,0,1,0,,Fuel pump
-2154,16,DNF,,21,,23,0,1,0,,Physical
-2153,17,DNF,,3,,37,0,1,0,,Overheating
-2138,18,DNF,,22,,16,0,1,0,,Physical
+2149,15,DNF,,9,,63,0,1,0,,Fuel pump
+2141,16,DNF,,10,,42,0,1,0,,Gearbox
+2150,17,DNF,,1,,40,0,1,0,,Suspension
+2153,18,DNF,,3,,37,0,1,0,,Overheating
+2143,19,DNF,,14,,24,0,1,0,,Physical
+2154,20,DNF,,21,,23,0,1,0,,Physical
+2138,21,DNF,,22,,16,0,1,0,,Physical
+2135,22,DNF,,18,,10,0,1,0,,Overheating

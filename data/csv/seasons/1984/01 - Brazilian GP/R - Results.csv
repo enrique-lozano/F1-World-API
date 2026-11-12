@@ -6,7 +6,6 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 5761,5,5,,8,,59,2,1,2,,Out of fuel
 5764,6,6,,19,,59,1,1,1,,
 5763,7,7,,22,,59,0,1,0,,
-5750,8,DNQ,,24,,,0,1,0,,
 5757,8,8,,24,,58,0,1,0,,
 5762,9,DNF,,3,,51,0,1,0,,Suspension
 5772,10,DNF,,14,,42,0,1,0,,Gearbox
@@ -24,3 +23,5 @@ entrantId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,p
 5773,22,DNF,,2,,14,0,1,0,,Brakes
 5767,23,DNF,,21,,12,0,1,0,,Distributor
 5765,24,DNF,,16,,8,0,1,0,,Turbo
+5750,25,DSQ,,18,,60,0,1,0,,Illegal fuel and ballast
+5751,26,DSQ,,22,,11,0,1,0,,Illegal fuel and ballast
