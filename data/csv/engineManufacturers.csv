@@ -1,76 +1,79 @@
-id,name,countryId
-acer,Acer,TW
-alfa-romeo,Alfa Romeo,IT
-alta,Alta,GB
-arrows,Arrows,GB
-asiatech,Asiatech,FR
-aston-martin,Aston Martin,GB
-ats,ATS,IT
-bmw,BMW,DE
-borgward,Borgward,DE
-bpm,BPM,IT
-bristol,Bristol,GB
-brm,BRM,GB
-bugatti,Bugatti,FR
-butterworth,Butterworth,GB
-castellotti,Castellotti,IT
-climax,Climax,GB
-cosworth,Cosworth,GB
-cummins,Cummins,US
-de-tomaso,De Tomaso,IT
-emw,EMW,DE
-era,ERA,GB
-european,European,GB
-ferrari,Ferrari,IT
-fondmetal,Fondmetal,IT
-ford,Ford,US
-gordini,Gordini,FR
-hart,Hart,GB
-honda,Honda,JP
-ilmor,Ilmor,GB
-jaguar,Jaguar,GB
-jap,JAP,GB
-judd,Judd,GB
-kuchen,Küchen,DE
-lamborghini,Lamborghini,IT
-lancia,Lancia,IT
-lea-francis,Lea Francis,GB
-life,Life,IT
-maserati,Maserati,IT
-matra,Matra,FR
-mecachrome,Mecachrome,FR
-megatron,Megatron,DE
-mercedes,Mercedes,DE
-milano,Milano,IT
-motori-moderni,Motori Moderni,IT
-mugen-honda,Mugen-Honda,JP
-novi,Novi,US
-offenhauser,Offenhauser,US
-osca,OSCA,IT
-osella,Osella,IT
-petronas,Petronas,MY
-peugeot,Peugeot,FR
-plate,Platé,IT
-playlife,Playlife,IT
-porsche,Porsche,DE
-pratt-whitney,Pratt & Whitney,US
-red-bull-powertrains,Red Bull Powertrains,AT
-renault,Renault,FR
-repco,Repco,AU
-sauber,Sauber,CH
-scarab,Scarab,US
-serenissima,Serenissima,IT
-simca-gordini,Simca-Gordini,FR
-subaru,Subaru,JP
-supertec,Supertec,NL
-tag-heuer,TAG Heuer,CH
-tag,TAG,LU
-talbot-lago,Talbot-Lago,FR
-tecno,Tecno,IT
-toro-rosso,Toro Rosso,IT
-toyota,Toyota,JP
-vanwall,Vanwall,GB
-veritas,Veritas,DE
-weslake,Weslake,GB
-yamaha,Yamaha,JP
-zakspeed,Zakspeed,DE
+id,companyId,name,countryId
+acer,acer,Acer,TW
+alfa-romeo,alfa-romeo,Alfa Romeo,IT
+alta,alta,Alta,GB
+arrows,arrows,Arrows,GB
+asiatech,asiatech,Asiatech,FR
+aston-martin,aston-martin,Aston Martin,GB
+ats,ats,ATS,IT
+bmw,bmw,BMW,DE
+borgward,borgward,Borgward,DE
+bpm,bpm,BPM,IT
+bristol,bristol,Bristol,GB
+brm,brm,BRM,GB
+bugatti,bugatti,Bugatti,FR
+butterworth,butterworth,Butterworth,GB
+cadillac,cadillac,Cadillac,US
+castellotti,castellotti,Castellotti,IT
+chrysler,chrysler,Chrysler,US
+climax,climax,Climax,GB
+cosworth,cosworth,Cosworth,GB
+cummins,cummins,Cummins,US
+de-tomaso,de-tomaso,De Tomaso,IT
+dodge,dodge,Dodge,US
+emw,emw,EMW,DE
+era,era,ERA,GB
+european,european,European,GB
+ferrari,ferrari,Ferrari,IT
+fondmetal,fondmetal,Fondmetal,IT
+ford,ford,Ford,US
+gordini,gordini,Gordini,FR
+hart,hart,Hart,GB
+honda,honda,Honda,JP
+ilmor,ilmor,Ilmor,GB
+jaguar,jaguar,Jaguar,GB
+jap,jap,JAP,GB
+judd,judd,Judd,GB
+kuchen,kuchen,Küchen,DE
+lamborghini,lamborghini,Lamborghini,IT
+lancia,lancia,Lancia,IT
+lea-francis,lea-francis,Lea Francis,GB
+life,life,Life,IT
+maserati,maserati,Maserati,IT
+matra,matra,Matra,FR
+mecachrome,mecachrome,Mecachrome,FR
+megatron,megatron,Megatron,DE
+mercedes,mercedes,Mercedes,DE
+milano,milano,Milano,IT
+motori-moderni,motori-moderni,Motori Moderni,IT
+mugen-honda,mugen-honda,Mugen-Honda,JP
+novi,novi,Novi,US
+offenhauser,offenhauser,Offenhauser,US
+osca,osca,OSCA,IT
+osella,osella,Osella,IT
+petronas,petronas,Petronas,MY
+peugeot,peugeot,Peugeot,FR
+plate,plate,Platé,IT
+playlife,playlife,Playlife,IT
+porsche,porsche,Porsche,DE
+pratt-whitney,pratt-whitney,Pratt & Whitney,US
+red-bull-powertrains,red-bull-powertrains,Red Bull Powertrains,AT
+renault,renault,Renault,FR
+repco,repco,Repco,AU
+sauber,sauber,Sauber,CH
+scarab,scarab,Scarab,US
+serenissima,serenissima,Serenissima,IT
+simca-gordini,simca-gordini,Simca-Gordini,FR
+subaru,subaru,Subaru,JP
+supertec,supertec,Supertec,NL
+tag,tag,TAG,LU
+tag-heuer,tag-heuer,TAG Heuer,CH
+talbot-lago,talbot-lago,Talbot-Lago,FR
+tecno,tecno,Tecno,IT
+toro-rosso,toro-rosso,Toro Rosso,IT
+toyota,toyota,Toyota,JP
+vanwall,vanwall,Vanwall,GB
+veritas,veritas,Veritas,DE
+weslake,weslake,Weslake,GB
+yamaha,yamaha,Yamaha,JP
+zakspeed,zakspeed,Zakspeed,DE

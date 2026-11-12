@@ -12,7 +12,7 @@ import {
 } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
-import { SessionEntrantService } from '../session-entrants/sessionEntrant.service';
+import { EntryService } from '../entries/entry.service';
 import { SessionService } from '../session/session.service';
 import { ParamsBuilderService } from './../paramsBuilder.service';
 
@@ -44,18 +44,14 @@ export class QualifyingResultService extends DbService {
           ).as('session')
         )
       )
-      .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
+      .$if(fieldsParam.shouldSelectObject('entry'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
-            SessionEntrantService.getEventEntrantSelect(
-              eb.selectFrom('sessionEntrants'),
-              fieldsParam?.clone('entrant')
-            ).whereRef(
-              'qualifyingResults.entrantId',
-              '==',
-              'sessionEntrants.id'
-            )
-          ).as('entrant')
+            EntryService.getEntrySelect(
+              eb.selectFrom('entries'),
+              fieldsParam?.clone('entry')
+            ).whereRef('qualifyingResults.entryId', '==', 'entries.id')
+          ).as('entry')
         )
       ) as SelectQueryBuilder<
       DB,

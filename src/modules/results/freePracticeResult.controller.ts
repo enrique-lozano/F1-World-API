@@ -13,7 +13,7 @@ import {
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { ParamsBuilderService } from '../paramsBuilder.service';
-import { SessionEntrantService } from '../session-entrants/sessionEntrant.service';
+import { EntryService } from '../entries/entry.service';
 import { SessionService } from '../session/session.service';
 
 @Route('free-practices')
@@ -44,14 +44,14 @@ export class FreePracticeResultService extends DbService {
           ).as('session')
         )
       )
-      .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
+      .$if(fieldsParam.shouldSelectObject('entry'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
-            SessionEntrantService.getEventEntrantSelect(
-              eb.selectFrom('sessionEntrants'),
-              fieldsParam?.clone('entrant')
-            ).whereRef('fpResults.entrantId', '==', 'sessionEntrants.id')
-          ).as('entrant')
+            EntryService.getEntrySelect(
+              eb.selectFrom('entries'),
+              fieldsParam?.clone('entry')
+            ).whereRef('fpResults.entryId', '==', 'entries.id')
+          ).as('entry')
         )
       ) as SelectQueryBuilder<DB, 'fpResults' | T, TimedSessionResultsDTO>;
   }

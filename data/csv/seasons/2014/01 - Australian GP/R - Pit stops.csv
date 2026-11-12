@@ -1,4 +1,4 @@
-entrantId,lap,time,timeOfDay,annotation
+entryId,lap,time,timeOfDay,annotation
 7003,1,17255,17:09:56,Drive-through
 7012,1,32657,17:10:12,
 7006,1,25541,17:10:14,

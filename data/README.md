@@ -50,9 +50,17 @@ npm run import-db && npm run docs:db
 
 The `.dbml` file can also be pasted into [dbdiagram.io](https://dbdiagram.io) to explore or publish it.
 
+## Teams, constructors, chassis and engines
+
+- An **entrant** (`entrants`) is who registers and runs the cars: the "team". Its identity lasts for the whole history, and a sale or rename creates a new entrant linked in `entrantSuccessions`. Per-season facts (own constructor, licence nationality) are in `entrantSeasons`.
+- A **constructor** (`constructors`) designs the chassis (`chassis`). A team can race the chassis of another constructor.
+- An **entry** (`entries`) is a driver in a car configuration: entrant season, registered name (`entrantName`, sponsors included), chassis, engine (`engines`, with who built it) and, if the engine is rebadged, its brand (`engineBrandId`). The results of every session refer to an entry.
+- The Constructors' Championship is not stored: the API calculates it from the race results (`pointsCountForWCC` marks the results that do not score for it).
+
 ## Notes for maintainers
 
 - The order of the tables in [`constants.ts`](constants.ts) matters: parents must come before the tables that reference them.
+- The comments of [`schema.sql`](schema.sql) are documentation: a comment at the end of a column line is the note of that column, and the comment lines right above `DROP TABLE IF EXISTS <table>;` are the note of the table. A simple `CHECK (<column> IN ('A', 'B'))` becomes an enum. `npm run docs:db` turns all of it (plus the indexes) into `docs/database.dbml`.
 - The import disables foreign keys while loading and runs a `foreign_key_check` at the end, printing a warning if some row references a missing parent.
 - Indexes live in [`indexes.sql`](indexes.sql) and are created after the rows are loaded. When adding a table or a foreign key, add its index there.
 - Foreign key columns must use the same type and `COLLATE` as the column they reference, otherwise SQLite cannot use their index in joins.

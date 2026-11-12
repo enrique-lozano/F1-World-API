@@ -54,14 +54,14 @@ describe('Test pit stops functionality', () => {
         round: '2',
         session: 'R',
         driverId: 'lewis-hamilton',
-        include: 'lap,entrant.driver.id'
+        include: 'lap,entry.driver.id'
       }
     );
 
     expect(res.totalElements).toBe(1);
     expect(res.data[0]).toEqual({
       lap: 27,
-      entrant: { driver: { id: 'lewis-hamilton' } }
+      entry: { driver: { id: 'lewis-hamilton' } }
     });
   });
 

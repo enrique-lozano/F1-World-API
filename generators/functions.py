@@ -24,7 +24,7 @@ def is_number(s):
     except ValueError:
         return False
 
-def find_entrant_id(driver_name: str, car_name: str = ""):
+def find_entry_id(driver_name: str, car_name: str = ""):
     # driver_name = unidecode(driver_name).replace("-", " ")
 
     def get_driver_api_path(driver:str):
@@ -47,16 +47,16 @@ def find_entrant_id(driver_name: str, car_name: str = ""):
     to_return = []
 
     for driver in results:
-        possible_entrants = make_api_call(
-            f"{API_PATH}/session-entrants?driverId={driver["id"]}&season={SEASON}&include=id")
+        possible_entries = make_api_call(
+            f"{API_PATH}/entries?driverId={driver["id"]}&season={SEASON}&include=id")
                 
-        for entrant in list(possible_entrants["data"]):
-            to_return.append(entrant["id"])
+        for entry in list(possible_entries["data"]):
+            to_return.append(entry["id"])
 
     if(len(results) > 0):
         return "???".join(to_return)
     
-    print(f"[WARN]: Driver entrant not found for {driver_name}")
+    print(f"[WARN]: Driver entry not found for {driver_name}")
     
     return "???"
 

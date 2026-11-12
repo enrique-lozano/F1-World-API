@@ -1,4 +1,4 @@
-entrantId,positionOrder,positionText,laps,time
+entryId,positionOrder,positionText,laps,time
 2989,1,1,,97400
 2996,2,2,,98200
 3102,3,3,,98700
@@ -21,6 +21,6 @@ entrantId,positionOrder,positionText,laps,time
 3121,20,20,,103000
 3115,21,21,,103300
 3113,22,22,,103800
-,23,23,,104100
+7399,23,23,,104100
 3104,24,24,,108500
 3119,25,25,,112200

@@ -1,4 +1,4 @@
-entrantId,lap,time,timeOfDay,annotation
+entryId,lap,time,timeOfDay,annotation
 6323,11,57255,14:16:24,
 6311,15,45367,14:22:12,
 6332,18,29263,14:25:05,

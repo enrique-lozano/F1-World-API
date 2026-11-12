@@ -2,37 +2,93 @@ Project racedex {
   database_type: 'SQLite'
 }
 
-Table countries {
-  alpha2Code varchar [pk]
-  alpha3Code varchar [not null]
-  region varchar [not null]
-  subregion varchar
+Enum circuits_type {
+  RACE
+  ROAD
+  STREET
 }
 
-Table constructors {
-  id varchar [pk]
-  name varchar [not null]
-  fullName varchar [not null]
-  countryId varchar [not null]
-  wikiUrl varchar
-  summary varchar
-  photo varchar
+Enum drivers_gender {
+  MALE
+  FEMALE
+}
+
+Enum driversFamilyRelationships_AisToB {
+  CHILD
+  CHILD_IN_LAW
+  GRANDCHILD
+  GRANDPARENT
+  GRANDPARENTS_SIBLING
+  HALF_SIBLING
+  PARENT
+  PARENT_IN_LAW
+  PARENTS_SIBLING
+  PARENTS_SIBLINGS_CHILD
+  SIBLING
+  SIBLING_IN_LAW
+  SIBLINGS_CHILD
+  SIBLINGS_CHILD_IN_LAW
+  SIBLINGS_GRANDCHILD
+}
+
+Enum engines_aspiration {
+  NATURALLY_ASPIRATED
+  SUPERCHARGED
+  TURBOCHARGED
+}
+
+Enum entrantSuccessions_type {
+  MERGER
+  RENAME
+  REVIVAL
+  TAKEOVER
+}
+
+Table countries {
+  alpha2Code varchar [pk]
+  alpha3Code varchar [not null, unique]
+  region varchar [not null]
+  subregion varchar
 }
 
 Table companies {
   id varchar [pk]
   name varchar [not null]
   fullName varchar [not null]
-  countryId varchar [not null]
+  countryId varchar [not null, note: 'country of origin, NOT the licence nationality']
   founder varchar
   yearFounded integer
+
+  Note: 'One company can play several roles (Honda: engine manufacturer + constructor + entrant).'
 }
 
-Table previousNextConstructors {
-  constructorId varchar [pk]
-  parentConstructorId varchar [pk]
-  yearFrom integer [pk]
-  yearTo integer
+Table constructors {
+  id varchar [pk]
+  companyId varchar [not null]
+  name varchar [not null]
+  fullName varchar [not null]
+  countryId varchar [not null, note: 'country of origin of the marque; the licence nationality is per season (entrantSeasons)']
+  wikiUrl varchar
+  summary varchar
+  photo varchar
+
+  indexes {
+    companyId
+  }
+
+  Note: 'Designer of the FIA "Listed Parts" (the chassis). It has no lineage: lineage belongs to entrants. Includes specialist builders (Lola, Dallara).'
+}
+
+Table chassis {
+  id varchar [pk, note: '<constructorId>-<name slug>, e.g. tyrrell-012. <constructorId>-unknown when the name is unknown']
+  constructorId varchar [not null, note: 'who designed it, whatever the entrant declared (Larrousse 1990 = lola)']
+  name varchar [note: 'model (012, MP4/4, LH95). NULL only for the <constructorId>-unknown placeholders']
+
+  indexes {
+    constructorId
+  }
+
+  Note: 'A chassis model. The same chassis can be raced by many entrants (customers, privateers).'
 }
 
 Table circuits {
@@ -40,7 +96,7 @@ Table circuits {
   name varchar [not null]
   fullName varchar [not null]
   previousNames varchar
-  type varchar [not null]
+  type circuits_type [not null]
   placeName varchar [not null]
   countryId varchar [not null]
   latitude decimal
@@ -63,30 +119,60 @@ Table drivers {
   fullName varchar [not null]
   abbreviation varchar [not null]
   permanentNumber varchar
-  gender varchar [not null]
-  dateOfBirth varchar [not null]
+  gender drivers_gender [not null]
+  dateOfBirth varchar [not null, note: 'YYYY-MM-DD']
   dateOfDeath varchar
   placeOfBirth varchar [not null]
   countryOfBirthCountryId varchar [not null]
   nationalityCountryId varchar [not null]
   secondNationalityCountryId varchar
   photo varchar
+
+  indexes {
+    nationalityCountryId
+  }
 }
 
 Table driversFamilyRelationships {
-  driverA varchar [pk]
-  driverB varchar [pk]
-  AisToB varchar [pk]
+  driverA varchar
+  driverB varchar
+  AisToB driversFamilyRelationships_AisToB
+
+  indexes {
+    (driverA, driverB, AisToB) [pk]
+    driverB
+  }
 }
 
 Table engineManufacturers {
   id varchar [pk]
+  companyId varchar [not null]
   name varchar [not null]
   countryId varchar [not null]
+
+  Note: 'Builds engines. Also used as the BRAND of a rebadged engine (Ford on a Cosworth, TAG Heuer on a Renault).'
+}
+
+Table engines {
+  id varchar [pk, note: '<manufacturerId>-<name slug>, e.g. cosworth-dfy. Engines without a name use their specification']
+  manufacturerId varchar [not null, note: 'who actually BUILT it (Cosworth for the Ford DFV)']
+  name varchar [note: 'model: DFY, EF4B, 158. NULL when the source only has the specification ("L4 4.5")']
+  layout varchar [note: 'V, L (inline), F (flat), W, H']
+  cylinders integer
+  displacement decimal [note: 'litres, as in the source names (3.0, 1.5)']
+  aspiration engines_aspiration [not null, note: 'SUPERCHARGED = "c" (compressor), TURBOCHARGED = "t"']
+  hybrid boolean [not null, default: 0, note: '"h" in the source names']
+
+  indexes {
+    manufacturerId
+  }
+
+  Note: 'An engine model, parsed from the old free-text names, e.g. "Energy F1 2014 V6 t h 1.6" = name Energy F1 2014, V6, 1.6 l, turbocharged, hybrid.'
 }
 
 Table tyreManufacturers {
   id varchar [pk]
+  companyId varchar [not null]
   name varchar [not null]
   countryId varchar [not null]
   primaryColor varchar [not null]
@@ -101,107 +187,191 @@ Table events {
   circuitId varchar [not null]
   scheduledLaps integer
   posterURL varchar
+
+  indexes {
+    circuitId
+    grandPrixId
+  }
 }
 
 Table sessions {
   id varchar [pk]
   eventId varchar [not null]
   abbreviation text [not null]
-  startDateTime varchar
+  startDateTime varchar [note: 'ISO 8601 (UTC), e.g. 1950-05-13T00:00:00Z']
+
+  indexes {
+    eventId
+  }
 }
 
 Table redFlags {
-  eventId varchar [pk]
-  lap integer [pk]
-  incident varchar [pk]
+  eventId varchar
+  lap integer
+  incident varchar
   excluded varchar
   resumed varchar
+
+  indexes {
+    (eventId, lap, incident) [pk]
+  }
 }
 
 Table safetyCars {
-  eventId varchar [pk]
-  deployed integer [pk]
+  eventId varchar
+  deployed integer
   fullLaps integer
   retreated integer
   cause varchar
+
+  indexes {
+    (eventId, deployed) [pk]
+  }
 }
 
-Table seasonEntrants {
-  id varchar [pk]
+Table entrants {
+  id varchar [pk, note: 'scuderia-ferrari, tyrrell-racing, rrc-walker-racing-team']
+  name varchar [not null, note: 'clean team name, no sponsors: the most recent or best-known one']
+  companyId varchar [note: 'NULL for private individuals and for the "private entry" placeholder']
+
+  Note: 'Who registers and runs the cars (the "team", e.g. Tyrrell 1966-98); its identity holds for the whole history. The registered names, sponsors included, live in entries.entrantName.'
+}
+
+Table entrantSuccessions {
+  predecessorId varchar
+  successorId varchar
+  year integer [note: 'first season of the successor']
+  type entrantSuccessions_type [not null, note: 'RENAME: same organisation, new name (Racing Point -> Aston Martin); TAKEOVER: sold or bought (Tyrrell -> BAR); REVIVAL: returns after a gap']
+
+  indexes {
+    (predecessorId, successorId, year) [pk]
+    successorId
+  }
+
+  Note: 'Handover of a team to another entrant. A chain: tyrrell-racing -> bar (1999) -> honda-racing (2006) -> brawn-gp (2009) -> mercedes (2010).'
+}
+
+Table entrantSeasons {
+  id varchar [pk, note: '<season>-<entrantId>, e.g. 2021-scuderia-ferrari']
+  entrantId varchar [not null]
   season integer [not null]
-  name varchar [not null]
-  countryId varchar [not null]
+  ownConstructorId varchar [note: 'constructor whose chassis the team builds itself that season. NULL = customer team (Tyrrell with Matra in 1968-69)']
+  licenceCountryId varchar [note: 'nationality of the ASN that issued the licence (decides the anthem), NOT where it is based or owned: Wolf = CA, Jordan 1998 = IE. NULL when unknown']
+
+  indexes {
+    (entrantId, season) [unique]
+    ownConstructorId
+    season
+  }
+
+  Note: 'Facts of an entrant that hold for a whole season. The sponsor name is NOT here, since it can change within a season (Ferrari 2021): see entries.entrantName.'
 }
 
-Table sessionEntrants {
+Table entries {
   id varchar [pk]
   driverId varchar [not null]
   driverNumber integer [not null]
-  seasonEntrantId varchar
-  entrantName varchar [not null]
-  chassisManufacturerId varchar [not null]
-  chassisName varchar
-  engineName varchar
-  engineManufacturerId varchar [not null]
+  entrantSeasonId varchar [not null]
+  entrantName varchar [not null, note: 'registered name, sponsors included. It can change within a season: each name is its own row (Ferrari 2021)']
+  chassisId varchar [not null]
+  engineId varchar [not null, note: 'who built the engine']
+  engineBrandId varchar [note: 'brand the engine is sold under when it differs from the builder (Ford on a Cosworth). NULL = the builder']
   tyreManufacturerId varchar
-  note varchar
+  note varchar [note: '"TD" in 170 rows, meaning to be confirmed']
+
+  indexes {
+    chassisId
+    driverId
+    engineBrandId
+    engineId
+    entrantSeasonId
+    tyreManufacturerId
+  }
+
+  Note: 'A driver in a car configuration, reused by the results of any session (it was never per session). Any change of number, name, chassis, engine or tyres is a new row.'
 }
 
 Table pitStops {
-  entrantId varchar [pk]
-  sessionId varchar [pk]
-  lap integer [pk]
-  time integer
+  entryId varchar
+  sessionId varchar
+  lap integer
+  time integer [note: 'milliseconds']
   timeOfDay varchar
   annotation varchar
+
+  indexes {
+    (entryId, sessionId, lap) [pk]
+    sessionId
+  }
 }
 
 Table lapTimes {
-  entrantId varchar [pk]
-  sessionId varchar [pk]
-  lap integer [pk]
-  time integer
+  entryId varchar
+  sessionId varchar
+  lap integer
+  time integer [note: 'milliseconds']
   pos integer
+
+  indexes {
+    (entryId, sessionId, lap) [pk]
+    sessionId
+  }
 }
 
 Table qualifyingResults {
-  sessionId varchar [pk]
-  entrantId varchar [pk]
+  sessionId varchar
+  entryId varchar
   positionOrder integer
   positionText varchar
   laps integer
-  time integer
+  time integer [note: 'milliseconds']
+
+  indexes {
+    (sessionId, entryId) [pk]
+    entryId
+  }
 }
 
 Table fpResults {
-  sessionId varchar [pk]
-  entrantId varchar [pk]
+  sessionId varchar
+  entryId varchar
   positionOrder integer
   positionText varchar
   laps integer
-  time integer
+  time integer [note: 'milliseconds']
+
+  indexes {
+    (sessionId, entryId) [pk]
+    entryId
+  }
 }
 
 Table raceResults {
-  sessionId varchar [pk]
-  entrantId varchar [pk]
-  positionOrder integer [pk]
+  sessionId varchar
+  entryId varchar
+  positionOrder integer
   positionText varchar [not null]
-  time integer
+  time integer [note: 'milliseconds']
   gridPosition integer
   gridPenalty varchar
   laps integer
-  points real
+  points real [note: 'not an integer: shortened races award half points']
   pointsCountForWDC boolean [not null]
+  pointsCountForWCC boolean [not null, default: 1, note: '0 when the result does not score for the Constructors\' Championship: non-eligible third car (Renault, 1985 German GP), disqualified constructor (Larrousse 1990)']
   pointsGained integer
   timePenalty integer
   reasonRetired varchar
+
+  indexes {
+    (sessionId, entryId, positionOrder) [pk]
+    entryId
+  }
 }
 
-Ref: constructors.countryId > countries.alpha2Code
 Ref: companies.countryId > countries.alpha2Code
-Ref: previousNextConstructors.parentConstructorId > constructors.id
-Ref: previousNextConstructors.constructorId > constructors.id
+Ref: constructors.countryId > countries.alpha2Code
+Ref: constructors.companyId > companies.id
+Ref: chassis.constructorId > constructors.id
 Ref: circuits.countryId > countries.alpha2Code
 Ref: grandsPrix.countryId > countries.alpha2Code
 Ref: drivers.secondNationalityCountryId > countries.alpha2Code
@@ -210,25 +380,34 @@ Ref: drivers.countryOfBirthCountryId > countries.alpha2Code
 Ref: driversFamilyRelationships.driverB > drivers.id
 Ref: driversFamilyRelationships.driverA > drivers.id
 Ref: engineManufacturers.countryId > countries.alpha2Code
+Ref: engineManufacturers.companyId > companies.id
+Ref: engines.manufacturerId > engineManufacturers.id
 Ref: tyreManufacturers.countryId > countries.alpha2Code
+Ref: tyreManufacturers.companyId > companies.id
 Ref: events.circuitId > circuits.id
 Ref: events.grandPrixId > grandsPrix.id
 Ref: sessions.eventId > events.id
 Ref: redFlags.eventId > events.id
 Ref: safetyCars.eventId > events.id
-Ref: seasonEntrants.countryId > countries.alpha2Code
-Ref: sessionEntrants.tyreManufacturerId > tyreManufacturers.id
-Ref: sessionEntrants.engineManufacturerId > companies.id
-Ref: sessionEntrants.chassisManufacturerId > companies.id
-Ref: sessionEntrants.seasonEntrantId > seasonEntrants.id
-Ref: sessionEntrants.driverId > drivers.id
+Ref: entrants.companyId > companies.id
+Ref: entrantSuccessions.successorId > entrants.id
+Ref: entrantSuccessions.predecessorId > entrants.id
+Ref: entrantSeasons.licenceCountryId > countries.alpha2Code
+Ref: entrantSeasons.ownConstructorId > constructors.id
+Ref: entrantSeasons.entrantId > entrants.id
+Ref: entries.tyreManufacturerId > tyreManufacturers.id
+Ref: entries.engineBrandId > engineManufacturers.id
+Ref: entries.engineId > engines.id
+Ref: entries.chassisId > chassis.id
+Ref: entries.entrantSeasonId > entrantSeasons.id
+Ref: entries.driverId > drivers.id
 Ref: pitStops.sessionId > sessions.id
-Ref: pitStops.entrantId > sessionEntrants.id
+Ref: pitStops.entryId > entries.id
 Ref: lapTimes.sessionId > sessions.id
-Ref: lapTimes.entrantId > sessionEntrants.id
-Ref: qualifyingResults.entrantId > sessionEntrants.id
+Ref: lapTimes.entryId > entries.id
+Ref: qualifyingResults.entryId > entries.id
 Ref: qualifyingResults.sessionId > sessions.id
-Ref: fpResults.entrantId > sessionEntrants.id
+Ref: fpResults.entryId > entries.id
 Ref: fpResults.sessionId > sessions.id
-Ref: raceResults.entrantId > sessionEntrants.id
+Ref: raceResults.entryId > entries.id
 Ref: raceResults.sessionId > sessions.id

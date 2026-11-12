@@ -3,8 +3,24 @@ import { CareerStats } from '../models/types.dto';
 import { DbService } from '../services/db.service';
 import { getSessionIdFromIdColumn } from '../utils/f1-sql-common-utils';
 
-/** Column of the `sessionEntrants` table that identifies the entity (driver or constructor) whose career we want to get */
-export type CareerEntityColumn = 'driverId' | 'chassisManufacturerId';
+/**
+ * Entity (driver or constructor) whose career we want to get. A driver is
+ * identified by `entries.driverId` and a constructor by `chassis.constructorId`
+ * (the chassis of the entry).
+ */
+export type CareerEntityColumn = 'driverId' | 'constructorId';
+
+/** Column that holds the ID of the entity */
+const entityColumn = (column: CareerEntityColumn) =>
+  sql.ref(column === 'driverId' ? 'entries.driverId' : 'chassis.constructorId');
+
+/** Joins of a results table (or laps...) needed to reach the column of the entity */
+const entryJoins = (table: string, column: CareerEntityColumn) =>
+  sql`INNER JOIN entries ON entries.id = ${sql.ref(`${table}.entryId`)}${
+    column === 'constructorId'
+      ? sql` INNER JOIN chassis ON chassis.id = entries.chassisId`
+      : sql``
+  }`;
 
 const resultsTables = [
   'raceResults',
@@ -12,14 +28,14 @@ const resultsTables = [
   'fpResults'
 ] as const;
 
-/** Statistics and seasons of a driver or a constructor, calculated from the results of its session entrants */
+/** Statistics and seasons of a driver or a constructor, calculated from the results of its entries */
 export class CareerService extends DbService {
   /**
    * SQL expression with the first (`min`) or last (`max`) season in which an
    * entity had at least one entry, that is, appears in the results of a race,
    * qualifying or free practice session.
    *
-   * @param column Column of the `sessionEntrants` that identifies the entity
+   * @param column The entity: a driver or a constructor
    * @param entityIdRef Reference to the column with the ID of the entity in the outer query (e.g. `drivers.id`)
    */
   static entrySeasonExpression(
@@ -32,7 +48,7 @@ export class CareerService extends DbService {
     // The session IDs start with the season ("2021-01-R"), so the first/last ID is from the first/last season
     const perTable = resultsTables.map(
       (table) =>
-        sql`SELECT ${agg}(${sql.ref(`${table}.sessionId`)}) AS sessionId FROM ${sql.table(table)} INNER JOIN sessionEntrants ON sessionEntrants.id = ${sql.ref(`${table}.entrantId`)} WHERE sessionEntrants.${sql.raw(column)} = ${sql.ref(entityIdRef)}`
+        sql`SELECT ${agg}(${sql.ref(`${table}.sessionId`)}) AS sessionId FROM ${sql.table(table)} ${entryJoins(table, column)} WHERE ${entityColumn(column)} = ${sql.ref(entityIdRef)}`
     );
 
     return sql<
@@ -44,7 +60,7 @@ export class CareerService extends DbService {
   async getEntrySeasons(column: CareerEntityColumn, entityId: string) {
     const perTable = resultsTables.map(
       (table) =>
-        sql`SELECT DISTINCT CAST(substr(${sql.ref(`${table}.sessionId`)}, 1, 4) AS INT) AS season FROM ${sql.table(table)} INNER JOIN sessionEntrants ON sessionEntrants.id = ${sql.ref(`${table}.entrantId`)} WHERE sessionEntrants.${sql.raw(column)} = ${entityId}`
+        sql`SELECT DISTINCT CAST(substr(${sql.ref(`${table}.sessionId`)}, 1, 4) AS INT) AS season FROM ${sql.table(table)} ${entryJoins(table, column)} WHERE ${entityColumn(column)} = ${entityId}`
     );
 
     const res = await sql<{
@@ -65,12 +81,11 @@ export class CareerService extends DbService {
 
     const stats = await this.db
       .selectFrom('raceResults')
-      .innerJoin(
-        'sessionEntrants',
-        'sessionEntrants.id',
-        'raceResults.entrantId'
+      .innerJoin('entries', 'entries.id', 'raceResults.entryId')
+      .$if(column === 'constructorId', (qb) =>
+        qb.innerJoin('chassis', 'chassis.id', 'entries.chassisId')
       )
-      .where(`sessionEntrants.${column}`, '==', entityId)
+      .where(entityColumn(column), '==', entityId)
       .select([
         sql<number>`COUNT(DISTINCT CASE WHEN ${isRace} THEN raceResults.sessionId END)`.as(
           'races'
@@ -104,12 +119,11 @@ export class CareerService extends DbService {
       .with('entityBestLaps', (db) =>
         db
           .selectFrom('lapTimes')
-          .innerJoin(
-            'sessionEntrants',
-            'sessionEntrants.id',
-            'lapTimes.entrantId'
+          .innerJoin('entries', 'entries.id', 'lapTimes.entryId')
+          .$if(column === 'constructorId', (qb) =>
+            qb.innerJoin('chassis', 'chassis.id', 'entries.chassisId')
           )
-          .where(`sessionEntrants.${column}`, '==', entityId)
+          .where(entityColumn(column), '==', entityId)
           .where(getSessionIdFromIdColumn('lapTimes.sessionId'), '==', 'R')
           .groupBy('lapTimes.sessionId')
           .select(({ fn }) => [

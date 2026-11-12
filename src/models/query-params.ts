@@ -31,14 +31,14 @@ export interface SessionQueryParams extends CommonQueryParams {
   session?: string;
 }
 
-export interface SessionEntrantQueryParams extends SessionQueryParams {
+export interface SessionEntryQueryParams extends SessionQueryParams {
   /** Return only the items regarding this driver */
   driverId?: string;
 
   //TODO: Add filters by chassis, engines...
 }
 
-export interface ResultsFiltersQueryParams extends SessionEntrantQueryParams {
+export interface ResultsFiltersQueryParams extends SessionEntryQueryParams {
   /** Look for the results where the driver achieved a position worse than or equal to this number.
    *
    * @minimum 1 The minimum value of `minPos` should be 1

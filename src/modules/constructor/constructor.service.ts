@@ -4,15 +4,18 @@ import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { Sorter } from '../../models/sorter';
 import {
-  CareerStats,
+  ConstructorCareerStats,
   ConstructorDTO,
+  ConstructorEngineSupplier,
   Constructors,
   DB
 } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { CareerService } from '../career.service';
+import { ConstructorStandingService } from '../constructor-standings/constructor-standings.service';
 import { CountryService } from '../countries/countries.service';
+import { EngineManufacturerService } from '../engine/engine.service';
 import {
   ConstructorController,
   ConstructorQueryParams
@@ -23,7 +26,11 @@ export class ConstructorService
   implements
     Pick<
       ConstructorController,
-      'get' | 'getById' | 'getConstructorSeasons' | 'getConstructorStats'
+      | 'get'
+      | 'getById'
+      | 'getConstructorSeasons'
+      | 'getConstructorStats'
+      | 'getConstructorEngineSuppliers'
     >
 {
   static getConstructorsSelect<T extends keyof DB>(
@@ -34,6 +41,7 @@ export class ConstructorService
 
     const allSingleFields = [
       'id',
+      'companyId',
       'name',
       'fullName',
       'wikiUrl',
@@ -68,7 +76,7 @@ export class ConstructorService
 
   private static get firstSeasonExpression() {
     return CareerService.entrySeasonExpression(
-      'chassisManufacturerId',
+      'constructorId',
       'constructors.id',
       'min'
     );
@@ -76,7 +84,7 @@ export class ConstructorService
 
   private static get lastSeasonExpression() {
     return CareerService.entrySeasonExpression(
-      'chassisManufacturerId',
+      'constructorId',
       'constructors.id',
       'max'
     );
@@ -131,13 +139,86 @@ export class ConstructorService
   async getConstructorSeasons(id: string) {
     await this.checkExists(id);
 
-    return new CareerService().getEntrySeasons('chassisManufacturerId', id);
+    return new CareerService().getEntrySeasons('constructorId', id);
   }
 
-  async getConstructorStats(id: string): Promise<CareerStats> {
+  async getConstructorStats(id: string): Promise<ConstructorCareerStats> {
     await this.checkExists(id);
 
-    return new CareerService().getStats('chassisManufacturerId', id);
+    return {
+      ...(await new CareerService().getStats('constructorId', id)),
+      championships: await this.countChampionships(id)
+    };
+  }
+
+  /** Seasons in which a car with the chassis of the constructor (with any engine) led the calculated constructors' standings */
+  private async countChampionships(id: string) {
+    const seasons = await new CareerService().getEntrySeasons(
+      'constructorId',
+      id
+    );
+    const standings = new ConstructorStandingService();
+    let championships = 0;
+
+    for (const season of seasons) {
+      const [champion] =
+        await standings.getConstructorChampionshipResults(season);
+      if (champion?.chassisConstructor?.id === id) championships++;
+    }
+
+    return championships;
+  }
+
+  async getConstructorEngineSuppliers(
+    id: string
+  ): Promise<ConstructorEngineSupplier[]> {
+    await this.checkExists(id);
+
+    const res = await sql<{
+      manufacturerId: string;
+      season: number;
+    }>`SELECT DISTINCT engines.manufacturerId AS manufacturerId, CAST(substr(results.sessionId, 1, 4) AS INT) AS season
+      FROM (
+        SELECT entryId, sessionId FROM raceResults
+        UNION ALL SELECT entryId, sessionId FROM qualifyingResults
+        UNION ALL SELECT entryId, sessionId FROM fpResults
+      ) AS results
+      INNER JOIN entries ON entries.id = results.entryId
+      INNER JOIN chassis ON chassis.id = entries.chassisId
+      INNER JOIN engines ON engines.id = entries.engineId
+      WHERE chassis.constructorId = ${id}
+      ORDER BY season`.execute(this.db);
+
+    const seasonsByMaker = new Map<string, number[]>();
+    for (const row of res.rows) {
+      seasonsByMaker.set(row.manufacturerId, [
+        ...(seasonsByMaker.get(row.manufacturerId) ?? []),
+        row.season
+      ]);
+    }
+
+    const makers = seasonsByMaker.size
+      ? await EngineManufacturerService.getEngineManufacturersSelect(
+          this.db.selectFrom('engineManufacturers')
+        )
+          .where('engineManufacturers.id', 'in', [...seasonsByMaker.keys()])
+          .execute()
+      : [];
+
+    return [...seasonsByMaker.entries()]
+      .map(([makerId, seasons]) => ({
+        engineManufacturer: makers.find((m) => m.id === makerId)!,
+        ranges: seasons.reduce<{ from: number; to: number }[]>(
+          (ranges, season) => {
+            const last = ranges[ranges.length - 1];
+            if (last && season <= last.to + 1) last.to = season;
+            else ranges.push({ from: season, to: season });
+            return ranges;
+          },
+          []
+        )
+      }))
+      .sort((a, b) => a.ranges[0].from - b.ranges[0].from);
   }
 
   private async checkExists(id: string) {

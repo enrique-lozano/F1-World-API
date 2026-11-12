@@ -2,16 +2,16 @@ import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
-import { SessionEntrantQueryParams } from '../../models/query-params';
+import { SessionEntryQueryParams } from '../../models/query-params';
 import { Sorter } from '../../models/sorter';
 import { DB, LapTimeDTO, LapTimes } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { ParamsBuilderService } from '../paramsBuilder.service';
-import { SessionEntrantService } from '../session-entrants/sessionEntrant.service';
+import { EntryService } from '../entries/entry.service';
 import { SessionService } from '../session/session.service';
 import { LapController } from './lap.controller';
 
-export interface LapQueryParams extends SessionEntrantQueryParams {
+export interface LapQueryParams extends SessionEntryQueryParams {
   pos?: number;
   lap?: number;
 }
@@ -40,14 +40,14 @@ export class LapService
           ).as('session')
         )
       )
-      .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
+      .$if(fieldsParam.shouldSelectObject('entry'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
-            SessionEntrantService.getEventEntrantSelect(
-              eb.selectFrom('sessionEntrants'),
-              fieldsParam?.clone('entrant')
-            ).whereRef('lapTimes.entrantId', '==', 'sessionEntrants.id')
-          ).as('entrant')
+            EntryService.getEntrySelect(
+              eb.selectFrom('entries'),
+              fieldsParam?.clone('entry')
+            ).whereRef('lapTimes.entryId', '==', 'entries.id')
+          ).as('entry')
         )
       ) as SelectQueryBuilder<DB, 'lapTimes' | T, LapTimeDTO>;
   }
@@ -59,7 +59,7 @@ export class LapService
     const sorter = new Sorter<LapTimes>(obj.sort || 'lap');
 
     const mainSelect = new ParamsBuilderService()
-      .getSessionEntrantsWithParams('lapTimes', obj)
+      .getSessionEntriesWithParams('lapTimes', obj)
       .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!))
       .$if(obj.lap != undefined, (qb) => qb.where('lap', '==', obj.lap!));
 
@@ -98,7 +98,7 @@ export class LapService
     const paginator = Paginator.fromPageQueryParams(obj);
 
     const mainSelect = new ParamsBuilderService()
-      .getSessionEntrantsWithParams('lapTimes', obj)
+      .getSessionEntriesWithParams('lapTimes', obj)
       .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!))
       .$if(obj.lap != undefined, (qb) => qb.where('lap', '==', obj.lap!));
 

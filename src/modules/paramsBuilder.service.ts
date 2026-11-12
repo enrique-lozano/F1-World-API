@@ -1,7 +1,7 @@
 import { SelectQueryBuilder } from 'kysely';
 import {
   ResultsFiltersQueryParams,
-  SessionEntrantQueryParams,
+  SessionEntryQueryParams,
   SessionQueryParams
 } from '../models/query-params';
 import { DB } from '../models/types.dto';
@@ -14,10 +14,10 @@ import {
 
 type resultsTables = 'qualifyingResults' | 'raceResults' | 'fpResults';
 
-type sessionEntrantsTables = resultsTables | 'lapTimes' | 'pitStops';
+type entryTables = resultsTables | 'lapTimes' | 'pitStops';
 
 export class ParamsBuilderService extends DbService {
-  getSessionsWithParamas<T extends sessionEntrantsTables | 'sessions'>(
+  getSessionsWithParamas<T extends entryTables | 'sessions'>(
     fromTable: T,
     obj: SessionQueryParams
   ) {
@@ -38,20 +38,16 @@ export class ParamsBuilderService extends DbService {
       );
   }
 
-  getSessionEntrantsWithParams<T extends sessionEntrantsTables>(
+  getSessionEntriesWithParams<T extends entryTables>(
     fromTable: T,
-    obj: SessionEntrantQueryParams
+    obj: SessionEntryQueryParams
   ): SelectQueryBuilder<DB, T, Partial<unknown>> {
     return this.getSessionsWithParamas(fromTable as any, obj).$if(
       obj.driverId != undefined,
       (qb) =>
         qb
-          .innerJoin(
-            'sessionEntrants',
-            'sessionEntrants.id',
-            `${fromTable}.entrantId`
-          )
-          .where('sessionEntrants.driverId', '==', obj.driverId!)
+          .innerJoin('entries', 'entries.id', `${fromTable}.entryId`)
+          .where('entries.driverId', '==', obj.driverId!)
     ) as unknown as SelectQueryBuilder<DB, T, Partial<unknown>>;
   }
 
@@ -59,7 +55,7 @@ export class ParamsBuilderService extends DbService {
     fromTable: T,
     obj: ResultsFiltersQueryParams
   ): SelectQueryBuilder<DB, T, Partial<unknown>> {
-    return this.getSessionEntrantsWithParams(fromTable as any, obj)
+    return this.getSessionEntriesWithParams(fromTable as any, obj)
       .$if(obj.maxPos != undefined, (qb) =>
         qb.where('positionOrder', '<=', obj.maxPos!)
       )

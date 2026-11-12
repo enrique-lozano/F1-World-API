@@ -21,36 +21,38 @@ CREATE TABLE IF NOT EXISTS circuits
 );
 
 -- Table: companies
+-- One company can play several roles (Honda: engine manufacturer + constructor + entrant).
 DROP TABLE IF EXISTS companies;
 CREATE TABLE IF NOT EXISTS companies
 ( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
 , name VARCHAR(255) NOT NULL COLLATE NOCASE
 , fullName VARCHAR(255) NOT NULL COLLATE NOCASE
-, countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+, countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code) -- country of origin, NOT the licence nationality
 , founder VARCHAR(255) COLLATE NOCASE
 , yearFounded INTEGER
 );
 
 -- Table: constructors
+-- Designer of the FIA "Listed Parts" (the chassis). It has no lineage: lineage belongs to entrants. Includes specialist builders (Lola, Dallara).
 DROP TABLE IF EXISTS constructors;
 CREATE TABLE IF NOT EXISTS constructors
 ( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
+, companyId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES companies(id)
 , name VARCHAR(255) NOT NULL COLLATE NOCASE
 , fullName VARCHAR(255) NOT NULL COLLATE NOCASE
-, countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+, countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code) -- country of origin of the marque; the licence nationality is per season (entrantSeasons)
 , wikiUrl VARCHAR(255) COLLATE NOCASE
 , summary VARCHAR(5000) COLLATE NOCASE
 , photo VARCHAR(255) COLLATE NOCASE
 );
 
--- Table: previousNextConstructors
-DROP TABLE IF EXISTS previousNextConstructors;
-CREATE TABLE IF NOT EXISTS previousNextConstructors
-( constructorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES constructors(id)
-, parentConstructorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES constructors(id)
-, yearFrom INTEGER NOT NULL
-, yearTo INTEGER CHECK (yearTo >= yearFrom)
-, PRIMARY KEY (constructorId, parentConstructorId, yearFrom)
+-- Table: chassis
+-- A chassis model. The same chassis can be raced by many entrants (customers, privateers).
+DROP TABLE IF EXISTS chassis;
+CREATE TABLE IF NOT EXISTS chassis
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY -- <constructorId>-<name slug>, e.g. tyrrell-012. <constructorId>-unknown when the name is unknown
+, constructorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES constructors(id) -- who designed it, whatever the entrant declared (Larrousse 1990 = lola)
+, name VARCHAR(255) COLLATE NOCASE -- model (012, MP4/4, LH95). NULL only for the <constructorId>-unknown placeholders
 );
 
 -- Table: countries
@@ -92,17 +94,34 @@ CREATE TABLE IF NOT EXISTS driversFamilyRelationships
 );
 
 -- Table: engineManufacturers
+-- Builds engines. Also used as the BRAND of a rebadged engine (Ford on a Cosworth, TAG Heuer on a Renault).
 DROP TABLE IF EXISTS engineManufacturers;
 CREATE TABLE IF NOT EXISTS engineManufacturers
 ( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
+, companyId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES companies(id)
 , name VARCHAR(255) NOT NULL COLLATE NOCASE
 , countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
+);
+
+-- Table: engines
+-- An engine model, parsed from the old free-text names, e.g. "Energy F1 2014 V6 t h 1.6" = name Energy F1 2014, V6, 1.6 l, turbocharged, hybrid.
+DROP TABLE IF EXISTS engines;
+CREATE TABLE IF NOT EXISTS engines
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY -- <manufacturerId>-<name slug>, e.g. cosworth-dfy. Engines without a name use their specification
+, manufacturerId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES engineManufacturers(id) -- who actually BUILT it (Cosworth for the Ford DFV)
+, name VARCHAR(255) COLLATE NOCASE -- model: DFY, EF4B, 158. NULL when the source only has the specification ("L4 4.5")
+, layout VARCHAR(1) COLLATE NOCASE -- V, L (inline), F (flat), W, H
+, cylinders INTEGER CHECK (cylinders > 0)
+, displacement DECIMAL(4,2) CHECK (displacement > 0) -- litres, as in the source names (3.0, 1.5)
+, aspiration VARCHAR(255) NOT NULL COLLATE NOCASE CHECK (aspiration IN ('NATURALLY_ASPIRATED', 'SUPERCHARGED', 'TURBOCHARGED')) -- SUPERCHARGED = "c" (compressor), TURBOCHARGED = "t"
+, hybrid BOOLEAN NOT NULL DEFAULT 0 CHECK (hybrid IN (0, 1)) -- "h" in the source names
 );
 
 -- Table: tyreManufacturers
 DROP TABLE IF EXISTS tyreManufacturers;
 CREATE TABLE IF NOT EXISTS tyreManufacturers
 ( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
+, companyId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES companies(id)
 , name VARCHAR(255) NOT NULL COLLATE NOCASE
 , countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
 , primaryColor VARCHAR(10) NOT NULL COLLATE NOCASE
@@ -119,43 +138,76 @@ CREATE TABLE IF NOT EXISTS grandsPrix
 , countryId VARCHAR(255) COLLATE NOCASE REFERENCES countries(alpha2Code)
 );
 
--- Table: sessionEntrants
-DROP TABLE IF EXISTS sessionEntrants;
-CREATE TABLE IF NOT EXISTS sessionEntrants
-( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY 
+-- Table: entrants
+-- Who registers and runs the cars (the "team", e.g. Tyrrell 1966-98); its identity holds for the whole history. The registered names, sponsors included, live in entries.entrantName.
+DROP TABLE IF EXISTS entrants;
+CREATE TABLE IF NOT EXISTS entrants
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY -- scuderia-ferrari, tyrrell-racing, rrc-walker-racing-team
+, name VARCHAR(255) NOT NULL COLLATE NOCASE -- clean team name, no sponsors: the most recent or best-known one
+, companyId VARCHAR(255) COLLATE NOCASE REFERENCES companies(id) -- NULL for private individuals and for the "private entry" placeholder
+);
+
+-- Table: entrantSuccessions
+-- Handover of a team to another entrant. A chain: tyrrell-racing -> bar (1999) -> honda-racing (2006) -> brawn-gp (2009) -> mercedes (2010).
+DROP TABLE IF EXISTS entrantSuccessions;
+CREATE TABLE IF NOT EXISTS entrantSuccessions
+( predecessorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES entrants(id)
+, successorId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES entrants(id)
+, year INTEGER NOT NULL -- first season of the successor
+, type VARCHAR(255) NOT NULL COLLATE NOCASE CHECK (type IN ('MERGER', 'RENAME', 'REVIVAL', 'TAKEOVER')) -- RENAME: same organisation, new name (Racing Point -> Aston Martin); TAKEOVER: sold or bought (Tyrrell -> BAR); REVIVAL: returns after a gap
+, PRIMARY KEY (predecessorId, successorId, year)
+, CHECK (predecessorId <> successorId)
+);
+
+-- Table: entrantSeasons
+-- Facts of an entrant that hold for a whole season. The sponsor name is NOT here, since it can change within a season (Ferrari 2021): see entries.entrantName.
+DROP TABLE IF EXISTS entrantSeasons;
+CREATE TABLE IF NOT EXISTS entrantSeasons
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY -- <season>-<entrantId>, e.g. 2021-scuderia-ferrari
+, entrantId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES entrants(id)
+, season INTEGER NOT NULL
+, ownConstructorId VARCHAR(255) COLLATE NOCASE REFERENCES constructors(id) -- constructor whose chassis the team builds itself that season. NULL = customer team (Tyrrell with Matra in 1968-69)
+, licenceCountryId VARCHAR(255) COLLATE NOCASE REFERENCES countries(alpha2Code) -- nationality of the ASN that issued the licence (decides the anthem), NOT where it is based or owned: Wolf = CA, Jordan 1998 = IE. NULL when unknown
+, UNIQUE (entrantId, season)
+);
+
+-- Table: entries
+-- A driver in a car configuration, reused by the results of any session (it was never per session). Any change of number, name, chassis, engine or tyres is a new row.
+DROP TABLE IF EXISTS entries;
+CREATE TABLE IF NOT EXISTS entries
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
 , driverId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES drivers(id)
 , driverNumber INTEGER NOT NULL CHECK (driverNumber >= 0)
-, seasonEntrantId VARCHAR(255) COLLATE NOCASE REFERENCES seasonEntrants(id)
-, entrantName VARCHAR(255) NOT NULL
-, chassisManufacturerId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES companies(id)
-, chassisName VARCHAR(255)
-, engineName VARCHAR(255)
-, engineManufacturerId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES companies(id)
+, entrantSeasonId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES entrantSeasons(id)
+, entrantName VARCHAR(255) NOT NULL -- registered name, sponsors included. It can change within a season: each name is its own row (Ferrari 2021)
+, chassisId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES chassis(id)
+, engineId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES engines(id) -- who built the engine
+, engineBrandId VARCHAR(255) COLLATE NOCASE REFERENCES engineManufacturers(id) -- brand the engine is sold under when it differs from the builder (Ford on a Cosworth). NULL = the builder
 , tyreManufacturerId VARCHAR(255) COLLATE NOCASE REFERENCES tyreManufacturers(id)
-, note VARCHAR(255)
+, note VARCHAR(255) -- "TD" in 170 rows, meaning to be confirmed
 );
 
 -- Table: lapTimes
 DROP TABLE IF EXISTS lapTimes;
 CREATE TABLE IF NOT EXISTS lapTimes 
-( entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
+( entryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES entries(id)
 , sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id) ON UPDATE CASCADE
 , lap INTEGER NOT NULL CHECK (lap > 0)
 , time INTEGER CHECK (time > 0) -- milliseconds
 , pos INTEGER CHECK (pos > 0)
-, PRIMARY KEY (entrantId, sessionId, lap)
+, PRIMARY KEY (entryId, sessionId, lap)
 );
 
 -- Table: pitStops
 DROP TABLE IF EXISTS pitStops;
 CREATE TABLE IF NOT EXISTS pitStops 
-( entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
+( entryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES entries(id)
 , sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id) ON UPDATE CASCADE
 , lap INTEGER NOT NULL CHECK (lap > 0)
 , time INTEGER CHECK (time >= 0) -- milliseconds
 , timeOfDay VARCHAR(10)
 , annotation VARCHAR(255)
-, PRIMARY KEY (entrantId, sessionId, lap)
+, PRIMARY KEY (entryId, sessionId, lap)
 );
 
 -- Table: session
@@ -183,31 +235,31 @@ CREATE TABLE IF NOT EXISTS events
 DROP TABLE IF EXISTS fpResults;
 CREATE TABLE IF NOT EXISTS fpResults
 ( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
+, entryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES entries(id)
 , positionOrder INTEGER CHECK (positionOrder > 0)
 , positionText VARCHAR(3)
 , laps INTEGER CHECK (laps >= 0)
 , time INTEGER CHECK (time > 0) -- milliseconds
-, PRIMARY KEY (sessionId, entrantId)
+, PRIMARY KEY (sessionId, entryId)
 );
 
 -- Table: qualifyingResults
 DROP TABLE IF EXISTS qualifyingResults;
 CREATE TABLE IF NOT EXISTS qualifyingResults
 ( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
+, entryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES entries(id)
 , positionOrder INTEGER CHECK (positionOrder > 0)
 , positionText VARCHAR(3)
 , laps INTEGER CHECK (laps >= 0)
 , time INTEGER CHECK (time > 0) -- milliseconds
-, PRIMARY KEY (sessionId, entrantId)
+, PRIMARY KEY (sessionId, entryId)
 );
 
 -- Table: raceResults
 DROP TABLE IF EXISTS raceResults;
 CREATE TABLE IF NOT EXISTS raceResults
 ( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
-, entrantId VARCHAR(255) COLLATE NOCASE REFERENCES sessionEntrants(id)
+, entryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES entries(id)
 , positionOrder INTEGER NOT NULL CHECK (positionOrder > 0)
 , positionText VARCHAR(4) NOT NULL
 , time INTEGER -- milliseconds
@@ -216,10 +268,11 @@ CREATE TABLE IF NOT EXISTS raceResults
 , laps INTEGER CHECK (laps >= 0)
 , points REAL CHECK (points >= 0) -- not an integer: shortened races award half points
 , pointsCountForWDC BOOLEAN NOT NULL CHECK (pointsCountForWDC IN (0, 1))
+, pointsCountForWCC BOOLEAN NOT NULL DEFAULT 1 CHECK (pointsCountForWCC IN (0, 1)) -- 0 when the result does not score for the Constructors' Championship: non-eligible third car (Renault, 1985 German GP), disqualified constructor (Larrousse 1990)
 , pointsGained INTEGER
 , timePenalty INTEGER
 , reasonRetired VARCHAR(255)
-, PRIMARY KEY (sessionId, entrantId, positionOrder)
+, PRIMARY KEY (sessionId, entryId, positionOrder)
 );
 
 -- Table: redFlags
@@ -242,15 +295,6 @@ CREATE TABLE IF NOT EXISTS safetyCars
 , retreated INTEGER
 , cause VARCHAR(255)
 , PRIMARY KEY (eventId, deployed)
-);
-
--- Table: seasonEntrants
-DROP TABLE IF EXISTS seasonEntrants;
-CREATE TABLE IF NOT EXISTS seasonEntrants
-( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY 
-, season INTEGER NOT NULL 
-, name VARCHAR(255) NOT NULL COLLATE NOCASE
-, countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
 );
 
 COMMIT TRANSACTION;

@@ -1,4 +1,4 @@
-entrantId,positionOrder,positionText,laps,time
+entryId,positionOrder,positionText,laps,time
 7066,1,1,24,92294
 7081,2,2,24,92799
 7067,3,3,16,94128
@@ -19,5 +19,5 @@ entrantId,positionOrder,positionText,laps,time
 7087,18,18,25,96392
 7071,19,19,24,96719
 7079,20,20,28,96939
-,21,21,23,97287
+7397,21,21,23,97287
 7084,22,22,27,97714

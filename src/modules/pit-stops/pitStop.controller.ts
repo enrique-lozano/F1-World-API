@@ -1,10 +1,10 @@
 import { Get, Queries, Response, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
-import { SessionEntrantQueryParams } from '../../models/query-params';
+import { SessionEntryQueryParams } from '../../models/query-params';
 import { JsonApiError } from '../../utils/custom-error';
 import { PitStopService } from './pitStop.service';
 
-export interface PitStopQueryParams extends SessionEntrantQueryParams {
+export interface PitStopQueryParams extends SessionEntryQueryParams {
   /** If specified, returns only the pit stops made in this lap
    *
    * @isInt The `lap` param should be an integer

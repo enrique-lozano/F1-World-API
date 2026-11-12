@@ -1,6 +1,10 @@
 import { describe, expect, test } from 'vitest';
 import { PaginatedItems } from '../../models/pagination';
-import { CareerStats, ConstructorDTO } from '../../models/types.dto';
+import {
+  ConstructorCareerStats,
+  ConstructorDTO,
+  ConstructorEngineSupplier
+} from '../../models/types.dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting
@@ -94,7 +98,7 @@ describe('Test constructors functionality', () => {
   });
 
   test('Get the stats of a constructor', async () => {
-    const res = await getUrlResponseForTesting<CareerStats>(
+    const res = await getUrlResponseForTesting<ConstructorCareerStats>(
       `${endPoint}/ferrari/stats`
     );
 
@@ -105,5 +109,29 @@ describe('Test constructors functionality', () => {
     expect(res.poles).toBeGreaterThan(200);
     expect(res.fastestLaps).toBeGreaterThan(100);
     expect(res.points).toBeGreaterThan(10000);
+    expect(res.championships).toBe(16);
+  });
+
+  test('Championships of other constructors', async () => {
+    const stats = (id: string) =>
+      getUrlResponseForTesting<ConstructorCareerStats>(
+        `${endPoint}/${id}/stats`
+      );
+
+    expect((await stats('mclaren')).championships).toBe(8);
+    expect((await stats('tyrrell')).championships).toBe(1);
+  });
+
+  test('Engine suppliers of Tyrrell, with ranges of seasons', async () => {
+    const res = await getUrlResponseForTesting<ConstructorEngineSupplier[]>(
+      `${endPoint}/tyrrell/engine-suppliers`
+    );
+    const ranges = (id: string) =>
+      res.find((x) => x.engineManufacturer.id === id)?.ranges;
+
+    // Ford-badged DFVs are Cosworths
+    expect(ranges('cosworth')?.[0]).toEqual({ from: 1970, to: 1985 });
+    expect(ranges('renault')).toEqual([{ from: 1985, to: 1986 }]);
+    expect(ranges('yamaha')).toEqual([{ from: 1993, to: 1996 }]);
   });
 });

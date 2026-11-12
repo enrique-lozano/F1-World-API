@@ -1,4 +1,4 @@
-entrantId,lap,time,timeOfDay,annotation
+entryId,lap,time,timeOfDay,annotation
 7136,15,33753,15:32:38,Five-second time penalty
 7144,16,23273,15:33:56,
 7138,17,24608,15:35:13,

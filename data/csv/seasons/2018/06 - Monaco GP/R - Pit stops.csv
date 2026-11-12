@@ -1,4 +1,4 @@
-entrantId,lap,time,timeOfDay,annotation
+entryId,lap,time,timeOfDay,annotation
 7144,7,31810,15:22:13,Ten-second stop-go penalty
 7138,9,33887,15:25:39,
 7145,12,23739,15:28:19,

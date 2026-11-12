@@ -1,4 +1,4 @@
-entrantId,lap,time,timeOfDay,annotation
+entryId,lap,time,timeOfDay,annotation
 7000,1,3707606,13:06:02,Red flag
 7000,2,23154,14:09:26,Drive-through
 6998,10,28558,14:20:59,

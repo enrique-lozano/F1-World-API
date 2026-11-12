@@ -17,21 +17,21 @@ describe('Test race results functionality', () => {
   test('Get the results of a race', async () => {
     const res = await getUrlResponseForTesting<RaceResultDTO[]>(
       '/races/results/2021/1/R',
-      { include: 'positionOrder,points,entrant.driver.id' }
+      { include: 'positionOrder,points,entry.driver.id' }
     );
 
     expect(res.length).toBe(20);
     expect(res[0].positionOrder).toBe(1);
-    expect(res[0].entrant?.driver?.id).toBe('lewis-hamilton');
+    expect(res[0].entry?.driver?.id).toBe('lewis-hamilton');
   });
 
   test('The locale param is accepted by the endpoints with an include param', async () => {
     const res = await getUrlResponseForTesting<RaceResultDTO[]>(
       '/races/results/2021/1/R',
-      { include: 'entrant.driver.nationalityCountry', locale: 'es' }
+      { include: 'entry.driver.nationalityCountry', locale: 'es' }
     );
 
-    expect(res[0].entrant?.driver?.nationalityCountry?.commonName).toBe(
+    expect(res[0].entry?.driver?.nationalityCountry?.commonName).toBe(
       'Reino Unido'
     );
   });
@@ -42,19 +42,18 @@ describe('Shared cars', () => {
     const res = await getUrlResponseForTesting<RaceResultDTO[]>(
       '/races/results/1951/4/R',
       {
-        include:
-          'positionOrder,sharedCar,entrant.driver.id,entrant.driverNumber'
+        include: 'positionOrder,sharedCar,entry.driver.id,entry.driverNumber'
       }
     );
 
     const winners = res.filter((x) => x.positionOrder === 1);
 
-    expect(winners.map((x) => x.entrant?.driver?.id).sort()).toEqual([
+    expect(winners.map((x) => x.entry?.driver?.id).sort()).toEqual([
       'juan-manuel-fangio',
       'luigi-fagioli'
     ]);
     expect(winners.every((x) => x.sharedCar === 1)).toBe(true);
-    expect(winners.every((x) => x.entrant?.driverNumber === 8)).toBe(true);
+    expect(winners.every((x) => x.entry?.driverNumber === 8)).toBe(true);
   });
 
   test('A car driven by one driver is not shared', async () => {

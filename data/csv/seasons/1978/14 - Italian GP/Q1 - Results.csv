@@ -1,4 +1,4 @@
-entrantId,positionOrder,positionText,laps,time
+entryId,positionOrder,positionText,laps,time
 5344,1,1,,97520
 5326,2,2,,97860
 5327,3,3,,97930
@@ -26,4 +26,4 @@ entrantId,positionOrder,positionText,laps,time
 5315,25,25,,101063
 5373,26,26,,101185
 5372,27,27,,101677
-,28,28,,104408
+7400,28,28,,104408

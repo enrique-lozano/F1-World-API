@@ -39,7 +39,7 @@ if not os.path.exists(OUTPUT_PATH):
 
 # %%
 columns_dict: ColumnDict = {
-    "entrantId": lambda x, y: find_entrant_id(x["Piloto"]),
+    "entryId": lambda x, y: find_entry_id(x["Piloto"]),
     "positionOrder": lambda x, y: int(x["Index"]) + 1,
     "positionText": lambda x, y: setDNF(str(x["Pos."])),
     "gridPosition": lambda x, y: x["Parrilla"],

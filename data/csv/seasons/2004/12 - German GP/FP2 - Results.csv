@@ -1,4 +1,4 @@
-entrantId,positionOrder,positionText,laps,time
+entryId,positionOrder,positionText,laps,time
 6629,1,1,27,75001
 6657,2,2,18,75045
 6631,3,3,25,75167

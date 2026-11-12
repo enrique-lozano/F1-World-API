@@ -223,15 +223,11 @@ export class DriverService
       .with('seasonPoints', (db) =>
         db
           .selectFrom('raceResults')
-          .innerJoin(
-            'sessionEntrants',
-            'sessionEntrants.id',
-            'raceResults.entrantId'
-          )
-          .groupBy([season, 'sessionEntrants.driverId'])
+          .innerJoin('entries', 'entries.id', 'raceResults.entryId')
+          .groupBy([season, 'entries.driverId'])
           .select([
             season.as('season'),
-            'sessionEntrants.driverId',
+            'entries.driverId',
             sql<number>`TOTAL(raceResults.pointsGained)`.as('points')
           ])
       )
@@ -302,11 +298,7 @@ export class DriverService
   async getDriverSeasons(driverId: string) {
     const toReturn = await this.db
       .selectFrom('raceResults')
-      .innerJoin(
-        'sessionEntrants',
-        'sessionEntrants.id',
-        'raceResults.entrantId'
-      )
+      .innerJoin('entries', 'entries.id', 'raceResults.entryId')
       .where('driverId', '==', driverId)
       .select([getSeasonFromIdColumn('sessionId').as('year')])
       .groupBy('year')

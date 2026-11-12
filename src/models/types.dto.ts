@@ -127,6 +127,8 @@ export interface CompanyDTO extends Omit<Companies, 'countryId'> {
 
 export interface Constructors {
   id: string;
+  /** The company behind the constructor (`/companies`). Today it is the same ID as the constructor */
+  companyId: string;
   name: string;
   fullName: string;
   countryId: string;
@@ -169,6 +171,19 @@ export interface CareerStats {
 
   /** Sum of the points of all the race results (main races and sprint races), including the results that were dropped from the championship. For the constructors this is the sum of the points of its drivers, which is not the same as the points of the constructors' championship */
   points: number;
+}
+
+export interface ConstructorCareerStats extends CareerStats {
+  /** Number of Constructors' Championships won, that is, seasons in which a car of the constructor (with any engine) finished in the first position of the calculated standings (see `/championships/{season}/constructors`). Only available from 1958 */
+  championships: number;
+}
+
+export interface ConstructorEngineSupplier {
+  /** Who built the engines */
+  engineManufacturer: EngineManufacturerDTO;
+
+  /** Ranges of consecutive seasons in which the engines were used by the cars of the constructor */
+  ranges: { from: number; to: number }[];
 }
 
 export interface DriverCareerStats extends CareerStats {
@@ -237,42 +252,177 @@ export interface DriversFamilyRelationships {
   AisToB: FamilyRelationship;
 }
 
+export interface Chassis {
+  id: string;
+  constructorId: string;
+  /** Model of the chassis (`012`, `MP4/4`). `null` when it is unknown */
+  name: string | null;
+}
+
+export interface ChassisDTO extends Omit<Chassis, 'constructorId'> {
+  /** The constructor that designed the chassis, whatever the entrant declared */
+  chassisConstructor: ConstructorDTO | null;
+}
+
 export interface EngineManufacturers {
   id: string;
+  companyId: string;
   name: string;
   countryId: string;
 }
 
-type EventEntrantOmittedAttr =
-  | 'seasonEntrantId'
+export interface EngineManufacturerDTO extends Omit<
+  EngineManufacturers,
+  'countryId'
+> {
+  country: CountryDTO | null;
+}
+
+/**
+ * - `NATURALLY_ASPIRATED`: no forced induction
+ * - `SUPERCHARGED`: with a compressor (`c` in the old names)
+ * - `TURBOCHARGED`: with a turbo (`t` in the old names)
+ */
+export type EngineAspiration =
+  'NATURALLY_ASPIRATED' | 'SUPERCHARGED' | 'TURBOCHARGED';
+
+export interface Engines {
+  id: string;
+  manufacturerId: string;
+  /** Model (`DFV`, `EF4B`). `null` when only the specification is known */
+  name: string | null;
+  /** `V`, `L` (inline), `F` (flat), `W` or `H` */
+  layout: string | null;
+  cylinders: number | null;
+  /** In litres (`3`, `1.5`) */
+  displacement: number | null;
+  aspiration: EngineAspiration;
+  /** 1 if it has a hybrid system, 0 otherwise */
+  hybrid: number;
+}
+
+export interface EngineDTO extends Omit<Engines, 'manufacturerId'> {
+  /** Who actually built the engine (Cosworth for the Ford DFV) */
+  manufacturer: EngineManufacturerDTO | null;
+}
+
+export interface Entrants {
+  id: string;
+  /** Clean name of the team, without sponsors */
+  name: string;
+  companyId: string | null;
+}
+
+export interface EntrantDTO extends Omit<Entrants, 'companyId'> {
+  company: CompanyDTO | null;
+
+  /** First season in which the entrant had at least one entry. `null` if it has no entries */
+  firstSeason: number | null;
+
+  /** Last season in which the entrant had at least one entry. `null` if it has no entries */
+  lastSeason: number | null;
+
+  /** Registered name (sponsors included) of the most recent entry of the entrant */
+  latestEntrantName: string | null;
+}
+
+export interface EntrantSeasons {
+  id: string;
+  entrantId: string;
+  season: number;
+  ownConstructorId: string | null;
+  licenceCountryId: string | null;
+}
+
+type EntrantSeasonOmittedAttr =
+  'entrantId' | 'ownConstructorId' | 'licenceCountryId';
+
+export interface EntrantSeasonDTO extends Omit<
+  EntrantSeasons,
+  EntrantSeasonOmittedAttr
+> {
+  entrant: EntrantDTO | null;
+
+  /** `WORKS` if the entrant builds its own chassis that season (`ownConstructor`), `CUSTOMER` if it uses the chassis of others */
+  type: 'WORKS' | 'CUSTOMER';
+
+  /** The constructor whose chassis the entrant builds itself that season. `null` for the customer teams */
+  ownConstructor: ConstructorDTO | null;
+
+  /** Nationality of the national authority (ASN) that issued the licence of the entrant that season. It is not where the team is based or owned. `null` when unknown */
+  licenceCountry: CountryDTO | null;
+}
+
+/**
+ * - `RENAME`: same organisation, new name
+ * - `TAKEOVER`: sold or bought
+ * - `MERGER`
+ * - `REVIVAL`: returns after a gap
+ */
+export type SuccessionType = 'MERGER' | 'RENAME' | 'REVIVAL' | 'TAKEOVER';
+
+export interface EntrantSuccessions {
+  predecessorId: string;
+  successorId: string;
+  year: number;
+  type: SuccessionType;
+}
+
+export interface EntrantLineageItem {
+  entrant: EntrantDTO;
+
+  /** First season of the successor in the handover */
+  year: number;
+
+  type: SuccessionType;
+}
+
+export interface EntrantLineage {
+  /** Previous entrants, from the closest to the oldest. `year` and `type` describe the handover from that entrant to the next one in the chain */
+  predecessors: EntrantLineageItem[];
+
+  /** Following entrants, from the closest to the most recent */
+  successors: EntrantLineageItem[];
+}
+
+/** A registered name of an entrant and the seasons in which it was used */
+export interface EntrantNameUsage {
+  name: string;
+  /** Consecutive seasons ranges, e.g. `[{from: 1950, to: 1960}, {from: 1990, to: 1996}]` */
+  ranges: { from: number; to: number }[];
+}
+
+type EntryOmittedAttr =
+  | 'entrantSeasonId'
   | 'driverId'
-  | 'chassisManufacturerId'
-  | 'engineManufacturerId'
+  | 'chassisId'
+  | 'engineId'
+  | 'engineBrandId'
   | 'tyreManufacturerId';
 
-export interface EventEntrants {
+export interface Entries {
   id: string;
   driverId: string;
   driverNumber: number;
-  seasonEntrantId: string | null;
+  entrantSeasonId: string;
+  /** Registered name of the entrant, sponsors included. It can change within a season */
   entrantName: string;
-  chassisManufacturerId: string;
-  chassisName: string | null;
-  engineName: string | null;
-  engineManufacturerId: string;
+  chassisId: string;
+  engineId: string;
+  /** Brand the engine is sold under when it is not its builder (Ford for a Cosworth). `null` if it is the builder */
+  engineBrandId: string | null;
   tyreManufacturerId: string | null;
   note: string | null;
 }
 
-export interface EventEntrantDTO extends Omit<
-  EventEntrants,
-  EventEntrantOmittedAttr
-> {
+export interface EntryDTO extends Omit<Entries, EntryOmittedAttr> {
   driver: DriverDTO | null;
-  seasonEntrant: SeasonEntrantDTO | null;
+  entrantSeason: EntrantSeasonDTO | null;
+  chassis: ChassisDTO | null;
+  engine: EngineDTO | null;
+  /** Brand the engine is sold under, when it is not its builder */
+  engineBrand: EngineManufacturerDTO | null;
   tyreManufacturer: TyreManufacturerDTO | null;
-  chassisManufacturer: CompanyDTO | null;
-  engineManufacturer: CompanyDTO | null;
 }
 
 export interface Sessions {
@@ -320,20 +470,20 @@ export interface GrandsPrixDTO extends Omit<GrandsPrix, 'countryId'> {
 }
 
 export interface LapTimes {
-  entrantId: string;
+  entryId: string;
   sessionId: string;
   lap: number;
   time: number | null;
   pos: number | null;
 }
 
-export interface LapTimeDTO extends Omit<LapTimes, 'sessionId' | 'entrantId'> {
+export interface LapTimeDTO extends Omit<LapTimes, 'sessionId' | 'entryId'> {
   session: SessionDTO | null;
-  entrant: EventEntrantDTO | null;
+  entry: EntryDTO | null;
 }
 
 export interface PitStops {
-  entrantId: string;
+  entryId: string;
   sessionId: string;
   lap: number;
   time: number | null;
@@ -341,20 +491,13 @@ export interface PitStops {
   annotation: string | null;
 }
 
-export interface PitStopDTO extends Omit<PitStops, 'sessionId' | 'entrantId'> {
+export interface PitStopDTO extends Omit<PitStops, 'sessionId' | 'entryId'> {
   session: SessionDTO | null;
-  entrant: EventEntrantDTO | null;
-}
-
-export interface PreviousNextConstructors {
-  constructorId: string;
-  parentConstructorId: string;
-  yearFrom: number;
-  yearTo: number | null;
+  entry: EntryDTO | null;
 }
 
 export interface TimedSessionResults {
-  entrantId: string;
+  entryId: string;
   sessionId: string;
   positionOrder: number | null;
   /** The finishing position (`"1"`, `"2"`...) or a code: `DNF`, `NC` (not classified), `DNS`, `DSQ`, `WD` (withdrawn), `DNQ` */
@@ -365,14 +508,14 @@ export interface TimedSessionResults {
 
 export interface TimedSessionResultsDTO extends Omit<
   TimedSessionResults,
-  'sessionId' | 'entrantId'
+  'sessionId' | 'entryId'
 > {
   session: SessionDTO | null;
-  entrant: EventEntrantDTO | null;
+  entry: EntryDTO | null;
 }
 
 export interface RaceResults {
-  entrantId: string;
+  entryId: string;
   sessionId: string;
   positionOrder: number;
   /** The finishing position (`"1"`, `"2"`...) or a code: `DNF`, `NC` (not classified), `DNS`, `DSQ`, `WD` (withdrawn), `DNQ` */
@@ -383,6 +526,8 @@ export interface RaceResults {
   laps: number | null;
   points: number | null;
   pointsCountForWDC: number;
+  /** 0 if the result does not score for the Constructors' Championship (e.g. a non-eligible third car, a disqualified constructor), 1 otherwise. The championship itself is calculated by `/championships/{season}/constructors` */
+  pointsCountForWCC: number;
   pointsGained: number | null;
   timePenalty: number | null;
   reasonRetired: string | null;
@@ -390,10 +535,10 @@ export interface RaceResults {
 
 export interface RaceResultDTO extends Omit<
   RaceResults,
-  'sessionId' | 'entrantId'
+  'sessionId' | 'entryId'
 > {
   session: SessionDTO | null;
-  entrant: EventEntrantDTO | null;
+  entry: EntryDTO | null;
   /** 1 if the car was shared with other drivers (another result of this race has the same position and car number), 0 otherwise */
   sharedCar: number;
 }
@@ -414,19 +559,9 @@ export interface SafetyCars {
   cause: string | null;
 }
 
-export interface SeasonEntrants {
-  id: string;
-  season: number;
-  name: string;
-  countryId: string;
-}
-
-export interface SeasonEntrantDTO extends Omit<SeasonEntrants, 'countryId'> {
-  country: CountryDTO | null;
-}
-
 export interface TyreManufacturers {
   id: string;
+  companyId: string;
   name: string;
   countryId: string;
   primaryColor: string;
@@ -441,6 +576,7 @@ export interface TyreManufacturerDTO extends Omit<
 }
 
 export interface DB {
+  chassis: Chassis;
   circuits: Circuits;
   companies: Companies;
   constructors: Constructors;
@@ -448,18 +584,20 @@ export interface DB {
   drivers: Drivers;
   driversFamilyRelationships: DriversFamilyRelationships;
   engineManufacturers: EngineManufacturers;
-  sessionEntrants: EventEntrants;
+  engines: Engines;
+  entrantSeasons: EntrantSeasons;
+  entrantSuccessions: EntrantSuccessions;
+  entrants: Entrants;
+  entries: Entries;
   events: Events;
   sessions: Sessions;
   fpResults: TimedSessionResults;
   grandsPrix: GrandsPrix;
   lapTimes: LapTimes;
   pitStops: PitStops;
-  previousNextConstructors: PreviousNextConstructors;
   qualifyingResults: TimedSessionResults;
   raceResults: RaceResults;
   redFlags: RedFlags;
   safetyCars: SafetyCars;
-  seasonEntrants: SeasonEntrants;
   tyreManufacturers: TyreManufacturers;
 }

@@ -9,7 +9,7 @@ import { DB, RaceResultDTO, RaceResults } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { ParamsBuilderService } from '../paramsBuilder.service';
-import { SessionEntrantService } from '../session-entrants/sessionEntrant.service';
+import { EntryService } from '../entries/entry.service';
 import { SessionService } from '../session/session.service';
 
 export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
@@ -33,6 +33,7 @@ export class RaceResultService extends DbService {
       'laps',
       'points',
       'pointsCountForWDC',
+      'pointsCountForWCC',
       'pointsGained',
       'positionText',
       'positionOrder',
@@ -50,12 +51,12 @@ export class RaceResultService extends DbService {
           // 1 or 0, like the other flags of the results (SQLite has no booleans)
           sql<number>`EXISTS (
             SELECT 1 FROM raceResults AS other
-            JOIN sessionEntrants AS otherEntrant ON otherEntrant.id = other.entrantId
-            JOIN sessionEntrants AS entrant ON entrant.id = raceResults.entrantId
+            JOIN entries AS otherEntry ON otherEntry.id = other.entryId
+            JOIN entries AS entry ON entry.id = raceResults.entryId
             WHERE other.sessionId = raceResults.sessionId
               AND other.positionOrder = raceResults.positionOrder
-              AND other.entrantId != raceResults.entrantId
-              AND otherEntrant.driverNumber = entrant.driverNumber
+              AND other.entryId != raceResults.entryId
+              AND otherEntry.driverNumber = entry.driverNumber
           )`.as('sharedCar')
         )
       )
@@ -69,14 +70,14 @@ export class RaceResultService extends DbService {
           ).as('session')
         )
       )
-      .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
+      .$if(fieldsParam.shouldSelectObject('entry'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
-            SessionEntrantService.getEventEntrantSelect(
-              eb.selectFrom('sessionEntrants'),
-              fieldsParam?.clone('entrant')
-            ).whereRef('raceResults.entrantId', '==', 'sessionEntrants.id')
-          ).as('entrant')
+            EntryService.getEntrySelect(
+              eb.selectFrom('entries'),
+              fieldsParam?.clone('entry')
+            ).whereRef('raceResults.entryId', '==', 'entries.id')
+          ).as('entry')
         )
       ) as SelectQueryBuilder<DB, 'raceResults' | T, RaceResultDTO>;
   }

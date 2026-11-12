@@ -6,7 +6,7 @@ import { Sorter } from '../../models/sorter';
 import { DB, PitStopDTO, PitStops } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { ParamsBuilderService } from '../paramsBuilder.service';
-import { SessionEntrantService } from '../session-entrants/sessionEntrant.service';
+import { EntryService } from '../entries/entry.service';
 import { SessionService } from '../session/session.service';
 import { PitStopController, PitStopQueryParams } from './pitStop.controller';
 
@@ -24,14 +24,14 @@ export class PitStopService
 
     return (qb as SelectQueryBuilder<DB, 'pitStops', object>)
       .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
-      .$if(fieldsParam.shouldSelectObject('entrant'), (qb) =>
+      .$if(fieldsParam.shouldSelectObject('entry'), (qb) =>
         qb.select((eb) =>
           jsonObjectFrom(
-            SessionEntrantService.getEventEntrantSelect(
-              eb.selectFrom('sessionEntrants'),
-              fieldsParam?.clone('entrant')
-            ).whereRef('pitStops.entrantId', '==', 'sessionEntrants.id')
-          ).as('entrant')
+            EntryService.getEntrySelect(
+              eb.selectFrom('entries'),
+              fieldsParam?.clone('entry')
+            ).whereRef('pitStops.entryId', '==', 'entries.id')
+          ).as('entry')
         )
       )
       .$if(fieldsParam.shouldSelectObject('session'), (qb) =>
@@ -53,7 +53,7 @@ export class PitStopService
     const sorter = new Sorter<PitStops>(obj.sort || 'sessionId,lap');
 
     const mainSelect = new ParamsBuilderService()
-      .getSessionEntrantsWithParams('pitStops', obj)
+      .getSessionEntriesWithParams('pitStops', obj)
       .$if(obj.lap != undefined, (qb) =>
         qb.where('pitStops.lap', '==', obj.lap!)
       );

@@ -29,11 +29,7 @@ export class DriverStandingService
       champResult,
       raceResults: await this.db
         .selectFrom('raceResults')
-        .leftJoin(
-          'sessionEntrants',
-          'sessionEntrants.id',
-          'raceResults.entrantId'
-        )
+        .leftJoin('entries', 'entries.id', 'raceResults.entryId')
         .select(
           sql<
             number | null
@@ -53,11 +49,7 @@ export class DriverStandingService
   async getDriverChampionshipResults(season: number, round?: number) {
     let results: DriverChampResult[] = (await this.db
       .selectFrom('raceResults')
-      .leftJoin(
-        'sessionEntrants',
-        'sessionEntrants.id',
-        'raceResults.entrantId'
-      )
+      .leftJoin('entries', 'entries.id', 'raceResults.entryId')
       .where(getSeasonFromIdColumn('raceResults.sessionId'), '==', season)
       .$if(round != undefined, (qb) =>
         qb.where(getRoundFromIdColumn('raceResults.sessionId'), '<=', round!)
@@ -69,7 +61,7 @@ export class DriverStandingService
         jsonObjectFrom(
           DriverService.getDriversSelect(
             eb.selectFrom('drivers') as any
-          ).whereRef('sessionEntrants.driverId', '==', 'drivers.id')
+          ).whereRef('entries.driverId', '==', 'drivers.id')
         ).as('driver')
       ])
       .execute()) as DriverChampResult[];
