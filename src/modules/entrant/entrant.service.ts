@@ -16,6 +16,7 @@ import {
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { CompanyService } from '../company/company.service';
+import { CountryService } from '../countries/countries.service';
 import { EntrantSeasonService } from './entrantSeason.service';
 import type {
   EntrantController,
@@ -53,6 +54,25 @@ export class EntrantService
               fieldsParam?.clone('company')
             ).whereRef('entrants.companyId', '==', 'companies.id')
           ).as('company')
+        )
+      )
+      .$if(fieldsParam.shouldSelectObject('licenceCountry'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            CountryService.getCountriesSelect(
+              eb.selectFrom('countries'),
+              fieldsParam?.clone('licenceCountry')
+            ).where(
+              'countries.alpha2Code',
+              '==',
+              sql<string>`(
+                SELECT entrantSeasons.licenceCountryId FROM entrantSeasons
+                WHERE entrantSeasons.entrantId = entrants.id AND entrantSeasons.licenceCountryId IS NOT NULL
+                ORDER BY entrantSeasons.season DESC
+                LIMIT 1
+              )`
+            )
+          ).as('licenceCountry')
         )
       )
       .$if(fieldsParam.shouldSelectKey('firstSeason'), (qb) =>

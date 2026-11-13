@@ -29,6 +29,7 @@ describe('Test entrants functionality', () => {
     expect(res.firstSeason).toBe(1966);
     expect(res.lastSeason).toBe(1998);
     expect(res.latestEntrantName).toBe('PIAA Tyrrell');
+    expect(res.licenceCountry?.alpha2Code).toBe('GB');
   });
 
   test('The lineage of Tyrrell reaches Mercedes', async () => {

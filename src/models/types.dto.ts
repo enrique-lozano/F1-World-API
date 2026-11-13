@@ -316,6 +316,9 @@ export interface Entrants {
 export interface EntrantDTO extends Omit<Entrants, 'companyId'> {
   company: CompanyDTO | null;
 
+  /** Nationality of the licence of the entrant in its most recent season with a known licence. The licence can change over the years (see `/entrants/{id}/seasons`) */
+  licenceCountry: CountryDTO | null;
+
   /** First season in which the entrant had at least one entry. `null` if it has no entries */
   firstSeason: number | null;
 
