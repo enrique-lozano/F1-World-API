@@ -37,6 +37,14 @@ Enum engines_aspiration {
   TURBOCHARGED
 }
 
+Enum retirementReasons_category {
+  ACCIDENT
+  DISQUALIFICATION
+  DRIVER_HEALTH
+  MECHANICAL
+  OTHER
+}
+
 Enum entrantSuccessions_type {
   MERGER
   RENAME
@@ -217,6 +225,14 @@ Table redFlags {
   }
 }
 
+Table retirementReasons {
+  id varchar [pk, note: 'slug of the name, e.g. gearbox, spun-off']
+  name varchar [not null]
+  category retirementReasons_category [not null, note: 'MECHANICAL: a failed component of the car (engine, gearbox, brakes...). ACCIDENT: collisions and spins. DRIVER_HEALTH: illness or injury. DISQUALIFICATION: infringement of the rules. OTHER: withdrawals, out of fuel...']
+
+  Note: 'Why a car did not finish, was disqualified or did not start. The `name` is the text shown to the users.'
+}
+
 Table safetyCars {
   eventId varchar
   deployed integer
@@ -310,7 +326,7 @@ Table lapTimes {
   sessionId varchar
   lap integer
   time integer [note: 'milliseconds']
-  pos integer
+  position integer [note: 'position of the driver in the race at the end of this lap']
 
   indexes {
     (entryId, sessionId, lap) [pk]
@@ -360,11 +376,12 @@ Table raceResults {
   pointsCountForWCC boolean [not null, default: 1, note: '0 when the result does not score for the Constructors\' Championship: non-eligible third car (Renault, 1985 German GP), disqualified constructor (Larrousse 1990)']
   pointsGained integer
   timePenalty integer
-  reasonRetired varchar
+  retirementReasonId varchar [note: 'why the car did not finish (or was disqualified / did not start). NULL if it finished']
 
   indexes {
     (sessionId, entryId, positionOrder) [pk]
     entryId
+    retirementReasonId
   }
 }
 
@@ -409,5 +426,6 @@ Ref: qualifyingResults.entryId > entries.id
 Ref: qualifyingResults.sessionId > sessions.id
 Ref: fpResults.entryId > entries.id
 Ref: fpResults.sessionId > sessions.id
+Ref: raceResults.retirementReasonId > retirementReasons.id
 Ref: raceResults.entryId > entries.id
 Ref: raceResults.sessionId > sessions.id
