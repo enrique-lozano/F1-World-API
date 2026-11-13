@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5827,1,1,5731337,8,,67,9,1,1,9,,
 5803,2,2,5742998,3,,67,6,1,1,6,,
 5826,3,3,5782491,13,,67,4,1,1,4,,
@@ -9,20 +9,20 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5841,8,8,,19,,66,0,1,1,0,,
 5830,9,9,,2,,66,0,1,1,0,,
 5842,10,10,,26,,63,0,1,1,0,,
-5832,11,11,,27,,62,0,1,1,0,,Engine
-5808,12,12,,4,,61,0,1,1,0,,Brakes
-5840,13,DNF,,18,,45,0,1,1,0,,Turbo
-5813,14,DNF,,7,,40,0,1,1,0,,Engine
-5845,15,DNF,,25,,32,0,1,1,0,,Gearbox
-5833,16,DNF,,1,,29,0,1,1,0,,Clutch
-5814,17,DNF,,5,,27,0,1,1,0,,Driveshaft
-5839,18,DNF,,20,,25,0,1,1,0,,Ignition
-5809,19,DNF,,6,,23,0,1,1,0,,Turbo
-5838,20,DNF,,16,,19,0,1,1,0,,Spun off
-5834,21,DNF,,11,,15,0,1,1,0,,Engine
-5811,22,DNF,,22,,8,0,1,1,0,,Engine
-5844,23,DNF,,9,,8,0,1,1,0,,Gearbox
-5843,24,DNF,,23,,8,0,1,0,0,,Clutch
-5812,25,DNF,,21,,8,0,1,1,0,,Oil pressure
-5831,26,DNF,,24,,7,0,1,1,0,,Alternator
-5825,27,DNS,,14,,,0,1,1,0,,Collision
+5832,11,11,,27,,62,0,1,1,0,,engine
+5808,12,12,,4,,61,0,1,1,0,,brakes
+5840,13,DNF,,18,,45,0,1,1,0,,turbo
+5813,14,DNF,,7,,40,0,1,1,0,,engine
+5845,15,DNF,,25,,32,0,1,1,0,,gearbox
+5833,16,DNF,,1,,29,0,1,1,0,,clutch
+5814,17,DNF,,5,,27,0,1,1,0,,driveshaft
+5839,18,DNF,,20,,25,0,1,1,0,,ignition
+5809,19,DNF,,6,,23,0,1,1,0,,turbo
+5838,20,DNF,,16,,19,0,1,1,0,,spun-off
+5834,21,DNF,,11,,15,0,1,1,0,,engine
+5811,22,DNF,,22,,8,0,1,1,0,,engine
+5844,23,DNF,,9,,8,0,1,1,0,,gearbox
+5843,24,DNF,,23,,8,0,1,0,0,,clutch
+5812,25,DNF,,21,,8,0,1,1,0,,oil-pressure
+5831,26,DNF,,24,,7,0,1,1,0,,alternator
+5825,27,DNS,,14,,,0,1,1,0,,collision

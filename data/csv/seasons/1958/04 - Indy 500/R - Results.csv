@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 1727,1,1,13453800,7,,200,8,1,1,8,,
 1779,2,2,13481429,25,,200,6,1,1,6,,
 1733,3,3,13523470,8,,200,4,1,1,4,,
@@ -12,23 +12,23 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1751,11,11,14008000,21,,200,0,1,1,0,,
 1749,12,12,14034651,6,,200,0,1,1,0,,
 1739,13,13,14046040,30,,200,0,1,1,0,,
-1761,14,14,,17,,189,0,1,1,0,,Spun off
-1759,15,15,,32,,151,0,1,1,0,,Fire
-1744,16,16,,12,,148,0,1,1,0,,Spun off
-1769,17,17,,31,,136,0,1,1,0,,Accident
-1735,18,18,,14,,122,0,1,1,0,,Radiator
-1772,19,19,,23,,116,0,1,1,0,,Brakes
-1732,20,20,,11,,93,0,1,1,0,,Magneto
-1747,21,21,,15,,80,0,1,1,0,,Magneto
-1773,22,22,,18,,68,0,1,1,0,,Transmission
-1731,23,23,,22,,52,0,1,1,0,,Steering
-1774,24,24,,29,,38,0,1,1,0,,Accident
-1741,25,25,,10,,21,0,1,1,0,,Fuel pump
-1734,26,26,,4,,1,0,1,1,0,,Accident
-1777,27,27,,1,,0,0,1,1,0,,Accident
-1730,28,28,,2,,0,0,1,1,0,,Accident
-1729,29,29,,5,,0,0,1,1,0,,Fatal accident
-1745,30,30,,16,,0,0,1,1,0,,Accident
-1775,31,31,,24,,0,0,1,1,0,,Accident
-1763,32,32,,27,,0,0,1,1,0,,Accident
-1757,33,33,,28,,0,0,1,1,0,,Accident
+1761,14,14,,17,,189,0,1,1,0,,spun-off
+1759,15,15,,32,,151,0,1,1,0,,fire
+1744,16,16,,12,,148,0,1,1,0,,spun-off
+1769,17,17,,31,,136,0,1,1,0,,accident
+1735,18,18,,14,,122,0,1,1,0,,radiator
+1772,19,19,,23,,116,0,1,1,0,,brakes
+1732,20,20,,11,,93,0,1,1,0,,magneto
+1747,21,21,,15,,80,0,1,1,0,,magneto
+1773,22,22,,18,,68,0,1,1,0,,transmission
+1731,23,23,,22,,52,0,1,1,0,,steering
+1774,24,24,,29,,38,0,1,1,0,,accident
+1741,25,25,,10,,21,0,1,1,0,,fuel-pump
+1734,26,26,,4,,1,0,1,1,0,,accident
+1777,27,27,,1,,0,0,1,1,0,,accident
+1730,28,28,,2,,0,0,1,1,0,,accident
+1729,29,29,,5,,0,0,1,1,0,,fatal-accident
+1745,30,30,,16,,0,0,1,1,0,,accident
+1775,31,31,,24,,0,0,1,1,0,,accident
+1763,32,32,,27,,0,0,1,1,0,,accident
+1757,33,33,,28,,0,0,1,1,0,,accident

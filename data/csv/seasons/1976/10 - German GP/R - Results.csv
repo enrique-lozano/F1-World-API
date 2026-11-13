@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5108,1,1,6102700,1,,14,9,1,1,9,,
 5143,2,2,6130400,8,,14,6,1,1,6,,
 5109,3,3,6155100,9,,14,4,1,1,4,,
@@ -14,15 +14,15 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5117,13,13,6427900,20,,14,0,1,1,0,,
 5163,14,14,,26,,13,0,1,1,0,,
 5159,15,15,,25,,13,0,1,1,0,,
-5158,16,DNF,,21,,3,0,1,1,0,,Brakes
-5106,17,DNF,,13,,1,0,1,1,0,,Accident
-5134,18,DNF,,3,,0,0,1,1,0,,Accident
-5104,19,DNF,,10,,0,0,1,1,0,,Fuel system
-5122,20,DNF,,11,,0,0,1,1,0,,Accident
-5119,21,DNF,,4,,0,0,1,1,0,,Clutch
-5115,22,DNF,,6,,0,0,1,1,0,,Gearbox
-5138,23,DNF,,17,,0,0,1,1,0,,Withdrew
-5132,24,DNF,,2,,0,0,1,1,0,,Accident
-5124,25,DNF,,24,,0,0,1,1,0,,Accident
-5127,26,DNF,,22,,0,0,1,1,0,,Accident
-5160,27,DNS,,,,,0,1,1,0,,Car seized by police
+5158,16,DNF,,21,,3,0,1,1,0,,brakes
+5106,17,DNF,,13,,1,0,1,1,0,,accident
+5134,18,DNF,,3,,0,0,1,1,0,,accident
+5104,19,DNF,,10,,0,0,1,1,0,,fuel-system
+5122,20,DNF,,11,,0,0,1,1,0,,accident
+5119,21,DNF,,4,,0,0,1,1,0,,clutch
+5115,22,DNF,,6,,0,0,1,1,0,,gearbox
+5138,23,DNF,,17,,0,0,1,1,0,,withdrew
+5132,24,DNF,,2,,0,0,1,1,0,,accident
+5124,25,DNF,,24,,0,0,1,1,0,,accident
+5127,26,DNF,,22,,0,0,1,1,0,,accident
+5160,27,DNS,,,,,0,1,1,0,,car-seized-by-police

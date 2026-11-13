@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 2633,1,1,7655500,6,,54,9,1,1,9,,
 2630,2,2,,11,,53,6,1,1,6,,
 2624,3,3,,10,,52,4,1,1,4,,
@@ -8,11 +8,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2632,7,7,,13,,50,0,1,1,0,,
 2626,8,8,,12,,48,0,1,1,0,,
 2623,9,9,,2,,44,0,1,1,0,,
-2634,10,10,,9,,42,0,1,1,0,,Gearbox
-2625,11,DNF,,1,,33,0,1,1,0,,Suspension
-2639,12,DNF,,16,,27,0,1,1,0,,Accident
-2568,13,DNF,,14,,20,0,1,1,0,,Oil pressure
-2635,14,DNF,,7,,14,0,1,1,0,,Overheating
-2631,15,DNF,,4,,10,0,1,1,0,,Suspension
-2638,16,DNF,,15,,5,0,1,1,0,,Clutch
-2636,17,DNF,,8,,1,0,1,1,0,,Puncture
+2634,10,10,,9,,42,0,1,1,0,,gearbox
+2625,11,DNF,,1,,33,0,1,1,0,,suspension
+2639,12,DNF,,16,,27,0,1,1,0,,accident
+2568,13,DNF,,14,,20,0,1,1,0,,oil-pressure
+2635,14,DNF,,7,,14,0,1,1,0,,overheating
+2631,15,DNF,,4,,10,0,1,1,0,,suspension
+2638,16,DNF,,15,,5,0,1,1,0,,clutch
+2636,17,DNF,,8,,1,0,1,1,0,,puncture

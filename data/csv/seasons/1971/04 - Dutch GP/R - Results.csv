@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 4326,1,1,6980090,1,,70,9,1,1,9,,
 4331,2,2,6988080,2,,70,6,1,1,6,,
 4327,3,3,,4,,69,4,1,1,4,,
@@ -14,12 +14,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 4347,13,NC,,15,,62,0,1,1,0,,
 4339,14,NC,,24,,60,0,1,1,0,,
 4344,15,NC,,23,,60,0,1,1,0,,
-4305,16,DNF,,17,,57,0,1,1,0,,Engine
-4342,17,DNF,,19,,39,0,1,1,0,,Suspension
-4330,18,DNF,,12,,29,0,1,1,0,,Accident
-4338,19,DNF,,20,,7,0,1,1,0,,Accident
-4336,20,DNF,,22,,6,0,1,1,0,,Accident
-4328,21,DNF,,18,,5,0,1,1,0,,Fuel pump
-4306,22,DNF,,5,,2,0,1,1,0,,Spun off
-4345,23,DSQ,,10,,19,0,1,1,0,,Push start
-4335,24,DSQ,,6,,17,0,1,1,0,,Reversed in pits
+4305,16,DNF,,17,,57,0,1,1,0,,engine
+4342,17,DNF,,19,,39,0,1,1,0,,suspension
+4330,18,DNF,,12,,29,0,1,1,0,,accident
+4338,19,DNF,,20,,7,0,1,1,0,,accident
+4336,20,DNF,,22,,6,0,1,1,0,,accident
+4328,21,DNF,,18,,5,0,1,1,0,,fuel-pump
+4306,22,DNF,,5,,2,0,1,1,0,,spun-off
+4345,23,DSQ,,10,,19,0,1,1,0,,push-start
+4335,24,DSQ,,6,,17,0,1,1,0,,reversed-in-pits

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6487,1,1,5292438,3,,71,10,1,1,10,,
 6485,2,2,5292751,2,,71,6,1,1,6,,
 6484,3,3,5314720,1,,71,4,1,1,4,,
@@ -10,14 +10,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6508,9,9,,7,,70,0,1,1,0,,
 6500,10,10,,18,,70,0,1,1,0,,
 6503,11,11,,22,,70,0,1,1,0,,
-6492,12,12,,12,,68,0,1,1,0,,Engine
+6492,12,12,,12,,68,0,1,1,0,,engine
 6502,13,13,,19,,68,0,1,1,0,,
 6499,14,14,,6,,67,0,1,1,0,,
-6505,15,15,,15,,63,0,1,1,0,,Clutch
-6498,16,DNF,,5,,55,0,1,1,0,,Engine
-6494,17,DNF,,17,,49,0,1,1,0,,Out of fuel
-6496,18,DNF,,21,,38,0,1,1,0,,Spun off
-6488,19,DNF,,14,,35,0,1,1,0,,Out of fuel
-6504,20,DNF,,9,,34,0,1,1,0,,Halfshaft
-6497,21,DNF,,20,,25,0,1,1,0,,Engine
-6489,22,DNF,,8,,8,0,1,1,0,,Spun off
+6505,15,15,,15,,63,0,1,1,0,,clutch
+6498,16,DNF,,5,,55,0,1,1,0,,engine
+6494,17,DNF,,17,,49,0,1,1,0,,out-of-fuel
+6496,18,DNF,,21,,38,0,1,1,0,,spun-off
+6488,19,DNF,,14,,35,0,1,1,0,,out-of-fuel
+6504,20,DNF,,9,,34,0,1,1,0,,halfshaft
+6497,21,DNF,,20,,25,0,1,1,0,,engine
+6489,22,DNF,,8,,8,0,1,1,0,,spun-off

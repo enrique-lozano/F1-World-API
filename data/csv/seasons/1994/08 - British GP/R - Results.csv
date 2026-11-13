@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6287,1,1,5403640,1,,60,10,1,1,10,,
 6328,2,2,5490546,4,,60,6,1,1,6,,
 6293,3,3,5504299,5,,60,4,1,1,4,,
@@ -15,13 +15,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6301,14,14,,24,,58,0,1,1,0,,
 6311,15,15,,25,,57,0,1,1,0,,
 6330,16,16,,26,,57,0,1,1,0,,
-6324,17,DNF,,17,,48,0,1,1,0,,Engine
-6329,18,DNF,,3,,32,0,1,1,0,,Engine
-6290,19,DNF,,11,,20,0,1,1,0,,Gearbox
-6302,20,DNF,,22,,12,0,1,1,0,,Engine
-6325,21,DNF,,18,,11,0,1,1,0,,Engine
-6296,22,DNF,,16,,5,0,1,1,0,,Engine
-6327,23,DNF,,PL,,4,0,1,1,0,,Engine
-6294,24,DNF,,9,,0,0,1,1,0,,Engine
-6300,25,DNF,,12,,0,0,1,1,0,,Engine
-6291,26,DSQ,,2,,60,0,1,1,0,,Ignored black flag
+6324,17,DNF,,17,,48,0,1,1,0,,engine
+6329,18,DNF,,3,,32,0,1,1,0,,engine
+6290,19,DNF,,11,,20,0,1,1,0,,gearbox
+6302,20,DNF,,22,,12,0,1,1,0,,engine
+6325,21,DNF,,18,,11,0,1,1,0,,engine
+6296,22,DNF,,16,,5,0,1,1,0,,engine
+6327,23,DNF,,PL,,4,0,1,1,0,,engine
+6294,24,DNF,,9,,0,0,1,1,0,,engine
+6300,25,DNF,,12,,0,0,1,1,0,,engine
+6291,26,DSQ,,2,,60,0,1,1,0,,ignored-black-flag

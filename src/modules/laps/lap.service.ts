@@ -12,7 +12,7 @@ import { SessionService } from '../session/session.service';
 import { LapController } from './lap.controller';
 
 export interface LapQueryParams extends SessionEntryQueryParams {
-  pos?: number;
+  position?: number;
   lap?: number;
 }
 
@@ -26,7 +26,7 @@ export class LapService
   ) {
     fieldsParam ??= new IncludeParam();
 
-    const allSingleFields = ['pos', 'lap', 'time'] as const;
+    const allSingleFields = ['position', 'lap', 'time'] as const;
 
     return (qb as SelectQueryBuilder<DB, 'lapTimes', object>)
       .select(fieldsParam.getFilteredFieldsArray(allSingleFields))
@@ -60,7 +60,9 @@ export class LapService
 
     const mainSelect = new ParamsBuilderService()
       .getSessionEntriesWithParams('lapTimes', obj)
-      .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!))
+      .$if(obj.position != undefined, (qb) =>
+        qb.where('position', '==', obj.position!)
+      )
       .$if(obj.lap != undefined, (qb) => qb.where('lap', '==', obj.lap!));
 
     return this.paginateSelect(
@@ -99,7 +101,9 @@ export class LapService
 
     const mainSelect = new ParamsBuilderService()
       .getSessionEntriesWithParams('lapTimes', obj)
-      .$if(obj.pos != undefined, (qb) => qb.where('pos', '==', obj.pos!))
+      .$if(obj.position != undefined, (qb) =>
+        qb.where('position', '==', obj.position!)
+      )
       .$if(obj.lap != undefined, (qb) => qb.where('lap', '==', obj.lap!));
 
     return this.filterSelectWithFastestTimes(mainSelect)

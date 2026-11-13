@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 1170,1,1,10689700,9,,100,8,1,1,8,,
 1163,2,2,10710000,4,,100,6,1,1,6,,
 1165,3,3,,5,,99,2,1,1,2,,
@@ -9,15 +9,15 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1153,7,7,,20,,91,0,1,1,0,,
 1173,8,8,,15,,86,0,1,1,0,,
 1130,9,9,,3,,81,0,1,1,0,,
-7368,10,DNF,,11,,86,0,1,1,0,,Spun off
-1168,10,DNF,,11,,86,0,1,1,0,,Spun off
-1161,11,DNF,,2,,80,0,1,1,0,,Accident
-1171,12,DNF,,18,,68,0,1,1,0,,Engine
-1166,13,DNF,,6,,64,0,1,1,0,,Transmission
-1154,14,DNF,,16,,63,0,1,1,0,,Transmission
-1128,15,DNF,,1,,49,1,0,1,1,,Transmission
-1152,16,DNF,,13,,38,0,1,1,0,,Gearbox
-1151,17,DNF,,10,,24,0,1,1,0,,Engine
-1157,18,DNF,,12,,22,0,1,1,0,,Throttle
-1155,19,DNF,,17,,8,0,1,1,0,,Fuel leak
-1167,20,DNF,,8,,7,0,1,1,0,,Transmission
+7368,10,DNF,,11,,86,0,1,1,0,,spun-off
+1168,10,DNF,,11,,86,0,1,1,0,,spun-off
+1161,11,DNF,,2,,80,0,1,1,0,,accident
+1171,12,DNF,,18,,68,0,1,1,0,,engine
+1166,13,DNF,,6,,64,0,1,1,0,,transmission
+1154,14,DNF,,16,,63,0,1,1,0,,transmission
+1128,15,DNF,,1,,49,1,0,1,1,,transmission
+1152,16,DNF,,13,,38,0,1,1,0,,gearbox
+1151,17,DNF,,10,,24,0,1,1,0,,engine
+1157,18,DNF,,12,,22,0,1,1,0,,throttle
+1155,19,DNF,,17,,8,0,1,1,0,,fuel-leak
+1167,20,DNF,,8,,7,0,1,1,0,,transmission

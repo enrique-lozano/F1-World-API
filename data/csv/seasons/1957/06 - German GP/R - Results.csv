@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 1608,1,1,12638300,1,,22,9,1,1,9,,
 1615,2,2,12641900,2,,22,6,1,1,6,,
 1614,3,3,12673900,4,,22,4,1,1,4,,
@@ -14,12 +14,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1633,13,13,,17,,20,0,1,1,0,,
 1632,14,14,,20,,20,0,1,1,0,,
 1630,15,15,,22,,17,0,1,1,0,,
-1623,16,DNF,,11,,14,0,1,1,0,,Chassis
-1626,17,DNF,,15,,13,0,1,1,0,,Engine
-1624,18,DNF,,21,,11,0,1,1,0,,Steering
-1628,19,DNF,,14,,11,0,1,1,0,,Suspension
-1619,20,DNF,,9,,10,0,1,1,0,,Gearbox
-1629,21,DNF,,18,,6,0,1,1,0,,Transmission
-1631,22,DNF,,23,,4,0,1,1,0,,Distributor
-1634,23,DNF,,24,,3,0,1,1,0,,Steering
-1625,24,DNF,,19,,1,0,1,1,0,,Axle
+1623,16,DNF,,11,,14,0,1,1,0,,chassis
+1626,17,DNF,,15,,13,0,1,1,0,,engine
+1624,18,DNF,,21,,11,0,1,1,0,,steering
+1628,19,DNF,,14,,11,0,1,1,0,,suspension
+1619,20,DNF,,9,,10,0,1,1,0,,gearbox
+1629,21,DNF,,18,,6,0,1,1,0,,transmission
+1631,22,DNF,,23,,4,0,1,1,0,,distributor
+1634,23,DNF,,24,,3,0,1,1,0,,steering
+1625,24,DNF,,19,,1,0,1,1,0,,axle

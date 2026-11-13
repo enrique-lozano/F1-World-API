@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6083,1,1,5191997,1,,44,9,1,1,9,,
 6111,2,2,5195547,3,,44,6,1,1,6,,
 6084,3,3,5220459,2,,44,4,1,1,4,,
@@ -15,13 +15,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6081,14,14,,21,,42,0,1,1,0,,
 6113,15,15,,16,,42,0,1,1,0,,
 6099,16,16,,23,,42,0,1,1,0,,
-6098,17,17,,13,,39,0,1,1,0,,Engine
-6097,18,DNF,,24,,36,0,1,1,0,,Electrical
-6078,19,DNF,,20,,27,0,1,1,0,,Engine
-6062,20,DNF,,4,,21,0,1,1,0,,Transmission
-6094,21,DNF,,5,,19,0,1,1,0,,Handling
-6063,22,DNF,,7,,18,0,1,1,0,,Gearbox
-6104,23,DNF,,17,,5,0,1,1,0,,Water leak
-6095,24,DNF,,10,,4,0,1,1,0,,Engine
-6107,25,DNF,,11,,0,0,1,0,0,,Accident
-6105,26,DNF,,25,,0,0,1,1,0,,Accident
+6098,17,17,,13,,39,0,1,1,0,,engine
+6097,18,DNF,,24,,36,0,1,1,0,,electrical
+6078,19,DNF,,20,,27,0,1,1,0,,engine
+6062,20,DNF,,4,,21,0,1,1,0,,transmission
+6094,21,DNF,,5,,19,0,1,1,0,,handling
+6063,22,DNF,,7,,18,0,1,1,0,,gearbox
+6104,23,DNF,,17,,5,0,1,1,0,,water-leak
+6095,24,DNF,,10,,4,0,1,1,0,,engine
+6107,25,DNF,,11,,0,0,1,0,0,,accident
+6105,26,DNF,,25,,0,0,1,1,0,,accident

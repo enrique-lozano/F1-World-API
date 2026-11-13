@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7038,1,1,5416930,2,,71,25,1,1,25,,
 7052,2,2,5425730,1,,71,18,1,1,18,5000,
 7045,3,3,5434503,4,,71,15,1,1,15,,
@@ -13,9 +13,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7048,12,12,,15,10,70,0,1,1,0,,
 7041,13,13,,11,,69,0,1,1,0,,
 7055,14,14,,16,,68,0,1,1,0,,
-7040,15,DNF,,9,,35,0,1,1,0,,Gearbox
-7053,16,DNF,,12,,35,0,1,1,0,5000,Electrical
-7047,17,DNF,,20,25,8,0,1,1,0,,Electrical
-7050,18,DNF,,17,,1,0,1,1,0,,Oil leak
-7039,19,DNF,,14,,0,0,1,1,0,,Collision
-7056,20,DNF,,19,25,0,0,1,1,0,,Collision
+7040,15,DNF,,9,,35,0,1,1,0,,gearbox
+7053,16,DNF,,12,,35,0,1,1,0,5000,electrical
+7047,17,DNF,,20,25,8,0,1,1,0,,electrical
+7050,18,DNF,,17,,1,0,1,1,0,,oil-leak
+7039,19,DNF,,14,,0,0,1,1,0,,collision
+7056,20,DNF,,19,25,0,0,1,1,0,,collision

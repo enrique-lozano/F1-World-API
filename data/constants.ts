@@ -42,6 +42,7 @@ export const tableNames = [
   'events',
   'sessions',
   'redFlags',
+  'retirementReasons',
   'safetyCars',
   'entrants',
   'entrantSuccessions',

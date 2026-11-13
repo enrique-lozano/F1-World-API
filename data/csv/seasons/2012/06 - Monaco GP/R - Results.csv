@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6930,1,1,6366557,1,,78,25,1,1,25,,
 6936,2,2,6367200,2,,78,18,1,1,18,,
 6933,3,3,6367504,5,,78,15,1,1,15,,
@@ -14,12 +14,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6947,13,13,,17,,77,0,1,1,0,,
 6951,14,14,,19,,77,0,1,1,0,,
 6950,15,15,,22,,76,0,1,1,0,,
-6931,16,16,,12,,70,0,1,1,0,,Collision
-6943,17,DNF,,15,,65,0,1,1,0,,Steering
-6952,18,DNF,,21,,64,0,1,1,0,,Electrical
-6935,19,DNF,,6,5,63,0,1,1,0,,Fuel pressure
-6948,20,DNF,,18,,15,0,1,1,0,,Electrical
-6941,21,DNF,,11,,5,0,1,1,0,,Collision damage
-6938,22,DNF,,4,,0,0,1,1,0,,Collision
-6949,23,DNF,,20,,0,0,1,1,0,,Collision
-6945,24,DNF,,24,15,0,0,1,1,0,,Collision
+6931,16,16,,12,,70,0,1,1,0,,collision
+6943,17,DNF,,15,,65,0,1,1,0,,steering
+6952,18,DNF,,21,,64,0,1,1,0,,electrical
+6935,19,DNF,,6,5,63,0,1,1,0,,fuel-pressure
+6948,20,DNF,,18,,15,0,1,1,0,,electrical
+6941,21,DNF,,11,,5,0,1,1,0,,collision-damage
+6938,22,DNF,,4,,0,0,1,1,0,,collision
+6949,23,DNF,,20,,0,0,1,1,0,,collision
+6945,24,DNF,,24,15,0,0,1,1,0,,collision

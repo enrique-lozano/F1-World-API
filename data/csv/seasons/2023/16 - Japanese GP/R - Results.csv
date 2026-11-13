@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7283,1,1,5458421,1,,53,26,1,1,26,,
 7299,2,2,5477808,3,,53,18,1,1,18,,
 7300,3,3,5494915,2,,53,15,1,1,15,,
@@ -14,8 +14,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7288,13,13,,19,,52,0,1,1,0,,
 7297,14,14,,18,,52,0,1,1,0,,
 7296,15,15,,15,,52,0,1,1,0,,
-7303,16,DNF,,13,,26,0,1,1,0,,Undertray
-7302,17,DNF,,PL,,22,0,1,1,0,,Undertray
-7293,18,DNF,,17,,20,0,1,1,0,,Rear wing
-7284,19,DNF,,5,,15,0,1,1,0,,Withdrew
-7287,20,DNF,,16,,7,0,1,1,0,,Undertray
+7303,16,DNF,,13,,26,0,1,1,0,,undertray
+7302,17,DNF,,PL,,22,0,1,1,0,,undertray
+7293,18,DNF,,17,,20,0,1,1,0,,rear-wing
+7284,19,DNF,,5,,15,0,1,1,0,,withdrew
+7287,20,DNF,,16,,7,0,1,1,0,,undertray

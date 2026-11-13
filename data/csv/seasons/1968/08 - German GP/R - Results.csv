@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 3794,1,1,8343200,6,,14,9,1,1,9,,
 3740,2,2,8586400,4,,14,6,1,1,6,,
 3793,3,3,8592600,3,,14,4,1,1,4,,
@@ -13,9 +13,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 3801,12,12,,17,,13,0,1,1,0,,
 3684,13,13,,16,,13,0,1,1,0,,
 3782,14,14,,20,,13,0,1,1,0,,
-3795,15,DNF,,2,,11,0,1,1,0,,Accident
-3797,16,DNF,,12,,8,0,1,1,0,,Accident
-3803,17,DNF,,19,,6,0,1,1,0,,Fuel leak
-3800,18,DNF,,9,,6,0,1,1,0,,Ignition
-3689,19,DNF,,7,,3,0,1,1,0,,Ignition
-3804,20,DNF,,5,,0,0,1,1,0,,Accident
+3795,15,DNF,,2,,11,0,1,1,0,,accident
+3797,16,DNF,,12,,8,0,1,1,0,,accident
+3803,17,DNF,,19,,6,0,1,1,0,,fuel-leak
+3800,18,DNF,,9,,6,0,1,1,0,,ignition
+3689,19,DNF,,7,,3,0,1,1,0,,ignition
+3804,20,DNF,,5,,0,0,1,1,0,,accident

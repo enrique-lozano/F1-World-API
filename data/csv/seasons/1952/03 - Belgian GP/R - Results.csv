@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 462,1,1,11026300,1,,36,9,1,1,9,,
 461,2,2,11141500,2,,36,6,1,1,6,,
 467,3,3,11294700,4,,36,4,1,1,4,,
@@ -14,10 +14,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 479,13,13,,21,,31,0,1,1,0,,
 482,14,14,,22,,30,0,1,1,0,,
 481,15,15,,16,,30,0,1,1,0,,
-480,16,DNF,,15,,17,0,1,1,0,,Engine
-468,17,DNF,,5,,13,0,1,1,0,,Accident
-463,18,DNF,,3,,13,0,1,1,0,,Accident
-478,19,DNF,,7,,10,0,1,1,0,,Spun off
-471,20,DNF,,17,,6,0,1,1,0,,Transmission
-473,21,DNF,,11,,3,0,1,1,0,,Halfshaft
-476,22,DNF,,10,,0,0,1,1,0,,Engine
+480,16,DNF,,15,,17,0,1,1,0,,engine
+468,17,DNF,,5,,13,0,1,1,0,,accident
+463,18,DNF,,3,,13,0,1,1,0,,accident
+478,19,DNF,,7,,10,0,1,1,0,,spun-off
+471,20,DNF,,17,,6,0,1,1,0,,transmission
+473,21,DNF,,11,,3,0,1,1,0,,halfshaft
+476,22,DNF,,10,,0,0,1,1,0,,engine

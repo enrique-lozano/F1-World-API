@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5567,1,1,5748130,3,,80,9,1,1,9,,
 5549,2,2,5750420,2,,80,6,1,1,6,,
 5579,3,3,5772350,4,,80,4,1,1,4,,
@@ -16,9 +16,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5536,15,15,,12,,77,0,1,1,0,,
 5550,16,16,,23,,77,0,1,1,0,,
 5577,17,17,,9,,76,0,1,1,0,,
-5538,18,DNF,,6,,57,0,1,1,0,,Suspension
-5581,19,DNF,,20,,55,0,1,1,0,,Engine
-5539,20,DNF,,11,,41,0,1,1,0,,Electrical
-5582,21,DNF,,16,,30,0,1,1,0,,Wheel bearing
-5533,22,DNF,,17,,11,0,1,1,0,,Suspension
-5574,23,DNF,,22,,6,0,1,1,0,,Suspension
+5538,18,DNF,,6,,57,0,1,1,0,,suspension
+5581,19,DNF,,20,,55,0,1,1,0,,engine
+5539,20,DNF,,11,,41,0,1,1,0,,electrical
+5582,21,DNF,,16,,30,0,1,1,0,,wheel-bearing
+5533,22,DNF,,17,,11,0,1,1,0,,suspension
+5574,23,DNF,,22,,6,0,1,1,0,,suspension

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6126,1,1,4674319,2,,53,10,1,1,10,,
 6122,2,2,4690581,1,,53,6,1,1,6,,
 6170,3,3,4691148,5,,53,4,1,1,4,,
@@ -15,13 +15,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6132,14,14,,25,,49,0,1,1,0,,
 6135,15,15,,18,,49,0,1,1,0,,
 6154,16,16,,23,,48,0,1,1,0,,
-6159,17,DNF,,26,,46,0,1,1,0,,Engine
-6142,18,DNF,,20,,35,0,1,1,0,,Overheating
-6125,19,DNF,,13,,32,0,1,1,0,,Engine
-6171,20,DNF,,6,,29,0,1,1,0,,Engine
-6127,21,DNF,,4,,27,0,1,1,0,,Gearbox
-6124,22,DNF,,15,,24,0,1,1,0,,Throttle
-6149,23,DNF,,24,,21,0,1,1,0,,Engine
-6143,24,DNF,,10,,8,0,1,1,0,,Spun off
-6177,25,DNF,,9,,2,0,1,1,0,,Spun off
-6168,26,DNF,,21,,1,0,1,1,0,,Spun off
+6159,17,DNF,,26,,46,0,1,1,0,,engine
+6142,18,DNF,,20,,35,0,1,1,0,,overheating
+6125,19,DNF,,13,,32,0,1,1,0,,engine
+6171,20,DNF,,6,,29,0,1,1,0,,engine
+6127,21,DNF,,4,,27,0,1,1,0,,gearbox
+6124,22,DNF,,15,,24,0,1,1,0,,throttle
+6149,23,DNF,,24,,21,0,1,1,0,,engine
+6143,24,DNF,,10,,8,0,1,1,0,,spun-off
+6177,25,DNF,,9,,2,0,1,1,0,,spun-off
+6168,26,DNF,,21,,1,0,1,1,0,,spun-off

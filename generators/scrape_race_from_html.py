@@ -56,7 +56,7 @@ columns_dict: ColumnDict = {
     "points": lambda x, y: convert_none_values(to_number_with_sums(x["Puntos"])),
     "pointsGained": lambda x, y: to_number_with_sums(x["Puntos"]),
     "pointsCountForWDC": 1,
-    "reasonRetired": lambda x, y: str(x["Tiempo/Retirado"])
+    "retirementReasonId": lambda x, y: retirement_reason_id(str(x["Tiempo/Retirado"]))
     if str(x["Pos."]).lower() in ["ret"]
     else "",
 }

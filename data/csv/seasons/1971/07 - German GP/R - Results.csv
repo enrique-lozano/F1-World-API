@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 4371,1,1,5355700,1,,12,9,1,1,9,,
 4372,2,2,5385800,5,,12,6,1,1,6,,
 4374,3,3,5392800,4,,12,4,1,1,4,,
@@ -11,13 +11,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 4380,10,10,,12,,11,0,1,1,0,,
 4389,11,11,,18,,11,0,1,1,0,,
 4384,12,12,,21,,10,0,1,1,0,,
-4376,13,DNF,,8,,8,0,1,1,0,,Oil leak
-4378,14,DNF,,16,,6,0,1,1,0,,Accident
-4387,15,DNF,,19,,5,0,1,1,0,,Accident
-4381,16,DNF,,10,,5,0,1,1,0,,Suspension
-4385,17,DNF,,6,,3,0,1,1,0,,Fuel leak
-4383,18,DNF,,20,,2,0,1,1,0,,Injection
-4390,19,DNF,,14,,2,0,1,1,0,,Engine
-4315,20,DNF,,2,,1,0,1,1,0,,Accident
-4388,21,DSQ,,3,,6,0,1,1,0,,Illegal pit stop
-4394,22,DSQ,,22,,3,0,1,1,0,,Illegal pit stop
+4376,13,DNF,,8,,8,0,1,1,0,,oil-leak
+4378,14,DNF,,16,,6,0,1,1,0,,accident
+4387,15,DNF,,19,,5,0,1,1,0,,accident
+4381,16,DNF,,10,,5,0,1,1,0,,suspension
+4385,17,DNF,,6,,3,0,1,1,0,,fuel-leak
+4383,18,DNF,,20,,2,0,1,1,0,,injection
+4390,19,DNF,,14,,2,0,1,1,0,,engine
+4315,20,DNF,,2,,1,0,1,1,0,,accident
+4388,21,DSQ,,3,,6,0,1,1,0,,illegal-pit-stop
+4394,22,DSQ,,22,,3,0,1,1,0,,illegal-pit-stop

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6436,1,1,5937771,5,,69,10,1,1,10,,
 6437,2,2,5939425,6,,69,6,1,1,6,,
 6457,3,3,5939574,1,,69,4,1,1,4,,
@@ -16,8 +16,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6456,15,15,,20,,68,0,1,1,0,,
 6444,16,16,,22,,68,0,1,1,0,,
 6446,17,17,,19,,68,0,1,1,0,,
-6432,18,DNF,,2,,47,0,1,1,0,,Collision
-6428,19,DNF,,4,,47,0,1,1,0,,Gearbox
-6438,20,DNF,,16,,44,0,1,1,0,,Water leak
-6448,21,DNF,,12,,30,0,1,1,0,,Gearbox
-6429,22,DNF,,13,,11,0,1,1,0,,Spun off
+6432,18,DNF,,2,,47,0,1,1,0,,collision
+6428,19,DNF,,4,,47,0,1,1,0,,gearbox
+6438,20,DNF,,16,,44,0,1,1,0,,water-leak
+6448,21,DNF,,12,,30,0,1,1,0,,gearbox
+6429,22,DNF,,13,,11,0,1,1,0,,spun-off

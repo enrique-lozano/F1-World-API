@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6915,1,1,5321196,3,,52,25,1,1,25,,
 6882,2,2,5337707,2,,52,18,1,1,18,,
 6883,3,3,5338143,1,,52,15,1,1,15,,
@@ -18,8 +18,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6908,17,17,,22,,50,0,1,1,0,,
 6906,18,18,,23,,50,0,1,1,0,,
 6917,19,19,,24,,49,0,1,1,0,,
-6885,20,DNF,,5,,39,0,1,1,0,,Wheel
-6899,21,DNF,,19,,25,0,1,1,0,,Collision
-6897,22,DNF,,8,,23,0,1,1,0,,Oil leak
-6904,23,DNF,,21,,10,0,1,1,0,,Oil leak
-6902,24,DNF,,17,,2,0,1,1,0,,Gearbox
+6885,20,DNF,,5,,39,0,1,1,0,,wheel
+6899,21,DNF,,19,,25,0,1,1,0,,collision
+6897,22,DNF,,8,,23,0,1,1,0,,oil-leak
+6904,23,DNF,,21,,10,0,1,1,0,,oil-leak
+6902,24,DNF,,17,,2,0,1,1,0,,gearbox

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5628,1,1,5883254,4,,72,9,1,1,9,,
 5605,2,2,5904904,3,,72,6,1,1,6,,
 5656,3,3,5905624,7,,72,4,1,1,4,,
@@ -14,14 +14,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5658,13,13,,25,,70,0,1,1,0,,
 5631,14,14,,23,,69,0,1,1,0,,
 5606,15,15,,10,,69,0,1,1,0,,
-5662,16,DNF,,24,,60,0,1,1,0,,Engine
-5667,17,DNF,,26,,41,0,1,1,0,,Engine
-5639,18,DNF,,15,,40,0,1,1,0,,Handling
-5644,19,DNF,,9,,35,0,1,1,0,,Electrical
-5618,20,DNF,,2,,33,0,1,1,0,,Engine
-5619,21,DNF,,1,,21,0,1,1,0,,Accident
-5652,22,DNF,,20,,21,0,1,1,0,,Throttle
-5663,23,DNF,,22,,21,0,1,1,0,,Engine
-5622,24,DNF,,19,,18,0,1,1,0,,Fuel system
-5653,25,DNF,,13,,15,0,1,1,0,,Oil leak
-5650,26,DNF,,21,,4,0,1,1,0,,Handling
+5662,16,DNF,,24,,60,0,1,1,0,,engine
+5667,17,DNF,,26,,41,0,1,1,0,,engine
+5639,18,DNF,,15,,40,0,1,1,0,,handling
+5644,19,DNF,,9,,35,0,1,1,0,,electrical
+5618,20,DNF,,2,,33,0,1,1,0,,engine
+5619,21,DNF,,1,,21,0,1,1,0,,accident
+5652,22,DNF,,20,,21,0,1,1,0,,throttle
+5663,23,DNF,,22,,21,0,1,1,0,,engine
+5622,24,DNF,,19,,18,0,1,1,0,,fuel-system
+5653,25,DNF,,13,,15,0,1,1,0,,oil-leak
+5650,26,DNF,,21,,4,0,1,1,0,,handling

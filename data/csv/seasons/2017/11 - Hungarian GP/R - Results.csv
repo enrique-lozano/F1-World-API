@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7097,1,1,5986713,1,,70,25,1,1,25,,
 7098,2,2,5987621,2,,70,18,1,1,18,,
 7114,3,3,5999175,3,,70,15,1,1,15,,
@@ -15,7 +15,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7103,14,14,,17,,69,0,1,1,0,,
 7115,15,15,,18,,68,0,1,1,0,,
 7100,16,16,,20,,68,0,1,1,0,,
-7107,17,17,,12,5,67,0,1,1,0,,Brakes
-7120,18,DNF,,19,,60,0,1,1,0,,Oil leak
-7099,19,DNF,,14,,20,0,1,1,0,,Wheel nut
-7096,20,DNF,,6,,0,0,1,1,0,,Radiator
+7107,17,17,,12,5,67,0,1,1,0,,brakes
+7120,18,DNF,,19,,60,0,1,1,0,,oil-leak
+7099,19,DNF,,14,,20,0,1,1,0,,wheel-nut
+7096,20,DNF,,6,,0,0,1,1,0,,radiator

@@ -59,7 +59,7 @@ export class DriverController extends CommonController {
    * - `championships`: seasons finished in the first position of the drivers' standings (see `/championships/{season}/drivers`). A season in progress is counted if the driver leads it.
    *
    * @param driverId The ID of the driver to get its statistics
-   * @example driverId "fernando-alonso"
+   * @example driverId "alonso"
    */
   @Get('{driverId}/stats')
   @Response<JsonApiError>('4XX', 'Client error')

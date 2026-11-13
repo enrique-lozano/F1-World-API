@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5298,1,1,5824470,1,,52,9,1,1,9,,
 5294,2,2,5837680,5,,52,6,1,1,6,,
 5297,3,3,5838110,10,,52,4,1,1,4,,
@@ -14,12 +14,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5318,13,13,,24,,51,0,1,1,0,,
 5296,14,14,,23,,51,0,1,1,0,,
 5308,15,15,,16,,51,0,1,1,0,,
-5316,16,16,,8,,50,0,1,1,0,,Engine
+5316,16,16,,8,,50,0,1,1,0,,engine
 5307,17,17,,18,,50,0,1,1,0,,
 5310,18,18,,12,,50,0,1,1,0,,
-5295,19,DNF,,4,,41,0,1,1,0,,Engine
-5317,20,DNF,,14,,36,0,1,1,0,,Fuel system
-5312,21,DNF,,21,,35,0,1,1,0,,Distributor
-5313,22,DNF,,22,,28,0,1,1,0,,Engine
-5320,23,DNF,,20,,9,0,1,1,0,,Differential
-5309,24,DNF,,19,,4,0,1,1,0,,Overheating
+5295,19,DNF,,4,,41,0,1,1,0,,engine
+5317,20,DNF,,14,,36,0,1,1,0,,fuel-system
+5312,21,DNF,,21,,35,0,1,1,0,,distributor
+5313,22,DNF,,22,,28,0,1,1,0,,engine
+5320,23,DNF,,20,,9,0,1,1,0,,differential
+5309,24,DNF,,19,,4,0,1,1,0,,overheating

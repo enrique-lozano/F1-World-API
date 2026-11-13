@@ -49,11 +49,11 @@ describe('Test drivers functionality', () => {
       }
     );
 
-    expect(res.data.some((x) => x.id == 'fernando-alonso')).toBe(true);
+    expect(res.data.some((x) => x.id == 'alonso')).toBe(true);
   });
 
   test('Get driver by ID', async () => {
-    const idToGet = 'adrian-sutil';
+    const idToGet = 'sutil';
 
     const res = await getUrlResponseForTesting<DriverDTO>(
       `/drivers/${idToGet}`
@@ -71,9 +71,7 @@ describe('Test drivers functionality', () => {
   });
 
   test('Drivers expose their first and last season', async () => {
-    const res = await getUrlResponseForTesting<DriverDTO>(
-      '/drivers/fernando-alonso'
-    );
+    const res = await getUrlResponseForTesting<DriverDTO>('/drivers/alonso');
 
     expect(res.firstSeason).toBe(2001);
     expect(res.lastSeason).toBeGreaterThanOrEqual(2023);
@@ -146,7 +144,7 @@ describe('Test drivers functionality', () => {
 
   test('Championships are counted for the drivers of the 50s', async () => {
     const res = await getUrlResponseForTesting<DriverCareerStats>(
-      '/drivers/juan-manuel-fangio/stats'
+      '/drivers/fangio/stats'
     );
 
     expect(res.championships).toBe(5);

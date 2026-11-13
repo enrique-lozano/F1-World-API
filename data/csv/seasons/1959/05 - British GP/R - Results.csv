@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 2039,1,1,9011600,1,,75,8,1,1,8,,
 2036,2,2,9033800,7,,75,6.5,1,1,6.5,,
 2041,3,3,9034000,8,,75,4.5,1,1,4.5,,
@@ -12,14 +12,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2061,11,11,,21,,69,0,1,1,0,,
 2058,12,12,,23,,69,0,1,1,0,,
 2055,13,13,,18,,69,0,1,1,0,,
-2035,14,DNF,,6,,69,0,1,1,0,,Ignition
-2052,15,DNF,,20,,57,0,1,1,0,,Accident
-2053,16,DNF,,11,,53,0,1,1,0,,Spun off
-2051,17,DNF,,15,,39,0,1,1,0,,Gearbox
-2038,18,DNF,,10,,37,0,1,1,0,,Brakes
-2044,19,DNF,,13,,31,0,1,1,0,,Transmission
-2045,20,DNF,,19,,21,0,1,1,0,,Gearbox
-2064,21,DNF,,22,,19,0,1,1,0,,Overheating
-2050,22,DNF,,14,,18,0,1,1,0,,Transmission
-2057,23,DNF,,24,,17,0,1,1,0,,Transmission
-2043,24,DNF,,17,,13,0,1,1,0,,Ignition
+2035,14,DNF,,6,,69,0,1,1,0,,ignition
+2052,15,DNF,,20,,57,0,1,1,0,,accident
+2053,16,DNF,,11,,53,0,1,1,0,,spun-off
+2051,17,DNF,,15,,39,0,1,1,0,,gearbox
+2038,18,DNF,,10,,37,0,1,1,0,,brakes
+2044,19,DNF,,13,,31,0,1,1,0,,transmission
+2045,20,DNF,,19,,21,0,1,1,0,,gearbox
+2064,21,DNF,,22,,19,0,1,1,0,,overheating
+2050,22,DNF,,14,,18,0,1,1,0,,transmission
+2057,23,DNF,,24,,17,0,1,1,0,,transmission
+2043,24,DNF,,17,,13,0,1,1,0,,ignition

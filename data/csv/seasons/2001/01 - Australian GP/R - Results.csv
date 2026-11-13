@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6534,1,1,5906533,1,,58,10,1,1,10,,
 6537,2,2,5908251,6,,58,6,1,1,6,,
 6535,3,3,5940024,2,,58,4,1,1,4,,
@@ -12,12 +12,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6550,11,11,,12,,57,0,1,1,0,,
 6553,12,12,,19,,56,0,1,1,0,,
 6540,13,13,,17,,55,0,1,1,0,,
-6541,14,14,,16,,52,0,1,1,0,,Electrical
-6539,15,DNF,,11,,40,0,1,1,0,,Engine
-6545,16,DNF,,7,,38,0,1,1,0,,Clutch
-6536,17,DNF,,3,,25,0,1,1,0,,Suspension
-6538,18,DNF,,5,,4,0,1,1,0,,Collision
-6543,19,DNF,,8,,4,0,1,1,0,,Collision
-6552,20,DNF,,22,,3,0,1,1,0,,Battery
-6547,21,DNF,,18,,2,0,1,1,0,,Accident
-6555,22,DNF,,20,,0,0,1,1,0,,Brakes
+6541,14,14,,16,,52,0,1,1,0,,electrical
+6539,15,DNF,,11,,40,0,1,1,0,,engine
+6545,16,DNF,,7,,38,0,1,1,0,,clutch
+6536,17,DNF,,3,,25,0,1,1,0,,suspension
+6538,18,DNF,,5,,4,0,1,1,0,,collision
+6543,19,DNF,,8,,4,0,1,1,0,,collision
+6552,20,DNF,,22,,3,0,1,1,0,,battery
+6547,21,DNF,,18,,2,0,1,1,0,,accident
+6555,22,DNF,,20,,0,0,1,1,0,,brakes

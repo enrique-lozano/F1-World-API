@@ -14,6 +14,7 @@ CREATE INDEX idx_sessions_eventId ON sessions (eventId);
 
 -- Rows of an entry (all the results/laps/stops of a driver go through it)
 CREATE INDEX idx_raceResults_entryId ON raceResults (entryId);
+CREATE INDEX idx_raceResults_retirementReasonId ON raceResults (retirementReasonId);
 CREATE INDEX idx_qualifyingResults_entryId ON qualifyingResults (entryId);
 CREATE INDEX idx_fpResults_entryId ON fpResults (entryId);
 

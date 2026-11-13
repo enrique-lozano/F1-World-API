@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 1947,1,1,13249200,6,,200,8,1,1,8,,
 1954,2,2,13272477,3,,200,6,1,1,6,,
 1946,3,3,13299840,1,,200,5,1,1,5,,
@@ -15,20 +15,20 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1981,14,14,13650740,13,,200,0,1,1,0,,
 1983,15,15,13749059,21,,200,0,1,1,0,,
 1977,16,16,13950889,33,,200,0,1,1,0,,
-1966,17,17,,2,,182,0,1,1,0,,Spun off
-1975,18,18,,28,,163,0,1,1,0,,Engine
-1979,19,19,,18,,162,0,1,1,0,,Accident
-1985,20,20,,4,,150,0,1,1,0,,Fire
-1972,21,21,,30,,147,0,1,1,0,,Magneto
-1953,22,22,,25,,136,0,1,1,0,,Magneto
-1970,23,23,,32,,115,0,1,1,0,,Accident
-1951,24,24,,10,,112,0,1,1,0,,Suspension
-1980,25,25,,24,,109,0,1,1,0,,Engine
-1969,26,26,,5,,85,0,1,1,0,,Magneto
-1957,27,27,,14,,47,0,1,1,0,,Fuel leak
-1968,28,28,,29,,45,0,1,1,0,,Accident
-1949,29,29,,19,,45,0,1,1,0,,Accident
-1987,30,30,,31,,45,0,1,1,0,,Accident
-1992,31,31,,26,,45,0,1,1,0,,Accident
-1950,32,32,,22,,34,0,1,1,0,,Accident
-1948,33,33,,20,,1,0,1,1,0,,Engine
+1966,17,17,,2,,182,0,1,1,0,,spun-off
+1975,18,18,,28,,163,0,1,1,0,,engine
+1979,19,19,,18,,162,0,1,1,0,,accident
+1985,20,20,,4,,150,0,1,1,0,,fire
+1972,21,21,,30,,147,0,1,1,0,,magneto
+1953,22,22,,25,,136,0,1,1,0,,magneto
+1970,23,23,,32,,115,0,1,1,0,,accident
+1951,24,24,,10,,112,0,1,1,0,,suspension
+1980,25,25,,24,,109,0,1,1,0,,engine
+1969,26,26,,5,,85,0,1,1,0,,magneto
+1957,27,27,,14,,47,0,1,1,0,,fuel-leak
+1968,28,28,,29,,45,0,1,1,0,,accident
+1949,29,29,,19,,45,0,1,1,0,,accident
+1987,30,30,,31,,45,0,1,1,0,,accident
+1992,31,31,,26,,45,0,1,1,0,,accident
+1950,32,32,,22,,34,0,1,1,0,,accident
+1948,33,33,,20,,1,0,1,1,0,,engine

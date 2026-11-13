@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7200,1,1,5749641,2,,60,25,1,1,25,,
 7199,2,2,5754111,3,,60,19,1,1,19,,
 7185,3,3,5764254,6,,60,15,1,1,15,,
@@ -14,8 +14,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7195,13,13,5799226,15,,60,0,1,1,0,,
 7188,14,14,5804090,18,,60,0,1,1,0,,
 7197,15,15,5805229,13,,60,0,1,1,0,,
-7186,16,DNF,,8,,42,0,1,1,0,,Power unit
-7196,17,DNF,,5,,23,0,1,1,0,5000,Radiator
-7198,18,DNF,,7,,22,0,1,1,0,,Hydraulics
-7203,19,DNF,,1,,18,0,1,1,0,,Power unit
-7202,20,DNF,,17,,12,0,1,1,0,,Collision
+7186,16,DNF,,8,,42,0,1,1,0,,power-unit
+7196,17,DNF,,5,,23,0,1,1,0,5000,radiator
+7198,18,DNF,,7,,22,0,1,1,0,,hydraulics
+7203,19,DNF,,1,,18,0,1,1,0,,power-unit
+7202,20,DNF,,17,,12,0,1,1,0,,collision

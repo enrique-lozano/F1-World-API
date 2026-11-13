@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7143,1,1,4916024,4,,71,25,1,1,25,,
 7131,2,2,4917528,3,,71,18,1,1,18,,
 7130,3,3,4919205,6,3,71,15,1,1,15,,
@@ -13,9 +13,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7146,12,12,,9,,70,0,1,1,0,,
 7144,13,13,,16,,69,0,1,1,0,,
 7138,14,14,,13,,69,0,1,1,0,10000,
-7128,15,15,,14,,65,0,1,1,0,,Collision damage
-7145,16,DNF,,2,,62,0,1,1,0,,Fuel pressure
-7141,17,DNF,,19,35,54,0,1,1,0,,Hydraulics
-7129,18,DNF,,7,,53,0,1,1,0,,Exhaust
-7147,19,DNF,,1,,13,0,1,1,0,,Hydraulics
-7140,20,DNF,,10,,11,0,1,1,0,,Engine
+7128,15,15,,14,,65,0,1,1,0,,collision-damage
+7145,16,DNF,,2,,62,0,1,1,0,,fuel-pressure
+7141,17,DNF,,19,35,54,0,1,1,0,,hydraulics
+7129,18,DNF,,7,,53,0,1,1,0,,exhaust
+7147,19,DNF,,1,,13,0,1,1,0,,hydraulics
+7140,20,DNF,,10,,11,0,1,1,0,,engine

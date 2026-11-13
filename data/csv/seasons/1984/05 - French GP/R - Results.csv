@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5755,1,1,5471951,9,,79,9,1,1,9,,
 5761,2,2,5479105,1,,79,6,1,1,6,,
 5759,3,3,5495920,6,,79,4,1,1,4,,
@@ -12,16 +12,16 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5776,11,11,,14,,77,0,1,1,0,,
 5770,12,12,,23,,74,0,1,1,0,,
 5775,13,13,,20,,72,0,1,1,0,,
-5767,14,DNF,,22,,61,0,1,1,0,,Engine
-5762,15,DNF,,7,,53,0,1,1,0,,Accident
-5763,16,DNF,,19,,51,0,1,1,0,,Accident
-5769,17,DNF,,16,,51,0,1,1,0,,Engine
-5779,18,DNF,,13,,35,0,1,1,0,,Turbo
-5773,19,DNF,,10,,33,0,1,1,0,,Engine
-5780,20,DNF,,18,,22,0,1,1,0,,Turbo
-5768,21,DNF,,15,,15,0,1,1,0,,Engine
-5748,22,DNF,,3,,11,0,1,1,0,,Turbo
-5760,23,DNF,,8,,5,0,1,1,0,,Clutch
-5756,24,DNF,,21,,4,0,1,1,0,,Electrical
-5750,25,DSQ,,23,,76,0,1,1,0,,Illegal fuel and ballast
-5751,26,DSQ,,20,,11,0,1,1,0,,Illegal fuel and ballast
+5767,14,DNF,,22,,61,0,1,1,0,,engine
+5762,15,DNF,,7,,53,0,1,1,0,,accident
+5763,16,DNF,,19,,51,0,1,1,0,,accident
+5769,17,DNF,,16,,51,0,1,1,0,,engine
+5779,18,DNF,,13,,35,0,1,1,0,,turbo
+5773,19,DNF,,10,,33,0,1,1,0,,engine
+5780,20,DNF,,18,,22,0,1,1,0,,turbo
+5768,21,DNF,,15,,15,0,1,1,0,,engine
+5748,22,DNF,,3,,11,0,1,1,0,,turbo
+5760,23,DNF,,8,,5,0,1,1,0,,clutch
+5756,24,DNF,,21,,4,0,1,1,0,,electrical
+5750,25,DSQ,,23,,76,0,1,1,0,,illegal-fuel-and-ballast
+5751,26,DSQ,,20,,11,0,1,1,0,,illegal-fuel-and-ballast

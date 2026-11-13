@@ -39,7 +39,7 @@ export class RaceResultService extends DbService {
       'positionOrder',
       'time',
       'timePenalty',
-      'reasonRetired'
+      'retirementReasonId'
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'raceResults', object>)
@@ -58,6 +58,20 @@ export class RaceResultService extends DbService {
               AND other.entryId != raceResults.entryId
               AND otherEntry.driverNumber = entry.driverNumber
           )`.as('sharedCar')
+        )
+      )
+      .$if(fieldsParam.shouldSelectKey('reasonRetired'), (qb) =>
+        qb.select(
+          sql<string | null>`(
+            SELECT name FROM retirementReasons WHERE id = raceResults.retirementReasonId
+          )`.as('reasonRetired')
+        )
+      )
+      .$if(fieldsParam.shouldSelectKey('retirementCategory'), (qb) =>
+        qb.select(
+          sql<string | null>`(
+            SELECT category FROM retirementReasons WHERE id = raceResults.retirementReasonId
+          )`.as('retirementCategory')
         )
       )
       .$if(fieldsParam.shouldSelectObject('session'), (qb) =>

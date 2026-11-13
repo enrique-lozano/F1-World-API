@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 3138,1,1,7606000,1,,85,9,1,1,9,,
 3134,2,2,7635000,2,,85,6,1,1,6,,
 3136,3,3,7637800,5,,85,4,1,1,4,,
@@ -13,9 +13,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 3148,12,12,,15,,75,0,1,1,0,,
 3157,13,13,,20,,73,0,1,1,0,,
 3151,14,14,,19,,71,0,1,1,0,,
-3135,15,15,,6,,66,0,1,1,0,,Ignition
+3135,15,15,,6,,66,0,1,1,0,,ignition
 3146,16,NC,,12,,50,0,1,1,0,,
-3144,17,DNF,,7,,42,0,1,1,0,,Clutch
-3143,18,DNF,,10,,39,0,1,1,0,,Electrical
-3149,19,DNF,,18,,20,0,1,1,0,,Halfshaft
-3141,20,DNF,,9,,11,0,1,1,0,,Ignition
+3144,17,DNF,,7,,42,0,1,1,0,,clutch
+3143,18,DNF,,10,,39,0,1,1,0,,electrical
+3149,19,DNF,,18,,20,0,1,1,0,,halfshaft
+3141,20,DNF,,9,,11,0,1,1,0,,ignition

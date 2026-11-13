@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 4298,1,1,6741300,1,,80,9,1,1,9,,
 4319,2,2,6766900,8,,80,6,1,1,6,,
 4315,3,3,6794600,2,,80,4,1,1,4,,
@@ -9,11 +9,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 4312,8,8,,13,,77,0,1,1,0,,
 4318,9,9,,5,,76,0,1,1,0,,
 4295,10,10,,18,,76,0,1,1,0,,
-4317,11,DNF,,3,,58,0,1,1,0,,Oil pipe
-4307,12,DNF,,7,,47,0,1,1,0,,Differential
-4306,13,DNF,,4,,45,0,1,1,0,,Differential
-4316,14,DNF,,11,,24,0,1,1,0,,Accident
-4297,15,DNF,,14,,22,0,1,1,0,,Accident
-4314,16,DNF,,12,,21,0,1,1,0,,Wheel bearing
-4299,17,DNF,,15,,5,0,1,1,0,,Accident
-4294,18,DNF,,9,,1,0,1,1,0,,Accident
+4317,11,DNF,,3,,58,0,1,1,0,,oil-pipe
+4307,12,DNF,,7,,47,0,1,1,0,,differential
+4306,13,DNF,,4,,45,0,1,1,0,,differential
+4316,14,DNF,,11,,24,0,1,1,0,,accident
+4297,15,DNF,,14,,22,0,1,1,0,,accident
+4314,16,DNF,,12,,21,0,1,1,0,,wheel-bearing
+4299,17,DNF,,15,,5,0,1,1,0,,accident
+4294,18,DNF,,9,,1,0,1,1,0,,accident

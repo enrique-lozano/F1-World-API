@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6405,1,1,5580874,2,,61,10,1,1,10,,
 6403,2,2,5599900,7,,61,6,1,1,6,,
 6425,3,3,5631704,4,,61,4,1,1,4,,
@@ -10,12 +10,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6412,9,9,,13,,60,0,1,1,0,,
 6415,10,10,,15,,60,0,1,1,0,,
 6419,11,11,,18,,59,0,1,1,0,,
-6402,12,DNF,,5,,44,0,1,1,0,,Wheel bearing
-6408,13,DNF,,16,,40,0,1,1,0,,Handling
-6409,14,DNF,,17,,38,0,1,1,0,,Engine
-6404,15,DNF,,1,,26,0,1,1,0,,Wheel nut
-6418,16,DNF,,19,,21,0,1,1,0,,Gearbox
-6414,17,DNF,,20,,13,0,1,1,0,,Electrical
-6416,18,DNF,,12,,12,0,1,1,0,,Camshaft
-6401,19,DNF,,10,,5,0,1,1,0,,Differential
-6400,20,DNF,,3,,3,0,1,1,0,,Hydraulics
+6402,12,DNF,,5,,44,0,1,1,0,,wheel-bearing
+6408,13,DNF,,16,,40,0,1,1,0,,handling
+6409,14,DNF,,17,,38,0,1,1,0,,engine
+6404,15,DNF,,1,,26,0,1,1,0,,wheel-nut
+6418,16,DNF,,19,,21,0,1,1,0,,gearbox
+6414,17,DNF,,20,,13,0,1,1,0,,electrical
+6416,18,DNF,,12,,12,0,1,1,0,,camshaft
+6401,19,DNF,,10,,5,0,1,1,0,,differential
+6400,20,DNF,,3,,3,0,1,1,0,,hydraulics

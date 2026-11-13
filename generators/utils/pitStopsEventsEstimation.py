@@ -32,7 +32,7 @@ pit_stops[(pit_stops["time"] > 1000000) & (pit_stops["year"] == 2016)]
 # We can see that red flags are taken into account and count as a Pit Stop. We should fix that
 
 # %%
-pit_stops[(pit_stops["driverId"] == "daniel-ricciardo") & (pit_stops["eventId"] == "2016-1")]
+pit_stops[(pit_stops["driverId"] == "ricciardo") & (pit_stops["eventId"] == "2016-1")]
 
 # %% [markdown]
 # We see that also the "red flags pit stops" count for the total number of pits for the driver. By the moment, we just want to remove the rows of this pits, because we want the median time of the pit. We could deal with the pitStopNumber later on.

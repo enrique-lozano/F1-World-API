@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5908,1,1,4724898,2,,52,9,1,1,9,,
 5909,2,2,4780602,1,,52,6,1,1,6,,
 5921,3,3,,5,,51,4,1,1,4,,
@@ -14,14 +14,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5915,13,13,,13,,49,0,1,1,0,,
 5906,14,14,,24,,47,0,1,1,0,,
 5917,15,NC,,26,,45,0,1,1,0,,
-5910,16,DNF,,8,,43,0,1,1,0,,Engine
-5927,17,DNF,,6,,42,0,1,1,0,,Turbo
-5912,18,DNF,,10,,35,0,1,1,0,,Engine
-5919,19,DNF,,11,,35,0,1,1,0,,Engine
-5920,20,DNF,,12,,31,0,1,1,0,,Tyre
-5928,21,DNF,,3,,5,0,1,1,0,,Turbo
-5924,22,DNF,,19,,3,0,1,1,0,,Electrical
-5925,23,DNF,,15,,1,0,1,1,0,,Engine
-5923,24,DNF,,21,,0,0,1,1,0,,Electrical
-5907,25,25,,25,,0,0,1,1,0,,Accident
-5930,26,DSQ,,17,,48,0,1,1,0,,Illegal bodywork
+5910,16,DNF,,8,,43,0,1,1,0,,engine
+5927,17,DNF,,6,,42,0,1,1,0,,turbo
+5912,18,DNF,,10,,35,0,1,1,0,,engine
+5919,19,DNF,,11,,35,0,1,1,0,,engine
+5920,20,DNF,,12,,31,0,1,1,0,,tyre
+5928,21,DNF,,3,,5,0,1,1,0,,turbo
+5924,22,DNF,,19,,3,0,1,1,0,,electrical
+5925,23,DNF,,15,,1,0,1,1,0,,engine
+5923,24,DNF,,21,,0,0,1,1,0,,electrical
+5907,25,25,,25,,0,0,1,1,0,,accident
+5930,26,DSQ,,17,,48,0,1,1,0,,illegal-bodywork

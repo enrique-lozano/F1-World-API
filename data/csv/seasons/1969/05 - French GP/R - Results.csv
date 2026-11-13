@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 3912,1,1,7007400,1,,38,9,1,1,9,,
 3917,2,2,7064500,5,,38,6,1,1,6,,
 3921,3,3,7064700,4,,38,4,1,1,4,,
@@ -8,7 +8,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 3922,7,7,,13,,36,0,1,1,0,,
 3914,8,8,,2,,35,0,1,1,0,,
 3913,9,9,,9,,34,0,1,1,0,,
-3916,10,DNF,,6,,30,0,1,1,0,,Engine
-3924,11,DNF,,3,,22,0,1,1,0,,Physical
-3919,12,DNF,,11,,21,0,1,1,0,,Chassis
-3923,13,DNF,,12,,1,0,1,1,0,,Fuel pump
+3916,10,DNF,,6,,30,0,1,1,0,,engine
+3924,11,DNF,,3,,22,0,1,1,0,,physical
+3919,12,DNF,,11,,21,0,1,1,0,,chassis
+3923,13,DNF,,12,,1,0,1,1,0,,fuel-pump

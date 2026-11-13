@@ -19,19 +19,19 @@ describe('Test WDC functionality', () => {
     expect(res.find((x) => x.position == 2)?.driver.id).toBe('lewis-hamilton');
     expect(res.find((x) => x.position == 2)?.points).toBe(387.5);
 
-    expect(res.find((x) => x.driver.id == 'esteban-ocon')?.points).toBe(74);
-    expect(res.find((x) => x.driver.id == 'esteban-ocon')?.position).toBe(11);
+    expect(res.find((x) => x.driver.id == 'ocon')?.points).toBe(74);
+    expect(res.find((x) => x.driver.id == 'ocon')?.position).toBe(11);
 
     /* -- TIE RESOLVER-- */
     let driverRes = res.find((x) => x.driver.id == 'mick-schumacher');
     expect(driverRes?.points).toBe(0);
     expect(driverRes?.position).toBe(19);
 
-    driverRes = res.find((x) => x.driver.id == 'robert-kubica');
+    driverRes = res.find((x) => x.driver.id == 'kubica');
     expect(driverRes?.points).toBe(0);
     expect(driverRes?.position).toBe(20);
 
-    driverRes = res.find((x) => x.driver.id == 'nikita-mazepin');
+    driverRes = res.find((x) => x.driver.id == 'mazepin');
     expect(driverRes?.points).toBe(0);
     expect(driverRes?.position).toBe(21);
   });
@@ -46,7 +46,7 @@ describe('Test WDC functionality', () => {
       }[]
     >('/championships/1967/drivers', {});
 
-    expect(res.find((x) => x.position == 1)?.driver.id).toBe('denny-hulme');
+    expect(res.find((x) => x.position == 1)?.driver.id).toBe('hulme');
     expect(res.find((x) => x.position == 1)?.points).toBe(51);
     expect(res.find((x) => x.position == 1)?.totalPoints).toBe(51);
 
@@ -54,16 +54,16 @@ describe('Test WDC functionality', () => {
     expect(res.find((x) => x.position == 2)?.points).toBe(46);
     expect(res.find((x) => x.position == 2)?.totalPoints).toBe(48);
 
-    expect(res.find((x) => x.driver.id == 'mike-spence')?.points).toBe(9);
-    expect(res.find((x) => x.driver.id == 'mike-spence')?.totalPoints).toBe(9);
-    expect(res.find((x) => x.driver.id == 'mike-spence')?.position).toBe(10);
+    expect(res.find((x) => x.driver.id == 'spence')?.points).toBe(9);
+    expect(res.find((x) => x.driver.id == 'spence')?.totalPoints).toBe(9);
+    expect(res.find((x) => x.driver.id == 'spence')?.position).toBe(10);
 
     /* -- TIE RESOLVER-- */
-    let driverRes = res.find((x) => x.driver.id == 'bruce-mclaren');
+    let driverRes = res.find((x) => x.driver.id == 'mclaren');
     expect(driverRes?.points).toBe(3);
     expect(driverRes?.position).toBe(14);
 
-    driverRes = res.find((x) => x.driver.id == 'jo-bonnier');
+    driverRes = res.find((x) => x.driver.id == 'bonnier');
     expect(driverRes?.points).toBe(3);
     expect(driverRes?.position).toBe(15);
   });

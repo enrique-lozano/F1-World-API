@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 
-That's it. On the first run the SQLite database is created automatically from the CSV files (it takes a few seconds). Then try <http://localhost:3200/api/drivers/adrian-sutil> in your browser:
+That's it. On the first run the SQLite database is created automatically from the CSV files (it takes a few seconds). Then try <http://localhost:3200/api/drivers/sutil> in your browser:
 
 <img src="docs/screenshots/browser-json-res.png" alt="Data in the browser">
 

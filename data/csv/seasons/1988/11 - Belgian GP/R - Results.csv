@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5955,1,1,5280549,1,,43,9,1,1,9,,
 5954,2,2,5311019,2,,43,6,0,1,6,,
 5958,3,3,5356317,14,,43,4,1,1,4,,
@@ -9,19 +9,19 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5978,8,8,,15,,42,0,1,1,0,,
 5972,9,9,,16,,42,0,1,1,0,,
 5956,10,10,,18,,42,0,1,1,0,,
-5968,11,11,,20,,39,0,1,1,0,,Engine
-5948,12,12,,21,,39,0,1,1,0,,Throttle
-5953,13,13,,25,,38,0,1,1,0,,Gearbox
+5968,11,11,,20,,39,0,1,1,0,,engine
+5948,12,12,,21,,39,0,1,1,0,,throttle
+5953,13,13,,25,,38,0,1,1,0,,gearbox
 5973,14,NC,,22,,36,0,1,1,0,,
-5969,15,DNF,,4,,35,0,1,1,0,,Engine
-5951,16,DNF,,5,,30,0,1,1,0,,Engine
-5957,17,DNF,,13,,29,0,1,1,0,,Spun off
-5952,18,DNF,,24,,25,0,1,1,0,,Oil leak
-5947,19,DNF,,8,,22,0,1,1,0,,Engine
-5977,20,DNF,,26,,14,0,1,1,0,,Fuel system
-5970,21,DNF,,3,,11,0,1,1,0,,Injection
-5971,22,DNF,,23,,9,0,1,1,0,,Engine
-5964,23,DNF,,19,,2,0,1,1,0,,Collision
-5967,24,DNF,,17,,2,0,1,1,0,,Collision
-5962,25,DSQ,5340230,6,,43,0,1,1,0,,Illegal fuel
-5961,26,DSQ,5349143,7,,43,0,1,1,0,,Illegal fuel
+5969,15,DNF,,4,,35,0,1,1,0,,engine
+5951,16,DNF,,5,,30,0,1,1,0,,engine
+5957,17,DNF,,13,,29,0,1,1,0,,spun-off
+5952,18,DNF,,24,,25,0,1,1,0,,oil-leak
+5947,19,DNF,,8,,22,0,1,1,0,,engine
+5977,20,DNF,,26,,14,0,1,1,0,,fuel-system
+5970,21,DNF,,3,,11,0,1,1,0,,injection
+5971,22,DNF,,23,,9,0,1,1,0,,engine
+5964,23,DNF,,19,,2,0,1,1,0,,collision
+5967,24,DNF,,17,,2,0,1,1,0,,collision
+5962,25,DSQ,5340230,6,,43,0,1,1,0,,illegal-fuel
+5961,26,DSQ,5349143,7,,43,0,1,1,0,,illegal-fuel

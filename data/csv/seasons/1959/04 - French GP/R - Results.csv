@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 2023,1,1,7286500,1,,50,8,1,1,8,,
 2024,2,2,7314000,3,,50,6,1,1,6,,
 2006,3,3,7384200,2,,50,4,1,1,4,,
@@ -10,13 +10,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2032,9,9,,20,,40,0,1,1,0,,
 2030,10,10,,18,,40,0,1,1,0,,
 2018,11,11,,8,,36,0,1,1,0,,
-2026,12,DNF,,5,,31,0,1,1,0,,Engine
-2019,13,DNF,,16,,20,0,1,1,0,,Engine
-2025,14,DNF,,12,,19,0,1,1,0,,Radiator
-2028,15,DNF,,15,,14,0,1,1,0,,Wheel
-2020,16,DNF,,19,,13,0,1,1,0,,Engine
-2016,17,DNF,,7,,8,0,1,1,0,,Physical
-2027,18,DNF,,14,,7,0,1,1,0,,Radiator
-2021,19,DNF,,17,,7,0,1,1,0,,Oil leak
-2015,20,DNF,,6,,6,0,1,1,0,,Engine
+2026,12,DNF,,5,,31,0,1,1,0,,engine
+2019,13,DNF,,16,,20,0,1,1,0,,engine
+2025,14,DNF,,12,,19,0,1,1,0,,radiator
+2028,15,DNF,,15,,14,0,1,1,0,,wheel
+2020,16,DNF,,19,,13,0,1,1,0,,engine
+2016,17,DNF,,7,,8,0,1,1,0,,physical
+2027,18,DNF,,14,,7,0,1,1,0,,radiator
+2021,19,DNF,,17,,7,0,1,1,0,,oil-leak
+2015,20,DNF,,6,,6,0,1,1,0,,engine
 2014,21,DSQ,,4,,42,1,1,1,1,,

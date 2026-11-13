@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 4317,1,1,5423910,1,,54,9,1,1,9,,
 4395,2,2,5428030,5,,54,6,1,1,6,,
 4295,3,3,5443680,7,,54,4,1,1,4,,
@@ -12,12 +12,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 4399,11,11,,17,,52,0,1,1,0,,
 4321,12,12,,15,,51,0,1,1,0,,
 4404,13,NC,,19,,47,0,1,1,0,,
-4299,14,DNF,,3,,42,0,1,1,0,,Engine
-4298,15,DNF,,2,,35,0,1,1,0,,Halfshaft
-4315,16,DNF,,6,,31,0,1,1,0,,Engine
-4403,17,DNF,,21,,20,0,1,1,0,,Handling
-4322,18,DNF,,18,,12,0,1,1,0,,Engine
-4316,19,DNF,,4,,8,0,1,1,0,,Engine
-4398,20,DNF,,14,,6,0,1,1,0,,Ignition
-4296,21,DNF,,9,,4,0,1,1,0,,Engine
-4405,22,DNS,,20,,,0,1,1,0,,Fuel leak
+4299,14,DNF,,3,,42,0,1,1,0,,engine
+4298,15,DNF,,2,,35,0,1,1,0,,halfshaft
+4315,16,DNF,,6,,31,0,1,1,0,,engine
+4403,17,DNF,,21,,20,0,1,1,0,,handling
+4322,18,DNF,,18,,12,0,1,1,0,,engine
+4316,19,DNF,,4,,8,0,1,1,0,,engine
+4398,20,DNF,,14,,6,0,1,1,0,,ignition
+4296,21,DNF,,9,,4,0,1,1,0,,engine
+4405,22,DNS,,20,,,0,1,1,0,,fuel-leak

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7283,1,1,5167136,1,,71,25,1,1,25,,
 7299,2,2,5175413,6,,71,19,1,1,19,,
 7294,3,3,5201291,4,,71,15,1,1,15,,
@@ -13,9 +13,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7297,12,12,,11,,70,0,1,1,0,,
 7307,13,13,,17,,70,0,1,1,0,,
 7300,14,14,,10,,69,0,1,1,0,,
-7314,15,DNF,,8,,57,0,1,1,0,,Oil temperature
-7287,16,DNF,,18,,39,0,1,1,0,,Hydraulics
-7288,17,DNF,,20,,22,0,1,1,0,,Engine
-7296,18,DNF,,12,,0,0,1,1,0,,Collision
-7303,19,DNF,,13,,0,0,1,1,0,,Collision
+7314,15,DNF,,8,,57,0,1,1,0,,oil-temperature
+7287,16,DNF,,18,,39,0,1,1,0,,hydraulics
+7288,17,DNF,,20,,22,0,1,1,0,,engine
+7296,18,DNF,,12,,0,0,1,1,0,,collision
+7303,19,DNF,,13,,0,0,1,1,0,,collision
 7311,20,DNS,,,,0,0,1,1,0,,

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5021,1,1,6417400,3,,75,9,1,1,9,,
 5030,2,2,6418460,1,,75,6,1,1,6,,
 5029,3,3,6472460,2,,75,4,1,1,4,,
@@ -13,13 +13,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5059,12,12,,19,,70,0,1,1,0,,
 5060,13,13,,17,,70,0,1,1,0,,
 5038,14,14,,23,,70,0,1,1,0,,
-5006,15,15,,16,,69,0,1,1,0,,Out of fuel
-5004,16,16,,4,,67,0,1,1,0,,Engine
-5046,17,DNF,,15,,65,0,1,1,0,,Engine
-5003,18,DNF,,8,,61,0,1,1,0,,Accident
-5015,19,DNF,,10,,44,0,1,1,0,,Tyre
-5016,20,DNF,,14,,43,0,1,1,0,,Vibrations
-5002,21,DNF,,6,,40,0,1,1,0,,Engine
-5031,22,DNF,,20,,23,0,1,1,0,,Differential
-5007,23,DNF,,21,,6,0,1,1,0,,Engine
-5027,24,DNF,,11,,0,0,1,1,0,,Suspension
+5006,15,15,,16,,69,0,1,1,0,,out-of-fuel
+5004,16,16,,4,,67,0,1,1,0,,engine
+5046,17,DNF,,15,,65,0,1,1,0,,engine
+5003,18,DNF,,8,,61,0,1,1,0,,accident
+5015,19,DNF,,10,,44,0,1,1,0,,tyre
+5016,20,DNF,,14,,43,0,1,1,0,,vibrations
+5002,21,DNF,,6,,40,0,1,1,0,,engine
+5031,22,DNF,,20,,23,0,1,1,0,,differential
+5007,23,DNF,,21,,6,0,1,1,0,,engine
+5027,24,DNF,,11,,0,0,1,1,0,,suspension

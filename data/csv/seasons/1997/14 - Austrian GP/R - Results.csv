@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6457,1,1,5255999,1,,71,10,1,1,10,,
 6437,2,2,5258908,10,,71,6,1,1,6,,
 6458,3,3,5259961,4,,71,4,1,1,4,,
@@ -11,12 +11,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6460,10,10,,18,,70,0,1,1,0,,
 6446,11,11,,19,,69,0,1,1,0,,
 6444,12,12,,20,,69,0,1,1,0,,
-6429,13,13,,17,,67,0,1,1,0,,Suspension
-6448,14,14,,5,,64,0,1,1,0,,Spun off
-6454,15,DNF,,3,,58,0,1,1,0,,Engine
-6449,16,DNF,,6,,58,0,1,1,0,,Engine
-6441,17,DNF,,16,,57,0,1,1,0,,Engine
-6445,18,DNF,,21,,48,0,1,1,0,,Gearbox
-6433,19,DNF,,8,,38,0,1,1,0,,Collision damage
-6459,20,DNF,,15,,37,0,1,1,0,,Collision
-6436,21,DNF,,2,,1,0,1,1,0,,Engine
+6429,13,13,,17,,67,0,1,1,0,,suspension
+6448,14,14,,5,,64,0,1,1,0,,spun-off
+6454,15,DNF,,3,,58,0,1,1,0,,engine
+6449,16,DNF,,6,,58,0,1,1,0,,engine
+6441,17,DNF,,16,,57,0,1,1,0,,engine
+6445,18,DNF,,21,,48,0,1,1,0,,gearbox
+6433,19,DNF,,8,,38,0,1,1,0,,collision-damage
+6459,20,DNF,,15,,37,0,1,1,0,,collision
+6436,21,DNF,,2,,1,0,1,1,0,,engine

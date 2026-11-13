@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7017,1,1,6065155,1,,66,25,1,1,25,,
 7001,2,2,6065791,2,,66,18,1,1,18,,
 6999,3,3,6114169,3,,66,15,1,1,15,,
@@ -19,5 +19,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7009,18,18,,18,,64,0,1,1,0,,
 7000,19,19,,17,,64,0,1,1,0,,
 7004,20,20,,19,,64,0,1,1,0,,
-7005,21,DNF,,20,,34,0,1,1,0,,Brakes
-7014,22,DNF,,21,10,24,0,1,1,0,,Exhaust
+7005,21,DNF,,20,,34,0,1,1,0,,brakes
+7014,22,DNF,,21,10,24,0,1,1,0,,exhaust

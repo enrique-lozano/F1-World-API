@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7066,1,1,6291058,1,,44,25,1,1,25,,
 7064,2,2,6305171,5,,44,18,1,1,18,,
 7081,3,3,6318692,21,60,44,15,1,1,15,,
@@ -16,8 +16,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7079,15,15,6384223,13,,44,0,1,1,0,,
 7093,16,16,,17,,43,0,1,1,0,,
 7071,17,17,,16,,43,0,1,1,0,,
-7074,18,DNF,,12,,5,0,1,1,0,,Accident
-7069,19,DNF,,20,10,3,0,1,1,0,,Gearbox
-7082,20,DNF,,14,,1,0,1,1,0,,Puncture damage
-7076,21,DNF,,9,,1,0,1,1,0,,Collision damage
-7085,22,DNF,,15,,0,0,1,1,0,,Collision
+7074,18,DNF,,12,,5,0,1,1,0,,accident
+7069,19,DNF,,20,10,3,0,1,1,0,,gearbox
+7082,20,DNF,,14,,1,0,1,1,0,,puncture-damage
+7076,21,DNF,,9,,1,0,1,1,0,,collision-damage
+7085,22,DNF,,15,,0,0,1,1,0,,collision

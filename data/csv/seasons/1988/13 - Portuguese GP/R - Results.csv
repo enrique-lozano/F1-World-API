@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5954,1,1,5860958,1,,70,9,1,1,9,,
 5958,2,2,5870511,3,,70,6,1,1,6,,
 5962,3,3,5905577,13,,70,4,1,1,4,,
@@ -11,17 +11,17 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5967,10,10,,23,,68,0,1,1,0,,
 5982,11,11,,26,,65,0,1,1,0,,
 5977,12,12,,25,,63,0,1,1,0,,
-5957,13,DNF,,5,,59,0,1,1,0,,Engine
-5950,14,DNF,,6,,54,0,1,1,0,,Spun off
-5948,15,DNF,,22,,53,0,1,1,0,,Overheating
-5961,16,DNF,,9,,52,0,1,1,0,,Handling
-5970,17,DNF,,4,,35,0,1,1,0,,Spun off
-5946,18,DNF,,8,,34,0,1,1,0,,Clutch
-5951,19,DNF,,11,,29,0,1,1,0,,Radiator
-5979,20,DNF,,14,,27,0,1,1,0,,Engine
-5971,21,DNF,,15,,20,0,1,1,0,,Alternator
-5947,22,DNF,,16,,16,0,1,1,0,,Spun off
-5964,23,DNF,,12,,11,0,1,1,0,,Halfshaft
-5960,24,DNF,,18,,10,0,1,1,0,,Turbo
-5972,25,DNF,,20,,7,0,1,1,0,,Engine
-5968,26,DNF,,24,,4,0,1,1,0,,Engine
+5957,13,DNF,,5,,59,0,1,1,0,,engine
+5950,14,DNF,,6,,54,0,1,1,0,,spun-off
+5948,15,DNF,,22,,53,0,1,1,0,,overheating
+5961,16,DNF,,9,,52,0,1,1,0,,handling
+5970,17,DNF,,4,,35,0,1,1,0,,spun-off
+5946,18,DNF,,8,,34,0,1,1,0,,clutch
+5951,19,DNF,,11,,29,0,1,1,0,,radiator
+5979,20,DNF,,14,,27,0,1,1,0,,engine
+5971,21,DNF,,15,,20,0,1,1,0,,alternator
+5947,22,DNF,,16,,16,0,1,1,0,,spun-off
+5964,23,DNF,,12,,11,0,1,1,0,,halfshaft
+5960,24,DNF,,18,,10,0,1,1,0,,turbo
+5972,25,DNF,,20,,7,0,1,1,0,,engine
+5968,26,DNF,,24,,4,0,1,1,0,,engine

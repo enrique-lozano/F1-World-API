@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6629,1,1,5304803,6,,70,10,1,1,10,,
 6630,2,2,5309911,7,,70,8,1,1,8,,
 6637,3,3,5325212,2,,70,6,1,1,6,,
@@ -9,13 +9,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6645,8,8,,15,,68,1,1,1,1,,
 6642,9,9,,10,,67,0,1,1,0,,
 6648,10,10,,18,,66,0,1,1,0,,
-6640,11,DNF,,17,,62,0,1,1,0,,Accident
-6638,12,DNF,,PL,,48,0,1,1,0,,Engine
-6636,13,DNF,,5,,44,0,1,1,0,,Driveshaft
-6647,14,DNF,,PL,,30,0,1,1,0,,Gearbox
-6641,15,DNF,,14,,6,0,1,1,0,,Suspension
-6635,16,DNF,,3,,0,0,1,1,0,,Transmission
-6632,17,DSQ,5305865,1,,70,0,1,1,0,,Illegal brake ducts
-6631,18,DSQ,5326003,4,,70,0,1,1,0,,Illegal brake ducts
-6643,19,DSQ,,12,,69,0,1,1,0,,Illegal brake ducts
-6644,20,DSQ,,13,,69,0,1,1,0,,Illegal brake ducts
+6640,11,DNF,,17,,62,0,1,1,0,,accident
+6638,12,DNF,,PL,,48,0,1,1,0,,engine
+6636,13,DNF,,5,,44,0,1,1,0,,driveshaft
+6647,14,DNF,,PL,,30,0,1,1,0,,gearbox
+6641,15,DNF,,14,,6,0,1,1,0,,suspension
+6635,16,DNF,,3,,0,0,1,1,0,,transmission
+6632,17,DSQ,5305865,1,,70,0,1,1,0,,illegal-brake-ducts
+6631,18,DSQ,5326003,4,,70,0,1,1,0,,illegal-brake-ducts
+6643,19,DSQ,,12,,69,0,1,1,0,,illegal-brake-ducts
+6644,20,DSQ,,13,,69,0,1,1,0,,illegal-brake-ducts

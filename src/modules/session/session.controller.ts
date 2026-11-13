@@ -55,7 +55,7 @@ export class SessionController extends CommonController {
     );
   }
 
-  /** Get info about all the laps in this session. The results will be returned paginated, and accept the `include` and `sort` params (e.g. `sort=lap,pos`) */
+  /** Get info about all the laps in this session. The results will be returned paginated, and accept the `include` and `sort` params (e.g. `sort=lap,position`) */
   @Get('/{season}/{round}/{session}/laps')
   getSessionLaps(
     @Path() season: number,

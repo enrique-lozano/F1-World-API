@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5027,1,1,3476690,8,,29,4.5,1,1,4.5,,
 5021,2,2,3503720,2,,29,3,1,1,3,,
 5032,3,3,3511540,15,,29,2,1,1,2,,
@@ -17,13 +17,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5041,16,16,,25,,27,0,1,1,0,,
 5073,17,17,,21,,26,0,1,1,0,,
 5087,18,NC,,27,,25,0,1,1,0,,
-5086,19,DNF,,26,,23,0,1,1,0,,Electrical
-5046,20,DNF,,12,,21,0,1,1,0,,Handling
-5009,21,DNF,,6,,17,0,1,1,0,,Engine
-5083,22,DNF,,28,,14,0,1,1,0,,Engine
-5068,23,DNF,,4,,10,0,1,1,0,,Accident
-5082,24,DNF,,14,,10,0,1,1,0,,Injection
-5031,25,DNF,,24,,2,0,1,1,0,,Engine
-5025,26,DNF,,19,,1,0,1,1,0,,Accident
-5072,28,DNS,,20,,,0,1,1,0,,Fatal accident
-5081,29,DNS,,22,,,0,1,1,0,,Accident
+5086,19,DNF,,26,,23,0,1,1,0,,electrical
+5046,20,DNF,,12,,21,0,1,1,0,,handling
+5009,21,DNF,,6,,17,0,1,1,0,,engine
+5083,22,DNF,,28,,14,0,1,1,0,,engine
+5068,23,DNF,,4,,10,0,1,1,0,,accident
+5082,24,DNF,,14,,10,0,1,1,0,,injection
+5031,25,DNF,,24,,2,0,1,1,0,,engine
+5025,26,DNF,,19,,1,0,1,1,0,,accident
+5072,28,DNS,,20,,,0,1,1,0,,fatal-accident
+5081,29,DNS,,22,,,0,1,1,0,,accident

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5733,1,1,5230319,2,,45,9,1,1,9,,
 5698,2,2,5300971,3,,45,6,1,1,6,,
 5726,3,3,5334412,8,,45,4,1,1,4,,
@@ -12,16 +12,16 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5709,11,11,,22,,44,0,1,1,0,,
 5723,12,12,,21,,43,0,1,1,0,,
 5725,13,13,,4,,42,0,1,1,0,,
-5717,14,DNF,,6,,38,0,1,1,0,,Fuel system
-5720,15,DNF,,26,,34,0,1,1,0,,Oil leak
-5701,16,DNF,,25,,27,0,1,1,0,,Engine
-5699,17,DNF,,7,,24,0,1,1,0,,Turbo
-5711,18,DNF,,10,,19,0,1,1,0,,Turbo
-5710,19,DNF,,9,,17,0,1,1,0,,Engine
-5737,20,DNF,,13,,11,0,1,1,0,,Engine
-5732,21,DNF,,1,,11,0,1,1,0,,Engine
-5728,22,DNF,,11,,10,0,1,1,0,,Engine
-5721,23,DNF,,16,,4,0,1,1,0,,Fuel pump
-5736,24,DNF,,17,,1,0,1,1,0,,Engine
-5708,25,DNF,,24,,0,0,1,1,0,,Engine
-5715,26,DSQ,,18,,38,0,1,1,0,,Reversed in pits
+5717,14,DNF,,6,,38,0,1,1,0,,fuel-system
+5720,15,DNF,,26,,34,0,1,1,0,,oil-leak
+5701,16,DNF,,25,,27,0,1,1,0,,engine
+5699,17,DNF,,7,,24,0,1,1,0,,turbo
+5711,18,DNF,,10,,19,0,1,1,0,,turbo
+5710,19,DNF,,9,,17,0,1,1,0,,engine
+5737,20,DNF,,13,,11,0,1,1,0,,engine
+5732,21,DNF,,1,,11,0,1,1,0,,engine
+5728,22,DNF,,11,,10,0,1,1,0,,engine
+5721,23,DNF,,16,,4,0,1,1,0,,fuel-pump
+5736,24,DNF,,17,,1,0,1,1,0,,engine
+5708,25,DNF,,24,,0,0,1,1,0,,engine
+5715,26,DSQ,,18,,38,0,1,1,0,,reversed-in-pits

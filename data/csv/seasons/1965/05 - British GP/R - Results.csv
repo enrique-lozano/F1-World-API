@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 3138,1,1,7525400,1,,80,9,1,1,9,,
 3136,2,2,7528600,2,,80,6,1,1,6,,
 3217,3,3,7553000,5,,80,4,1,1,4,,
@@ -12,11 +12,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 3234,11,11,,20,,73,0,1,1,0,,
 3222,12,12,,19,,70,0,1,1,0,,
 3231,13,13,,16,,63,0,1,1,0,,
-3220,14,14,,12,,63,0,1,1,0,,Engine
-3232,15,DNF,,15,,41,0,1,1,0,,Engine
-3229,16,DNF,,21,,38,0,1,1,0,,Ignition
-3227,17,DNF,,17,,33,0,1,1,0,,Gearbox
-3223,18,DNF,,10,,29,0,1,1,0,,Alternator
-3221,19,DNF,,3,,26,0,1,1,0,,Injection
-3218,20,DNF,,9,,2,0,1,1,0,,Engine
-3140,21,DNS,,8,,,0,1,1,0,,Car raced by Gurney
+3220,14,14,,12,,63,0,1,1,0,,engine
+3232,15,DNF,,15,,41,0,1,1,0,,engine
+3229,16,DNF,,21,,38,0,1,1,0,,ignition
+3227,17,DNF,,17,,33,0,1,1,0,,gearbox
+3223,18,DNF,,10,,29,0,1,1,0,,alternator
+3221,19,DNF,,3,,26,0,1,1,0,,injection
+3218,20,DNF,,9,,2,0,1,1,0,,engine
+3140,21,DNS,,8,,,0,1,1,0,,car-raced-by-gurney

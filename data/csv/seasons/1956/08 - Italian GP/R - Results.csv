@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 1488,1,1,8621300,6,,50,9,1,1,8,,
 1332,2,2,8627000,7,,50,3,1,1,3,,
 7381,2,2,8627000,7,,50,3,1,1,0,,
@@ -12,17 +12,17 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1477,9,9,,24,,45,0,1,1,0,,
 1491,10,10,,16,,42,0,1,1,0,,
 1492,11,11,,13,,41,0,1,1,0,,
-1484,12,DNF,,3,,46,0,1,1,0,,Steering
-7382,13,DNF,,12,,42,0,1,1,0,,Steering
-1493,13,DNF,,12,,42,0,1,1,0,,Steering
-1480,14,DNF,,10,,32,0,1,1,0,,Transmission
-1397,15,DNF,,5,,23,0,1,1,0,,Magneto
-1494,16,DNF,,21,,16,0,1,1,0,,Engine
-1481,17,DNF,,11,,13,0,1,1,0,,Transmission
-1479,18,DNF,,4,,12,0,1,1,0,,Oil leak
-1483,19,DNF,,2,,9,0,1,1,0,,Tyre
-1457,20,DNF,,22,,7,0,1,1,0,,Chassis
-1487,21,DNF,,8,,7,0,1,1,0,,Engine
-1485,22,DNF,,9,,6,0,1,1,0,,Tyre
-1472,23,DNF,,19,,6,0,1,1,0,,Suspension
-1476,24,DNF,,20,,3,0,1,1,0,,Engine
+1484,12,DNF,,3,,46,0,1,1,0,,steering
+7382,13,DNF,,12,,42,0,1,1,0,,steering
+1493,13,DNF,,12,,42,0,1,1,0,,steering
+1480,14,DNF,,10,,32,0,1,1,0,,transmission
+1397,15,DNF,,5,,23,0,1,1,0,,magneto
+1494,16,DNF,,21,,16,0,1,1,0,,engine
+1481,17,DNF,,11,,13,0,1,1,0,,transmission
+1479,18,DNF,,4,,12,0,1,1,0,,oil-leak
+1483,19,DNF,,2,,9,0,1,1,0,,tyre
+1457,20,DNF,,22,,7,0,1,1,0,,chassis
+1487,21,DNF,,8,,7,0,1,1,0,,engine
+1485,22,DNF,,9,,6,0,1,1,0,,tyre
+1472,23,DNF,,19,,6,0,1,1,0,,suspension
+1476,24,DNF,,20,,3,0,1,1,0,,engine

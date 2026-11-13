@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5618,1,1,5528401,5,,77,9,1,1,9,,
 5609,2,2,5543351,8,,77,6,1,1,6,,
 5619,3,3,5556301,1,,77,4,1,1,4,,
@@ -17,11 +17,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5608,16,16,,23,,72,0,1,1,0,,
 5622,17,17,,25,,72,0,1,1,0,,
 5628,18,18,,6,,71,0,1,1,0,,
-5626,19,DNF,,11,,54,0,1,1,0,,Fuel system
-5634,20,DNF,,14,,43,0,1,1,0,,Accident
-5606,21,DNF,,4,,18,0,1,1,0,,Turbo
-5625,22,DNF,,17,,11,0,1,1,0,,Fuel system
-5627,23,DNF,,3,,6,0,1,1,0,,Turbo
-5605,24,DNF,,2,,3,0,1,1,0,,Spun off
-5616,25,DNF,,18,,0,0,1,1,0,,Electrical
-5631,26,DNF,,26,,0,0,1,1,0,,Collision
+5626,19,DNF,,11,,54,0,1,1,0,,fuel-system
+5634,20,DNF,,14,,43,0,1,1,0,,accident
+5606,21,DNF,,4,,18,0,1,1,0,,turbo
+5625,22,DNF,,17,,11,0,1,1,0,,fuel-system
+5627,23,DNF,,3,,6,0,1,1,0,,turbo
+5605,24,DNF,,2,,3,0,1,1,0,,spun-off
+5616,25,DNF,,18,,0,0,1,1,0,,electrical
+5631,26,DNF,,26,,0,0,1,1,0,,collision

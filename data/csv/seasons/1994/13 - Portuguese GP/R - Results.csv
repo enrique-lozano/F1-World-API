@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6331,1,1,6070165,2,,71,10,1,1,10,,
 6332,2,2,6070768,3,,71,6,1,1,6,,
 6293,3,3,6090358,4,,71,4,1,1,4,,
@@ -15,13 +15,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6337,14,14,,23,,69,0,1,1,0,,
 6330,15,15,,26,,67,0,1,1,0,,
 6334,16,16,,25,,67,0,1,1,0,,
-6290,17,DNF,,12,,61,0,1,1,0,,Engine
-6336,18,DNF,,14,,60,0,1,1,0,,Spun off
-6325,19,DNF,,17,,54,0,1,1,0,,Spun off
-6328,20,DNF,,5,,38,0,1,1,0,,Collision
-6311,21,DNF,,24,,36,0,1,1,0,,Collision
-6310,22,DNF,,9,,31,0,1,1,0,,Differential
-6302,23,DNF,,22,,27,0,1,1,0,,Suspension
-6289,24,DNF,,6,,26,0,1,1,0,,Gearbox
-6329,25,DNF,,1,,7,0,1,1,0,,Gearbox
-6306,26,DSQ,,15,,70,0,1,1,0,,Illegal skid block wear
+6290,17,DNF,,12,,61,0,1,1,0,,engine
+6336,18,DNF,,14,,60,0,1,1,0,,spun-off
+6325,19,DNF,,17,,54,0,1,1,0,,spun-off
+6328,20,DNF,,5,,38,0,1,1,0,,collision
+6311,21,DNF,,24,,36,0,1,1,0,,collision
+6310,22,DNF,,9,,31,0,1,1,0,,differential
+6302,23,DNF,,22,,27,0,1,1,0,,suspension
+6289,24,DNF,,6,,26,0,1,1,0,,gearbox
+6329,25,DNF,,1,,7,0,1,1,0,,gearbox
+6306,26,DSQ,,15,,70,0,1,1,0,,illegal-skid-block-wear

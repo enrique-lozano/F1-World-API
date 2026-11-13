@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7017,1,1,7204795,1,,60,25,1,1,25,,
 6998,2,2,7218329,4,,60,18,1,1,18,,
 6999,3,3,7219068,3,,60,15,1,1,15,,
@@ -16,8 +16,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7004,15,15,7298983,22,,60,0,1,1,0,,
 7009,16,16,7299338,19,,60,0,1,1,0,,
 7000,17,17,,21,,59,0,1,1,0,,
-7013,18,DNF,,11,,52,0,1,1,0,,Electrical
-7019,19,DNF,,17,,40,0,1,1,0,,Water leak
-7012,20,DNF,,14,,17,0,1,1,0,,Electrical
-7001,21,DNF,,PL,,13,0,1,1,0,,Steering
-7005,22,DNS,,20,,,0,1,1,0,,Oil pressure
+7013,18,DNF,,11,,52,0,1,1,0,,electrical
+7019,19,DNF,,17,,40,0,1,1,0,,water-leak
+7012,20,DNF,,14,,17,0,1,1,0,,electrical
+7001,21,DNF,,PL,,13,0,1,1,0,,steering
+7005,22,DNS,,20,,,0,1,1,0,,oil-pressure

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6945,1,1,5949145,1,,66,25,1,1,25,,
 6933,2,2,5952340,2,,66,18,1,1,18,,
 6937,3,3,5953029,4,,66,15,1,1,15,,
@@ -18,8 +18,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6948,17,17,,18,,65,0,1,1,0,,
 6951,18,18,,21,,64,0,1,1,0,,
 6949,19,19,,22,,63,0,1,1,0,,
-6942,20,DNF,,5,,37,0,1,1,0,,Transmission
-6952,21,DNF,,20,,35,0,1,1,0,,Halfshaft
-6950,22,DNF,,23,,22,0,1,1,0,,Wheel
-6946,23,DNF,,17,,12,0,1,1,0,,Accident damage
-6935,24,DNF,,8,,12,0,1,1,0,,Accident
+6942,20,DNF,,5,,37,0,1,1,0,,transmission
+6952,21,DNF,,20,,35,0,1,1,0,,halfshaft
+6950,22,DNF,,23,,22,0,1,1,0,,wheel
+6946,23,DNF,,17,,12,0,1,1,0,,accident-damage
+6935,24,DNF,,8,,12,0,1,1,0,,accident

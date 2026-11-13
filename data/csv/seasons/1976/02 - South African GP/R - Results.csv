@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5098,1,1,6138400,2,,78,9,1,1,9,,
 5108,2,2,6139700,1,,78,6,1,1,6,,
 5109,3,3,6184300,4,,78,4,1,1,4,,
@@ -15,12 +15,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5126,14,14,,18,,76,0,1,1,0,,
 5127,15,15,,24,,74,0,1,1,0,,
 5113,16,16,,19,,73,0,1,1,0,,
-5117,17,17,,21,,70,0,1,1,0,,Engine
-5099,18,DNF,,9,,52,0,1,1,0,,Engine
-5115,19,DNF,,8,,49,0,1,1,0,,Engine
-5112,20,DNF,,15,,28,0,1,1,0,,Radiator
-5105,21,DNF,,14,,22,0,1,1,0,,Oil pressure
-5121,22,DNF,,25,,18,0,1,1,0,,Clutch
-5104,23,DNF,,11,,16,0,1,1,0,,Oil pressure
-5122,24,DNF,,10,,15,0,1,1,0,,Accident
-5123,25,DNF,,16,,0,0,1,1,0,,Accident
+5117,17,17,,21,,70,0,1,1,0,,engine
+5099,18,DNF,,9,,52,0,1,1,0,,engine
+5115,19,DNF,,8,,49,0,1,1,0,,engine
+5112,20,DNF,,15,,28,0,1,1,0,,radiator
+5105,21,DNF,,14,,22,0,1,1,0,,oil-pressure
+5121,22,DNF,,25,,18,0,1,1,0,,clutch
+5104,23,DNF,,11,,16,0,1,1,0,,oil-pressure
+5122,24,DNF,,10,,15,0,1,1,0,,accident
+5123,25,DNF,,16,,0,0,1,1,0,,accident

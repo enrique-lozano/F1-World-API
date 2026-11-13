@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6882,1,1,5859832,1,,56,25,1,1,25,,
 6885,2,2,5863093,4,,56,18,1,1,18,,
 6890,3,3,5884907,6,,56,15,1,1,15,,
@@ -15,11 +15,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6900,14,14,,13,,55,0,1,1,0,,
 6902,15,15,,19,,55,0,1,1,0,,
 6907,16,16,,21,,54,0,1,1,0,,
-6891,17,17,,8,,52,0,1,1,0,,Steering
-6906,18,DNF,,23,,46,0,1,1,0,,Rear wing
-6908,19,DNF,,22,,42,0,1,1,0,,Electrical
-6904,20,DNF,,20,,31,0,1,1,0,,Clutch
-6898,21,DNF,,16,,23,0,1,1,0,,Electrical
-6892,22,DNF,,15,,22,0,1,1,0,,Hydraulics
-6905,23,DNF,,24,,14,0,1,1,0,,Mechanical
-6893,24,DNF,,18,,8,0,1,1,0,,Engine
+6891,17,17,,8,,52,0,1,1,0,,steering
+6906,18,DNF,,23,,46,0,1,1,0,,rear-wing
+6908,19,DNF,,22,,42,0,1,1,0,,electrical
+6904,20,DNF,,20,,31,0,1,1,0,,clutch
+6898,21,DNF,,16,,23,0,1,1,0,,electrical
+6892,22,DNF,,15,,22,0,1,1,0,,hydraulics
+6905,23,DNF,,24,,14,0,1,1,0,,mechanical
+6893,24,DNF,,18,,8,0,1,1,0,,engine

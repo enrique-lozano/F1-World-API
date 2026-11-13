@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 1178,1,1,14039530,14,,200,8,1,1,8,,
 1183,2,2,14203090,2,,200,3,1,1,3,,
 1187,3,3,14251890,10,,200,4,1,1,4,,
@@ -13,22 +13,22 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1203,12,12,,25,,196,0,1,1,0,,
 1216,13,13,,32,,196,0,1,1,0,,
 1200,14,14,,20,,191,0,1,1,0,,
-1185,15,15,,21,,178,0,1,1,0,,Transmission
-1192,16,16,,9,,170,0,1,1,0,,Accident
-1221,17,17,,24,,168,0,1,1,0,,Engine
-1215,18,18,,31,,142,0,1,1,0,,Transmission
-1180,19,19,,6,,134,0,1,1,0,,Transmission
-1199,20,20,,28,,120,0,1,1,0,,Fuel pump
-1188,21,21,,27,,119,0,1,1,0,,Magneto
-1201,22,22,,13,,112,0,1,1,0,,Ignition
-1207,23,23,,23,,111,0,1,1,0,,Engine
-1174,24,24,,11,,90,0,1,1,0,,Fuel pump
-1176,25,25,,5,,56,1,1,1,1,,Fatal accident
-1175,26,26,,3,,54,0,1,1,0,,Magneto
-1204,27,27,,22,,54,0,1,1,0,,Accident
-1196,28,28,,30,,53,0,1,1,0,,Accident
-1202,29,29,,26,,53,0,1,1,0,,Accident
-1208,30,30,,29,,53,0,1,1,0,,Retirement
-1193,31,31,,1,,40,0,1,1,0,,Oil leak
-1186,32,32,,4,,39,0,1,1,0,,Spun off
-1177,33,33,,15,,10,0,1,1,0,,Engine
+1185,15,15,,21,,178,0,1,1,0,,transmission
+1192,16,16,,9,,170,0,1,1,0,,accident
+1221,17,17,,24,,168,0,1,1,0,,engine
+1215,18,18,,31,,142,0,1,1,0,,transmission
+1180,19,19,,6,,134,0,1,1,0,,transmission
+1199,20,20,,28,,120,0,1,1,0,,fuel-pump
+1188,21,21,,27,,119,0,1,1,0,,magneto
+1201,22,22,,13,,112,0,1,1,0,,ignition
+1207,23,23,,23,,111,0,1,1,0,,engine
+1174,24,24,,11,,90,0,1,1,0,,fuel-pump
+1176,25,25,,5,,56,1,1,1,1,,fatal-accident
+1175,26,26,,3,,54,0,1,1,0,,magneto
+1204,27,27,,22,,54,0,1,1,0,,accident
+1196,28,28,,30,,53,0,1,1,0,,accident
+1202,29,29,,26,,53,0,1,1,0,,accident
+1208,30,30,,29,,53,0,1,1,0,,retirement
+1193,31,31,,1,,40,0,1,1,0,,oil-leak
+1186,32,32,,4,,39,0,1,1,0,,spun-off
+1177,33,33,,15,,10,0,1,1,0,,engine

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 2997,1,1,7655400,2,,80,9,1,1,9,,
 2989,2,2,7709000,4,,80,6,1,1,6,,
 2998,3,3,,6,,79,4,1,1,4,,
@@ -10,10 +10,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 3001,9,9,,12,,76,0,1,1,0,,
 3004,10,10,,16,,74,0,1,1,0,,
 2992,11,11,,8,,64,0,1,1,0,,
-2994,12,12,,14,,57,0,1,1,0,,Differential
+2994,12,12,,14,,57,0,1,1,0,,differential
 3006,13,13,,18,,55,0,1,1,0,,
-2995,14,DNF,,7,,44,0,1,1,0,,Ignition
-2990,15,DNF,,10,,25,0,1,1,0,,Ignition
-2996,16,DNF,,1,,23,0,1,1,0,,Steering
-3002,17,DNF,,17,,8,0,1,1,0,,Engine
-3003,18,DNS,,15,,,0,1,1,0,,Accident in practice
+2995,14,DNF,,7,,44,0,1,1,0,,ignition
+2990,15,DNF,,10,,25,0,1,1,0,,ignition
+2996,16,DNF,,1,,23,0,1,1,0,,steering
+3002,17,DNF,,17,,8,0,1,1,0,,engine
+3003,18,DNS,,15,,,0,1,1,0,,accident-in-practice

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6719,1,1,5852747,6,,56,10,1,1,10,,
 6715,2,2,5855868,1,,56,8,1,1,8,,
 6716,3,3,5896944,2,,56,6,1,1,6,,
@@ -15,9 +15,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6734,14,14,,11,,55,0,1,1,0,,
 6757,15,15,,22,SFB,53,0,1,1,0,25000,
 6751,16,16,,19,,52,0,1,1,0,,
-6746,17,DNF,,16,,49,0,1,1,0,,Oil pressure
-6720,18,DNF,,20,10,44,0,1,1,0,,Collision
-6747,19,DNF,,17,,38,0,1,1,0,,Engine
-6756,20,DNF,,18,,37,0,1,1,0,,Spin
-6717,21,DNF,,5,,18,0,1,1,0,,Throttle
-6750,22,DSQ,,21,10,55,0,1,1,0,,Ignored blue flags
+6746,17,DNF,,16,,49,0,1,1,0,,oil-pressure
+6720,18,DNF,,20,10,44,0,1,1,0,,collision
+6747,19,DNF,,17,,38,0,1,1,0,,engine
+6756,20,DNF,,18,,37,0,1,1,0,,spun-off
+6717,21,DNF,,5,,18,0,1,1,0,,throttle
+6750,22,DSQ,,21,10,55,0,1,1,0,,ignored-blue-flags

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 914,1,1,13757270,19,,200,8,1,1,8,,
 911,2,2,13827221,3,,200,6,1,1,6,,
 905,3,3,13837000,1,,200,5,1,1,5,,
@@ -24,20 +24,20 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 925,17,17,,7,,194,0,1,1,0,,
 927,18,18,,31,,193,0,1,1,0,,
 954,19,19,,33,,193,0,1,1,0,,
-904,20,20,,10,,191,0,1,1,0,,Spun off
-7348,20,20,,10,,191,0,1,1,0,,Spun off
-933,21,21,,12,,181,0,1,1,0,,Spun off
-913,22,22,,16,,172,0,1,1,0,,Retirement
-929,23,23,,17,,168,0,1,1,0,,Clutch
-7349,24,24,,4,,165,0,1,1,0,,Retirement
-940,24,24,,4,,165,0,1,1,0,,Retirement
-7350,24,24,,4,,165,0,1,1,0,,Retirement
-957,25,25,,23,,165,0,1,1,0,,Suspension
-964,26,26,,30,,130,0,1,1,0,,Engine
-920,27,27,,2,,111,0,1,1,0,,Accident
-938,28,28,,28,,110,0,1,1,0,,Accident
-912,29,29,,21,,105,0,1,1,0,,Wheel bearing
-949,30,30,,29,,104,0,1,1,0,,Fuel pump
-931,31,31,,26,,101,0,1,1,0,,Brakes
-915,32,32,,15,,79,0,1,1,0,,Engine
-943,33,33,,18,,74,0,1,1,0,,Accident
+904,20,20,,10,,191,0,1,1,0,,spun-off
+7348,20,20,,10,,191,0,1,1,0,,spun-off
+933,21,21,,12,,181,0,1,1,0,,spun-off
+913,22,22,,16,,172,0,1,1,0,,retirement
+929,23,23,,17,,168,0,1,1,0,,clutch
+7349,24,24,,4,,165,0,1,1,0,,retirement
+940,24,24,,4,,165,0,1,1,0,,retirement
+7350,24,24,,4,,165,0,1,1,0,,retirement
+957,25,25,,23,,165,0,1,1,0,,suspension
+964,26,26,,30,,130,0,1,1,0,,engine
+920,27,27,,2,,111,0,1,1,0,,accident
+938,28,28,,28,,110,0,1,1,0,,accident
+912,29,29,,21,,105,0,1,1,0,,wheel-bearing
+949,30,30,,29,,104,0,1,1,0,,fuel-pump
+931,31,31,,26,,101,0,1,1,0,,brakes
+915,32,32,,15,,79,0,1,1,0,,engine
+943,33,33,,18,,74,0,1,1,0,,accident

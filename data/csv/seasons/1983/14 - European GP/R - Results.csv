@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5725,1,1,5805865,4,,76,9,1,1,9,,
 5713,2,2,5812436,8,,76,6,1,1,6,,
 5729,3,3,5836180,3,,76,4,1,1,4,,
@@ -14,14 +14,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5744,13,13,,25,,74,0,1,1,0,,
 5735,14,14,,19,,74,0,1,1,0,,
 5701,15,15,,23,,73,0,1,1,0,,
-5732,16,DNF,,6,,67,0,1,1,0,,Spun off
-5738,17,DNF,,26,,64,0,1,1,0,,Engine
+5732,16,DNF,,6,,67,0,1,1,0,,spun-off
+5738,17,DNF,,26,,64,0,1,1,0,,engine
 5720,18,NC,,24,,63,0,1,1,0,,
-5704,19,DNF,,17,,50,0,1,1,0,,Engine
-5684,20,DNF,,16,,43,0,1,1,0,,Engine
-5699,21,DNF,,15,,39,0,1,1,0,,Clutch
-5741,22,DNF,,10,,36,0,1,1,0,,Spun off
-5743,23,DNF,,20,,27,0,1,1,0,,Oil leak
-5740,24,DNF,,13,,25,0,1,1,0,,Engine
-5728,25,DNF,,1,,12,0,1,1,0,,Oil pump
-5731,26,DNF,,22,,0,0,1,1,0,,Clutch
+5704,19,DNF,,17,,50,0,1,1,0,,engine
+5684,20,DNF,,16,,43,0,1,1,0,,engine
+5699,21,DNF,,15,,39,0,1,1,0,,clutch
+5741,22,DNF,,10,,36,0,1,1,0,,spun-off
+5743,23,DNF,,20,,27,0,1,1,0,,oil-leak
+5740,24,DNF,,13,,25,0,1,1,0,,engine
+5728,25,DNF,,1,,12,0,1,1,0,,oil-pump
+5731,26,DNF,,22,,0,0,1,1,0,,clutch

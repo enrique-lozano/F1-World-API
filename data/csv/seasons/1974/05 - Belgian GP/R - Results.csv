@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 4901,1,1,6260570,4,,85,9,1,1,9,,
 4908,2,2,6260920,3,,85,6,1,1,6,,
 4936,3,3,6306180,2,,85,4,1,1,4,,
@@ -16,17 +16,17 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 4946,15,15,,14,,82,0,1,1,0,,
 4922,16,16,,25,,82,0,1,1,0,,
 4948,17,17,,27,,81,0,1,1,0,,
-4939,18,18,,18,,80,0,1,1,0,,Engine
-4924,19,DNF,,16,,72,0,1,1,0,,Overheating
-4950,20,DNF,,20,,66,0,1,1,0,,Collision
-4903,21,DNF,,24,,62,0,1,1,0,,Engine
-4923,22,DNF,,5,,56,0,1,1,0,,Fuel leak
-4951,23,DNF,,28,,53,0,1,1,0,,Tyre
-4929,24,DNF,,26,,53,0,1,1,0,,Suspension
-4944,25,DNF,,11,,53,0,1,1,0,,Brakes
-4928,26,DNF,,8,,50,0,1,1,0,,Handling
-4938,27,DNF,,22,,49,0,1,1,0,,Engine
-4932,28,DNF,,9,,45,0,1,1,0,,Accident
-4915,29,DNF,,6,,29,0,1,1,0,,Transmission
-4910,30,DNF,,15,,12,0,1,1,0,,Collision
-4905,31,DNF,,10,,6,0,1,1,0,,Clutch
+4939,18,18,,18,,80,0,1,1,0,,engine
+4924,19,DNF,,16,,72,0,1,1,0,,overheating
+4950,20,DNF,,20,,66,0,1,1,0,,collision
+4903,21,DNF,,24,,62,0,1,1,0,,engine
+4923,22,DNF,,5,,56,0,1,1,0,,fuel-leak
+4951,23,DNF,,28,,53,0,1,1,0,,tyre
+4929,24,DNF,,26,,53,0,1,1,0,,suspension
+4944,25,DNF,,11,,53,0,1,1,0,,brakes
+4928,26,DNF,,8,,50,0,1,1,0,,handling
+4938,27,DNF,,22,,49,0,1,1,0,,engine
+4932,28,DNF,,9,,45,0,1,1,0,,accident
+4915,29,DNF,,6,,29,0,1,1,0,,transmission
+4910,30,DNF,,15,,12,0,1,1,0,,collision
+4905,31,DNF,,10,,6,0,1,1,0,,clutch

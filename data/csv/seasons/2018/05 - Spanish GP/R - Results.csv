@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7145,1,1,5729972,1,,66,25,1,1,25,,
 7147,2,2,5750565,2,,66,18,1,1,18,,
 7143,3,3,5756845,5,,66,15,1,1,15,,
@@ -13,9 +13,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7141,12,12,,20,5,64,0,1,1,0,,
 7133,13,13,,17,,64,0,1,1,0,,
 7144,14,14,,19,3,63,0,1,1,0,,
-7128,15,DNF,,11,,45,0,1,1,0,,Gearbox
-7142,16,DNF,,13,,38,0,1,0,0,,Oil leak
-7131,17,DNF,,4,,25,0,1,1,0,,Turbo
-7132,18,DNF,,10,,0,0,1,1,0,,Collision
-7134,19,DNF,,12,,0,0,1,1,0,,Collision
-7140,20,DNF,,16,,0,0,1,1,0,,Collision
+7128,15,DNF,,11,,45,0,1,1,0,,gearbox
+7142,16,DNF,,13,,38,0,1,0,0,,oil-leak
+7131,17,DNF,,4,,25,0,1,1,0,,turbo
+7132,18,DNF,,10,,0,0,1,1,0,,collision
+7134,19,DNF,,12,,0,0,1,1,0,,collision
+7140,20,DNF,,16,,0,0,1,1,0,,collision

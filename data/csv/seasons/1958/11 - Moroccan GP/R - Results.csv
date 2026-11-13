@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 1804,1,1,7755100,2,,53,9,1,1,9,,
 1896,2,2,7839800,1,,53,6,1,1,2,,
 1895,3,3,7840600,5,,53,4,1,1,4,,
@@ -15,12 +15,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1914,14,14,,23,,48,0,1,1,0,,
 1909,15,15,,25,,48,0,1,1,0,,
 1905,16,16,,12,,45,0,1,1,0,,
-1806,17,DNF,,3,,41,0,1,1,0,,Fatal accident
-1912,18,DNF,,24,,31,0,1,1,0,,Accident
-1913,19,DNF,,22,,30,0,1,1,0,,Accident
-1805,20,DNF,,7,,29,0,1,1,0,,Engine
-1894,21,DNF,,6,,29,0,1,1,0,,Accident
-1722,22,DNF,,4,,26,0,1,1,0,,Engine
-1900,23,DNF,,20,,15,0,1,1,0,,Accident
-1898,24,DNF,,15,,15,0,1,1,0,,Camshaft
-1906,25,DNF,,9,,9,0,1,1,0,,Engine
+1806,17,DNF,,3,,41,0,1,1,0,,fatal-accident
+1912,18,DNF,,24,,31,0,1,1,0,,accident
+1913,19,DNF,,22,,30,0,1,1,0,,accident
+1805,20,DNF,,7,,29,0,1,1,0,,engine
+1894,21,DNF,,6,,29,0,1,1,0,,accident
+1722,22,DNF,,4,,26,0,1,1,0,,engine
+1900,23,DNF,,20,,15,0,1,1,0,,accident
+1898,24,DNF,,15,,15,0,1,1,0,,camshaft
+1906,25,DNF,,9,,9,0,1,1,0,,engine

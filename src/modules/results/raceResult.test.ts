@@ -49,8 +49,8 @@ describe('Shared cars', () => {
     const winners = res.filter((x) => x.positionOrder === 1);
 
     expect(winners.map((x) => x.entry?.driver?.id).sort()).toEqual([
-      'juan-manuel-fangio',
-      'luigi-fagioli'
+      'fagioli',
+      'fangio'
     ]);
     expect(winners.every((x) => x.sharedCar === 1)).toBe(true);
     expect(winners.every((x) => x.entry?.driverNumber === 8)).toBe(true);
@@ -63,5 +63,40 @@ describe('Shared cars', () => {
     );
 
     expect(res.every((x) => x.sharedCar === 0)).toBe(true);
+  });
+
+  describe('Retirement reasons', () => {
+    test('The reason is returned as text, with its category', async () => {
+      const res = await getUrlResponseForTesting<RaceResultDTO[]>(
+        '/races/results/2021/1/R',
+        {
+          include:
+            'positionOrder,reasonRetired,retirementCategory,retirementReasonId,entry.driver.id'
+        }
+      );
+
+      const byDriver = (id: string) =>
+        res.find((x) => x.entry?.driver?.id === id);
+
+      expect(byDriver('alonso')).toMatchObject({
+        retirementReasonId: 'brakes',
+        reasonRetired: 'Brakes',
+        retirementCategory: 'MECHANICAL'
+      });
+      expect(byDriver('mazepin')).toMatchObject({
+        reasonRetired: 'Accident',
+        retirementCategory: 'ACCIDENT'
+      });
+    });
+
+    test('A car that finished has no reason', async () => {
+      const res = await getUrlResponseForTesting<RaceResultDTO[]>(
+        '/races/results/2021/1/R',
+        { include: 'positionOrder,reasonRetired,retirementCategory' }
+      );
+
+      expect(res[0].reasonRetired).toBeNull();
+      expect(res[0].retirementCategory).toBeNull();
+    });
   });
 });

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6592,1,1,5292058,1,,62,10,1,1,10,,
 6597,2,2,5293940,6,,62,8,1,1,8,,
 6593,3,3,5294349,3,,62,6,1,1,6,,
@@ -13,9 +13,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6611,12,12,,13,,61,0,1,1,0,,
 6598,13,13,,16,,61,0,1,1,0,,
 6605,14,14,,15,,60,0,1,1,0,,
-6602,15,15,,17,,57,0,1,1,0,,Engine
-6604,16,DNF,,5,,54,0,1,1,0,,Driveshaft
-6603,17,DNF,,PL,,51,0,1,1,0,,Oil line
-6609,18,DNF,,PL,,38,0,1,1,0,,Electrical
-6608,19,DNF,,PL,,23,0,1,1,0,,Fuel rig
-6606,20,DNF,,7,,19,0,1,1,0,,Engine
+6602,15,15,,17,,57,0,1,1,0,,engine
+6604,16,DNF,,5,,54,0,1,1,0,,driveshaft
+6603,17,DNF,,PL,,51,0,1,1,0,,oil-pipe
+6609,18,DNF,,PL,,38,0,1,1,0,,electrical
+6608,19,DNF,,PL,,23,0,1,1,0,,fuel-rig
+6606,20,DNF,,7,,19,0,1,1,0,,engine

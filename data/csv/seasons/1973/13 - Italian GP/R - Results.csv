@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 4825,1,1,5357000,1,,55,9,1,1,9,,
 4824,2,2,5357800,4,,55,6,1,1,6,,
 4850,3,3,5385800,2,,55,4,1,1,4,,
@@ -15,11 +15,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 4854,14,14,,22,,54,0,1,1,0,,
 4849,15,15,,3,,53,0,1,1,0,,
 4865,16,NC,,20,,44,0,1,1,0,,
-4855,17,DNF,,12,,34,0,1,1,0,,Gearbox
-4861,18,DNF,,15,,33,0,1,1,0,,Accident
-4859,19,DNF,,18,,31,0,1,1,0,,Ignition
-4864,20,DNF,,5,,17,0,1,1,0,,Tyre
-4884,21,DNF,,23,,14,0,1,1,0,,Overheating
-4880,22,DNF,,17,,10,0,1,1,0,,Overheating
-4853,23,DNF,,16,,6,0,1,1,0,,Brakes
-4846,24,DNF,,7,,2,0,1,1,0,,Suspension
+4855,17,DNF,,12,,34,0,1,1,0,,gearbox
+4861,18,DNF,,15,,33,0,1,1,0,,accident
+4859,19,DNF,,18,,31,0,1,1,0,,ignition
+4864,20,DNF,,5,,17,0,1,1,0,,tyre
+4884,21,DNF,,23,,14,0,1,1,0,,overheating
+4880,22,DNF,,17,,10,0,1,1,0,,overheating
+4853,23,DNF,,16,,6,0,1,1,0,,brakes
+4846,24,DNF,,7,,2,0,1,1,0,,suspension

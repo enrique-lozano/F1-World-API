@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5985,1,1,5211245,1,,58,9,1,1,9,,
 5986,2,2,5251470,2,,58,6,1,1,6,,
 6001,3,3,,7,,57,4,1,1,4,,
@@ -10,18 +10,18 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5994,9,9,,21,,56,0,1,1,0,,
 6004,10,10,,16,,56,0,1,1,0,,
 6002,11,11,,23,,56,0,1,1,0,,
-5999,12,12,,14,,52,0,1,1,0,,Spun off
-5991,13,DNF,,22,,51,0,1,1,0,,Fuel system
+5999,12,12,,14,,52,0,1,1,0,,spun-off
+5991,13,DNF,,22,,51,0,1,1,0,,fuel-system
 5996,14,NC,,24,,46,0,1,1,0,,
-6006,15,DNF,,15,,43,0,1,1,0,,Spun off
-5997,16,DNF,,19,,39,0,1,1,0,,Transmission
-5995,17,DNF,,8,,29,0,1,1,0,,Engine
-6009,18,DNF,,3,,23,0,1,1,0,,Gearbox
-5990,19,DNF,,4,,21,0,1,1,0,,Engine
-5992,20,DNF,,17,,19,0,1,1,0,,Spun off
-6005,21,DNF,,11,,6,0,1,1,0,,Gearbox
-6010,22,DNF,,5,,3,0,1,1,0,,Accident
-5998,23,DNF,,13,,1,0,1,1,0,,Spun off
-6027,24,DNF,,20,,0,0,1,1,0,,Electrical
-6026,25,DNF,,26,,0,0,1,1,0,,Electrical
-6008,26,DSQ,,10,,4,0,1,1,0,,Illegal car repairs
+6006,15,DNF,,15,,43,0,1,1,0,,spun-off
+5997,16,DNF,,19,,39,0,1,1,0,,transmission
+5995,17,DNF,,8,,29,0,1,1,0,,engine
+6009,18,DNF,,3,,23,0,1,1,0,,gearbox
+5990,19,DNF,,4,,21,0,1,1,0,,engine
+5992,20,DNF,,17,,19,0,1,1,0,,spun-off
+6005,21,DNF,,11,,6,0,1,1,0,,gearbox
+6010,22,DNF,,5,,3,0,1,1,0,,accident
+5998,23,DNF,,13,,1,0,1,1,0,,spun-off
+6027,24,DNF,,20,,0,0,1,1,0,,electrical
+6026,25,DNF,,26,,0,0,1,1,0,,electrical
+6008,26,DSQ,,10,,4,0,1,1,0,,illegal-car-repairs

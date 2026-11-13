@@ -17,6 +17,18 @@ def download_df(df: DataFrame | None, name: str):
     if df is not None:
         df.to_csv(f"{OUTPUT_PATH}/{name}.csv", index=False)
 
+RETIREMENT_REASONS_CSV = "./../data/csv/retirementReasons.csv"
+
+
+def retirement_reason_id(text: str) -> str:
+    """ Id (data/csv/retirementReasons.csv) of the reason shown by the official page. Fails if it is unknown, so it is added by hand (with its category) instead of guessed """
+    reasons = pd.read_csv(RETIREMENT_REASONS_CSV, dtype=str, keep_default_na=False)
+    match = reasons[reasons["name"].str.lower() == text.strip().lower()]
+    if match.empty:
+        raise ValueError(f"Unknown retirement reason '{text}'. Add it to {RETIREMENT_REASONS_CSV} first")
+    return match.iloc[0]["id"]
+
+
 def is_number(s):
     try:
         float(s)

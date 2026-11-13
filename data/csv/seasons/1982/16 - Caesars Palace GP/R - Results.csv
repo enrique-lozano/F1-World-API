@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5607,1,1,6116888,3,,75,9,1,1,9,,
 5611,2,2,6144178,9,,75,6,1,1,6,,
 5665,3,3,6173338,4,,75,4,1,1,4,,
@@ -13,15 +13,15 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5679,12,12,,25,,73,0,1,1,0,,
 5643,13,13,,24,,69,0,1,1,0,,
 5657,14,NC,,22,,62,0,1,1,0,,
-5638,15,DNF,,13,,53,0,1,1,0,,Engine
-5677,16,DNF,,26,,39,0,1,1,0,,Spun off
-5683,17,DNF,,10,,32,0,1,1,0,,Spark plugs
-5639,18,DNF,,20,,28,0,1,1,0,,Engine
-5680,19,DNF,,7,,26,0,1,1,0,,Suspension
-5605,20,DNF,,12,,26,0,1,1,0,,Spark plugs
-5619,21,DNF,,2,,20,0,1,1,0,,Engine
-5606,22,DNF,,5,,17,0,1,1,0,,Clutch
-5640,23,DNF,,21,,8,0,1,1,0,,Collision
-5666,24,DNF,,11,,5,0,1,1,0,,Ignition
-5671,25,DNS,,8,,,0,1,1,0,,Unfit
-5668,26,DNS,,15,,,0,1,1,0,,Engine
+5638,15,DNF,,13,,53,0,1,1,0,,engine
+5677,16,DNF,,26,,39,0,1,1,0,,spun-off
+5683,17,DNF,,10,,32,0,1,1,0,,spark-plugs
+5639,18,DNF,,20,,28,0,1,1,0,,engine
+5680,19,DNF,,7,,26,0,1,1,0,,suspension
+5605,20,DNF,,12,,26,0,1,1,0,,spark-plugs
+5619,21,DNF,,2,,20,0,1,1,0,,engine
+5606,22,DNF,,5,,17,0,1,1,0,,clutch
+5640,23,DNF,,21,,8,0,1,1,0,,collision
+5666,24,DNF,,11,,5,0,1,1,0,,ignition
+5671,25,DNS,,8,,,0,1,1,0,,unfit
+5668,26,DNS,,15,,,0,1,1,0,,engine

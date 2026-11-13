@@ -194,7 +194,7 @@ CREATE TABLE IF NOT EXISTS lapTimes
 , sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id) ON UPDATE CASCADE
 , lap INTEGER NOT NULL CHECK (lap > 0)
 , time INTEGER CHECK (time > 0) -- milliseconds
-, pos INTEGER CHECK (pos > 0)
+, position INTEGER CHECK (position > 0) -- position of the driver in the race at the end of this lap
 , PRIMARY KEY (entryId, sessionId, lap)
 );
 
@@ -255,6 +255,15 @@ CREATE TABLE IF NOT EXISTS qualifyingResults
 , PRIMARY KEY (sessionId, entryId)
 );
 
+-- Table: retirementReasons
+-- Why a car did not finish, was disqualified or did not start. The `name` is the text shown to the users.
+DROP TABLE IF EXISTS retirementReasons;
+CREATE TABLE IF NOT EXISTS retirementReasons
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY -- slug of the name, e.g. gearbox, spun-off
+, name VARCHAR(255) NOT NULL COLLATE NOCASE
+, category VARCHAR(255) NOT NULL COLLATE NOCASE CHECK (category IN ('ACCIDENT', 'DISQUALIFICATION', 'DRIVER_HEALTH', 'MECHANICAL', 'OTHER')) -- MECHANICAL: a failed component of the car (engine, gearbox, brakes...). ACCIDENT: collisions and spins. DRIVER_HEALTH: illness or injury. DISQUALIFICATION: infringement of the rules. OTHER: withdrawals, out of fuel...
+);
+
 -- Table: raceResults
 DROP TABLE IF EXISTS raceResults;
 CREATE TABLE IF NOT EXISTS raceResults
@@ -271,7 +280,7 @@ CREATE TABLE IF NOT EXISTS raceResults
 , pointsCountForWCC BOOLEAN NOT NULL DEFAULT 1 CHECK (pointsCountForWCC IN (0, 1)) -- 0 when the result does not score for the Constructors' Championship: non-eligible third car (Renault, 1985 German GP), disqualified constructor (Larrousse 1990)
 , pointsGained INTEGER
 , timePenalty INTEGER
-, reasonRetired VARCHAR(255)
+, retirementReasonId VARCHAR(255) COLLATE NOCASE REFERENCES retirementReasons(id) -- why the car did not finish (or was disqualified / did not start). NULL if it finished
 , PRIMARY KEY (sessionId, entryId, positionOrder)
 );
 

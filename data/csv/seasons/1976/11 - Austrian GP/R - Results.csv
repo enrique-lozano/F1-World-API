@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5148,1,1,5407860,2,,54,9,1,1,9,,
 5115,2,2,5418650,5,,54,6,1,1,6,,
 5121,3,3,5419840,4,,54,4,1,1,4,,
@@ -8,19 +8,19 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5109,7,7,5467310,12,,54,0,1,1,0,,
 5127,8,8,,20,,53,0,1,1,0,,
 5146,9,9,,22,,52,0,1,1,0,,
-5124,10,10,,16,,51,0,1,1,0,,Accident
+5124,10,10,,16,,51,0,1,1,0,,accident
 5167,11,11,,23,,51,0,1,1,0,,
 5154,12,12,,24,,50,0,1,1,0,,
-5165,13,DNF,,19,,47,0,1,1,0,,Throttle
+5165,13,DNF,,19,,47,0,1,1,0,,throttle
 5140,14,NC,,25,,44,0,1,1,0,,
-5106,15,DNF,,7,,43,0,1,1,0,,Accident
-5117,16,DNF,,17,,43,0,1,1,0,,Accident
-5157,17,DNF,,18,,40,0,1,1,0,,Fuel pump
-5105,18,DNF,,8,,40,0,1,1,0,,Accident
-5129,19,DNF,,15,,40,0,1,1,0,,Accident
-5119,20,DNF,,11,,26,0,1,1,0,,Fuel system
-5134,21,DNF,,13,,24,0,1,1,0,,Suspension
-5158,22,DNF,,21,,17,0,1,1,0,,Accident
-5156,23,DNF,,6,,14,0,1,1,0,,Brakes
-5143,24,DNF,,10,,14,0,1,1,0,,Suspension
-5104,25,DNF,,14,,0,0,1,1,0,,Clutch
+5106,15,DNF,,7,,43,0,1,1,0,,accident
+5117,16,DNF,,17,,43,0,1,1,0,,accident
+5157,17,DNF,,18,,40,0,1,1,0,,fuel-pump
+5105,18,DNF,,8,,40,0,1,1,0,,accident
+5129,19,DNF,,15,,40,0,1,1,0,,accident
+5119,20,DNF,,11,,26,0,1,1,0,,fuel-system
+5134,21,DNF,,13,,24,0,1,1,0,,suspension
+5158,22,DNF,,21,,17,0,1,1,0,,accident
+5156,23,DNF,,6,,14,0,1,1,0,,brakes
+5143,24,DNF,,10,,14,0,1,1,0,,suspension
+5104,25,DNF,,14,,0,0,1,1,0,,clutch

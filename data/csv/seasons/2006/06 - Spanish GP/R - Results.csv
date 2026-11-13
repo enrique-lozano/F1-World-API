@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6715,1,1,5181759,1,,66,10,1,1,10,,
 6719,2,2,5200261,3,,66,8,1,1,8,,
 6716,3,3,5205710,2,,66,6,1,1,6,,
@@ -13,11 +13,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6730,12,12,,22,10,65,0,1,1,0,,
 6728,13,13,,14,,65,0,1,1,0,,
 6727,14,14,,21,,65,0,1,1,0,,
-6733,15,15,,15,,63,0,1,1,0,,Hydraulics
+6733,15,15,,15,,63,0,1,1,0,,hydraulics
 6731,16,16,,17,,63,0,1,1,0,,
 6735,17,17,,19,,62,0,1,1,0,,
-6732,18,DNF,,18,,48,0,1,1,0,,Broken wing
-6734,19,DNF,,16,,47,0,1,1,0,,Engine
-6721,20,DNF,,6,,31,0,1,1,0,,Electrical
-6718,21,DNF,,12,,17,0,1,1,0,,Spin
-6744,22,DNF,,20,,10,0,1,1,0,,Driveshaft
+6732,18,DNF,,18,,48,0,1,1,0,,broken-wing
+6734,19,DNF,,16,,47,0,1,1,0,,engine
+6721,20,DNF,,6,,31,0,1,1,0,,electrical
+6718,21,DNF,,12,,17,0,1,1,0,,spun-off
+6744,22,DNF,,20,,10,0,1,1,0,,driveshaft

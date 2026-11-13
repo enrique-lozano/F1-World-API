@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6854,1,1,5960396,3,,49,25,1,1,25,,
 6853,2,2,5976495,2,,49,18,1,1,18,,
 6848,3,3,5983578,4,,49,15,1,1,15,,
@@ -15,11 +15,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6856,14,14,,13,,48,0,1,1,0,,
 6864,15,15,,21,,47,0,1,1,0,,
 6861,16,16,,15,,46,0,1,1,0,,
-6863,17,17,,20,,46,0,1,1,0,,Hydraulics
-6867,18,DNF,,14,,28,0,1,1,0,,Hydraulics
-6866,19,DNF,,23,,17,0,1,1,0,,Airbox
-6869,20,DNF,,19,,16,0,1,1,0,,Gearbox
-6858,21,DNF,,17,,13,0,1,1,0,,Suspension
-6868,22,DNF,,16,,11,0,1,1,0,,Engine
-6870,23,DNF,,22,,2,0,1,1,0,,Hydraulics
-6865,24,DNF,,24,,1,0,1,1,0,,Spun off
+6863,17,17,,20,,46,0,1,1,0,,hydraulics
+6867,18,DNF,,14,,28,0,1,1,0,,hydraulics
+6866,19,DNF,,23,,17,0,1,1,0,,airbox
+6869,20,DNF,,19,,16,0,1,1,0,,gearbox
+6858,21,DNF,,17,,13,0,1,1,0,,suspension
+6868,22,DNF,,16,,11,0,1,1,0,,engine
+6870,23,DNF,,22,,2,0,1,1,0,,hydraulics
+6865,24,DNF,,24,,1,0,1,1,0,,spun-off

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6597,1,1,5542195,7,,56,10,1,1,10,,
 6593,2,2,5581481,5,,56,8,1,1,8,,
 6599,3,3,5606202,1,,56,6,1,1,6,,
@@ -12,10 +12,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6611,11,11,,PL,,55,0,1,1,0,,
 6594,12,12,,8,,53,0,1,1,0,,
 6609,13,13,,18,,52,0,1,1,0,,
-6605,14,DNF,,15,,42,0,1,1,0,,Brakes
-6608,15,DNF,,19,,41,0,1,1,0,,Unwell
-6604,16,DNF,,16,,35,0,1,1,0,,Engine
-6610,17,DNF,,10,,12,0,1,1,0,,Fuel pressure
-6596,18,DNF,,4,,2,0,1,1,0,,Electrical
-6602,19,DNF,,14,,0,0,1,1,0,,Electrical
-6606,20,DNS,,12,,,0,1,1,0,,Electrical
+6605,14,DNF,,15,,42,0,1,1,0,,brakes
+6608,15,DNF,,19,,41,0,1,1,0,,unwell
+6604,16,DNF,,16,,35,0,1,1,0,,engine
+6610,17,DNF,,10,,12,0,1,1,0,,fuel-pressure
+6596,18,DNF,,4,,2,0,1,1,0,,electrical
+6602,19,DNF,,14,,0,0,1,1,0,,electrical
+6606,20,DNS,,12,,,0,1,1,0,,electrical

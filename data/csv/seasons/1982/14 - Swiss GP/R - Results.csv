@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5656,1,1,5561087,8,,80,9,1,1,9,,
 5618,2,2,5565527,1,,80,6,1,1,6,,
 5638,3,3,5621427,4,,80,4,1,1,4,,
@@ -14,14 +14,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5611,13,13,,11,,77,0,1,1,0,,
 5658,14,14,,25,,77,0,1,1,0,,
 5678,15,15,,14,,76,0,1,1,0,,
-5619,16,16,,2,,75,0,1,1,0,,Injection
-5665,17,DNF,,16,,70,0,1,1,0,,Handling
-5657,18,DNF,,20,,55,0,1,1,0,,Chassis
-5676,19,DNF,,17,,44,0,1,1,0,,Engine
-5666,20,DNF,,13,,33,0,1,1,0,,Handling
-5654,21,DNF,,23,,31,0,1,1,0,,Engine
-5663,22,DNF,,24,,31,0,1,1,0,,Water leak
-5675,23,DNF,,22,,25,0,1,1,0,,Spun off
-5653,24,DNF,,21,,24,0,1,1,0,,Engine
-5668,25,DNF,,19,,4,0,1,1,0,,Engine
-5671,26,DNS,,10,,,0,1,1,0,,Unfit
+5619,16,16,,2,,75,0,1,1,0,,injection
+5665,17,DNF,,16,,70,0,1,1,0,,handling
+5657,18,DNF,,20,,55,0,1,1,0,,chassis
+5676,19,DNF,,17,,44,0,1,1,0,,engine
+5666,20,DNF,,13,,33,0,1,1,0,,handling
+5654,21,DNF,,23,,31,0,1,1,0,,engine
+5663,22,DNF,,24,,31,0,1,1,0,,water-leak
+5675,23,DNF,,22,,25,0,1,1,0,,spun-off
+5653,24,DNF,,21,,24,0,1,1,0,,engine
+5668,25,DNF,,19,,4,0,1,1,0,,engine
+5671,26,DNS,,10,,,0,1,1,0,,unfit

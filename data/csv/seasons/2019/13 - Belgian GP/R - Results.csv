@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7164,1,1,5025710,1,,44,25,1,1,25,,
 7171,2,2,5026691,3,,44,18,1,1,18,,
 7174,3,3,5038295,4,,44,15,1,1,15,,
@@ -9,13 +9,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7169,8,8,5132349,12,5,44,4,1,1,4,,
 7180,9,9,5134878,13,,44,2,1,1,2,,
 7165,10,10,5135548,16,SFB,44,1,1,1,1,,
-7158,11,11,,11,,43,0,1,1,0,,Power loss
+7158,11,11,,11,,43,0,1,1,0,,power-loss
 7166,12,12,,8,,43,0,1,1,0,,
 7161,13,13,,9,,43,0,1,1,0,,
 7157,14,14,,10,5,43,0,1,1,0,,
 7173,15,15,,14,,43,0,1,1,0,,
 7160,16,16,,6,,43,0,1,1,0,,
 7175,17,17,,PL,5,43,0,1,1,0,,
-7176,18,18,,18,SFB,42,0,1,1,0,,Accident
-7172,19,DNF,,15,15,1,0,1,1,0,,Power loss
-7170,20,DNF,,5,,0,0,1,1,0,,Accident
+7176,18,18,,18,SFB,42,0,1,1,0,,accident
+7172,19,DNF,,15,15,1,0,1,1,0,,power-loss
+7170,20,DNF,,5,,0,0,1,1,0,,accident

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 311,1,1,12183300,1,,20,8,1,1,8,,
 315,2,2,12213800,3,,20,7,1,1,6,,
 314,3,3,12462300,2,,20,4,1,1,4,,
@@ -10,14 +10,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 330,9,9,,19,,18,0,1,1,0,,
 333,10,10,,22,,18,0,1,1,0,,
 334,11,11,,18,,17,0,1,1,0,,
-327,12,DNF,,11,,17,0,1,1,0,,Accident
-321,13,DNF,,14,,13,0,1,1,0,,Engine
-317,14,DNF,,10,,12,0,1,1,0,,Magneto
-328,15,DNF,,20,,12,0,1,1,0,,Oil pressure
-318,16,DNF,,7,,11,0,1,1,0,,Accident
-323,17,DNF,,12,,11,0,1,1,0,,Engine
-316,18,DNF,,4,,8,0,1,1,0,,Overheating
-326,19,DNF,,21,,4,0,1,1,0,,Gearbox
-332,20,DNF,,17,,3,0,1,1,0,,Engine
-325,21,DNF,,13,,3,0,1,1,0,,Ignition
-319,22,DNF,,16,,2,0,1,1,0,,Engine
+327,12,DNF,,11,,17,0,1,1,0,,accident
+321,13,DNF,,14,,13,0,1,1,0,,engine
+317,14,DNF,,10,,12,0,1,1,0,,magneto
+328,15,DNF,,20,,12,0,1,1,0,,oil-pressure
+318,16,DNF,,7,,11,0,1,1,0,,accident
+323,17,DNF,,12,,11,0,1,1,0,,engine
+316,18,DNF,,4,,8,0,1,1,0,,overheating
+326,19,DNF,,21,,4,0,1,1,0,,gearbox
+332,20,DNF,,17,,3,0,1,1,0,,engine
+325,21,DNF,,13,,3,0,1,1,0,,ignition
+319,22,DNF,,16,,2,0,1,1,0,,engine

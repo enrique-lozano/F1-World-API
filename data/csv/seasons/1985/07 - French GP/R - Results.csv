@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5809,1,1,5506266,5,,53,9,1,1,9,,
 5808,2,2,5512926,1,,53,6,1,1,6,,
 5803,3,3,5515551,4,,53,4,1,1,4,,
@@ -12,15 +12,15 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5822,11,11,,16,,52,0,1,1,0,,
 5811,12,12,,19,,50,0,1,1,0,,
 5805,13,13,,25,,50,0,1,1,0,,
-5833,14,14,,18,,49,0,1,1,0,,Fuel system
+5833,14,14,,18,,49,0,1,1,0,,fuel-system
 5836,15,15,,23,,49,0,1,1,0,,
-5837,16,DNF,,20,,32,0,1,1,0,,Gearbox
-5802,17,DNF,,6,,30,0,1,1,0,,Gearbox
-5814,18,DNF,,2,,26,0,1,1,0,,Engine
-5817,19,DNF,,8,,20,0,1,1,0,,Accident
-5832,20,DNF,,24,,19,0,1,1,0,,Accident
-5812,21,DNF,,22,,8,0,1,1,0,,Fuel system
-5831,22,DNF,,21,,6,0,1,1,0,,Engine
-5827,23,DNF,,3,,5,0,1,1,0,,Turbo
-5825,24,DNF,,12,,4,0,1,1,0,,Steering
-5826,25,DNF,,14,,2,0,1,1,0,,Turbo
+5837,16,DNF,,20,,32,0,1,1,0,,gearbox
+5802,17,DNF,,6,,30,0,1,1,0,,gearbox
+5814,18,DNF,,2,,26,0,1,1,0,,engine
+5817,19,DNF,,8,,20,0,1,1,0,,accident
+5832,20,DNF,,24,,19,0,1,1,0,,accident
+5812,21,DNF,,22,,8,0,1,1,0,,fuel-system
+5831,22,DNF,,21,,6,0,1,1,0,,engine
+5827,23,DNF,,3,,5,0,1,1,0,,turbo
+5825,24,DNF,,12,,4,0,1,1,0,,steering
+5826,25,DNF,,14,,2,0,1,1,0,,turbo

@@ -477,7 +477,8 @@ export interface LapTimes {
   sessionId: string;
   lap: number;
   time: number | null;
-  pos: number | null;
+  /** Position of the driver in the race at the end of this lap */
+  position: number | null;
 }
 
 export interface LapTimeDTO extends Omit<LapTimes, 'sessionId' | 'entryId'> {
@@ -533,13 +534,24 @@ export interface RaceResults {
   pointsCountForWCC: number;
   pointsGained: number | null;
   timePenalty: number | null;
-  reasonRetired: string | null;
+  retirementReasonId: string | null;
+}
+
+export interface RetirementReasons {
+  id: string;
+  name: string;
+  category:
+    'ACCIDENT' | 'DISQUALIFICATION' | 'DRIVER_HEALTH' | 'MECHANICAL' | 'OTHER';
 }
 
 export interface RaceResultDTO extends Omit<
   RaceResults,
   'sessionId' | 'entryId'
 > {
+  /** Why the car did not finish (or was disqualified / did not start). `null` if it finished */
+  reasonRetired: string | null;
+  /** Category of the `reasonRetired` (`MECHANICAL`, `ACCIDENT`, `DRIVER_HEALTH`, `DISQUALIFICATION` or `OTHER`) */
+  retirementCategory: RetirementReasons['category'] | null;
   session: SessionDTO | null;
   entry: EntryDTO | null;
   /** 1 if the car was shared with other drivers (another result of this race has the same position and car number), 0 otherwise */
@@ -601,6 +613,7 @@ export interface DB {
   qualifyingResults: TimedSessionResults;
   raceResults: RaceResults;
   redFlags: RedFlags;
+  retirementReasons: RetirementReasons;
   safetyCars: SafetyCars;
   tyreManufacturers: TyreManufacturers;
 }

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 1544,1,1,13274250,13,,200,8,1,1,8,,
 1555,2,2,13295711,32,,200,7,1,1,7,,
 1174,3,3,13408220,15,,200,4,1,1,4,,
@@ -16,19 +16,19 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1556,15,15,,22,,195,0,1,1,0,,
 1549,16,16,,17,,195,0,1,1,0,,
 1538,17,17,,21,,192,0,1,1,0,,
-1540,18,18,,6,,182,0,1,1,0,,Throttle
-1582,19,19,,27,,170,0,1,1,0,,Spun off
-1557,20,20,,31,,138,0,1,1,0,,Clutch
-1581,21,21,,30,,111,0,1,1,0,,Accident
-1547,22,22,,4,,107,0,1,1,0,,Fuel leak
-1580,23,23,,2,,105,0,1,1,0,,Fuel leak
-1577,24,24,,18,,101,0,1,1,0,,Accident
-1565,25,25,,20,,93,0,1,1,0,,Wheel bearing
-1558,26,26,,23,,81,0,1,1,0,,Fuel leak
-1548,27,27,,8,,75,0,1,1,0,,Accident
-1572,28,28,,29,,53,0,1,1,0,,Accident
-1579,29,29,,7,,51,0,1,1,0,,Retirement
-1543,30,30,,24,,27,0,1,1,0,,Compressor
-1569,31,31,,3,,13,0,1,1,0,,Engine
-1571,32,32,,26,,0,0,1,1,0,,Accident
-1553,33,33,,9,,0,0,1,1,0,,Accident
+1540,18,18,,6,,182,0,1,1,0,,throttle
+1582,19,19,,27,,170,0,1,1,0,,spun-off
+1557,20,20,,31,,138,0,1,1,0,,clutch
+1581,21,21,,30,,111,0,1,1,0,,accident
+1547,22,22,,4,,107,0,1,1,0,,fuel-leak
+1580,23,23,,2,,105,0,1,1,0,,fuel-leak
+1577,24,24,,18,,101,0,1,1,0,,accident
+1565,25,25,,20,,93,0,1,1,0,,wheel-bearing
+1558,26,26,,23,,81,0,1,1,0,,fuel-leak
+1548,27,27,,8,,75,0,1,1,0,,accident
+1572,28,28,,29,,53,0,1,1,0,,accident
+1579,29,29,,7,,51,0,1,1,0,,retirement
+1543,30,30,,24,,27,0,1,1,0,,compressor
+1569,31,31,,3,,13,0,1,1,0,,engine
+1571,32,32,,26,,0,0,1,1,0,,accident
+1553,33,33,,9,,0,0,1,1,0,,accident

@@ -5,7 +5,7 @@ import { JsonApiError } from '../../utils/custom-error';
 import { LapService } from './lap.service';
 
 export interface LapQueryParams extends SessionEntryQueryParams {
-  pos?: number;
+  position?: number;
   lap?: number;
 }
 

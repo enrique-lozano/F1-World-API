@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5421,1,1,5720420,1,,80,9,1,1,9,,
 5414,2,2,5735010,3,,80,6,1,1,6,,
 5429,3,3,5735250,2,,80,4,1,1,4,,
@@ -17,9 +17,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5400,16,16,,24,,75,0,1,1,0,,
 5428,17,17,,17,,75,0,1,1,0,,
 5399,18,18,,21,,73,0,1,1,0,,
-5426,19,DNF,,11,,71,0,1,1,0,,Suspension
-5396,20,DNF,,18,,53,0,1,1,0,,Engine
-5411,21,DNF,,4,,52,0,1,1,0,,Accident
-5420,22,DNF,,12,,51,0,1,1,0,,Brakes
-5433,23,DNF,,14,,45,0,1,1,0,,Engine
-5389,24,DNF,,6,,23,0,1,1,0,,Spun off
+5426,19,DNF,,11,,71,0,1,1,0,,suspension
+5396,20,DNF,,18,,53,0,1,1,0,,engine
+5411,21,DNF,,4,,52,0,1,1,0,,accident
+5420,22,DNF,,12,,51,0,1,1,0,,brakes
+5433,23,DNF,,14,,45,0,1,1,0,,engine
+5389,24,DNF,,6,,23,0,1,1,0,,spun-off

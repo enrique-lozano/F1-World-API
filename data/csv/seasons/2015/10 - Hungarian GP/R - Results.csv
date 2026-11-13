@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7037,1,1,6369985,3,,69,25,1,1,25,,
 7048,2,2,6385733,7,,69,18,1,1,18,10000,
 7036,3,3,6395069,4,,69,15,1,1,15,,
@@ -14,8 +14,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7054,13,13,6450213,6,,69,0,1,1,0,,
 7044,14,14,6455127,14,,69,0,1,1,0,,
 7055,15,15,,19,,67,0,1,1,0,,
-7050,16,16,,20,,65,0,1,1,0,,Suspension
-7053,17,DNF,,12,,60,0,1,1,0,,Fuel pressure
-7039,18,DNF,,5,,55,0,1,1,0,,Hybrid system
-7042,19,DNF,,13,,53,0,1,1,0,,Brakes
-7049,20,DNF,,11,,41,0,1,1,0,,Front wing
+7050,16,16,,20,,65,0,1,1,0,,suspension
+7053,17,DNF,,12,,60,0,1,1,0,,fuel-pressure
+7039,18,DNF,,5,,55,0,1,1,0,,hybrid-system
+7042,19,DNF,,13,,53,0,1,1,0,,brakes
+7049,20,DNF,,11,,41,0,1,1,0,,front-wing

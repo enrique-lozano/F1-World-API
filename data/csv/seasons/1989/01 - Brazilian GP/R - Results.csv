@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6009,1,1,5938744,6,,61,9,1,1,9,,
 5986,2,2,5946553,5,,61,6,1,1,6,,
 5997,3,3,5948114,12,,61,4,1,1,4,,
@@ -12,16 +12,16 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5985,11,11,,1,,59,0,1,1,0,,
 6012,12,12,,26,,58,0,1,1,0,,
 6004,13,13,,15,,57,0,1,1,0,,
-6020,14,14,,17,,56,0,1,1,0,,Gearbox
-5990,15,DNF,,2,,51,0,1,1,0,,Alternator
-5994,16,DNF,,24,,37,0,1,1,0,,Collision
-6016,17,DNF,,25,,36,0,1,1,0,,Collision
-5991,18,DNF,,13,,27,0,1,1,0,,Halfshaft
-5998,19,DNF,,7,,22,0,1,1,0,,Suspension
-5995,20,DNF,,9,,10,0,1,1,0,,Fuel system
-5992,21,DNF,,14,,9,0,1,1,0,,Halfshaft
-5989,22,DNF,,4,,3,0,1,1,0,,Engine
-6005,23,DNF,,16,,2,0,1,1,0,,Chassis
-6010,24,DNF,,3,,0,0,1,1,0,,Collision
-6006,25,DNF,,23,,0,0,1,1,0,,Collision
-5999,26,DSQ,,19,,10,0,1,1,0,,Illegal start
+6020,14,14,,17,,56,0,1,1,0,,gearbox
+5990,15,DNF,,2,,51,0,1,1,0,,alternator
+5994,16,DNF,,24,,37,0,1,1,0,,collision
+6016,17,DNF,,25,,36,0,1,1,0,,collision
+5991,18,DNF,,13,,27,0,1,1,0,,halfshaft
+5998,19,DNF,,7,,22,0,1,1,0,,suspension
+5995,20,DNF,,9,,10,0,1,1,0,,fuel-system
+5992,21,DNF,,14,,9,0,1,1,0,,halfshaft
+5989,22,DNF,,4,,3,0,1,1,0,,engine
+6005,23,DNF,,16,,2,0,1,1,0,,chassis
+6010,24,DNF,,3,,0,0,1,1,0,,collision
+6006,25,DNF,,23,,0,0,1,1,0,,collision
+5999,26,DSQ,,19,,10,0,1,1,0,,illegal-start

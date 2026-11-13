@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6763,1,1,5469965,1,,73,10,1,0,10,,
 6762,2,2,5471483,2,,73,8,1,0,8,,
 6766,3,3,5482807,3,,73,6,1,1,6,,
@@ -14,10 +14,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6779,13,13,,20,,71,0,1,1,0,,
 6780,14,14,,21,,71,0,1,1,0,,
 6781,15,15,,22,,70,0,1,1,0,,
-6776,16,16,,14,,68,0,1,1,0,,Engine
-6778,17,17,,19,,68,0,1,1,0,,Water pressure
-6770,18,DNF,,5,,55,0,1,1,0,,Hydraulics
-6782,19,DNF,,18,,13,0,1,1,0,,Spun off
-6774,20,DNF,,11,,0,0,1,1,0,,Collision damage
-6772,21,DNF,,12,,0,0,1,1,0,,Collision
-6769,22,DNF,,15,,0,0,1,1,0,,Collision damage
+6776,16,16,,14,,68,0,1,1,0,,engine
+6778,17,17,,19,,68,0,1,1,0,,water-pressure
+6770,18,DNF,,5,,55,0,1,1,0,,hydraulics
+6782,19,DNF,,18,,13,0,1,1,0,,spun-off
+6774,20,DNF,,11,,0,0,1,1,0,,collision-damage
+6772,21,DNF,,12,,0,0,1,1,0,,collision
+6769,22,DNF,,15,,0,0,1,1,0,,collision-damage

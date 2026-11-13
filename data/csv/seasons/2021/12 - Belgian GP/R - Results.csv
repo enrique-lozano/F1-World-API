@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7228,1,1,207071,1,,1,12.5,1,1,12.5,,
 7232,2,2,209066,2,,1,9,1,1,9,,
 7229,3,3,209672,3,,1,7.5,1,1,7.5,,

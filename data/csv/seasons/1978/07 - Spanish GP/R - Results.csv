@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5344,1,1,6107060,1,,75,9,1,1,9,,
 5350,2,2,6126620,2,,75,6,1,1,6,,
 5352,3,3,6144300,10,,75,4,1,1,4,,
@@ -13,13 +13,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5296,12,12,,13,,71,0,1,1,0,,
 5327,13,13,,11,,71,0,1,1,0,,
 5334,14,14,,19,,71,0,1,1,0,,
-5339,15,15,,22,,67,0,1,1,0,,Fuel pipe
-5341,16,DNF,,21,,64,0,1,1,0,,Engine
-5306,17,DNF,,15,,62,0,1,1,0,,Throttle
-5325,18,DNF,,3,,57,0,1,1,0,,Accident
-5323,19,DNF,,6,,56,0,1,1,0,,Engine
-5297,20,DNF,,12,,51,0,1,1,0,,Engine
-5335,21,DNF,,24,,45,0,1,1,0,,Suspension
-5315,22,DNF,,20,,21,0,1,1,0,,Exhaust
-5333,23,DNF,,8,,21,0,1,1,0,,Engine
-5301,24,DNF,,14,,16,0,1,1,0,,Spun off
+5339,15,15,,22,,67,0,1,1,0,,fuel-pipe
+5341,16,DNF,,21,,64,0,1,1,0,,engine
+5306,17,DNF,,15,,62,0,1,1,0,,throttle
+5325,18,DNF,,3,,57,0,1,1,0,,accident
+5323,19,DNF,,6,,56,0,1,1,0,,engine
+5297,20,DNF,,12,,51,0,1,1,0,,engine
+5335,21,DNF,,24,,45,0,1,1,0,,suspension
+5315,22,DNF,,20,,21,0,1,1,0,,exhaust
+5333,23,DNF,,8,,21,0,1,1,0,,engine
+5301,24,DNF,,14,,16,0,1,1,0,,spun-off

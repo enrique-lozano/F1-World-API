@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 633,1,1,10864600,1,,97,9,1,1,9,,
 635,2,2,,3,,96,6,1,1,6,,
 630,3,3,,5,,96,4,1,1,4,,
@@ -8,10 +8,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 642,7,7,,7,,91,0,1,1,0,,
 638,8,8,,16,,90,0,1,1,0,,
 637,9,9,,12,,87,0,1,1,0,,
-640,10,DNF,,8,,67,0,1,1,0,,Wheel
-629,11,DNF,,2,,36,0,1,1,0,,Transmission
-631,12,DNF,,15,,31,0,1,1,0,,Transmission
-634,13,DNF,,4,,30,0,1,1,0,,Accident
-644,14,DNF,,10,,24,0,1,1,0,,Gearbox
-645,15,DNF,,14,,21,0,1,1,0,,Differential
-639,16,DNF,,13,,20,0,1,1,0,,Wheel
+640,10,DNF,,8,,67,0,1,1,0,,wheel
+629,11,DNF,,2,,36,0,1,1,0,,transmission
+631,12,DNF,,15,,31,0,1,1,0,,transmission
+634,13,DNF,,4,,30,0,1,1,0,,accident
+644,14,DNF,,10,,24,0,1,1,0,,gearbox
+645,15,DNF,,14,,21,0,1,1,0,,differential
+639,16,DNF,,13,,20,0,1,1,0,,wheel

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6715,1,1,6223116,1,,78,10,1,1,10,,
 6718,2,2,6237683,4,,78,8,1,1,8,,
 6727,3,3,6275414,7,,78,6,1,1,6,,
@@ -15,9 +15,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6730,14,14,,14,,77,0,1,1,0,,
 6731,15,15,,17,,76,0,1,1,0,,
 6744,16,16,,20,,75,0,1,1,0,,
-6747,17,17,,6,,72,0,1,1,0,,Hydraulics
-6728,18,DNF,,11,,56,0,1,1,0,,Transmission
-6724,19,DNF,,8,,51,0,1,1,0,,Throttle
-6717,20,DNF,,3,,50,0,1,1,0,,Fire
-6723,21,DNF,,2,,48,0,1,1,0,,Exhaust
-6735,22,DNF,,19,,46,0,1,1,0,,Electrical
+6747,17,17,,6,,72,0,1,1,0,,hydraulics
+6728,18,DNF,,11,,56,0,1,1,0,,transmission
+6724,19,DNF,,8,,51,0,1,1,0,,throttle
+6717,20,DNF,,3,,50,0,1,1,0,,fire
+6723,21,DNF,,2,,48,0,1,1,0,,exhaust
+6735,22,DNF,,19,,46,0,1,1,0,,electrical

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 2394,1,1,7383800,1,,30,9,1,1,9,,
 2393,2,2,7384500,2,,30,6,1,1,6,,
 2395,3,3,7403300,5,,30,4,1,1,4,,
@@ -12,11 +12,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2403,11,11,,14,,28,0,1,1,0,,
 2409,12,12,,18,,24,0,1,1,0,,
 2411,13,13,,7,,24,0,1,1,0,,
-2410,14,DNF,,6,,24,0,1,1,0,,Ignition
-2405,15,DNF,,20,,23,0,1,1,0,,Gearbox
-2415,16,DNF,,17,,20,0,1,1,0,,Wheel bearing
-2406,17,DNF,,11,,12,0,1,1,0,,Engine
-2398,18,DNF,,21,,9,0,1,1,0,,Oil leak
-2408,19,DNF,,16,,9,0,1,1,0,,Engine
-2407,20,DNF,,15,,9,0,1,1,0,,Ignition
-2397,21,DNF,,19,,7,0,1,1,0,,Ignition
+2410,14,DNF,,6,,24,0,1,1,0,,ignition
+2405,15,DNF,,20,,23,0,1,1,0,,gearbox
+2415,16,DNF,,17,,20,0,1,1,0,,wheel-bearing
+2406,17,DNF,,11,,12,0,1,1,0,,engine
+2398,18,DNF,,21,,9,0,1,1,0,,oil-leak
+2408,19,DNF,,16,,9,0,1,1,0,,engine
+2407,20,DNF,,15,,9,0,1,1,0,,ignition
+2397,21,DNF,,19,,7,0,1,1,0,,ignition

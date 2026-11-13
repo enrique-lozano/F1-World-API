@@ -60,7 +60,7 @@ columns_dict: ColumnDict = {
     "sessionId": lambda x, y: f"{x["year"]}-{str(x["round"]).zfill(2) if x["round"] < 10 else x["round"]}-R",
     "entryId": lambda x, y: find_entry_id(x["full_name"]),
     "time": lambda x, y: x["milliseconds"],
-    "pos": lambda x, y: x["position"],
+    "position": lambda x, y: x["position"],
     "lap": lambda x, y: x["lap"],
 }
 

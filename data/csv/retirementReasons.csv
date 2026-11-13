@@ -1,0 +1,154 @@
+id,name,category
+accident,Accident,ACCIDENT
+accident-damage,Accident damage,ACCIDENT
+accident-in-practice,Accident in practice,ACCIDENT
+accident-in-warm-up,Accident in warm-up,ACCIDENT
+additional-brake-fluid,Additional brake fluid,DISQUALIFICATION
+airbox,Airbox,MECHANICAL
+alternator,Alternator,MECHANICAL
+axle,Axle,MECHANICAL
+battery,Battery,MECHANICAL
+brake-bias,Brake bias,DISQUALIFICATION
+brakes,Brakes,MECHANICAL
+broken-floor,Broken floor,MECHANICAL
+broken-wing,Broken wing,MECHANICAL
+camshaft,Camshaft,MECHANICAL
+car-raced-by-fabi,Car raced by Fabi,OTHER
+car-raced-by-gurney,Car raced by Gurney,OTHER
+car-raced-by-irwin,Car raced by Irwin,OTHER
+car-raced-by-jarier,Car raced by Jarier,OTHER
+car-raced-by-patrese,Car raced by Patrese,OTHER
+car-seized-by-police,Car seized by police,OTHER
+car-underweight,Car underweight,DISQUALIFICATION
+changed-car-after-formation-lap,Changed car after formation lap,DISQUALIFICATION
+chassis,Chassis,MECHANICAL
+clutch,Clutch,MECHANICAL
+collision,Collision,ACCIDENT
+collision-damage,Collision damage,ACCIDENT
+compressor,Compressor,MECHANICAL
+cooling-system,Cooling system,MECHANICAL
+crankshaft,Crankshaft,MECHANICAL
+differential,Differential,MECHANICAL
+distributor,Distributor,MECHANICAL
+driveshaft,Driveshaft,MECHANICAL
+driveshaft-hub,Driveshaft hub,MECHANICAL
+drivetrain,Drivetrain,MECHANICAL
+driving-too-slowly,Driving too slowly,DISQUALIFICATION
+electrical,Electrical,MECHANICAL
+energy-storage-system-failure,Energy storage system failure,MECHANICAL
+engine,Engine,MECHANICAL
+engine-valve,Engine valve,MECHANICAL
+exhaust,Exhaust,MECHANICAL
+fatal-accident,Fatal accident,ACCIDENT
+fatal-accident-in-practice,Fatal accident in practice,ACCIDENT
+fatal-collision,Fatal collision,ACCIDENT
+fire,Fire,MECHANICAL
+fire-extinguisher,Fire extinguisher,MECHANICAL
+floor,Floor,MECHANICAL
+front-wing,Front wing,MECHANICAL
+fuel,Fuel,DISQUALIFICATION
+fuel-cell,Fuel cell,MECHANICAL
+fuel-leak,Fuel leak,MECHANICAL
+fuel-pipe,Fuel pipe,MECHANICAL
+fuel-pressure,Fuel pressure,MECHANICAL
+fuel-pump,Fuel pump,MECHANICAL
+fuel-rig,Fuel rig,OTHER
+fuel-system,Fuel system,MECHANICAL
+gearbox,Gearbox,MECHANICAL
+halfshaft,Halfshaft,MECHANICAL
+handling,Handling,MECHANICAL
+heatstroke,Heatstroke,DRIVER_HEALTH
+hybrid-system,Hybrid system,MECHANICAL
+hydraulics,Hydraulics,MECHANICAL
+hydraulics-accident,Hydraulics/Accident,ACCIDENT
+ignition,Ignition,MECHANICAL
+ignored-black-flag,Ignored black flag,DISQUALIFICATION
+ignored-blue-flags,Ignored blue flags,DISQUALIFICATION
+ignored-red-light,Ignored red light,DISQUALIFICATION
+ignored-yellow-flags,Ignored yellow flags,DISQUALIFICATION
+ignored-yellow-flags-in-practice,Ignored yellow flags in practice,DISQUALIFICATION
+illegal-bodywork,Illegal bodywork,DISQUALIFICATION
+illegal-brake-ducts,Illegal brake ducts,DISQUALIFICATION
+illegal-car-change,Illegal car change,DISQUALIFICATION
+illegal-car-repairs,Illegal car repairs,DISQUALIFICATION
+illegal-floor,Illegal floor,DISQUALIFICATION
+illegal-front-wing-endplates,Illegal front wing endplates,DISQUALIFICATION
+illegal-fuel,Illegal fuel,DISQUALIFICATION
+illegal-fuel-and-ballast,Illegal fuel and ballast,DISQUALIFICATION
+illegal-grid-position,Illegal grid position,DISQUALIFICATION
+illegal-pit-stop,Illegal pit stop,DISQUALIFICATION
+illegal-race-entry,Illegal race entry,DISQUALIFICATION
+illegal-rear-wing,Illegal rear wing,DISQUALIFICATION
+illegal-skid-block-wear,Illegal skid block wear,DISQUALIFICATION
+illegal-start,Illegal start,DISQUALIFICATION
+illegal-tyre-change,Illegal tyre change,DISQUALIFICATION
+illegal-undertray-mounting,Illegal undertray mounting,DISQUALIFICATION
+incorrect-grid-formation,Incorrect grid formation,DISQUALIFICATION
+incorrect-starting-procedure,Incorrect starting procedure,DISQUALIFICATION
+injection,Injection,MECHANICAL
+injury,Injury,DRIVER_HEALTH
+injury-in-practice,Injury in practice,DRIVER_HEALTH
+kers-failure,KERS failure,MECHANICAL
+launch-control,Launch control,MECHANICAL
+loose-wheel,Loose wheel,MECHANICAL
+magneto,Magneto,MECHANICAL
+mechanical,Mechanical,MECHANICAL
+misled-stewards,Misled stewards,DISQUALIFICATION
+oil-leak,Oil leak,MECHANICAL
+oil-pipe,Oil pipe,MECHANICAL
+oil-pressure,Oil pressure,MECHANICAL
+oil-pump,Oil pump,MECHANICAL
+oil-temperature,Oil temperature,MECHANICAL
+out-of-fuel,Out of fuel,OTHER
+overheating,Overheating,MECHANICAL
+overtaking-on-formation-lap,Overtaking on formation lap,DISQUALIFICATION
+physical,Physical,DRIVER_HEALTH
+pit-fire,Pit fire,OTHER
+pneumatics,Pneumatics,MECHANICAL
+power-loss,Power loss,MECHANICAL
+power-steering,Power steering,MECHANICAL
+power-unit,Power unit,MECHANICAL
+practice-only,Practice only,OTHER
+puncture,Puncture,MECHANICAL
+puncture-damage,Puncture damage,MECHANICAL
+push-start,Push start,DISQUALIFICATION
+push-start-in-pits,Push start in pits,DISQUALIFICATION
+radiator,Radiator,MECHANICAL
+rear-wing,Rear wing,MECHANICAL
+received-outside-assistance,Received outside assistance,DISQUALIFICATION
+rejoined-track-illegally,Rejoined track illegally,DISQUALIFICATION
+retirement,Retirement,OTHER
+reversed-in-pits,Reversed in pits,DISQUALIFICATION
+safety-belt,Safety belt,MECHANICAL
+serving-stop-and-go-penalty-too-late,Serving stop-and-go penalty too late,DISQUALIFICATION
+spark-plugs,Spark plugs,MECHANICAL
+spun-off,Spun off,ACCIDENT
+stalled,Stalled,MECHANICAL
+starter,Starter,MECHANICAL
+steering,Steering,MECHANICAL
+supercharger,Supercharger,MECHANICAL
+suspension,Suspension,MECHANICAL
+suspension-accident,Suspension/Accident,ACCIDENT
+throttle,Throttle,MECHANICAL
+track-rod,Track rod,MECHANICAL
+traction-control,Traction control,MECHANICAL
+transmission,Transmission,MECHANICAL
+turbo,Turbo,MECHANICAL
+tyre,Tyre,MECHANICAL
+tyre-shortage,Tyre shortage,OTHER
+tyres-too-hot-at-the-start-of-the-race,Tyres too hot at the start of the race,DISQUALIFICATION
+undertray,Undertray,MECHANICAL
+unfit,Unfit,DRIVER_HEALTH
+unwell,Unwell,DRIVER_HEALTH
+vibrations,Vibrations,MECHANICAL
+water-leak,Water leak,MECHANICAL
+water-pipe,Water pipe,MECHANICAL
+water-pressure,Water pressure,MECHANICAL
+water-pump,Water pump,MECHANICAL
+wheel,Wheel,MECHANICAL
+wheel-bearing,Wheel bearing,MECHANICAL
+wheel-hub,Wheel hub,MECHANICAL
+wheel-nut,Wheel nut,MECHANICAL
+wheel-rim,Wheel rim,MECHANICAL
+withdrew,Withdrew,OTHER
+wrong-tyres,Wrong tyres,DISQUALIFICATION

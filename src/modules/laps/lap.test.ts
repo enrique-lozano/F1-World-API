@@ -48,7 +48,7 @@ describe('Test lap times functionality', () => {
     const res = await getUrlResponseForTesting<PaginatedItems<LapTimeDTO>>(
       '/laps/fastest',
       {
-        driverId: 'fernando-alonso'
+        driverId: 'alonso'
       }
     );
 
@@ -61,7 +61,7 @@ describe('Test lap times functionality', () => {
       '/laps/fastest',
       {
         pageSize: '20',
-        driverId: 'fernando-alonso'
+        driverId: 'alonso'
       }
     );
 
@@ -106,7 +106,7 @@ describe('Test lap times functionality', () => {
     const res = await getUrlResponseForTesting<PaginatedItems<LapTimeDTO>>(
       '/laps/fastest',
       {
-        driverId: 'felipe-massa'
+        driverId: 'massa'
       }
     );
 
@@ -117,7 +117,7 @@ describe('Test lap times functionality', () => {
     const res = await getUrlResponseForTesting<PaginatedItems<LapTimeDTO>>(
       '/laps',
       {
-        driverId: 'marcus-ericsson',
+        driverId: 'ericsson',
         season: '2015',
         round: '2',
         session: 'R'
@@ -131,7 +131,7 @@ describe('Test lap times functionality', () => {
     const res = await getUrlResponseForTesting<PaginatedItems<LapTimeDTO>>(
       '/laps',
       {
-        driverId: 'vitantonio-liuzzi',
+        driverId: 'liuzzi',
         season: '2007',
         round: '7',
         session: 'R',
@@ -143,6 +143,6 @@ describe('Test lap times functionality', () => {
     expect(res.totalElements).toBe(1);
     expect(res.data.length).toBe(1);
 
-    expect(res.data[0].pos).toBe(11);
+    expect(res.data[0].position).toBe(11);
   });
 });

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5004,1,1,6196900,3,,78,9,1,1,9,,
 5008,2,2,6200640,2,,78,6,1,1,6,,
 5005,3,3,6213820,5,,78,4,1,1,4,,
@@ -14,14 +14,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5036,13,13,,22,,76,0,1,1,0,,
 5034,14,14,,20,,76,0,1,1,0,,
 5031,15,15,,24,,76,0,1,1,0,,
-5029,16,16,,9,,71,0,1,1,0,,Throttle
-5025,17,17,,6,,70,0,1,1,0,,Transmission
+5029,16,16,,9,,71,0,1,1,0,,throttle
+5025,17,17,,6,,70,0,1,1,0,,transmission
 5018,18,NC,,23,,69,0,1,1,0,,
 5002,19,NC,,11,,65,0,1,1,0,,
-5035,20,DNF,,17,,55,0,1,1,0,,Accident
-5021,21,DNF,,12,,53,0,1,1,0,,Fuel system
-5015,22,DNF,,13,,37,0,1,1,0,,Overheating
-5028,23,DNF,,26,,23,0,1,1,0,,Fuel system
-5017,24,DNF,,15,,22,0,1,1,0,,Engine
-5016,25,DNF,,10,,19,0,1,1,0,,Clutch
-5027,26,DNF,,7,,16,0,1,1,0,,Radiator
+5035,20,DNF,,17,,55,0,1,1,0,,accident
+5021,21,DNF,,12,,53,0,1,1,0,,fuel-system
+5015,22,DNF,,13,,37,0,1,1,0,,overheating
+5028,23,DNF,,26,,23,0,1,1,0,,fuel-system
+5017,24,DNF,,15,,22,0,1,1,0,,engine
+5016,25,DNF,,10,,19,0,1,1,0,,clutch
+5027,26,DNF,,7,,16,0,1,1,0,,radiator

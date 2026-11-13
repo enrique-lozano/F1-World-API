@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5954,1,1,5857328,1,,80,9,1,1,9,,
 5955,2,2,5889080,2,,80,6,1,1,6,,
 5969,3,3,5923833,4,,80,4,1,1,4,,
@@ -15,13 +15,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5975,14,14,,20,,77,0,1,1,0,,
 5979,15,15,,22,,77,0,1,1,0,,
 5966,16,NC,,25,,70,0,1,1,0,,
-5974,17,DNF,,26,,64,0,1,1,0,,Clutch
-5977,18,DNF,,24,,56,0,1,1,0,,Halfshaft
-5953,19,DNF,,21,,55,0,1,1,0,,Gearbox
-5950,20,DNF,,9,,48,0,1,1,0,,Suspension
-5972,21,DNF,,18,,46,0,1,1,0,,Electrical
-5948,22,DNF,,23,,40,0,1,1,0,,Engine
-5951,23,DNF,,15,,35,0,1,1,0,,Brakes
-5962,24,DNF,,5,,28,0,1,1,0,,Engine
-5956,25,DNF,,17,,20,0,1,1,0,,Fuel leak
-5959,26,DNF,,11,,11,0,1,1,0,,Spun off
+5974,17,DNF,,26,,64,0,1,1,0,,clutch
+5977,18,DNF,,24,,56,0,1,1,0,,halfshaft
+5953,19,DNF,,21,,55,0,1,1,0,,gearbox
+5950,20,DNF,,9,,48,0,1,1,0,,suspension
+5972,21,DNF,,18,,46,0,1,1,0,,electrical
+5948,22,DNF,,23,,40,0,1,1,0,,engine
+5951,23,DNF,,15,,35,0,1,1,0,,brakes
+5962,24,DNF,,5,,28,0,1,1,0,,engine
+5956,25,DNF,,17,,20,0,1,1,0,,fuel-leak
+5959,26,DNF,,11,,11,0,1,1,0,,spun-off

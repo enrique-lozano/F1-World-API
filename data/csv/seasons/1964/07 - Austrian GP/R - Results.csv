@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 3052,1,1,7578230,7,,105,9,1,1,9,,
 3050,2,2,7584410,5,,105,6,1,1,6,,
 3096,3,3,,14,,102,4,1,1,4,,
@@ -8,14 +8,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 3060,7,7,,15,,96,0,1,1,0,,
 3093,8,8,,18,,95,0,1,1,0,,
 3087,9,9,,6,,76,0,1,1,0,,
-3090,10,DNF,,13,,58,0,1,1,0,,Steering
-3088,11,DNF,,20,,58,0,1,1,0,,Accident
-3071,12,DNF,,4,,47,0,1,1,0,,Suspension
-3053,13,DNF,,9,,43,0,1,1,0,,Engine valve
-3070,14,DNF,,8,,41,0,1,1,0,,Halfshaft
-3069,15,DNF,,3,,40,0,1,1,0,,Halfshaft
-2979,16,DNF,,16,,21,0,1,1,0,,Suspension
-3062,17,DNF,,12,,18,0,1,1,0,,Accident
-3051,18,DNF,,2,,8,0,1,1,0,,Suspension
-3092,19,DNF,,17,,7,0,1,1,0,,Engine
-3049,20,DNF,,1,,5,0,1,1,0,,Distributor
+3090,10,DNF,,13,,58,0,1,1,0,,steering
+3088,11,DNF,,20,,58,0,1,1,0,,accident
+3071,12,DNF,,4,,47,0,1,1,0,,suspension
+3053,13,DNF,,9,,43,0,1,1,0,,engine-valve
+3070,14,DNF,,8,,41,0,1,1,0,,halfshaft
+3069,15,DNF,,3,,40,0,1,1,0,,halfshaft
+2979,16,DNF,,16,,21,0,1,1,0,,suspension
+3062,17,DNF,,12,,18,0,1,1,0,,accident
+3051,18,DNF,,2,,8,0,1,1,0,,suspension
+3092,19,DNF,,17,,7,0,1,1,0,,engine
+3049,20,DNF,,1,,5,0,1,1,0,,distributor

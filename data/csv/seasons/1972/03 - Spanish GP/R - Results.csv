@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 4516,1,1,7421230,3,,90,9,1,1,9,,
 4515,2,2,7440150,1,,90,6,1,1,6,,
 4491,3,3,,8,,89,4,1,1,4,,
@@ -7,20 +7,20 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 4536,6,6,,16,,89,1,1,1,1,,
 4529,7,7,,14,,88,0,1,1,0,,
 4521,8,8,,18,,88,0,1,1,0,,
-4528,9,9,,24,,87,0,1,1,0,,Out of fuel
+4528,9,9,,24,,87,0,1,1,0,,out-of-fuel
 4525,10,10,,23,,86,0,1,1,0,,
 4522,11,11,,19,,86,0,1,1,0,,
-4486,12,DNF,,4,,69,0,1,1,0,,Accident
-4518,13,DNF,,6,,66,0,1,1,0,,Gearbox
-4514,14,DNF,,12,,65,0,1,1,0,,Ignition
-4517,15,DNF,,21,,65,0,1,1,0,,Engine
-4520,16,DNF,,2,,48,0,1,1,0,,Gearbox
-4532,17,DNF,,20,,38,0,1,1,0,,Engine
-4519,18,DNF,,10,,24,0,1,1,0,,Accident
-4492,19,DNF,,5,,23,0,1,1,0,,Oil pressure
-4523,20,DNF,,15,,20,0,1,1,0,,Electrical
-4513,21,DNF,,9,,16,0,1,1,0,,Fuel leak
-4524,22,DNF,,17,,15,0,1,1,0,,Accident
-4526,23,DNF,,7,,9,0,1,1,0,,Gearbox
-4531,24,DNF,,25,,7,0,1,1,0,,Differential
-4535,25,DNF,,22,,6,0,1,1,0,,Accident
+4486,12,DNF,,4,,69,0,1,1,0,,accident
+4518,13,DNF,,6,,66,0,1,1,0,,gearbox
+4514,14,DNF,,12,,65,0,1,1,0,,ignition
+4517,15,DNF,,21,,65,0,1,1,0,,engine
+4520,16,DNF,,2,,48,0,1,1,0,,gearbox
+4532,17,DNF,,20,,38,0,1,1,0,,engine
+4519,18,DNF,,10,,24,0,1,1,0,,accident
+4492,19,DNF,,5,,23,0,1,1,0,,oil-pressure
+4523,20,DNF,,15,,20,0,1,1,0,,electrical
+4513,21,DNF,,9,,16,0,1,1,0,,fuel-leak
+4524,22,DNF,,17,,15,0,1,1,0,,accident
+4526,23,DNF,,7,,9,0,1,1,0,,gearbox
+4531,24,DNF,,25,,7,0,1,1,0,,differential
+4535,25,DNF,,22,,6,0,1,1,0,,accident

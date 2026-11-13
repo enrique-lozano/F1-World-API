@@ -24,7 +24,7 @@ describe('Test entries functionality', () => {
       '/entries',
       {
         season: '1985',
-        driverId: 'stefan-bellof',
+        driverId: 'bellof',
         include:
           'entrantName,chassis.chassisConstructor.id,engine.name,engine.manufacturer.id,engineBrand.id'
       }
@@ -67,9 +67,7 @@ describe('Test entries functionality', () => {
     );
 
     // Ferrari 2021: the same driver has several registered names (sponsor changes) in one season
-    const names = byEntrant.data.filter(
-      (x) => x.driver?.id === 'charles-leclerc'
-    );
+    const names = byEntrant.data.filter((x) => x.driver?.id === 'leclerc');
     expect(names.length).toBeGreaterThanOrEqual(2);
     expect(
       new Set(names.map((x) => x.entrantName)).size
@@ -90,7 +88,7 @@ describe('Test entries functionality', () => {
     const res = await getUrlResponseForTesting<PaginatedItems<EntryDTO>>(
       '/entries',
       {
-        driverId: 'alfonso-celis-jr',
+        driverId: 'celis',
         include: 'driverNumber,entrantName,chassis.id'
       }
     );

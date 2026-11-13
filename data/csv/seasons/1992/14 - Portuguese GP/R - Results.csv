@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6235,1,1,5686659,1,,71,10,1,1,10,,
 6222,2,2,5724192,4,,71,6,1,1,6,,
 6221,3,3,,3,,70,4,1,1,4,,
@@ -13,15 +13,15 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6229,12,12,,26,,68,0,1,1,0,,
 6215,13,13,,24,,68,0,1,1,0,,
 6230,14,14,,18,,68,0,1,1,0,,
-6205,15,DNF,,19,,51,0,1,1,0,,Physical
-6201,16,DNF,,22,,48,0,1,1,0,,Gearbox
-6210,17,DNF,,14,,47,0,1,1,0,,Engine
-6214,18,DNF,,25,,46,0,1,1,0,,Spun off
-6236,19,DNF,,2,,43,0,1,1,0,,Collision
-6206,20,DNF,,21,,43,0,1,1,0,,Puncture
-6241,21,DNF,,16,,34,0,1,1,0,,Engine
-6189,22,DNF,,15,,27,0,1,1,0,,Gearbox
-6213,23,DNF,,13,,25,0,1,1,0,,Engine
-6216,24,DNF,,20,,19,0,1,1,0,,Electrical
-6240,25,DNF,,10,,12,0,1,1,0,,Spun off
-6228,26,DNF,,9,,2,0,1,1,0,,Accident
+6205,15,DNF,,19,,51,0,1,1,0,,physical
+6201,16,DNF,,22,,48,0,1,1,0,,gearbox
+6210,17,DNF,,14,,47,0,1,1,0,,engine
+6214,18,DNF,,25,,46,0,1,1,0,,spun-off
+6236,19,DNF,,2,,43,0,1,1,0,,collision
+6206,20,DNF,,21,,43,0,1,1,0,,puncture
+6241,21,DNF,,16,,34,0,1,1,0,,engine
+6189,22,DNF,,15,,27,0,1,1,0,,gearbox
+6213,23,DNF,,13,,25,0,1,1,0,,engine
+6216,24,DNF,,20,,19,0,1,1,0,,electrical
+6240,25,DNF,,10,,12,0,1,1,0,,spun-off
+6228,26,DNF,,9,,2,0,1,1,0,,accident

@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6932,1,1,4781221,1,,53,25,1,1,25,,
 6942,2,2,4785577,12,,53,18,1,1,18,,
 6933,3,3,4801815,10,,53,15,1,1,15,,
@@ -18,8 +18,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6951,17,17,,19,,52,0,1,1,0,,
 6949,18,18,,23,,52,0,1,1,0,,
 6950,19,19,,21,,52,0,1,1,0,,
-6930,20,20,,11,,51,0,1,1,0,,Spun off
-6940,21,21,,24,,50,0,1,1,0,,Brakes
-6929,22,22,,5,,47,0,1,1,0,,Alternator
-6931,23,DNF,,2,,32,0,1,1,0,,Fuel pressure
-6944,24,DNF,,16,,8,0,1,1,0,,Suspension
+6930,20,20,,11,,51,0,1,1,0,,spun-off
+6940,21,21,,24,,50,0,1,1,0,,brakes
+6929,22,22,,5,,47,0,1,1,0,,alternator
+6931,23,DNF,,2,,32,0,1,1,0,,fuel-pressure
+6944,24,DNF,,16,,8,0,1,1,0,,suspension

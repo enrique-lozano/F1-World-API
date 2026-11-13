@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6964,1,1,5936681,1,,56,25,1,1,25,,
 6965,2,2,5940979,5,,56,18,1,1,18,,
 6973,3,3,5948862,4,,56,15,1,1,15,,
@@ -15,9 +15,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6982,14,14,,20,,55,0,1,1,0,,
 6983,15,15,,22,,55,0,1,1,0,,
 6985,16,16,,21,,54,0,1,1,0,,
-6968,17,17,,7,,53,0,1,1,0,,Wheel
-6981,18,18,,13,,51,0,1,1,0,,Exhaust
-6978,19,DNF,,16,,45,0,1,1,0,,KERS failure
-6977,20,DNF,,8,,27,0,1,1,0,,Wheel nut
-6976,21,DNF,,15,,22,0,1,1,0,,Wheel nut
-6966,22,DNF,,3,,1,0,1,1,0,,Collision damage
+6968,17,17,,7,,53,0,1,1,0,,wheel
+6981,18,18,,13,,51,0,1,1,0,,exhaust
+6978,19,DNF,,16,,45,0,1,1,0,,kers-failure
+6977,20,DNF,,8,,27,0,1,1,0,,wheel-nut
+6976,21,DNF,,15,,22,0,1,1,0,,wheel-nut
+6966,22,DNF,,3,,1,0,1,1,0,,collision-damage

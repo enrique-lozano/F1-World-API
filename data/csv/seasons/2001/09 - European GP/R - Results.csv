@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6534,1,1,5382724,1,,67,10,1,1,10,,
 6539,2,2,5386941,3,,67,6,1,1,6,,
 6537,3,3,5407717,5,,67,4,1,1,4,,
@@ -13,11 +13,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6557,12,12,,17,,65,0,1,1,0,,
 6541,13,13,,20,,65,0,1,1,0,,
 6553,14,14,,21,,65,0,1,1,0,,
-6554,15,15,,14,,64,0,1,1,0,,Spun off
-6546,16,DNF,,19,,58,0,1,1,0,,Engine
-6548,17,DNF,,10,,54,0,1,1,0,,Driveshaft
-6544,18,DNF,,8,,48,0,1,1,0,,Traction control
-6545,19,DNF,,7,,44,0,1,1,0,,Transmission
-6547,20,DNF,,18,,29,0,1,1,0,,Gearbox
-6542,21,DNF,,13,,23,0,1,1,0,,Electrical
-6552,22,DNF,,22,,7,0,1,1,0,,Electrical
+6554,15,15,,14,,64,0,1,1,0,,spun-off
+6546,16,DNF,,19,,58,0,1,1,0,,engine
+6548,17,DNF,,10,,54,0,1,1,0,,driveshaft
+6544,18,DNF,,8,,48,0,1,1,0,,traction-control
+6545,19,DNF,,7,,44,0,1,1,0,,transmission
+6547,20,DNF,,18,,29,0,1,1,0,,gearbox
+6542,21,DNF,,13,,23,0,1,1,0,,electrical
+6552,22,DNF,,22,,7,0,1,1,0,,electrical

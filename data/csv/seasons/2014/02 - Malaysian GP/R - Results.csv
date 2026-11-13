@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 7017,1,1,6025974,1,,56,25,1,1,25,,
 7001,2,2,6043287,3,,56,18,1,1,18,,
 6998,3,3,6050508,2,,56,15,1,1,15,,
@@ -14,10 +14,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7005,13,13,,20,,55,0,1,1,0,,
 7004,14,14,,22,,54,0,1,1,0,,
 7000,15,15,,21,,54,0,1,1,0,,
-6999,16,DNF,,5,,49,0,1,1,0,,Front wing
-7012,17,DNF,,12,,35,0,1,1,0,,Gearbox
-7019,18,DNF,,17,,32,0,1,1,0,,Power unit
-7014,19,DNF,,9,,18,0,1,1,0,,Turbo
-7009,20,DNF,,19,,8,0,1,1,0,,Brakes
-7007,21,DNF,,16,,7,0,1,1,0,,Power unit
+6999,16,DNF,,5,,49,0,1,1,0,,front-wing
+7012,17,DNF,,12,,35,0,1,1,0,,gearbox
+7019,18,DNF,,17,,32,0,1,1,0,,power-unit
+7014,19,DNF,,9,,18,0,1,1,0,,turbo
+7009,20,DNF,,19,,8,0,1,1,0,,brakes
+7007,21,DNF,,16,,7,0,1,1,0,,power-unit
 7006,22,DNS,,14,,,0,1,1,0,,

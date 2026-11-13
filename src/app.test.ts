@@ -5,7 +5,7 @@ import { getUrlForTesting } from './utils/test/test-utils';
 
 describe('Test CORS', () => {
   test('Any origin can read the API', async () => {
-    const res = await getUrlForTesting('/drivers/adrian-sutil').set(
+    const res = await getUrlForTesting('/drivers/sutil').set(
       'Origin',
       'https://example.com'
     );

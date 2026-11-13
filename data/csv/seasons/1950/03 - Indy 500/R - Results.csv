@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 51,1,1,10015970,5,,138,9,1,1,9,,
 53,2,2,,10,,137,6,1,1,6,,
 76,3,3,,3,,137,4,1,1,4,,
@@ -13,7 +13,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 52,11,11,,16,,133,0,1,1,0,,
 66,12,12,,13,,133,0,1,1,0,,
 63,13,13,,26,,132,0,1,1,0,,
-82,14,14,,6,,131,0,1,1,0,,Spun off
+82,14,14,,6,,131,0,1,1,0,,spun-off
 84,15,15,,24,,130,0,1,1,0,,
 92,16,16,,31,,128,0,1,1,0,,
 68,17,17,,27,,128,0,1,1,0,,
@@ -22,15 +22,15 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 67,20,20,,14,,126,0,1,1,0,,
 95,21,21,,15,,125,0,1,1,0,,
 73,22,22,,29,,123,0,1,1,0,,
-94,23,23,,30,,123,0,1,1,0,,Spun off
+94,23,23,,30,,123,0,1,1,0,,spun-off
 93,24,24,,28,,122,0,1,1,0,,
-61,25,25,,21,,112,0,1,1,0,,Oil line
+61,25,25,,21,,112,0,1,1,0,,oil-pipe
 7317,25,25,,,,,0,1,1,0,,
-90,26,26,,22,,111,0,1,1,0,,Transmission
-71,27,27,,17,,108,0,1,1,0,,Oil pressure
-74,28,28,,2,,64,0,1,1,0,,Oil leak
-86,29,29,,32,,52,0,1,1,0,,Compressor
-69,30,30,,25,,42,0,1,1,0,,Oil pressure
-62,31,31,,8,,30,0,1,1,0,,Wheel bearing
-81,32,32,,18,,25,0,1,1,0,,Stalled
-91,33,33,,7,,10,0,1,1,0,,Oil leak
+90,26,26,,22,,111,0,1,1,0,,transmission
+71,27,27,,17,,108,0,1,1,0,,oil-pressure
+74,28,28,,2,,64,0,1,1,0,,oil-leak
+86,29,29,,32,,52,0,1,1,0,,compressor
+69,30,30,,25,,42,0,1,1,0,,oil-pressure
+62,31,31,,8,,30,0,1,1,0,,wheel-bearing
+81,32,32,,18,,25,0,1,1,0,,stalled
+91,33,33,,7,,10,0,1,1,0,,oil-leak

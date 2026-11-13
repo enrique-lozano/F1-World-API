@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 1128,1,1,10838600,3,,96,9,1,1,9,,
 7355,2,2,10928200,1,,96,2,1,1,2,,
 1134,2,2,10928200,1,,96,2,1,1,2,,
@@ -14,22 +14,22 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 7361,7,7,,18,,83,0,1,1,0,,
 1139,7,7,,18,,83,0,1,1,0,,
 7362,7,7,,18,,83,0,1,1,0,,
-7363,8,DNF,,20,,54,0,1,1,0,,Fuel pressure
-1141,8,DNF,,20,,54,0,1,1,0,,Fuel pressure
-7364,8,DNF,,20,,54,0,1,1,0,,Fuel pressure
-1231,9,DNF,,19,,54,0,1,1,0,,Engine
-1138,9,DNF,,19,,54,0,1,1,0,,Engine
-7365,9,DNF,,19,,54,0,1,1,0,,Engine
-1149,10,DNF,,17,,38,0,1,1,0,,Transmission
-1135,11,DNF,,14,,36,0,1,1,0,,Engine
-7366,12,DNF,,12,,35,0,1,1,0,,Accident
-1146,12,DNF,,12,,35,0,1,1,0,,Accident
-1130,13,DNF,,8,,29,0,1,1,0,,Fuel system
-1143,14,DNF,,21,,22,0,1,1,0,,Out of fuel
-1144,15,DNF,,2,,21,0,1,1,0,,Accident
-1147,16,DNF,,15,,7,0,1,1,0,,Transmission
-1145,17,DNF,,11,,2,0,1,1,0,,Fuel leak
-1136,18,DNF,,4,,2,0,1,1,0,,Accident
-1129,19,DNF,,6,,2,0,1,1,0,,Accident
-1148,20,DNF,,9,,1,0,1,1,0,,Accident
-1140,21,DNF,,13,,1,0,1,1,0,,Accident
+7363,8,DNF,,20,,54,0,1,1,0,,fuel-pressure
+1141,8,DNF,,20,,54,0,1,1,0,,fuel-pressure
+7364,8,DNF,,20,,54,0,1,1,0,,fuel-pressure
+1231,9,DNF,,19,,54,0,1,1,0,,engine
+1138,9,DNF,,19,,54,0,1,1,0,,engine
+7365,9,DNF,,19,,54,0,1,1,0,,engine
+1149,10,DNF,,17,,38,0,1,1,0,,transmission
+1135,11,DNF,,14,,36,0,1,1,0,,engine
+7366,12,DNF,,12,,35,0,1,1,0,,accident
+1146,12,DNF,,12,,35,0,1,1,0,,accident
+1130,13,DNF,,8,,29,0,1,1,0,,fuel-system
+1143,14,DNF,,21,,22,0,1,1,0,,out-of-fuel
+1144,15,DNF,,2,,21,0,1,1,0,,accident
+1147,16,DNF,,15,,7,0,1,1,0,,transmission
+1145,17,DNF,,11,,2,0,1,1,0,,fuel-leak
+1136,18,DNF,,4,,2,0,1,1,0,,accident
+1129,19,DNF,,6,,2,0,1,1,0,,accident
+1148,20,DNF,,9,,1,0,1,1,0,,accident
+1140,21,DNF,,13,,1,0,1,1,0,,accident

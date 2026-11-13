@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 5030,1,1,6018840,1,,54,9,1,1,9,,
 5021,2,2,6020430,3,,54,6,1,1,6,,
 5003,3,3,6021150,7,,54,4,1,1,4,,
@@ -17,11 +17,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 5060,16,16,,20,,53,0,1,1,0,,
 5031,17,17,,25,,52,0,1,1,0,,
 5038,18,18,,26,,50,0,1,1,0,,
-5009,19,DNF,,5,,26,0,1,1,0,,Transmission
-5007,20,DNF,,19,,17,0,1,1,0,,Brakes
-5061,21,DNF,,23,,14,0,1,1,0,,Engine
-5023,22,DNF,,18,,6,0,1,1,0,,Transmission
-5027,23,DNF,,8,,6,0,1,1,0,,Chassis
-5029,24,DNF,,9,,6,0,1,1,0,,Engine
-5032,25,DNF,,6,,2,0,1,1,0,,Transmission
+5009,19,DNF,,5,,26,0,1,1,0,,transmission
+5007,20,DNF,,19,,17,0,1,1,0,,brakes
+5061,21,DNF,,23,,14,0,1,1,0,,engine
+5023,22,DNF,,18,,6,0,1,1,0,,transmission
+5027,23,DNF,,8,,6,0,1,1,0,,chassis
+5029,24,DNF,,9,,6,0,1,1,0,,engine
+5032,25,DNF,,6,,2,0,1,1,0,,transmission
 5065,26,DNS,,24,,,0,1,1,0,,

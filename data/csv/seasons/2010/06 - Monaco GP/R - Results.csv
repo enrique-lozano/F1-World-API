@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 6852,1,1,6613355,1,,78,25,1,1,25,,
 6851,2,2,6613803,3,,78,18,1,1,18,,
 6857,3,3,6615030,2,,78,15,1,1,15,,
@@ -11,15 +11,15 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 6861,10,10,6621554,13,,78,1,1,1,1,,
 6862,11,11,6622490,17,,78,0,1,1,0,,
 6849,12,12,6639067,7,,78,0,1,1,0,20000,
-6858,13,13,,14,,73,0,1,1,0,,Brakes
-6865,14,14,,23,,70,0,1,1,0,,Collision
-6863,15,15,,19,,70,0,1,1,0,,Collision
-6864,16,DNF,,18,,58,0,1,1,0,,Steering
-6866,17,DNF,,22,,58,0,1,1,0,,Hydraulics
-6855,18,DNF,,9,,30,0,1,1,0,,Accident
-6868,19,DNF,,16,,26,0,1,1,0,,Gearbox
-6870,20,DNF,,21,,25,0,1,1,0,,Loose wheel
-6869,21,DNF,,20,,22,0,1,1,0,,Track rod
-6867,22,DNF,,15,,21,0,1,1,0,,Hydraulics
-6847,23,DNF,,8,,2,0,1,1,0,,Overheating
-6856,24,DNF,,11,,0,0,1,1,0,,Accident
+6858,13,13,,14,,73,0,1,1,0,,brakes
+6865,14,14,,23,,70,0,1,1,0,,collision
+6863,15,15,,19,,70,0,1,1,0,,collision
+6864,16,DNF,,18,,58,0,1,1,0,,steering
+6866,17,DNF,,22,,58,0,1,1,0,,hydraulics
+6855,18,DNF,,9,,30,0,1,1,0,,accident
+6868,19,DNF,,16,,26,0,1,1,0,,gearbox
+6870,20,DNF,,21,,25,0,1,1,0,,loose-wheel
+6869,21,DNF,,20,,22,0,1,1,0,,track-rod
+6867,22,DNF,,15,,21,0,1,1,0,,hydraulics
+6847,23,DNF,,8,,2,0,1,1,0,,overheating
+6856,24,DNF,,11,,0,0,1,1,0,,accident

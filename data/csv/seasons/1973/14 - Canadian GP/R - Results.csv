@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 4850,1,1,7144083,2,,80,9,1,1,9,,
 4824,2,2,7176817,5,,80,6,1,1,6,,
 4857,3,3,7178588,14,,80,4,1,1,4,,
@@ -19,9 +19,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 4864,18,18,,19,,72,0,1,1,0,,
 4887,19,NC,,23,,71,0,1,1,0,,
 4880,20,NC,,26,,68,0,1,1,0,,
-4861,21,DNF,,8,,62,0,1,1,0,,Transmission
-4889,22,DNF,,3,,32,0,1,1,0,,Collision
-4848,23,DNF,,6,,32,0,1,1,0,,Collision
-4855,24,DNF,,21,,20,0,1,1,0,,Engine
-4825,25,DNF,,1,,16,0,1,1,0,,Suspension
-4890,26,DNF,,25,,5,0,1,1,0,,Oil pump
+4861,21,DNF,,8,,62,0,1,1,0,,transmission
+4889,22,DNF,,3,,32,0,1,1,0,,collision
+4848,23,DNF,,6,,32,0,1,1,0,,collision
+4855,24,DNF,,21,,20,0,1,1,0,,engine
+4825,25,DNF,,1,,16,0,1,1,0,,suspension
+4890,26,DNF,,25,,5,0,1,1,0,,oil-pump

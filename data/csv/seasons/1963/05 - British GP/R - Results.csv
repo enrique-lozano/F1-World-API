@@ -1,4 +1,4 @@
-entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,reasonRetired
+entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 2849,1,1,8049600,1,,82,9,1,1,9,,
 2855,2,2,8075400,5,,82,6,1,1,6,,
 2846,3,3,8087200,3,,82,4,1,1,4,,
@@ -12,13 +12,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2864,11,11,,22,,75,0,1,1,0,,
 2865,12,12,,16,,75,0,1,1,0,,
 2867,13,13,,23,,74,0,1,1,0,,
-2781,14,DNF,,15,,66,0,1,1,0,,Gearbox
-2857,15,DNF,,12,,65,0,1,1,0,,Oil pressure
-2854,16,DNF,,2,,59,0,1,1,0,,Engine
-2868,17,DNF,,19,,59,0,1,1,0,,Gearbox
-2859,18,DNF,,20,,36,0,1,1,0,,Ignition
-2853,19,DNF,,4,,27,0,1,1,0,,Engine
-2856,20,DNF,,11,,26,0,1,1,0,,Ignition
-2850,21,DNF,,10,,23,0,1,1,0,,Fuel pump
-2858,22,DNF,,18,,20,0,1,1,0,,Ignition
-2851,23,DNF,,6,,6,0,1,1,0,,Engine
+2781,14,DNF,,15,,66,0,1,1,0,,gearbox
+2857,15,DNF,,12,,65,0,1,1,0,,oil-pressure
+2854,16,DNF,,2,,59,0,1,1,0,,engine
+2868,17,DNF,,19,,59,0,1,1,0,,gearbox
+2859,18,DNF,,20,,36,0,1,1,0,,ignition
+2853,19,DNF,,4,,27,0,1,1,0,,engine
+2856,20,DNF,,11,,26,0,1,1,0,,ignition
+2850,21,DNF,,10,,23,0,1,1,0,,fuel-pump
+2858,22,DNF,,18,,20,0,1,1,0,,ignition
+2851,23,DNF,,6,,6,0,1,1,0,,engine
