@@ -12,9 +12,8 @@ import {
 
 describe('Drivers that did not take the start', () => {
   test('Every code of the race results is documented', async () => {
-    const res = await getUrlResponseForTesting<ResultStatuses[]>(
-      '/result-statuses'
-    );
+    const res =
+      await getUrlResponseForTesting<ResultStatuses[]>('/result-statuses');
 
     expect(res.map((x) => x.code)).toEqual([
       'DNF',
@@ -53,7 +52,7 @@ describe('Drivers that did not take the start', () => {
   test('A season of Masten Gregory, as in Wikipedia', async () => {
     const res = await getUrlResponseForTesting<DriverEventResultDTO[]>(
       '/drivers/gregory/results',
-      { season: 1961 }
+      { season: '1961' }
     );
 
     const byRound = Object.fromEntries(
@@ -70,7 +69,7 @@ describe('Drivers that did not take the start', () => {
   test('A driver replaced after practice is withdrawn, not a test driver', async () => {
     const res = await getUrlResponseForTesting<DriverEventResultDTO[]>(
       '/drivers/massa/results',
-      { season: 2017 }
+      { season: '2017' }
     );
 
     expect(res.find((x) => x.round === 11)?.positionText).toBe('WD');
@@ -96,9 +95,9 @@ describe('Drivers that did not take the start', () => {
       { include: 'entry.id,entry.driver.id' }
     );
 
-    expect(
-      res.find((x) => x.entry.driver?.id === 'celis')?.participation
-    ).toBe('TD');
+    expect(res.find((x) => x.entry.driver?.id === 'celis')?.participation).toBe(
+      'TD'
+    );
     expect(res[0].participation).toBe('1');
   });
 
