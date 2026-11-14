@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-JAR-b,24,DNF,,20,,3,0,1,1,0,,steering
 1982-WIN-b,25,DNF,,16,,3,0,1,1,0,,clutch
 1982-PIR,26,DNS,,1,,,0,1,1,0,,accident-in-practice
+1982-LAU-b,27,DNS,,,,,0,1,1,,,withdrew
+1982-BYR,28,DNQ,,,,,0,1,1,,,
+1982-KEE-a,29,DNQ,,,,,0,1,1,,,
+1982-FAB-c,30,DNQ,,,,,0,1,1,,,

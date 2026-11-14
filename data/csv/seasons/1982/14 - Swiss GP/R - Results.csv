@@ -25,3 +25,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-WAR-b,24,DNF,,21,,24,0,1,1,0,,engine
 1982-GUE-c,25,DNF,,19,,4,0,1,1,0,,engine
 1982-TAM,26,DNS,,10,,,0,1,1,0,,unfit
+1982-SER-b,27,DNQ,,,,,0,1,1,,,
+1982-BYR,28,DNQ,,,,,0,1,1,,,
+1982-BAL-a,29,DNQ,,,,,0,1,1,,,

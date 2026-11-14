@@ -25,3 +25,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1991-LAR,24,DNF,,19,,5,0,1,1,0,,spun-off
 1991-BOU-b,25,DNF,,20,,5,0,1,1,0,,accident
 1991-NAK,26,DNF,,24,,4,0,1,1,0,,spun-off
+1991-BRU-b,27,DNQ,,,,,0,1,1,,,
+1991-SUZ,28,DNQ,,,,,0,1,1,,,
+1991-VAN,29,DNQ,,,,,0,1,1,,,
+1991-GAC-29,30,DNQ,,,,,0,1,1,,,
+1991-TAR-14,31,DNPQ,,,,,0,1,1,,,
+1991-HAT,32,DNPQ,,,,,0,1,1,,,

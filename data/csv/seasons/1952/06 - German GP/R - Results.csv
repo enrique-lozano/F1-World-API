@@ -29,3 +29,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1952-TRI-109,28,DNF,,3,,1,0,1,1,0,,accident
 1952-BIA-115,29,DNF,,16,,0,0,1,1,0,,engine
 1952-BON-105,30,DSQ,,10,,1,0,1,1,0,,
+1952-COL-111,31,DNS,,,,,0,1,1,,,
+1952-FIS-131,32,DNS,,,,,0,1,1,,,
+1952-KRA-133,33,DNS,,,,,0,1,1,,,
+1952-MER,34,DNS,,,,,0,1,1,,,

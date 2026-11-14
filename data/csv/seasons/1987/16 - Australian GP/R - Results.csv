@@ -25,3 +25,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1987-STR,24,DNF,,18,,6,0,1,1,0,,spun-off
 1987-NAN,25,DNF,,13,,0,0,1,1,0,,accident
 1987-SEN,26,DSQ,,4,,82,0,1,1,0,,illegal-brake-ducts
+1987-CAF,27,DNQ,,,,,0,1,1,,,

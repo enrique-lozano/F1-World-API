@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1992-GUG,24,DNF,,8,,0,0,1,1,0,,engine
 1992-WEN,25,DNF,,19,,0,0,1,1,0,,collision
 1992-CAP-a,26,DNF,,20,,0,0,1,1,0,,collision
+1992-SUZ,27,DNQ,,,,,0,1,1,,,
+1992-BEL,28,DNQ,,,,,0,1,1,,,
+1992-VAN-7,29,DNQ,,,,,0,1,1,,,
+1992-AMA,30,DNQ,,,,,0,1,1,,,

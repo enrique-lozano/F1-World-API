@@ -20,3 +20,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2000-SAL,19,DNF,,19,,27,0,1,1,0,,halfshaft
 2000-FRE-a,20,DNF,,10,,2,0,1,1,0,,engine
 2000-TRU-a,21,DNF,,6,,0,0,1,1,0,,collision
+2000-HEI,22,EX,,,,,0,1,1,,,

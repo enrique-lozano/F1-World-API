@@ -23,3 +23,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1979-ARN-b,22,DNF,,8,,14,0,1,1,0,,accident
 1979-STU-b,23,DNF,,12,,14,0,1,1,0,,accident
 1979-LAF,24,DNF,,5,,10,0,1,1,0,,engine
+1979-MAS-b,25,DNQ,,,,,0,1,1,,,
+1979-SUR,26,DNQ,,,,,0,1,1,,,
+1979-ROS-c,27,DNQ,,,,,0,1,1,,,
+1979-RIB,28,DNQ,,,,,0,1,1,,,
+1979-MER-c,29,DNQ,,,,,0,1,1,,,
+1979-LAU-b,30,WD,,,,,0,1,1,,,

@@ -20,3 +20,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1961-IRE-32,19,DNF,,16,,9,0,1,1,0,,engine
 1961-MCL-30,20,DNF,,15,,9,0,1,1,0,,ignition
 1961-MAI-10,21,DNF,,19,,7,0,1,1,0,,ignition
+1961-MAR-42,22,DNS,,,,,0,1,1,,,
+1961-SEI-48,23,DNS,,,,,0,1,1,,,
+1961-BUR-50,24,DNS,,,,,0,1,1,,,
+1961-ALL-16,25,DNS,,,,,0,1,1,,,

@@ -22,3 +22,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1973-HUN,21,DNF,,9,,3,0,1,1,0,,injection
 1973-REV-8-b,22,DNF,,4,,0,0,1,1,0,,clutch
 1973-BEU-15,23,DNF,,11,,0,0,1,1,0,,collision
+1973-AMO-22,24,DNS,,,,,0,1,1,,,
+1973-LAU-21,25,DNS,,,,,0,1,1,,,

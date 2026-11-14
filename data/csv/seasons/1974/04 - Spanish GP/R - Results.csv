@@ -24,3 +24,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1974-VON-8,23,DNF,,24,,14,0,1,1,0,,oil-leak
 1974-REU,24,DNF,,6,,12,0,1,1,0,,spun-off
 1974-BEL-14-b,25,DNF,,11,,2,0,1,1,0,,engine
+1974-BRA,26,DNS,,,,,0,1,1,,,accident
+1974-EDW,27,DNQ,,,,,0,1,1,,,
+1974-BEL-21,28,DNQ,,,,,0,1,1,,,
+1974-MOS,29,WD,,,,,0,1,1,,,

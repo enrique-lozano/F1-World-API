@@ -19,3 +19,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1986-DEA,18,DNF,,20,,31,0,1,1,0,,engine
 1986-FAB,19,DNF,,16,,17,0,1,1,0,,brakes
 1986-JON-b,20,DNF,,18,,2,0,1,1,0,,accident
+1986-GHI-a,21,DNQ,,,,,0,1,1,,,
+1986-DUM,22,DNQ,,,,,0,1,1,,,
+1986-ROT,23,DNQ,,,,,0,1,1,,,
+1986-DAN-22,24,DNQ,,,,,0,1,1,,,
+1986-DEC-a,25,DNQ,,,,,0,1,1,,,
+1986-NAN-a,26,DNQ,,,,,0,1,1,,,

@@ -65,7 +65,7 @@ export class CompanyService
     ).executeTakeFirstOrThrow();
   }
 
-  getById(id: string): Promise<CompanyDTO | undefined> {
+  getById(id: string): Promise<CompanyDTO> {
     return CompanyService.getCompaniesSelect(this.db.selectFrom('companies'))
       .where('id', '==', id)
       .executeTakeFirstOrThrow(() => HttpException.resourceNotFound('default'));

@@ -25,3 +25,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1972-PES-24,24,DNF,,26,,7,0,1,1,0,,accident
 1972-GET-12,25,DNF,,16,,5,0,1,1,0,,engine
 1972-DEA-23,26,DNF,,20,,3,0,1,1,0,,accident
+1972-MIG-34,27,DNS,,,,,0,1,1,,,suspension
+1972-AND-31,28,WD,,,,,0,1,1,,,
+1972-MAR-16,29,WD,,,,,0,1,1,,,
+1972-RED-20,30,WD,,,,,0,1,1,,,
+1972-TRI,31,WD,,,,,0,1,1,,,
+1972-WIS-15,32,WD,,,,,0,1,1,,,

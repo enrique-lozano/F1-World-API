@@ -1,0 +1,12 @@
+code,name,description,raceEntry,started
+DNF,Did not finish,Took the start but retired and was not classified,1,1
+NC,Not classified,Took the start and was running at the end but did not complete enough laps to be classified,1,1
+DSQ,Disqualified,Took the start but was disqualified from the race,1,1
+DNS,Did not start,Took part in the weekend (practice or qualifying) but did not take the start,1,0
+DNQ,Did not qualify,Took part in qualifying but did not get a place on the grid,1,0
+DNPQ,Did not pre-qualify,Took part in pre-qualifying but did not get through to qualifying,1,0
+EX,Excluded,Was excluded from the event before the race,1,0
+DNP,Did not practice,Was at the event but did not take part in any session,1,0
+WD,Withdrawn,Was entered but withdrew before or during the event (it includes the drivers replaced after practice),0,0
+DNA,Did not arrive,Was entered but did not arrive at the event,0,0
+TD,Test driver,Only took part in free practice as a third or test driver. Calculated by the API: it is never stored in the race results,0,0

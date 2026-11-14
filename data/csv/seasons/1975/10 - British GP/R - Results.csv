@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1975-PET,24,DNF,,16,,7,0,1,1,0,,engine
 1975-LAF-b,25,DNF,,19,,5,0,1,1,0,,gearbox
 1975-REU,26,DNF,,8,,4,0,1,1,0,,engine
+1975-WUN-31-b,27,DNQ,,,,,0,1,1,,,
+1975-FUS,28,DNQ,,,,,0,1,1,,,

@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1994-INO,24,DNF,,26,,3,0,1,1,0,,spun-off
 1994-NOD,25,DNF,,PL,,0,0,1,1,0,,spun-off
 1994-JAR-29,26,DNF,,15,,0,0,1,1,0,,engine
+1994-GAC-b,27,DNQ,,,,,0,1,1,,,
+1994-BEL-b,28,DNQ,,,,,0,1,1,,,

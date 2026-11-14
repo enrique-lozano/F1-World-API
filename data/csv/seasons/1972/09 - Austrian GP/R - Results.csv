@@ -24,3 +24,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1972-REU-17,23,DNF,,5,,14,0,1,1,0,,injection
 1972-REG-19,24,DNF,,2,,13,0,1,1,0,,fuel-system
 1972-WAL-21,25,DNF,,19,,6,0,1,1,0,,engine
+1972-PES-22,26,DNS,,,,,0,1,1,,,accident

@@ -23,3 +23,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1981-DEA-a,22,DNF,,13,,13,0,1,1,0,,accident
 1981-PRO-a,23,DNF,,14,,0,0,1,1,0,,collision
 1981-DEC-a,24,DNF,,22,,0,0,1,1,0,,collision
+1981-COG,25,DNQ,,,,,0,1,1,,,
+1981-DAL-17-a,26,DNQ,,,,,0,1,1,,,
+1981-GUE-31,27,DNQ,,,,,0,1,1,,,
+1981-STO-a,28,DNQ,,,,,0,1,1,,,
+1981-SAL-18,29,DNQ,,,,,0,1,1,,,

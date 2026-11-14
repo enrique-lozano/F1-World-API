@@ -19,3 +19,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1979-ARN-b,18,DNF,,19,,8,0,1,1,0,,accident
 1979-HUN-a,19,DNF,,10,,4,0,1,1,0,,transmission
 1979-PAT-a,20,DNF,,15,,4,0,1,1,0,,suspension
+1979-DEA,21,DNQ,,,,,0,1,1,,,
+1979-TAM-a,22,DNQ,,,,,0,1,1,,,
+1979-LAM,23,DNQ,,,,,0,1,1,,,
+1979-DAL-22-b,24,DNQ,,,,,0,1,1,,,
+1979-BRA-24,25,DNPQ,,,,,0,1,1,,,

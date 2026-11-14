@@ -26,3 +26,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1966-AND-19,25,DNF,,14,,2,0,1,1,0,,transmission
 1966-ICK,26,DNF,,16,,1,0,1,1,0,,accident
 1966-TAY-16,27,DNF,,25,,0,0,1,1,0,,fatal-accident
+1966-MOS,28,DNS,,,,,0,1,1,,,
+1966-MIT,29,DNS,,,,,0,1,1,,,
+1966-LIG-18,30,DNS,,,,,0,1,1,,,injury

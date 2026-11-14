@@ -16,7 +16,7 @@ describe('Test race results functionality', () => {
 
   test('Get the results of a race', async () => {
     const res = await getUrlResponseForTesting<RaceResultDTO[]>(
-      '/races/results/2021/1/R',
+      '/sessions/2021/1/R/results',
       { include: 'positionOrder,points,entry.driver.id' }
     );
 
@@ -27,7 +27,7 @@ describe('Test race results functionality', () => {
 
   test('The locale param is accepted by the endpoints with an include param', async () => {
     const res = await getUrlResponseForTesting<RaceResultDTO[]>(
-      '/races/results/2021/1/R',
+      '/sessions/2021/1/R/results',
       { include: 'entry.driver.nationalityCountry', locale: 'es' }
     );
 
@@ -40,7 +40,7 @@ describe('Test race results functionality', () => {
 describe('Shared cars', () => {
   test('A car driven by two drivers is marked as shared in both results', async () => {
     const res = await getUrlResponseForTesting<RaceResultDTO[]>(
-      '/races/results/1951/4/R',
+      '/sessions/1951/4/R/results',
       {
         include: 'positionOrder,sharedCar,entry.driver.id,entry.driverNumber'
       }
@@ -58,7 +58,7 @@ describe('Shared cars', () => {
 
   test('A car driven by one driver is not shared', async () => {
     const res = await getUrlResponseForTesting<RaceResultDTO[]>(
-      '/races/results/2021/1/R',
+      '/sessions/2021/1/R/results',
       { include: 'sharedCar' }
     );
 
@@ -68,7 +68,7 @@ describe('Shared cars', () => {
   describe('Retirement reasons', () => {
     test('The reason is returned as text, with its category', async () => {
       const res = await getUrlResponseForTesting<RaceResultDTO[]>(
-        '/races/results/2021/1/R',
+        '/sessions/2021/1/R/results',
         {
           include:
             'positionOrder,reasonRetired,retirementCategory,retirementReasonId,entry.driver.id'
@@ -91,7 +91,7 @@ describe('Shared cars', () => {
 
     test('A car that finished has no reason', async () => {
       const res = await getUrlResponseForTesting<RaceResultDTO[]>(
-        '/races/results/2021/1/R',
+        '/sessions/2021/1/R/results',
         { include: 'positionOrder,reasonRetired,retirementCategory' }
       );
 

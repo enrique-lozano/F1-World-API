@@ -23,3 +23,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-LUN-30-b,22,DNF,,21,,0,0,1,1,0,,collision
 1978-PIR,23,DNF,,14,,0,0,1,1,0,,collision
 1978-STU-b,24,DNF,,17,,0,0,1,1,0,,collision
+1978-REB,25,DNQ,,,,,0,1,1,,,
+1978-ERT-10,26,DNQ,,,,,0,1,1,,,
+1978-BLE-9,27,DNQ,,,,,0,1,1,,,
+1978-FRA,28,DNQ,,,,,0,1,1,,,
+1978-ROS-32-c,29,DNPQ,,,,,0,1,1,,,
+1978-STO-b,30,DNPQ,,,,,0,1,1,,,
+1978-COL-34,31,DNPQ,,,,,0,1,1,,,

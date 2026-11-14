@@ -15,3 +15,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1962-GUR-4,14,DNF,,5,,0,0,1,1,0,,accident
 1962-GIN-8,15,DNF,,13,,0,0,1,1,0,,accident
 1962-TRI-30,16,DNF,,7,,0,0,1,1,0,,accident
+1962-ROD-38,17,DNS,,,,,0,1,1,,,practice-only
+1962-SIF-46,18,DNQ,,,,,0,1,1,,,
+1962-LEW-24,19,DNQ,,,,,0,1,1,,,
+1962-GRE-32,20,DNQ,,,,,0,1,1,,,
+1962-DEB-44,21,DNQ,,,,,0,1,1,,,
+1962-VAC-42,22,DNQ,,,,,0,1,1,,,
+1962-BUS,23,WD,,,,,0,1,1,,,
+1962-MAR-12,24,WD,,,,,0,1,1,,,

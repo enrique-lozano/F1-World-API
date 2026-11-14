@@ -24,3 +24,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1993-BAR-14,23,DNF,,13,,11,0,1,1,0,,wheel-bearing
 1993-ALE,24,DNF,,4,,4,0,1,1,0,,suspension
 1993-BOU,25,DNF,,20,,0,0,1,1,0,,gearbox
+1993-ZAN,26,DNQ,,,,,0,1,1,,,accident-in-practice

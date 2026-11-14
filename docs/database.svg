@@ -989,6 +989,47 @@
 <title>retirementReasons:e&#45;&gt;retirementReasons_category:w</title>
 <path fill="none" stroke="#29235c" stroke-width="3" d="M1518.02,-1506.39C1739.62,-1506.39 1583.14,-719.87 1685.62,-523.39 1719.58,-458.27 1729.86,-407.39 1803.3,-407.39"/>
 </g>
+<!-- resultStatuses -->
+<g id="resultStatuses" class="node">
+<title>resultStatuses</title>
+<g id="a_resultStatuses"><a xlink:title="resultStatuses&#10;Codes of the race results that are not a finishing position (`raceResults.positionText`), with their meaning. The position of a classified driver is a number. `raceEntry`: counts as a race entry in the statistics; `started`: took the start.">
+<ellipse fill="none" stroke="black" stroke-width="0" cx="359.21" cy="-4566.39" rx="255.03" ry="257.27"/>
+<polygon fill="#1d71b8" stroke="transparent" points="181.21,-4686.39 181.21,-4746.39 538.21,-4746.39 538.21,-4686.39 181.21,-4686.39"/>
+<polygon fill="none" stroke="#29235c" points="181.21,-4686.39 181.21,-4746.39 538.21,-4746.39 538.21,-4686.39 181.21,-4686.39"/>
+<text text-anchor="start" x="196.1" y="-4707.59" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="32.00" fill="#ffffff"> &#160;&#160;&#160;&#160;&#160;&#160;resultStatuses &#160;&#160;&#160;&#160;&#160;&#160;</text>
+<polygon fill="#e7e2dd" stroke="transparent" points="181.21,-4626.39 181.21,-4686.39 538.21,-4686.39 538.21,-4626.39 181.21,-4626.39"/>
+<polygon fill="none" stroke="#29235c" points="181.21,-4626.39 181.21,-4686.39 538.21,-4686.39 538.21,-4626.39 181.21,-4626.39"/>
+<text text-anchor="start" x="192.21" y="-4647.59" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="32.00" fill="#29235c">code</text>
+<text text-anchor="start" x="261.58" y="-4647.59" font-family="Helvetica,sans-Serif" font-size="32.00" fill="#29235c"> &#160;&#160;&#160;</text>
+<text text-anchor="start" x="420.54" y="-4647.59" font-family="Helvetica,sans-Serif" font-style="italic" font-size="32.00" fill="#29235c">varchar</text>
+<polygon fill="#e7e2dd" stroke="transparent" points="181.21,-4566.39 181.21,-4626.39 538.21,-4626.39 538.21,-4566.39 181.21,-4566.39"/>
+<polygon fill="none" stroke="#29235c" points="181.21,-4566.39 181.21,-4626.39 538.21,-4626.39 538.21,-4566.39 181.21,-4566.39"/>
+<text text-anchor="start" x="192.21" y="-4586.59" font-family="Helvetica,sans-Serif" font-size="32.00" fill="#29235c">name &#160;&#160;&#160;</text>
+<text text-anchor="start" x="381.45" y="-4587.59" font-family="Helvetica,sans-Serif" font-style="italic" font-size="32.00" fill="#29235c">varchar</text>
+<text text-anchor="start" x="488.12" y="-4587.59" font-family="Helvetica,sans-Serif" font-size="32.00" fill="#29235c"> </text>
+<text text-anchor="start" x="497.01" y="-4587.59" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="32.00" fill="#29235c">(!)</text>
+<polygon fill="#e7e2dd" stroke="transparent" points="181.21,-4506.39 181.21,-4566.39 538.21,-4566.39 538.21,-4506.39 181.21,-4506.39"/>
+<polygon fill="none" stroke="#29235c" points="181.21,-4506.39 181.21,-4566.39 538.21,-4566.39 538.21,-4506.39 181.21,-4506.39"/>
+<text text-anchor="start" x="192.08" y="-4526.59" font-family="Helvetica,sans-Serif" font-size="32.00" fill="#29235c">description &#160;&#160;&#160;</text>
+<text text-anchor="start" x="381.83" y="-4527.59" font-family="Helvetica,sans-Serif" font-style="italic" font-size="32.00" fill="#29235c">varchar</text>
+<text text-anchor="start" x="488.5" y="-4527.59" font-family="Helvetica,sans-Serif" font-size="32.00" fill="#29235c"> </text>
+<text text-anchor="start" x="497.39" y="-4527.59" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="32.00" fill="#29235c">(!)</text>
+<polygon fill="#e7e2dd" stroke="transparent" points="181.21,-4446.39 181.21,-4506.39 538.21,-4506.39 538.21,-4446.39 181.21,-4446.39"/>
+<polygon fill="none" stroke="#29235c" points="181.21,-4446.39 181.21,-4506.39 538.21,-4506.39 538.21,-4446.39 181.21,-4446.39"/>
+<text text-anchor="start" x="192.21" y="-4466.59" font-family="Helvetica,sans-Serif" font-size="32.00" fill="#29235c">raceEntry &#160;&#160;&#160;</text>
+<text text-anchor="start" x="374.29" y="-4467.59" font-family="Helvetica,sans-Serif" font-style="italic" font-size="32.00" fill="#29235c">boolean</text>
+<text text-anchor="start" x="488.12" y="-4467.59" font-family="Helvetica,sans-Serif" font-size="32.00" fill="#29235c"> </text>
+<text text-anchor="start" x="497.01" y="-4467.59" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="32.00" fill="#29235c">(!)</text>
+<polygon fill="#e7e2dd" stroke="transparent" points="181.21,-4386.39 181.21,-4446.39 538.21,-4446.39 538.21,-4386.39 181.21,-4386.39"/>
+<polygon fill="none" stroke="#29235c" points="181.21,-4386.39 181.21,-4446.39 538.21,-4446.39 538.21,-4386.39 181.21,-4386.39"/>
+<text text-anchor="start" x="192.21" y="-4406.59" font-family="Helvetica,sans-Serif" font-size="32.00" fill="#29235c">started &#160;&#160;&#160;</text>
+<text text-anchor="start" x="374.29" y="-4407.59" font-family="Helvetica,sans-Serif" font-style="italic" font-size="32.00" fill="#29235c">boolean</text>
+<text text-anchor="start" x="488.12" y="-4407.59" font-family="Helvetica,sans-Serif" font-size="32.00" fill="#29235c"> </text>
+<text text-anchor="start" x="497.01" y="-4407.59" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="32.00" fill="#29235c">(!)</text>
+<polygon fill="none" stroke="#29235c" stroke-width="2" points="179.71,-4385.39 179.71,-4747.39 538.71,-4747.39 538.71,-4385.39 179.71,-4385.39"/>
+</a>
+</g>
+</g>
 <!-- safetyCars -->
 <g id="safetyCars" class="node">
 <title>safetyCars</title>

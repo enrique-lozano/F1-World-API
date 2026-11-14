@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1962-SCH-28,24,DNF,,20,,4,0,1,1,0,,oil-pressure
 1962-COL,25,DNF,,22,,2,0,1,1,0,,gearbox
 1962-TAY-6,26,DNF,,26,,0,0,1,1,0,,accident
+1962-SHE-29,27,DNQ,,,,,0,1,1,,,
+1962-SEI-34-a,28,DNQ,,,,,0,1,1,,,
+1962-CHA-30,29,DNQ,,,,,0,1,1,,,
+1962-SEI-34-b,30,DNQ,,,,,0,1,1,,,
+1962-MAR-33,31,WD,,,,,0,1,1,,,

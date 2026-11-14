@@ -25,3 +25,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1991-MOR-24-a,24,DNF,,26,,15,0,1,1,0,,gearbox
 1991-JAR,25,DNF,,10,,12,0,1,1,0,,gearbox
 1991-BER-29,26,DNF,,19,,4,0,1,1,0,,engine
+1991-COM-a,27,DNQ,,,,,0,1,1,,,
+1991-CAF-a,28,DNQ,,,,,0,1,1,,,
+1991-JOH-18,29,DNQ,,,,,0,1,1,,,
+1991-BAI,30,DNQ,,,,,0,1,1,,,
+1991-DEC,31,DNPQ,,,,,0,1,1,,,
+1991-CHA,32,DNPQ,,,,,0,1,1,,,
+1991-GRO-14-a,33,DNPQ,,,,,0,1,1,,,
+1991-VAN,34,DNPQ,,,,,0,1,1,,,

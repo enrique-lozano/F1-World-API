@@ -15,3 +15,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1966-HUL-8,14,DNF,,6,,15,0,1,1,0,,transmission
 1966-MCL-2,15,DNF,,10,,9,0,1,1,0,,oil-leak
 1966-AND-15,16,DNF,,8,,3,0,1,1,0,,engine
+1966-HIL-9-a,17,DNS,,,,,0,1,1,,,
+1966-AMO-1,18,WD,,,,,0,1,1,,,
+1966-ARU-3,19,WD,,,,,0,1,1,,,
+1966-ATT-5,20,WD,,,,,0,1,1,,,

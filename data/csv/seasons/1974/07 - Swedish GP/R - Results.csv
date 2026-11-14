@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1974-ROO,24,DNF,,23,,2,0,1,1,0,,gearbox
 1974-PES-b,25,DNF,,19,,0,0,1,1,0,,fire
 1974-SCH-22,26,DSQ,,26,,77,0,1,1,0,,illegal-start
+1974-ROB-20,27,DNS,,,,,0,1,1,,,
+1974-MER,28,DNS,,,,,0,1,1,,,

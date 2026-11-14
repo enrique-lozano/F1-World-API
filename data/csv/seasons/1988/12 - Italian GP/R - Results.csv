@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-PER,24,DNF,,19,,12,0,1,1,0,,gearbox
 1988-PIQ,25,DNF,,7,,11,0,1,1,0,,clutch
 1988-LAR-21-b,26,DNF,,17,,2,0,1,1,0,,engine
+1988-PAL,27,DNQ,,,,,0,1,1,,,
+1988-JOH,28,DNQ,,,,,0,1,1,,,
+1988-TAR-b,29,DNQ,,,,,0,1,1,,,
+1988-MOD,30,DNQ,,,,,0,1,1,,,
+1988-LAR-32,31,DNPQ,,,,,0,1,1,,,

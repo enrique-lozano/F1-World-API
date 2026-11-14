@@ -23,3 +23,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1977-LUN-b,22,DNF,,22,,4,0,1,1,0,,engine
 1977-NIL,23,DNF,,19,,4,0,1,1,0,,suspension
 1977-WAT-b,24,DNF,,14,,3,0,1,1,0,,accident
+1977-RIB,25,DNQ,,,,,0,1,1,,,
+1977-FIT-b,26,DNQ,,,,,0,1,1,,,
+1977-LEO,27,DNQ,,,,,0,1,1,,,
+1977-HEN-38-b,28,DNQ,,,,,0,1,1,,,
+1977-DEV,29,DNQ,,,,,0,1,1,,,
+1977-ASH-25,30,DNQ,,,,,0,1,1,,,
+1977-PIL-35,31,DNQ,,,,,0,1,1,,,
+1977-BIN-33,32,DNQ,,,,,0,1,1,,,
+1977-KES,33,DNQ,,,,,0,1,1,,,
+1977-FRA,34,DNQ,,,,,0,1,1,,,

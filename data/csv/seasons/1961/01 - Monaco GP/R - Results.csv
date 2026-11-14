@@ -15,3 +15,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1961-MAY-8,14,DNF,,13,,42,0,1,1,0,,oil-pipe
 1961-BRA-24,15,DNF,,16,,38,0,1,1,0,,ignition
 1961-HIL-18,16,DNF,,4,,11,0,1,1,0,,fuel-pump
+1961-IRE-30,17,DNS,,,,,0,1,1,,,injury-in-practice
+1961-TAY-34,18,DNQ,,,,,0,1,1,,,
+1961-GRE-14,19,DNQ,,,,,0,1,1,,,
+1961-BIA-10,20,DNQ,,,,,0,1,1,,,
+1961-GEN-12,21,DNQ,,,,,0,1,1,,,

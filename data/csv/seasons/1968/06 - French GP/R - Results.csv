@@ -16,3 +16,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1968-SER-32,15,DNF,,15,,14,0,1,1,0,,accident
 1968-HIL-12,16,DNF,,9,,14,0,1,1,0,,halfshaft
 1968-SCH,17,DNF,,16,,2,0,1,1,0,,fatal-accident
+1968-OLI-14,18,DNS,,,,,0,1,1,,,accident-in-practice

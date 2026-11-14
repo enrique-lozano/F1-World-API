@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1994-SEN,24,DNF,,1,,0,0,1,1,0,,collision
 1994-BLU,25,DNF,,12,,0,0,1,1,0,,collision
 1994-LAR,26,DNF,,7,,0,0,1,1,0,,collision
+1994-GAC-a,27,DNQ,,,,,0,1,1,,,
+1994-BEL-a,28,DNQ,,,,,0,1,1,,,

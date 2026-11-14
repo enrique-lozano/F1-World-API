@@ -89,7 +89,6 @@ export class QualifyingResultService extends DbService {
   }
 
   /** Gets info about the results of a certain free practice */
-  @Get('/{season}/{round}/{session}')
   async getQualifyingSessionResults(
     @Path() season: number,
     @Path() round: number,
@@ -112,7 +111,6 @@ export class QualifyingResultService extends DbService {
   }
 
   /** Gets info about the result obtained by a driver in a certain free practice */
-  @Get('/{season}/{round}/{session}/{driverId}')
   async getDriverQualifyingResult(
     @Path() season: number,
     @Path() round: number,

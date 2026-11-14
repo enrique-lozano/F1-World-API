@@ -19,3 +19,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1968-SIF-16-b,18,DNF,,9,,6,0,1,1,0,,ignition
 1968-SUR-7-b,19,DNF,,7,,3,0,1,1,0,,ignition
 1968-ELF-20,20,DNF,,5,,0,0,1,1,0,,accident
+1968-MOS-23,21,DNS,,,,,0,1,1,,,oil-pump
+1968-BON-15,22,WD,,,,,0,1,1,,,

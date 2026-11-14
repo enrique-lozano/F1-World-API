@@ -82,15 +82,21 @@ export class CareerService extends DbService {
     const stats = await this.db
       .selectFrom('raceResults')
       .innerJoin('entries', 'entries.id', 'raceResults.entryId')
+      .leftJoin(
+        'resultStatuses',
+        'resultStatuses.code',
+        'raceResults.positionText'
+      )
       .$if(column === 'constructorId', (qb) =>
         qb.innerJoin('chassis', 'chassis.id', 'entries.chassisId')
       )
       .where(entityColumn(column), '==', entityId)
       .select([
-        sql<number>`COUNT(DISTINCT CASE WHEN ${isRace} THEN raceResults.sessionId END)`.as(
+        // A finishing position is always a race entry and a start; the codes say it in `resultStatuses`
+        sql<number>`COUNT(DISTINCT CASE WHEN ${isRace} AND COALESCE(resultStatuses.raceEntry, 1) = 1 THEN raceResults.sessionId END)`.as(
           'races'
         ),
-        sql<number>`COUNT(DISTINCT CASE WHEN ${isRace} AND raceResults.positionText NOT IN ('DNS', 'DNQ', 'WD') THEN raceResults.sessionId END)`.as(
+        sql<number>`COUNT(DISTINCT CASE WHEN ${isRace} AND COALESCE(resultStatuses.started, 1) = 1 THEN raceResults.sessionId END)`.as(
           'starts'
         ),
         sql<number>`COUNT(DISTINCT CASE WHEN ${isRace} AND raceResults.positionText = '1' THEN raceResults.sessionId END)`.as(

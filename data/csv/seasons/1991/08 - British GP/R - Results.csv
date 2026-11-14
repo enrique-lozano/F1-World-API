@@ -25,3 +25,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1991-BER-29,24,DNF,,21,,21,0,1,1,0,,transmission
 1991-CAP,25,DNF,,16,,16,0,1,1,0,,spun-off
 1991-PAT,26,DNF,,3,,1,0,1,1,0,,collision
+1991-COM-b,27,DNQ,,,,,0,1,1,,,
+1991-JOH-10-b,28,DNQ,,,,,0,1,1,,,
+1991-BAR-18-a,29,DNQ,,,,,0,1,1,,,
+1991-TAR-17-a,30,DNQ,,,,,0,1,1,,,
+1991-GRO-14-b,31,DNPQ,,,,,0,1,1,,,
+1991-LAR,32,DNPQ,,,,,0,1,1,,,
+1991-VAN,33,DNPQ,,,,,0,1,1,,,
+1991-CHA,34,DNPQ,,,,,0,1,1,,,

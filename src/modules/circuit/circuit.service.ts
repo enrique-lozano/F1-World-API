@@ -1,3 +1,4 @@
+import { HttpException } from '../../utils/custom-error';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 
 import { SelectQueryBuilder } from 'kysely';
@@ -63,9 +64,9 @@ export class CircuitService
     ).executeTakeFirstOrThrow();
   }
 
-  getById(id: string): Promise<CircuitDTO | undefined> {
+  getById(id: string): Promise<CircuitDTO> {
     return CircuitService.getCircuitsSelect(this.db.selectFrom('circuits'))
       .where('id', '==', id)
-      .executeTakeFirst();
+      .executeTakeFirstOrThrow(() => HttpException.resourceNotFound('default'));
   }
 }

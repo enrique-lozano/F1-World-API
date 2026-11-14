@@ -15,3 +15,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1956-TRI-14,12,DNF,,6,,13,0,1,1,0,,overheating
 1956-SCH-16,13,DNF,,5,,2,0,1,1,0,,accident
 1956-MUS-24,14,DNF,,8,,2,0,1,1,0,,accident
+1956-HAW-10,15,DNS,,,,,0,1,1,,,engine-valve
+1956-BRO-12,16,DNS,,,,,0,1,1,,,engine-valve
+1956-CHI,17,DNS,,,,,0,1,1,,,
+1956-SCA-36,18,DNQ,,,,,0,1,1,,,

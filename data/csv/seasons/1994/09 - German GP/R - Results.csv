@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1994-ALE-b,24,DNF,,2,,0,0,1,1,0,,electrical
 1994-DEC-29,25,DNF,,18,,0,0,1,1,0,,collision
 1994-FRE,26,DNF,,9,,0,0,1,1,0,,collision
+1994-BEL-a,27,DNQ,,,,,0,1,1,,,
+1994-GAC-a,28,DNQ,,,,,0,1,1,,,

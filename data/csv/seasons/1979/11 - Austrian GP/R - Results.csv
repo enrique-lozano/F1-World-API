@@ -23,3 +23,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1979-LAM,22,DNF,,23,,3,0,1,1,0,,accident
 1979-MAS-b,23,DNF,,20,,1,0,1,1,0,,engine
 1979-AND-a,24,DNF,,15,,0,0,1,1,0,,clutch
+1979-REB-a,25,DNQ,,,,,0,1,1,,,
+1979-MER-c,26,DNQ,,,,,0,1,1,,,

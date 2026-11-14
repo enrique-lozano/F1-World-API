@@ -24,3 +24,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1967-SPE-12,23,DNF,,11,,3,0,1,1,0,,differential
 1967-SCH,24,DNF,,21,,2,0,1,1,0,,engine
 1967-MIT,25,DNF,,24,,0,0,1,1,0,,engine
+1967-RED,26,DNS,,,,,0,1,1,,,

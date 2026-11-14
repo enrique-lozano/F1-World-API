@@ -19,3 +19,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1996-ALE,18,DNF,,6,,9,0,1,1,0,,collision
 1996-BRU,19,DNF,,19,,1,0,1,1,0,,collision
 1996-HER,20,DNS,,14,,,0,1,1,0,,
+1996-BAD-a,21,DNQ,,,,,0,1,1,,,
+1996-MON-a,22,DNQ,,,,,0,1,1,,,

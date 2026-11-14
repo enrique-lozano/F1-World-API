@@ -80,9 +80,7 @@ export class FreePracticeResultService extends DbService {
     ).executeTakeFirstOrThrow();
   }
 
-  /** Gets info about the results of a certain free practice */ @Get(
-    '/{season}/{round}/{session}'
-  )
+  /** Gets info about the results of a certain free practice */
   async getFreePracticeSessionResults(
     @Path() season: number,
     @Path() round: number,
@@ -104,9 +102,7 @@ export class FreePracticeResultService extends DbService {
     return fpResultsInDB;
   }
 
-  /** Gets info about the result obtained by a driver in a certain free practice */ @Get(
-    '/{season}/{round}/{session}/{driverId}'
-  )
+  /** Gets info about the result obtained by a driver in a certain free practice */
   async getDriverFreePracticeResult(
     @Path() season: number,
     @Path() round: number,

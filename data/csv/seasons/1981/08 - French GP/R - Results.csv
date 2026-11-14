@@ -22,3 +22,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1981-TAM-25,21,DNF,,16,,30,0,1,1,0,,wheel-bearing
 1981-ROS-a,22,DNF,,17,,11,0,1,1,0,,suspension
 1981-SAL-14-a,23,DNF,,22,,6,0,1,1,0,,suspension
+1981-SER-a,24,DNS,,,,,0,1,1,,,
+1981-STO-a,25,DNQ,,,,,0,1,1,,,
+1981-HEN,26,DNQ,,,,,0,1,1,,,
+1981-BOR-9-a,27,DNQ,,,,,0,1,1,,,
+1981-GAB-31,28,DNQ,,,,,0,1,1,,,
+1981-WAR,29,DNQ,,,,,0,1,1,,,

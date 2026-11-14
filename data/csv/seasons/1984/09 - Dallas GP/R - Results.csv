@@ -24,3 +24,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1984-CHE,23,DNF,,14,,8,0,1,1,0,,spun-off
 1984-HES,24,DNF,,18,,0,0,1,1,0,,accident
 1984-BEL-4,25,DSQ,,17,,9,0,1,1,0,,illegal-fuel-and-ballast
+1984-ALL,26,DNS,,,,,0,1,1,,,

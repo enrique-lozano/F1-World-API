@@ -22,3 +22,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1963-TAY-5,21,DNF,,10,,23,0,1,1,0,,fuel-pump
 1963-SET-15,22,DNF,,18,,20,0,1,1,0,,ignition
 1963-MCL-6,23,DNF,,6,,6,0,1,1,0,,engine
+1963-EST-27,24,DNP,,,,,0,1,1,,,
+1963-BAG-17,25,WD,,,,,0,1,1,,,
+1963-HIL-18,26,WD,,,,,0,1,1,,,

@@ -25,3 +25,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1990-MOD-b,24,DNF,,17,,0,0,1,1,0,,clutch
 1990-PIR,25,DNF,,23,,0,0,1,1,0,,collision
 1990-ALL,26,DSQ,,24,,0,0,1,1,0,,received-outside-assistance
+1990-GRO-b,27,DNQ,,,,,0,1,1,,,
+1990-DAL-b,28,DNQ,,,,,0,1,1,,,
+1990-BAR-b,29,DNQ,,,,,0,1,1,,,
+1990-DEC,30,DNQ,,,,,0,1,1,,,
+1990-TAR-b,31,DNPQ,,,,,0,1,1,,,
+1990-MOR-33,32,DNPQ,,,,,0,1,1,,,
+1990-GAC-b,33,DNPQ,,,,,0,1,1,,,
+1990-LAN,34,DNPQ,,,,,0,1,1,,,
+1990-GIA-a,35,DNPQ,,,,,0,1,1,,,

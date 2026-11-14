@@ -23,3 +23,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1980-PIR,22,DNF,,15,,2,0,1,1,0,,accident
 1980-DEA,23,DNF,,11,,2,0,1,1,0,,accident
 1980-REB,24,DNF,,13,,1,0,1,1,0,,gearbox
+1980-MAS,25,DNS,,,,,0,1,1,,,
+1980-KEE-b,26,DNQ,,,,,0,1,1,,,
+1980-LAM-14,27,DNQ,,,,,0,1,1,,,
+1980-THA-30,28,DNQ,,,,,0,1,1,,,
+1980-ROS-b,29,DNQ,,,,,0,1,1,,,

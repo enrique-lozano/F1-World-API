@@ -24,3 +24,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1990-WAR,23,DNF,,21,,5,0,1,1,0,,throttle
 1990-DAL-b,24,DNF,,24,,3,0,1,1,0,,halfshaft
 1990-DEC,25,DNF,,18,,0,0,1,1,0,,spun-off
+1990-NAK-b,26,DNS,,,,,0,1,1,,,
+1990-GRO-b,27,DNQ,,,,,0,1,1,,,
+1990-BAR-b,28,DNQ,,,,,0,1,1,,,
+1990-TAR-b,29,DNQ,,,,,0,1,1,,,
+1990-GAC-b,30,DNQ,,,,,0,1,1,,,
+1990-MOR-33,31,DNPQ,,,,,0,1,1,,,
+1990-LAN,32,DNPQ,,,,,0,1,1,,,
+1990-GIA-b,33,DNPQ,,,,,0,1,1,,,

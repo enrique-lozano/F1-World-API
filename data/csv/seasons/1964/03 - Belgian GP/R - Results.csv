@@ -17,3 +17,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1964-AMO-27,16,DNF,,11,,3,0,1,1,0,,engine
 1964-SUR-10,17,DNF,,5,,3,0,1,1,0,,engine
 1964-REV-29,18,DSQ,,10,,27,0,1,1,0,,push-start
+1964-MAG-7,19,DNS,,,,,0,1,1,,,engine
+1964-AND-18,20,DNS,,,,,0,1,1,,,ignition

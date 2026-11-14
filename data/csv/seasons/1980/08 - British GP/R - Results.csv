@@ -23,3 +23,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1980-CHE,22,DNF,,20,,17,0,1,1,0,,suspension
 1980-DEA,23,DNF,,14,,16,0,1,1,0,,suspension
 1980-JAB,24,DNF,,13,,6,0,1,1,0,,engine
+1980-LAM-14,25,DNQ,,,,,0,1,1,,,
+1980-ROS-a,26,DNQ,,,,,0,1,1,,,
+1980-WIL,27,DNQ,,,,,0,1,1,,,

@@ -17,3 +17,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1966-HIL-3-b,16,DNF,,7,,18,0,1,1,0,,engine
 1966-SOL-9,17,DNF,,15,,9,0,1,1,0,,overheating
 1966-CLA-1-b,18,DNF,,2,,9,0,1,1,0,,gearbox
+1966-SPE-18,19,DNS,,,,,0,1,1,,,accident

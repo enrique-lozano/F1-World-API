@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-DAL-5,24,DNF,,13,,0,0,1,1,0,,collision
 1982-WAR-c,25,DNF,,16,,0,0,1,1,0,,collision
 1982-HEN-4,26,DNF,,20,,0,0,1,1,0,,collision
+1982-KEE-b,27,DNQ,,,,,0,1,1,,,
+1982-WIN-b,28,DNQ,,,,,0,1,1,,,
+1982-BOE-b,29,DNQ,,,,,0,1,1,,,
+1982-BYR,30,DNQ,,,,,0,1,1,,,

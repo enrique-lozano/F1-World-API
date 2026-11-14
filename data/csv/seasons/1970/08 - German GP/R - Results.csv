@@ -20,3 +20,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1970-BRA-3,19,DNF,,12,,4,0,1,1,0,,oil-leak
 1970-BEL-8-a,20,DNF,,21,,4,0,1,1,0,,suspension
 1970-GET-24,21,DNF,,17,,3,0,1,1,0,,throttle
+1970-RED,22,DNQ,,,,,0,1,1,,,
+1970-DEA-20-b,23,DNQ,,,,,0,1,1,,,
+1970-MOS-27,24,DNQ,,,,,0,1,1,,,
+1970-HAH,25,DNQ,,,,,0,1,1,,,

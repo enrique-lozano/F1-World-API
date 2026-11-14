@@ -22,3 +22,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1994-BER-28-a,21,DNF,,3,,16,0,1,1,0,,suspension
 1994-SEN,22,DNF,,1,,5,0,1,1,0,,fatal-accident
 1994-COM,23,DNF,,18,,5,0,1,1,0,,vibrations
+1994-RAT,24,DNS,,,,,0,1,1,,,
+1994-BEL-a,25,DNQ,,,,,0,1,1,,,
+1994-BAR,26,DNQ,,,,,0,1,1,,,

@@ -54,7 +54,11 @@ The `.dbml` file can also be pasted into [dbdiagram.io](https://dbdiagram.io) to
 
 - An **entrant** (`entrants`) is who registers and runs the cars: the "team". Its identity lasts for the whole history, and a sale or rename creates a new entrant linked in `entrantSuccessions`. Per-season facts (own constructor, licence nationality) are in `entrantSeasons`.
 - A **constructor** (`constructors`) designs the chassis (`chassis`). A team can race the chassis of another constructor.
-- An **entry** (`entries`) is a driver in a car configuration: entrant season, registered name (`entrantName`, sponsors included), chassis, engine (`engines`, with who built it) and, if the engine is rebadged, its brand (`engineBrandId`). The results of every session refer to an entry.
+- An **entry** (`entries`) is a driver in a car configuration: entrant season, registered name (`entrantName`, sponsors included), chassis, engine (`engines`, with who built it) and, if the engine is rebadged, its brand (`engineBrandId`). The results of every session refer to an entry. Its id is `{season}-{ABBR}`, the season and the 3-letter abbreviation of the driver (`2023-ALO`); the car number is added when the driver used several that season or another driver of that season shares the abbreviation (`1950-CHI-47`), and a letter when the rest is still the same, e.g. another chassis (`1961-GRE-14-a`).
+
+## Race results of the drivers that did not start
+
+Every driver entered for a race has a row in its `R - Results.csv`, also the ones that did not take the start. `positionText` is then one of the codes of [`resultStatuses.csv`](csv/resultStatuses.csv) instead of a position: `DNS` (did not start), `DNQ` (did not qualify), `DNPQ` (did not pre-qualify), `EX` (excluded), `DNP` (did not practice), `WD` (withdrawn, also the drivers replaced after practice) and `DNA` (did not arrive). They go after the drivers that took the start, in that order, and the non-qualifiers by their qualifying time. A test driver (only free practice) has no race row: the API calculates his `TD`.
 - The Constructors' Championship is not stored: the API calculates it from the race results (`pointsCountForWCC` marks the results that do not score for it).
 
 ## Notes for maintainers

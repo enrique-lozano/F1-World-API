@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-PIQ,24,DNF,,11,,1,0,1,1,0,,collision
 1988-CAF-b,25,DNF,,17,,0,0,1,1,0,,spun-off
 1988-STR,26,DNF,,12,,0,0,1,1,0,,throttle
+1988-NAK,27,DNQ,,,,,0,1,1,,,
+1988-SCH-10,28,DNQ,,,,,0,1,1,,,
+1988-CAM,29,DNQ,,,,,0,1,1,,,
+1988-BAI,30,DNQ,,,,,0,1,1,,,
+1988-MOD,31,EX,,,,,0,1,1,,,

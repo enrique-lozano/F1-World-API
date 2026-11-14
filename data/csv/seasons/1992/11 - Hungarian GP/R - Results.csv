@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1992-COM,24,DNF,,11,,0,0,1,1,0,,collision
 1992-TAR-b,25,DNF,,12,,0,0,1,1,0,,collision
 1992-HER-b,26,DNF,,13,,0,0,1,1,0,,collision
+1992-MOR-24-b,27,DNQ,,,,,0,1,1,,,
+1992-JAR,28,DNQ,,,,,0,1,1,,,
+1992-ZAN,29,DNQ,,,,,0,1,1,,,
+1992-MOR-34,30,DNQ,,,,,0,1,1,,,
+1992-MCC,31,DNPQ,,,,,0,1,1,,,

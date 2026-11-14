@@ -23,3 +23,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1979-TAM-d,22,DNF,,14,,3,0,1,1,0,,engine
 1979-MAS-b,23,DNF,,21,,3,0,1,1,0,,suspension
 1979-PIQ-b,24,DNF,,8,,1,0,1,1,0,,accident
+1979-LAM,25,DNQ,,,,,0,1,1,,,
+1979-SUR,26,DNQ,,,,,0,1,1,,,
+1979-MER-c,27,DNQ,,,,,0,1,1,,,
+1979-REB-b,28,DNQ,,,,,0,1,1,,,

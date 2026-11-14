@@ -25,3 +25,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1983-DEA-c,24,DNF,,12,,0,0,1,1,0,,collision
 1983-SUR,25,DNF,,22,,0,0,1,1,0,,collision
 1983-SUL-b,26,DNF,,23,,0,0,1,1,0,,collision
+1983-BOE,27,DNQ,,,,,0,1,1,,,
+1983-CEC,28,DNQ,,,,,0,1,1,,,
+1983-ACH-a,29,DNQ,,,,,0,1,1,,,

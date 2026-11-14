@@ -23,3 +23,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1980-ARN,22,DNF,,19,,2,0,1,1,0,,suspension
 1980-PIR,23,DNF,,3,,1,0,1,1,0,,engine
 1980-JAR-a,24,DNF,,18,,1,0,1,1,0,,collision
+1980-KEN-a,25,DNQ,,,,,0,1,1,,,
+1980-LAM-10,26,DNQ,,,,,0,1,1,,,
+1980-JOH,27,DNQ,,,,,0,1,1,,,
+1980-CHE,28,DNQ,,,,,0,1,1,,,

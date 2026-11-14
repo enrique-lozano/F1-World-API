@@ -233,6 +233,16 @@ Table retirementReasons {
   Note: 'Why a car did not finish, was disqualified or did not start. The `name` is the text shown to the users.'
 }
 
+Table resultStatuses {
+  code varchar [pk]
+  name varchar [not null]
+  description varchar [not null]
+  raceEntry boolean [not null]
+  started boolean [not null]
+
+  Note: 'Codes of the race results that are not a finishing position (`raceResults.positionText`), with their meaning. The position of a classified driver is a number. `raceEntry`: counts as a race entry in the statistics; `started`: took the start.'
+}
+
 Table safetyCars {
   eventId varchar
   deployed integer
@@ -366,7 +376,7 @@ Table raceResults {
   sessionId varchar
   entryId varchar
   positionOrder integer
-  positionText varchar [not null]
+  positionText varchar [not null, note: 'the finishing position, or a code of resultStatuses (TD is never stored)']
   time integer [note: 'milliseconds']
   gridPosition integer
   gridPenalty varchar

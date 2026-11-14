@@ -25,3 +25,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1992-KAT,24,DNF,,16,,8,0,1,1,0,,spun-off
 1992-SUZ,25,DNF,,15,,1,0,1,1,0,,spun-off
 1992-ZAN,26,DNF,,24,,1,0,1,1,0,,gearbox
+1992-MOD,27,DNQ,,,,,0,1,1,,,
+1992-VAN-7,28,DNQ,,,,,0,1,1,,,
+1992-CHI-a,29,DNQ,,,,,0,1,1,,,
+1992-HIL,30,DNQ,,,,,0,1,1,,,
+1992-MOR-34,31,DNPQ,,,,,0,1,1,,,
+1992-MCC,32,EX,,,,,0,1,1,,,

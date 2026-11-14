@@ -23,3 +23,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1979-FIT-c,22,DNF,,22,,4,0,1,1,0,,electrical
 1979-REU,23,DNF,,13,,1,0,1,1,0,,accident
 1979-STU-a,24,DNF,,23,,0,0,1,1,0,,suspension
+1979-GAI,25,DNQ,,,,,0,1,1,,,
+1979-MER-c,26,DNQ,,,,,0,1,1,,,

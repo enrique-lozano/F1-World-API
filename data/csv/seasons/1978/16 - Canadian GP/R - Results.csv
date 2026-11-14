@@ -21,3 +21,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-LAU-b,20,DNF,,7,,5,0,1,1,0,,brakes
 1978-STU-b,21,DNF,,8,,1,0,1,1,0,,accident
 1978-FIT,22,DNF,,6,,0,0,1,1,0,,accident
+1978-REG-b,23,DNQ,,,,,0,1,1,,,
+1978-GAB,24,DNQ,,,,,0,1,1,,,
+1978-MER,25,DNQ,,,,,0,1,1,,,
+1978-REB,26,DNQ,,,,,0,1,1,,,
+1978-STO-b,27,DNQ,,,,,0,1,1,,,
+1978-BLE-9,28,DNQ,,,,,0,1,1,,,

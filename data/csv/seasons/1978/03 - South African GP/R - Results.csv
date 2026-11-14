@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-FIT,24,DNF,,15,,8,0,1,1,0,,transmission
 1978-CHE-24,25,DNF,,25,,8,0,1,1,0,,oil-leak
 1978-HUN-a,26,DNF,,3,,5,0,1,1,0,,engine
+1978-ARN-31,27,DNQ,,,,,0,1,1,,,
+1978-REG-a,28,DNQ,,,,,0,1,1,,,
+1978-LEO-22,29,DNQ,,,,,0,1,1,,,
+1978-STU-a,30,DNQ,,,,,0,1,1,,,

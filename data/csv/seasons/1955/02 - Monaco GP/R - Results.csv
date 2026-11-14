@@ -21,3 +21,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1955-HAW-18,18,DNF,,12,,22,0,1,1,0,,throttle
 1955-ROS-14,19,DNF,,17,,8,0,1,1,0,,fuel-leak
 1955-MUS-38,20,DNF,,8,,7,0,1,1,0,,transmission
+1955-MAC-22,21,DNQ,,,,,0,1,1,,,
+1955-WHI,22,DNQ,,,,,0,1,1,,,
+1955-HER-4,23,DNQ,,,,,0,1,1,,,

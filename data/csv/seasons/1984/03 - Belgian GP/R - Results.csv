@@ -25,3 +25,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1984-CEC-a,24,DNF,,16,,1,0,1,1,0,,clutch
 1984-BEL-4,25,DSQ,,21,,69,0,1,1,0,,illegal-fuel-and-ballast
 1984-BRU,26,DSQ,,22,,51,0,1,1,0,,illegal-fuel-and-ballast
+1984-ALL,27,DNQ,,,,,0,1,1,,,

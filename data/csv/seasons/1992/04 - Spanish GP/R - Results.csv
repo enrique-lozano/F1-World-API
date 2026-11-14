@@ -25,3 +25,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1992-BOU,24,DNF,,14,,11,0,1,1,0,,engine
 1992-BRU-b,25,DNF,,6,,4,0,1,1,0,,spun-off
 1992-DEC,26,DNF,,11,,2,0,1,1,0,,engine
+1992-KAT,27,DNQ,,,,,0,1,1,,,
+1992-VAN-7,28,DNQ,,,,,0,1,1,,,
+1992-MOD,29,DNQ,,,,,0,1,1,,,
+1992-HIL,30,DNQ,,,,,0,1,1,,,
+1992-MOR-34,31,DNPQ,,,,,0,1,1,,,
+1992-MCC,32,DNPQ,,,,,0,1,1,,,

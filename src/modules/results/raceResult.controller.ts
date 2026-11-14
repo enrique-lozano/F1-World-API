@@ -129,7 +129,6 @@ export class RaceResultService extends DbService {
   }
 
   /** Gets info about the results of a certain race */
-  @Get('/{season}/{round}/{session}')
   async getRaceResults(
     @Path() season: number,
     @Path() round: number,
@@ -152,7 +151,6 @@ export class RaceResultService extends DbService {
   }
 
   /** Gets info about the result obtained by a driver in a certain race */
-  @Get('/{season}/{round}/{session}/{driverId}')
   async getDriverRaceResult(
     @Path() season: number,
     @Path() round: number,

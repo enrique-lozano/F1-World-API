@@ -22,3 +22,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1970-EAT-24,21,DNF,,16,,10,0,1,1,0,,oil-pressure
 1970-ICK-3,22,DNF,,3,,6,0,1,1,0,,transmission
 1970-DEA-11,23,DNS,,18,,,0,1,1,0,,fuel-leak
+1970-STO-18,24,DNS,,,,,0,1,1,,,
+1970-RED,25,DNS,,,,,0,1,1,,,

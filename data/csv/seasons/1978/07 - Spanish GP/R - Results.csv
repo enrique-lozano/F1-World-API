@@ -23,3 +23,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-REB,22,DNF,,20,,21,0,1,1,0,,exhaust
 1978-PAT-35-a,23,DNF,,8,,21,0,1,1,0,,engine
 1978-TAM-a,24,DNF,,14,,16,0,1,1,0,,spun-off
+1978-MER,25,DNQ,,,,,0,1,1,,,
+1978-LUN-30-b,26,DNQ,,,,,0,1,1,,,
+1978-DEV,27,DNQ,,,,,0,1,1,,,
+1978-COL-10,28,DNQ,,,,,0,1,1,,,
+1978-ROS-32-a,29,DNPQ,,,,,0,1,1,,,

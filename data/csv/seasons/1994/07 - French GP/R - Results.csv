@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1994-IRV,24,DNF,,6,,24,0,1,1,0,,gearbox
 1994-ALB-b,25,DNF,,21,,21,0,1,1,0,,engine
 1994-ZAN-11-b,26,DNF,,23,,20,0,1,1,0,,engine
+1994-GAC-a,27,DNQ,,,,,0,1,1,,,
+1994-BEL-a,28,DNQ,,,,,0,1,1,,,

@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-ARN,24,DNF,,17,,2,0,1,1,0,,collision
 1988-BOU,25,DSQ,5340230,6,,43,0,1,1,0,,illegal-fuel
 1988-NAN,26,DSQ,5349143,7,,43,0,1,1,0,,illegal-fuel
+1988-PER,27,DNQ,,,,,0,1,1,,,
+1988-MAR,28,DNQ,,,,,0,1,1,,,
+1988-MOD,29,DNQ,,,,,0,1,1,,,
+1988-BAI,30,DNQ,,,,,0,1,1,,,
+1988-LAR-32,31,DNPQ,,,,,0,1,1,,,

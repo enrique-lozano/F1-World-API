@@ -21,3 +21,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1971-ICK-4-b,20,DNF,,2,,1,0,1,1,0,,accident
 1971-SIF-21,21,DSQ,,3,,6,0,1,1,0,,illegal-pit-stop
 1971-BEU-28,22,DSQ,,22,,3,0,1,1,0,,illegal-pit-stop
+1971-BON-27,23,DNQ,,,,,0,1,1,,,
+1971-MAR-27,24,DNQ,,,,,0,1,1,,,

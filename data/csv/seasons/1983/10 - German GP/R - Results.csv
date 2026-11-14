@@ -25,3 +25,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1983-MAN-d,24,DNF,,17,,1,0,1,1,0,,engine
 1983-GUE,25,DNF,,24,,0,0,1,1,0,,engine
 1983-LAU-b,26,DSQ,,18,,38,0,1,1,0,,reversed-in-pits
+1983-ACH-a,27,DNQ,,,,,0,1,1,,,
+1983-FAB-b,28,DNQ,,,,,0,1,1,,,
+1983-WIN,29,DNQ,,,,,0,1,1,,,

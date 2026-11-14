@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-DEC,24,DNF,,14,,9,0,1,1,0,,clutch
 1988-STR,25,DNF,,16,,8,0,1,1,0,,broken-wing
 1988-PER,26,DNF,,18,,0,0,1,1,0,,suspension
+1988-LAR-32,27,DNQ,,,,,0,1,1,,,
+1988-GHI,28,DNQ,,,,,0,1,1,,,
+1988-JOH,29,DNQ,,,,,0,1,1,,,
+1988-SCH-10,30,DNQ,,,,,0,1,1,,,
+1988-TAR-a,31,DNPQ,,,,,0,1,1,,,

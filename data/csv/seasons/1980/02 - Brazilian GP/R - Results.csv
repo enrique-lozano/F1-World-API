@@ -23,3 +23,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1980-SCH,22,DNF,,8,,10,0,1,1,0,,engine
 1980-REU,23,DNF,,4,,1,0,1,1,0,,halfshaft
 1980-AND,24,DNF,,11,,1,0,1,1,0,,spun-off
+1980-LAM-10,25,DNQ,,,,,0,1,1,,,
+1980-KEN-a,26,DNQ,,,,,0,1,1,,,
+1980-JOH,27,DNQ,,,,,0,1,1,,,
+1980-CHE,28,DNQ,,,,,0,1,1,,,

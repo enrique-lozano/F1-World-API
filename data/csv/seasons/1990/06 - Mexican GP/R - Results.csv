@@ -25,3 +25,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1990-NAK-b,24,DNF,,9,,11,0,1,1,0,,collision
 1990-BRA-7,25,DNF,,21,,11,0,1,1,0,,electrical
 1990-PIR,26,DNF,,18,,10,0,1,1,0,,engine
+1990-CAP,27,DNQ,,,,,0,1,1,,,
+1990-GUG,28,DNQ,,,,,0,1,1,,,
+1990-CAF,29,DNQ,,,,,0,1,1,,,
+1990-DAL-b,30,DNPQ,,,,,0,1,1,,,
+1990-TAR-b,31,DNPQ,,,,,0,1,1,,,
+1990-GAC-a,32,DNPQ,,,,,0,1,1,,,
+1990-LAN,33,DNPQ,,,,,0,1,1,,,
+1990-GIA-a,34,DNPQ,,,,,0,1,1,,,

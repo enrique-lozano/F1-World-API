@@ -23,3 +23,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1979-LAU-a,22,DNF,,12,,5,0,1,1,0,,gearbox
 1979-AND-a,23,DNF,,4,,2,0,1,1,0,,fuel-leak
 1979-JAR-a,24,DNF,,15,,0,0,1,1,0,,electrical
+1979-REB-a,25,DNQ,,,,,0,1,1,,,
+1979-MER-a,26,DNQ,,,,,0,1,1,,,

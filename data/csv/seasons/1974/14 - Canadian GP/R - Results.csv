@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1974-MER,24,DNF,,19,,40,0,1,1,0,,handling
 1974-WIE,25,DNF,,26,,33,0,1,1,0,,engine
 1974-STU,26,DNF,,23,,12,0,1,1,0,,fuel-system
+1974-BEL-18-b,27,DNQ,,,,,0,1,1,,,
+1974-WIL-22,28,DNQ,,,,,0,1,1,,,
+1974-BRA,29,DNQ,,,,,0,1,1,,,
+1974-ASH-42,30,DNQ,,,,,0,1,1,,,

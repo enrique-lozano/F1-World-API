@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1976-HUN,24,DSQ,,2,,76,0,1,1,0,,illegal-car-change
 1976-REG-b,25,DSQ,,4,,36,0,1,1,0,,illegal-car-change
 1976-LAF,26,DSQ,,13,,31,0,1,1,0,,illegal-car-change
+1976-ICK-20-b,27,DNQ,,,,,0,1,1,,,
+1976-GAL,28,DNQ,,,,,0,1,1,,,
+1976-WIL,29,DNQ,,,,,0,1,1,,,
+1976-LOM-33,30,DNQ,,,,,0,1,1,,,

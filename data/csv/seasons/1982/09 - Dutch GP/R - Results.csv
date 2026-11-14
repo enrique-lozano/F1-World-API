@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-SER-a,24,DNF,,19,,18,0,1,1,0,,fuel-system
 1982-WAR-b,25,DNF,,13,,15,0,1,1,0,,oil-leak
 1982-LAF-b,26,DNF,,21,,4,0,1,1,0,,handling
+1982-GUE-c,27,DNQ,,,,,0,1,1,,,
+1982-FAB-c,28,DNQ,,,,,0,1,1,,,
+1982-CHE-c,29,DNQ,,,,,0,1,1,,,
+1982-MOR,30,DNQ,,,,,0,1,1,,,

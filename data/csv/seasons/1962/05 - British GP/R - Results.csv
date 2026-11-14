@@ -20,3 +20,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1962-BON-10,19,DNF,,7,,26,0,1,1,0,,differential
 1962-SEI-44,20,DNF,,21,,10,0,1,1,0,,brakes
 1962-SHE-48,21,DNF,,18,,5,0,1,1,0,,engine
+1962-CAM-38,22,WD,,,,,0,1,1,,,
+1962-GRE-50,23,WD,,,,,0,1,1,,,
+1962-SIF-52,24,WD,,,,,0,1,1,,,
+1962-TRI-28,25,WD,,,,,0,1,1,,,

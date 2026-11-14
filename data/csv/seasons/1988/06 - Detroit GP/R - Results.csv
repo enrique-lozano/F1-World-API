@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-LAR-21-b,24,DNF,,26,,7,0,1,1,0,,engine
 1988-BER,25,DNF,,2,,6,0,1,1,0,,puncture
 1988-JOH,26,DNF,,18,,2,0,1,1,0,,overheating
+1988-CAP,27,DNS,,,,,0,1,1,,,
+1988-NAK,28,DNQ,,,,,0,1,1,,,
+1988-SCH-10,29,DNQ,,,,,0,1,1,,,
+1988-GHI,30,DNQ,,,,,0,1,1,,,
+1988-TAR-a,31,DNPQ,,,,,0,1,1,,,

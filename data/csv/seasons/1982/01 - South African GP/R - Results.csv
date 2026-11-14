@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-PIQ-a,24,DNF,,2,,3,0,1,1,0,,spun-off
 1982-MAN-a,25,DNF,,18,,0,0,1,1,0,,electrical
 1982-JAR-a,26,DNF,,26,,0,0,1,1,0,,collision
+1982-BAL-a,27,DNQ,,,,,0,1,1,,,
+1982-PAL,28,DNQ,,,,,0,1,1,,,
+1982-HEN-29,29,DNQ,,,,,0,1,1,,,
+1982-FAB-a,30,DNQ,,,,,0,1,1,,,
+1982-GUE-a,31,WD,,,,,0,1,1,,,

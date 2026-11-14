@@ -23,3 +23,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1981-MAN-a,22,DNF,,15,,3,0,1,1,0,,engine
 1981-PIR,23,DNF,,12,,3,0,1,1,0,,engine
 1981-CHE-a,24,DNF,,13,,1,0,1,1,0,,clutch
+1981-GUE-31,25,DNQ,,,,,0,1,1,,,
+1981-GAB-32,26,DNQ,,,,,0,1,1,,,
+1981-DAL-17-a,27,DNQ,,,,,0,1,1,,,
+1981-JAB,28,DNQ,,,,,0,1,1,,,
+1981-SAL-18,29,DNQ,,,,,0,1,1,,,

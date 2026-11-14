@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-NAN,24,DNF,,5,,15,0,1,1,0,,ignition
 1988-LAR-32,25,DNF,,24,,8,0,1,1,0,,chassis
 1988-BAI,26,DNF,,23,,0,0,1,1,0,,collision
+1988-CAM,27,DNQ,,,,,0,1,1,,,
+1988-LAR-21-b,28,DNQ,,,,,0,1,1,,,
+1988-DAL,29,DNQ,,,,,0,1,1,,,
+1988-SCH-10,30,DNQ,,,,,0,1,1,,,
+1988-CAF-b,31,DNPQ,,,,,0,1,1,,,

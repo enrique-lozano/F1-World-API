@@ -25,3 +25,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1983-DEC,24,DNF,,8,,5,0,1,1,0,,engine
 1983-JAR-b,25,DNF,,22,,3,0,1,1,0,,suspension
 1983-WIN,26,DSQ,,9,,50,0,1,1,0,,overtaking-on-formation-lap
+1983-GHI-b,27,DNQ,,,,,0,1,1,,,
+1983-CEC,28,DNQ,,,,,0,1,1,,,
+1983-ACH-a,29,DNQ,,,,,0,1,1,,,

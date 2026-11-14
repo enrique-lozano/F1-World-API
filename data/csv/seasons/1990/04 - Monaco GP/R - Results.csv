@@ -25,3 +25,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1990-MOD-b,24,DNF,,14,,3,0,1,1,0,,transmission
 1990-PIR,25,DNF,,9,,0,0,1,1,0,,engine
 1990-PIQ-b,26,DSQ,,10,,34,0,1,1,0,,push-start
+1990-ALB,27,DNQ,,,,,0,1,1,,,
+1990-GRO-b,28,DNQ,,,,,0,1,1,,,
+1990-GUG,29,DNQ,,,,,0,1,1,,,
+1990-MOR-33,30,DNQ,,,,,0,1,1,,,
+1990-TAR-b,31,DNPQ,,,,,0,1,1,,,
+1990-DAL-b,32,DNPQ,,,,,0,1,1,,,
+1990-LAN,33,DNPQ,,,,,0,1,1,,,
+1990-GAC-a,34,DNPQ,,,,,0,1,1,,,
+1990-GIA-a,35,DNPQ,,,,,0,1,1,,,

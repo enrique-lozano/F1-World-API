@@ -31,3 +31,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1961-CLA-36,30,DNF,,7,,1,0,1,1,0,,collision
 1961-VON-4,31,DNF,,1,,1,0,1,1,0,,fatal-collision
 1961-ASH-18,32,DNF,,25,,0,0,1,1,0,,accident
+1961-BAR-46,33,DNS,,,,,0,1,1,,,
+1961-PIL,34,DNQ,,,,,0,1,1,,,
+1961-NAT-58,35,WD,,,,,0,1,1,,,
+1961-MAY-70,36,DNA,,,,,0,1,1,,,
+1961-PRI,37,DNA,,,,,0,1,1,,,
+1961-THI,38,DNA,,,,,0,1,1,,,

@@ -77,12 +77,12 @@ export class HttpException extends Error implements JsonApiError {
     });
   }
 
-  /** A HttpException with a 400 status */
+  /** A HttpException with a 404 status */
   static resourceNotFound(
     key: keyof typeof enTranslations.HTTP_ERRORS.not_found.descriptions
   ) {
     return new HttpException({
-      status: 400,
+      status: 404,
       code:
         `${key != 'default' ? key.toLocaleUpperCase() + '_' : ''}` +
         'NOT_FOUND',

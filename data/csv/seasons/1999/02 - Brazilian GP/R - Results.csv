@@ -20,3 +20,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1999-TRU,19,DNF,,13,,21,0,1,1,0,,gearbox
 1999-HER,20,DNF,,10,,15,0,1,1,0,,hydraulics
 1999-HIL,21,DNF,,7,,10,0,1,1,0,,collision-damage
+1999-ZON,22,DNQ,,,,,0,1,1,,,

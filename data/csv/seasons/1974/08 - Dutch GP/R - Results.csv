@@ -24,3 +24,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1974-STU,23,DNF,,22,,0,0,1,1,0,,accident
 1974-PRY-16,24,DNF,,11,,0,0,1,1,0,,collision
 1974-SCH-22,25,DSQ,,17,,69,0,1,1,0,,illegal-tyre-change
+1974-SCH-23,26,DNQ,,,,,0,1,1,,,
+1974-VAN,27,DNQ,,,,,0,1,1,,,

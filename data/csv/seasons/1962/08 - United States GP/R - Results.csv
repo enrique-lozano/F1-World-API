@@ -17,3 +17,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1962-MAY,16,DNF,,11,,31,0,1,1,0,,ignition
 1962-SUR-18,17,DNF,,18,,19,0,1,1,0,,engine
 1962-DEB-12,18,DNF,,13,,9,0,1,1,0,,accident
+1962-SAL-19,19,DNS,,,,,0,1,1,,,
+1962-HAL,20,DNS,,,,,0,1,1,,,
+1962-HIL-11-b,21,DNS,,,,,0,1,1,,,

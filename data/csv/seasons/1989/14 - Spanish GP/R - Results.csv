@@ -25,3 +25,15 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1989-MOD,24,DNF,,12,,11,0,1,1,0,,electrical
 1989-LAR-17,25,DNF,,11,,6,0,1,1,0,,suspension
 1989-NAK,26,DNF,,18,,0,0,1,1,0,,collision
+1989-ARN,27,DNQ,,,,,0,1,1,,,
+1989-RAP-39,28,DNQ,,,,,0,1,1,,,
+1989-FOI-38,29,DNQ,,,,,0,1,1,,,
+1989-TAR-b,30,DNPQ,,,,,0,1,1,,,
+1989-JOH,31,DNPQ,,,,,0,1,1,,,
+1989-MOR-b,32,DNPQ,,,,,0,1,1,,,
+1989-ALB-29,33,DNPQ,,,,,0,1,1,,,
+1989-SCH,34,DNPQ,,,,,0,1,1,,,
+1989-DAL-41-b,35,DNPQ,,,,,0,1,1,,,
+1989-SUZ,36,DNPQ,,,,,0,1,1,,,
+1989-LAR-33,37,DNPQ,,,,,0,1,1,,,
+1989-BER-32,38,DNPQ,,,,,0,1,1,,,

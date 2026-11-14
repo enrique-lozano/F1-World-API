@@ -26,3 +26,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1976-LAU-b,25,DNF,,2,,8,0,1,1,0,,engine
 1976-NIL,26,DNF,,12,,8,0,1,1,0,,gearbox
 1976-ERT-a,27,DNF,,27,,4,0,1,1,0,,differential
+1976-MAG,28,DNQ,,,,,0,1,1,,,
+1976-HOF-b,29,DNQ,,,,,0,1,1,,,
+1976-KES-32,30,DNQ,,,,,0,1,1,,,

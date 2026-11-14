@@ -23,3 +23,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1979-REB-a,22,DNF,,15,,13,0,1,1,0,,transmission
 1979-JAB-b,23,DNF,,17,,13,0,1,1,0,,turbo
 1979-REG-b,24,DNF,,8,,1,0,1,1,0,,collision
+1979-TAM-b,25,DNQ,,,,,0,1,1,,,
+1979-MER-b,26,DNQ,,,,,0,1,1,,,
+1979-DAL-22-a,27,DNQ,,,,,0,1,1,,,
+1979-BRA-36-a,28,DNQ,,,,,0,1,1,,,

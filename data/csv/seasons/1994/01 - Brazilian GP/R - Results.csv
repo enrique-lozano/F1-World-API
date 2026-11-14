@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1994-BER-28-a,24,DNF,,17,,5,0,1,1,0,,engine
 1994-BER-19,25,DNF,,23,,2,0,1,1,0,,collision
 1994-GAC-a,26,DNF,,25,,1,0,1,1,0,,collision
+1994-RAT,27,DNQ,,,,,0,1,1,,,
+1994-BEL-a,28,DNQ,,,,,0,1,1,,,

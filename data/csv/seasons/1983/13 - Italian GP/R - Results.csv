@@ -25,3 +25,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1983-JOH-a,24,DNF,,17,,4,0,1,1,0,,distributor
 1983-PAT-b,25,DNF,,1,,2,0,1,1,0,,engine
 1983-DEC,26,DNF,,6,,2,0,1,1,0,,collision
+1983-BOE,27,DNQ,,,,,0,1,1,,,
+1983-LAF-a,28,DNQ,,,,,0,1,1,,,
+1983-ACH-b,29,DNQ,,,,,0,1,1,,,

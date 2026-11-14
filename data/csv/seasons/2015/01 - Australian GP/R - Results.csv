@@ -16,3 +16,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2015-MAL,15,DNF,,9,,0,0,1,1,0,,collision
 2015-KVY,16,DNS,,12,,,0,1,1,0,,
 2015-MAG,17,DNS,,17,,,0,1,1,0,,
+2015-BOT,18,DNS,,,,,0,1,1,,,injury
+2015-MER,19,DNP,,,,,0,1,1,,,
+2015-STE,20,DNP,,,,,0,1,1,,,

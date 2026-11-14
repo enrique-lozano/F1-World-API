@@ -151,10 +151,10 @@ export interface ConstructorDTO extends Omit<Constructors, 'countryId'> {
  * Career statistics of a driver or a constructor. Only the main races (session `R`) are taken into account, except for the points.
  */
 export interface CareerStats {
-  /** Number of races (session `R`) with at least one race result entry, classified or not (it includes `DNS`, `DNQ` and `WD` results) */
+  /** Number of race entries: races (session `R`) with at least one result that is a position or a code with `raceEntry` = 1 in `/result-statuses` (it includes `DNS`, `DNQ`, `DNPQ`, `EX` and `DNP`, but not `WD` and `DNA`) */
   races: number;
 
-  /** Number of races (session `R`) with at least one result different from `DNS` (did not start), `DNQ` (did not qualify) and `WD` (withdrawn) */
+  /** Number of races (session `R`) started: with at least one result that is a position or a code with `started` = 1 in `/result-statuses` (`DNF`, `NC`, `DSQ`) */
   starts: number;
 
   /** Number of races (session `R`) won, that is, with a result in the first position (`positionText` = `1`). Sprint races are not counted */
@@ -449,6 +449,32 @@ export interface Events {
   posterURL: string | null;
 }
 
+/** An entry of an event (GP) and what it did in it */
+export interface EventEntryDTO {
+  /** The race result (a position or a code of `/result-statuses`), `TD` if the driver only took part in free practice, or `null` if the entry has results of other sessions but none in the race */
+  participation: string | null;
+  entry: EntryDTO;
+}
+
+/** The result of a driver in one event (GP), as in the season tables of Wikipedia: one row per race result, plus the events in which he was only a test driver */
+export interface DriverEventResultDTO {
+  eventId: string;
+  season: number;
+  round: number;
+  grandPrixId: string;
+  /** Country of the grand prix (alpha-2 code) */
+  grandPrixCountryId: string | null;
+  scheduledLaps: number | null;
+  entryId: string;
+  driverNumber: number;
+  constructorId: string;
+  constructorName: string;
+  /** The finishing position, a code of `/result-statuses` (`DNF`, `DNQ`, `WD`...) or `TD` (only free practice) */
+  positionText: string;
+  points: number | null;
+  laps: number | null;
+}
+
 export interface EventDTO extends Omit<Events, 'grandPrixId' | 'circuitId'> {
   /** Season (year) of the event, deduced from its ID */
   season: number;
@@ -522,7 +548,7 @@ export interface RaceResults {
   entryId: string;
   sessionId: string;
   positionOrder: number;
-  /** The finishing position (`"1"`, `"2"`...) or a code: `DNF`, `NC` (not classified), `DNS`, `DSQ`, `WD` (withdrawn), `DNQ` */
+  /** The finishing position (`"1"`, `"2"`...) or one of the codes of `/result-statuses`: `DNF`, `NC`, `DSQ`, `DNS`, `DNQ`, `DNPQ`, `EX`, `DNP`, `WD` or `DNA`. Every driver entered for the race has a result, also the ones that did not take the start */
   positionText: string;
   time: number | null;
   gridPosition: number | null;
@@ -535,6 +561,17 @@ export interface RaceResults {
   pointsGained: number | null;
   timePenalty: number | null;
   retirementReasonId: string | null;
+}
+
+export interface ResultStatuses {
+  /** The code, as stored in `positionText` (`DNF`, `DNQ`, `WD`...) */
+  code: string;
+  name: string;
+  description: string;
+  /** 1 if a result with this code counts as a race entry in the statistics (`races`) */
+  raceEntry: number;
+  /** 1 if the driver took the start of the race (`starts`) */
+  started: number;
 }
 
 export interface RetirementReasons {
@@ -614,6 +651,7 @@ export interface DB {
   raceResults: RaceResults;
   redFlags: RedFlags;
   retirementReasons: RetirementReasons;
+  resultStatuses: ResultStatuses;
   safetyCars: SafetyCars;
   tyreManufacturers: TyreManufacturers;
 }

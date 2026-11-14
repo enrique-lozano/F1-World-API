@@ -24,3 +24,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1977-JON,23,DNF,,17,,0,0,1,1,0,,accident
 1977-REG,24,DNF,,22,,0,0,1,1,0,,accident
 1977-HEY,25,DSQ,,PL,,9,0,1,1,0,,illegal-race-entry
+1977-NEV,26,DNQ,,,,,0,1,1,,,
+1977-DEV,27,DNQ,,,,,0,1,1,,,
+1977-FIT-b,28,DNQ,,,,,0,1,1,,,
+1977-MER-37,29,DNQ,,,,,0,1,1,,,
+1977-PIL-40,30,DNQ,,,,,0,1,1,,,

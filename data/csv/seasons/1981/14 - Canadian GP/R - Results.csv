@@ -23,3 +23,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1981-TAM-25,22,DNF,,17,,6,0,1,1,0,,spun-off
 1981-PAT-b,23,DNF,,18,,6,0,1,1,0,,spun-off
 1981-ARN-b,24,DNF,,8,,0,0,1,1,0,,collision
+1981-ROS-c,25,DNQ,,,,,0,1,1,,,
+1981-SER-c,26,DNQ,,,,,0,1,1,,,
+1981-HEN,27,DNQ,,,,,0,1,1,,,
+1981-VIL-30,28,DNQ,,,,,0,1,1,,,
+1981-WAR,29,DNQ,,,,,0,1,1,,,
+1981-GAB-31,30,DNQ,,,,,0,1,1,,,

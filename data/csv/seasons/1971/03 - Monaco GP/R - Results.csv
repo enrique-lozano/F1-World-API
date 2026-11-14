@@ -17,3 +17,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1971-WIS-2-a,16,DNF,,12,,21,0,1,1,0,,wheel-bearing
 1971-CEV-12,17,DNF,,15,,5,0,1,1,0,,accident
 1971-HIL-7,18,DNF,,9,,1,0,1,1,0,,accident
+1971-GAN-16-a,19,DNQ,,,,,0,1,1,,,
+1971-AND-6-a,20,DNQ,,,,,0,1,1,,,
+1971-GAL-19,21,DNQ,,,,,0,1,1,,,
+1971-SOL-18,22,DNQ,,,,,0,1,1,,,
+1971-BAR-28,23,DNQ,,,,,0,1,1,,,

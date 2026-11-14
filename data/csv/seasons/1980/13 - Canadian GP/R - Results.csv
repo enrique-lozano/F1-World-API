@@ -23,3 +23,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1980-PAT,22,DNF,,11,,6,0,1,1,0,,accident
 1980-DAL-b,23,DNF,,20,,0,0,1,1,0,,accident
 1980-THA-43,24,DNF,,24,,0,0,1,1,0,,car-raced-by-jarier
+1980-SUR-9-b,25,DNQ,,,,,0,1,1,,,
+1980-SCH,26,DNQ,,,,,0,1,1,,,
+1980-KEE-b,27,DNQ,,,,,0,1,1,,,
+1980-COG,28,DNQ,,,,,0,1,1,,,

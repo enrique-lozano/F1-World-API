@@ -25,3 +25,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-PAT-35-b,24,DNF,,13,,0,0,1,1,0,,accident
 1978-PIR,25,DNF,,17,,0,0,1,1,0,,accident
 1978-BRA-b,26,DSQ,,22,,37,0,1,1,0,,push-start
+1978-KEE-b,27,DNS,,,,,0,1,1,,,injury
+1978-REG-b,28,DNQ,,,,,0,1,1,,,
+1978-BLE-10,29,DNQ,,,,,0,1,1,,,
+1978-MAS,30,DNQ,,,,,0,1,1,,,
+1978-ERT-23,31,DNPQ,,,,,0,1,1,,,
+1978-ONG-39,32,DNPQ,,,,,0,1,1,,,
+1978-STO-b,33,DNPQ,,,,,0,1,1,,,

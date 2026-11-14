@@ -14,3 +14,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1967-AND-17,13,DNF,,14,,16,0,1,1,0,,ignition
 1967-HIL-7,14,DNF,,1,,13,0,1,1,0,,differential
 1967-SPE-11,15,DNF,,12,,9,0,1,1,0,,halfshaft
+1967-BEL-20,16,WD,,,,,0,1,1,,,
+1967-BON-19,17,WD,,,,,0,1,1,,,
+1967-SCA-19,18,WD,,,,,0,1,1,,,
+1967-SER-21,19,WD,,,,,0,1,1,,,
+1967-SUR-5,20,WD,,,,,0,1,1,,,

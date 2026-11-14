@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1977-AND-5,24,DNF,,3,,11,0,1,1,0,,engine
 1977-SCH-10-a,25,DNF,,24,,2,0,1,1,0,,accident
 1977-REG,26,DNF,,11,,0,0,1,1,0,,accident
+1977-HEN-38-a,27,DNQ,,,,,0,1,1,,,
+1977-ASH-39,28,DNQ,,,,,0,1,1,,,
+1977-REB-25,29,DNQ,,,,,0,1,1,,,
+1977-RIB,30,DNQ,,,,,0,1,1,,,

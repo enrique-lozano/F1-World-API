@@ -1,3 +1,4 @@
+import { HttpException } from '../../utils/custom-error';
 import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam } from '../../models/include-filter';
@@ -68,9 +69,9 @@ export class GrandPrixService
     ).executeTakeFirstOrThrow();
   }
 
-  getById(id: string): Promise<GrandsPrixDTO | undefined> {
+  getById(id: string): Promise<GrandsPrixDTO> {
     return GrandPrixService.getGrandPrixSelect(this.db.selectFrom('grandsPrix'))
       .where('id', '==', id)
-      .executeTakeFirst();
+      .executeTakeFirstOrThrow(() => HttpException.resourceNotFound('default'));
   }
 }

@@ -23,3 +23,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1976-FIT,22,DNF,,17,,41,0,1,1,0,,exhaust
 1976-STU-34,23,DNF,,8,,36,0,1,1,0,,handling
 1976-MER-20,24,DNF,,24,,11,0,1,1,0,,accident
+1976-ERT-b,25,DNS,,,,,0,1,1,,,
+1976-AMO-21,26,DNS,,,,,0,1,1,,,
+1976-STU-39,27,DNQ,,,,,0,1,1,,,

@@ -25,3 +25,15 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1989-BER-28,24,DNF,,3,,0,0,1,1,0,,collision
 1989-PER-a,25,DNF,,23,,0,0,1,1,0,,collision
 1989-LAR-17,26,DSQ,,19,,10,0,1,1,0,,illegal-start
+1989-FOI-33-a,27,DNQ,,,,,0,1,1,,,
+1989-DAL-29-a,28,DNQ,,,,,0,1,1,,,
+1989-ARN,29,DNQ,,,,,0,1,1,,,
+1989-MOR-a,30,DNQ,,,,,0,1,1,,,
+1989-CAF,31,DNPQ,,,,,0,1,1,,,
+1989-GHI,32,DNPQ,,,,,0,1,1,,,
+1989-WEI,33,DNPQ,,,,,0,1,1,,,
+1989-RAP-32-a,34,DNPQ,,,,,0,1,1,,,
+1989-WIN,35,DNPQ,,,,,0,1,1,,,
+1989-SUZ,36,DNPQ,,,,,0,1,1,,,
+1989-JOH,37,DNPQ,,,,,0,1,1,,,
+1989-GAC-37,38,DNPQ,,,,,0,1,1,,,

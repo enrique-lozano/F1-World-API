@@ -24,3 +24,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1990-SEN,23,DNF,,1,,0,0,1,1,0,,collision
 1990-PRO-b,24,DNF,,2,,0,0,1,1,0,,collision
 1990-MOD-b,25,DNF,,21,,0,0,1,1,0,,collision
+1990-ALE-b,26,DNS,,,,,0,1,1,,,
+1990-GRO-b,27,DNQ,,,,,0,1,1,,,
+1990-TAR-b,28,DNQ,,,,,0,1,1,,,
+1990-DAL-b,29,DNQ,,,,,0,1,1,,,
+1990-GAC-b,30,DNQ,,,,,0,1,1,,,

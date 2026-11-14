@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1992-BER-2-b,24,DNF,,4,,4,0,1,1,0,,electrical
 1992-SUZ,25,DNF,,22,,2,0,1,1,0,,engine
 1992-MOD,26,DNF,,12,,1,0,1,1,0,,gearbox
+1992-CHI-a,27,DNQ,,,,,0,1,1,,,
+1992-BEL,28,DNQ,,,,,0,1,1,,,
+1992-VAN-7,29,DNQ,,,,,0,1,1,,,
+1992-AMA,30,DNQ,,,,,0,1,1,,,
+1992-MOR-34,31,DNPQ,,,,,0,1,1,,,

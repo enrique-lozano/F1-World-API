@@ -19,3 +19,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1981-STO-a,18,DNF,,14,,15,0,1,1,0,,fuel-system
 1981-DEC-b,19,DNF,,11,,0,0,1,1,0,,collision
 1981-AND-a,20,DNF,,12,,0,0,1,1,0,,collision
+1981-ROS-b,21,DNQ,,,,,0,1,1,,,
+1981-JAB,22,DNQ,,,,,0,1,1,,,
+1981-REB-a,23,DNQ,,,,,0,1,1,,,
+1981-SER-b,24,DNQ,,,,,0,1,1,,,
+1981-GHI-32,25,DNQ,,,,,0,1,1,,,
+1981-GAB-31,26,DNQ,,,,,0,1,1,,,
+1981-BOR-9-a,27,DNPQ,,,,,0,1,1,,,
+1981-DAL-18,28,DNPQ,,,,,0,1,1,,,
+1981-SAL-17,29,DNPQ,,,,,0,1,1,,,
+1981-HEN,30,DNPQ,,,,,0,1,1,,,
+1981-WAR,31,DNPQ,,,,,0,1,1,,,

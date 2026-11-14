@@ -24,3 +24,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1993-BRU,23,DNF,,22,,7,0,1,1,0,,spun-off
 1993-WEN,24,DNF,,5,,0,0,1,1,0,,collision
 1993-AND,25,DNF,,6,,0,0,1,1,0,,collision
+1993-BAD,26,DNQ,,,,,0,1,1,,,

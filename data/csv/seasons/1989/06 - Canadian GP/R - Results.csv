@@ -25,3 +25,16 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1989-JOH,24,DSQ,,18,,13,0,1,1,0,,ignored-black-flag
 1989-MAN,25,DSQ,,5,,0,0,1,1,0,,illegal-start
 1989-NAN-a,26,DSQ,,13,,0,0,1,1,0,,illegal-start
+1989-NAK,27,DNQ,,,,,0,1,1,,,
+1989-DAL-29-b,28,DNQ,,,,,0,1,1,,,
+1989-HER-20,29,DNQ,,,,,0,1,1,,,
+1989-GRO,30,DNQ,,,,,0,1,1,,,
+1989-BRU,31,DNPQ,,,,,0,1,1,,,
+1989-GAC-37,32,DNPQ,,,,,0,1,1,,,
+1989-FOI-33-a,33,DNPQ,,,,,0,1,1,,,
+1989-GHI,34,DNPQ,,,,,0,1,1,,,
+1989-SCH,35,DNPQ,,,,,0,1,1,,,
+1989-WIN,36,DNPQ,,,,,0,1,1,,,
+1989-WEI,37,DNPQ,,,,,0,1,1,,,
+1989-SUZ,38,DNPQ,,,,,0,1,1,,,
+1989-RAP-32-b,39,DNPQ,,,,,0,1,1,,,

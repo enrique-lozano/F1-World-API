@@ -19,3 +19,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1963-BAN-2,18,DNF,,6,,37,0,1,1,0,,gearbox
 1963-GRE-42,19,DNF,,12,,26,0,1,1,0,,engine
 1963-SUR-4,20,DNF,,1,,16,0,1,1,0,,engine
+1963-AMO-38,21,DNS,,,,,0,1,1,,,
+1963-DEA-64,22,DNQ,,,,,0,1,1,,,
+1963-RAB-50,23,DNQ,,,,,0,1,1,,,
+1963-SET-34,24,DNQ,,,,,0,1,1,,,
+1963-DEB-28,25,DNQ,,,,,0,1,1,,,
+1963-BRA-62,26,DNQ,,,,,0,1,1,,,
+1963-PIL-46,27,DNQ,,,,,0,1,1,,,
+1963-LIP,28,DNQ,,,,,0,1,1,,,
+1963-BUR-36,29,WD,,,,,0,1,1,,,
+1963-SEI,30,WD,,,,,0,1,1,,,
+1963-STA,31,WD,,,,,0,1,1,,,

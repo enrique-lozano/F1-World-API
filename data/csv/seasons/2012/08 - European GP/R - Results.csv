@@ -22,3 +22,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2012-VET,21,DNF,,1,,33,0,1,1,0,,alternator
 2012-KOB,22,DNF,,7,,33,0,1,1,0,,collision-damage
 2012-VER,23,DNF,,18,,26,0,1,1,0,,collision-damage
+2012-GLO,24,DNS,,,,,0,1,1,,,

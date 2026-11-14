@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1992-GRO,24,DNF,,22,,1,0,1,1,0,,accident
 1992-BER-2-b,25,DNF,,6,,0,0,1,1,0,,transmission
 1992-MAR,26,DNF,,19,,0,0,1,1,0,,spun-off
+1992-FIT-b,27,DNQ,,,,,0,1,1,,,
+1992-MOR-34,28,DNQ,,,,,0,1,1,,,
+1992-MCC,29,DNQ,,,,,0,1,1,,,
+1992-COM,30,DNQ,,,,,0,1,1,,,

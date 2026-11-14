@@ -20,3 +20,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1965-GIN-11,19,DNF,,3,,26,0,1,1,0,,injection
 1965-BAN-2-b,20,DNF,,9,,2,0,1,1,0,,engine
 1965-BRA-7,21,DNS,,8,,,0,1,1,0,,car-raced-by-gurney
+1965-AMO-24-b,22,DNS,,,,,0,1,1,,,
+1965-ROL,23,DNS,,,,,0,1,1,,,
+1965-GUB,24,DNQ,,,,,0,1,1,,,

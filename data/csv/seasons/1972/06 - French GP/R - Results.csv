@@ -23,3 +23,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1972-PAC-17,22,DNF,,11,,18,0,1,1,0,,engine
 1972-MAR-25,23,DNF,,6,,8,0,1,1,0,,injury
 1972-LAU-14,24,DNF,,21,,4,0,1,1,0,,halfshaft
+1972-PES-16,25,DNS,,,,,0,1,1,,,accident
+1972-GAN-23,26,DNS,,,,,0,1,1,,,
+1972-GET-22,27,DNS,,,,,0,1,1,,,accident
+1972-BEL-21-a,28,DNS,,,,,0,1,1,,,transmission
+1972-CHA-29,29,DNQ,,,,,0,1,1,,,

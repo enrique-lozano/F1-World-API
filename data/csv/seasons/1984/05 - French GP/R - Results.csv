@@ -25,3 +25,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1984-ALL,24,DNF,,21,,4,0,1,1,0,,electrical
 1984-BRU,25,DSQ,,23,,76,0,1,1,0,,illegal-fuel-and-ballast
 1984-BEL-4,26,DSQ,,20,,11,0,1,1,0,,illegal-fuel-and-ballast
+1984-HES,27,DNS,,,,,0,1,1,,,

@@ -16,3 +16,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1962-BRA-26,15,DNF,,4,,10,0,1,1,0,,suspension
 1962-SIF-40,16,DNF,,15,,5,0,1,1,0,,clutch
 1962-IRE-36,17,DNF,,8,,1,0,1,1,0,,puncture
+1962-ARU,18,WD,,,,,0,1,1,,,
+1962-BUR-44,19,WD,,,,,0,1,1,,,
+1962-DAV,20,WD,,,,,0,1,1,,,

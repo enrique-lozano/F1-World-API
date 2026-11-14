@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-LAR-21-b,24,DNF,,14,,9,0,1,1,0,,suspension
 1988-PAL,25,DNF,,22,,4,0,1,1,0,,chassis
 1988-ARN,26,19,,19,,0,0,1,1,0,,throttle
+1988-SCH-10,27,DNQ,,,,,0,1,1,,,
+1988-LAR-32,28,DNQ,,,,,0,1,1,,,
+1988-BAI,29,DNQ,,,,,0,1,1,,,
+1988-GHI,30,DNQ,,,,,0,1,1,,,
+1988-TAR-b,31,DNPQ,,,,,0,1,1,,,

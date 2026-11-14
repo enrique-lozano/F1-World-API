@@ -19,3 +19,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1965-RIN-10-a,18,DNF,,10,,39,0,1,1,0,,electrical
 1965-LOV,19,DNF,,18,,20,0,1,1,0,,halfshaft
 1965-GUR-8,20,DNF,,9,,11,0,1,1,0,,ignition
+1965-BLO,21,DNQ,,,,,0,1,1,,,
+1965-LED,22,DNQ,,,,,0,1,1,,,
+1965-SER,23,DNQ,,,,,0,1,1,,,
+1965-NIE,24,DNQ,,,,,0,1,1,,,
+1965-PIE,25,DNQ,,,,,0,1,1,,,
+1965-CHA,26,DNPQ,,,,,0,1,1,,,
+1965-PRE,27,DNPQ,,,,,0,1,1,,,
+1965-PUZ,28,DNPQ,,,,,0,1,1,,,
+1965-ATT-34-a,29,WD,,,,,0,1,1,,,

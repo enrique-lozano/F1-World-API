@@ -1,3 +1,4 @@
+import { HttpException } from '../utils/custom-error';
 import { Get, Queries, Route, Tags } from 'tsoa';
 
 import { SelectQueryBuilder } from 'kysely';
@@ -68,11 +69,11 @@ export class TyreManufacturerService extends DbService {
    *
    * @param companyId The ID of the company to get */
   @Get('{id}')
-  getById(id: string): Promise<TyreManufacturerDTO | undefined> {
+  getById(id: string): Promise<TyreManufacturerDTO> {
     return TyreManufacturerService.getTyreManufacturerSelect(
       this.db.selectFrom('tyreManufacturers')
     )
       .where('id', '==', id)
-      .executeTakeFirst();
+      .executeTakeFirstOrThrow(() => HttpException.resourceNotFound('default'));
   }
 }

@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-GHI,24,DNF,,25,,16,0,1,1,0,,gearbox
 1988-CAP,25,DNF,,9,,2,0,1,1,0,,gearbox
 1988-DEC,26,DNF,,16,,1,0,1,1,0,,suspension
+1988-LAR-32,27,DNQ,,,,,0,1,1,,,
+1988-JOH,28,DNQ,,,,,0,1,1,,,
+1988-ARN,29,DNQ,,,,,0,1,1,,,
+1988-SCH-10,30,DNQ,,,,,0,1,1,,,

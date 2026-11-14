@@ -23,3 +23,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1970-OLI-20,22,DNF,,7,,14,0,1,1,0,,engine
 1970-EAT-21-b,23,DNF,,14,,10,0,1,1,0,,engine
 1970-SUR-17-b,24,DNF,,8,,6,0,1,1,0,,engine
+1970-WES,25,DNQ,,,,,0,1,1,,,
+1970-LOV-28,26,DNQ,,,,,0,1,1,,,
+1970-DEA-10-b,27,DNQ,,,,,0,1,1,,,

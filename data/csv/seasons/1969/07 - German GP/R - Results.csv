@@ -21,3 +21,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1969-ELF-12-b,20,DNF,,6,,0,0,1,1,0,,accident
 1969-AND-3-b,21,DNF,,12,,0,0,1,1,0,,accident
 1969-SUR-14-b,22,DNS,,11,,,0,1,1,0,,
+1969-HAH,23,DNS,,,,,0,1,1,,,withdrew
+1969-QUE,24,DNS,,,,,0,1,1,,,withdrew
+1969-MIT,25,DNS,,,,,0,1,1,,,fatal-accident-in-practice
+1969-HER,26,WD,,,,,0,1,1,,,withdrew

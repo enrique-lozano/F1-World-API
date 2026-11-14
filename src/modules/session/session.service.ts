@@ -18,6 +18,11 @@ import { QualifyingResultService } from '../results/qualifyingResult.controller'
 import { RaceResultService } from '../results/raceResult.controller';
 import { SessionController } from './session.controller';
 
+/** Sessions stored in `qualifyingResults` (pre-qualifying and sprint shootouts included) */
+const QUALIFYING_SESSIONS = ['PQ', 'Q', 'Q1', 'Q2', 'Q3', 'SQ1', 'SQ2', 'SQ3'];
+/** Sessions stored in `raceResults` */
+const RACE_SESSIONS = ['R', 'SR'];
+
 export class SessionService
   extends DbService
   implements
@@ -58,14 +63,10 @@ export class SessionService
     ).execute();
   }
 
-  getById(
-    season: number,
-    round: number,
-    session: string
-  ): Promise<SessionDTO | undefined> {
+  getById(season: number, round: number, session: string): Promise<SessionDTO> {
     return SessionService.getSessionSelect(
       this.getSessionsWithParams({ season, round, session })
-    ).executeTakeFirst();
+    ).executeTakeFirstOrThrow(() => HttpException.resourceNotFound('default'));
   }
 
   getSessionResults(
@@ -74,14 +75,14 @@ export class SessionService
     session: string,
     fields: IncludeQueryParam
   ): Promise<(TimedSessionResultsDTO | RaceResultDTO)[]> {
-    if (['Q1', 'Q2', 'Q3', 'Q'].some((x) => x === session)) {
+    if (QUALIFYING_SESSIONS.includes(session)) {
       return new QualifyingResultService().getQualifyingSessionResults(
         season,
         round,
         session,
         fields
       );
-    } else if (['R', 'SR'].some((x) => x === session)) {
+    } else if (RACE_SESSIONS.includes(session)) {
       return new RaceResultService().getRaceResults(
         season,
         round,
@@ -93,6 +94,40 @@ export class SessionService
         season,
         round,
         session,
+        fields
+      );
+    }
+  }
+
+  getDriverSessionResult(
+    season: number,
+    round: number,
+    session: string,
+    driverId: string,
+    fields: IncludeQueryParam
+  ): Promise<TimedSessionResultsDTO | RaceResultDTO> {
+    if (QUALIFYING_SESSIONS.includes(session)) {
+      return new QualifyingResultService().getDriverQualifyingResult(
+        season,
+        round,
+        session,
+        driverId,
+        fields
+      );
+    } else if (RACE_SESSIONS.includes(session)) {
+      return new RaceResultService().getDriverRaceResult(
+        season,
+        round,
+        session,
+        driverId,
+        fields
+      );
+    } else {
+      return new FreePracticeResultService().getDriverFreePracticeResult(
+        season,
+        round,
+        session,
+        driverId,
         fields
       );
     }

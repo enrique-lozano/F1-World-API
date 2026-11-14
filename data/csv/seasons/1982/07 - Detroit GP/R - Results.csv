@@ -25,3 +25,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-BOE-c,24,DNF,,21,,0,0,1,1,0,,collision
 1982-BAL-a,25,DNF,,24,,0,0,1,1,0,,collision
 1982-PAL,26,DNS,,23,,,0,1,1,0,,
+1982-DEV-b,27,DNQ,,,,,0,1,1,,,
+1982-PIQ-a,28,DNQ,,,,,0,1,1,,,
+1982-LAM-b,29,DNQ,,,,,0,1,1,,,

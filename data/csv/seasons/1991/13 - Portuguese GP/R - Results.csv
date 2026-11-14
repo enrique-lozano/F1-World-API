@@ -25,3 +25,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1991-BLU-b,24,DNF,,15,,12,0,1,1,0,,suspension
 1991-HER,25,DNF,,22,,1,0,1,1,0,,engine
 1991-MAN,26,DSQ,,4,,51,0,1,1,0,,illegal-pit-stop
+1991-BER-29,27,DNQ,,,,,0,1,1,,,
+1991-TAR-17-b,28,DNQ,,,,,0,1,1,,,
+1991-LAR,29,DNQ,,,,,0,1,1,,,
+1991-VAN,30,DNQ,,,,,0,1,1,,,
+1991-BAR-18-b,31,DNPQ,,,,,0,1,1,,,
+1991-GRO-14-b,32,DNPQ,,,,,0,1,1,,,
+1991-CAF-c,33,DNPQ,,,,,0,1,1,,,
+1991-CHA,34,DNPQ,,,,,0,1,1,,,

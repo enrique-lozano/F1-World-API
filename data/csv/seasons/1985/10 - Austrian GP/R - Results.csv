@@ -25,3 +25,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1985-CHE-b,24,DNF,,20,,6,0,1,1,0,,turbo
 1985-ROS,25,DNF,,4,,4,0,1,1,0,,oil-pressure
 1985-GHI-20,26,DNS,,19,,,0,1,1,0,,car-raced-by-fabi
+1985-BRU-4,27,DNQ,,,,,0,1,1,,,

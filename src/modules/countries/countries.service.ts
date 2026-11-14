@@ -1,3 +1,4 @@
+import { HttpException } from '../../utils/custom-error';
 import { SelectQueryBuilder, sql } from 'kysely';
 import { IncludeParam } from '../../models/include-filter';
 import { CountryDTO, DB } from '../../models/types.dto';
@@ -40,9 +41,9 @@ export class CountryService
     ).execute();
   }
 
-  getById(countryId: string): Promise<CountryDTO | undefined> {
+  getById(countryId: string): Promise<CountryDTO> {
     return CountryService.getCountriesSelect(this.db.selectFrom('countries'))
       .where('alpha2Code', '==', countryId)
-      .executeTakeFirst();
+      .executeTakeFirstOrThrow(() => HttpException.resourceNotFound('default'));
   }
 }

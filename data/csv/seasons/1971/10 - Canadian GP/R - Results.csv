@@ -24,3 +24,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1971-HIL-37,23,DNF,,15,,2,0,1,1,0,,accident
 1971-SCH-8,24,DNF,,17,,1,0,1,1,0,,ignition
 1971-GAN-16-b,25,DNS,,9,,,0,1,1,0,,accident
+1971-CRA-26,26,DNS,,,,,0,1,1,,,engine
+1971-PES-27,27,DNS,,,,,0,1,1,,,

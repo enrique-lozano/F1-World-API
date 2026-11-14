@@ -19,3 +19,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1984-TAM,18,DNF,,6,,0,0,1,1,0,,collision
 1984-DEC-a,19,DNF,,7,,0,0,1,1,0,,collision
 1984-BEL-4,20,DSQ,,20,,31,0,1,1,0,,illegal-fuel-and-ballast
+1984-SUR-a,21,DNQ,,,,,0,1,1,,,
+1984-CHE,22,DNQ,,,,,0,1,1,,,
+1984-BOU-b,23,DNQ,,,,,0,1,1,,,
+1984-PAL-b,24,DNQ,,,,,0,1,1,,,
+1984-BAL,25,DNQ,,,,,0,1,1,,,
+1984-ALL,26,DNQ,,,,,0,1,1,,,

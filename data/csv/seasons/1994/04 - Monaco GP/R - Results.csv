@@ -23,3 +23,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1994-HAK,22,DNF,,2,,0,0,1,1,0,,collision
 1994-MOR,23,DNF,,7,,0,0,1,1,0,,collision
 1994-MAR-a,24,DNF,,9,,0,0,1,1,0,,collision
+1994-WEN,25,DNS,,,,,0,1,1,,,injury
+1994-FRE,26,WD,,,,,0,1,1,,,

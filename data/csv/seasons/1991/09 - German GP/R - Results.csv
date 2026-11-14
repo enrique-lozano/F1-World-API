@@ -25,3 +25,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1991-MAR,24,DNF,,10,,11,0,1,1,0,,differential
 1991-BER-29,25,DNF,,25,,9,0,1,1,0,,transmission
 1991-LAR,26,DNF,,24,,0,0,1,1,0,,spun-off
+1991-ALB-c,27,DNQ,,,,,0,1,1,,,
+1991-BAR-12,28,DNQ,,,,,0,1,1,,,
+1991-TAR-17-a,29,DNQ,,,,,0,1,1,,,
+1991-VAN,30,DNQ,,,,,0,1,1,,,
+1991-GRO-14-b,31,DNPQ,,,,,0,1,1,,,
+1991-CAF-c,32,DNPQ,,,,,0,1,1,,,
+1991-BAR-18-a,33,DNPQ,,,,,0,1,1,,,
+1991-CHA,34,DNPQ,,,,,0,1,1,,,

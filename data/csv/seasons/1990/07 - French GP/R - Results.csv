@@ -25,3 +25,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1990-BOU,24,DNF,,8,,8,0,1,1,0,,engine
 1990-PIR,25,DNF,,24,,7,0,1,1,0,,brakes
 1990-DEC,26,DSQ,,21,,78,0,1,1,0,,car-underweight
+1990-TAR-b,27,DNQ,,,,,0,1,1,,,
+1990-BAR-b,28,DNQ,,,,,0,1,1,,,
+1990-FOI-35-a,29,DNQ,,,,,0,1,1,,,
+1990-JAR-b,30,DNQ,,,,,0,1,1,,,
+1990-GRO-b,31,DNPQ,,,,,0,1,1,,,
+1990-MOR-33,32,DNPQ,,,,,0,1,1,,,
+1990-LAN,33,DNPQ,,,,,0,1,1,,,
+1990-GAC-a,34,DNPQ,,,,,0,1,1,,,
+1990-GIA-a,35,DNPQ,,,,,0,1,1,,,

@@ -25,3 +25,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-ROS-10-b,24,DNF,,15,,21,0,1,1,0,,transmission
 1978-STU-b,25,DNF,,14,,1,0,1,1,0,,fuel-system
 1978-REB,26,DNF,,23,,0,0,1,1,0,,clutch
+1978-GAB,27,DNQ,,,,,0,1,1,,,

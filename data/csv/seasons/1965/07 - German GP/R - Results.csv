@@ -18,3 +18,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1965-AMO-19,17,DNF,,15,,3,0,1,1,0,,electrical
 1965-STE-10,18,DNF,,2,,2,0,1,1,0,,suspension
 1965-GAR-21,19,DNF,,17,,0,0,1,1,0,,gearbox
+1965-AND-18,20,DNS,,,,,0,1,1,,,accident-in-practice
+1965-BUS-25,21,DNQ,,,,,0,1,1,,,
+1965-RAB-23,22,DNQ,,,,,0,1,1,,,accident-in-practice

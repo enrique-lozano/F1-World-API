@@ -19,3 +19,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1964-BUC-28,18,DNF,,10,,12,0,1,1,0,,brakes
 1964-HAI-40,19,DNF,,17,,4,0,1,1,0,,engine
 1964-HIL-18,20,DNF,,3,,0,0,1,1,0,,clutch
+1964-RUD,21,DNS,,,,,0,1,1,,,
+1964-TAY-44,22,DNQ,,,,,0,1,1,,,
+1964-RUS,23,DNQ,,,,,0,1,1,,,
+1964-LOV,24,DNQ,,,,,0,1,1,,,
+1964-RAB-56,25,DNQ,,,,,0,1,1,,,

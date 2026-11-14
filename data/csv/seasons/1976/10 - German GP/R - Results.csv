@@ -26,3 +26,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1976-LUN,25,DNF,,24,,0,0,1,1,0,,accident
 1976-ERT-a,26,DNF,,22,,0,0,1,1,0,,accident
 1976-STO-36,27,DNS,,,,,0,1,1,0,,car-seized-by-police
+1976-LOM-37,28,DNQ,,,,,0,1,1,,,car-seized-by-police
+1976-PES-38,29,DNQ,,,,,0,1,1,,,

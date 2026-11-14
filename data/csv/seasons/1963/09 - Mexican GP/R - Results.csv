@@ -20,3 +20,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1963-AMO-18,19,DNF,,19,,9,0,1,1,0,,gearbox
 1963-MAG-4,20,DNF,,13,,7,0,1,1,0,,engine
 1963-SUR-23-b,21,DSQ,,2,,19,0,1,1,0,,push-start
+1963-DOC,22,DNQ,,,,,0,1,1,,,
+1963-HAN,23,WD,,,,,0,1,1,,,

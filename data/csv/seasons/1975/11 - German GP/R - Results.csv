@@ -24,3 +24,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1975-DON-b,23,DNF,,19,,1,0,1,1,0,,tyre
 1975-MAS,24,DNF,,6,,0,0,1,1,0,,accident
 1975-ASH,25,DNS,,20,,,0,1,1,0,,accident
+1975-TRI,26,DNQ,,,,,0,1,1,,,suspension

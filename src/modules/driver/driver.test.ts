@@ -152,6 +152,6 @@ describe('Test drivers functionality', () => {
   });
 
   test('The stats of a driver that does not exist are a client error', async () => {
-    await getUrlForTesting('/drivers/not-a-driver/stats').expect(400);
+    await getUrlForTesting('/drivers/not-a-driver/stats').expect(404);
   });
 });

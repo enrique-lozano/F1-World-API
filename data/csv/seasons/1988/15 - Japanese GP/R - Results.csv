@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-CAP,24,DNF,,4,,19,0,1,1,0,,electrical
 1988-WAR,25,DNF,,7,,16,0,1,1,0,,spun-off
 1988-SCH-10,26,DNF,,25,,14,0,1,1,0,,unfit
+1988-JOH,27,DNQ,,,,,0,1,1,,,
+1988-LAR-32,28,DNQ,,,,,0,1,1,,,
+1988-GHI,29,DNQ,,,,,0,1,1,,,
+1988-MOD,30,DNQ,,,,,0,1,1,,,
+1988-TAR-b,31,DNPQ,,,,,0,1,1,,,

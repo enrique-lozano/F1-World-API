@@ -27,3 +27,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1975-AND-b,26,DNF,,19,,1,0,1,1,0,,accident
 1975-DON-b,28,DNS,,20,,,0,1,1,0,,fatal-accident
 1975-HEN-6,29,DNS,,22,,,0,1,1,0,,accident
+1975-FIT-30-c,30,DNS,,,,,0,1,1,,,accident
+1975-TRI,31,DNQ,,,,,0,1,1,,,

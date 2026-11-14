@@ -23,3 +23,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1980-VIL,22,DNF,,8,,5,0,1,1,0,,puncture
 1980-GIA,23,DNF,,4,,5,0,1,1,0,,puncture
 1980-BRA,24,DNF,,19,,4,0,1,1,0,,spun-off
+1980-MAN,25,DNQ,,,,,0,1,1,,,
+1980-WIN,26,DNQ,,,,,0,1,1,,,
+1980-LAM-14,27,DNQ,,,,,0,1,1,,,
+1980-LEE-41,28,DNQ,,,,,0,1,1,,,

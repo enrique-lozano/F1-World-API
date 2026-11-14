@@ -19,3 +19,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1976-BRA,18,DNF,,9,,9,0,1,1,0,,suspension
 1976-JON,19,DNF,,19,,1,0,1,1,0,,collision
 1976-REU-7,20,DNF,,20,,0,0,1,1,0,,accident
+1976-ICK-20-b,21,DNQ,,,,,0,1,1,,,
+1976-PES-38,22,DNQ,,,,,0,1,1,,,
+1976-PER-37,23,DNQ,,,,,0,1,1,,,
+1976-ERT-a,24,DNQ,,,,,0,1,1,,,
+1976-MER-35,25,DNQ,,,,,0,1,1,,,

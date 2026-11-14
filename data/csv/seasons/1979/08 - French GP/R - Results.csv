@@ -23,3 +23,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1979-AND-b,22,DNF,,12,,51,0,1,1,0,,brakes
 1979-ICK,23,DNF,,14,,45,0,1,1,0,,engine
 1979-LAU-a,24,DNF,,6,,23,0,1,1,0,,spun-off
+1979-STU-a,25,DNS,,,,,0,1,1,,,
+1979-GAI,26,DNQ,,,,,0,1,1,,,
+1979-MER-b,27,DNQ,,,,,0,1,1,,,

@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-MOD,24,DNF,,25,,15,0,1,1,0,,engine
 1988-ALL,25,DNF,,20,,8,0,1,1,0,,spun-off
 1988-PIQ,26,DNF,,5,,1,0,1,1,0,,spun-off
+1988-PER,27,DNQ,,,,,0,1,1,,,
+1988-JOH,28,DNQ,,,,,0,1,1,,,
+1988-BAI,29,DNQ,,,,,0,1,1,,,
+1988-MAR,30,DNQ,,,,,0,1,1,,,
+1988-TAR-a,31,DNPQ,,,,,0,1,1,,,

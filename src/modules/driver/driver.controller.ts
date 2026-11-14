@@ -1,4 +1,4 @@
-import { Get, Path, Queries, Response, Route, Tags } from 'tsoa';
+import { Get, Path, Queries, Query, Response, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
 import { DriverCareerStats } from '../../models/types.dto';
 import { JsonApiError } from '../../utils/custom-error';
@@ -72,6 +72,17 @@ export class DriverController extends CommonController {
   /** Get WDC results of this driver: its position and points in the drivers' standings of every season in which it participated in at least one race
    *
    * @param driverId The ID of the driver to get its results */
+  /** The result of the driver in every event (GP), as in the season tables of Wikipedia: the race result (a position or a code of `/result-statuses`: `DNF`, `DNQ`, `DNPQ`, `DNS`, `WD`, `DNA`...), or `TD` in the events in which he only took part in free practice. Sorted chronologically
+   *
+   * @param season If specified, only the results of this season */
+  @Get('{driverId}/results')
+  @Response<JsonApiError>('4XX', 'Client error')
+  async getResults(@Path() driverId: string, @Query() season?: number) {
+    return this.tryKyselyExecution(
+      new DriverService().getResults(driverId, season)
+    );
+  }
+
   @Get('{driverId}/championship-results')
   async getChampionshipResults(@Path() driverId: string) {
     return this.tryKyselyExecution(

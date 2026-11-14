@@ -20,3 +20,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1998-SAL,19,DNF,,15,,14,0,1,1,0,,hydraulics
 1998-RSC,20,DNF,,7,,13,0,1,1,0,,engine
 1998-DIN,21,DNF,,18,,2,0,1,1,0,,spun-off
+1998-ROS,22,DNQ,,,,,0,1,1,,,

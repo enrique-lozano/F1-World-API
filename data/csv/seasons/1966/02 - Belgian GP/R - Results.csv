@@ -14,3 +14,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1966-SIF-21,13,DNF,,14,,0,0,1,1,0,,accident
 1966-SPE-16,14,DNF,,7,,0,0,1,1,0,,accident
 1966-STE-15,15,DNF,,3,,0,0,1,1,0,,accident
+1966-MCL-24,16,DNS,,,,,0,1,1,,,
+1966-ARU-11,17,DNS,,,,,0,1,1,,,engine

@@ -23,3 +23,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-FIT,22,DNF,,15,,0,0,1,1,0,,accident
 1978-HUN-a,23,DNF,,6,,0,0,1,1,0,,accident
 1978-LAU-b,24,DNF,,3,,0,0,1,1,0,,accident
+1978-ROS-32-a,25,DNQ,,,,,0,1,1,,,
+1978-KEE-a,26,DNQ,,,,,0,1,1,,,
+1978-DAL-24,27,DNQ,,,,,0,1,1,,,
+1978-COL-10,28,DNQ,,,,,0,1,1,,,
+1978-REB,29,DNPQ,,,,,0,1,1,,,
+1978-MER,30,DNPQ,,,,,0,1,1,,,
+1978-DED,31,DNP,,,,,0,1,1,,,
+1978-NEV,32,DNP,,,,,0,1,1,,,

@@ -23,3 +23,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-DEP,22,DNF,,13,,0,0,1,1,0,,accident
 1978-STO-a,23,DSQ,,17,,42,0,1,1,0,,illegal-pit-stop
 1978-HUN-a,24,DSQ,,8,,34,0,1,1,0,,illegal-pit-stop
+1978-REG-b,25,DNQ,,,,,0,1,1,,,
+1978-JAR-10,26,DNQ,,,,,0,1,1,,,
+1978-KEE-b,27,DNQ,,,,,0,1,1,,,
+1978-MER,28,DNQ,,,,,0,1,1,,,
+1978-ARN-31,29,DNPQ,,,,,0,1,1,,,
+1978-LUN-30-b,30,DNPQ,,,,,0,1,1,,,

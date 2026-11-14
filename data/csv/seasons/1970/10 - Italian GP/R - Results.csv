@@ -19,3 +19,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1970-ROD-10,18,DNF,,2,,12,0,1,1,0,,engine
 1970-SIF-50,19,DNF,,7,,3,0,1,1,0,,engine
 1970-SUR-14-b,20,DNF,,10,,0,0,1,1,0,,electrical
+1970-RIN-22,21,DNS,,,,,0,1,1,,,
+1970-HIL-28,22,DNS,,,,,0,1,1,,,
+1970-MIL-24,23,DNS,,,,,0,1,1,,,
+1970-FIT-26,24,DNS,,,,,0,1,1,,,
+1970-BON-38,25,DNQ,,,,,0,1,1,,,
+1970-GAL,26,DNQ,,,,,0,1,1,,,
+1970-MOS-56,27,DNQ,,,,,0,1,1,,,

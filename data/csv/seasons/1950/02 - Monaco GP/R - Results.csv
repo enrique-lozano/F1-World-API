@@ -19,3 +19,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1950-HAR-24,18,DNF,,14,,0,0,1,1,0,,accident
 1950-ROL-44,19,DNF,,17,,0,0,1,1,0,,accident
 1950-PIA,21,DNS,,18,,,0,1,1,0,,accident-in-practice
+1950-WHI-28,22,DNS,,,,,0,1,1,,,engine
+1950-BIO-46,23,DNA,,,,,0,1,1,,,
+1950-CAB-20,24,DNA,,,,,0,1,1,,,
+1950-POZ-18,25,DNA,,,,,0,1,1,,,

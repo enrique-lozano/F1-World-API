@@ -18,3 +18,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2002-PAN,17,DNF,,16,,8,0,1,1,0,,mechanical
 2002-COU,18,DNF,,3,,7,0,1,1,0,,throttle
 2002-MAS,19,DNF,,15,,3,0,1,1,0,,accident
+2002-MCN,20,DNS,,,,,0,1,1,,,

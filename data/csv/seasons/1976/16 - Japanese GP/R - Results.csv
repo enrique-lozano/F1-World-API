@@ -24,3 +24,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1976-LAU-b,23,DNF,,3,,2,0,1,1,0,,withdrew
 1976-PER-7,24,DNF,,17,,1,0,1,1,0,,withdrew
 1976-PET-10,25,DNF,,9,,0,0,1,1,0,,engine
+1976-KUW,26,DNS,,,,,0,1,1,,,
+1976-TRI,27,DNQ,,,,,0,1,1,,,

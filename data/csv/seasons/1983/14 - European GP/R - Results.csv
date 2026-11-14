@@ -25,3 +25,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1983-LAU-c,24,DNF,,13,,25,0,1,1,0,,engine
 1983-DEA-c,25,DNF,,1,,12,0,1,1,0,,oil-pump
 1983-JAR-b,26,DNF,,22,,0,0,1,1,0,,clutch
+1983-ACH-b,27,DNQ,,,,,0,1,1,,,
+1983-FAB-b,28,DNQ,,,,,0,1,1,,,
+1983-LAF-a,29,DNQ,,,,,0,1,1,,,

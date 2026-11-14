@@ -25,3 +25,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-LEE-33,24,DNF,,25,,0,0,1,1,0,,collision
 1982-JAR-a,25,DNF,,18,,0,0,1,1,0,,withdrew
 1982-PAL,26,DNF,,23,,0,0,1,1,0,,fatal-collision
+1982-WIN-b,27,DNQ,,,,,0,1,1,,,
+1982-DEV-b,28,DNQ,,,,,0,1,1,,,
+1982-SER-a,29,DNQ,,,,,0,1,1,,,

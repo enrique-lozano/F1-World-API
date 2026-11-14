@@ -25,3 +25,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-SAL-b,24,DNF,,18,,0,0,1,1,0,,collision
 1982-GIA-b,25,DNF,,15,,0,0,1,1,0,,collision
 1982-LAU-b,26,DSQ,,4,,70,0,1,1,0,,car-underweight
+1982-PIR,27,DNS,,,,,0,1,1,,,
+1982-VIL,28,DNS,,,,,0,1,1,,,
+1982-GUE-b,29,DNQ,,,,,0,1,1,,,
+1982-LAM-a,30,DNQ,,,,,0,1,1,,,
+1982-DEV-a,31,DNPQ,,,,,0,1,1,,,
+1982-PAL,32,DNPQ,,,,,0,1,1,,,

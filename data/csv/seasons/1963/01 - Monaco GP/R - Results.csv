@@ -14,3 +14,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1963-GUR-4,13,DNF,,6,,25,0,1,1,0,,differential
 1963-HAL-12,14,DNF,,13,,20,0,1,1,0,,gearbox
 1963-SIF-25,15,DNF,,12,,3,0,1,1,0,,engine
+1963-AMO-15,16,DNS,,,,,0,1,1,,,
+1963-COL-24,17,DNQ,,,,,0,1,1,,,
+1963-BAG-2,18,WD,,,,,0,1,1,,,
+1963-BAN-23,19,WD,,,,,0,1,1,,,
+1963-BUR-18,20,WD,,,,,0,1,1,,,
+1963-CAM-16,21,WD,,,,,0,1,1,,,
+1963-EST-22,22,WD,,,,,0,1,1,,,
+1963-HIL-1-a,23,WD,,,,,0,1,1,,,
+1963-SET-19,24,WD,,,,,0,1,1,,,

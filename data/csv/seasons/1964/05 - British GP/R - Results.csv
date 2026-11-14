@@ -22,3 +22,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1964-AMO-15,21,DNF,,11,,9,0,1,1,0,,clutch
 1964-MCL-9,22,DNF,,6,,6,0,1,1,0,,gearbox
 1964-GAR,23,DNF,,19,,0,0,1,1,0,,accident
+1964-ATT,24,DNS,,,,,0,1,1,,,
+1964-TRI-25,25,DNQ,,,,,0,1,1,,,

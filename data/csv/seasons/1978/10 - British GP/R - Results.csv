@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-REB,24,DNF,,21,,15,0,1,1,0,,gearbox
 1978-HUN-a,25,DNF,,14,,7,0,1,1,0,,accident
 1978-PET-b,26,DNF,,1,,6,0,1,1,0,,fuel-leak
+1978-STO-a,27,DNQ,,,,,0,1,1,,,
+1978-LEE,28,DNQ,,,,,0,1,1,,,
+1978-KEE-b,29,DNQ,,,,,0,1,1,,,
+1978-TRI,30,DNQ,,,,,0,1,1,,,

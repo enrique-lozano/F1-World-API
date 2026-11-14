@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-CAF-b,24,DNF,,23,,13,0,1,1,0,,brakes
 1988-GUG,25,DNF,,16,,10,0,1,1,0,,electrical
 1988-ALL,26,DNF,,13,,0,0,1,1,0,,suspension
+1988-PAL,27,DNQ,,,,,0,1,1,,,
+1988-LAR-21-b,28,DNQ,,,,,0,1,1,,,
+1988-BAI,29,DNQ,,,,,0,1,1,,,
+1988-CAM,30,DNQ,,,,,0,1,1,,,
+1988-MOD,31,EX,,,,,0,1,1,,,illegal-rear-wing

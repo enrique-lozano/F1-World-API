@@ -25,3 +25,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1991-TAR-17-a,24,DNF,,20,,9,0,1,1,0,,gearbox
 1991-BER-2,25,DNF,,6,,9,0,1,1,0,,accident
 1991-PIQ-b,26,DNF,,4,,0,0,1,1,0,,suspension
+1991-BAI,27,DNQ,,,,,0,1,1,,,
+1991-BAR-18-a,28,DNQ,,,,,0,1,1,,,
+1991-CAF-b,29,DNQ,,,,,0,1,1,,,
+1991-LAR,30,DNPQ,,,,,0,1,1,,,
+1991-VAN,31,DNPQ,,,,,0,1,1,,,
+1991-CHA,32,DNPQ,,,,,0,1,1,,,
+1991-GRO-14-b,33,DNPQ,,,,,0,1,1,,,
+1991-BRU-b,34,EX,,,,,0,1,1,,,

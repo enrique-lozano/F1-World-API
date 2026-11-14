@@ -25,3 +25,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1977-FIT-b,24,DNF,,16,,2,0,1,1,0,,electrical
 1977-AND-5,25,DNF,,1,,0,0,1,1,0,,collision
 1977-WAT-b,26,DNF,,2,,0,0,1,1,0,,collision
+1977-LUN-b,27,DNS,,,,,0,1,1,,,engine
+1977-DEV,28,DNQ,,,,,0,1,1,,,
+1977-AND-35,29,DNQ,,,,,0,1,1,,,
+1977-RIB,30,DNQ,,,,,0,1,1,,,
+1977-DED,31,DNQ,,,,,0,1,1,,,
+1977-REB-39-a,32,DNQ,,,,,0,1,1,,,

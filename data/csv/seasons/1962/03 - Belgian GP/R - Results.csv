@@ -18,3 +18,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1962-GRE-21,17,DNF,,8,,13,0,1,1,0,,withdrew
 1962-IRE-20,18,DNF,,5,,9,0,1,1,0,,suspension
 1962-BAG-11,19,DNF,,14,,4,0,1,1,0,,ignition
+1962-GUR-23,20,DNS,,,,,0,1,1,,,
+1962-ASH-4,21,WD,,,,,0,1,1,,,
+1962-BON-24,22,WD,,,,,0,1,1,,,
+1962-MAR-3,23,WD,,,,,0,1,1,,,
+1962-SCH-8,24,WD,,,,,0,1,1,,,

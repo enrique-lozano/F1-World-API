@@ -24,3 +24,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1974-HUN-b,23,DNF,,8,,2,0,1,1,0,,engine
 1974-MIG-b,24,DNF,,24,,1,0,1,1,0,,gearbox
 1974-BEL-14-b,25,DNF,,11,,0,0,1,1,0,,electrical
+1974-DOL-19,26,DNQ,,,,,0,1,1,,,
+1974-FAC,27,DNQ,,,,,0,1,1,,,
+1974-BEL-18-b,28,DNQ,,,,,0,1,1,,,
+1974-WIL-25,29,DNQ,,,,,0,1,1,,,
+1974-AMO-22,30,DNQ,,,,,0,1,1,,,
+1974-KIN-23,31,DNQ,,,,,0,1,1,,,

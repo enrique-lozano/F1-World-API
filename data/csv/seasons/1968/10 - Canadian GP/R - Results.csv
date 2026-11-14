@@ -19,3 +19,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1968-BRA-27,18,DNF,,20,,18,0,1,1,0,,halfshaft
 1968-SUR-8,19,DNF,,7,,10,0,1,1,0,,gearbox
 1968-BON-22,20,DNF,,17,,0,0,1,1,0,,fuel-system
+1968-ICK-10,21,DNS,,,,,0,1,1,,,
+1968-PEA,22,DNS,,,,,0,1,1,,,engine

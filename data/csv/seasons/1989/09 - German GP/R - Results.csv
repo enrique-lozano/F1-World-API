@@ -25,3 +25,16 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1989-CAF,24,DNF,,20,,2,0,1,1,0,,engine
 1989-ALB-29,25,DNF,,26,,1,0,1,1,0,,electrical
 1989-GRO,26,DNF,,11,,0,0,1,1,0,,gearbox
+1989-GAC-37,27,DNQ,,,,,0,1,1,,,
+1989-PER-b,28,DNQ,,,,,0,1,1,,,
+1989-DAN,29,DNQ,,,,,0,1,1,,,
+1989-DAL-41-a,30,DNPQ,,,,,0,1,1,,,
+1989-LAR-17,31,DNPQ,,,,,0,1,1,,,
+1989-TAR-a,32,DNPQ,,,,,0,1,1,,,
+1989-GHI,33,DNPQ,,,,,0,1,1,,,
+1989-MOR-b,34,DNPQ,,,,,0,1,1,,,
+1989-RAP-32-b,35,DNPQ,,,,,0,1,1,,,
+1989-FOI-33-b,36,DNPQ,,,,,0,1,1,,,
+1989-SUZ,37,DNPQ,,,,,0,1,1,,,
+1989-SCH,38,DNPQ,,,,,0,1,1,,,
+1989-WEI,39,EX,,,,,0,1,1,,,push-start

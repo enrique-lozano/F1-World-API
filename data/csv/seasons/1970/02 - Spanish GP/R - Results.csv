@@ -16,3 +16,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1970-ICK-2,15,DNF,,7,,0,0,1,1,0,,accident
 1970-OLI-15,16,DNF,,10,,0,0,1,1,0,,accident
 1970-COU-12,17,DNS,,13,,,0,1,1,0,,accident-in-practice
+1970-DEA-20-a,18,DNQ,,,,,0,1,1,,,
+1970-MIL-19,19,DNQ,,,,,0,1,1,,,
+1970-SIF-14,20,DNQ,,,,,0,1,1,,,
+1970-SOL-23,21,DNQ,,,,,0,1,1,,,
+1970-EAT-21-b,22,DNQ,,,,,0,1,1,,,

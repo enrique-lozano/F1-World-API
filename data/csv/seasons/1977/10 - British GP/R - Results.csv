@@ -25,3 +25,15 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1977-TAM-23,24,DNF,,16,,3,0,1,1,0,,electrical
 1977-PET,25,DNF,,10,,3,0,1,1,0,,engine
 1977-KEE,26,DNF,,13,,0,0,1,1,0,,accident
+1977-HEN-38-a,27,DNQ,,,,,0,1,1,,,
+1977-DEV,28,DNQ,,,,,0,1,1,,,
+1977-RIB,29,DNQ,,,,,0,1,1,,,
+1977-REG,30,DNQ,,,,,0,1,1,,,
+1977-PUR,31,DNPQ,,,,,0,1,1,,,accident
+1977-SUT,32,DNPQ,,,,,0,1,1,,,
+1977-EDW,33,DNPQ,,,,,0,1,1,,,
+1977-TRI,34,DNPQ,,,,,0,1,1,,,
+1977-MCG,35,DNPQ,,,,,0,1,1,,,
+1977-KOZ-32,36,DNPQ,,,,,0,1,1,,,accident
+1977-BEL,37,WD,,,,,0,1,1,,,
+1977-ERT-b,38,WD,,,,,0,1,1,,,

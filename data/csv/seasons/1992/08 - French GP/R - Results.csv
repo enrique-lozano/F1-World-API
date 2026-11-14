@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1992-GAC,24,DNF,,13,,0,0,1,1,0,,collision
 1992-GUG,25,DNF,,24,,0,0,1,1,0,,collision
 1992-CHI-b,26,DNF,,26,,0,0,1,1,0,,collision
+1992-BEL,27,DNQ,,,,,0,1,1,,,
+1992-FIT-b,28,DNQ,,,,,0,1,1,,,
+1992-VAN-7,29,DNQ,,,,,0,1,1,,,
+1992-HIL,30,DNQ,,,,,0,1,1,,,

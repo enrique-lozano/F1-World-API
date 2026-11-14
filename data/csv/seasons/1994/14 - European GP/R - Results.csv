@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1994-VER,24,DNF,,12,,15,0,1,1,0,,spun-off
 1994-NOD,25,DNF,,24,,10,0,1,1,0,,gearbox
 1994-BRU,26,DNF,,15,,8,0,1,1,0,,engine
+1994-GAC-b,27,DNQ,,,,,0,1,1,,,
+1994-BEL-b,28,DNQ,,,,,0,1,1,,,

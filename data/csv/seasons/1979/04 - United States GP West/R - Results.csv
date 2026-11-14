@@ -23,3 +23,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1979-TAM-c,22,DNF,,19,,0,0,1,1,0,,collision
 1979-PIR-a,23,DSQ,,17,,72,0,1,1,0,,push-start
 1979-STU-a,24,DSQ,,21,,49,0,1,1,0,,push-start
+1979-JAB-a,25,DNS,,,,,0,1,1,,,injury-in-practice
+1979-ARN-a,26,DNS,,,,,0,1,1,,,

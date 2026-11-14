@@ -23,3 +23,9 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1981-MAN-e,22,DNF,,15,,12,0,1,1,0,,fuel-leak
 1981-DEC-b,23,DNF,,10,,4,0,1,1,0,,collision
 1981-PIR,24,DNF,,5,,1,0,1,1,0,,electrical
+1981-ROS-a,25,DNQ,,,,,0,1,1,,,
+1981-HEN,26,DNQ,,,,,0,1,1,,,
+1981-GAB-31,27,DNQ,,,,,0,1,1,,,
+1981-WAR,28,DNQ,,,,,0,1,1,,,
+1981-ALB-b,29,DNQ,,,,,0,1,1,,,
+1981-SER-a,30,DNQ,,,,,0,1,1,,,

@@ -25,3 +25,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1991-GRO-14-b,24,DNF,,10,,13,0,1,1,0,,engine
 1991-BER-2,25,DNF,,5,,5,0,1,1,0,,engine
 1991-MAR,26,DNF,,15,,4,0,1,1,0,,spun-off
+1991-COM-a,27,DNQ,,,,,0,1,1,,,
+1991-TAR-17-a,28,DNQ,,,,,0,1,1,,,
+1991-JOH-10-a,29,DNQ,,,,,0,1,1,,,
+1991-BAR-18-a,30,DNQ,,,,,0,1,1,,,
+1991-VAN,31,DNPQ,,,,,0,1,1,,,
+1991-CHA,32,DNPQ,,,,,0,1,1,,,
+1991-PIR,33,DNPQ,,,,,0,1,1,,,
+1991-LAR,34,DNPQ,,,,,0,1,1,,,

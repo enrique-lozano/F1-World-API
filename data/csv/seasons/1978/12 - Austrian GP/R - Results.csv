@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-AND-b,24,DNF,,2,,0,0,1,1,0,,accident
 1978-DAL-22,25,DSQ,,19,,43,0,1,1,0,,push-start
 1978-REU-b,26,DSQ,,4,,27,0,1,1,0,,push-start
+1978-MER,27,DNQ,,,,,0,1,1,,,
+1978-MAS,28,DNQ,,,,,0,1,1,,,
+1978-KEE-b,29,DNQ,,,,,0,1,1,,,
+1978-BIN,30,DNQ,,,,,0,1,1,,,

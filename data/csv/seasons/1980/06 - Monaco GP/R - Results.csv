@@ -19,3 +19,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1980-GIA,18,DNF,,8,,0,0,1,1,0,,collision
 1980-PRO-a,19,DNF,,10,,0,0,1,1,0,,collision
 1980-DAL-b,20,DNF,,12,,0,0,1,1,0,,collision
+1980-WAT,21,DNQ,,,,,0,1,1,,,
+1980-CHE,22,DNQ,,,,,0,1,1,,,
+1980-LEE-17-c,23,DNQ,,,,,0,1,1,,,
+1980-ROS-a,24,DNQ,,,,,0,1,1,,,
+1980-ZUN,25,DNQ,,,,,0,1,1,,,
+1980-NEE,26,DNQ,,,,,0,1,1,,,
+1980-KEN-b,27,DNQ,,,,,0,1,1,,,

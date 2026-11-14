@@ -25,3 +25,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1985-PIQ,24,DNF,,2,,6,0,1,1,0,,collision
 1985-WAR-b,25,DNF,,8,,4,0,1,1,0,,injection
 1985-MAR-b,26,DNF,,26,,3,0,1,1,0,,accident
+1985-ROT-a,27,DNQ,,,,,0,1,1,,,

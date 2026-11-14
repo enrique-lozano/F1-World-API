@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-LAF-c,24,DNF,,11,,5,0,1,1,0,,ignition
 1982-TAM,25,DNS,,8,,,0,1,1,0,,unfit
 1982-GUE-c,26,DNS,,15,,,0,1,1,0,,engine
+1982-JAR-b,27,DNS,,,,,0,1,1,,,
+1982-FAB-c,28,DNQ,,,,,0,1,1,,,
+1982-SAL-b,29,DNQ,,,,,0,1,1,,,
+1982-SER-b,30,DNQ,,,,,0,1,1,,,

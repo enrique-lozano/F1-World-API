@@ -25,3 +25,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-LAU-b,24,DNF,,3,,10,0,1,1,0,,engine
 1978-REG-b,25,DNF,,17,,4,0,1,1,0,,electrical
 1978-JAB,26,DNF,,11,,1,0,1,1,0,,engine
+1978-MER,27,DNQ,,,,,0,1,1,,,
+1978-DAL-22,28,DNQ,,,,,0,1,1,,,
+1978-REB,29,DNQ,,,,,0,1,1,,,

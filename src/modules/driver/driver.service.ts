@@ -8,6 +8,7 @@ import {
   DB,
   DriverCareerStats,
   DriverDTO,
+  DriverEventResultDTO,
   Drivers,
   FamilyRelationship,
   Gender
@@ -187,14 +188,76 @@ export class DriverService
     ).executeTakeFirstOrThrow();
   }
 
-  getById(driverId: string): Promise<DriverDTO | undefined> {
+  getById(driverId: string): Promise<DriverDTO> {
     return DriverService.getDriversSelect(
       this.db.selectFrom('drivers'),
       undefined,
       true
     )
       .where('id', '==', driverId)
+      .executeTakeFirstOrThrow(() => HttpException.resourceNotFound('default'));
+  }
+
+  /** One row per race result of the driver, plus one per event in which he only took part in free practice (`TD`) */
+  async getResults(
+    driverId: string,
+    season?: number
+  ): Promise<DriverEventResultDTO[]> {
+    const driver = await this.db
+      .selectFrom('drivers')
+      .select('id')
+      .where('id', '==', driverId)
       .executeTakeFirst();
+
+    if (!driver) throw HttpException.resourceNotFound('default');
+
+    const seasonFilter =
+      season != undefined
+        ? sql`AND substr(s.eventId, 1, 4) = ${String(season)}`
+        : sql``;
+
+    const { rows } = await sql<DriverEventResultDTO>`
+      WITH results AS (
+        SELECT s.eventId, r.entryId, r.positionText, r.points, r.laps, r.positionOrder
+          FROM raceResults r
+          JOIN sessions s ON s.id = r.sessionId AND s.abbreviation = 'R'
+          JOIN entries e ON e.id = r.entryId
+          WHERE e.driverId = ${driverId} ${seasonFilter}
+        UNION ALL
+        -- Only free practice: a test driver. One row per event, with the first of his entries
+        SELECT s.eventId, MIN(f.entryId), 'TD', NULL, NULL, NULL
+          FROM fpResults f
+          JOIN sessions s ON s.id = f.sessionId
+          JOIN entries e ON e.id = f.entryId
+          WHERE e.driverId = ${driverId} ${seasonFilter}
+            AND NOT EXISTS (
+              SELECT 1 FROM raceResults r2
+                JOIN sessions s2 ON s2.id = r2.sessionId AND s2.abbreviation = 'R'
+                JOIN entries e2 ON e2.id = r2.entryId
+                WHERE s2.eventId = s.eventId AND e2.driverId = e.driverId)
+            AND NOT EXISTS (
+              SELECT 1 FROM qualifyingResults q2
+                JOIN sessions s2 ON s2.id = q2.sessionId
+                JOIN entries e2 ON e2.id = q2.entryId
+                WHERE s2.eventId = s.eventId AND e2.driverId = e.driverId)
+          GROUP BY s.eventId
+      )
+      SELECT results.eventId,
+        CAST(substr(results.eventId, 1, 4) AS INT) AS season,
+        CAST(substr(results.eventId, 6, 2) AS INT) AS round,
+        ev.grandPrixId, gp.countryId AS grandPrixCountryId, ev.scheduledLaps,
+        results.entryId, e.driverNumber,
+        co.id AS constructorId, co.name AS constructorName,
+        results.positionText, results.points, results.laps
+      FROM results
+      JOIN events ev ON ev.id = results.eventId
+      JOIN grandsPrix gp ON gp.id = ev.grandPrixId
+      JOIN entries e ON e.id = results.entryId
+      JOIN chassis c ON c.id = e.chassisId
+      JOIN constructors co ON co.id = c.constructorId
+      ORDER BY results.eventId, results.positionOrder`.execute(this.db);
+
+    return rows;
   }
 
   async getDriverStats(driverId: string): Promise<DriverCareerStats> {

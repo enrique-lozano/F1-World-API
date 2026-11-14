@@ -19,3 +19,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1983-WIN,18,DNF,,16,,3,0,1,1,0,,collision
 1983-ALB-b,19,DNF,,11,,0,0,1,1,0,,collision
 1983-MAN-b,20,DNF,,14,,0,0,1,1,0,,collision
+1983-GIA,21,DNQ,,,,,0,1,1,,,
+1983-LAU-b,22,DNQ,,,,,0,1,1,,,
+1983-WAT-b,23,DNQ,,,,,0,1,1,,,
+1983-FAB-a,24,DNQ,,,,,0,1,1,,,
+1983-SAL,25,DNQ,,,,,0,1,1,,,
+1983-GHI-b,26,DNQ,,,,,0,1,1,,,
+1983-CEC,27,DNPQ,,,,,0,1,1,,,
+1983-GUE,28,DNPQ,,,,,0,1,1,,,

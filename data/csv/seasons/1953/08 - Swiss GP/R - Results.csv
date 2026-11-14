@@ -21,3 +21,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1953-FRE-14,18,DNF,,16,,1,0,1,1,0,,engine
 1953-ROS-10-b,19,DNF,,14,,0,0,1,1,0,,spun-off
 1953-SWA-2,20,DNF,,13,,0,0,1,1,0,,spun-off
+1953-BAY,21,DNS,,,,,0,1,1,,,
+1953-CHI-12,22,DNS,,,,,0,1,1,,,
+1953-WAC-44,23,DNS,,,,,0,1,1,,,

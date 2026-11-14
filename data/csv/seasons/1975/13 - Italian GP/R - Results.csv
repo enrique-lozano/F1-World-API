@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1975-BRI-23,24,DNF,,6,,1,0,1,1,0,,accident
 1975-PET,25,DNF,,11,,1,0,1,1,0,,engine
 1975-EVA,26,DNF,,20,,0,0,1,1,0,,electrical
+1975-WUN-31-a,27,DNQ,,,,,0,1,1,,,
+1975-TRI,28,DNQ,,,,,0,1,1,,,

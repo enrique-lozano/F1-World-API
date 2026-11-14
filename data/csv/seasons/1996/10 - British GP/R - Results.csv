@@ -19,3 +19,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1996-KAT,18,DNF,,12,,12,0,1,1,0,,camshaft
 1996-IRV,19,DNF,,10,,5,0,1,1,0,,differential
 1996-MSC,20,DNF,,3,,3,0,1,1,0,,hydraulics
+1996-MON-b,21,DNQ,,,,,0,1,1,,,
+1996-BAD-b,22,DNQ,,,,,0,1,1,,,

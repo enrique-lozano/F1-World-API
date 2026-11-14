@@ -18,3 +18,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1996-SAL,17,DNF,,15,,20,0,1,1,0,,engine
 1996-DIN,18,DNF,,16,,13,0,1,1,0,,spun-off
 1996-ALE,19,DNF,,9,,0,0,1,1,0,,spun-off
+1996-LAV,20,DNQ,,,,,0,1,1,,,

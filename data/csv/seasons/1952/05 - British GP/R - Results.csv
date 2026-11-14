@@ -30,3 +30,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1952-MAN-24,29,DNF,,4,,9,0,1,1,0,,clutch
 1952-HIR-20,30,DNF,,24,,3,0,1,1,0,,brakes
 1952-CAN-35,31,DNF,,27,,1,0,1,1,0,,brakes
+1952-AST-2,32,DNS,,,,,0,1,1,,,
+1952-ROS-18,33,DNA,,,,,0,1,1,,,

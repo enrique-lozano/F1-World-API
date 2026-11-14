@@ -35,3 +35,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1953-TRI-10,32,DNF,,5,,1,0,1,1,0,,differential
 1953-STU-21,33,DNF,,23,,0,0,1,1,0,,engine
 1953-LOO,34,DNF,,31,,0,0,1,1,0,,fuel-pump
+1953-GLO,35,DNS,,,,,0,1,1,,,engine
+1953-KLE,36,DNA,,,,,0,1,1,,,

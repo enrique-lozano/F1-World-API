@@ -21,3 +21,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2012-MSC,20,DNF,,4,,10,0,1,1,0,,gearbox
 2012-GRO,21,DNF,,3,,1,0,1,1,0,,collision
 2012-HUL,22,DNF,,9,,0,0,1,1,0,,collision-damage
+2012-DLR,23,DNQ,,,,,0,1,1,,,
+2012-KAR,24,DNQ,,,,,0,1,1,,,

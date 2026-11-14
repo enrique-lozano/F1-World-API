@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1994-COM,24,DNF,,22,,3,0,1,1,0,,engine
 1994-ALE-b,25,DNF,,5,,2,0,1,1,0,,engine
 1994-MSC,26,DSQ,,2,,44,0,1,1,0,,illegal-skid-block-wear
+1994-GAC-a,27,DNQ,,,,,0,1,1,,,
+1994-BEL-a,28,DNQ,,,,,0,1,1,,,

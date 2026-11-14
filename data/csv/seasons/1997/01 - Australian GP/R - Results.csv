@@ -21,3 +21,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1997-VIL-a,20,DNF,,1,,0,0,1,1,0,,collision
 1997-HER,21,DNF,,7,,0,0,1,1,0,,collision
 1997-HIL,22,DNS,,20,,,0,1,1,0,,throttle
+1997-SOS,23,DNQ,,,,,0,1,1,,,
+1997-ROS,24,DNQ,,,,,0,1,1,,,

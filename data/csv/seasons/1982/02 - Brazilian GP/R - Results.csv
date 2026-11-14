@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-BOE-b,24,DNF,,17,,11,0,1,1,0,,spun-off
 1982-PIQ-b,25,DSQ,,7,,63,0,1,1,0,,car-underweight
 1982-ROS-a,26,DSQ,,3,,63,0,1,1,0,,car-underweight
+1982-FAB-a,27,DNQ,,,,,0,1,1,,,
+1982-GUE-b,28,DNQ,,,,,0,1,1,,,
+1982-HEN-29,29,DNQ,,,,,0,1,1,,,
+1982-WAR-a,30,DNQ,,,,,0,1,1,,,
+1982-PAL,31,DNPQ,,,,,0,1,1,,,

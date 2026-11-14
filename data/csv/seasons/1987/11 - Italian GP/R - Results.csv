@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1987-WAR,24,DNF,,12,,9,0,1,1,0,,electrical
 1987-DEC,25,DNF,,10,,7,0,1,1,0,,suspension
 1987-PAT-7,26,DNF,,9,,5,0,1,1,0,,engine
+1987-LAR,27,DNQ,,,,,0,1,1,,,
+1987-FAB-14,28,DNQ,,,,,0,1,1,,,

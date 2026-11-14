@@ -19,3 +19,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1996-ROS,18,DNF,,20,,0,0,1,1,0,,collision
 1996-LAM,19,DNF,,18,,0,0,1,1,0,,collision
 1996-SAL,20,DSQ,,12,,16,0,1,1,0,,illegal-car-change
+1996-BAD-b,21,DNQ,,,,,0,1,1,,,
+1996-MON-b,22,DNQ,,,,,0,1,1,,,

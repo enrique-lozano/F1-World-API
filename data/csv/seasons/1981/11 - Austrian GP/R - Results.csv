@@ -23,3 +23,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1981-MAN-e,22,DNF,,11,,23,0,1,1,0,,engine
 1981-VIL-27,23,DNF,,3,,11,0,1,1,0,,accident
 1981-SUR-33,24,DNF,,23,,0,0,1,1,0,,distributor
+1981-CHE-c,25,DNQ,,,,,0,1,1,,,
+1981-WAR,26,DNQ,,,,,0,1,1,,,
+1981-HEN,27,DNQ,,,,,0,1,1,,,
+1981-GAB-31,28,DNQ,,,,,0,1,1,,,

@@ -97,7 +97,7 @@ describe('Test entrants functionality', () => {
   });
 
   test('Unknown entrants are a client error', async () => {
-    await getUrlForTesting('/entrants/not-a-team').expect(400);
-    await getUrlForTesting('/entrants/not-a-team/lineage').expect(400);
+    await getUrlForTesting('/entrants/not-a-team').expect(404);
+    await getUrlForTesting('/entrants/not-a-team/lineage').expect(404);
   });
 });

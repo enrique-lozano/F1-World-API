@@ -19,3 +19,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1970-ICK-10,18,DNF,,1,,16,0,1,1,0,,engine
 1970-ROD-3,19,DNF,,10,,6,0,1,1,0,,gearbox
 1970-OLI-5,20,DNF,,12,,5,0,1,1,0,,engine
+1970-MOS-24,21,DNQ,,,,,0,1,1,,,
+1970-SOL-9,22,DNQ,,,,,0,1,1,,,
+1970-LOV-25,23,DNQ,,,,,0,1,1,,,

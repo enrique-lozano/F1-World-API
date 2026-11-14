@@ -25,3 +25,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1990-CAP,24,DNF,,18,,0,0,1,1,0,,collision
 1990-NAK-b,25,DNF,,19,,0,0,1,1,0,,collision
 1990-MOR-33,26,DNF,,24,,0,0,1,1,0,,throttle
+1990-MAR-a,27,DNS,,,,,0,1,1,,,
+1990-CAF,28,DNQ,,,,,0,1,1,,,
+1990-ALB,29,DNQ,,,,,0,1,1,,,
+1990-BRA-7,30,DNQ,,,,,0,1,1,,,
+1990-GAC-a,31,DNPQ,,,,,0,1,1,,,
+1990-LAN,32,DNPQ,,,,,0,1,1,,,
+1990-GIA-a,33,DNPQ,,,,,0,1,1,,,
+1990-DAL-b,34,DNPQ,,,,,0,1,1,,,
+1990-TAR-b,35,DNPQ,,,,,0,1,1,,,

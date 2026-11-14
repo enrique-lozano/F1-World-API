@@ -20,3 +20,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1998-BAR,19,DNF,,13,,27,0,1,1,0,,gearbox
 1998-VER,20,DNF,,19,,24,0,1,1,0,,gearbox
 1998-DIN,21,DNF,,18,,2,0,1,1,0,,throttle
+1998-ROS,22,DNQ,,,,,0,1,1,,,

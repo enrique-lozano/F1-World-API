@@ -19,3 +19,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1966-STE-28,18,DNF,,9,,5,0,1,1,0,,fuel-leak
 1966-BON-38,19,DNF,,12,,3,0,1,1,0,,throttle
 1966-HIL-26,20,DNF,,11,,0,0,1,1,0,,engine
+1966-HIL-34,21,DNQ,,,,,0,1,1,,,
+1966-AMO-32,22,DNQ,,,,,0,1,1,,,

@@ -22,3 +22,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1960-CHI,20,DNF,,21,,23,0,1,1,0,,physical
 1960-CRE,21,DNF,,22,,16,0,1,1,0,,physical
 1960-SCA-8,22,DNF,,18,,10,0,1,1,0,,overheating
+1960-OCA,23,DNS,,,,,0,1,1,,,
+1960-DAI-48,24,DNA,,,,,0,1,1,,,
+1960-GEN-28,25,DNA,,,,,0,1,1,,,

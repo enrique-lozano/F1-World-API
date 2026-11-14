@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-SAL-a,24,DNF,,26,,3,0,1,1,0,,collision
 1982-WIN-a,25,DNF,,25,,1,0,1,1,0,,collision
 1982-VIL,26,DSQ,,7,,75,0,1,1,0,,illegal-rear-wing
+1982-FAB-b,27,DNQ,,,,,0,1,1,,,
+1982-PAL,28,DNQ,,,,,0,1,1,,,
+1982-SER-a,29,DNQ,,,,,0,1,1,,,
+1982-BAL-a,30,DNQ,,,,,0,1,1,,,

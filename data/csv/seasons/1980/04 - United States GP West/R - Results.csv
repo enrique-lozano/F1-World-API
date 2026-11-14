@@ -23,3 +23,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1980-ZUN,22,DNF,,18,,0,0,1,1,0,,accident
 1980-AND,23,DNF,,15,,0,0,1,1,0,,accident
 1980-LAM-9-b,24,DNF,,4,,0,0,1,1,0,,transmission
+1980-KEN-a,25,DNQ,,,,,0,1,1,,,
+1980-LEE-17-a,26,DNQ,,,,,0,1,1,,,
+1980-SOU,27,DNQ,,,,,0,1,1,,,

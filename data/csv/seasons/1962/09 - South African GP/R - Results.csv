@@ -16,3 +16,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1962-HAR,15,DNF,,15,,31,0,1,1,0,,wheel-bearing
 1962-SUR-6,16,DNF,,5,,26,0,1,1,0,,engine
 1962-TAY-2,17,DNF,,9,,11,0,1,1,0,,gearbox
+1962-SET-17,18,WD,,,,,0,1,1,,,
+1962-TIN,19,WD,,,,,0,1,1,,,

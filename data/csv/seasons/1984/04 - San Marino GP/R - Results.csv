@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1984-HES,24,DNF,,17,,0,0,1,1,0,,collision
 1984-BEL-4,25,DSQ,,21,,59,0,1,1,0,,illegal-fuel-and-ballast
 1984-BRU,26,DSQ,,22,,55,0,1,1,0,,illegal-fuel-and-ballast
+1984-GHI,27,DNQ,,,,,0,1,1,,,
+1984-SEN-a,28,DNQ,,,,,0,1,1,,,

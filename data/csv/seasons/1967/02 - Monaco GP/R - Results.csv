@@ -15,3 +15,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1967-GUR-23,14,DNF,,7,,4,0,1,1,0,,fuel-pump
 1967-SER-2,15,DNF,,11,,4,0,1,1,0,,injection
 1967-BRA-8,16,DNF,,1,,0,0,1,1,0,,engine
+1967-AND-15,17,DNQ,,,,,0,1,1,,,
+1967-BEL-1,18,DNQ,,,,,0,1,1,,,
+1967-GIN-22,19,DNQ,,,,,0,1,1,,,

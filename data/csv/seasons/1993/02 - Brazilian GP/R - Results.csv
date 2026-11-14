@@ -24,3 +24,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1993-BER,23,DNF,,13,,0,0,1,1,0,,collision
 1993-BRU,24,DNF,,16,,0,0,1,1,0,,collision
 1993-BAR-24,25,DNF,,24,,0,0,1,1,0,,collision
+1993-CAP,26,DNQ,,,,,0,1,1,,,

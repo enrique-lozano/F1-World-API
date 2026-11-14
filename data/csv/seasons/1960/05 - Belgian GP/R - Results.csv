@@ -16,3 +16,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1960-GUR-8,15,DNF,,11,,4,0,1,1,0,,engine
 1960-BRO-38,16,DNF,,2,,2,0,1,1,0,,gearbox
 1960-REV-28,17,DNF,,15,,1,0,1,1,0,,engine
+1960-MOS-12,18,DNS,,,,,0,1,1,,,accident
+1960-TAY-20,19,DNS,,,,,0,1,1,,,accident

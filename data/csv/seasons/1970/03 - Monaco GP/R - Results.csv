@@ -15,3 +15,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1970-MCL-12,14,DNF,,10,,19,0,1,1,0,,suspension
 1970-SUR-14-a,15,DNF,,13,,14,0,1,1,0,,oil-pressure
 1970-ICK-26,16,DNF,,5,,11,0,1,1,0,,halfshaft
+1970-DEA-10-a,17,DNQ,,,,,0,1,1,,,
+1970-STO-6,18,DNQ,,,,,0,1,1,,,
+1970-EAT-15,19,DNQ,,,,,0,1,1,,,
+1970-MIL-2,20,DNQ,,,,,0,1,1,,,
+1970-SER-20,21,DNQ,,,,,0,1,1,,,

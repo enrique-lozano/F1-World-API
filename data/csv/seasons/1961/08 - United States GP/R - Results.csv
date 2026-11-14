@@ -19,3 +19,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1961-BRA-1,17,DNF,,1,,57,0,1,1,0,,overheating
 1961-HAN,19,DNF,,14,,14,0,1,1,0,,accident
 1961-SUR-18,20,DNF,,9,,0,0,1,1,0,,engine
+1961-GIN-9,21,WD,,,,,0,1,1,,,
+1961-HIL-8,22,WD,,,,,0,1,1,,,
+1961-ROD-10,23,WD,,,,,0,1,1,,,
+1961-MIL,24,DNA,,,,,0,1,1,,,

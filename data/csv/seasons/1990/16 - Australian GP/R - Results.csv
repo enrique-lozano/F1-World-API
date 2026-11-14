@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1990-MOR-24,24,DNF,,20,,20,0,1,1,0,,gearbox
 1990-BRA-7,25,DNF,,25,,18,0,1,1,0,,spun-off
 1990-SUZ-b,26,DNF,,24,,6,0,1,0,0,,transmission
+1990-ALB,27,DNQ,,,,,0,1,1,,,
+1990-DAL-b,28,DNQ,,,,,0,1,1,,,
+1990-CAF,29,DNQ,,,,,0,1,1,,,
+1990-GAC-b,30,DNQ,,,,,0,1,1,,,

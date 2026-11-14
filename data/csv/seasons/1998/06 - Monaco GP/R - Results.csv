@@ -20,3 +20,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1998-BAR,19,DNF,,14,,11,0,1,1,0,,suspension
 1998-FRE,20,DNF,,5,,9,0,1,1,0,,collision
 1998-TUE,21,DNF,,21,,0,0,1,1,0,,spun-off
+1998-ROS,22,DNQ,,,,,0,1,1,,,

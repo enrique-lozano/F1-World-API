@@ -83,8 +83,8 @@ describe('Test constructors functionality', () => {
   });
 
   test('Unknown constructors are a client error', async () => {
-    await getUrlForTesting(`${endPoint}/not-a-constructor`).expect(400);
-    await getUrlForTesting(`${endPoint}/not-a-constructor/stats`).expect(400);
+    await getUrlForTesting(`${endPoint}/not-a-constructor`).expect(404);
+    await getUrlForTesting(`${endPoint}/not-a-constructor/stats`).expect(404);
   });
 
   test('Get the seasons of a constructor', async () => {

@@ -21,3 +21,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2000-MSC,20,DNF,,4,,0,0,1,1,0,,collision
 2000-TRU-a,21,DNF,,5,,0,0,1,1,0,,collision
 2000-FIS,22,DNF,,8,,0,0,1,1,0,,collision
+2000-IRV,23,WD,,,,,0,1,1,,,

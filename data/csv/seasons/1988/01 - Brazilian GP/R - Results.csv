@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-GUG,24,DNF,,13,,0,0,1,1,0,,gearbox
 1988-LAR-32,25,DNF,,26,,0,0,1,1,0,,electrical
 1988-SEN,26,DSQ,,1,,31,0,1,1,0,,illegal-car-change
+1988-BAI,27,DNQ,,,,,0,1,1,,,
+1988-GHI,28,DNQ,,,,,0,1,1,,,
+1988-LAR-21-a,29,DNQ,,,,,0,1,1,,,
+1988-SCH-10,30,DNQ,,,,,0,1,1,,,
+1988-CAF-a,31,DNPQ,,,,,0,1,1,,,

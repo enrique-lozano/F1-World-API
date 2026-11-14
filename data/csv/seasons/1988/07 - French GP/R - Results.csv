@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-BOU,24,DNF,,5,,28,0,1,1,0,,engine
 1988-STR,25,DNF,,17,,20,0,1,1,0,,fuel-leak
 1988-WAR,26,DNF,,11,,11,0,1,1,0,,spun-off
+1988-ARN,27,DNQ,,,,,0,1,1,,,
+1988-BAI,28,DNQ,,,,,0,1,1,,,
+1988-JOH,29,DNQ,,,,,0,1,1,,,
+1988-TAR-a,30,DNPQ,,,,,0,1,1,,,
+1988-GHI,31,EX,,,,,0,1,1,,,

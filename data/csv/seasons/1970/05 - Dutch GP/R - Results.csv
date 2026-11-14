@@ -19,3 +19,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1970-GET-20,18,DNF,,11,,18,0,1,1,0,,accident
 1970-GUR-32,19,DNF,,19,,2,0,1,1,0,,engine
 1970-AMO-8,20,DNF,,4,,1,0,1,1,0,,clutch
+1970-DEA-21,21,DNQ,,,,,0,1,1,,,
+1970-STO-19,22,DNQ,,,,,0,1,1,,,
+1970-LOV-31,23,DNQ,,,,,0,1,1,,,
+1970-MOS-29,24,DNQ,,,,,0,1,1,,,

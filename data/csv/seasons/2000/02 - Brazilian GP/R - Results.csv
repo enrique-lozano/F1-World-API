@@ -19,3 +19,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 2000-HEI,18,DNF,,19,,9,0,1,1,0,,engine
 2000-WUR,19,DNF,,13,,6,0,1,1,0,,engine
 2000-COU,20,DSQ,5499573,2,,71,0,1,1,0,,illegal-front-wing-endplates
+2000-DIN,21,DNS,,,,,0,1,1,,,
+2000-SAL,22,DNS,,,,,0,1,1,,,

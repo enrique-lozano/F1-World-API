@@ -25,3 +25,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1977-WAT-b,24,DNF,,8,,2,0,1,1,0,,oil-leak
 1977-MAS-b,25,DNF,,14,,0,0,1,1,0,,accident
 1977-HEN-38-b,26,DSQ,,23,,52,0,1,1,0,,push-start
+1977-NEV,27,DNQ,,,,,0,1,1,,,
+1977-MER-37,28,DNQ,,,,,0,1,1,,,
+1977-SCH-18,29,DNQ,,,,,0,1,1,,,
+1977-ASH-39,30,DNQ,,,,,0,1,1,,,
+1977-HAY-33,31,DNQ,,,,,0,1,1,,,
+1977-REB-25,32,DNQ,,,,,0,1,1,,,
+1977-PIL-29,33,DNQ,,,,,0,1,1,,,
+1977-BLE,34,DNQ,,,,,0,1,1,,,

@@ -25,3 +25,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1991-PRO-b,24,DNF,,2,,2,0,1,1,0,,fuel-leak
 1991-GUG,25,DNF,,15,,1,0,1,1,0,,engine
 1991-MSC-32,26,DNF,,7,,0,0,1,1,0,,clutch
+1991-SUZ,27,DNQ,,,,,0,1,1,,,
+1991-LAR,28,DNQ,,,,,0,1,1,,,
+1991-CAF-c,29,DNQ,,,,,0,1,1,,,
+1991-VAN,30,DNQ,,,,,0,1,1,,,
+1991-ALB-c,31,DNPQ,,,,,0,1,1,,,
+1991-TAR-17-a,32,DNPQ,,,,,0,1,1,,,
+1991-CHA,33,DNPQ,,,,,0,1,1,,,
+1991-BAR-18-a,34,DNPQ,,,,,0,1,1,,,

@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-PAL,24,DNF,,17,,16,0,1,1,0,,transmission
 1988-LAR-32,25,DNF,,25,,12,0,1,1,0,,halfshaft
 1988-ALB,26,DNF,,12,,0,0,1,1,0,,collision
+1988-TAR-b,27,DNQ,,,,,0,1,1,,,
+1988-BAI,28,DNQ,,,,,0,1,1,,,
+1988-RAP,29,DNQ,,,,,0,1,1,,,
+1988-SCH-10,30,DNQ,,,,,0,1,1,,,
+1988-LAR-21-b,31,DNPQ,,,,,0,1,1,,,

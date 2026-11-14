@@ -25,3 +25,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1972-REU-20-a,24,DNF,,15,,27,0,1,1,0,,fuel-system
 1972-SCH-16,25,DNF,,10,,9,0,1,1,0,,engine
 1972-CHA-26,26,DNF,,17,,2,0,1,1,0,,fuel-pump
+1972-FER,27,DNS,,,,,0,1,1,,,engine

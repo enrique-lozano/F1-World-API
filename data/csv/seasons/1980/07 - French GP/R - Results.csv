@@ -23,3 +23,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1980-DEA,22,DNF,,14,,3,0,1,1,0,,clutch
 1980-ZUN,23,DNF,,22,,0,0,1,1,0,,clutch
 1980-JAB,24,DNF,,6,,0,0,1,1,0,,transmission
+1980-LEE-17-c,25,DNQ,,,,,0,1,1,,,
+1980-LAM-14,26,DNQ,,,,,0,1,1,,,
+1980-KEN-c,27,DNQ,,,,,0,1,1,,,

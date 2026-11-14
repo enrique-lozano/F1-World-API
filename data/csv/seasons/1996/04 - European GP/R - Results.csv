@@ -19,3 +19,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1996-ALE,18,DNF,,4,,1,0,1,1,0,,collision
 1996-SAL,19,DSQ,,14,,66,0,1,1,0,,car-underweight
 1996-KAT,20,DSQ,,16,,65,0,1,1,0,,push-start
+1996-MON-a,21,DNQ,,,,,0,1,1,,,
+1996-BAD-a,22,DNQ,,,,,0,1,1,,,

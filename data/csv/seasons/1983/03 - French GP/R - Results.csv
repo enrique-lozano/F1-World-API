@@ -25,3 +25,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1983-WAR,24,DNF,,9,,14,0,1,1,0,,engine
 1983-MAN-b,25,DNF,,18,,6,0,1,1,0,,physical
 1983-WAT-a,26,DNF,,14,,3,0,1,1,0,,engine
+1983-SAL,27,DNQ,,,,,0,1,1,,,
+1983-GHI-a,28,DNQ,,,,,0,1,1,,,
+1983-SCH,29,DNQ,,,,,0,1,1,,,

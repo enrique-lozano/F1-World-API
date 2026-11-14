@@ -25,3 +25,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1982-SAL-b,24,DNF,,22,,2,0,1,1,0,,spun-off
 1982-FAB-c,25,DNF,,21,,0,0,1,1,0,,electrical
 1982-JAR-a,26,DNF,,17,,0,0,1,1,0,,halfshaft
+1982-LAM-b,27,DNQ,,,,,0,1,1,,,
+1982-GUE-c,28,DNQ,,,,,0,1,1,,,
+1982-SER-b,29,DNQ,,,,,0,1,1,,,
+1982-BOE-c,30,DNQ,,,,,0,1,1,,,

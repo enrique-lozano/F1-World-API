@@ -20,3 +20,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1962-SET-48,19,DNF,,21,,18,0,1,1,0,,engine
 1962-TRI-36,20,DNF,,19,,17,0,1,1,0,,electrical
 1962-CLA-20,21,DNF,,1,,12,0,1,1,0,,gearbox
+1962-SHE-60,22,DNQ,,,,,0,1,1,,,
+1962-GRE-56,23,DNQ,,,,,0,1,1,,,
+1962-ASH-52,24,DNQ,,,,,0,1,1,,,
+1962-BUR-62,25,DNQ,,,,,0,1,1,,,
+1962-SIF-42,26,DNQ,,,,,0,1,1,,,
+1962-PRI,27,DNQ,,,,,0,1,1,,,
+1962-LIP,28,DNQ,,,,,0,1,1,,,
+1962-CHA-26,29,DNQ,,,,,0,1,1,,,
+1962-EST,30,DNQ,,,,,0,1,1,,,
+1962-KUH,31,WD,,,,,0,1,1,,,

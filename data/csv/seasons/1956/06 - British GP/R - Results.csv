@@ -29,3 +29,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1956-BRA,26,DNF,,28,,3,0,1,1,0,,engine
 1956-FLO-25,27,DNF,,17,,2,0,1,1,0,,engine
 1956-GON-18,28,DNF,,6,,0,0,1,1,0,,transmission
+1956-GEN-5,29,DNA,,,,,0,1,1,,,
+1956-VOL-6,30,DNA,,,,,0,1,1,,,

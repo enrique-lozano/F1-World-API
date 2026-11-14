@@ -26,3 +26,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1974-HUL-6,25,DNF,,17,,4,0,1,1,0,,engine
 1974-SCH-31-b,26,DSQ,,27,,6,0,1,1,0,,illegal-race-entry
 1974-AND,27,DSQ,,3,,4,0,1,1,0,,push-start
+1974-STU,28,DNQ,,,,,0,1,1,,,
+1974-ASH-42,29,DNQ,,,,,0,1,1,,,
+1974-BEL-14-b,30,DNQ,,,,,0,1,1,,,

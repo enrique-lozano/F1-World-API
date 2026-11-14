@@ -19,3 +19,13 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-STU-b,18,DNF,,17,,24,0,1,1,0,,accident
 1978-LAF-c,19,DNF,,15,,13,0,1,1,0,,gearbox
 1978-KEE-a,20,DNF,,18,,8,0,1,1,0,,transmission
+1978-MAS,21,DNQ,,,,,0,1,1,,,
+1978-REG-b,22,DNQ,,,,,0,1,1,,,
+1978-JAR-10,23,DNQ,,,,,0,1,1,,,
+1978-BRA-b,24,DNQ,,,,,0,1,1,,,
+1978-ROS-32-a,25,DNPQ,,,,,0,1,1,,,
+1978-DAL-24,26,DNPQ,,,,,0,1,1,,,
+1978-ARN-31,27,DNPQ,,,,,0,1,1,,,
+1978-REB,28,DNPQ,,,,,0,1,1,,,
+1978-LUN-30-b,29,DNPQ,,,,,0,1,1,,,
+1978-MER,30,DNPQ,,,,,0,1,1,,,

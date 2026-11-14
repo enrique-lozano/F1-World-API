@@ -20,3 +20,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1954-ASC-34-b,19,DNF,,1,,10,1,1,1,1,,clutch
 1954-VIL-36,20,DNF,,5,,2,0,1,1,0,,brakes
 1954-MAN-20,21,DNF,,17,,2,0,1,1,0,,engine
+1954-COL-42,22,DNS,,,,,0,1,1,,,
+1954-DER-32,23,DNA,,,,,0,1,1,,,
+1954-FAR-44,24,DNA,,,,,0,1,1,,,
+1954-WAC-50,25,DNA,,,,,0,1,1,,,

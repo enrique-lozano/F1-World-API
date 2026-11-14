@@ -23,3 +23,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1979-REU,22,DNF,,13,,1,0,1,1,0,,suspension
 1979-ARN-b,23,DNF,,1,,1,0,1,1,0,,suspension
 1979-REG-b,24,DNF,,3,,0,0,1,1,0,,collision
+1979-GAI,25,DNQ,,,,,0,1,1,,,
+1979-MER-c,26,DNQ,,,,,0,1,1,,,

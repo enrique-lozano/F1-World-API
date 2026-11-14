@@ -23,3 +23,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1980-FIT-b,22,DNF,,12,,18,0,1,1,0,,brakes
 1980-ROS-b,23,DNF,,8,,8,0,1,1,0,,wheel-bearing
 1980-REB,24,DNF,,15,,4,0,1,1,0,,gearbox
+1980-KEE-b,25,DNQ,,,,,0,1,1,,,
+1980-ERT,26,DNQ,,,,,0,1,1,,,

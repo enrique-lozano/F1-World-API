@@ -25,3 +25,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1987-CAP-b,24,DNF,,20,,13,0,1,1,0,,accident
 1987-CAM,25,DNF,,21,,2,0,1,1,0,,engine
 1987-ALL,26,DNF,,18,,0,0,1,1,0,,accident
+1987-MAN,27,DNS,,,,,0,1,1,,,

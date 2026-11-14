@@ -24,3 +24,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1990-MOD-b,23,DNF,,24,,5,0,1,1,0,,collision
 1990-ALE-b,24,DNF,,4,,0,0,1,1,0,,spun-off
 1990-PIR,25,DNF,,16,,0,0,1,1,0,,throttle
+1990-DON,26,DNS,,,,,0,1,1,,,
+1990-BRA-7,27,DNQ,,,,,0,1,1,,,
+1990-BAR-b,28,DNQ,,,,,0,1,1,,,
+1990-SCH-b,29,DNQ,,,,,0,1,1,,,
+1990-GAC-b,30,DNQ,,,,,0,1,1,,,
+1990-MOR-33,31,DNPQ,,,,,0,1,1,,,
+1990-LAN,32,DNPQ,,,,,0,1,1,,,
+1990-GIA-b,33,DNPQ,,,,,0,1,1,,,

@@ -255,6 +255,18 @@ CREATE TABLE IF NOT EXISTS qualifyingResults
 , PRIMARY KEY (sessionId, entryId)
 );
 
+-- Table: resultStatuses
+-- Codes of the race results that are not a finishing position (`raceResults.positionText`), with their meaning. The
+-- position of a classified driver is a number. `raceEntry`: counts as a race entry in the statistics; `started`: took the start.
+DROP TABLE IF EXISTS resultStatuses;
+CREATE TABLE IF NOT EXISTS resultStatuses
+( code VARCHAR(4) NOT NULL PRIMARY KEY
+, name VARCHAR(255) NOT NULL
+, description VARCHAR(1000) NOT NULL
+, raceEntry BOOLEAN NOT NULL CHECK (raceEntry IN (0, 1))
+, started BOOLEAN NOT NULL CHECK (started IN (0, 1))
+);
+
 -- Table: retirementReasons
 -- Why a car did not finish, was disqualified or did not start. The `name` is the text shown to the users.
 DROP TABLE IF EXISTS retirementReasons;
@@ -270,7 +282,7 @@ CREATE TABLE IF NOT EXISTS raceResults
 ( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id)
 , entryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES entries(id)
 , positionOrder INTEGER NOT NULL CHECK (positionOrder > 0)
-, positionText VARCHAR(4) NOT NULL
+, positionText VARCHAR(4) NOT NULL CHECK (positionText GLOB '[1-9]*' AND positionText NOT GLOB '*[^0-9]*' OR positionText IN ('DNF', 'NC', 'DSQ', 'DNS', 'DNQ', 'DNPQ', 'EX', 'DNP', 'WD', 'DNA')) -- the finishing position, or a code of resultStatuses (TD is never stored)
 , time INTEGER -- milliseconds
 , gridPosition INTEGER CHECK (gridPosition >= 0)
 , gridPenalty VARCHAR(10)

@@ -21,3 +21,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1963-MAI-8,20,DNF,,7,,1,0,1,1,0,,accident
 1963-IRE-14,21,DNF,,11,,1,0,1,1,0,,accident
 1963-BAN-15,22,DNF,,3,,0,0,1,1,0,,accident
+1963-PIL-29,23,DNQ,,,,,0,1,1,,,
+1963-RAB-25,24,DNQ,,,,,0,1,1,,,
+1963-PAR,25,DNQ,,,,,0,1,1,,,
+1963-KUH,26,DNQ,,,,,0,1,1,,,
+1963-BAG-12,27,WD,,,,,0,1,1,,,
+1963-GRE-19,28,WD,,,,,0,1,1,,,
+1963-HIL-11,29,WD,,,,,0,1,1,,,

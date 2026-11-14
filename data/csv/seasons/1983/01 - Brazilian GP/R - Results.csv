@@ -25,3 +25,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1983-ALB-a,24,DNF,,11,,7,0,1,1,0,,engine
 1983-ROS-a,25,DSQ,,1,,63,0,1,1,0,,push-start-in-pits
 1983-DEA-a,26,DSQ,,13,,60,0,1,1,0,,illegal-car-change
+1983-GHI-a,27,DNQ,,,,,0,1,1,,,
+1983-DEC,28,EX,,,,,0,1,1,,,

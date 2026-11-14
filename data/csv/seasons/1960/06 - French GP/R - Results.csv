@@ -19,3 +19,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1960-BRO-14,18,DNF,,14,,7,0,1,1,0,,vibrations
 1960-TRI-38-b,19,DNF,,18,,0,0,1,1,0,,accident
 1960-HIL-12,20,DNF,,3,,0,0,1,1,0,,accident
+1960-GIN-28,21,DNS,,,,,0,1,1,,,engine
+1960-PIP-34,22,DNS,,,,,0,1,1,,,engine
+1960-DAI-26,23,DNS,,,,,0,1,1,,,engine

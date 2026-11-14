@@ -42,6 +42,26 @@ export class SessionController extends CommonController {
     );
   }
 
+  /** Get the result of a driver in a session */
+  @Get('/{season}/{round}/{session}/results/{driverId}')
+  getDriverSessionResult(
+    @Path() season: number,
+    @Path() round: number,
+    @Path() session: string,
+    @Path() driverId: string,
+    @Queries() fields: IncludeQueryParam
+  ) {
+    return this.tryKyselyExecution(
+      new SessionService().getDriverSessionResult(
+        season,
+        round,
+        session,
+        driverId,
+        fields
+      )
+    );
+  }
+
   /** Get info about all the pit stops in this session. The results will be returned paginated, and accept the `include` and `sort` params */
   @Get('/{season}/{round}/{session}/pit-stops')
   getSessionPitStops(

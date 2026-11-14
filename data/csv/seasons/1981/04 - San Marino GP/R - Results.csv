@@ -23,3 +23,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1981-LAF,22,DNF,,10,,7,0,1,1,0,,suspension
 1981-PRO-a,23,DNF,,4,,3,0,1,1,0,,gearbox
 1981-GUE-31,24,DNF,,22,,0,0,1,1,0,,accident
+1981-STO-a,25,DNQ,,,,,0,1,1,,,
+1981-DAL-18,26,DNQ,,,,,0,1,1,,,
+1981-LAM-9,27,DNQ,,,,,0,1,1,,,
+1981-SER-b,28,DNQ,,,,,0,1,1,,,
+1981-WAR,29,DNQ,,,,,0,1,1,,,
+1981-HEN,30,DNQ,,,,,0,1,1,,,
+1981-DEA-b,31,WD,,,,,0,1,1,,,
+1981-MAN-b,32,WD,,,,,0,1,1,,,

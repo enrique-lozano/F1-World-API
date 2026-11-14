@@ -16,3 +16,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1960-BRI-8,15,DNF,,7,,9,0,1,1,0,,engine
 1960-MCL-12,16,DNF,,9,,8,0,1,1,0,,transmission
 1960-BRO-9,17,DNF,,10,,4,0,1,1,0,,gearbox
+1960-DAI-22,18,DNS,,,,,0,1,1,,,
+1960-GRE-19,19,DNS,,,,,0,1,1,,,
+1960-SAL-17,20,DNS,,,,,0,1,1,,,
+1960-REV-21,21,DNS,,,,,0,1,1,,,

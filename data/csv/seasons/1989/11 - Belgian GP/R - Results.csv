@@ -25,3 +25,16 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1989-MOD,24,DNF,,8,,9,0,1,1,0,,handling
 1989-ARN,25,DNF,,17,,4,0,1,1,0,,collision-damage
 1989-HER-4,26,DNF,,16,,3,0,1,1,0,,spun-off
+1989-NAK,27,DNQ,,,,,0,1,1,,,
+1989-PIQ,28,DNQ,,,,,0,1,1,,,
+1989-DAN,29,DNQ,,,,,0,1,1,,,
+1989-RAP-39,30,DNQ,,,,,0,1,1,,,
+1989-LAR-17,31,DNPQ,,,,,0,1,1,,,
+1989-GHI,32,DNPQ,,,,,0,1,1,,,
+1989-MOR-b,33,DNPQ,,,,,0,1,1,,,
+1989-TAR-b,34,DNPQ,,,,,0,1,1,,,
+1989-SCH,35,DNPQ,,,,,0,1,1,,,
+1989-SUZ,36,DNPQ,,,,,0,1,1,,,
+1989-DAL-41-b,37,DNPQ,,,,,0,1,1,,,
+1989-FOI-33-a,38,DNPQ,,,,,0,1,1,,,
+1989-BER-32,39,DNPQ,,,,,0,1,1,,,

@@ -25,3 +25,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1988-CHE,24,DNF,,18,,10,0,1,1,0,,turbo
 1988-ALL,25,DNF,,20,,7,0,1,1,0,,engine
 1988-JOH,26,DNF,,24,,4,0,1,1,0,,engine
+1988-BAI,27,DNQ,,,,,0,1,1,,,
+1988-GHI,28,DNQ,,,,,0,1,1,,,
+1988-MOD,29,DNQ,,,,,0,1,1,,,
+1988-SCH-10,30,DNQ,,,,,0,1,1,,,
+1988-LAR-32,31,DNPQ,,,,,0,1,1,,,

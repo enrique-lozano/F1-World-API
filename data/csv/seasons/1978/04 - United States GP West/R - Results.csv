@@ -21,3 +21,11 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1978-MAS,20,DNF,,16,,11,0,1,1,0,,brakes
 1978-WAT-b,21,DNF,,5,,9,0,1,1,0,,engine
 1978-HUN-a,22,DNF,,7,,5,0,1,1,0,,accident
+1978-KEE-a,23,DNS,,,,,0,1,1,,,
+1978-STU-b,24,DNS,,,,,0,1,1,,,
+1978-LUN-30-a,25,DNQ,,,,,0,1,1,,,
+1978-LEO-22,26,DNQ,,,,,0,1,1,,,
+1978-ROS-32-a,27,DNPQ,,,,,0,1,1,,,
+1978-REB,28,DNPQ,,,,,0,1,1,,,
+1978-ONG-39,29,DNPQ,,,,,0,1,1,,,
+1978-DAL-24,30,DNPQ,,,,,0,1,1,,,
