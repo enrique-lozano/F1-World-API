@@ -105,4 +105,18 @@ describe('Test events functionality', () => {
 
     expect(res.data[0]).toEqual({ id: '2021-22', round: 22 });
   });
+
+  test('The names of the events keep their accents', async () => {
+    const res = await getUrlResponseForTesting<EventDTO>('/events/1989/1', {
+      include: 'name'
+    });
+
+    expect(res.name).toBe('Grande Prêmio do Brasil 1989');
+
+    const austria = await getUrlResponseForTesting<EventDTO>('/events/1964/7', {
+      include: 'name'
+    });
+
+    expect(austria.name).toBe('Grosser Preis von Österreich 1964');
+  });
 });
