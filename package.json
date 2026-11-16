@@ -7,7 +7,7 @@
     "build": "npm run swagger && tsc",
     "start": "node dist/src/server.js",
     "test": "vitest run",
-    "swagger": "tsoa spec-and-routes",
+    "swagger": "tsoa spec-and-routes && tsx scripts/enum-descriptions.ts",
     "prettier": "prettier --write \"{src,data}/**/*.{json,js,ts}\"",
     "prettier:check": "prettier --check \"{src,data}/**/*.{json,js,ts}\"",
     "prepare": "husky",
@@ -19,7 +19,9 @@
     "dev": "tsx watch src/server.ts",
     "predev": "npm run swagger",
     "test:watch": "vitest",
-    "docs:db": "tsx data/db-docs.ts"
+    "docs": "npm run docs:db && npm run docs:coverage",
+    "docs:db": "tsx data/db-docs.ts",
+    "docs:coverage": "tsx data/db-coverage.ts"
   },
   "keywords": [],
   "author": "",

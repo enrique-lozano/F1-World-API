@@ -19,3 +19,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1958-STA,18,DNF,,20,,19,0,1,1,0,,overheating
 1958-HIL-16-b,19,DNF,,14,,17,0,1,1,0,,overheating
 1958-FAI-14,20,DNF,,19,,7,0,1,1,0,,ignition
+1958-ECC,21,DNP,,,,,0,1,1,,,
+1958-GRE-30,22,DNA,,,,,0,1,1,,,

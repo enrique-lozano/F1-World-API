@@ -42,13 +42,18 @@ export class ParamsBuilderService extends DbService {
     fromTable: T,
     obj: SessionEntryQueryParams
   ): SelectQueryBuilder<DB, T, Partial<unknown>> {
-    return this.getSessionsWithParamas(fromTable as any, obj).$if(
-      obj.driverId != undefined,
-      (qb) =>
+    return this.getSessionsWithParamas(fromTable as any, obj)
+      .$if(obj.driverId != undefined || obj.constructorId != undefined, (qb) =>
+        qb.innerJoin('entries', 'entries.id', `${fromTable}.entryId`)
+      )
+      .$if(obj.driverId != undefined, (qb) =>
+        qb.where('entries.driverId', '==', obj.driverId!)
+      )
+      .$if(obj.constructorId != undefined, (qb) =>
         qb
-          .innerJoin('entries', 'entries.id', `${fromTable}.entryId`)
-          .where('entries.driverId', '==', obj.driverId!)
-    ) as unknown as SelectQueryBuilder<DB, T, Partial<unknown>>;
+          .innerJoin('chassis', 'chassis.id', 'entries.chassisId')
+          .where('chassis.constructorId', '==', obj.constructorId!)
+      ) as unknown as SelectQueryBuilder<DB, T, Partial<unknown>>;
   }
 
   getResultsWithParamas<T extends resultsTables>(

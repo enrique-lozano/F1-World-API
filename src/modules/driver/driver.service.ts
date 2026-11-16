@@ -83,7 +83,8 @@ export class DriverService
       'permanentNumber',
       'placeOfBirth',
       'gender',
-      'placeOfBirth'
+      'wikiUrl',
+      'photo'
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'drivers', object>)
@@ -198,7 +199,7 @@ export class DriverService
       .executeTakeFirstOrThrow(() => HttpException.resourceNotFound('default'));
   }
 
-  /** One row per race result of the driver, plus one per event in which he only took part in free practice (`TD`) */
+  /** One row per race result of the driver, plus one per event in which he was a test driver without a race result (`TD`) */
   async getResults(
     driverId: string,
     season?: number
@@ -224,12 +225,12 @@ export class DriverService
           JOIN entries e ON e.id = r.entryId
           WHERE e.driverId = ${driverId} ${seasonFilter}
         UNION ALL
-        -- Only free practice: a test driver. One row per event, with the first of his entries
+        -- A test driver (entries.testDriver) in a GP without a race result: TD. One row per event, with the first of his entries
         SELECT s.eventId, MIN(f.entryId), 'TD', NULL, NULL, NULL
           FROM fpResults f
           JOIN sessions s ON s.id = f.sessionId
           JOIN entries e ON e.id = f.entryId
-          WHERE e.driverId = ${driverId} ${seasonFilter}
+          WHERE e.driverId = ${driverId} AND e.testDriver = 1 ${seasonFilter}
             AND NOT EXISTS (
               SELECT 1 FROM raceResults r2
                 JOIN sessions s2 ON s2.id = r2.sessionId AND s2.abbreviation = 'R'

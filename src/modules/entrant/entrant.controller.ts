@@ -3,6 +3,7 @@ import { CommonController } from '../../controllers/common.controller';
 import { IncludeQueryParam } from '../../models/include-filter';
 import { CommonQueryParams } from '../../models/query-params';
 import {
+  EntrantConstructorUsage,
   EntrantDTO,
   EntrantLineage,
   EntrantNameUsage,
@@ -84,5 +85,18 @@ export class EntrantController extends CommonController {
   @Response<JsonApiError>('4XX', 'Client error')
   async getLineage(@Path() id: string): Promise<EntrantLineage> {
     return this.tryKyselyExecution(new EntrantService().getLineage(id));
+  }
+
+  /** Get the constructors whose chassis the entrant raced, with the ranges of seasons of each one (e.g. Tyrrell 1970-1998 for Tyrrell Racing Organisation, and Matra 1968-1969 as a customer). `works` tells if the entrant built that chassis itself. Sorted by the first season
+   *
+   * @param id The ID of the entrant
+   * @example id "tyrrell-racing"
+   */
+  @Get('{id}/constructors')
+  @Response<JsonApiError>('4XX', 'Client error')
+  async getConstructors(
+    @Path() id: string
+  ): Promise<EntrantConstructorUsage[]> {
+    return this.tryKyselyExecution(new EntrantService().getConstructors(id));
   }
 }

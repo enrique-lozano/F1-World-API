@@ -20,5 +20,5 @@
     "sourceMap": true,
     "types": ["node"]
   },
-  "include": ["src/**/*", "data/**/*"]
+  "include": ["src/**/*", "data/**/*", "scripts/**/*"]
 }

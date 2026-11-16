@@ -101,6 +101,8 @@ export interface Circuits {
   countryId: string;
   latitude: string | null;
   longitude: string | null;
+  /** IANA time zone of the circuit (`Europe/Madrid`), to show the sessions in the local time */
+  timeZone: string;
 }
 
 // Separate type for the omitted attributes, see https://github.com/lukeautry/tsoa/issues/1238
@@ -133,7 +135,6 @@ export interface Constructors {
   fullName: string;
   countryId: string;
   wikiUrl: string | null;
-  summary: string | null;
   photo: string | null;
 }
 
@@ -220,6 +221,7 @@ export interface Drivers {
   countryOfBirthCountryId: string;
   nationalityCountryId: string;
   secondNationalityCountryId: string | null;
+  wikiUrl: string | null;
   photo: string | null;
 }
 
@@ -388,6 +390,28 @@ export interface EntrantLineage {
   successors: EntrantLineageItem[];
 }
 
+/** An entrant that raced the chassis of a constructor */
+export interface ConstructorEntrantUsage {
+  entrant: EntrantDTO;
+
+  /** Ranges of consecutive seasons in which the entrant raced the chassis of the constructor */
+  ranges: { from: number; to: number }[];
+
+  /** `true` if the entrant built the chassis itself (`WORKS`) in at least one of those seasons: the constructor is its own constructor */
+  works: boolean;
+}
+
+/** A constructor whose chassis was raced by an entrant */
+export interface EntrantConstructorUsage {
+  chassisConstructor: ConstructorDTO;
+
+  /** Ranges of consecutive seasons in which the entrant raced the chassis of the constructor */
+  ranges: { from: number; to: number }[];
+
+  /** `true` if the entrant built the chassis itself (`WORKS`) in at least one of those seasons: the constructor is its own constructor */
+  works: boolean;
+}
+
 /** A registered name of an entrant and the seasons in which it was used */
 export interface EntrantNameUsage {
   name: string;
@@ -415,7 +439,8 @@ export interface Entries {
   /** Brand the engine is sold under when it is not its builder (Ford for a Cosworth). `null` if it is the builder */
   engineBrandId: string | null;
   tyreManufacturerId: string | null;
-  note: string | null;
+  /** 1 if the driver was entered as a third, reserve or test driver: he can only take part in free practice, and his result of a GP without a race result is `TD` */
+  testDriver: number;
 }
 
 export interface EntryDTO extends Omit<Entries, EntryOmittedAttr> {
@@ -432,7 +457,8 @@ export interface Sessions {
   id: string;
   eventId: string;
   abbreviation: SessionAbbreviation;
-  startDateTime: string;
+  /** ISO 8601 date and time in UTC. The sessions of the oldest seasons only have the date, with the time `00:00:00Z`. `null` if unknown */
+  startDateTime: string | null;
 }
 
 export interface SessionDTO extends Omit<Sessions, 'eventId'> {
@@ -451,7 +477,7 @@ export interface Events {
 
 /** An entry of an event (GP) and what it did in it */
 export interface EventEntryDTO {
-  /** The race result (a position or a code of `/result-statuses`), `TD` if the driver only took part in free practice, or `null` if the entry has results of other sessions but none in the race */
+  /** The race result (a finishing position or a `ResultStatusCode`), `TD` for a test driver (`entry.testDriver`) that only took part in free practice, or `null` if the entry has results of other sessions but none in the race */
   participation: string | null;
   entry: EntryDTO;
 }
@@ -469,7 +495,7 @@ export interface DriverEventResultDTO {
   driverNumber: number;
   constructorId: string;
   constructorName: string;
-  /** The finishing position, a code of `/result-statuses` (`DNF`, `DNQ`, `WD`...) or `TD` (only free practice) */
+  /** The finishing position or a `ResultStatusCode` (`TD` if he was a test driver, `entries.testDriver`, in a GP without a race result) */
   positionText: string;
   points: number | null;
   laps: number | null;
@@ -530,7 +556,7 @@ export interface TimedSessionResults {
   entryId: string;
   sessionId: string;
   positionOrder: number | null;
-  /** The finishing position (`"1"`, `"2"`...) or a code: `DNF`, `NC` (not classified), `DNS`, `DSQ`, `WD` (withdrawn), `DNQ` */
+  /** The finishing position (`"1"`, `"2"`...) or a `ResultStatusCode` */
   positionText: string | null;
   laps: number | null;
   time: number | null;
@@ -548,7 +574,7 @@ export interface RaceResults {
   entryId: string;
   sessionId: string;
   positionOrder: number;
-  /** The finishing position (`"1"`, `"2"`...) or one of the codes of `/result-statuses`: `DNF`, `NC`, `DSQ`, `DNS`, `DNQ`, `DNPQ`, `EX`, `DNP`, `WD` or `DNA`. Every driver entered for the race has a result, also the ones that did not take the start */
+  /** The finishing position (`"1"`, `"2"`...) or a `ResultStatusCode` (never `TD`). Every driver entered for the race has a result, also the ones that did not take the start */
   positionText: string;
   time: number | null;
   gridPosition: number | null;
@@ -563,11 +589,40 @@ export interface RaceResults {
   retirementReasonId: string | null;
 }
 
+/** The codes that a result can have in `positionText` instead of a finishing position (`"1"`, `"2"`...).
+ *
+ * These codes represent special result statuses such as Did Not Finish (DNF), Did Not Start (DNS), Disqualified (DSQ), etc.
+ * Many of them are extracted from this Wikipedia legend: https://en.wikipedia.org/wiki/Template:F1_driver_results_legend_2 (some of them have been merged for this API)
+ */
+export enum ResultStatusCode {
+  /** Took the start but retired and was not classified */
+  DNF = 'DNF',
+  /** Took the start and was running at the end but did not complete enough laps to be classified */
+  NC = 'NC',
+  /** Took the start but was disqualified from the race */
+  DSQ = 'DSQ',
+  /** Was due to take the start but did not take it: a failure or an accident on the way to the grid, the formation lap or the warm-up... (Tsunoda, Saudi Arabia 2022). In the old races, also the drivers that qualified and did not start, as the sources give it */
+  DNS = 'DNS',
+  /** Took part in qualifying but did not get a place on the grid */
+  DNQ = 'DNQ',
+  /** Took part in pre-qualifying but did not get through to qualifying */
+  DNPQ = 'DNPQ',
+  /** Was excluded from the event before the race */
+  EX = 'EX',
+  /** Was at the event but did not take part in any session */
+  DNP = 'DNP',
+  /** Was withdrawn from the event by the team or the driver, before the race: before the weekend, or after taking part in practice or qualifying (injured, ill, replaced, car not repaired...). E.g. Mick Schumacher, Saudi Arabia 2022, or Massa, Hungary 2017 */
+  WD = 'WD',
+  /** Was entered but did not arrive at the event */
+  DNA = 'DNA',
+  /** Only took part in free practice as a third or test driver. Calculated by the API: it is never stored in the race results */
+  TD = 'TD'
+}
+
 export interface ResultStatuses {
-  /** The code, as stored in `positionText` (`DNF`, `DNQ`, `WD`...) */
-  code: string;
+  /** The code, as stored in `positionText` */
+  code: ResultStatusCode;
   name: string;
-  description: string;
   /** 1 if a result with this code counts as a race entry in the statistics (`races`) */
   raceEntry: number;
   /** 1 if the driver took the start of the race (`starts`) */

@@ -22,3 +22,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1970-STO-14,21,DNF,,15,,23,0,1,1,0,,engine
 1970-OLI-19,22,DNF,,12,,22,0,1,1,0,,gearbox
 1970-AMO-15,23,DNF,,2,,14,0,1,1,0,,overheating
+1970-RED,24,DNS,,,,,0,1,1,,,

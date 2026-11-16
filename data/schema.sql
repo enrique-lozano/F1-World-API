@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS circuits
 , countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
 , latitude DECIMAL(10,6)
 , longitude DECIMAL(10,6)
+, timeZone VARCHAR(255) NOT NULL COLLATE NOCASE -- IANA time zone of the circuit, e.g. Europe/Madrid
 );
 
 -- Table: companies
@@ -42,7 +43,6 @@ CREATE TABLE IF NOT EXISTS constructors
 , fullName VARCHAR(255) NOT NULL COLLATE NOCASE
 , countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code) -- country of origin of the marque; the licence nationality is per season (entrantSeasons)
 , wikiUrl VARCHAR(255) COLLATE NOCASE
-, summary VARCHAR(5000) COLLATE NOCASE
 , photo VARCHAR(255) COLLATE NOCASE
 );
 
@@ -81,6 +81,7 @@ CREATE TABLE IF NOT EXISTS drivers
 , countryOfBirthCountryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
 , nationalityCountryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
 , secondNationalityCountryId VARCHAR(255) COLLATE NOCASE REFERENCES countries(alpha2Code)
+, wikiUrl VARCHAR(255) COLLATE NOCASE
 , photo VARCHAR(10000)
 );
 
@@ -184,7 +185,7 @@ CREATE TABLE IF NOT EXISTS entries
 , engineId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES engines(id) -- who built the engine
 , engineBrandId VARCHAR(255) COLLATE NOCASE REFERENCES engineManufacturers(id) -- brand the engine is sold under when it differs from the builder (Ford on a Cosworth). NULL = the builder
 , tyreManufacturerId VARCHAR(255) COLLATE NOCASE REFERENCES tyreManufacturers(id)
-, note VARCHAR(255) -- "TD" in 170 rows, meaning to be confirmed
+, testDriver BOOLEAN NOT NULL DEFAULT 0 CHECK (testDriver IN (0, 1)) -- 1 if the driver was entered as a third, reserve or test driver: he can only take part in free practice, and the API gives him `TD` in the GPs in which he has no race result
 );
 
 -- Table: lapTimes
@@ -216,7 +217,7 @@ CREATE TABLE IF NOT EXISTS sessions
 ( id VARCHAR(10) NOT NULL PRIMARY KEY
 , eventId VARCHAR(10) NOT NULL REFERENCES events (id) ON UPDATE CASCADE
 , abbreviation TEXT NOT NULL
-, startDateTime VARCHAR(20) -- ISO 8601 (UTC), e.g. 1950-05-13T00:00:00Z
+, startDateTime VARCHAR(20) -- ISO 8601 (UTC), e.g. 2023-03-05T15:00:00Z. Old sessions only have the date, with the time 00:00:00Z. Empty if unknown
 );
 
 -- Table: events
@@ -256,13 +257,12 @@ CREATE TABLE IF NOT EXISTS qualifyingResults
 );
 
 -- Table: resultStatuses
--- Codes of the race results that are not a finishing position (`raceResults.positionText`), with their meaning. The
+-- Codes of the race results that are not a finishing position (`raceResults.positionText`). Their meaning is documented in the `ResultStatusCode` enum (`src/models/types.dto.ts`). The
 -- position of a classified driver is a number. `raceEntry`: counts as a race entry in the statistics; `started`: took the start.
 DROP TABLE IF EXISTS resultStatuses;
 CREATE TABLE IF NOT EXISTS resultStatuses
 ( code VARCHAR(4) NOT NULL PRIMARY KEY
 , name VARCHAR(255) NOT NULL
-, description VARCHAR(1000) NOT NULL
 , raceEntry BOOLEAN NOT NULL CHECK (raceEntry IN (0, 1))
 , started BOOLEAN NOT NULL CHECK (started IN (0, 1))
 );

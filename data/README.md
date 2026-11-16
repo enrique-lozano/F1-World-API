@@ -26,6 +26,11 @@ npm run import-db
 
 The import is atomic: the database is built in a temporary file and replaces the real one only if everything succeeded, so a mistake in a CSV never leaves you with a broken database.
 
+## Sources and coverage
+
+- [`SOURCES.md`](SOURCES.md): where the data comes from.
+- [`COVERAGE.md`](COVERAGE.md): how complete each kind of data is, per decade and season. Regenerate it after adding data with `npm run docs:coverage`.
+
 ## The database
 
 `db/racedex.db` does not exist in a fresh clone. It is created automatically the first time you start the server (or run the tests), or manually with `npm run import-db`. The structure is defined in [`schema.sql`](schema.sql).
@@ -58,7 +63,8 @@ The `.dbml` file can also be pasted into [dbdiagram.io](https://dbdiagram.io) to
 
 ## Race results of the drivers that did not start
 
-Every driver entered for a race has a row in its `R - Results.csv`, also the ones that did not take the start. `positionText` is then one of the codes of [`resultStatuses.csv`](csv/resultStatuses.csv) instead of a position: `DNS` (did not start), `DNQ` (did not qualify), `DNPQ` (did not pre-qualify), `EX` (excluded), `DNP` (did not practice), `WD` (withdrawn, also the drivers replaced after practice) and `DNA` (did not arrive). They go after the drivers that took the start, in that order, and the non-qualifiers by their qualifying time. A test driver (only free practice) has no race row: the API calculates his `TD`.
+Every driver entered for a race has a row in its `R - Results.csv`, also the ones that did not take the start. `positionText` is then one of the codes of [`resultStatuses.csv`](csv/resultStatuses.csv) instead of a position: `DNS` (did not start: was due to start and did not, e.g. a failure on the way to the grid), `DNQ` (did not qualify), `DNPQ` (did not pre-qualify), `EX` (excluded), `DNP` (did not practice), `WD` (withdrawn by the team or the driver before the race, also after practice or qualifying) and `DNA` (did not arrive). They go after the drivers that took the start, in that order, and the non-qualifiers by their qualifying time. A test driver (third, reserve or Friday driver) has `testDriver` = 1 in his entry and no race row: the API gives him `TD` in those GPs.
+
 - The Constructors' Championship is not stored: the API calculates it from the race results (`pointsCountForWCC` marks the results that do not score for it).
 
 ## Notes for maintainers

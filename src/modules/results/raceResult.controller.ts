@@ -16,6 +16,12 @@ export interface RaceResultQueryParams extends ResultsFiltersQueryParams {
   maxGridPos?: number;
 
   minGridPos?: number;
+
+  /** If `true`, return only the results of the entries that set the fastest lap of their session (the minimum lap time). Only available for the races with lap times (1996 onwards) */
+  fastestLap?: boolean;
+
+  /** If `true`, return only the results of entries that started the race (as determined by the result status) */
+  hasStarted?: boolean;
 }
 
 @Route('races/results')
@@ -97,13 +103,41 @@ export class RaceResultService extends DbService {
   }
 
   private getResultsWithParams(obj: RaceResultQueryParams) {
-    return new ParamsBuilderService()
-      .getResultsWithParamas('raceResults', obj)
+    let qb = new ParamsBuilderService().getResultsWithParamas(
+      'raceResults',
+      obj
+    );
+
+    if (obj.hasStarted === true) {
+      qb = qb.leftJoin('resultStatuses', (join) =>
+        join.onRef('raceResults.positionText', '==', 'resultStatuses.code')
+      );
+    }
+
+    return qb
       .$if(obj.maxGridPos != undefined, (qb) =>
         qb.where('gridPosition', '<=', obj.maxGridPos!)
       )
       .$if(obj.minGridPos != undefined, (qb) =>
         qb.where('gridPosition', '>=', obj.minGridPos!)
+      )
+      .$if(obj.fastestLap === true, (qb) =>
+        qb.where(
+          // Each minimum is calculated once per result (comparing the laps one by one is much slower)
+          sql<boolean>`(
+            SELECT MIN(time) FROM lapTimes
+            WHERE lapTimes.sessionId = raceResults.sessionId
+              AND lapTimes.entryId = raceResults.entryId
+          ) = (
+            SELECT MIN(time) FROM lapTimes AS sessionLaps
+            WHERE sessionLaps.sessionId = raceResults.sessionId
+          )`
+        )
+      )
+      .$if(obj.hasStarted === true, (qb) =>
+        qb.where(
+          sql<boolean>`COALESCE(raceResults.positionText GLOB '[1-9]*', 0) = 1 OR COALESCE(resultStatuses.started, 0) = 1`
+        )
       );
   }
 

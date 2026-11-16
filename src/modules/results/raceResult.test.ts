@@ -25,6 +25,37 @@ describe('Test race results functionality', () => {
     expect(res[0].entry?.driver?.id).toBe('lewis-hamilton');
   });
 
+  test('The results can be filtered by constructor', async () => {
+    const res = await getUrlResponseForTesting<{ data: RaceResultDTO[] }>(
+      '/races/results',
+      {
+        constructorId: 'alpine',
+        session: 'R',
+        maxPos: '1',
+        include: 'positionText,session.event.season'
+      }
+    );
+
+    expect(res.data.length).toBe(1);
+    expect(res.data[0].session?.event?.season).toBe(2021);
+  });
+
+  test('The fastest laps of a constructor match its stats', async () => {
+    const [stats, res] = await Promise.all([
+      getUrlResponseForTesting<{ fastestLaps: number }>(
+        '/constructors/ferrari/stats'
+      ),
+      getUrlResponseForTesting<{ totalElements: number }>('/races/results', {
+        constructorId: 'ferrari',
+        session: 'R',
+        fastestLap: 'true',
+        pageSize: '1'
+      })
+    ]);
+
+    expect(res.totalElements).toBe(stats.fastestLaps);
+  });
+
   test('The locale param is accepted by the endpoints with an include param', async () => {
     const res = await getUrlResponseForTesting<RaceResultDTO[]>(
       '/sessions/2021/1/R/results',

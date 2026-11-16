@@ -77,7 +77,6 @@ Table constructors {
   fullName varchar [not null]
   countryId varchar [not null, note: 'country of origin of the marque; the licence nationality is per season (entrantSeasons)']
   wikiUrl varchar
-  summary varchar
   photo varchar
 
   indexes {
@@ -109,6 +108,7 @@ Table circuits {
   countryId varchar [not null]
   latitude decimal
   longitude decimal
+  timeZone varchar [not null, note: 'IANA time zone of the circuit, e.g. Europe/Madrid']
 }
 
 Table grandsPrix {
@@ -134,6 +134,7 @@ Table drivers {
   countryOfBirthCountryId varchar [not null]
   nationalityCountryId varchar [not null]
   secondNationalityCountryId varchar
+  wikiUrl varchar
   photo varchar
 
   indexes {
@@ -206,7 +207,7 @@ Table sessions {
   id varchar [pk]
   eventId varchar [not null]
   abbreviation text [not null]
-  startDateTime varchar [note: 'ISO 8601 (UTC), e.g. 1950-05-13T00:00:00Z']
+  startDateTime varchar [note: 'ISO 8601 (UTC), e.g. 2023-03-05T15:00:00Z. Old sessions only have the date, with the time 00:00:00Z. Empty if unknown']
 
   indexes {
     eventId
@@ -236,11 +237,10 @@ Table retirementReasons {
 Table resultStatuses {
   code varchar [pk]
   name varchar [not null]
-  description varchar [not null]
   raceEntry boolean [not null]
   started boolean [not null]
 
-  Note: 'Codes of the race results that are not a finishing position (`raceResults.positionText`), with their meaning. The position of a classified driver is a number. `raceEntry`: counts as a race entry in the statistics; `started`: took the start.'
+  Note: 'Codes of the race results that are not a finishing position (`raceResults.positionText`). Their meaning is documented in the `ResultStatusCode` enum (`src/models/types.dto.ts`). The position of a classified driver is a number. `raceEntry`: counts as a race entry in the statistics; `started`: took the start.'
 }
 
 Table safetyCars {
@@ -303,7 +303,7 @@ Table entries {
   engineId varchar [not null, note: 'who built the engine']
   engineBrandId varchar [note: 'brand the engine is sold under when it differs from the builder (Ford on a Cosworth). NULL = the builder']
   tyreManufacturerId varchar
-  note varchar [note: '"TD" in 170 rows, meaning to be confirmed']
+  note varchar
 
   indexes {
     chassisId

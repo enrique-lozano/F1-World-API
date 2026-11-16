@@ -44,3 +44,13 @@ export function getOrderedArrayFromRangeText(text: string) {
 
   return toReturn;
 }
+
+/** Given an ascending array of seasons, return its ranges of consecutive ones: [1,2,3,6] -> [{from: 1, to: 3}, {from: 6, to: 6}] */
+export function toSeasonRanges(seasons: number[]) {
+  return seasons.reduce<{ from: number; to: number }[]>((ranges, season) => {
+    const last = ranges[ranges.length - 1];
+    if (last && season <= last.to + 1) last.to = season;
+    else ranges.push({ from: season, to: season });
+    return ranges;
+  }, []);
+}

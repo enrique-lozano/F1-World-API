@@ -65,6 +65,7 @@ id,entrantId,season,ownConstructorId,licenceCountryId
 1950-troy-oil,troy-oil,1950,,US
 1950-tuffy-s-offy,tuffy-s-offy,1950,,
 1950-verlin-brown,verlin-brown,1950,,US
+1950-ecurie-espadon,ecurie-espadon,1950,,CH
 1951-alfa-romeo-spa,alfa-romeo-spa,1951,alfa-romeo,IT
 1951-antonio-branca,antonio-branca,1951,,CH
 1951-bardahl,bardahl,1951,,US
@@ -847,6 +848,7 @@ id,entrantId,season,ownConstructorId,licenceCountryId
 1963-team-lotus,team-lotus,1963,lotus,GB
 1963-ted-lanfear,ted-lanfear,1963,,ZA
 1963-tim-parnell,tim-parnell,1963,,GB
+1963-neville-lederle,neville-lederle,1963,,ZA
 1964-bernard-collomb,bernard-collomb,1964,,FR
 1964-bob-gerard,bob-gerard,1964,,GB
 1964-brabham,brabham,1964,brabham,GB

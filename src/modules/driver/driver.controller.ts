@@ -72,7 +72,7 @@ export class DriverController extends CommonController {
   /** Get WDC results of this driver: its position and points in the drivers' standings of every season in which it participated in at least one race
    *
    * @param driverId The ID of the driver to get its results */
-  /** The result of the driver in every event (GP), as in the season tables of Wikipedia: the race result (a position or a code of `/result-statuses`: `DNF`, `DNQ`, `DNPQ`, `DNS`, `WD`, `DNA`...), or `TD` in the events in which he only took part in free practice. Sorted chronologically
+  /** The result of the driver in every event (GP), as in the season tables of Wikipedia: the race result (a position or a code of `/result-statuses`: `DNF`, `DNQ`, `DNPQ`, `DNS`, `WD`, `DNA`...), or `TD` in the events in which he was a test driver (`entries.testDriver`) and has no race result. Sorted chronologically
    *
    * @param season If specified, only the results of this season */
   @Get('{driverId}/results')

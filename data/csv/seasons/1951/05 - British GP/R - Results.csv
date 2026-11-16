@@ -19,3 +19,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1951-MUR-15,18,DNF,,15,,45,0,1,1,0,,engine
 1951-CHI-23,19,DNF,,13,,41,0,1,1,0,,brakes
 1951-JAM-16,20,DNF,,17,,23,0,1,1,0,,radiator
+1951-TRI-19,21,DNA,,,,,0,1,1,,,
+1951-MAN-20,22,DNA,,,,,0,1,1,,,
+1951-SIM-21,23,DNA,,,,,0,1,1,,,
+1951-ETA-24,24,DNA,,,,,0,1,1,,,

@@ -35,7 +35,10 @@ export interface SessionEntryQueryParams extends SessionQueryParams {
   /** Return only the items regarding this driver */
   driverId?: string;
 
-  //TODO: Add filters by chassis, engines...
+  /** Return only the items of the cars with a chassis designed by this constructor */
+  constructorId?: string;
+
+  //TODO: Add filters by engines...
 }
 
 export interface ResultsFiltersQueryParams extends SessionEntryQueryParams {

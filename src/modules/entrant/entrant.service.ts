@@ -5,6 +5,7 @@ import { PageMetadata, Paginator } from '../../models/pagination';
 import { Sorter } from '../../models/sorter';
 import {
   DB,
+  EntrantConstructorUsage,
   EntrantDTO,
   EntrantLineage,
   EntrantLineageItem,
@@ -15,7 +16,9 @@ import {
 } from '../../models/types.dto';
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
+import { toSeasonRanges } from '../../utils/functions/rangeUtils';
 import { CompanyService } from '../company/company.service';
+import { ConstructorService } from '../constructor/constructor.service';
 import { CountryService } from '../countries/countries.service';
 import { EntrantSeasonService } from './entrantSeason.service';
 import type {
@@ -28,7 +31,12 @@ export class EntrantService
   implements
     Pick<
       EntrantController,
-      'get' | 'getById' | 'getSeasons' | 'getNames' | 'getLineage'
+      | 'get'
+      | 'getById'
+      | 'getSeasons'
+      | 'getNames'
+      | 'getLineage'
+      | 'getConstructors'
     >
 {
   static getEntrantsSelect<T extends keyof DB>(
@@ -258,6 +266,60 @@ export class EntrantService
       predecessors: toItems(predecessors),
       successors: toItems(successors)
     };
+  }
+
+  async getConstructors(id: string): Promise<EntrantConstructorUsage[]> {
+    await this.checkExists(id);
+
+    const rows = await this.db
+      .selectFrom('entries')
+      .innerJoin(
+        'entrantSeasons',
+        'entrantSeasons.id',
+        'entries.entrantSeasonId'
+      )
+      .innerJoin('chassis', 'chassis.id', 'entries.chassisId')
+      .where('entrantSeasons.entrantId', '==', id)
+      .select([
+        'chassis.constructorId',
+        'entrantSeasons.season',
+        sql<number>`entrantSeasons.ownConstructorId = chassis.constructorId`.as(
+          'works'
+        )
+      ])
+      .distinct()
+      .orderBy('entrantSeasons.season')
+      .execute();
+
+    const seasonsByConstructor = new Map<
+      string,
+      { seasons: number[]; works: boolean }
+    >();
+    for (const row of rows) {
+      const usage = seasonsByConstructor.get(row.constructorId) ?? {
+        seasons: [],
+        works: false
+      };
+      if (!usage.seasons.includes(row.season)) usage.seasons.push(row.season);
+      usage.works ||= !!row.works;
+      seasonsByConstructor.set(row.constructorId, usage);
+    }
+
+    const constructors = seasonsByConstructor.size
+      ? await ConstructorService.getConstructorsSelect(
+          this.db.selectFrom('constructors')
+        )
+          .where('constructors.id', 'in', [...seasonsByConstructor.keys()])
+          .execute()
+      : [];
+
+    return [...seasonsByConstructor.entries()]
+      .map(([constructorId, { seasons, works }]) => ({
+        chassisConstructor: constructors.find((c) => c.id === constructorId)!,
+        ranges: toSeasonRanges(seasons),
+        works
+      }))
+      .sort((a, b) => a.ranges[0].from - b.ranges[0].from);
   }
 
   private async checkExists(id: string) {

@@ -28,6 +28,7 @@ export class CircuitService
       'name',
       'placeName',
       'previousNames',
+      'timeZone',
       'type'
     ] as const;
 

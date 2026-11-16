@@ -29,7 +29,7 @@ export class EntryService
       'id',
       'driverNumber',
       'entrantName',
-      'note'
+      'testDriver'
     ] as const;
 
     return (qb as SelectQueryBuilder<DB, 'entries', object>)

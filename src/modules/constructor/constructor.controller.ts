@@ -5,6 +5,7 @@ import { CommonQueryParams } from '../../models/query-params';
 import {
   ConstructorCareerStats,
   ConstructorDTO,
+  ConstructorEntrantUsage,
   ConstructorEngineSupplier
 } from '../../models/types.dto';
 import { JsonApiError } from '../../utils/custom-error';
@@ -100,6 +101,21 @@ export class ConstructorController extends CommonController {
   ): Promise<ConstructorEngineSupplier[]> {
     return this.tryKyselyExecution(
       new ConstructorService().getConstructorEngineSuppliers(id)
+    );
+  }
+
+  /** Get the entrants (teams) that raced the chassis of a constructor, with the ranges of seasons of each one (e.g. Ferrari: Scuderia Ferrari 1950-2024, and the customer teams that raced its chassis). `works` tells if the entrant built that chassis itself. Sorted by the first season
+   *
+   * @param id The ID of the constructor
+   * @example id "tyrrell"
+   */
+  @Get('{id}/entrants')
+  @Response<JsonApiError>('4XX', 'Client error')
+  async getConstructorEntrants(
+    @Path() id: string
+  ): Promise<ConstructorEntrantUsage[]> {
+    return this.tryKyselyExecution(
+      new ConstructorService().getConstructorEntrants(id)
     );
   }
 }

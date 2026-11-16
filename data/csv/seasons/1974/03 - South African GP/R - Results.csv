@@ -26,3 +26,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1974-DRI,25,DNF,,26,,6,0,1,1,0,,clutch
 1974-PET-b,26,DNF,,16,,2,0,1,1,0,,collision
 1974-BEL-21,27,DNF,,27,,0,0,1,1,0,,clutch
+1974-EDW,28,WD,,,,,0,1,1,,,
+1974-REV,29,WD,,,,,0,1,1,,,
+1974-VON-22,30,WD,,,,,0,1,1,,,
+1974-JAR-a,31,WD,,,,,0,1,1,,,

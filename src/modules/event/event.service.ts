@@ -120,6 +120,7 @@ export class EventService
       race: string | null;
       raceOrder: number | null;
       otherSessions: number;
+      testDriver: number;
     }>`
       WITH x AS (
         SELECT s.abbreviation AS session, r.entryId, r.positionText, r.positionOrder
@@ -132,7 +133,8 @@ export class EventService
       SELECT entryId,
         MAX(CASE WHEN session = 'R' THEN positionText END) AS race,
         MIN(CASE WHEN session = 'R' THEN positionOrder END) AS raceOrder,
-        SUM(session <> 'R' AND session NOT LIKE 'FP%' AND session <> 'WU') AS otherSessions
+        SUM(session <> 'R' AND session NOT LIKE 'FP%' AND session <> 'WU') AS otherSessions,
+        (SELECT testDriver FROM entries WHERE entries.id = x.entryId) AS testDriver
       FROM x GROUP BY entryId
       ORDER BY raceOrder IS NULL, raceOrder, entryId`.execute(this.db);
 
@@ -155,7 +157,8 @@ export class EventService
     const byId = new Map(entries.map((e) => [e.id, e]));
 
     return rows.map((r) => ({
-      participation: r.race ?? (r.otherSessions === 0 ? 'TD' : null),
+      participation:
+        r.race ?? (r.testDriver === 1 && r.otherSessions === 0 ? 'TD' : null),
       entry: byId.get(r.entryId)!
     }));
   }

@@ -48,7 +48,7 @@ export class EventController extends CommonController {
     );
   }
 
-  /** Get the entries of an event: every driver and car entered, with its race result (`participation`): a position, a code of `/result-statuses` (`DNQ`, `WD`, `DNA`...), or `TD` for the drivers that only took part in free practice. Accepts the `include` param for the entries (e.g. `include=entry.id,entry.driverNumber,entry.driver.name`) */
+  /** Get the entries of an event: every driver and car entered, with its race result (`participation`): a position, a code of `/result-statuses` (`DNQ`, `WD`, `DNA`...), or `TD` for the test drivers (`entry.testDriver`) without a race result. Accepts the `include` param for the entries (e.g. `include=entry.id,entry.driverNumber,entry.driver.name`) */
   @Get('{season}/{round}/entries')
   @Response<JsonApiError>('4XX', 'Client error')
   getEntries(

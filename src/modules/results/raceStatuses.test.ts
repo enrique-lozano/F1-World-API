@@ -3,6 +3,7 @@ import {
   DriverEventResultDTO,
   EventEntryDTO,
   RaceResultDTO,
+  ResultStatusCode,
   ResultStatuses
 } from '../../models/types.dto';
 import {
@@ -15,19 +16,8 @@ describe('Drivers that did not take the start', () => {
     const res =
       await getUrlResponseForTesting<ResultStatuses[]>('/result-statuses');
 
-    expect(res.map((x) => x.code)).toEqual([
-      'DNF',
-      'NC',
-      'DSQ',
-      'DNS',
-      'DNQ',
-      'DNPQ',
-      'EX',
-      'DNP',
-      'WD',
-      'DNA',
-      'TD'
-    ]);
+    // The enum documents each code, it has to match the table
+    expect(res.map((x) => x.code)).toEqual(Object.values(ResultStatusCode));
     expect(res.find((x) => x.code === 'DNQ')).toMatchObject({
       raceEntry: 1,
       started: 0
@@ -43,10 +33,13 @@ describe('Drivers that did not take the start', () => {
     const codes = res.map((x) => x.positionText);
     expect(codes.filter((x) => x === 'DNQ')).toHaveLength(4);
     expect(codes.filter((x) => x === 'DNPQ')).toHaveLength(8);
-    // after the drivers that took the start
-    expect(codes.slice(-12).every((x) => x === 'DNQ' || x === 'DNPQ')).toBe(
-      true
-    );
+    // after the drivers that took the start, and before the ones that did not arrive (Streiff and Tarquini, AGS)
+    expect(codes.slice(-14)).toEqual([
+      ...Array(4).fill('DNQ'),
+      ...Array(8).fill('DNPQ'),
+      'DNA',
+      'DNA'
+    ]);
   });
 
   test('A season of Masten Gregory, as in Wikipedia', async () => {
@@ -75,7 +68,7 @@ describe('Drivers that did not take the start', () => {
     expect(res.find((x) => x.round === 11)?.positionText).toBe('WD');
   });
 
-  test('A driver that only took part in free practice is a test driver', async () => {
+  test('A test driver has TD in the GPs without a race result', async () => {
     const res = await getUrlResponseForTesting<DriverEventResultDTO[]>(
       '/drivers/celis/results'
     );
@@ -87,6 +80,34 @@ describe('Drivers that did not take the start', () => {
       round: 2,
       constructorId: 'force-india'
     });
+  });
+
+  test('The entry of a test driver says it', async () => {
+    const res = await getUrlResponseForTesting<EventEntryDTO[]>(
+      '/events/2016/2/entries',
+      { include: 'entry.id,entry.testDriver' }
+    );
+
+    expect(res.find((x) => x.entry.id === '2016-CEL')?.entry.testDriver).toBe(
+      1
+    );
+    expect(res.find((x) => x.entry.id === '2016-HAM')?.entry.testDriver).toBe(
+      0
+    );
+  });
+
+  test('A driver withdrawn after qualifying is WD (Mick Schumacher, Saudi Arabia 2022)', async () => {
+    const res = await getUrlResponseForTesting<RaceResultDTO[]>(
+      '/sessions/2022/2/R/results',
+      { include: 'positionText,entry.driver.id' }
+    );
+
+    expect(
+      res.slice(-2).map((x) => [x.entry?.driver?.id, x.positionText])
+    ).toEqual([
+      ['tsunoda', 'DNS'],
+      ['mick-schumacher', 'WD']
+    ]);
   });
 
   test('The entries of an event include the test drivers', async () => {
