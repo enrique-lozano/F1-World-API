@@ -13,6 +13,7 @@
     "prepare": "husky",
     "import-db": "tsx data/db-import.ts",
     "export-db": "tsx data/db-export.ts",
+    "set-driver-photos": "tsx data/set-driver-photos.ts",
     "pretest": "npm run swagger && tsx data/db-import.ts --if-missing",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

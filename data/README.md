@@ -43,6 +43,17 @@ npm run export-db
 
 The export only rewrites the files whose content actually changed, so `git status` shows exactly what you modified.
 
+## Photos of the drivers
+
+The `photo` column of `drivers.csv` has the URL of the image of each driver, or is empty if there is none. The images are not in this repository: they are in [racedex-assets](https://github.com/enrique-lozano/racedex-assets) and served with GitHub Pages. When they change, update the column and import the CSV files again:
+
+```bash
+npm run set-driver-photos
+npm run import-db
+```
+
+The script asks GitHub which images exist. Use `npm run set-driver-photos -- --dir <path to a local copy of racedex-assets>` to read them from disk instead.
+
 ## Database diagram
 
 <img src="../docs/database.svg" alt="Database diagram">
