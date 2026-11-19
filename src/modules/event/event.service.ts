@@ -10,6 +10,7 @@ import {
   getRoundFromIdColumn,
   getSeasonFromIdColumn
 } from '../../utils/f1-sql-common-utils';
+import { CircuitLayoutService } from '../circuit-layout/circuitLayout.service';
 import { CircuitService } from '../circuit/circuit.service';
 import { EntryService } from '../entries/entry.service';
 import { GrandPrixService } from '../grands-prix/grandPrix.service';
@@ -59,8 +60,23 @@ export class EventService
             CircuitService.getCircuitsSelect(
               eb.selectFrom('circuits'),
               fieldsParam?.clone('circuit')
-            ).whereRef('events.circuitId', '==', 'circuits.id')
+            ).where('circuits.id', '==', (eb2) =>
+              eb2
+                .selectFrom('circuitLayouts')
+                .select('circuitLayouts.circuitId')
+                .whereRef('circuitLayouts.id', '==', 'events.circuitLayoutId')
+            )
           ).as('circuit')
+        )
+      )
+      .$if(fieldsParam.shouldSelectObject('circuitLayout'), (qb) =>
+        qb.select((eb) =>
+          jsonObjectFrom(
+            CircuitLayoutService.getCircuitLayoutsSelect(
+              eb.selectFrom('circuitLayouts'),
+              fieldsParam?.clone('circuitLayout')
+            ).whereRef('events.circuitLayoutId', '==', 'circuitLayouts.id')
+          ).as('circuitLayout')
         )
       ) as SelectQueryBuilder<DB, 'events' | T, EventDTO>;
   }
@@ -74,7 +90,15 @@ export class EventService
     const mainSelect = this.db
       .selectFrom('events')
       .$if(obj.circuitId != undefined, (qb) =>
-        qb.where('events.circuitId', '==', obj.circuitId!)
+        qb.where('events.circuitLayoutId', 'in', (eb) =>
+          eb
+            .selectFrom('circuitLayouts')
+            .select('circuitLayouts.id')
+            .where('circuitLayouts.circuitId', '==', obj.circuitId!)
+        )
+      )
+      .$if(obj.circuitLayoutId != undefined, (qb) =>
+        qb.where('events.circuitLayoutId', '==', obj.circuitLayoutId!)
       )
       .$if(obj.grandPrixId != undefined, (qb) =>
         qb.where('events.grandPrixId', '==', obj.grandPrixId!)

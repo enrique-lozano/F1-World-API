@@ -14,10 +14,12 @@ import {
 
 type resultsTables = 'qualifyingResults' | 'raceResults' | 'fpResults';
 
-type entryTables = resultsTables | 'lapTimes' | 'pitStops';
+type entryTables = resultsTables | 'lapTimes' | 'pitStops' | 'stints';
+
+type sessionTables = entryTables | 'weatherPeriods' | 'raceNeutralisations';
 
 export class ParamsBuilderService extends DbService {
-  getSessionsWithParamas<T extends entryTables | 'sessions'>(
+  getSessionsWithParamas<T extends sessionTables | 'sessions'>(
     fromTable: T,
     obj: SessionQueryParams
   ) {

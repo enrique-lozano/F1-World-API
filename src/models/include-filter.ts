@@ -109,6 +109,17 @@ export class IncludeParam implements IncludeQueryParam {
     );
   }
 
+  /** Get if a resource/object was explicitly asked for in the `include` param. Unlike `shouldSelectObject` it is NOT selected when there is no `include`, so it is for the expensive data that
+   * should not be calculated for every row of a list (or of a parent that includes this resource by default) */
+  shouldSelectObjectOnlyIfAsked(key: string) {
+    return this.include != undefined && this.shouldSelectObject(key);
+  }
+
+  /** Same as `shouldSelectObjectOnlyIfAsked`, for a key that is not an object (a JSON value) */
+  shouldSelectKeyOnlyIfAsked(key: string) {
+    return this.include != undefined && this.shouldSelectKey(key);
+  }
+
   clone(startWith?: string) {
     return new IncludeParam(this.getFieldsArray(startWith)?.join(','));
   }

@@ -1,8 +1,10 @@
-import { Get, Path, Queries, Response, Route, Tags } from 'tsoa';
+import { Get, Path, Queries, Query, Response, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
 import { IncludeQueryParam } from '../../models/include-filter';
 import { CommonQueryParams } from '../../models/query-params';
 import {
+  CareerStats,
+  EntrantChampionship,
   EntrantConstructorUsage,
   EntrantDTO,
   EntrantLineage,
@@ -98,5 +100,33 @@ export class EntrantController extends CommonController {
     @Path() id: string
   ): Promise<EntrantConstructorUsage[]> {
     return this.tryKyselyExecution(new EntrantService().getConstructors(id));
+  }
+
+  /** Get the career statistics of an entrant: races, starts, wins, podiums, poles, fastest laps and points of all the cars it entered (whatever the chassis or the drivers). See `CareerStats` for the exact definition of each value
+   *
+   * @param id The ID of the entrant
+   * @param includePredecessors If `true`, the statistics also add up the ones of all its predecessors in the lineage (see `/entrants/{id}/lineage`), e.g. Mercedes with Brawn GP, Honda, BAR and Tyrrell. Successors are never included
+   * @example id "scuderia-ferrari"
+   */
+  @Get('{id}/stats')
+  @Response<JsonApiError>('4XX', 'Client error')
+  async getStats(
+    @Path() id: string,
+    @Query() includePredecessors?: boolean
+  ): Promise<CareerStats> {
+    return this.tryKyselyExecution(
+      new EntrantService().getStats(id, includePredecessors)
+    );
+  }
+
+  /** Get the Constructors' Championship results of the entrant, in ascending order of season. It is the position of the entrant's own constructor (the chassis it built itself, `WORKS` seasons in `/entrants/{id}/seasons`) in the calculated Constructors' Championship of that season (see `/championships/{season}/constructors`), so only the seasons from 1958 in which the entrant was a works team are returned. If the constructor appears with several engine brands in the standings, the one with the most points is taken
+   *
+   * @param id The ID of the entrant
+   * @example id "scuderia-ferrari"
+   */
+  @Get('{id}/championships')
+  @Response<JsonApiError>('4XX', 'Client error')
+  async getChampionships(@Path() id: string): Promise<EntrantChampionship[]> {
+    return this.tryKyselyExecution(new EntrantService().getChampionships(id));
   }
 }

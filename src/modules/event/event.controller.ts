@@ -9,6 +9,9 @@ export interface EventQueryParams extends CommonQueryParams {
   /** If specified, returns only the events held in this circuit */
   circuitId?: string;
 
+  /** If specified, returns only the events held on this layout of a circuit (e.g. `silverstone-2010`) */
+  circuitLayoutId?: string;
+
   /** If specified, returns only the events of this season
    *
    * @isInt The `season` param should be an integer

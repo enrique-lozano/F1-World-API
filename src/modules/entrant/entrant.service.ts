@@ -4,7 +4,9 @@ import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { Sorter } from '../../models/sorter';
 import {
+  CareerStats,
   DB,
+  EntrantChampionship,
   EntrantConstructorUsage,
   EntrantDTO,
   EntrantLineage,
@@ -17,14 +19,23 @@ import {
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { toSeasonRanges } from '../../utils/functions/rangeUtils';
+import { CareerService } from '../career.service';
+import {
+  ConstructorStandingService,
+  FIRST_CONSTRUCTORS_SEASON
+} from '../constructor-standings/constructor-standings.service';
 import { CompanyService } from '../company/company.service';
 import { ConstructorService } from '../constructor/constructor.service';
 import { CountryService } from '../countries/countries.service';
 import { EntrantSeasonService } from './entrantSeason.service';
+import type { ConstructorChampResult } from '../constructor-standings/constructor-standings.controller';
 import type {
   EntrantController,
   EntrantQueryParams
 } from './entrant.controller';
+
+/** Calculated standings of each season, kept in memory: the data is read-only */
+const standingsCache = new Map<number, Promise<ConstructorChampResult[]>>();
 
 export class EntrantService
   extends DbService
@@ -37,6 +48,8 @@ export class EntrantService
       | 'getNames'
       | 'getLineage'
       | 'getConstructors'
+      | 'getStats'
+      | 'getChampionships'
     >
 {
   static getEntrantsSelect<T extends keyof DB>(
@@ -320,6 +333,69 @@ export class EntrantService
         works
       }))
       .sort((a, b) => a.ranges[0].from - b.ranges[0].from);
+  }
+
+  async getStats(
+    id: string,
+    includePredecessors?: boolean
+  ): Promise<CareerStats> {
+    const lineage = includePredecessors ? await this.getLineage(id) : null;
+    await this.checkExists(id);
+
+    return new CareerService().getStats('entrantId', [
+      id,
+      ...(lineage?.predecessors.map((x) => x.entrant.id) ?? [])
+    ]);
+  }
+
+  async getChampionships(id: string): Promise<EntrantChampionship[]> {
+    await this.checkExists(id);
+
+    const seasons = await this.db
+      .selectFrom('entrantSeasons')
+      .innerJoin(
+        'constructors',
+        'constructors.id',
+        'entrantSeasons.ownConstructorId'
+      )
+      .where('entrantSeasons.entrantId', '==', id)
+      .where('entrantSeasons.season', '>=', FIRST_CONSTRUCTORS_SEASON)
+      .select([
+        'entrantSeasons.season',
+        'constructors.id as constructorId',
+        'constructors.name as constructorName'
+      ])
+      .orderBy('entrantSeasons.season')
+      .execute();
+
+    const championships: EntrantChampionship[] = [];
+    for (const s of seasons) {
+      let standings = standingsCache.get(s.season);
+      if (!standings) {
+        standings = new ConstructorStandingService()
+          .getConstructorChampionshipResults(s.season)
+          .catch((e) => {
+            standingsCache.delete(s.season);
+            throw e;
+          });
+        standingsCache.set(s.season, standings);
+      }
+
+      const best = (await standings)
+        .filter((r) => r.chassisConstructor?.id === s.constructorId)
+        .sort((a, b) => b.points - a.points)[0];
+      if (!best) continue;
+
+      championships.push({
+        season: s.season,
+        position: best.position,
+        points: best.points,
+        wins: best.wins,
+        constructor: { id: s.constructorId, name: s.constructorName }
+      });
+    }
+
+    return championships;
   }
 
   private async checkExists(id: string) {

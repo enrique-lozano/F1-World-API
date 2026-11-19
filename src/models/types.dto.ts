@@ -12,6 +12,17 @@ export type CircuitType =
   /** Temporary circuit built on city streets (e.g. Baku, Las Vegas) */
   | 'STREET';
 
+/**
+ * Direction in which a circuit layout is driven (keep in sync with the `CHECK` constraint in `data/schema.sql`):
+ * - `CLOCKWISE`: the cars turn to the right overall
+ * - `ANTICLOCKWISE`: the cars turn to the left overall
+ */
+export type CircuitLayoutDirection =
+  /** The cars turn to the right overall */
+  | 'CLOCKWISE'
+  /** The cars turn to the left overall */
+  | 'ANTICLOCKWISE';
+
 /** Relationship of the driver A *with respect to* the driver B. E.g. `PARENT` means "A is a parent of B" */
 export type FamilyRelationship =
   | 'CHILD'
@@ -90,28 +101,195 @@ export type SessionAbbreviation =
   | 'SR'
   | 'R';
 
+export type CircuitStatus = 'IN_USE' | 'HISTORIC';
+
+export interface CircuitNames {
+  circuitId: string;
+  name: string;
+  /** First year the name was used */
+  fromYear: number;
+  /** Last year the name was used, `null` if it still is the name */
+  untilYear: number | null;
+}
+
+export type CircuitNameDTO = Omit<CircuitNames, 'circuitId'>;
+
 export interface Circuits {
   id: string;
   name: string;
   fullName: string;
-  /** JSON array with the previous names of the circuit */
-  previousNames: string | null;
   type: CircuitType;
+  /** Year of the first events held in the circuit */
+  opened: number;
+  /** `IN_USE` if the circuit still holds motorsport events of any category, `HISTORIC` if it is closed, abandoned, demolished or built over */
+  status: CircuitStatus;
   placeName: string;
   countryId: string;
-  latitude: string | null;
-  longitude: string | null;
+  latitude: string;
+  longitude: string;
   /** IANA time zone of the circuit (`Europe/Madrid`), to show the sessions in the local time */
   timeZone: string;
 }
 
 // Separate type for the omitted attributes, see https://github.com/lukeautry/tsoa/issues/1238
-type circuitOmittedAttr = 'countryId' | 'previousNames';
+type circuitOmittedAttr = 'countryId';
 
 export interface CircuitDTO extends Omit<Circuits, circuitOmittedAttr> {
   country: CountryDTO | null;
-  /** Previous names of the circuit, from the oldest to the newest */
-  previousNames: string[] | null;
+  /** The names the circuit has been known by, from the oldest to the newest, with the years each one was used */
+  names: CircuitNameDTO[];
+
+  /** First season in which a race was held in the circuit */
+  firstSeason: number | null;
+
+  /** Last season in which a race was held in the circuit */
+  lastSeason: number | null;
+
+  /** Number of races held in the circuit */
+  races: number;
+
+  /** Number of layouts (configurations) that the circuit has had */
+  layouts: number;
+
+  /** The shape of the most recent layout of the circuit that has one, `null` if none has. Only returned if it is asked for in `include` (`include=geometry`), for drawing the circuit in a list */
+  geometry: CircuitLayoutGeometry | null;
+}
+
+/** A stat in which an entity (driver, team or constructor) leads in a circuit */
+export type CircuitRecordStat =
+  'wins' | 'poles' | 'podiums' | 'fastestLaps' | 'points';
+
+/** Who holds a record in a circuit and how many times (`points` are the total points scored) */
+export interface CircuitRecordHolder {
+  id: string;
+  name: string;
+  count: number;
+}
+
+/** The entities that have most wins, poles, podiums, fastest laps and points in a circuit, from best to worst */
+export type CircuitRecordsDTO = Record<
+  CircuitRecordStat,
+  CircuitRecordHolder[]
+>;
+
+/** A configuration of a circuit: a new layout exists whenever the race lap (its length or its corner sequence) changes */
+export interface CircuitLayouts {
+  /** `<circuitId>-<first season it was used>`, e.g. `silverstone-2010` */
+  id: string;
+  circuitId: string;
+  /** Only when the layout is known by a name (`Nordschleife`, `Outer`) */
+  name: string | null;
+  /** Length of the race lap, in metres */
+  length: number;
+  /** Official number of corners, `null` if unknown */
+  turns: number | null;
+  /** `null` if unknown */
+  direction: CircuitLayoutDirection | null;
+}
+
+export interface CircuitLayoutGeometries {
+  circuitLayoutId: string;
+  /** JSON text of a `CircuitLayoutGeometry` */
+  geojson: string;
+}
+
+// Separate type for the omitted attributes, see https://github.com/lukeautry/tsoa/issues/1238
+type circuitLayoutOmittedAttr = 'circuitId';
+
+export interface CircuitLayoutDTO extends Omit<
+  CircuitLayouts,
+  circuitLayoutOmittedAttr
+> {
+  circuit: CircuitDTO | null;
+
+  /** First season in which a race was held on this layout */
+  firstSeason: number;
+
+  /** Last season in which a race was held on this layout. A layout can be used in non-consecutive seasons */
+  lastSeason: number;
+
+  /** 1 if the shape of the layout is known (`/circuit-layouts/{id}/geometry`), 0 otherwise */
+  hasGeometry: number;
+
+  /** The seasons in which a race was held on this layout, in order */
+  seasons: number[];
+
+  /** The fastest lap ever set in a race on this layout (races with lap times, 1996 onwards). `null` if there are none. Only returned if it is asked for in `include` (`include=lapRecord`), since it is expensive */
+  lapRecord: CircuitLayoutRecordDTO | null;
+
+  /** The fastest lap ever set in a qualifying session on this layout. `null` if there are none. Only returned if it is asked for in `include` (`include=trackRecord`), since it is expensive */
+  trackRecord: CircuitLayoutRecordDTO | null;
+
+  /** The corners of the layout, in the order of the race. Empty if they are not known yet */
+  corners: CircuitLayoutCornerDTO[];
+
+  /** Where the timing sectors 1 and 2 end (sector 3 ends at the start line), with the seasons in which each end is valid (normally every season the layout was raced; if the timing lines moved there is one entry per position). Empty if they are not known yet */
+  sectors: CircuitLayoutSectorDTO[];
+}
+
+/** The fastest lap of a layout */
+export interface CircuitLayoutRecordDTO {
+  /** Milliseconds */
+  time: number;
+  driverId: string;
+  driverName: string;
+  season: number;
+  round: number;
+  /** Name of the event, e.g. `2023 Italian Grand Prix` */
+  eventName: string;
+}
+
+export interface CircuitLayoutCorners {
+  circuitLayoutId: string;
+  /** Number of the corner in the official track map */
+  number: number;
+  /** Only when the corner is known by a name (`Eau Rouge`, `Parabolica`) */
+  name: string | null;
+  /** Metres from the start line, along the track in the direction of the race */
+  distance: number;
+}
+
+export interface CircuitLayoutSectors {
+  circuitLayoutId: string;
+  /** The sector that ends at this distance: 1 or 2 */
+  sector: number;
+  /** First season in which the sector ended there */
+  fromSeason: number;
+  /** Last season in which the sector ended there */
+  untilSeason: number;
+  /** Metres from the start line, along the track in the direction of the race */
+  distance: number;
+}
+
+export type CircuitLayoutCornerDTO = Omit<
+  CircuitLayoutCorners,
+  'circuitLayoutId'
+>;
+
+export type CircuitLayoutSectorDTO = Omit<
+  CircuitLayoutSectors,
+  'circuitLayoutId'
+>;
+
+/** A line of a layout: its `track` (a closed loop, in the direction of the race when the layout has one) or its `pit-lane` */
+export interface CircuitLayoutLine {
+  type: 'Feature';
+  properties: {
+    kind: 'track' | 'pit-lane';
+    /** Only in the `track`: `true` if its first point is the start line, so the distances of the sectors and the corners can be placed on it */
+    startLine?: boolean;
+  };
+  geometry: {
+    type: 'LineString';
+    /** `[longitude, latitude]` points (WGS84) */
+    coordinates: number[][];
+  };
+}
+
+/** The shape of a circuit layout, as a GeoJSON `FeatureCollection` */
+export interface CircuitLayoutGeometry {
+  type: 'FeatureCollection';
+  features: CircuitLayoutLine[];
 }
 
 export interface Companies {
@@ -412,6 +590,28 @@ export interface EntrantConstructorUsage {
   works: boolean;
 }
 
+export interface EntrantChampionshipConstructor {
+  id: string;
+  name: string;
+}
+
+/** Result of the own constructor of an entrant in the Constructors' Championship of a season */
+export interface EntrantChampionship {
+  season: number;
+
+  /** Position of the own constructor of the entrant in the standings (1 = champion) */
+  position: number;
+
+  /** Points in the Constructors' Championship */
+  points: number;
+
+  /** Races won by the cars of the constructor (with the engine brand of the row) */
+  wins: number;
+
+  /** The own constructor of the entrant that season */
+  constructor: EntrantChampionshipConstructor;
+}
+
 /** A registered name of an entrant and the seasons in which it was used */
 export interface EntrantNameUsage {
   name: string;
@@ -470,7 +670,7 @@ export interface Events {
   grandPrixId: string;
   name: string;
   qualyFormat: QualyFormat;
-  circuitId: string;
+  circuitLayoutId: string;
   scheduledLaps: number | null;
   posterURL: string | null;
 }
@@ -501,7 +701,10 @@ export interface DriverEventResultDTO {
   laps: number | null;
 }
 
-export interface EventDTO extends Omit<Events, 'grandPrixId' | 'circuitId'> {
+export interface EventDTO extends Omit<
+  Events,
+  'grandPrixId' | 'circuitLayoutId'
+> {
   /** Season (year) of the event, deduced from its ID */
   season: number;
 
@@ -509,7 +712,10 @@ export interface EventDTO extends Omit<Events, 'grandPrixId' | 'circuitId'> {
   round: number;
 
   grandPrix: GrandsPrixDTO | null;
+  /** The circuit where the event was held. It is also available inside `circuitLayout`, with the rest of the data of the layout */
   circuit: CircuitDTO | null;
+  /** The layout of the circuit that was raced in this event */
+  circuitLayout: CircuitLayoutDTO | null;
 }
 
 export interface GrandsPrix {
@@ -650,20 +856,116 @@ export interface RaceResultDTO extends Omit<
   sharedCar: number;
 }
 
-export interface RedFlags {
-  eventId: string;
-  lap: number;
-  incident: string;
-  excluded: string | null;
-  resumed: string | null;
+/** Sky and rain at the start of the race, as a person would describe it */
+export enum Weather {
+  /** Sunny, or with hardly any clouds */
+  CLEAR = 'CLEAR',
+  /** Sun and clouds */
+  PARTLY_CLOUDY = 'PARTLY_CLOUDY',
+  /** Mostly covered sky, no rain */
+  CLOUDY = 'CLOUDY',
+  /** Intermittent rain, with dry spells */
+  SHOWERS = 'SHOWERS',
+  /** Rain that does not stop the race */
+  LIGHT_RAIN = 'LIGHT_RAIN',
+  /** Rain heavy enough to compromise the race */
+  HEAVY_RAIN = 'HEAVY_RAIN'
 }
 
-export interface SafetyCars {
-  eventId: string;
-  deployed: number;
-  fullLaps: number | null;
-  retreated: number | null;
-  cause: string | null;
+export interface WeatherPeriods {
+  sessionId: string;
+  /** Leader's lap on which this period starts. The period with `lapStart` 1 is the base of the session; later ones only exist when something changed */
+  lapStart: number;
+  weather: Weather | null;
+  /** Celsius */
+  airTemperature: number | null;
+  /** Celsius */
+  trackTemperature: number | null;
+}
+
+export interface WeatherPeriodDTO extends Omit<WeatherPeriods, 'sessionId'> {
+  session: SessionDTO | null;
+}
+
+/** What happened to the pace of the race */
+export enum RaceNeutralisationKind {
+  /** The field follows a pace car and bunches up (F1 safety car, IndyCar full-course caution) */
+  SAFETY_CAR = 'SAFETY_CAR',
+  /** Every car slows down to a limit and keeps its gaps, without a pace car (F1 virtual safety car, FCY of WEC and Formula E) */
+  FULL_COURSE_YELLOW = 'FULL_COURSE_YELLOW',
+  /** The race is stopped */
+  RED_FLAG = 'RED_FLAG'
+}
+
+export enum RaceNeutralisationCause {
+  /** One or more cars crashed */
+  ACCIDENT = 'ACCIDENT',
+  /** Rain, mist or any other weather */
+  WEATHER = 'WEATHER',
+  /** Pieces of a car or of something else on the track */
+  DEBRIS = 'DEBRIS',
+  /** A car stopped in a dangerous place, or a vehicle on the track */
+  STRANDED_CAR = 'STRANDED_CAR',
+  /** The track or its barriers needed repair (loose drain cover, damaged barrier) */
+  TRACK_DAMAGE = 'TRACK_DAMAGE',
+  /** Any other cause (a person on the track, a vehicle...) */
+  OTHER = 'OTHER'
+}
+
+export interface RaceNeutralisations {
+  sessionId: string;
+  /** Order inside the session */
+  number: number;
+  kind: RaceNeutralisationKind;
+  /** Leader's lap on which it starts. 0 = before the first lap */
+  lapStart: number;
+  /** Leader's lap on which racing resumes (for a safety car, the lap after the one in which it comes in). `null` if unknown or if the race did not resume */
+  lapEnd: number | null;
+  /** Main cause. `null` if unknown */
+  cause: RaceNeutralisationCause | null;
+  /** `RED_FLAG` only: `Y`, `N`, `R` or `S`, as in the source. `N` is the race that ended with the stop */
+  resumed: string | null;
+  /** `RED_FLAG` only: who was not allowed to restart, as free text */
+  excluded: string | null;
+  description: string | null;
+}
+
+export interface RaceNeutralisationDTO extends Omit<
+  RaceNeutralisations,
+  'sessionId'
+> {
+  session: SessionDTO | null;
+}
+
+/** Tyre compound, relative to the dry ones of the weekend: `SOFT` is the softest. With only two dry compounds they are `SOFT` and `HARD` */
+export enum TyreCompound {
+  /** The softest dry compound of the weekend */
+  SOFT = 'SOFT',
+  /** The middle dry compound */
+  MEDIUM = 'MEDIUM',
+  /** The hardest dry compound of the weekend */
+  HARD = 'HARD',
+  /** For a damp track */
+  INTERMEDIATE = 'INTERMEDIATE',
+  /** For a very wet track */
+  WET = 'WET'
+}
+
+export interface Stints {
+  entryId: string;
+  sessionId: string;
+  /** 1, 2, 3... in order */
+  stint: number;
+  /** First lap on this set. The last lap is the `lapStart` of the next stint minus 1, or the laps of the race result for the last stint */
+  lapStart: number;
+  compound: TyreCompound | null;
+  /** Laps already done on the set when the stint started (0 = new) */
+  tyreAge: number | null;
+}
+
+export interface StintDTO extends Omit<Stints, 'sessionId' | 'entryId'> {
+  session: SessionDTO | null;
+  entry: EntryDTO | null;
 }
 
 export interface TyreManufacturers {
@@ -684,6 +986,11 @@ export interface TyreManufacturerDTO extends Omit<
 
 export interface DB {
   chassis: Chassis;
+  circuitLayouts: CircuitLayouts;
+  circuitLayoutCorners: CircuitLayoutCorners;
+  circuitLayoutGeometries: CircuitLayoutGeometries;
+  circuitLayoutSectors: CircuitLayoutSectors;
+  circuitNames: CircuitNames;
   circuits: Circuits;
   companies: Companies;
   constructors: Constructors;
@@ -702,11 +1009,12 @@ export interface DB {
   grandsPrix: GrandsPrix;
   lapTimes: LapTimes;
   pitStops: PitStops;
+  raceNeutralisations: RaceNeutralisations;
+  stints: Stints;
+  weatherPeriods: WeatherPeriods;
   qualifyingResults: TimedSessionResults;
   raceResults: RaceResults;
-  redFlags: RedFlags;
   retirementReasons: RetirementReasons;
   resultStatuses: ResultStatuses;
-  safetyCars: SafetyCars;
   tyreManufacturers: TyreManufacturers;
 }

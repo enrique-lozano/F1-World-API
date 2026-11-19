@@ -4,23 +4,34 @@ import { DbService } from '../services/db.service';
 import { getSessionIdFromIdColumn } from '../utils/f1-sql-common-utils';
 
 /**
- * Entity (driver or constructor) whose career we want to get. A driver is
- * identified by `entries.driverId` and a constructor by `chassis.constructorId`
- * (the chassis of the entry).
+ * Entity (driver, constructor or entrant) whose career we want to get. A driver
+ * is identified by `entries.driverId`, a constructor by `chassis.constructorId`
+ * (the chassis of the entry) and an entrant by `entrantSeasons.entrantId` (the
+ * entrant season of the entry).
  */
-export type CareerEntityColumn = 'driverId' | 'constructorId';
+export type CareerEntityColumn = 'driverId' | 'constructorId' | 'entrantId';
 
 /** Column that holds the ID of the entity */
 const entityColumn = (column: CareerEntityColumn) =>
-  sql.ref(column === 'driverId' ? 'entries.driverId' : 'chassis.constructorId');
+  sql.ref(
+    column === 'driverId'
+      ? 'entries.driverId'
+      : column === 'constructorId'
+        ? 'chassis.constructorId'
+        : 'entrantSeasons.entrantId'
+  );
+
+/** Joins (after `entries`) needed to reach the column of the entity */
+const extraJoins = (column: CareerEntityColumn) =>
+  column === 'constructorId'
+    ? sql` INNER JOIN chassis ON chassis.id = entries.chassisId`
+    : column === 'entrantId'
+      ? sql` INNER JOIN entrantSeasons ON entrantSeasons.id = entries.entrantSeasonId`
+      : sql``;
 
 /** Joins of a results table (or laps...) needed to reach the column of the entity */
 const entryJoins = (table: string, column: CareerEntityColumn) =>
-  sql`INNER JOIN entries ON entries.id = ${sql.ref(`${table}.entryId`)}${
-    column === 'constructorId'
-      ? sql` INNER JOIN chassis ON chassis.id = entries.chassisId`
-      : sql``
-  }`;
+  sql`INNER JOIN entries ON entries.id = ${sql.ref(`${table}.entryId`)}${extraJoins(column)}`;
 
 const resultsTables = [
   'raceResults',
@@ -28,7 +39,7 @@ const resultsTables = [
   'fpResults'
 ] as const;
 
-/** Statistics and seasons of a driver or a constructor, calculated from the results of its entries */
+/** Statistics and seasons of a driver, constructor or entrant, calculated from the results of its entries */
 export class CareerService extends DbService {
   /**
    * SQL expression with the first (`min`) or last (`max`) season in which an
@@ -75,8 +86,9 @@ export class CareerService extends DbService {
   /** Career statistics of a driver or a constructor. See `CareerStats` for the exact definition of each value */
   async getStats(
     column: CareerEntityColumn,
-    entityId: string
+    entityId: string | string[]
   ): Promise<CareerStats> {
+    const ids = [entityId].flat();
     const isRace = sql`${getSessionIdFromIdColumn('raceResults.sessionId')} = 'R'`;
 
     const stats = await this.db
@@ -90,7 +102,14 @@ export class CareerService extends DbService {
       .$if(column === 'constructorId', (qb) =>
         qb.innerJoin('chassis', 'chassis.id', 'entries.chassisId')
       )
-      .where(entityColumn(column), '==', entityId)
+      .$if(column === 'entrantId', (qb) =>
+        qb.innerJoin(
+          'entrantSeasons',
+          'entrantSeasons.id',
+          'entries.entrantSeasonId'
+        )
+      )
+      .where(entityColumn(column), 'in', ids)
       .select([
         // A finishing position is always a race entry and a start; the codes say it in `resultStatuses`
         sql<number>`COUNT(DISTINCT CASE WHEN ${isRace} AND COALESCE(resultStatuses.raceEntry, 1) = 1 THEN raceResults.sessionId END)`.as(
@@ -115,12 +134,12 @@ export class CareerService extends DbService {
 
     return {
       ...stats,
-      fastestLaps: await this.countFastestLaps(column, entityId)
+      fastestLaps: await this.countFastestLaps(column, ids)
     };
   }
 
   /** Number of races (session `R`) in which the entity set the fastest lap */
-  private async countFastestLaps(column: CareerEntityColumn, entityId: string) {
+  private async countFastestLaps(column: CareerEntityColumn, ids: string[]) {
     const res = await this.db
       .with('entityBestLaps', (db) =>
         db
@@ -129,7 +148,14 @@ export class CareerService extends DbService {
           .$if(column === 'constructorId', (qb) =>
             qb.innerJoin('chassis', 'chassis.id', 'entries.chassisId')
           )
-          .where(entityColumn(column), '==', entityId)
+          .$if(column === 'entrantId', (qb) =>
+            qb.innerJoin(
+              'entrantSeasons',
+              'entrantSeasons.id',
+              'entries.entrantSeasonId'
+            )
+          )
+          .where(entityColumn(column), 'in', ids)
           .where(getSessionIdFromIdColumn('lapTimes.sessionId'), '==', 'R')
           .groupBy('lapTimes.sessionId')
           .select(({ fn }) => [
