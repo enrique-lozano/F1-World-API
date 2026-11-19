@@ -97,7 +97,7 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1950-AYU,ayulo,85,1950-coast-grain,Coast Grain,maserati-8ctf,offenhauser-l4-4-5,,firestone,0
 1950-RIG,rigsby,85,1950-coast-grain,Coast Grain,maserati-8ctf,offenhauser-l4-4-5,,firestone,0
 1950-FAU,faulkner,98,1950-j-c-agajanian,Grant Piston Ring/Agajanian,kurtis-2000,offenhauser-l4-4-5,,firestone,0
-1950-EAT,eaton,99,1950-murrell-belanger,Murrell Belanger,kurtis-unknown,offenhauser-l4-c-3,,firestone,0
+1950-EAT,kenny-eaton,99,1950-murrell-belanger,Murrell Belanger,kurtis-unknown,offenhauser-l4-c-3,,firestone,0
 1950-PAG,pagani,2,1950-scuderia-achille-varzi,Scuderia Achille Varzi,maserati-4clt-48,maserati-4clt-l4-c-1-5,,pirelli,0
 1950-CLA-4,claes,4,1950-ecurie-belge,Ecurie Belge,talbot-lago-t26c,talbot-lago-23cv,,englebert,0
 1950-CAB-6,giraud-cabantous,6,1950-automobiles-talbot-darracq,Automobiles Talbot-Darracq SA,talbot-lago-t26c-da,talbot-lago-23cv,,dunlop,0
@@ -235,7 +235,7 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1951-LIN,linden,57,1951-george-leitenberger,George Leitenberger,sherman-unknown,offenhauser-l4-4-5,,firestone,0
 1951-AGA,agabashian,59,1951-bardahl,Granatelli-Bardahl/Grancor,kurtis-3000,offenhauser-l4-4-5,,firestone,0
 1951-FON-63,fonder,63,1951-bob-gerard,Ray Brady,schroeder-unknown,offenhauser-l4-4-5,,firestone,0
-1951-EAT,eaton,66,1951-jeanie-lee-glessner,Jeanie-Lee/Glessner,stevens-unknown,offenhauser-l4-4-5,,firestone,0
+1951-EAT,kenny-eaton,66,1951-jeanie-lee-glessner,Jeanie-Lee/Glessner,stevens-unknown,offenhauser-l4-4-5,,firestone,0
 1951-FOR-68,forberg,68,1951-eugene-casaroll,Automobile Shippers/Rassey,kurtis-3000,offenhauser-l4-4-5,,firestone,0
 1951-FOR-69,force,69,1951-verlin-brown,Brown Motors,kurtis-2000,offenhauser-l4-4-5,,firestone,0
 1951-MAC,mackey,71,1951-karl-hall,Karl Hall,hall-unknown,offenhauser-l4-4-5,,firestone,0

@@ -34,3 +34,15 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1950-BET-14,31,31,,8,,30,0,1,1,0,,wheel-bearing
 1950-RAT-45,32,32,,18,,25,0,1,1,0,,stalled
 1950-DIN,33,33,,7,,10,0,1,1,0,,oil-leak
+1950-LIN,34,DNQ,,,,,0,1,1,,,
+1950-VUK,35,DNQ,,,,,0,1,1,,,
+1950-DUN,36,DNQ,,,,,0,1,1,,,
+1950-NAL,37,DNQ,,,,,0,1,1,,,
+1950-KLA,38,DNQ,,,,,0,1,1,,,
+1950-MIL,39,DNQ,,,,,0,1,1,,,
+1950-CAN-44,40,DNQ,,,,,0,1,1,,,
+1950-JAM,41,DNQ,,,,,0,1,1,,,
+1950-SWE,42,DNQ,,,,,0,1,1,,,
+1950-AYU,43,DNQ,,,,,0,1,1,,,
+1950-RIG,44,DNQ,,,,,0,1,1,,,
+1950-EAT,45,DNQ,,,,,0,1,1,,,

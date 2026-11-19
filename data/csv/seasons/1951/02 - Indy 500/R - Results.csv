@@ -33,3 +33,14 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1951-HEL,31,31,,23,,18,0,1,1,0,,engine
 1951-MCD,32,32,,26,,15,0,1,1,0,,fuel-leak
 1951-JAM-26,33,33,,30,,8,0,1,1,0,,transmission
+1951-RUS,34,DNQ,,,,,0,1,1,,,
+1951-HOY,35,DNQ,,,,,0,1,1,,,
+1951-HOL-24,36,DNQ,,,,,0,1,1,,,
+1951-AYU-31,37,DNQ,,,,,0,1,1,,,
+1951-TOL,38,DNQ,,,,,0,1,1,,,
+1951-SWE,39,DNQ,,,,,0,1,1,,,
+1951-HOL-45,40,DNQ,,,,,0,1,1,,,
+1951-FON-53,41,DNQ,,,,,0,1,1,,,
+1951-FON-63,42,DNQ,,,,,0,1,1,,,
+1951-EAT,43,DNQ,,,,,0,1,1,,,
+1951-BRY,44,DNQ,,,,,0,1,1,,,
