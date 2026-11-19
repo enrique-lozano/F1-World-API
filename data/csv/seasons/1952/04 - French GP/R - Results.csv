@@ -9,7 +9,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1952-ETA,8,8,,18,,70,0,1,1,0,,
 1952-MAC-20,9,9,,14,,70,0,1,1,0,,
 1952-CAB,10,10,,10,,68,0,1,1,0,,
-1952-FIS-34,11,11,,17,,66,0,1,1,0,,
+1952-FIS-36,11,11,,17,,66,0,1,1,0,,
 1952-COM,12,12,,16,,63,0,1,1,0,,
 1952-BIR-6,13,DNF,,7,,56,0,1,1,0,,axle
 1952-HAW-42-a,14,DNF,,15,,51,0,1,1,0,,ignition
@@ -20,5 +20,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1952-CLA-32,18,DNF,,20,,15,0,1,1,0,,engine
 1952-SCH-18,19,DNF,,11,,7,0,1,1,0,,gearbox
 1952-CAR-40,20,DNF,,19,,2,0,1,1,0,,engine
-1952-FIS-34,21,DNS,,,,,0,1,1,0,,engine
+1952-FIS-36,21,DNS,,,,,0,1,1,0,,engine
 1952-LAN-30,22,DNA,,,,,0,1,1,,,

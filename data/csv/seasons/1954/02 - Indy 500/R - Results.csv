@@ -24,6 +24,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1954-REE,17,17,,7,,194,0,1,1,0,,
 1954-ELI-27,18,18,,31,,193,0,1,1,0,,
 1954-ARM,19,19,,33,,193,0,1,1,0,,
+1954-FON-71,19,19,,33,,193,0,1,1,0,,
 1954-HAN-1,20,20,,10,,191,0,1,1,0,,spun-off
 1954-RAT-1,20,20,,10,,191,0,1,1,0,,spun-off
 1954-O'C,21,21,,12,,181,0,1,1,0,,spun-off
@@ -38,6 +39,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1954-RAT-38,28,28,,28,,110,0,1,1,0,,accident
 1954-BET-10,29,29,,21,,105,0,1,1,0,,wheel-bearing
 1954-WEB,30,30,,29,,104,0,1,1,0,,fuel-pump
+1954-KLA,30,30,,29,,104,0,1,1,0,,fuel-pump
 1954-DUN,31,31,,26,,101,0,1,1,0,,brakes
 1954-PAR-15,32,32,,15,,79,0,1,1,0,,engine
 1954-HOM,33,33,,18,,74,0,1,1,0,,accident

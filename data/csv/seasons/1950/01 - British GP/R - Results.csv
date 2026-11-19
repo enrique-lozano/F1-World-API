@@ -9,6 +9,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1950-ETA-16-a,8,8,,14,,65,0,1,1,0,,
 1950-HAM-6,9,9,,16,,64,0,1,1,0,,
 1950-FRY,10,10,,20,,64,0,1,1,0,,
+1950-SHA,10,10,,20,,64,0,1,1,0,,
 1950-CLA-18,12,11,,21,,64,0,1,1,0,,
 1950-FAN-1,13,DNF,,3,,62,0,1,1,0,,oil-pipe
 1950-KEL,14,NC,,19,,57,0,1,1,0,,
@@ -19,5 +20,6 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1950-CHI-19,19,DNF,,11,,24,0,1,1,0,,clutch
 1950-MAR-17,20,DNF,,7,,8,0,1,1,0,,oil-pressure
 1950-WAL-9,21,DNF,,10,,5,0,1,1,0,,gearbox
+1950-ROL-9,21,DNF,,10,,5,0,1,1,0,,gearbox
 1950-JOH,23,DNF,,12,,2,0,1,1,0,,compressor
 1950-BON-22,24,DNA,,,,,0,1,1,,,

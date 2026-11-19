@@ -23,6 +23,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1956-CAS-24,19,DNF,,2,,9,0,1,1,0,,tyre
 1956-MAN-10,20,DNF,,22,,7,0,1,1,0,,chassis
 1956-VIL-34,21,DNF,,8,,7,0,1,1,0,,engine
+1956-BON,21,DNF,,8,,7,0,1,1,0,,engine
 1956-DEP-30,22,DNF,,9,,6,0,1,1,0,,tyre
 1956-LES,23,DNF,,19,,6,0,1,1,0,,suspension
 1956-DAS-8,24,DNF,,20,,3,0,1,1,0,,engine
