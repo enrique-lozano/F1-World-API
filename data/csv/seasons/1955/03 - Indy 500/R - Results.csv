@@ -34,3 +34,12 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1955-HOY,31,31,,1,,40,0,1,1,0,,oil-leak
 1955-AGA,32,32,,4,,39,0,1,1,0,,spun-off
 1955-REE,33,33,,15,,10,0,1,1,0,,engine
+1955-AYU,34,DNQ,,,,,0,1,1,,,
+1955-CHR,35,DNQ,,,,,0,1,1,,,
+1955-GEO,36,DNQ,,,,,0,1,1,,,
+1955-HAR,37,DNQ,,,,,0,1,1,,,
+1955-HOM-72,38,DNQ,,,,,0,1,1,,,
+1955-KLA,39,DNQ,,,,,0,1,1,,,
+1955-RUS-21,40,DNQ,,,,,0,1,1,,,
+1955-RUT,41,DNQ,,,,,0,1,1,,,
+1955-WEB,42,DNQ,,,,,0,1,1,,,
