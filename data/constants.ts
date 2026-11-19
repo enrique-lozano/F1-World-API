@@ -20,6 +20,9 @@ export const schemaFilePath = path.join(dataDirectory, 'schema.sql');
 /** Path of the indexes, created after importing the rows */
 export const indexesFilePath = path.join(dataDirectory, 'indexes.sql');
 
+/** Path of the GeoJSON files with the shape of the circuit layouts, one per layout (`<circuitLayoutId>.geojson`) */
+export const tracksDirectory = path.join(dataDirectory, 'tracks');
+
 /** Path of the CSV files (the source of truth of the data) */
 export const csvDirectory = path.join(dataDirectory, 'csv');
 
@@ -33,6 +36,8 @@ export const tableNames = [
   'constructors',
   'chassis',
   'circuits',
+  'circuitNames',
+  'circuitLayouts',
   'grandsPrix',
   'drivers',
   'driversFamilyRelationships',
@@ -41,16 +46,17 @@ export const tableNames = [
   'tyreManufacturers',
   'events',
   'sessions',
-  'redFlags',
   'retirementReasons',
   'resultStatuses',
-  'safetyCars',
   'entrants',
   'entrantSuccessions',
   'entrantSeasons',
   'entries',
   'pitStops',
   'lapTimes',
+  'stints',
+  'weatherPeriods',
+  'raceNeutralisations',
   'qualifyingResults',
   'fpResults',
   'raceResults'
@@ -65,6 +71,7 @@ export type TableName = (typeof tableNames)[number];
 export const sessionTables = {
   pitStops: { fileSuffix: 'Pit stops', orderBy: 'lap' },
   lapTimes: { fileSuffix: 'Lap times', orderBy: 'lap' },
+  stints: { fileSuffix: 'Stints', orderBy: 'entryId, stint' },
   qualifyingResults: { fileSuffix: 'Results', orderBy: 'positionOrder' },
   fpResults: { fileSuffix: 'Results', orderBy: 'positionOrder' },
   raceResults: { fileSuffix: 'Results', orderBy: 'positionOrder' }

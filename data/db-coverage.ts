@@ -1,7 +1,8 @@
+import csvParser from 'csv-parser';
 import fs from 'fs';
 import path from 'path';
 import pc from 'picocolors';
-import { csvDirectory, dataDirectory } from './constants';
+import { csvDirectory, dataDirectory, tracksDirectory } from './constants';
 
 /**
  * Generates `data/COVERAGE.md`: how complete the data is, per decade and per
@@ -88,7 +89,105 @@ function row(label: string, seasons: Season[]): string {
 const header = (first: string) =>
   `| ${first} | Races | ${metrics.map((m) => m.label).join(' | ')} |\n|${'---|'.repeat(metrics.length + 2)}`;
 
-function build(seasons: Season[]): string {
+type LayoutCoverage = {
+  id: string;
+  events: number;
+  hasShape: boolean;
+  hasStartLine: boolean;
+  hasPitLane: boolean;
+  hasSectors: boolean;
+  hasCorners: boolean;
+};
+
+function readCSV(file: string) {
+  return new Promise<Record<string, string>[]>((resolve, reject) => {
+    const rows: Record<string, string>[] = [];
+
+    fs.createReadStream(path.join(csvDirectory, file))
+      .on('error', reject)
+      .pipe(csvParser())
+      .on('data', (row: Record<string, string>) => rows.push(row))
+      .on('end', () => resolve(rows))
+      .on('error', reject);
+  });
+}
+
+/** The circuit layouts, the races held on each one, and whether its shape (`tracks/<id>.geojson`) is known */
+async function readLayouts(): Promise<LayoutCoverage[]> {
+  const events = await readCSV('events.csv');
+  const racesByLayout = new Map<string, number>();
+  for (const e of events) {
+    racesByLayout.set(
+      e['circuitLayoutId'],
+      (racesByLayout.get(e['circuitLayoutId']) ?? 0) + 1
+    );
+  }
+
+  return (await readCSV('circuitLayouts.csv')).map((l) => {
+    const file = path.join(tracksDirectory, `${l['id']}.geojson`);
+    const kinds: { properties: { kind: string; startLine?: boolean } }[] =
+      fs.existsSync(file)
+        ? JSON.parse(fs.readFileSync(file, 'utf8')).features
+        : [];
+
+    return {
+      id: l['id'],
+      events: racesByLayout.get(l['id']) ?? 0,
+      hasShape: kinds.length > 0,
+      hasStartLine: kinds.some((x) => x.properties.startLine === true),
+      hasPitLane: kinds.some((x) => x.properties.kind == 'pit-lane'),
+      hasSectors: kinds.some((x) => x.properties.kind == 'sector'),
+      hasCorners: kinds.some((x) => x.properties.kind == 'corner')
+    };
+  });
+}
+
+/** How many layouts (and races) have a known shape, and which layouts to draw next: the ones with more races */
+function layoutsSection(layouts: LayoutCoverage[]): string[] {
+  const known = layouts.filter((l) => l.hasShape);
+  const races = (list: LayoutCoverage[]) =>
+    list.reduce((a, l) => a + l.events, 0);
+  const missing = layouts
+    .filter((l) => !l.hasShape)
+    .sort((a, b) => b.events - a.events || a.id.localeCompare(b.id));
+
+  const row = (
+    label: string,
+    total: number,
+    count: (list: LayoutCoverage[]) => number
+  ) =>
+    `| ${label} | ${total} | ${[
+      known,
+      layouts.filter((l) => l.hasStartLine),
+      layouts.filter((l) => l.hasPitLane),
+      layouts.filter((l) => l.hasSectors),
+      layouts.filter((l) => l.hasCorners)
+    ]
+      .map((list) => cell(count(list), total))
+      .join(' | ')} |`;
+
+  return [
+    '## Circuit layouts',
+    '',
+    'Layouts whose shape is known (`data/tracks`) and which of them also have a start line, a pit lane, sectors and corners, with the races held on them. A layout without a shape keeps all its text data.',
+    '',
+    '| | Total | With shape | With start line | With pit lane | With sectors | With corners |',
+    '|---|---|---|---|---|---|---|',
+    row('Layouts', layouts.length, (list) => list.length),
+    row('Races', races(layouts), races),
+    '',
+    '<details><summary><b>Next layouts to draw</b> (the ones with more races)</summary>',
+    '',
+    '| Layout | Races |',
+    '|---|---|',
+    ...missing.slice(0, 20).map((l) => `| ${l.id} | ${l.events} |`),
+    '',
+    '</details>',
+    ''
+  ];
+}
+
+function build(seasons: Season[], layouts: LayoutCoverage[]): string {
   const decades = [
     ...new Set(seasons.map((s) => Math.floor(s.year / 10) * 10))
   ];
@@ -119,6 +218,7 @@ function build(seasons: Season[]): string {
       )
     ),
     '',
+    ...layoutsSection(layouts),
     '## By season',
     ''
   ];
@@ -139,9 +239,15 @@ function build(seasons: Season[]): string {
   return out.join('\n');
 }
 
-const seasons = readSeasons();
-const target = path.join(dataDirectory, 'COVERAGE.md');
-fs.writeFileSync(target, build(seasons));
-console.log(
-  pc.green(`Coverage written to ${path.relative(process.cwd(), target)}`)
-);
+async function main() {
+  const target = path.join(dataDirectory, 'COVERAGE.md');
+  fs.writeFileSync(target, build(readSeasons(), await readLayouts()));
+  console.log(
+    pc.green(`Coverage written to ${path.relative(process.cwd(), target)}`)
+  );
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

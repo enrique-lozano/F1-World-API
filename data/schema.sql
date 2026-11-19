@@ -12,13 +12,75 @@ CREATE TABLE IF NOT EXISTS circuits
 ( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY
 , name VARCHAR(255) NOT NULL COLLATE NOCASE
 , fullName VARCHAR(255) NOT NULL COLLATE NOCASE
-, previousNames VARCHAR(255) COLLATE NOCASE
+, opened INTEGER NOT NULL CHECK (opened BETWEEN 1800 AND 2100) -- year of the first events held in the circuit
+, status VARCHAR(255) NOT NULL COLLATE NOCASE CHECK (status IN ('IN_USE', 'HISTORIC')) -- IN_USE: it still holds motorsport events of any category; HISTORIC: it is closed, abandoned, demolished or built over
 , type VARCHAR(255) NOT NULL COLLATE NOCASE CHECK (type IN ('RACE', 'ROAD', 'STREET'))
 , placeName VARCHAR(255) NOT NULL COLLATE NOCASE
 , countryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES countries(alpha2Code)
-, latitude DECIMAL(10,6)
-, longitude DECIMAL(10,6)
+, latitude DECIMAL(10,6) NOT NULL CHECK (latitude BETWEEN -90 AND 90) -- WGS84, of a point of the circuit: its geometry has to be near it
+, longitude DECIMAL(10,6) NOT NULL CHECK (longitude BETWEEN -180 AND 180)
 , timeZone VARCHAR(255) NOT NULL COLLATE NOCASE -- IANA time zone of the circuit, e.g. Europe/Madrid
+);
+
+-- Table: circuitNames
+-- The names the circuit has been known by, with the years each one was used. The current one has no untilYear.
+DROP TABLE IF EXISTS circuitNames;
+CREATE TABLE IF NOT EXISTS circuitNames
+( circuitId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES circuits(id)
+, name VARCHAR(255) NOT NULL COLLATE NOCASE
+, fromYear INTEGER NOT NULL
+, untilYear INTEGER -- the last year the name was used, NULL if it still is
+, PRIMARY KEY (circuitId, fromYear)
+, CHECK (untilYear IS NULL OR fromYear <= untilYear)
+);
+
+-- Table: circuitLayouts
+-- One configuration of a circuit: a new layout exists whenever the race lap changes (its length or its corner sequence). A layout that comes back years later is the same row, so
+-- the seasons it was used in are deduced from the events. The geometry (when known) is optional, and it is not stored here.
+DROP TABLE IF EXISTS circuitLayouts;
+CREATE TABLE IF NOT EXISTS circuitLayouts
+( id VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY -- <circuitId>-<first season it was used>, e.g. silverstone-2010
+, circuitId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES circuits(id)
+, name VARCHAR(255) COLLATE NOCASE -- only when the layout is known by a name (Nordschleife, Outer)
+, length INTEGER NOT NULL CHECK (length > 0) -- metres, of the race lap
+, turns INTEGER CHECK (turns > 0) -- official number of corners, NULL when unknown
+, direction VARCHAR(255) COLLATE NOCASE CHECK (direction IN ('CLOCKWISE', 'ANTICLOCKWISE')) -- NULL when unknown
+);
+
+-- Table: circuitLayoutCorners
+-- The corners of a layout, numbered as in the official track map. The distance is measured along the track of its geometry, from the start line (its first point), in the direction of the race.
+-- Not a CSV table: the import fills it from the `corner` points of data/tracks/<circuitLayoutId>.geojson, where each one is on the apex of the corner. Only layouts with a geometry can have corners.
+DROP TABLE IF EXISTS circuitLayoutCorners;
+CREATE TABLE IF NOT EXISTS circuitLayoutCorners
+( circuitLayoutId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES circuitLayouts(id)
+, number INTEGER NOT NULL CHECK (number > 0)
+, name VARCHAR(255) COLLATE NOCASE -- only when the corner is known by a name (Eau Rouge, Parabolica)
+, distance INTEGER NOT NULL CHECK (distance >= 0) -- metres from the start line
+, PRIMARY KEY (circuitLayoutId, number)
+);
+
+-- Table: circuitLayoutSectors
+-- Where the timing sectors 1 and 2 end, in the seasons from fromSeason to untilSeason (both included). Sector 3 ends at the start line, so it is not stored. The lines hardly ever move, so there is normally one row per sector and layout.
+-- Not a CSV table: the import fills one row per `sector` point of data/tracks/<circuitLayoutId>.geojson. Its `from` and `until` seasons, if it has them, are the range; without them it is valid for every season the layout was raced.
+-- The distance is measured as in circuitLayoutCorners. Only layouts with a geometry can have sectors.
+DROP TABLE IF EXISTS circuitLayoutSectors;
+CREATE TABLE IF NOT EXISTS circuitLayoutSectors
+( circuitLayoutId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES circuitLayouts(id)
+, sector INTEGER NOT NULL CHECK (sector IN (1, 2)) -- the sector that ends at this distance
+, fromSeason INTEGER NOT NULL
+, untilSeason INTEGER NOT NULL
+, distance INTEGER NOT NULL CHECK (distance > 0) -- metres from the start line
+, PRIMARY KEY (circuitLayoutId, sector, fromSeason)
+, CHECK (fromSeason <= untilSeason)
+);
+
+-- Table: circuitLayoutGeometries
+-- Shape of a layout: a GeoJSON FeatureCollection (WGS84) loaded from data/tracks/<circuitLayoutId>.geojson by the import. Not every layout has one, and it is kept apart from circuitLayouts so
+-- that no normal query drags the JSON. It is not exported to CSV: the files are the source of truth.
+DROP TABLE IF EXISTS circuitLayoutGeometries;
+CREATE TABLE IF NOT EXISTS circuitLayoutGeometries
+( circuitLayoutId VARCHAR(255) NOT NULL COLLATE NOCASE PRIMARY KEY REFERENCES circuitLayouts(id)
+, geojson TEXT NOT NULL CHECK (json_valid(geojson))
 );
 
 -- Table: companies
@@ -227,7 +289,7 @@ CREATE TABLE IF NOT EXISTS events
 , grandPrixId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES grandsPrix(id)
 , name VARCHAR(255) NOT NULL COLLATE NOCASE
 , qualyFormat VARCHAR(255) NOT NULL COLLATE NOCASE
-, circuitId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES circuits(id)
+, circuitLayoutId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES circuitLayouts(id)
 , scheduledLaps INTEGER CHECK (scheduledLaps > 0)
 , posterURL VARCHAR(255) COLLATE NOCASE
 );
@@ -296,26 +358,42 @@ CREATE TABLE IF NOT EXISTS raceResults
 , PRIMARY KEY (sessionId, entryId, positionOrder)
 );
 
--- Table: redFlags
-DROP TABLE IF EXISTS redFlags;
-CREATE TABLE IF NOT EXISTS redFlags
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, lap INTEGER NOT NULL
-, incident VARCHAR(255) NOT NULL
-, excluded VARCHAR(2000)
-, resumed VARCHAR(1)
-, PRIMARY KEY (eventId, lap, incident)
+-- Table: weatherPeriods
+DROP TABLE IF EXISTS weatherPeriods;
+CREATE TABLE IF NOT EXISTS weatherPeriods
+( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id) ON UPDATE CASCADE
+, lapStart INTEGER NOT NULL CHECK (lapStart > 0) -- leader's lap on which the period starts. The row with lapStart 1 is the base of the session; later rows only exist when something changes
+, weather VARCHAR(255) COLLATE NOCASE CHECK (weather IN ('CLEAR', 'PARTLY_CLOUDY', 'CLOUDY', 'SHOWERS', 'LIGHT_RAIN', 'HEAVY_RAIN')) -- NULL when unknown
+, airTemperature DECIMAL(4,1) -- Celsius
+, trackTemperature DECIMAL(4,1) -- Celsius
+, PRIMARY KEY (sessionId, lapStart)
 );
 
--- Table: safetyCars
-DROP TABLE IF EXISTS safetyCars;
-CREATE TABLE IF NOT EXISTS safetyCars
-( eventId VARCHAR(10) NOT NULL REFERENCES events(id)
-, deployed INTEGER NOT NULL
-, fullLaps INTEGER
-, retreated INTEGER
-, cause VARCHAR(255)
-, PRIMARY KEY (eventId, deployed)
+-- Table: raceNeutralisations
+DROP TABLE IF EXISTS raceNeutralisations;
+CREATE TABLE IF NOT EXISTS raceNeutralisations
+( sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id) ON UPDATE CASCADE
+, number INTEGER NOT NULL CHECK (number > 0) -- order inside the session
+, kind VARCHAR(255) NOT NULL COLLATE NOCASE CHECK (kind IN ('SAFETY_CAR', 'FULL_COURSE_YELLOW', 'RED_FLAG'))
+, lapStart INTEGER NOT NULL CHECK (lapStart >= 0) -- leader's lap on which it starts. 0 = before the first lap
+, lapEnd INTEGER CHECK (lapEnd >= lapStart) -- lap on which racing resumes (for a safety car, the lap after the one it comes in). NULL when unknown or when the race did not resume
+, cause VARCHAR(255) COLLATE NOCASE CHECK (cause IN ('ACCIDENT', 'WEATHER', 'DEBRIS', 'STRANDED_CAR', 'TRACK_DAMAGE', 'OTHER')) -- main cause, NULL when unknown
+, resumed VARCHAR(1) CHECK (resumed IN ('Y', 'N', 'R', 'S')) -- RED_FLAG only, as in the source
+, excluded VARCHAR(2000) -- RED_FLAG only
+, description VARCHAR(2000)
+, PRIMARY KEY (sessionId, number)
+);
+
+-- Table: stints
+DROP TABLE IF EXISTS stints;
+CREATE TABLE IF NOT EXISTS stints
+( entryId VARCHAR(255) NOT NULL COLLATE NOCASE REFERENCES entries(id)
+, sessionId VARCHAR(10) NOT NULL REFERENCES sessions(id) ON UPDATE CASCADE
+, stint INTEGER NOT NULL CHECK (stint > 0)
+, lapStart INTEGER NOT NULL CHECK (lapStart > 0) -- first lap on this set; the end is the start of the next stint minus 1
+, compound VARCHAR(255) COLLATE NOCASE CHECK (compound IN ('SOFT', 'MEDIUM', 'HARD', 'INTERMEDIATE', 'WET')) -- NULL when unknown
+, tyreAge INTEGER CHECK (tyreAge >= 0) -- laps already done on the set when the stint started (0 = new)
+, PRIMARY KEY (entryId, sessionId, stint)
 );
 
 COMMIT TRANSACTION;

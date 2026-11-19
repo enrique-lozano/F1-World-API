@@ -38,10 +38,16 @@ CREATE INDEX idx_constructors_companyId ON constructors (companyId);
 
 -- Events
 CREATE INDEX idx_events_grandPrixId ON events (grandPrixId);
-CREATE INDEX idx_events_circuitId ON events (circuitId);
+CREATE INDEX idx_events_circuitLayoutId ON events (circuitLayoutId);
+CREATE INDEX idx_circuitLayouts_circuitId ON circuitLayouts (circuitId);
 
 -- Drivers
 CREATE INDEX idx_drivers_nationalityCountryId ON drivers (nationalityCountryId);
 CREATE INDEX idx_driversFamilyRelationships_driverB ON driversFamilyRelationships (driverB);
 
--- Red flags and safety cars are looked up by their PK (eventId, ...) prefix.
+-- Weather and race neutralisations are looked up by their PK (sessionId, ...) prefix.
+
+-- Stints are looked up by session
+CREATE INDEX idx_stints_sessionId ON stints (sessionId);
+
+-- Corners and sectors are looked up by their PK (circuitLayoutId, ...) prefix.

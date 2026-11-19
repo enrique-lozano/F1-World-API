@@ -15,7 +15,7 @@ Files in `csv/` can be edited with any spreadsheet program (LibreOffice is recom
 
 - One file per table (`drivers.csv`, `circuits.csv`, ...) in the root of `csv/`.
 - Tables with many rows are split **per session** in
-  `csv/seasons/<year>/<round> - <GP name>/<session> - <Results|Lap times|Pit stops>.csv`.
+  `csv/seasons/<year>/<round> - <GP name>/<session> - <Results|Lap times|Pit stops|Stints>.csv`.
   The `sessionId` column is not stored in those files: it is deduced from the path (`2023-01-R`).
 
 After editing the CSV files, rebuild the database to see the changes in the API:
@@ -25,6 +25,36 @@ npm run import-db
 ```
 
 The import is atomic: the database is built in a temporary file and replaces the real one only if everything succeeded, so a mistake in a CSV never leaves you with a broken database.
+
+## Circuits and layouts
+
+A circuit (`circuits.csv`) is the venue; each of its configurations is a layout (`circuitLayouts.csv`), and every event points to the layout that was raced (`events.circuitLayoutId`). A new layout is needed when the race lap changes, that is, its length or its sequence of corners: a new chicane, a shortened lap, an oval versus the road course. Changes of kerbs, asphalt or corner names are not new layouts. A layout that comes back after some years is the same row.
+
+The length is a hint, not the test: a few metres of difference between sources is not a new layout, and two consecutive layouts can have the same length and corners (Zandvoort 1973-78 and 1979). The cases that are decided, and the ones that are not, are in [ADR 0001](../docs/adr/0001-circuit-layouts.md).
+
+The layout `id` is `<circuitId>-<first season it was used>` (`silverstone-2010`), and `name` is only filled when the layout is known by one (`Nordschleife`). `length` is in metres. The import fails if a layout has no events, and warns if its id does not have the first season it was raced.
+
+## Track shapes
+
+The shape of a layout is optional and lives in `tracks/<circuitLayoutId>.geojson` (see [ADR 0002](../docs/adr/0002-track-geometry-as-geojson-files.md)); GitHub draws it as a map. Each file is a `FeatureCollection` of WGS84 `[longitude, latitude]` points with:
+
+- exactly one `Feature` with `properties.kind: "track"`: a closed `LineString`, in the direction of the race when the layout has a `direction`;
+- optionally, one `Feature` with `properties.kind: "pit-lane"`: a `LineString` from the pit entry to the pit exit;
+- optionally, the ends of the sectors 1 and 2: one `Feature` each with `properties.kind: "sector"`, `sector: 1` or `2`, and a `Point` on the track. They are valid for every season the layout was raced; if the timing lines moved, give each point the seasons it applies to with `from` and/or `until`;
+- optionally, for the layouts raced from 1994 (when the pit speed limit started), `pit-limit-start` and `pit-limit-end`: a `Point` each, on the pit lane, where the speed limit begins and ends;
+- optionally, the corners: one `Feature` each with `properties.kind: "corner"`, a `number` (as in the official track map) and, if it has one, a `name`, and a `Point` on the apex of the corner.
+
+The first point of the `track` is the start line only when its `properties` say `"startLine": true`; then the import derives the distances of the corners and of the sectors from it along the track, in the direction of the race (tables `circuitLayoutCorners` and `circuitLayoutSectors`, not CSV files), and fails if one of those points is more than 20 m from the track. Sector 3 ends at the start line, so only the ends of sectors 1 and 2 are stored; the table has one row per season because the timing lines can move without the layout changing.
+
+Keep the points sparse (a point every 30-40 m is enough, a few KB per file). `npm run import-db` loads the files into the database and fails if a file does not belong to a layout, is malformed, or if the length of its track differs more than 5% from the `length` of the layout, if the track is more than 1 km from the `latitude`/`longitude` of its circuit, or if it has corners and they are not as many as the `turns` of the layout (numbered from 1 to `turns`). The layouts still without a shape, and which to draw first, are in [`COVERAGE.md`](COVERAGE.md).
+
+## Weather, neutralisations and stints
+
+These tables are optional per race: a race without them keeps all its other data. Their time axis is the **leader's lap** (not the clock), so they join with `lapTimes` and `pitStops` and work for races whose only known time is the date. Lap 0 is "before the first lap".
+
+- `weatherPeriods.csv`: the weather of a race session as ranges of laps, storing only the changes. The row with `lapStart` 1 always exists and describes the start of the race (`weather`: `CLEAR`, `PARTLY_CLOUDY`, `CLOUDY`, `SHOWERS`, `LIGHT_RAIN`, `HEAVY_RAIN`). The temperatures are optional (Celsius).
+- `raceNeutralisations.csv`: every interruption of the pace of a race, ordered inside its session. `SAFETY_CAR` is a pace car that bunches the field (it covers the full-course caution of other series); `FULL_COURSE_YELLOW` is the virtual safety car and its equivalents (everybody slows down, no pace car); `RED_FLAG` stops the race. It replaces the old `redFlags.csv` and `safetyCars.csv`. `lapEnd` is the lap on which racing resumes (for a safety car, the lap after the one in which it comes in). The virtual safety cars exist only for 2022 and 2023, and the safety cars and red flags of 2023 come from the race control messages, so some `lapEnd` are empty.
+- `seasons/<year>/<round> - <GP>/R - Stints.csv`: the sets of tyres of each driver: `stint`, `lapStart` (the end is the start of the next stint minus 1), `compound` (relative to the dry compounds of the weekend: `SOFT` is the softest; with two dry compounds they are `SOFT` and `HARD`) and `tyreAge` (laps already done when it started). Only loaded when the compound is known (2022 and 2023 so far).
 
 ## Sources and coverage
 

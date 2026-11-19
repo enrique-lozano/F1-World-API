@@ -1,0 +1,166 @@
+id,circuitId,name,length,turns,direction
+adelaide-1985,adelaide,,3780,16,CLOCKWISE
+aida-1994,aida,,3703,13,CLOCKWISE
+ain-diab-1958,ain-diab,,7618,18,CLOCKWISE
+aintree-1955,aintree,,4828,8,CLOCKWISE
+anderstorp-1973,anderstorp,,4031,8,CLOCKWISE
+austin-2012,austin,,5513,20,ANTICLOCKWISE
+avus-1959,avus,,8300,4,ANTICLOCKWISE
+bahrain-2004,bahrain,,5412,15,CLOCKWISE
+bahrain-2010,bahrain,Endurance,6299,23,CLOCKWISE
+bahrain-2020,bahrain,Outer,3543,11,CLOCKWISE
+baku-2016,baku,,6003,20,ANTICLOCKWISE
+brands-hatch-1964,brands-hatch,,4265,9,CLOCKWISE
+brands-hatch-1976,brands-hatch,,4207,9,CLOCKWISE
+bremgarten-1950,bremgarten,,7280,13,CLOCKWISE
+buddh-2011,buddh,,5125,16,CLOCKWISE
+buenos-aires-1953,buenos-aires,No. 2 circuit,3912,13,CLOCKWISE
+buenos-aires-1972,buenos-aires,No. 9 circuit,3353,14,CLOCKWISE
+buenos-aires-1974,buenos-aires,No. 15 circuit,5968,16,CLOCKWISE
+buenos-aires-1995,buenos-aires,No. 6 circuit with Senna S,4259,19,CLOCKWISE
+bugatti-1967,bugatti,,4422,8,CLOCKWISE
+caesars-palace-1981,caesars-palace,,3650,14,ANTICLOCKWISE
+catalunya-1991,catalunya,Original Layout,4747,14,CLOCKWISE
+catalunya-1994,catalunya,Original Layout with Nissan Chicane,4745,16,CLOCKWISE
+catalunya-1995,catalunya,,4730,13,CLOCKWISE
+catalunya-2004,catalunya,,4627,14,CLOCKWISE
+catalunya-2007,catalunya,,4655,16,CLOCKWISE
+catalunya-2021,catalunya,Grand Prix Circuit with chicane,4675,16,CLOCKWISE
+catalunya-2023,catalunya,Grand Prix Circuit without chicane,4657,14,CLOCKWISE
+clermont-ferrand-1965,clermont-ferrand,,8055,48,CLOCKWISE
+dallas-1984,dallas,,3901,23,ANTICLOCKWISE
+detroit-1982,detroit,,4168,24,ANTICLOCKWISE
+detroit-1983,detroit,,4023,22,ANTICLOCKWISE
+dijon-1974,dijon,Short Circuit,3289,8,CLOCKWISE
+dijon-1977,dijon,Grand Prix Circuit,3801,12,CLOCKWISE
+donington-1993,donington,,4023,12,CLOCKWISE
+east-london-1962,east-london,,3920,9,CLOCKWISE
+estoril-1984,estoril,,4349,11,CLOCKWISE
+estoril-1994,estoril,,4360,13,CLOCKWISE
+fuji-1976,fuji,,4359,8,CLOCKWISE
+fuji-2007,fuji,,4563,16,CLOCKWISE
+hockenheimring-1970,hockenheimring,,6790,14,CLOCKWISE
+hockenheimring-1982,hockenheimring,,6802,16,CLOCKWISE
+hockenheimring-1992,hockenheimring,,6815,16,CLOCKWISE
+hockenheimring-2002,hockenheimring,,4574,17,CLOCKWISE
+hungaroring-1986,hungaroring,,4014,16,CLOCKWISE
+hungaroring-1989,hungaroring,,3975,13,CLOCKWISE
+hungaroring-2003,hungaroring,,4381,14,CLOCKWISE
+imola-1980,imola,,5040,22,ANTICLOCKWISE
+imola-1995,imola,,4959,22,ANTICLOCKWISE
+imola-2020,imola,,4909,19,ANTICLOCKWISE
+indianapolis-1950,indianapolis,Oval,4023,4,ANTICLOCKWISE
+indianapolis-2000,indianapolis,Grand Prix Road Course,4192,13,CLOCKWISE
+interlagos-1973,interlagos,Original Grand Prix Circuit,7960,26,ANTICLOCKWISE
+interlagos-1980,interlagos,,7873,26,ANTICLOCKWISE
+interlagos-1990,interlagos,,4309,15,ANTICLOCKWISE
+istanbul-2005,istanbul,,5338,14,ANTICLOCKWISE
+jacarepagua-1978,jacarepagua,,5031,11,ANTICLOCKWISE
+jarama-1968,jarama,,3404,15,CLOCKWISE
+jarama-1981,jarama,,3314,14,CLOCKWISE
+jeddah-2021,jeddah,,6174,27,ANTICLOCKWISE
+jerez-1986,jerez,,4218,16,CLOCKWISE
+jerez-1994,jerez,,4428,15,CLOCKWISE
+kyalami-1967,kyalami,Original Grand Prix Circuit,4094,9,CLOCKWISE
+kyalami-1992,kyalami,,4261,13,ANTICLOCKWISE
+las-vegas-2023,las-vegas,,6201,17,ANTICLOCKWISE
+long-beach-1976,long-beach,,3251,13,CLOCKWISE
+long-beach-1982,long-beach,,3428,18,CLOCKWISE
+long-beach-1983,long-beach,,3275,18,CLOCKWISE
+losail-2021,losail,,5380,16,CLOCKWISE
+losail-2023,losail,,5419,16,CLOCKWISE
+magny-cours-1991,magny-cours,,4271,17,CLOCKWISE
+magny-cours-1992,magny-cours,,4250,15,CLOCKWISE
+magny-cours-2003,magny-cours,,4411,17,CLOCKWISE
+marina-bay-2008,marina-bay,,5073,23,ANTICLOCKWISE
+marina-bay-2013,marina-bay,,5065,23,ANTICLOCKWISE
+marina-bay-2015,marina-bay,,5065,23,ANTICLOCKWISE
+marina-bay-2023,marina-bay,,4927,19,ANTICLOCKWISE
+melbourne-1996,melbourne,,5303,16,CLOCKWISE
+melbourne-2022,melbourne,,5278,14,CLOCKWISE
+mexico-city-1963,mexico-city,,5000,14,CLOCKWISE
+mexico-city-1986,mexico-city,,4421,14,CLOCKWISE
+mexico-city-2015,mexico-city,,4304,17,CLOCKWISE
+miami-2022,miami,,5412,19,ANTICLOCKWISE
+monaco-1950,monaco,,3180,14,CLOCKWISE
+monaco-1955,monaco,,3145,13,CLOCKWISE
+monaco-1973,monaco,,3278,17,CLOCKWISE
+monaco-1976,monaco,,3312,20,CLOCKWISE
+monaco-1986,monaco,,3328,20,CLOCKWISE
+monaco-2003,monaco,,3337,19,CLOCKWISE
+monsanto-1959,monsanto,,5440,9,CLOCKWISE
+mont-tremblant-1968,mont-tremblant,,4265,15,CLOCKWISE
+montjuic-1969,montjuic,,3791,12,ANTICLOCKWISE
+montreal-1978,montreal,,4500,19,CLOCKWISE
+montreal-1979,montreal,,4410,19,CLOCKWISE
+montreal-1988,montreal,,4390,17,CLOCKWISE
+montreal-1994,montreal,,4450,20,CLOCKWISE
+montreal-1996,montreal,,4421,13,CLOCKWISE
+montreal-2002,montreal,,4361,14,CLOCKWISE
+monza-1950,monza,,6300,5,CLOCKWISE
+monza-1955,monza,Road and banking combined,10000,7,CLOCKWISE
+monza-1957,monza,,5750,5,CLOCKWISE
+monza-1972,monza,,5775,7,CLOCKWISE
+monza-1974,monza,,5780,10,CLOCKWISE
+monza-1976,monza,,5800,10,CLOCKWISE
+monza-2000,monza,,5793,11,CLOCKWISE
+mosport-1967,mosport,,3957,10,CLOCKWISE
+mugello-2020,mugello,,5245,15,CLOCKWISE
+nivelles-1972,nivelles,,3724,7,CLOCKWISE
+nurburgring-1951,nurburgring,Nordschleife,22800,160,CLOCKWISE
+nurburgring-1967,nurburgring,Nordschleife,22835,160,CLOCKWISE
+nurburgring-1984,nurburgring,GP-Strecke (without F1 chicane),4542,12,CLOCKWISE
+nurburgring-1995,nurburgring,GP-Strecke (with F1 chicane),4556,12,CLOCKWISE
+nurburgring-2002,nurburgring,GP-Strecke,5148,15,CLOCKWISE
+paul-ricard-1971,paul-ricard,Original Grand Prix Circuit,5809,14,CLOCKWISE
+paul-ricard-1986,paul-ricard,Short Grand Prix Circuit,3813,9,CLOCKWISE
+paul-ricard-2018,paul-ricard,1C-V2 (with Mistral chicane),5842,15,CLOCKWISE
+pedralbes-1951,pedralbes,,6316,6,CLOCKWISE
+pescara-1957,pescara,,25579,24,CLOCKWISE
+phoenix-1989,phoenix,,3800,15,ANTICLOCKWISE
+phoenix-1991,phoenix,,3721,15,ANTICLOCKWISE
+portimao-2020,portimao,,4653,15,CLOCKWISE
+porto-1958,porto,,7406,19,ANTICLOCKWISE
+reims-1950,reims,,7815,5,CLOCKWISE
+reims-1953,reims,,8372,7,CLOCKWISE
+reims-1954,reims,,8302,7,CLOCKWISE
+riverside-1960,riverside,,5271,9,CLOCKWISE
+rouen-1952,rouen,,5100,10,CLOCKWISE
+rouen-1957,rouen,,6542,12,CLOCKWISE
+sebring-1959,sebring,,8360,17,CLOCKWISE
+sepang-1999,sepang,,5543,15,CLOCKWISE
+shanghai-2004,shanghai,,5451,16,CLOCKWISE
+silverstone-1950,silverstone,,4649,8,CLOCKWISE
+silverstone-1952,silverstone,,4711,8,CLOCKWISE
+silverstone-1975,silverstone,,4719,9,CLOCKWISE
+silverstone-1987,silverstone,,4778,9,CLOCKWISE
+silverstone-1991,silverstone,Bridge Grand Prix Circuit,5226,14,CLOCKWISE
+silverstone-1994,silverstone,,5057,17,CLOCKWISE
+silverstone-1996,silverstone,,5072,17,CLOCKWISE
+silverstone-1997,silverstone,Bridge Grand Prix Circuit,5141,17,CLOCKWISE
+silverstone-2010,silverstone,Arena Grand Prix Circuit,5891,18,CLOCKWISE
+sochi-2014,sochi,,5848,18,CLOCKWISE
+spa-francorchamps-1950,spa-francorchamps,Old Circuit,14120,21,CLOCKWISE
+spa-francorchamps-1983,spa-francorchamps,,6940,19,CLOCKWISE
+spa-francorchamps-2004,spa-francorchamps,,6976,19,CLOCKWISE
+spa-francorchamps-2007,spa-francorchamps,,7004,19,CLOCKWISE
+spielberg-1970,spielberg,,5911,16,CLOCKWISE
+spielberg-1977,spielberg,,5942,18,CLOCKWISE
+spielberg-1997,spielberg,,4326,10,CLOCKWISE
+suzuka-1987,suzuka,,5860,18,CLOCKWISE
+suzuka-2003,suzuka,,5807,18,CLOCKWISE
+valencia-2008,valencia,,5419,25,CLOCKWISE
+watkins-glen-1961,watkins-glen,,3780,8,CLOCKWISE
+watkins-glen-1971,watkins-glen,Grand Prix Circuit (without Esses chicane),5435,11,CLOCKWISE
+watkins-glen-1975,watkins-glen,Grand Prix Circuit (with Esses chicane),5435,11,CLOCKWISE
+yas-marina-2009,yas-marina,,5554,21,ANTICLOCKWISE
+yas-marina-2021,yas-marina,,5281,16,ANTICLOCKWISE
+yeongam-2010,yeongam,,5615,18,ANTICLOCKWISE
+zandvoort-1952,zandvoort,,4193,19,CLOCKWISE
+zandvoort-1973,zandvoort,,4226,19,CLOCKWISE
+zandvoort-1979,zandvoort,,4226,19,CLOCKWISE
+zandvoort-1980,zandvoort,,4252,19,CLOCKWISE
+zandvoort-2021,zandvoort,,4259,14,CLOCKWISE
+zeltweg-1964,zeltweg,,3186,4,CLOCKWISE
+zolder-1973,zolder,,4220,14,CLOCKWISE
+zolder-1975,zolder,,4262,15,CLOCKWISE

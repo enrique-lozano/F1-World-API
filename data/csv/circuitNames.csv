@@ -1,0 +1,116 @@
+circuitId,name,fromYear,untilYear
+adelaide,Adelaide Street Circuit,1985,
+aida,TI Circuit Aida,1990,2004
+aida,Okayama International Circuit,2005,
+ain-diab,Ain-Diab Circuit,1957,1958
+aintree,Aintree Motor Racing Circuit,1954,
+anderstorp,Anderstorp Raceway,1968,
+austin,Circuit of the Americas,2012,
+avus,Automobil-Verkehrs- und Übungsstraße,1921,1998
+bahrain,Bahrain International Circuit,2004,
+baku,Baku City Circuit,2016,
+brands-hatch,Brands Hatch,1950,
+bremgarten,Circuit Bremgarten,1931,1955
+buddh,Buddh International Circuit,2011,
+buenos-aires,Autódromo 17 de Octubre,1952,1955
+buenos-aires,Autódromo Municipal Ciudad de Buenos Aires,1955,1960
+buenos-aires,Autódromo Municipal del Parque Almirante Brown de la Ciudad de Buenos Aires,1960,1989
+buenos-aires,Autódromo Oscar Alfredo Gálvez,1989,2008
+buenos-aires,Autódromo Oscar y Juan Gálvez,2008,
+bugatti,Bugatti Circuit,1965,
+caesars-palace,Caesars Palace,1981,1984
+catalunya,Circuit de Catalunya,1991,2013
+catalunya,Circuit de Barcelona-Catalunya,2013,
+clermont-ferrand,Circuit de Charade,1958,
+dallas,Dallas Grand Prix Circuit,1984,1988
+detroit,Detroit Street Circuit,1982,
+dijon,Circuit de Dijon-Prenois,1972,
+donington,Donington Park,1931,
+east-london,Prince George Circuit,1934,
+estoril,Autódromo Fernanda Pires da Silva,1972,
+fuji,Fuji Speedway,1966,
+hockenheimring,Hockenheimer-Dreieck,1932,1938
+hockenheimring,Kurpfalzring,1938,1965
+hockenheimring,Hockenheimring,1965,
+hungaroring,Hungaroring,1986,1994
+hungaroring,Hungaroring RT,1995,2004
+hungaroring,Hungaroring,2005,
+imola,Autodromo di Imola,1953,1956
+imola,Autodromo Dino Ferrari,1957,1988
+imola,Autodromo Internazionale Enzo e Dino Ferrari,1988,
+indianapolis,Indianapolis Motor Speedway,1909,
+interlagos,Autódromo de Interlagos,1940,1984
+interlagos,Autódromo José Carlos Pace,1985,
+istanbul,İstanbul Park,2005,2012
+istanbul,Intercity İstanbul Park,2012,2024
+istanbul,İstanbul Park,2024,
+jacarepagua,Autódromo de Jacarepaguá,1978,1987
+jacarepagua,Autódromo Internacional Nelson Piquet,1988,2012
+jarama,Circuito del Jarama,1967,2022
+jarama,Circuito de Madrid Jarama - RACE,2022,
+jeddah,Jeddah Corniche Circuit,2021,
+jerez,Circuito de Jerez,1985,2018
+jerez,Circuito de Jerez – Ángel Nieto,2018,
+kyalami,Kyalami Grand Prix Circuit,1961,
+las-vegas,Las Vegas Strip Circuit,2023,
+long-beach,Long Beach Street Circuit,1975,
+losail,Losail International Circuit,2004,
+magny-cours,Circuit Jean Behra,1960,1970
+magny-cours,Circuit de Nevers Magny-Cours,1971,
+marina-bay,Marina Bay Street Circuit,2008,
+melbourne,Albert Park Circuit,1953,
+mexico-city,Autódromo Magdalena Mixhuca,1959,1979
+mexico-city,Autódromo Hermanos Rodríguez,1979,
+miami,Miami International Autodrome,2022,
+monaco,Circuit de Monaco,1929,
+monsanto,Circuito de Monsanto,1954,1971
+mont-tremblant,Circuit Mont-Tremblant,1964,
+montjuic,Montjuïc Circuit,1933,1986
+montreal,Île Notre-Dame Circuit,1978,1982
+montreal,Circuit Gilles Villeneuve,1982,
+monza,Circuito di Milano,1922,1927
+monza,Autodromo di Monza,1928,1964
+monza,Autodromo Nazionale di Monza,1964,1974
+monza,Autodromo di Monza,1975,1982
+monza,Autodromo Nazionale di Monza,1983,
+mosport,Mosport Park,1961,1996
+mosport,Mosport International Raceway,1997,2012
+mosport,Canadian Tire Motorsport Park,2012,
+mugello,Autodromo Internazionale del Mugello,1974,
+nivelles,Nivelles-Baulers,1972,1981
+nurburgring,Nürburgring,1927,
+paul-ricard,Circuit Paul Ricard,1970,
+pedralbes,Circuito de Pedralbes,1946,1955
+pescara,Pescara Circuit,1924,1961
+phoenix,Phoenix Street Circuit,1989,1991
+portimao,Algarve International Circuit,2008,
+porto,Circuito da Boavista,1950,2013
+reims,Circuit de Reims-Gueux,1926,1951
+reims,Circuit de Reims,1952,1972
+riverside,Riverside International Raceway,1957,1989
+rouen,Circuit de Rouen-Les-Essarts,1950,1994
+sebring,Sebring International Raceway,1950,
+sepang,Sepang International Circuit,1999,
+shanghai,Shanghai International Circuit,2004,
+silverstone,Silverstone Circuit,1948,
+sochi,Sochi Autodrom,2014,2024
+sochi,Sirius Autodrom,2024,
+spa-francorchamps,Circuit de Spa-Francorchamps,1921,
+spielberg,Österreichring,1969,1985
+spielberg,Steiermark Österreichring,1986,1995
+spielberg,A1-Ring,1996,2004
+spielberg,Red Bull Ring,2011,
+suzuka,Suzuka International Racing Course,1962,
+valencia,Valencia Street Circuit,2008,2013
+watkins-glen,Watkins Glen Grand Prix Circuit,1956,1981
+watkins-glen,Watkins Glen International Raceway,1982,2005
+watkins-glen,Watkins Glen International,2005,
+yas-marina,Yas Marina Circuit,2009,
+yeongam,Korea International Circuit,2010,
+zandvoort,Circuit van Zandvoort,1948,1988
+zandvoort,Circuit Park Zandvoort,1989,2016
+zandvoort,Circuit Zandvoort,2017,2019
+zandvoort,CM.com Circuit Zandvoort,2020,2025
+zandvoort,Circuit Zandvoort,2025,
+zeltweg,Zeltweg,1957,1968
+zolder,Circuit Zolder,1963,

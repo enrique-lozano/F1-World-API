@@ -20,19 +20,20 @@ Use it for your own website or app, for data analysis, for research or just for 
 
 ## The data in numbers 📊
 
-|                          |                  |
-| ------------------------ | ---------------- |
-| Seasons                  | 74 (1950–2023)   |
-| Grands Prix              | 1,101            |
-| Sessions                 | 5,649            |
-| Race result rows         | ~114,000         |
-| Lap times                | ~560,000         |
-| Pit stops                | ~20,000          |
-| Drivers                  | 900              |
-| Teams (entrants)         | 633              |
-| Constructors             | 184              |
-| Circuits                 | 76               |
-| Safety cars / red flags  | 305 / 88         |
+|                         |                |
+| ----------------------- | -------------- |
+| Seasons                 | 74 (1950–2023) |
+| Grands Prix             | 1,101          |
+| Sessions                | 5,649          |
+| Race result rows        | ~114,000       |
+| Lap times               | ~560,000       |
+| Pit stops               | ~20,000        |
+| Drivers                 | 900            |
+| Teams (entrants)        | 633            |
+| Constructors            | 184            |
+| Circuits                | 77             |
+| Circuit layouts         | 162            |
+| Safety cars / red flags | 305 / 88       |
 
 ## What's inside 🔎
 
@@ -101,11 +102,11 @@ All the endpoints are documented with Swagger at <http://localhost:3200/api/docs
 
 Some things you can ask:
 
-| Question                                         | Request                                         |
-| ------------------------------------------------ | ----------------------------------------------- |
-| Who set the fastest lap in the 2023 Bahrain GP?  | `GET /api/sessions/2023/1/R/fastest-lap`        |
-| How long did the pit stops of that race take?    | `GET /api/sessions/2023/1/R/pit-stops`          |
-| Every lap of the race, driver by driver          | `GET /api/sessions/2023/1/R/laps`               |
+| Question                                        | Request                                  |
+| ----------------------------------------------- | ---------------------------------------- |
+| Who set the fastest lap in the 2023 Bahrain GP? | `GET /api/sessions/2023/1/R/fastest-lap` |
+| How long did the pit stops of that race take?   | `GET /api/sessions/2023/1/R/pit-stops`   |
+| Every lap of the race, driver by driver         | `GET /api/sessions/2023/1/R/laps`        |
 
 For instance, the first one answers (trimmed) that the fastest lap was Zhou Guanyu's, on lap 56 with a time of 93,996 ms (1:33.996):
 

@@ -1,0 +1,451 @@
+sessionId,number,kind,lapStart,lapEnd,cause,resumed,excluded,description
+1950-03-R,1,RED_FLAG,138,,WEATHER,N,,
+1971-10-R,1,RED_FLAG,64,,,N,,Mist.
+1973-09-R,1,RED_FLAG,2,,ACCIDENT,Y,"Jody Scheckter, Jean-Pierre Beltoise, George Follmer, Mike Hailwood, Carlos Pace, Jochen Mass, Jackie Oliver, Roger Williamson and Andrea de Adamich (crash) Graham McRae (throttle) and David Purley (spun off).","Crash involving Jody Scheckter, Jean-Pierre Beltoise, George Follmer, Mike Hailwood, Carlos Pace, Jochen Mass, Jackie Oliver, Roger Williamson and Andrea de Adamich."
+1973-14-R,1,SAFETY_CAR,33,39,ACCIDENT,,,
+1974-02-R,1,RED_FLAG,32,,WEATHER,N,,
+1975-04-R,1,RED_FLAG,29,,ACCIDENT,N,,Crash of Rolf Stommelen which killed five spectators. Half points were awarded.
+1975-10-R,1,RED_FLAG,56,,,N,,"Rain and crashes involving Wilson Fittipaldi, Jochen Mass, John Watson, Carlos Pace, Jody Scheckter, James Hunt and Mark Donohue."
+1975-12-R,1,RED_FLAG,29,,,N,,Rain. Half points were awarded.
+1976-09-R,1,RED_FLAG,1,,ACCIDENT,Y,"None, although Clay Regazzoni and Jacques Laffite illegally used their spare cars at the restart, and were subsequently disqualified.","Crash at the start involving Clay Regazzoni, James Hunt, Jacques Laffite and Niki Lauda."
+1976-10-R,1,RED_FLAG,2,,ACCIDENT,Y,"Niki Lauda (crashed, injured), Brett Lunger and Harald Ertl (crashed), Chris Amon (withdrawn), Hans-Joachim Stuck (clutch) and Jacques Laffite (gearbox)","Crash involving Niki Lauda, Brett Lunger and Harald Ertl."
+1978-12-R,1,RED_FLAG,7,,,R,"Mario Andretti, Jody Scheckter, Nelson Piquet, Héctor Rebaque, Harald Ertl, Riccardo Patrese, Alan Jones and James Hunt.",Rain. The race was decided by combining the time from the first 7 laps with the time from the restarted 47.
+1978-14-R,1,RED_FLAG,1,,ACCIDENT,S,"Ronnie Peterson (fatal crash), Vittorio Brambilla (injured), Hans-Joachim Stuck, Didier Pironi and Brett Lunger.","Crash involving Ronnie Peterson, Riccardo Patrese, James Hunt, Vittorio Brambilla, Hans-Joachim Stuck, Patrick Depailler, Didier Pironi, Derek Daly, Clay Regazzoni and Brett Lunger. The race was shortened to 40 laps from the scheduled 52 due to the concerns over darkness."
+1979-01-R,1,RED_FLAG,1,,,Y,"Jody Scheckter, Arturo Merzario, Didier Pironi, Nelson Piquet and Patrick Tambay.","A huge crash involving Jody Scheckter, Arturo Merzario, Didier Pironi, Nelson Piquet, John Watson, Patrick Tambay and Mario Andretti."
+1979-03-R,1,RED_FLAG,2,,WEATHER,R,,
+1980-13-R,1,RED_FLAG,1,,ACCIDENT,Y,Derek Daly (crashed) and Mike Thackwell (lending his car to Jean-Pierre Jarier after Jarier crashed his car before the restart).,"Crash involving Jean-Pierre Jarier, Derek Daly, Emerson Fittipaldi, Keke Rosberg, Mario Andretti, Gilles Villeneuve and Jochen Mass."
+1981-05-R,1,RED_FLAG,2,,,R,Riccardo Patrese and Siegfried Stohr,"Start crash that involved Riccardo Patrese and teammate Siegfried Stohr, injuring Patrese's mechanic."
+1981-05-R,2,RED_FLAG,54,,WEATHER,N,,
+1981-08-R,1,RED_FLAG,58,,,R,,Rain. The race was decided by combining the time from the first 58 laps with the time from the restarted 22.
+1982-07-R,1,RED_FLAG,7,,ACCIDENT,S,Riccardo Patrese and Roberto Guerrero,"Crash involving Elio de Angelis, Roberto Guerrero, and Riccardo Patrese. The race was decided by combining the time from the first 6 laps with the time from the restarted 64, shortened to 56 due to the two-hour time limit."
+1982-08-R,1,RED_FLAG,1,,,Y,"Riccardo Paletti (fatal crash), Geoff Lees (crashed) and Jean-Pierre Jarier (withdrawn after teammate Paletti died).","Didier Pironi stalled his car at the start, causing Riccardo Paletti to crash fatally into the back of Pironi's car. Geoff Lees, Raul Boesel and Eliseo Salazar were also involved in separate crashes at the start."
+1984-06-R,1,RED_FLAG,31,,,N,,Rain. Half points were awarded.
+1984-08-R,1,RED_FLAG,1,,ACCIDENT,Y,Marc Surer,"Crash at the start involving Nelson Piquet, Ayrton Senna, Michele Alboreto and Marc Surer"
+1984-10-R,1,RED_FLAG,11,,ACCIDENT,S,,"Crash of Jonathan Palmer. The race was restarted for 60 laps, rather than the original 64."
+1984-12-R,1,RED_FLAG,1,,,Y,,Improper start procedure.
+1985-10-R,1,RED_FLAG,1,,ACCIDENT,Y,Piercarlo Ghinzani,"Crash at the start involving Teo Fabi, Elio de Angelis, Michele Alboreto and Gerhard Berger."
+1986-09-R,1,RED_FLAG,1,,,Y,"Jacques Laffite (crash, injured), Christian Danner, Piercarlo Ghinzani and Allen Berg.","Nigel Mansell suffered a driveshaft failure at the start, resulting in a crash involving a number of cars which included Thierry Boutsen, Jacques Laffite, Christian Danner, Piercarlo Ghinzani, Allen Berg and Jonathan Palmer."
+1987-03-R,1,RED_FLAG,2,,ACCIDENT,Y,Jonathan Palmer,Crash involving Jonathan Palmer and Philippe Streiff.
+1987-10-R,1,RED_FLAG,1,,,Y,,"The first race start ended quickly after Martin Brundle crashed, then Jonathan Palmer, Philippe Streiff and Piercarlo Ghinzani collided."
+1987-10-R,2,RED_FLAG,1,,,Y,Philippe Streiff,"The second race start ended quickly after Nigel Mansell crawled away with clutch problems and then Eddie Cheever and Riccardo Patrese collided and half the grid, including Stefan Johansson, Alex Caffi, Ivan Capelli, Pascal Fabre, Philippe Alliot, Martin Brundle and Christian Danner were involved in the ensuing pile-up."
+1987-12-R,1,RED_FLAG,2,,,Y,Christian Danner,"A multi-car collision on the opening lap. Nelson Piquet and Michele Alboreto collided at the start. Derek Warwick, Satoru Nakajima, Martin Brundle, Christian Danner, Philippe Alliot, René Arnoux and Adrián Campos were all involved in the ensuing crash."
+1987-14-R,1,RED_FLAG,30,,ACCIDENT,S,,Crash of Derek Warwick. The race was decided by combining the time from the first 30 laps with the time from the restarted 33.
+1988-13-R,1,RED_FLAG,1,,,Y,,"After the first start was aborted, the second start was red-flagged after Derek Warwick stalled his car and was hit by Andrea de Cesaris, with Luis Pérez-Sala and Satoru Nakajima also involved."
+1989-02-R,1,RED_FLAG,4,,ACCIDENT,S,Gerhard Berger (injured),"Crash of Gerhard Berger. The race was shortened from 61 to 58 laps, and was decided by combining the time from the first 3 laps with the time from the restarted 55."
+1989-04-R,1,RED_FLAG,2,,ACCIDENT,Y,,Crash involving several cars.
+1989-07-R,1,RED_FLAG,1,,ACCIDENT,Y,,"Crash involving Nigel Mansell, Maurício Gugelmin, Thierry Boutsen, René Arnoux and Jonathan Palmer"
+1989-16-R,1,RED_FLAG,2,,ACCIDENT,Y,"Nicola Larini, Alain Prost (withdrew)",Crash involving JJ Lehto.
+1990-04-R,1,RED_FLAG,1,,ACCIDENT,Y,,Crash involving Gerhard Berger and Alain Prost.
+1990-11-R,1,RED_FLAG,1,,,Y,Aguri Suzuki,"Multiple crashes on the first lap, involving Martin Donnelly, Nigel Mansell, Aguri Suzuki and several others."
+1990-11-R,2,RED_FLAG,1,,ACCIDENT,Y,Paolo Barilla,"Crash involving Paolo Barilla, resulting in a damaged guardrail."
+1990-12-R,1,RED_FLAG,2,,ACCIDENT,Y,,Crash of Derek Warwick.
+1990-13-R,1,RED_FLAG,61,,ACCIDENT,N,,Crash involving Aguri Suzuki and Alex Caffi.
+1991-16-R,1,RED_FLAG,14,,,N,,Rain. Half points were awarded.
+1992-08-R,1,RED_FLAG,18,,,S,,Rain. The race was decided by combining the time from the first 18 laps with the time from the restarted 51.
+1993-02-R,1,SAFETY_CAR,29,38,ACCIDENT,,,Accident/Rain
+1993-09-R,1,SAFETY_CAR,38,40,STRANDED_CAR,,,
+1994-03-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+1994-03-R,2,RED_FLAG,7,,,S,"Ayrton Senna (fatal crash), Érik Comas (withdrew)","Fatal crash of Ayrton Senna. The race was shortened from 61 to 58 laps, and was decided by combining the time from the first 5 laps with the time from the restarted 53."
+1994-12-R,1,RED_FLAG,1,,ACCIDENT,Y,,Crash involving several cars.
+1994-15-R,1,RED_FLAG,15,,,S,Martin Brundle,"Rain and a crash involving Martin Brundle, resulting in an injured marshal. The race was restarted with race leader Michael Schumacher behind the safety car and was decided by combining the time from the first 13 laps with the time of the restarted 37."
+1995-02-R,1,RED_FLAG,1,,,Y,Luca Badoer,"Several crashes involving Jean Alesi, Mika Salo, Luca Badoer, Olivier Panis, Pierluigi Martini, Johnny Herbert, Rubens Barrichello and Ukyo Katayama."
+1995-05-R,1,RED_FLAG,1,,ACCIDENT,Y,"Domenico Schiattarella, Jos Verstappen","Crash involving Jean Alesi, Gerhard Berger and David Coulthard."
+1995-11-R,1,SAFETY_CAR,28,33,WEATHER,,,
+1995-12-R,1,RED_FLAG,1,,ACCIDENT,Y,Andrea Montermini and Roberto Moreno.,"Crash involving Max Papis, Jean-Christophe Boullion, Andrea Montermini, Pedro Diniz and Roberto Moreno."
+1995-13-R,1,RED_FLAG,1,,ACCIDENT,Y,"Ukyo Katayama (crash, injured) and Max Papis (gearbox)","Crash involving Ukyo Katayama, Luca Badoer, Pedro Diniz and Roberto Moreno."
+1996-01-R,1,RED_FLAG,1,,ACCIDENT,Y,Johnny Herbert,"Crash involving Martin Brundle, David Coulthard and Johnny Herbert."
+1996-03-R,1,SAFETY_CAR,28,33,ACCIDENT,,,
+1996-13-R,1,SAFETY_CAR,13,18,ACCIDENT,,,
+1997-02-R,1,RED_FLAG,1,,,Y,Jan Magnussen,"Rubens Barrichello stalled his car at the start, followed by several crashes involving Giancarlo Fisichella, Jacques Villeneuve, Jan Magnussen, Damon Hill, Johnny Herbert and Eddie Irvine."
+1997-03-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+1997-07-R,1,RED_FLAG,56,,ACCIDENT,N,,Crash of Olivier Panis.
+1997-12-R,1,SAFETY_CAR,1,4,WEATHER,,,
+1998-07-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+1998-07-R,2,RED_FLAG,1,,ACCIDENT,Y,,"Crash involving Jean Alesi, Johnny Herbert, Jarno Trulli and Alexander Wurz."
+1998-07-R,3,SAFETY_CAR,15,18,DEBRIS,,,
+1998-07-R,4,SAFETY_CAR,20,22,ACCIDENT,,,
+1998-08-R,1,RED_FLAG,1,,,S,,Jos Verstappen stalled his car at the start.
+1998-09-R,1,SAFETY_CAR,42,49,WEATHER,,,
+1998-10-R,1,SAFETY_CAR,1,4,ACCIDENT,,,Two accidents
+1998-13-R,1,RED_FLAG,1,,,Y,"Rubens Barrichello, Ricardo Rosset, Mika Salo and Olivier Panis.","Massive crash involving David Coulthard, Jos Verstappen, Eddie Irvine, Alexander Wurz, Rubens Barrichello, Johnny Herbert, Olivier Panis, Jarno Trulli, Mika Salo, Pedro Diniz, Toranosuke Takagi, Ricardo Rosset and Shinji Nakano."
+1998-13-R,2,SAFETY_CAR,28,33,ACCIDENT,,,
+1999-01-R,1,SAFETY_CAR,15,17,ACCIDENT,,,
+1999-01-R,2,SAFETY_CAR,20,25,ACCIDENT,,,
+1999-06-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+1999-06-R,2,SAFETY_CAR,3,8,ACCIDENT,,,
+1999-06-R,3,SAFETY_CAR,35,41,ACCIDENT,,,
+1999-06-R,4,SAFETY_CAR,66,,ACCIDENT,,,
+1999-07-R,1,SAFETY_CAR,25,36,STRANDED_CAR,,,Stranded car/Rain
+1999-08-R,1,RED_FLAG,1,,,Y,"Michael Schumacher (crash, injured)",Jacques Villeneuve and Alessandro Zanardi stalled their cars at the start. Michael Schumacher crashed after the red flag was shown.
+1999-14-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+2000-01-R,1,SAFETY_CAR,7,11,ACCIDENT,,,
+2000-07-R,1,RED_FLAG,1,,,Y,Pedro de la Rosa,Initially shown due to a technical fault in the FIA computer. Pedro de la Rosa and Jenson Button collided after the red flag was shown.
+2000-10-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2000-11-R,1,SAFETY_CAR,25,29,OTHER,,,Man on track
+2000-11-R,2,SAFETY_CAR,30,32,ACCIDENT,,,
+2000-13-R,1,SAFETY_CAR,1,2,WEATHER,,,
+2000-14-R,1,SAFETY_CAR,1,12,ACCIDENT,,,Multiple accidents
+2000-17-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2001-01-R,1,SAFETY_CAR,5,15,ACCIDENT,,,
+2001-02-R,1,SAFETY_CAR,4,11,WEATHER,,,
+2001-03-R,1,SAFETY_CAR,1,3,STRANDED_CAR,,,
+2001-06-R,1,SAFETY_CAR,1,4,STRANDED_CAR,,,Four stranded cars
+2001-08-R,1,SAFETY_CAR,21,24,ACCIDENT,,,
+2001-12-R,1,RED_FLAG,2,,ACCIDENT,Y,,Crash involving Luciano Burti and Michael Schumacher.
+2001-14-R,1,RED_FLAG,5,,ACCIDENT,S,"Luciano Burti (crash, injured), Eddie Irvine (crash), Kimi Räikkönen (transmission) and Fernando Alonso (gearbox)","Crash involving Luciano Burti and Eddie Irvine, resulting in a damaged tyre wall."
+2001-14-R,2,SAFETY_CAR,6,7,ACCIDENT,,,
+2002-01-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+2002-01-R,2,SAFETY_CAR,9,12,ACCIDENT,,,
+2002-06-R,1,SAFETY_CAR,24,28,STRANDED_CAR,,,
+2002-06-R,2,SAFETY_CAR,28,37,ACCIDENT,,,
+2002-08-R,1,SAFETY_CAR,14,17,STRANDED_CAR,,,
+2003-01-R,1,SAFETY_CAR,8,11,ACCIDENT,,,Two accidents
+2003-01-R,2,SAFETY_CAR,16,20,STRANDED_CAR,,,
+2003-03-R,1,SAFETY_CAR,1,9,WEATHER,,,
+2003-03-R,2,SAFETY_CAR,18,24,ACCIDENT,,,
+2003-03-R,3,SAFETY_CAR,27,30,ACCIDENT,,,Three accidents
+2003-03-R,4,SAFETY_CAR,33,37,ACCIDENT,,,
+2003-03-R,5,SAFETY_CAR,54,,ACCIDENT,,,Two accidents
+2003-03-R,6,RED_FLAG,56,,ACCIDENT,N,,Crashes of Mark Webber and Fernando Alonso.
+2003-06-R,1,SAFETY_CAR,1,5,STRANDED_CAR,,,
+2003-11-R,1,SAFETY_CAR,5,7,DEBRIS,,,Debris from car
+2003-11-R,2,SAFETY_CAR,12,15,OTHER,,,Man on track
+2004-06-R,1,SAFETY_CAR,3,8,ACCIDENT,,,
+2004-06-R,2,SAFETY_CAR,32,37,ACCIDENT,,,
+2004-09-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+2004-09-R,2,SAFETY_CAR,11,20,ACCIDENT,,,
+2004-14-R,1,SAFETY_CAR,1,5,ACCIDENT,,,
+2004-14-R,2,SAFETY_CAR,31,34,ACCIDENT,,,
+2004-14-R,3,SAFETY_CAR,38,42,DEBRIS,,,Debris from accident
+2005-06-R,1,SAFETY_CAR,25,29,STRANDED_CAR,,,
+2005-08-R,1,SAFETY_CAR,46,52,ACCIDENT,,,
+2005-11-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2005-16-R,1,SAFETY_CAR,11,14,ACCIDENT,,,
+2005-18-R,1,SAFETY_CAR,1,8,ACCIDENT,,,
+2005-19-R,1,SAFETY_CAR,19,25,TRACK_DAMAGE,,,Loose drain cover
+2005-19-R,2,SAFETY_CAR,29,35,ACCIDENT,,,
+2006-03-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2006-03-R,2,SAFETY_CAR,8,10,ACCIDENT,,,
+2006-03-R,3,SAFETY_CAR,32,35,ACCIDENT,,,
+2006-03-R,4,SAFETY_CAR,36,40,ACCIDENT,,,
+2006-04-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2006-07-R,1,SAFETY_CAR,47,49,STRANDED_CAR,,,
+2006-08-R,1,SAFETY_CAR,2,4,ACCIDENT,,,
+2006-09-R,1,SAFETY_CAR,2,4,ACCIDENT,,,
+2006-09-R,2,SAFETY_CAR,61,64,ACCIDENT,,,
+2006-10-R,1,SAFETY_CAR,1,7,ACCIDENT,,,Two accidents
+2006-13-R,1,SAFETY_CAR,26,31,ACCIDENT,,,
+2006-14-R,1,SAFETY_CAR,13,16,STRANDED_CAR,,,
+2006-18-R,1,SAFETY_CAR,2,6,ACCIDENT,,,
+2007-03-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2007-06-R,1,SAFETY_CAR,22,26,ACCIDENT,,,
+2007-06-R,2,SAFETY_CAR,26,34,ACCIDENT,,,
+2007-06-R,3,SAFETY_CAR,50,54,DEBRIS,,,Debris from accident
+2007-06-R,4,SAFETY_CAR,55,60,ACCIDENT,,,
+2007-10-R,1,SAFETY_CAR,3,7,ACCIDENT,,,Accidents
+2007-10-R,2,RED_FLAG,5,,,R,"Jenson Button, Nico Rosberg, Adrian Sutil, Scott Speed and Vitantonio Liuzzi.","Torrential rain and crashes involving Jenson Button, Nico Rosberg, Adrian Sutil, Lewis Hamilton, Scott Speed and Vitantonio Liuzzi."
+2007-13-R,1,SAFETY_CAR,1,7,ACCIDENT,,,
+2007-15-R,1,SAFETY_CAR,1,20,WEATHER,,,
+2007-15-R,2,SAFETY_CAR,41,48,ACCIDENT,,,
+2008-01-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2008-01-R,2,SAFETY_CAR,26,30,ACCIDENT,,,
+2008-01-R,3,SAFETY_CAR,44,47,ACCIDENT,,,
+2008-04-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2008-04-R,2,SAFETY_CAR,22,29,ACCIDENT,,,
+2008-05-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2008-06-R,1,SAFETY_CAR,8,11,ACCIDENT,,,
+2008-06-R,2,SAFETY_CAR,62,67,ACCIDENT,,,
+2008-07-R,1,SAFETY_CAR,16,22,STRANDED_CAR,,,
+2008-10-R,1,SAFETY_CAR,36,42,ACCIDENT,,,
+2008-14-R,1,SAFETY_CAR,1,3,WEATHER,,,
+2008-15-R,1,SAFETY_CAR,14,20,ACCIDENT,,,
+2008-15-R,2,SAFETY_CAR,46,53,ACCIDENT,,,
+2008-18-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2009-01-R,1,SAFETY_CAR,19,24,ACCIDENT,,,
+2009-01-R,2,SAFETY_CAR,55,,ACCIDENT,,,
+2009-02-R,1,SAFETY_CAR,31,,WEATHER,,,
+2009-02-R,2,RED_FLAG,33,,,N,,"Torrential rain and crashes of Sébastien Buemi, Sebastian Vettel and Giancarlo Fisichella. Half points were awarded."
+2009-03-R,1,SAFETY_CAR,1,8,WEATHER,,,
+2009-03-R,2,SAFETY_CAR,18,22,DEBRIS,,,Debris from accident
+2009-05-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+2009-12-R,1,SAFETY_CAR,1,5,ACCIDENT,,,
+2009-13-R,1,SAFETY_CAR,53,,ACCIDENT,,,
+2009-14-R,1,SAFETY_CAR,21,26,ACCIDENT,,,
+2009-15-R,1,SAFETY_CAR,45,50,ACCIDENT,,,
+2009-16-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+2010-02-R,1,SAFETY_CAR,2,5,ACCIDENT,,,
+2010-04-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2010-04-R,2,SAFETY_CAR,22,26,DEBRIS,,,Debris from accident
+2010-06-R,1,SAFETY_CAR,1,7,ACCIDENT,,,
+2010-06-R,2,SAFETY_CAR,31,34,ACCIDENT,,,
+2010-06-R,3,SAFETY_CAR,43,46,TRACK_DAMAGE,,,Loose drain cover
+2010-06-R,4,SAFETY_CAR,75,,ACCIDENT,,,
+2010-09-R,1,SAFETY_CAR,10,15,ACCIDENT,,,
+2010-10-R,1,SAFETY_CAR,28,31,DEBRIS,,,Debris from car
+2010-12-R,1,SAFETY_CAR,15,18,DEBRIS,,,Debris from car
+2010-13-R,1,SAFETY_CAR,2,4,ACCIDENT,,,
+2010-13-R,2,SAFETY_CAR,38,41,ACCIDENT,,,
+2010-15-R,1,SAFETY_CAR,3,6,ACCIDENT,,,
+2010-15-R,2,SAFETY_CAR,31,36,ACCIDENT,,,
+2010-16-R,1,SAFETY_CAR,1,7,ACCIDENT,,,
+2010-17-R,1,SAFETY_CAR,1,4,WEATHER,,,
+2010-17-R,2,RED_FLAG,3,,WEATHER,R,,
+2010-17-R,3,SAFETY_CAR,4,18,WEATHER,,,
+2010-17-R,4,SAFETY_CAR,19,24,ACCIDENT,,,
+2010-17-R,5,SAFETY_CAR,31,35,ACCIDENT,,,
+2010-18-R,1,SAFETY_CAR,51,56,ACCIDENT,,,
+2010-19-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+2011-06-R,1,SAFETY_CAR,35,39,ACCIDENT,,,
+2011-06-R,2,RED_FLAG,72,,ACCIDENT,R,Jaime Alguersuari and Vitaly Petrov,"Crash involving Adrian Sutil, Lewis Hamilton, Jaime Alguersuari and Vitaly Petrov."
+2011-07-R,1,SAFETY_CAR,1,6,WEATHER,,,
+2011-07-R,2,SAFETY_CAR,8,13,ACCIDENT,,,
+2011-07-R,3,SAFETY_CAR,20,26,WEATHER,,,
+2011-07-R,4,RED_FLAG,25,,WEATHER,R,,
+2011-07-R,5,SAFETY_CAR,26,34,WEATHER,,,
+2011-07-R,6,SAFETY_CAR,37,40,ACCIDENT,,,
+2011-07-R,7,SAFETY_CAR,56,61,DEBRIS,,,Debris from accident
+2011-12-R,1,SAFETY_CAR,13,17,ACCIDENT,,,
+2011-13-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2011-14-R,1,SAFETY_CAR,30,34,ACCIDENT,,,
+2011-15-R,1,SAFETY_CAR,24,28,DEBRIS,,,Debris from accident
+2011-16-R,1,SAFETY_CAR,17,21,ACCIDENT,,,
+2012-01-R,1,SAFETY_CAR,37,42,STRANDED_CAR,,,
+2012-02-R,1,SAFETY_CAR,6,10,WEATHER,,,
+2012-02-R,2,RED_FLAG,9,,WEATHER,R,,
+2012-02-R,3,SAFETY_CAR,10,15,WEATHER,,,
+2012-06-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2012-08-R,1,SAFETY_CAR,27,34,DEBRIS,,,Debris from accident
+2012-12-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+2012-14-R,1,SAFETY_CAR,30,32,ACCIDENT,,,
+2012-14-R,2,SAFETY_CAR,33,43,ACCIDENT,,,
+2012-15-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2012-18-R,1,SAFETY_CAR,9,15,ACCIDENT,,,
+2012-18-R,2,SAFETY_CAR,39,43,ACCIDENT,,,
+2012-20-R,1,SAFETY_CAR,23,29,DEBRIS,,,
+2012-20-R,2,SAFETY_CAR,70,,ACCIDENT,,,
+2013-06-R,1,SAFETY_CAR,31,39,ACCIDENT,,,
+2013-06-R,2,RED_FLAG,46,,ACCIDENT,R,Pastor Maldonado,"Crash involving Pastor Maldonado and Max Chilton, resulting in a damaged barrier blocking the track."
+2013-06-R,3,SAFETY_CAR,47,48,ACCIDENT,,,
+2013-06-R,4,SAFETY_CAR,62,67,ACCIDENT,,,
+2013-08-R,1,SAFETY_CAR,14,22,DEBRIS,,,Debris from car
+2013-08-R,2,SAFETY_CAR,41,46,STRANDED_CAR,,,
+2013-09-R,1,SAFETY_CAR,23,30,STRANDED_CAR,,,
+2013-13-R,1,SAFETY_CAR,25,31,ACCIDENT,,,
+2013-14-R,1,SAFETY_CAR,31,37,DEBRIS,,,
+2013-14-R,2,SAFETY_CAR,38,41,STRANDED_CAR,,,Vehicle on track
+2013-18-R,1,SAFETY_CAR,1,5,ACCIDENT,,,
+2014-01-R,1,SAFETY_CAR,12,16,DEBRIS,,,Debris from car
+2014-03-R,1,SAFETY_CAR,41,48,ACCIDENT,,,
+2014-06-R,1,SAFETY_CAR,1,5,ACCIDENT,,,
+2014-06-R,2,SAFETY_CAR,26,32,ACCIDENT,,,
+2014-07-R,1,SAFETY_CAR,1,8,ACCIDENT,,,
+2014-09-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2014-09-R,2,RED_FLAG,1,,ACCIDENT,R,Kimi Räikkönen and Felipe Massa,"Crash involving Kimi Räikkönen, Felipe Massa and Kamui Kobayashi, resulting in a damaged guardrail."
+2014-10-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2014-11-R,1,SAFETY_CAR,9,14,ACCIDENT,,,Two accidents
+2014-11-R,2,SAFETY_CAR,23,28,ACCIDENT,,,
+2014-14-R,1,SAFETY_CAR,31,38,DEBRIS,,,Debris from accident
+2014-15-R,1,SAFETY_CAR,1,3,WEATHER,,,
+2014-15-R,2,RED_FLAG,2,,,R,,Torrential rain as a consequence of Typhoon Phanfone.
+2014-15-R,3,SAFETY_CAR,3,9,WEATHER,,,
+2014-15-R,4,SAFETY_CAR,44,,ACCIDENT,,,
+2014-15-R,5,RED_FLAG,46,,,N,,Fatal crash of Jules Bianchi.
+2014-17-R,1,SAFETY_CAR,1,5,ACCIDENT,,,
+2015-01-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2015-02-R,1,SAFETY_CAR,4,7,ACCIDENT,,,
+2015-03-R,1,SAFETY_CAR,54,,STRANDED_CAR,,,
+2015-06-R,1,SAFETY_CAR,59,71,ACCIDENT,,,
+2015-08-R,1,SAFETY_CAR,1,7,ACCIDENT,,,
+2015-09-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2015-10-R,1,SAFETY_CAR,43,49,ACCIDENT,,,
+2015-13-R,1,SAFETY_CAR,37,41,OTHER,,,Man on track
+2015-15-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2015-15-R,2,SAFETY_CAR,12,18,ACCIDENT,,,
+2015-16-R,1,SAFETY_CAR,28,33,STRANDED_CAR,,,
+2015-16-R,2,SAFETY_CAR,43,47,ACCIDENT,,,
+2015-17-R,1,SAFETY_CAR,53,58,ACCIDENT,,,
+2016-01-R,1,SAFETY_CAR,17,20,ACCIDENT,,,
+2016-01-R,2,RED_FLAG,18,,ACCIDENT,R,"Fernando Alonso (crash, injured), Esteban Gutiérrez (crash) and Rio Haryanto (mechanical problem during red flag period)",Crash involving Fernando Alonso and Esteban Gutiérrez.
+2016-03-R,1,SAFETY_CAR,4,10,DEBRIS,,,Debris from car
+2016-04-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2016-06-R,1,SAFETY_CAR,1,8,WEATHER,,,
+2016-09-R,1,SAFETY_CAR,27,32,DEBRIS,,,Debris from car
+2016-10-R,1,SAFETY_CAR,1,6,WEATHER,,,
+2016-13-R,1,RED_FLAG,9,,ACCIDENT,R,Kevin Magnussen,"Crash of Kevin Magnussen, resulting in a damaged barrier."
+2016-19-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2016-20-R,1,SAFETY_CAR,1,7,WEATHER,,,
+2016-20-R,2,SAFETY_CAR,13,20,ACCIDENT,,,
+2016-20-R,3,SAFETY_CAR,21,32,WEATHER,,,
+2016-20-R,4,RED_FLAG,21,,,R,"Jolyon Palmer, Kimi Räikkönen",Rain and crash of Kimi Räikkönen.
+2016-20-R,5,RED_FLAG,28,,WEATHER,R,,
+2016-20-R,6,SAFETY_CAR,48,56,ACCIDENT,,,
+2017-02-R,1,SAFETY_CAR,4,8,ACCIDENT,,,
+2017-03-R,1,SAFETY_CAR,16,18,ACCIDENT,,,
+2017-04-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2017-06-R,1,SAFETY_CAR,60,68,ACCIDENT,,,
+2017-07-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2017-08-R,1,SAFETY_CAR,12,17,STRANDED_CAR,,,
+2017-08-R,2,SAFETY_CAR,17,20,DEBRIS,,,Debris from car
+2017-08-R,3,SAFETY_CAR,20,24,DEBRIS,,,Debris from accident
+2017-08-R,4,RED_FLAG,22,,,R,,Debris on the track following multiple incidents.
+2017-10-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+2017-11-R,1,SAFETY_CAR,4,7,ACCIDENT,,,
+2017-12-R,1,SAFETY_CAR,30,35,DEBRIS,,,Debris from accident
+2017-14-R,1,SAFETY_CAR,1,5,ACCIDENT,,,
+2017-14-R,2,SAFETY_CAR,11,15,ACCIDENT,,,
+2017-14-R,3,SAFETY_CAR,38,42,ACCIDENT,,,
+2017-16-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2017-19-R,1,SAFETY_CAR,1,7,ACCIDENT,,,
+2018-01-R,1,SAFETY_CAR,29,32,STRANDED_CAR,,,
+2018-03-R,1,SAFETY_CAR,31,35,DEBRIS,,,Debris from accident
+2018-04-R,1,SAFETY_CAR,1,6,ACCIDENT,,,Two accidents
+2018-04-R,2,SAFETY_CAR,40,48,ACCIDENT,,,Two accidents
+2018-05-R,1,SAFETY_CAR,1,7,ACCIDENT,,,
+2018-07-R,1,SAFETY_CAR,1,5,ACCIDENT,,,
+2018-08-R,1,SAFETY_CAR,1,6,ACCIDENT,,,
+2018-10-R,1,SAFETY_CAR,33,38,ACCIDENT,,,
+2018-10-R,2,SAFETY_CAR,38,42,ACCIDENT,,,
+2018-11-R,1,SAFETY_CAR,52,58,ACCIDENT,,,
+2018-13-R,1,SAFETY_CAR,1,5,ACCIDENT,,,
+2018-14-R,1,SAFETY_CAR,1,3,ACCIDENT,,,
+2018-15-R,1,SAFETY_CAR,1,5,ACCIDENT,,,
+2018-17-R,1,SAFETY_CAR,3,8,DEBRIS,,,Debris from accident
+2018-21-R,1,SAFETY_CAR,1,5,ACCIDENT,,,
+2019-02-R,1,SAFETY_CAR,55,,STRANDED_CAR,,,Two stranded cars
+2019-05-R,1,SAFETY_CAR,46,53,ACCIDENT,,,
+2019-06-R,1,SAFETY_CAR,11,16,DEBRIS,,,Debris from accident
+2019-10-R,1,SAFETY_CAR,20,25,ACCIDENT,,,
+2019-11-R,1,SAFETY_CAR,2,5,ACCIDENT,,,
+2019-11-R,2,SAFETY_CAR,29,34,ACCIDENT,,,
+2019-11-R,3,SAFETY_CAR,41,46,ACCIDENT,,,
+2019-11-R,4,SAFETY_CAR,57,60,ACCIDENT,,,
+2019-13-R,1,SAFETY_CAR,1,5,ACCIDENT,,,
+2019-15-R,1,SAFETY_CAR,34,41,DEBRIS,,,Debris from accident
+2019-15-R,2,SAFETY_CAR,44,49,STRANDED_CAR,,,
+2019-15-R,3,SAFETY_CAR,50,53,ACCIDENT,,,
+2019-16-R,1,SAFETY_CAR,2,5,ACCIDENT,,,
+2019-16-R,2,SAFETY_CAR,30,34,ACCIDENT,,,
+2019-20-R,1,SAFETY_CAR,54,60,STRANDED_CAR,,,
+2019-20-R,2,SAFETY_CAR,66,70,ACCIDENT,,,
+2020-01-R,1,SAFETY_CAR,26,31,STRANDED_CAR,,,
+2020-01-R,2,SAFETY_CAR,50,55,STRANDED_CAR,,,
+2020-01-R,3,SAFETY_CAR,55,61,STRANDED_CAR,,,
+2020-02-R,1,SAFETY_CAR,1,4,DEBRIS,,,Debris from accident
+2020-04-R,1,SAFETY_CAR,2,6,ACCIDENT,,,
+2020-04-R,2,SAFETY_CAR,13,19,ACCIDENT,,,
+2020-07-R,1,SAFETY_CAR,11,15,ACCIDENT,,,
+2020-08-R,1,SAFETY_CAR,20,24,STRANDED_CAR,,,
+2020-08-R,2,SAFETY_CAR,25,28,ACCIDENT,,,
+2020-08-R,3,RED_FLAG,27,,ACCIDENT,R,Charles Leclerc,"Crash of Charles Leclerc, resulting in a damaged barrier."
+2020-09-R,1,SAFETY_CAR,1,7,ACCIDENT,,,
+2020-09-R,2,SAFETY_CAR,7,10,ACCIDENT,,,
+2020-09-R,3,RED_FLAG,9,,ACCIDENT,R,"Carlos Sainz Jr., Nicholas Latifi, Kevin Magnussen, Antonio Giovinazzi (all crash) and Esteban Ocon (brakes)","Crash involving Carlos Sainz Jr., Nicholas Latifi, Kevin Magnussen and Antonio Giovinazzi."
+2020-09-R,4,SAFETY_CAR,45,48,ACCIDENT,,,
+2020-09-R,5,RED_FLAG,46,,ACCIDENT,R,Lance Stroll,"Crash of Lance Stroll, resulting in a damaged barrier."
+2020-10-R,1,SAFETY_CAR,1,6,ACCIDENT,,,Two accidents
+2020-11-R,1,SAFETY_CAR,45,50,STRANDED_CAR,,,
+2020-13-R,1,SAFETY_CAR,51,58,ACCIDENT,,,
+2020-15-R,1,RED_FLAG,1,,ACCIDENT,R,"Romain Grosjean (crash, injured)",Crash of Romain Grosjean.
+2020-15-R,2,SAFETY_CAR,2,9,ACCIDENT,,,
+2020-15-R,3,SAFETY_CAR,54,,STRANDED_CAR,,,
+2020-16-R,1,SAFETY_CAR,1,7,ACCIDENT,,,
+2020-16-R,2,SAFETY_CAR,64,69,ACCIDENT,,,
+2020-17-R,1,SAFETY_CAR,12,14,STRANDED_CAR,,,
+2021-01-R,1,SAFETY_CAR,1,4,ACCIDENT,,,
+2021-02-R,1,SAFETY_CAR,2,7,ACCIDENT,,,Two accidents
+2021-02-R,2,RED_FLAG,33,,ACCIDENT,R,"Valtteri Bottas, George Russell","Crash involving Valtteri Bottas and George Russell, resulting in debris on the track."
+2021-03-R,1,SAFETY_CAR,2,7,ACCIDENT,,,
+2021-04-R,1,SAFETY_CAR,8,11,STRANDED_CAR,,,
+2021-06-R,1,SAFETY_CAR,32,36,ACCIDENT,,,
+2021-06-R,2,SAFETY_CAR,47,49,ACCIDENT,,,
+2021-06-R,3,RED_FLAG,48,,ACCIDENT,R,Max Verstappen,"Crash of Max Verstappen, resulting in debris on the track."
+2021-09-R,1,SAFETY_CAR,1,4,STRANDED_CAR,,,
+2021-10-R,1,RED_FLAG,2,,ACCIDENT,R,Max Verstappen,"Crash involving Lewis Hamilton and Max Verstappen, resulting in a damaged barrier."
+2021-11-R,1,SAFETY_CAR,1,2,ACCIDENT,,,
+2021-11-R,2,RED_FLAG,2,,ACCIDENT,R,"Valtteri Bottas, Charles Leclerc, Lance Stroll, Sergio Pérez, Lando Norris (all crash)","Crashes involving Valtteri Bottas, Lando Norris, Max Verstappen, Sergio Pérez, Lance Stroll, Daniel Ricciardo and Charles Leclerc, resulting in debris on the track."
+2021-12-R,1,SAFETY_CAR,1,,WEATHER,,,
+2021-12-R,2,RED_FLAG,3,,,N,,Rain. Half points were awarded.
+2021-14-R,1,SAFETY_CAR,26,32,ACCIDENT,,,
+2021-21-R,1,SAFETY_CAR,10,15,ACCIDENT,,,
+2021-21-R,2,RED_FLAG,13,,ACCIDENT,R,Mick Schumacher (crash),"Crash of Mick Schumacher, resulting in a damaged barrier."
+2021-21-R,3,RED_FLAG,15,,ACCIDENT,R,"Nikita Mazepin, Sergio Pérez and George Russell (all crash)","Crashes involving Charles Leclerc, Nikita Mazepin, Sergio Pérez and George Russell."
+2021-22-R,1,SAFETY_CAR,54,58,ACCIDENT,,,
+2022-01-R,1,FULL_COURSE_YELLOW,46,46,,,,
+2022-01-R,2,SAFETY_CAR,46,51,STRANDED_CAR,,,
+2022-02-R,1,FULL_COURSE_YELLOW,16,16,,,,
+2022-02-R,2,SAFETY_CAR,16,21,STRANDED_CAR,,,
+2022-02-R,3,FULL_COURSE_YELLOW,38,41,,,,
+2022-03-R,1,FULL_COURSE_YELLOW,3,3,,,,
+2022-03-R,2,SAFETY_CAR,4,7,STRANDED_CAR,,,
+2022-03-R,3,SAFETY_CAR,24,27,STRANDED_CAR,,,
+2022-03-R,4,FULL_COURSE_YELLOW,39,40,,,,
+2022-04-R,1,SAFETY_CAR,1,5,STRANDED_CAR,,,
+2022-05-R,1,SAFETY_CAR,40,47,STRANDED_CAR,,,
+2022-05-R,2,FULL_COURSE_YELLOW,41,41,,,,
+2022-07-R,1,SAFETY_CAR,1,3,WEATHER,,,
+2022-07-R,2,FULL_COURSE_YELLOW,27,27,,,,
+2022-07-R,3,SAFETY_CAR,27,33,STRANDED_CAR,,,
+2022-07-R,4,RED_FLAG,30,,ACCIDENT,S,Mick Schumacher (crash),"Crash of Mick Schumacher, resulting in a damaged barrier."
+2022-08-R,1,FULL_COURSE_YELLOW,9,10,,,,
+2022-08-R,2,FULL_COURSE_YELLOW,33,35,,,,
+2022-09-R,1,FULL_COURSE_YELLOW,9,10,,,,
+2022-09-R,2,FULL_COURSE_YELLOW,20,20,,,,
+2022-09-R,3,SAFETY_CAR,49,55,STRANDED_CAR,,,
+2022-10-R,1,RED_FLAG,1,,ACCIDENT,R,"George Russell, Zhou Guanyu and Alexander Albon (all crash)","Crash involving Pierre Gasly, George Russell, Zhou Guanyu, Yuki Tsunoda, Esteban Ocon, Alexander Albon and Sebastian Vettel."
+2022-10-R,2,SAFETY_CAR,39,43,STRANDED_CAR,,,
+2022-11-R,1,FULL_COURSE_YELLOW,58,59,,,,
+2022-12-R,1,SAFETY_CAR,18,21,STRANDED_CAR,,,
+2022-12-R,2,FULL_COURSE_YELLOW,50,50,,,,
+2022-12-R,3,FULL_COURSE_YELLOW,53,,,,,
+2022-13-R,1,FULL_COURSE_YELLOW,2,3,,,,
+2022-13-R,2,FULL_COURSE_YELLOW,68,69,,,,
+2022-14-R,1,SAFETY_CAR,2,5,STRANDED_CAR,,,
+2022-15-R,1,FULL_COURSE_YELLOW,48,50,,,,
+2022-15-R,2,SAFETY_CAR,56,61,STRANDED_CAR,,,
+2022-16-R,1,FULL_COURSE_YELLOW,12,12,,,,
+2022-16-R,2,SAFETY_CAR,47,,STRANDED_CAR,,,
+2022-17-R,1,SAFETY_CAR,8,11,STRANDED_CAR,,,
+2022-17-R,2,FULL_COURSE_YELLOW,22,23,,,,
+2022-17-R,3,FULL_COURSE_YELLOW,26,27,,,,
+2022-17-R,4,FULL_COURSE_YELLOW,28,30,,,,
+2022-17-R,5,SAFETY_CAR,36,40,STRANDED_CAR,,,
+2022-18-R,1,SAFETY_CAR,1,6,STRANDED_CAR,,,Stranded car/Rain
+2022-18-R,2,RED_FLAG,2,,,S,Carlos Sainz Jr. (crash) and Alexander Albon (collision damage),Rain and crash of Carlos Sainz Jr.
+2022-19-R,1,SAFETY_CAR,18,22,STRANDED_CAR,,,
+2022-19-R,2,SAFETY_CAR,23,26,ACCIDENT,,,
+2022-20-R,1,FULL_COURSE_YELLOW,65,66,,,,
+2022-21-R,1,SAFETY_CAR,1,7,ACCIDENT,,,
+2022-21-R,2,FULL_COURSE_YELLOW,53,54,,,,
+2022-21-R,3,SAFETY_CAR,55,60,STRANDED_CAR,,,
+2023-01-R,1,FULL_COURSE_YELLOW,41,42,,,,
+2023-02-R,1,SAFETY_CAR,18,21,,,,
+2023-03-R,1,SAFETY_CAR,1,4,,,,
+2023-03-R,2,SAFETY_CAR,7,,,,,
+2023-03-R,3,RED_FLAG,8,,,,,
+2023-03-R,4,FULL_COURSE_YELLOW,18,19,,,,
+2023-03-R,5,SAFETY_CAR,54,59,,,,
+2023-03-R,6,RED_FLAG,55,,,,,
+2023-03-R,7,RED_FLAG,57,,,,,
+2023-04-R,1,SAFETY_CAR,11,14,,,,
+2023-08-R,1,FULL_COURSE_YELLOW,8,8,,,,
+2023-08-R,2,SAFETY_CAR,12,17,,,,
+2023-09-R,1,SAFETY_CAR,1,4,,,,
+2023-09-R,2,FULL_COURSE_YELLOW,14,16,,,,
+2023-10-R,1,FULL_COURSE_YELLOW,33,33,,,,
+2023-10-R,2,SAFETY_CAR,33,39,,,,
+2023-13-R,1,SAFETY_CAR,16,22,,,,
+2023-13-R,2,FULL_COURSE_YELLOW,64,,,,,
+2023-13-R,3,RED_FLAG,64,,,,,
+2023-15-R,1,SAFETY_CAR,20,23,,,,
+2023-15-R,2,FULL_COURSE_YELLOW,44,45,,,,
+2023-16-R,1,SAFETY_CAR,1,5,,,,
+2023-16-R,2,FULL_COURSE_YELLOW,14,14,,,,
+2023-17-R,1,SAFETY_CAR,1,5,,,,
+2023-19-R,1,FULL_COURSE_YELLOW,5,5,,,,
+2023-19-R,2,SAFETY_CAR,33,36,,,,
+2023-19-R,3,RED_FLAG,34,,,,,
+2023-20-R,1,SAFETY_CAR,1,4,,,,
+2023-20-R,2,RED_FLAG,2,,,,,
+2023-21-R,1,FULL_COURSE_YELLOW,1,2,,,,
+2023-21-R,2,SAFETY_CAR,3,7,,,,
+2023-21-R,3,SAFETY_CAR,26,29,,,,

@@ -28,6 +28,42 @@ were not recorded until much later.
 | 2010s | 198 | 🟢 ▰▰▰▰▰▰▰▰▰▰ 100% | 🟢 ▰▰▰▰▰▰▰▰▰▰ 100% | 🟢 ▰▰▰▰▰▰▰▰▰▰ 100% | 🟢 ▰▰▰▰▰▰▰▰▰▰ 100% | 🟢 ▰▰▰▰▰▰▰▰▰▰ 100% |
 | 2020s | 83 | 🟢 ▰▰▰▰▰▰▰▰▰▰ 100% | 🟢 ▰▰▰▰▰▰▰▰▰▰ 100% | 🟢 ▰▰▰▰▰▰▰▰▰▰ 100% | 🟢 ▰▰▰▰▰▰▰▰▰▰ 100% | 🟢 ▰▰▰▰▰▰▰▰▰▰ 98% |
 
+## Circuit layouts
+
+Layouts whose shape is known (`data/tracks`) and which of them also have a start line, a pit lane, sectors and corners, with the races held on them. A layout without a shape keeps all its text data.
+
+| | Total | With shape | With start line | With pit lane | With sectors | With corners |
+|---|---|---|---|---|---|---|
+| Layouts | 165 | 🟠 ▰▰▰▱▱▱▱▱▱▱ 32% | 🟠 ▰▰▰▱▱▱▱▱▱▱ 32% | 🟠 ▰▰▰▱▱▱▱▱▱▱ 30% | 🟠 ▰▱▱▱▱▱▱▱▱▱ 13% | 🟠 ▰▰▰▱▱▱▱▱▱▱ 32% |
+| Races | 1101 | 🟠 ▰▰▰▰▱▱▱▱▱▱ 40% | 🟠 ▰▰▰▰▱▱▱▱▱▱ 40% | 🟠 ▰▰▰▰▱▱▱▱▱▱ 37% | 🟠 ▰▰▱▱▱▱▱▱▱▱ 22% | 🟠 ▰▰▰▰▱▱▱▱▱▱ 40% |
+
+<details><summary><b>Next layouts to draw</b> (the ones with more races)</summary>
+
+| Layout | Races |
+|---|---|
+| melbourne-1996 | 24 |
+| monza-1976 | 23 |
+| spa-francorchamps-1983 | 19 |
+| kyalami-1967 | 18 |
+| monaco-1955 | 18 |
+| spa-francorchamps-1950 | 18 |
+| monaco-1986 | 17 |
+| zandvoort-1952 | 17 |
+| suzuka-1987 | 16 |
+| imola-1980 | 15 |
+| hungaroring-1989 | 14 |
+| monza-1957 | 13 |
+| nurburgring-1951 | 13 |
+| silverstone-1997 | 13 |
+| imola-1995 | 12 |
+| silverstone-1952 | 12 |
+| adelaide-1985 | 11 |
+| magny-cours-1992 | 11 |
+| spielberg-1977 | 11 |
+| estoril-1984 | 10 |
+
+</details>
+
 ## By season
 
 <details><summary><b>2020s</b></summary>
