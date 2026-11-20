@@ -4,7 +4,7 @@ import {
   SessionEntryQueryParams,
   SessionQueryParams
 } from '../models/query-params';
-import { DB } from '../models/types.dto';
+import { DB } from '../models/db';
 import { DbService } from '../services/db.service';
 import {
   getRoundFromIdColumn,

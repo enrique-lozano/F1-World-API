@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { PaginatedItems } from '../../models/pagination';
-import { RaceNeutralisationDTO } from '../../models/types.dto';
+import { RaceNeutralisationDTO } from '../../models/dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting

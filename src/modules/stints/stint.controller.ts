@@ -1,7 +1,7 @@
 import { Get, Queries, Response, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
 import { SessionEntryQueryParams } from '../../models/query-params';
-import { TyreCompound } from '../../models/types.dto';
+import { TyreCompound } from '../../models/enums';
 import { JsonApiError } from '../../utils/custom-error';
 import { StintService } from './stint.service';
 

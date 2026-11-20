@@ -3,7 +3,8 @@ import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
-import { DB, GrandsPrixDTO } from '../../models/types.dto';
+import { DB } from '../../models/db';
+import { GrandsPrixDTO } from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import { CountryService } from '../countries/countries.service';
 import {

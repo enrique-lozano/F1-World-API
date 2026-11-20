@@ -3,11 +3,8 @@ import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { Sorter } from '../../models/sorter';
-import {
-  DB,
-  RaceNeutralisationDTO,
-  RaceNeutralisations
-} from '../../models/types.dto';
+import { DB, RaceNeutralisations } from '../../models/db';
+import { RaceNeutralisationDTO } from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import { ParamsBuilderService } from '../paramsBuilder.service';
 import { SessionService } from '../session/session.service';

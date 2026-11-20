@@ -3,19 +3,18 @@ import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { Sorter } from '../../models/sorter';
+import { SuccessionType } from '../../models/enums';
+import { DB, Entrants } from '../../models/db';
 import {
   CareerStats,
-  DB,
   EntrantChampionship,
   EntrantConstructorUsage,
   EntrantDTO,
   EntrantLineage,
   EntrantLineageItem,
   EntrantNameUsage,
-  EntrantSeasonDTO,
-  Entrants,
-  SuccessionType
-} from '../../models/types.dto';
+  EntrantSeasonDTO
+} from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { toSeasonRanges } from '../../utils/functions/rangeUtils';

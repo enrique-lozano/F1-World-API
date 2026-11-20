@@ -1,7 +1,8 @@
 import { HttpException } from '../../utils/custom-error';
 import { SelectQueryBuilder, sql } from 'kysely';
 import { IncludeParam } from '../../models/include-filter';
-import { CountryDTO, DB } from '../../models/types.dto';
+import { DB } from '../../models/db';
+import { CountryDTO } from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import { CountryController } from './countries.controller';
 

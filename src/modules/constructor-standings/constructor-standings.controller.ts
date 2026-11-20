@@ -1,6 +1,6 @@
 import { Get, Path, Query, Response, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
-import { ConstructorDTO, EngineManufacturerDTO } from '../../models/types.dto';
+import { ConstructorDTO, EngineManufacturerDTO } from '../../models/dto';
 import { JsonApiError } from '../../utils/custom-error';
 import { ConstructorStandingService } from './constructor-standings.service';
 

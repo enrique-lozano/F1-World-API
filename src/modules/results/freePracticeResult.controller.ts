@@ -5,11 +5,8 @@ import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { TimedSessionResultQueryParams } from '../../models/query-params';
 import { Sorter } from '../../models/sorter';
-import {
-  DB,
-  TimedSessionResults,
-  TimedSessionResultsDTO
-} from '../../models/types.dto';
+import { DB, TimedSessionResults } from '../../models/db';
+import { TimedSessionResultsDTO } from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { ParamsBuilderService } from '../paramsBuilder.service';

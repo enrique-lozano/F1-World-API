@@ -1,6 +1,6 @@
 import { Get, Path, Query, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
-import { DriverDTO } from '../../models/types.dto';
+import { DriverDTO } from '../../models/dto';
 import { DriverStandingService } from './driver-standings.service';
 
 export interface DriverChampResult {

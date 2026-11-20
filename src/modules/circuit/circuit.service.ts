@@ -5,15 +5,14 @@ import { SelectQueryBuilder, sql } from 'kysely';
 import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { Sorter } from '../../models/sorter';
+import { CircuitRecordStat } from '../../models/enums';
+import { Circuits, DB } from '../../models/db';
 import {
   CircuitDTO,
   CircuitLayoutGeometry,
   CircuitRecordHolder,
-  CircuitRecordsDTO,
-  CircuitRecordStat,
-  Circuits,
-  DB
-} from '../../models/types.dto';
+  CircuitRecordsDTO
+} from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import { CountryService } from '../countries/countries.service';
 import {

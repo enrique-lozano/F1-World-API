@@ -1,5 +1,5 @@
 import { sql } from 'kysely';
-import { CareerStats } from '../models/types.dto';
+import { CareerStats } from '../models/dto';
 import { DbService } from '../services/db.service';
 import { getSessionIdFromIdColumn } from '../utils/f1-sql-common-utils';
 

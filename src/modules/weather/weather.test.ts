@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { PaginatedItems } from '../../models/pagination';
-import { WeatherPeriodDTO } from '../../models/types.dto';
+import { WeatherPeriodDTO } from '../../models/dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting

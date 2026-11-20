@@ -3,14 +3,13 @@ import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { Sorter } from '../../models/sorter';
+import { Constructors, DB } from '../../models/db';
 import {
   ConstructorCareerStats,
   ConstructorDTO,
   ConstructorEngineSupplier,
-  ConstructorEntrantUsage,
-  Constructors,
-  DB
-} from '../../models/types.dto';
+  ConstructorEntrantUsage
+} from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { toSeasonRanges } from '../../utils/functions/rangeUtils';

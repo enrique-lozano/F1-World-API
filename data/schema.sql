@@ -319,7 +319,7 @@ CREATE TABLE IF NOT EXISTS qualifyingResults
 );
 
 -- Table: resultStatuses
--- Codes of the race results that are not a finishing position (`raceResults.positionText`). Their meaning is documented in the `ResultStatusCode` enum (`src/models/types.dto.ts`). The
+-- Codes of the race results that are not a finishing position (`raceResults.positionText`). Their meaning is documented in the `ResultStatusCode` enum (`src/models/enums/result.enums.ts`). The
 -- position of a classified driver is a number. `raceEntry`: counts as a race entry in the statistics; `started`: took the start.
 DROP TABLE IF EXISTS resultStatuses;
 CREATE TABLE IF NOT EXISTS resultStatuses

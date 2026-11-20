@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { CountryDTO } from '../../models/types.dto';
+import { CountryDTO } from '../../models/dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting

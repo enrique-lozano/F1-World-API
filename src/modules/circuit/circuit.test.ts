@@ -1,10 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { PaginatedItems } from '../../models/pagination';
-import {
-  CircuitDTO,
-  CircuitRecordsDTO,
-  SessionDTO
-} from '../../models/types.dto';
+import { CircuitDTO, CircuitRecordsDTO, SessionDTO } from '../../models/dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { DriverDTO } from '../../models/types.dto';
+import { DriverDTO } from '../../models/dto';
 import { getUrlResponseForTesting } from '../../utils/test/test-utils';
 
 describe('Test WDC functionality', () => {

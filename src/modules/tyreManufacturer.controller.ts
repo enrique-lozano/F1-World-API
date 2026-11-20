@@ -5,7 +5,8 @@ import { SelectQueryBuilder } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam } from '../models/include-filter';
 import { PageMetadata, PageQueryParams, Paginator } from '../models/pagination';
-import { DB, TyreManufacturerDTO } from '../models/types.dto';
+import { DB } from '../models/db';
+import { TyreManufacturerDTO } from '../models/dto';
 import { DbService } from '../services/db.service';
 import { CountryService } from './countries/countries.service';
 

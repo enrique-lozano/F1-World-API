@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { PaginatedItems } from '../../models/pagination';
-import { DriverCareerStats, DriverDTO } from '../../models/types.dto';
+import { DriverCareerStats, DriverDTO } from '../../models/dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting

@@ -2,7 +2,7 @@ import { IncludeQueryParam } from './include-filter';
 import { LocaleQueryParam } from './locale';
 import { PageQueryParams } from './pagination';
 import { SorterQueryParams } from './sorter';
-import { TimedSessionResults } from './types.dto';
+import { TimedSessionResults } from './/db';
 
 export type { LocaleQueryParam } from './locale';
 

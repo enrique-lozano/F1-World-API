@@ -4,7 +4,8 @@ import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { Sorter } from '../../models/sorter';
-import { DB, EventDTO, EventEntryDTO, Events } from '../../models/types.dto';
+import { DB, Events } from '../../models/db';
+import { EventDTO, EventEntryDTO } from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import {
   getRoundFromIdColumn,

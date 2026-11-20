@@ -10,7 +10,7 @@ import {
   EntrantLineage,
   EntrantNameUsage,
   EntrantSeasonDTO
-} from '../../models/types.dto';
+} from '../../models/dto';
 import { JsonApiError } from '../../utils/custom-error';
 import { EntrantService } from './entrant.service';
 

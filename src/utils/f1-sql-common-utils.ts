@@ -1,5 +1,5 @@
 import { Kysely, sql, type OrderByDirection } from 'kysely';
-import { DB } from './../models/types.dto';
+import { DB } from '../models/db';
 
 /** Support for order with nulls (see [this GitHub issue](https://github.com/kysely-org/kysely/issues/714)) */
 export const orderNullsLast = (direction: OrderByDirection) =>

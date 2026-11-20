@@ -1,7 +1,7 @@
 import { Get, Queries, Response, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
 import { SessionQueryParams } from '../../models/query-params';
-import { RaceNeutralisationKind } from '../../models/types.dto';
+import { RaceNeutralisationKind } from '../../models/enums';
 import { JsonApiError } from '../../utils/custom-error';
 import { RaceNeutralisationService } from './raceNeutralisation.service';
 

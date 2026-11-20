@@ -4,15 +4,13 @@ import { IncludeParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { CommonQueryParams } from '../../models/query-params';
 import { Sorter } from '../../models/sorter';
+import { FamilyRelationship, Gender } from '../../models/enums';
+import { DB, Drivers } from '../../models/db';
 import {
-  DB,
   DriverCareerStats,
   DriverDTO,
-  DriverEventResultDTO,
-  Drivers,
-  FamilyRelationship,
-  Gender
-} from '../../models/types.dto';
+  DriverEventResultDTO
+} from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { getSeasonFromIdColumn } from '../../utils/f1-sql-common-utils';

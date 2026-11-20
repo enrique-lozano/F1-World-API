@@ -1,7 +1,7 @@
 import { Get, Queries, Response, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
 import { SessionQueryParams } from '../../models/query-params';
-import { Weather } from '../../models/types.dto';
+import { Weather } from '../../models/enums';
 import { JsonApiError } from '../../utils/custom-error';
 import { WeatherService } from './weather.service';
 

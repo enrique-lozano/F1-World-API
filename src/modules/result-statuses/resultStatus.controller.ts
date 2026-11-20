@@ -1,7 +1,7 @@
 import { sql } from 'kysely';
 import { Get, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
-import { ResultStatuses } from '../../models/types.dto';
+import { ResultStatuses } from '../../models/db';
 import { DbService } from '../../services/db.service';
 
 @Route('/result-statuses')

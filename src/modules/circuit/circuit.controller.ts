@@ -2,7 +2,7 @@ import { Get, Path, Queries, Response, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
 import { IncludeQueryParam } from '../../models/include-filter';
 import { CommonQueryParams } from '../../models/query-params';
-import { CircuitDTO, CircuitRecordsDTO } from '../../models/types.dto';
+import { CircuitDTO, CircuitRecordsDTO } from '../../models/dto';
 import { JsonApiError } from '../../utils/custom-error';
 import { CircuitRecordEntity, CircuitService } from './circuit.service';
 

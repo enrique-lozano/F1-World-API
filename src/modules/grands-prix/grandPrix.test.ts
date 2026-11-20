@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { PaginatedItems } from '../../models/pagination';
-import { DriverDTO } from '../../models/types.dto';
+import { DriverDTO } from '../../models/dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting

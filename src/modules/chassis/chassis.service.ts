@@ -1,7 +1,8 @@
 import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam } from '../../models/include-filter';
-import { ChassisDTO, DB } from '../../models/types.dto';
+import { DB } from '../../models/db';
+import { ChassisDTO } from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import { ConstructorService } from '../constructor/constructor.service';
 

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { PaginatedItems } from '../../models/pagination';
-import { StintDTO } from '../../models/types.dto';
+import { StintDTO } from '../../models/dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting

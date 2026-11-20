@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { RaceResultDTO } from '../../models/types.dto';
+import { RaceResultDTO } from '../../models/dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting

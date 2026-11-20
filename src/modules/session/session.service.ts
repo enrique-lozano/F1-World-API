@@ -2,12 +2,12 @@ import { SelectQueryBuilder } from 'kysely';
 import { jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
 import { SessionQueryParams } from '../../models/query-params';
+import { DB } from '../../models/db';
 import {
-  DB,
   RaceResultDTO,
   SessionDTO,
   TimedSessionResultsDTO
-} from '../../models/types.dto';
+} from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import { HttpException } from '../../utils/custom-error';
 import { EventService } from '../event/event.service';

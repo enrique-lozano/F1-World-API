@@ -7,7 +7,7 @@ import {
   ConstructorDTO,
   ConstructorEntrantUsage,
   ConstructorEngineSupplier
-} from '../../models/types.dto';
+} from '../../models/dto';
 import { JsonApiError } from '../../utils/custom-error';
 import { ConstructorService } from './constructor.service';
 

@@ -7,7 +7,7 @@ import {
   EntrantLineage,
   EntrantNameUsage,
   EntrantSeasonDTO
-} from '../../models/types.dto';
+} from '../../models/dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting

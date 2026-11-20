@@ -4,24 +4,30 @@ import pc from 'picocolors';
 import ts from 'typescript';
 
 /**
- * tsoa writes the enums of `src/models/types.dto.ts` to `src/swagger.json` but it ignores the JSDoc of their members.
+ * tsoa writes the enums of `src/models/enums/*.enums.ts` to `src/swagger.json` but it ignores the JSDoc of their members.
  * This adds it as `x-enum-descriptions` (one description per value, in the order of `enum`), so it reaches the
  * generated types of the frontend (`npm run api:types`). Run it after `tsoa spec-and-routes` (`npm run swagger`)
  */
-const dtoPath = path.resolve('src/models/types.dto.ts');
+const enumsDir = path.resolve('src/models/enums');
 const specPath = path.resolve('src/swagger.json');
 
-const source = ts.createSourceFile(
-  dtoPath,
-  fs.readFileSync(dtoPath, 'utf8'),
-  ts.ScriptTarget.Latest,
-  true
-);
+const sources = fs
+  .readdirSync(enumsDir)
+  .filter((file) => file.endsWith('.enums.ts'))
+  .map((file) => {
+    const filePath = path.join(enumsDir, file);
+    return ts.createSourceFile(
+      filePath,
+      fs.readFileSync(filePath, 'utf8'),
+      ts.ScriptTarget.Latest,
+      true
+    );
+  });
 
 /** Enum name -> value -> description */
 const docs = new Map<string, Map<string, string>>();
 
-for (const node of source.statements) {
+for (const node of sources.flatMap((source) => [...source.statements])) {
   if (!ts.isEnumDeclaration(node)) continue;
 
   const members = new Map<string, string>();

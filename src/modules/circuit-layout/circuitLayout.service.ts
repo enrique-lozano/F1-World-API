@@ -3,12 +3,8 @@ import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/sqlite';
 import { IncludeParam, IncludeQueryParam } from '../../models/include-filter';
 import { PageMetadata, Paginator } from '../../models/pagination';
 import { Sorter } from '../../models/sorter';
-import {
-  CircuitLayoutDTO,
-  CircuitLayoutGeometry,
-  CircuitLayouts,
-  DB
-} from '../../models/types.dto';
+import { CircuitLayouts, DB } from '../../models/db';
+import { CircuitLayoutDTO, CircuitLayoutGeometry } from '../../models/dto';
 import { DbService } from '../../services/db.service';
 import {
   getRoundFromIdColumn,

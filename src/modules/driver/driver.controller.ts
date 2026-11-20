@@ -1,6 +1,6 @@
 import { Get, Path, Queries, Query, Response, Route, Tags } from 'tsoa';
 import { CommonController } from '../../controllers/common.controller';
-import { DriverCareerStats } from '../../models/types.dto';
+import { DriverCareerStats } from '../../models/dto';
 import { JsonApiError } from '../../utils/custom-error';
 import { DriverQueryParams, DriverService } from './driver.service';
 

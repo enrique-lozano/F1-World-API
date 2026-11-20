@@ -12,7 +12,7 @@ import { dbFilePath } from '../../data/constants';
 import { getCountryName } from '../i18n/country-names';
 import { Paginator } from '../models/pagination';
 import { Sorter } from '../models/sorter';
-import { DB } from '../models/types.dto';
+import { DB } from '../models/db';
 
 let sharedDb: Kysely<DB> | undefined;
 

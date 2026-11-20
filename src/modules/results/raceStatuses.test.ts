@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest';
+import { ResultStatusCode } from '../../models/enums';
+import { ResultStatuses } from '../../models/db';
 import {
   DriverEventResultDTO,
   EventEntryDTO,
-  RaceResultDTO,
-  ResultStatusCode,
-  ResultStatuses
-} from '../../models/types.dto';
+  RaceResultDTO
+} from '../../models/dto';
 import {
   getUrlForTesting,
   getUrlResponseForTesting
