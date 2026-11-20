@@ -1,7 +1,7 @@
 entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 1950-FAR-10,1,1,10277400,3,,80,8,1,1,8,,
-1950-ASC-48,2,2,10356000,6,,33,3,1,1,3,,
 1950-SER,2,2,10356000,6,,47,3,1,1,3,,
+1950-ASC-48,2,2,10356000,6,,33,3,1,1,3,,
 1950-FAG-36,3,3,10373000,5,,80,4,0,1,0,,
 1950-ROS-58,4,4,,13,,75,3,1,1,3,,
 1950-ETA-24,5,5,,16,,75,2,1,1,2,,
@@ -12,8 +12,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1950-SOM-12-b,10,DNF,,8,,48,0,1,1,0,,gearbox
 1950-MAI,11,DNF,,11,,42,0,1,1,0,,oil-pipe
 1950-ROL-20,12,DNF,,9,,39,0,1,1,0,,retirement
-1950-FAN-60,13,DNF,,7,,9,0,1,1,0,,
 1950-TAR,13,DNF,,7,,25,0,1,1,0,,engine
+1950-FAN-60,13,DNF,,7,,9,0,1,1,0,,
 1950-LEV-56,14,DNF,,20,,29,0,1,1,0,,gearbox
 1950-FAN-18,15,DNF,,1,,23,1,1,1,1,,gearbox
 1950-CLA-2,16,DNF,,22,,22,0,1,1,0,,overheating

@@ -13,8 +13,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1956-GER-42,10,10,,16,,42,0,1,1,0,,
 1956-SAL-44,11,11,,13,,41,0,1,1,0,,
 1956-MUS-28,12,DNF,,3,,46,0,1,1,0,,steering
-1956-BEH-46,13,DNF,,12,,11,0,1,1,0,,steering
 1956-MAG-46,13,DNF,,12,,31,0,1,1,0,,steering
+1956-BEH-46,13,DNF,,12,,11,0,1,1,0,,steering
 1956-SCH-18,14,DNF,,10,,32,0,1,1,0,,transmission
 1956-BEH-32,15,DNF,,5,,23,0,1,1,0,,magneto
 1956-HAL-48,16,DNF,,21,,16,0,1,1,0,,engine

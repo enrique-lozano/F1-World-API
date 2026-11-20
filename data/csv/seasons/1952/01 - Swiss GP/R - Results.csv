@@ -8,8 +8,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1952-HIR-44,7,7,,19,,56,0,1,1,0,,
 1952-BRA-24,8,8,,17,,55,0,1,1,0,,
 1952-BIR-10,9,DNF,,11,,52,0,1,1,0,,engine
-1952-FAR-32,10,DNF,,4,,30,0,1,1,0,,magneto
 1952-SIM-32,10,DNF,,4,,21,0,1,1,0,,magneto
+1952-FAR-32,10,DNF,,4,,30,0,1,1,0,,magneto
 1952-SCH-40,11,DNF,,18,,31,0,1,1,0,,engine
 1952-MOS-46,12,DNF,,9,,24,0,1,1,0,,withdrew
 1952-MAC-20,13,DNF,,12,,24,0,1,1,0,,withdrew
