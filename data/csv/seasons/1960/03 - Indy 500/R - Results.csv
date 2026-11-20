@@ -32,3 +32,5 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1960-RAT-97,31,31,,4,,42,0,1,1,0,,brakes
 1960-HER-76,32,32,,30,,34,0,1,1,0,,clutch
 1960-WIL-23,33,33,,33,,11,0,1,1,0,,magneto
+1960-KEL,34,DNQ,,,,,0,1,1,,,
+1960-TUR,35,DNQ,,,,,0,1,1,,,
