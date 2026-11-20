@@ -34,6 +34,7 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1950-POZ-18,pozzi,18,1950-ecurie-rosier,Ecurie Rosier,talbot-lago-t26c,talbot-lago-23cv,,dunlop,0
 1950-CAB-20,giraud-cabantous,20,1950-automobiles-talbot-darracq,Automobiles Talbot-Darracq SA,talbot-lago-t26c,talbot-lago-23cv,,dunlop,0
 1950-LEV-22,levegh,22,1950-pierre-levegh,Privé,talbot-lago-t26c,talbot-lago-23cv,,dunlop,0
+1951-LEV-22,levegh,22,1951-pierre-levegh,Privé,talbot-lago-t26c,talbot-lago-23cv,,,0
 1950-HAR-24,harrison,24,1950-cuth-harrison,Privé,era-b,era-l6-c-1-5,,dunlop,0
 1950-GER-26,gerard,26,1950-bob-gerard,Privé,era-a,era-l6-c-1-5,,dunlop,0
 1950-WHI-28,peter-whitehead,28,1950-peter-whitehead,Privé,ferrari-125,ferrari-125-v12-c-1-5,,dunlop,0
@@ -158,7 +159,7 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1950-SOM-12-b,sommer,12,1950-raymond-sommer,Privé,talbot-lago-t26c,talbot-lago-23cv,,dunlop,0
 1950-ASC-16,ascari,16,1950-scuderia-ferrari,Scuderia Ferrari,ferrari-375,ferrari-375,,pirelli,0
 1950-FAN-18,fangio,18,1950-alfa-romeo-spa,SA Alfa Romeo,alfa-romeo-158,alfa-romeo-158,,pirelli,0
-1950-DEF,de-filippis,20,1950-private-entry,Privé,maserati-4clt-48,maserati-4clt-l4-c-1-5,,pirelli,0
+1950-DEF,luigi-de-filippis,20,1950-private-entry,Privé,maserati-4clt-48,maserati-4clt-l4-c-1-5,,pirelli,0
 1950-ROL-20,franco-rol,20,1950-officine-alfieri-maserati,Officine Alfieri Maserati,maserati-4clt-48,maserati-4clt-l4-c-1-5,,pirelli,0
 1950-BIO-22,biondetti,22,1950-clemente-biondetti,Privé,ferrari-166s,jaguar-xk,,pirelli,0
 1950-ETA-24,etancelin,24,1950-philippe-etancelin,Privé,talbot-lago-t26c,talbot-lago-23cv,,dunlop,0
@@ -845,6 +846,7 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1953-SCH-18,scherrer,18,1953-hw-motors,HW Motors,hwm-53,alta-f2,,dunlop,0
 1953-WHA-20,wharton,20,1953-ken-wharton,Privé,cooper-t23,bristol-bs1,,dunlop,0
 1953-BAY,bayol,22,1953-private-entry,Privé,osca-20,osca-2000,,pirelli,0
+1953-BAY-34,bayol,34,1953-private-entry,Privé,osca-20,osca-2000,,pirelli,0
 1953-FAR-24,farina,24,1953-scuderia-ferrari,Scuderia Ferrari,ferrari-500,ferrari-500,,pirelli,0
 1953-HAW-26,hawthorn,26,1953-scuderia-ferrari,Scuderia Ferrari,ferrari-500,ferrari-500,,pirelli,0
 1953-VIL-28,villoresi,28,1953-scuderia-ferrari,Scuderia Ferrari,ferrari-500,ferrari-500,,pirelli,0
@@ -1338,6 +1340,7 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1956-SCA-36,scarlatti,36,1956-scuderia-centro-sud,Scuderia Centro Sud,ferrari-500,ferrari-500,,pirelli,0
 1956-SWE,sweikert,1,1956-racing-associates,D-A Lubricants Racing,kuzma-unknown,offenhauser-l4-4-5,,firestone,0
 1956-BRY,bryan,2,1956-dean-van-lines,Dean Van Lines,kuzma-indy-roadster,offenhauser-l4-4-5,,firestone,0
+1957-BRY,bryan,1,1957-dean-van-lines,Dean Van Lines,kuzma-indy-roadster,offenhauser-l4-4-5,,firestone,0
 1956-TEA-3,teague,3,1956-dean-van-lines,Dean Van Lines,kuzma-indy-roadster,offenhauser-l4-4-5,,firestone,0
 1956-HAN,hanks,4,1956-cars-inc,Jones & Maley Cars,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1956-LIN,linden,5,1956-h-a-chapman,H.A. Chapman,kurtis-500c,offenhauser-l4-4-5,,firestone,0

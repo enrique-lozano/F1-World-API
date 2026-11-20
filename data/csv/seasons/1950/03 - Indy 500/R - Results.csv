@@ -28,6 +28,7 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1950-AGA-12,25,25,,,,,0,1,1,0,,
 1950-SCH-67,26,26,,22,,111,0,1,1,0,,transmission
 1950-LEV-24,27,27,,17,,108,0,1,1,0,,oil-pressure
+1950-CAN-24,27,27,,17,,108,0,1,1,0,,oil-pressure
 1950-AGA-28,28,28,,2,,64,0,1,1,0,,oil-leak
 1950-JAC,29,29,,32,,52,0,1,1,0,,compressor
 1950-HAN,30,30,,25,,42,0,1,1,0,,oil-pressure

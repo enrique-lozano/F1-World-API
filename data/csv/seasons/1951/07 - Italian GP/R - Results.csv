@@ -10,10 +10,10 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1951-CAB-24,8,8,,14,,72,0,1,1,0,,
 1951-ROL,9,9,,18,,67,0,1,1,0,,
 1951-FAN-38,10,DNF,,1,,39,0,1,1,0,,engine
-1951-TRI-50,11,DNF,,12,,29,0,1,1,0,,engine
+1951-BEH,11,DNF,,12,,29,0,1,1,0,,engine
 1951-MAN-46,12,DNF,,13,,29,0,1,1,0,,engine
 1951-CHI-20,13,DNF,,17,,23,0,1,1,0,,ignition
-1950-LEV-22,14,DNF,,20,,9,0,1,1,0,,engine
+1951-LEV-22,14,DNF,,20,,9,0,1,1,0,,engine
 1951-SWA-28,15,DNF,,22,,7,0,1,1,0,,overheating
 1951-FAR-34,16,DNF,,2,,6,0,1,1,0,,engine
 1951-CLA-26,17,DNF,,21,,4,0,1,1,0,,oil-pump
@@ -24,3 +24,4 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1951-RIC,22,DNS,,10,,,0,1,1,0,,
 1951-FIS-14,23,DNS,,,,,0,1,1,,,
 1951-STU,24,DNS,,,,,0,1,1,,,
+1951-TRI-50,25,DNS,,,,,0,1,1,0,,unwell
