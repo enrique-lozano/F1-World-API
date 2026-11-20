@@ -1,8 +1,8 @@
 entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,pointsCountForWDC,pointsCountForWCC,pointsGained,timePenalty,retirementReasonId
 1956-COL-8,1,1,9600300,3,,36,8,1,1,8,,
 1956-FRE-6,2,2,9711600,8,,36,6,1,1,6,,
-1956-MOS-34,3,3,9796900,9,,36,3,1,1,3,,
-1956-PER-34,3,3,9796900,9,,36,2,1,1,2,,
+1956-MOS-34,3,3,9796900,9,,23,3,1,1,3,,
+1956-PER-34,3,3,9796900,9,,13,2,1,1,2,,
 1956-SCH-10,4,4,,6,,35,3,1,1,3,,
 1956-VIL-22,5,5,,11,,34,2,1,1,2,,
 1956-PIL-20,6,6,,15,,33,0,1,1,0,,

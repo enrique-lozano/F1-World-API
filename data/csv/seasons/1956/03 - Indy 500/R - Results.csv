@@ -21,7 +21,8 @@ entryId,positionOrder,positionText,time,gridPosition,gridPenalty,laps,points,poi
 1956-RAT-24,20,20,,2,,175,0,1,1,0,,engine
 1956-TOL,21,21,,31,,173,0,1,1,0,,engine
 1956-BET,22,22,,5,,160,0,1,1,0,,accident
-1956-ELI,23,23,,14,,160,0,1,1,0,,brakes
+1956-ELI,23,23,,14,,123,0,1,1,0,,brakes
+1956-RUS-10,23,23,,14,,37,0,1,1,0,,brakes
 1956-DAY,24,24,,16,,134,0,1,1,0,,accident
 1956-TUR,25,25,,24,,131,0,1,1,0,,engine
 1956-AND,26,26,,20,,94,0,1,1,0,,transmission

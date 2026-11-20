@@ -646,6 +646,7 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1953-MEN,menditeguy,32,1953-equipe-gordini,Equipe Gordini,gordini-t16,gordini-20,,englebert,0
 1953-BIR-34,birger,34,1953-equipe-gordini,Equipe Gordini,gordini-t15,gordini-1500,,englebert,0
 1953-RAT-2,jim-rathmann,2,1953-ernest-l-ruiz,Travelon Trailer / Ernest Ruiz,kurtis-500b,offenhauser-l4-4-5,,firestone,0
+1953-JOH-2,eddie-johnson,2,1953-ernest-l-ruiz,Travelon Trailer / Ernest Ruiz,kurtis-500b,offenhauser-l4-4-5,,firestone,0
 1953-HAN,hanks,3,1953-ed-walsh,Bardahl/Ed Walsh,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1953-CAR-4,carter,4,1953-miracle-power,Miracle Power,lesovsky-unknown,offenhauser-l4-4-5,,firestone,0
 1953-MCG,mcgrath,5,1953-jack-hinkle,Jack Hinkle,kurtis-4000,offenhauser-l4-4-5,,firestone,0
@@ -685,6 +686,7 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1953-AGA,agabashian,59,1953-grancor-auto-specialists,Grancor-Elgin Piston Pin,kurtis-500b,offenhauser-l4-4-5,,firestone,0
 1953-HOL-61,holland,61,1953-slick-racers,Slick Racers,kurtis-3000,offenhauser-l4-4-5,,firestone,0
 1953-WEB-62,webb,62,1953-3-l-racing-team,Lubri-Loy/3-L Racing Team,kurtis-3000,offenhauser-l4-4-5,,firestone,0
+1953-HOL-62,holmes,62,1953-3-l-racing-team,Lubri-Loy/3-L Racing Team,kurtis-3000,offenhauser-l4-4-5,,firestone,0
 1953-O'C-64,oconnor,64,1953-engle-stanko,Engle-Stanko,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1953-TOL-66,tolan,66,1953-chrysler-wolcott,Chrysler / Wolcott,kurtis-500a,chrysler-v8-4-5,,firestone,0
 1953-HOL-71,holmes,71,1953-merkler-machine-works,Merkler Machine Works,kurtis-unknown,offenhauser-l4-4-5,,firestone,0
@@ -905,6 +907,7 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1954-DAP-34,daponte,34,1954-jorge-daponte,Privé,maserati-a6gcm,maserati-a6,,pirelli,0
 1954-MEN,menditeguy,36,1954-onofre-marimon,Onofre Marimón,maserati-a6gcm,maserati-a6,,pirelli,0
 1954-HAN-1,hanks,1,1954-ed-walsh,Bardahl/Ed Walsh,kurtis-4000,offenhauser-l4-4-5,,firestone,0
+1954-DAV-1,davies,1,1954-ed-walsh,Bardahl/Ed Walsh,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1954-MCG,mcgrath,2,1954-jack-hinkle,Jack Hinkle,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1954-TEA,teague,3,1954-hart-fullerton,Hart Fullerton,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1954-RUS-5,paul-russo,5,1954-ansted-rotary-hoosier-racing,Ansted Rotary/Hoosier Racing,kurtis-500a,offenhauser-l4-4-5,,firestone,0
@@ -914,9 +917,11 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1954-BRY,bryan,9,1954-dean-van-lines-racing,Dean Van Lines,kuzma-indy-roadster,offenhauser-l4-4-5,,firestone,0
 1954-BET-10,bettenhausen,10,1954-mel-wiggers,Mel Wiggers,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1954-WAR,ward,12,1954-dr-r-n-sabourin,Dr. R.N. Sabourin,pawl-unknown,offenhauser-l4-4-5,,firestone,0
+1954-JOH-12,eddie-johnson,12,1954-dr-r-n-sabourin,Dr. R.N. Sabourin,pawl-unknown,offenhauser-l4-4-5,,firestone,0
 1954-VUK,vukovich,14,1954-howard-keck,Fuel Injection/Howard Keck,kurtis-500a,offenhauser-l4-4-5,,firestone,0
 1954-PAR-15,parsons,15,1954-belond-equa-flow-calif-muffler,Belond Equa-Flow/Calif. Muffler,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1954-CAR-16,carter,16,1954-eugene-casaroll,Automobile Shippers/Casaroll,kurtis-4000,offenhauser-l4-4-5,,firestone,0
+1954-TEA-16,teague,16,1954-eugene-casaroll,Automobile Shippers/Casaroll,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1954-JAC,jackson,16,1954-automobile-shippers-casaroll,Automobile Shippers/Casaroll,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1954-SWE,sweikert,17,1954-francis-bardazon,Lutes Truck Parts,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1954-SCO-18,scott,18,1954-ray-t-brady,Ray Brady,kurtis-4000,offenhauser-l4-4-5,,firestone,0
@@ -928,10 +933,13 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1954-REE,reece,25,1954-emmett-malloy,Emmett Malloy,pankratz-d,offenhauser-l4-4-5,,firestone,0
 1954-BAN,banks,26,1954-lindsey-hopkins,Hopkins/Motor Racers,lesovsky-unknown,offenhauser-l4-4-5,,firestone,0
 1954-ELI-27,elisian,27,1954-h-a-chapman,H.A. Chapman,stevens-unknown,offenhauser-l4-4-5,,firestone,0
+1954-SCO-27,scott,27,1954-h-a-chapman,H.A. Chapman,stevens-unknown,offenhauser-l4-4-5,,firestone,0
 1954-CRO-28,crockett,28,1954-federal-auto-associates,Federal Engineering,kurtis-3000,offenhauser-l4-4-5,,firestone,0
 1954-HAR,gene-hartley,31,1954-john-zink,John Zink,kurtis-4000,offenhauser-l4-4-5,,firestone,0
+1954-TEA-31,teague,31,1954-john-zink,John Zink,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1954-MCC,mccoy,32,1954-ray-crawford,Ray Crawford,kurtis-500b,offenhauser-l4-4-5,,firestone,0
 1954-DUN,duncan,33,1954-ray-t-brady,Ray Brady,schroeder-unknown,offenhauser-l4-4-5,,firestone,0
+1954-FON-33,fonder,33,1954-ray-t-brady,Ray Brady,schroeder-unknown,offenhauser-l4-4-5,,firestone,0
 1954-RUT,ruttman,34,1954-eugene-casaroll,Automobile Shippers/Casaroll,kurtis-500a,offenhauser-l4-4-5,,firestone,0
 1954-O'C,oconnor,35,1954-lindsey-hopkins,Hopkins/Motor Racers,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1954-FON-36,fonder,36,1954-ed-stone,Ed Stone,kurtis-3000,offenhauser-l4-4-5,,firestone,0
@@ -939,10 +947,12 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1954-RUS-37,eddie-russo,37,1954-federal-auto-associates,Federal Engineering,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1954-HOL,holland,38,1954-ed-walsh,Bardahl/Ed Walsh,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1954-RAT-38,jim-rathmann,38,1954-ed-walsh,Bardahl/Ed Walsh,kurtis-500c,offenhauser-l4-4-5,,firestone,0
+1954-FLA-38,flaherty,38,1954-ed-walsh,Bardahl/Ed Walsh,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1954-FLA-39,flaherty,39,1954-shouse-motors,Shouse Motors,kurtis-500a,chrysler-v8-4-5,,firestone,0
 1954-THO-43,thomson,43,1954-h-a-chapman,H.A. Chapman,nichels-unknown,offenhauser-l4-4-5,,firestone,0
 1954-FAU-44,faulkner,44,1954-peter-schmidt,Peter Schmidt,kuzma-indy-roadster,offenhauser-l4-4-5,,firestone,0
 1954-CRO-45,cross,45,1954-ed-walsh,Bardahl/Ed Walsh,kurtis-4000,offenhauser-l4-4-5,,firestone,0
+1954-DAV-45,davies,45,1954-ed-walsh,Bardahl/Ed Walsh,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1954-HOM,homeier,51,1954-cars-inc,Jones & Maley Cars,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1954-DAV,davies,53,1954-pat-clancy,Pat Clancy,kurtis-500a,offenhauser-l4-4-5,,firestone,0
 1954-SAC,sachs,54,1954-gilby-engineering,Marion Engineering,kurtis-2000,offenhauser-l4-4-5,,firestone,0
@@ -958,12 +968,14 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1954-FON-71,fonder,71,1954-w-thayer-martin,T.W. & W.T. Martin,kurtis-unknown,offenhauser-l4-4-5,,firestone,0
 1954-NAZ,nazaruk,73,1954-lee-elkins,McNamara/Lee Elkins,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1954-LIN-74,linden,74,1954-verlin-brown,Brown Motors,schroeder-unknown,offenhauser-l4-4-5,,firestone,0
+1954-SCO-74,scott,74,1954-verlin-brown,Brown Motors,schroeder-unknown,offenhauser-l4-4-5,,firestone,0
 1954-AGA,agabashian,77,1954-miklos-sperling,Merz Engineering/Milt Marion,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1954-JOH,eddie-johnson,83,1954-lee-elkins,McNamara/Lee Elkins,turner-unknown,offenhauser-l4-4-5,,firestone,0
 1954-AYU,ayulo,88,1954-peter-schmidt,Peter Schmidt,kuzma-indy-roadster,offenhauser-l4-4-5,,firestone,0
 1954-FLA-89,flaherty,89,1954-harry-dunn,Dunn Engineering,kurtis-500a,offenhauser-l4-4-5,,firestone,0
 1954-FAU-97,faulkner,97,1954-murrell-belanger,Belanger Motors,lesovsky-unknown,offenhauser-l4-c-3,,firestone,0
 1954-STE,stevenson,98,1954-j-c-agajanian,J.C. Agajanian,kuzma-indy-roadster,offenhauser-l4-4-5,,firestone,0
+1954-FAU-98,faulkner,98,1954-j-c-agajanian,J.C. Agajanian,kuzma-indy-roadster,offenhauser-l4-4-5,,firestone,0
 1954-HOY-99,hoyt,99,1954-murrell-belanger,Murrell Belanger,kurtis-unknown,offenhauser-l4-4-5,,firestone,0
 1954-WAL,wallard,99,1954-murrell-belanger,Belanger Motors,kurtis-unknown,offenhauser-l4-4-5,,firestone,0
 1954-SWA-2,swaters,2,1954-ecurie-francorchamps,Ecurie Francorchamps,ferrari-500-625,ferrari-625,,englebert,0
@@ -1348,6 +1360,7 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1956-FLA,flaherty,8,1956-john-zink,John Zink,watson-indy-roadster,offenhauser-l4-4-5,,firestone,0
 1956-FAR,farina,9,1956-scuderia-ferrari,Bardahl-Ferrari,kurtis-500d,ferrari-446,,firestone,0
 1956-ELI,elisian,10,1956-fred-somers,Hoyt Machine/Fred Sommer,kurtis-500c,offenhauser-l4-4-5,,firestone,0
+1956-RUS-10,eddie-russo,10,1956-fred-somers,Hoyt Machine/Fred Sommer,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1956-HER,herman,12,1956-pat-clancy,Bardahl/Pat Clancy,kurtis-500b,offenhauser-l4-4-5,,firestone,0
 1956-VEI,veith,14,1956-federal-auto-associates,Federal Engineering,kurtis-500c,offenhauser-l4-4-5,,firestone,0
 1956-BOY,boyd,15,1956-george-bignotti,Bowes Seal Fast/Bignotti,kurtis-500e,offenhauser-l4-4-5,,firestone,0
@@ -7342,6 +7355,7 @@ id,driverId,driverNumber,entrantSeasonId,entrantName,chassisId,engineId,engineBr
 1953-SCO-73,scott,73,1953-lee-elkins,McNamara/Lee Elkins,kurtis-2000,offenhauser-l4-4-5,,firestone,0
 1953-RAT-49,jim-rathmann,49,1953-ray-crawford,Ray Crawford,kurtis-500b,offenhauser-l4-4-5,,firestone,0
 1953-LIN-92,linden,92,1953-m-a-walker,M.A. Walker Electric,kurtis-4000,offenhauser-l4-4-5,,firestone,0
+1953-DIN-92,dinsmore,92,1953-m-a-walker,M.A. Walker Electric,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1953-THO-62,thomson,62,1953-3-l-racing-team,Lubri-Loy/3-L Racing Team,kurtis-3000,offenhauser-l4-4-5,,firestone,0
 1953-LIN-55,linden,55,1953-john-zink,John Zink,kurtis-4000,offenhauser-l4-4-5,,firestone,0
 1953-STE-55,stevenson,55,1953-john-zink,John Zink,kurtis-4000,offenhauser-l4-4-5,,firestone,0
