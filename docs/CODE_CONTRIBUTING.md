@@ -1,61 +1,56 @@
-# Code contributions in RaceDex API
+# Contributing code to RaceDex API
 
-In this article you will find information about the steps you should take to help us with the development of code for the application.
+How to set up the project, make a change and send it. If you only want to fix data, see [Contributing data](CONTRIBUTING_DATA.md) instead: no code needed.
 
-## 1. Fork the repo
+## 1. Fork and run the project
 
-To start, fork the project. If you are new to this, don't worry! We leave you a guide below, and if you still have problems, you can contact us whenever you wish.
+[Fork the repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo), clone your fork and [run the API](USING_THE_DATA.md#get-it-running) to check that everything works. You need Node.js 22 or newer.
 
-[How To Fork Guide by GitHub](https://docs.github.com/en/get-started/quickstart/fork-a-repo). After that you should [run your app](../README.md#run-the-api-locally-) to check that everything is correct.
-
-## 2. Configure your developer workspace
-
-Once you have the project up and running, you should prepare to develop in it. To make changes to the project and develop on it, the use of Visual Studio Code as a text editor is strongly recommended. You can use any other code editor, you can even program using Word, but Visual Studio Code is the most widespread editor for Front-End development, and using it guarantees you follow the same work methods as the administrators of this project.
-
-### Visual Studio and Recommended extensions
-
-To increase your productivity on this project, it is strongly recommended to install the recommended extensions. To do this, when you have the project open with Visual Studio Code, you can type `@recommended` in the extensions section, and install all the ones that appear in the list.
-
-<img src="https://user-images.githubusercontent.com/61509169/207661261-cbd2b2bd-7c7c-4d3a-a2e3-f4d65b5e2266.png"
-width="300" hspace="10" vspace="10">
-
-And that's it! You're are ready to start.
+Any editor works, but the repo ships the configuration for Visual Studio Code, including the recommended extensions (type `@recommended` in the extensions panel) and the settings of the Conventional Commits extension.
 
 ## 2. Choose what to do
 
-You can see a list of tasks to do [here](https://github.com/enrique-lozano/RaceDex-API/issues). Once you see one that suits you and is not assigned to anyone else, you can leave a comment on the task, so that other users and administrators know who is working on it.
+Look at the [open issues](https://github.com/enrique-lozano/RaceDex-API/issues), pick one that is not assigned and leave a comment so others know you are on it. You can also:
 
-If the list of tasks is too small for you, or you can't find one that suits you, here are some tips on how to help:
+- open an issue about something you want to work on;
+- send a pull request without an issue;
+- improve the documentation, review the historical data or help with translations: these usually have no issue.
 
-- You can create an issue about the thing that you consider to work on.
-- You can always make code improvements and pull requests without having an opened issue.
-- Ask questions or suggest ideas in the comments section of any issue.
-- Some recurring tasks, such as helping with translations, improving documentation, or reviewing and correcting historical data, usually do not have a related issue. These tasks are easy to do, maybe you can start there.
+## 3. Create a branch
 
-## 3. Create a new working branch in your fork
+Create it from `develop`, named `fix/<issue or short name>` or `feature/<short name>`:
 
-Once you've decided on what you want to contribute it's time to create a new branch in your forked repository.
+```bash
+git checkout -b fix/1234 develop
+```
 
-    git checkout -b your-branch-name develop
+| Branch                    | Purpose                                                   | Protected |
+| ------------------------- | --------------------------------------------------------- | --------- |
+| `main`                    | Released code. Only accepts merges from `develop`         | Yes       |
+| `develop`                 | Accepts pull requests from the working branches           | Yes       |
+| `feature/xxx`, `fix/xxx`  | Your work. Starts from `develop` and is deleted once merged | No      |
 
-> **NOTE**: You should replace `your-branch-name` with a good name to give to your branch. For example `fix/XXXX` where XXXX is the Issue number, or `feature/some-new-feature`.
+Administrators may commit documentation and CI changes directly to `main`. Everyone else sends a pull request.
 
-This will be the branch in which you will code, make commits, etc. Before start coding it **is strongly recommended to read the [git branch workflow](https://github.com/enrique-lozano/RaceDex-API/blob/main/docs/GIT_BRANCHES_WORKFLOW.md) and the [commit message convention](https://github.com/enrique-lozano/RaceDex-API/blob/main/docs/COMMIT_MSG.md) that we use in this project**.
+## 4. Commit
 
-If you see that your commits and your pushes take a little longer than usual, it may be because we use [Husky](https://github.com/typicode/husky), a library with which we check that all the code that is uploaded to the repository is valid and passes the type, lint and format checks.
+Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/):
 
-`main` and `develop` branches are protected and only administrators can upload changes to them directly. All other users will have to make a Pull Request (step 4).
+```
+<type>(<scope>): <Short summary>
+```
 
-## 4. Submit a PR to `develop` branch
+- **type**: `build`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor` or `test`. You will mostly use `fix` and `feat`.
+- **scope**: one of the ones in [`VALID_COMMIT_SCOPES.ts`](VALID_COMMIT_SCOPES.ts) (`data`, `security`). It is optional.
+- **summary**: present tense, **starts with an uppercase letter**, no period at the end.
 
-So far you should have pushed your work to your working branch and have tested that it works on all the compatible devices. Then final step is to open a pull request to the `develop` branch of the official [RaceDex API repo](https://github.com/enrique-lozano/RaceDex-API).
+Example: `fix(data): Correct the fastest lap of the 2019 Italian GP`.
 
-[How To Submit a PR Guide by GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
+[Husky](https://github.com/typicode/husky) runs the type, lint and format checks before each commit and validates the message, so commits and pushes can take a few seconds. If your messages do not follow the convention, we will squash your commits into one with a proper message: it is not a reason to worry.
 
-### IMPORTANT:
+## 5. Open a pull request to `develop`
 
-- Make sure that on the base repository's base the `develop` branch is chosen as "base".
-- Pull requests to `main` will be changed to the `develop` branch, or in the worst case, rejected.
+Push your branch and open a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) with **`develop`** as the base. Pull requests to `main` will be changed to `develop` or rejected. Run `npm test`, `npm run lint` and `npm run typecheck` first.
 
 ## Project reference
 
@@ -63,9 +58,9 @@ So far you should have pushed your work to your working branch and have tested t
 
 ```
 src/             API code (controllers, services, models). Each module = one resource
-data/            Database: schema, CSV files (source of truth) and import/export scripts
+data/            Schema, CSV files (source of truth) and import/export scripts
 generators/      Python scripts used to fetch/update data (results, laps, pit stops...)
-docs/            Contribution guides
+docs/            Guides, glossary and architecture decisions
 ```
 
 ### Scripts
@@ -79,9 +74,10 @@ docs/            Contribution guides
 | `npm run prettier`                   | Formats the code                                                                                                          |
 | `npm run swagger`                    | Regenerates `src/routes.ts` and `src/swagger.json` from the controllers (done automatically by `dev`, `build` and `test`) |
 | `npm run import-db`                  | Rebuilds the database from `data/csv`                                                                                     |
-| `npm run docs:db`                    | Regenerates the database diagram (`docs/database.svg`)                                                                    |
-| `npm run docs:coverage`              | Regenerates the data coverage report (`data/COVERAGE.md`)                                                                 |
 | `npm run export-db`                  | Writes the database back to `data/csv`                                                                                    |
+| `npm run set-driver-photos`          | Updates the `photo` column of `drivers.csv`                                                                               |
+| `npm run docs:db`                    | Regenerates the database diagram (`docs/database.svg`, `docs/database.dbml`)                                              |
+| `npm run docs:coverage`              | Regenerates the data coverage report (`data/COVERAGE.md`)                                                                 |
 
 ### Files that are generated
 
@@ -90,3 +86,19 @@ These are not stored in git, they are created for you when needed:
 - `data/db/racedex.db`: the database. Created on the first start, or with `npm run import-db`.
 - `src/routes.ts` and `src/swagger.json`: generated by [tsoa](https://tsoa-community.github.io/docs/) from the controllers.
 - `dist/`: compiled code.
+
+### Changing the database
+
+- Define the table in [`data/schema.sql`](../data/schema.sql). The comments are documentation: a comment at the end of a column line is the note of that column, and the comment lines right above `DROP TABLE IF EXISTS <table>;` are the note of the table. A simple `CHECK (<column> IN ('A', 'B'))` becomes an enum.
+- Add the table to [`data/constants.ts`](../data/constants.ts). The order matters: parents must come before the tables that reference them.
+- Add its indexes to [`data/indexes.sql`](../data/indexes.sql), which are created after the rows are loaded. Foreign key columns must use the same type and `COLLATE` as the column they reference, otherwise SQLite cannot use their index in joins.
+- The import disables foreign keys while loading and runs a `foreign_key_check` at the end, printing a warning if some row references a missing parent.
+- Regenerate the diagram: `npm run import-db && npm run docs:db`. After adding data, regenerate the coverage with `npm run docs:coverage`.
+
+### Generators
+
+The Python scripts in [`generators/`](../generators/README.md) fetch new races as they take place.
+
+### Decisions
+
+Why some things are the way they are is recorded in [`adr/`](adr). The terms are defined in the [glossary](GLOSSARY.md).

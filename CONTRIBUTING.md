@@ -1,36 +1,25 @@
 # Contributing to RaceDex API
 
-First off, thank you for considering contributing to this project. It's people like you that make this application such a great tool.
+Thank you for considering a contribution. There are many ways to help, and most of them need no code.
 
-There are many ways in which you can contribute, beyond writing code. The goal of this document is to provide a high-level overview of how you can get involved.
+## I want to...
+
+| ...                                                    | Go to                                                                                          |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| **Fix or add data** (a lap time, a result, a driver)   | [Contributing data](docs/CONTRIBUTING_DATA.md). Edit a CSV file and open a pull request        |
+| **Fix a bug or build a feature**                       | [Contributing code](docs/CODE_CONTRIBUTING.md)                                                 |
+| **Report a problem**                                   | [Open an issue](https://github.com/enrique-lozano/RaceDex-API/issues)                          |
+| **Ask a question**                                     | [Q&A forum](https://github.com/enrique-lozano/RaceDex-API/discussions/categories/q-a)          |
+| **Suggest an idea**                                    | [Ideas forum](https://github.com/enrique-lozano/RaceDex-API/discussions/categories/ideas)      |
 
 ## Reporting issues
 
-Have you identified a reproducible problem in this project? If so, we will be very grateful to hear from you to solve it as soon as possible.
+Search the [open issues](https://github.com/enrique-lozano/RaceDex-API/issues) first. If yours already exists, add a 👍 reaction instead of a "+1" comment, and any detail that can help. Otherwise create a new one using the template, as detailed as you can. For a data problem, say which source shows the correct value.
 
-Before reporting an issue, please do a search in [open issues](https://github.com/enrique-lozano/RaceDex-API/issues) to see if the issue or feature request has already been filed. If you find your issue already exists, make relevant comments and add your [reaction](https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments). Use a reaction in place of a "+1" comment:
+## Questions and ideas
 
-- 👍 - upvote
-- 👎 - downvote
-
-To report an issue, go to the [open issues page](https://github.com/enrique-lozano/RaceDex-API/issues) and create a new issue clicking the green bottom at the right-top of the section. We provide a template to fill the required data that we need to solve the issue. Try to be as detailed as possible in your explanations and descriptions. Attach screenshots or videos if necessary.
-
-## Asking questions
-
-Have a question? Rather than opening an issue, please go to the [RaceDex API Forum](https://github.com/enrique-lozano/RaceDex-API/discussions/categories/q-a). The active community will be eager to assist you. Your well-worded question will serve as a resource to others searching for help.
-
-## Feature request
-
-As with questions, for feature requests and suggestions we encourage you to use the [forum](https://github.com/enrique-lozano/RaceDex-API/discussions/categories/ideas). If your request/suggestion is well-accepted, we will create an issue with it to take it into account for future releases.
-
-If your suggestion has already been made by someone else, please instead of creating a new thread, react or reply to this one. Suggestions with more interactions/upvotes will have a better chance of being selected.
-
-## Create something new / Fix a bug
-
-If you are interested in writing code to fix issues or to create new features please refer to this [guide](https://github.com/enrique-lozano/RaceDex-API/blob/main/docs/CODE_CONTRIBUTING.md).
-
-If you are only interested in correcting some historical data, you don't necessarily need a lot of programming experience. The only thing you have to do is edit the CSV files and make a pull request. You can consult more information in the guide mentioned above and [here](https://github.com/enrique-lozano/RaceDex-API/blob/main/data).
+Use the [forum](https://github.com/enrique-lozano/RaceDex-API/discussions) rather than opening an issue. Ideas with more reactions are more likely to be picked; if one is well accepted, we create an issue for it.
 
 # Thank you!
 
-Your contributions to this project and other open source projects, large or small, make great projects like this possible. Thank you for taking the time to contribute.
+Your contributions, large or small, make projects like this possible.
