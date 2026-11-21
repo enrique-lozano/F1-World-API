@@ -87,6 +87,8 @@ export interface CircuitLayoutRecordDTO {
   time: number;
   driverId: string;
   driverName: string;
+  /** Alpha-2 code of the nationality of the driver */
+  driverCountry: string | null;
   season: number;
   round: number;
   /** Name of the event, e.g. `2023 Italian Grand Prix` */

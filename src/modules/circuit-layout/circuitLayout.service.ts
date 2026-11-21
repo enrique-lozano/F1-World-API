@@ -92,6 +92,7 @@ export class CircuitLayoutService
                 'lapTimes.time as time',
                 'drivers.id as driverId',
                 'drivers.name as driverName',
+                'drivers.nationalityCountryId as driverCountry',
                 'events.name as eventName',
                 getSeasonFromIdColumn('events.id').as('season'),
                 getRoundFromIdColumn('events.id').as('round')
@@ -122,6 +123,7 @@ export class CircuitLayoutService
                 'qualifyingResults.time as time',
                 'drivers.id as driverId',
                 'drivers.name as driverName',
+                'drivers.nationalityCountryId as driverCountry',
                 'events.name as eventName',
                 getSeasonFromIdColumn('events.id').as('season'),
                 getRoundFromIdColumn('events.id').as('round')
