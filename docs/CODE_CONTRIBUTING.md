@@ -24,11 +24,11 @@ Create it from `develop`, named `fix/<issue or short name>` or `feature/<short n
 git checkout -b fix/1234 develop
 ```
 
-| Branch                    | Purpose                                                   | Protected |
-| ------------------------- | --------------------------------------------------------- | --------- |
-| `main`                    | Released code. Only accepts merges from `develop`         | Yes       |
-| `develop`                 | Accepts pull requests from the working branches           | Yes       |
-| `feature/xxx`, `fix/xxx`  | Your work. Starts from `develop` and is deleted once merged | No      |
+| Branch                   | Purpose                                                     | Protected |
+| ------------------------ | ----------------------------------------------------------- | --------- |
+| `main`                   | Released code. Only accepts merges from `develop`           | Yes       |
+| `develop`                | Accepts pull requests from the working branches             | Yes       |
+| `feature/xxx`, `fix/xxx` | Your work. Starts from `develop` and is deleted once merged | No        |
 
 Administrators may commit documentation and CI changes directly to `main`. Everyone else sends a pull request.
 
@@ -65,19 +65,19 @@ docs/            Guides, glossary and architecture decisions
 
 ### Scripts
 
-| Script                               | What it does                                                                                                              |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
-| `npm run dev`                        | Starts the server with auto-reload                                                                                        |
-| `npm run build` / `npm start`        | Compiles to `dist/` / runs the compiled server                                                                            |
-| `npm test`                           | Runs the tests (creates the database first if it does not exist)                                                          |
-| `npm run lint` / `npm run typecheck` | ESLint / TypeScript checks                                                                                                |
-| `npm run prettier`                   | Formats the code                                                                                                          |
-| `npm run swagger`                    | Regenerates `src/routes.ts` and `src/swagger.json` from the controllers (done automatically by `dev`, `build` and `test`) |
-| `npm run import-db`                  | Rebuilds the database from `data/csv`                                                                                     |
-| `npm run export-db`                  | Writes the database back to `data/csv`                                                                                    |
-| `npm run set-driver-photos`          | Updates the `photo` column of `drivers.csv`                                                                               |
-| `npm run docs:db`                    | Regenerates the database diagram (`docs/database.svg`, `docs/database.dbml`)                                              |
-| `npm run docs:coverage`              | Regenerates the data coverage report (`data/COVERAGE.md`)                                                                 |
+| Script                                    | What it does                                                                                                              |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `npm run dev`                             | Starts the server with auto-reload                                                                                        |
+| `npm run build` / `npm start`             | Compiles to `dist/` / runs the compiled server                                                                            |
+| `npm test`                                | Runs the tests (creates the database first if it does not exist)                                                          |
+| `npm run lint` / `npm run typecheck`      | ESLint / TypeScript checks                                                                                                |
+| `npm run format` / `npm run format:check` | Formats the code and docs / checks that they are formatted                                                                |
+| `npm run swagger`                         | Regenerates `src/routes.ts` and `src/swagger.json` from the controllers (done automatically by `dev`, `build` and `test`) |
+| `npm run import-db`                       | Rebuilds the database from `data/csv`                                                                                     |
+| `npm run export-db`                       | Writes the database back to `data/csv`                                                                                    |
+| `npm run set-driver-photos`               | Updates the `photo` column of `drivers.csv`                                                                               |
+| `npm run docs:db`                         | Regenerates the database diagram (`docs/database.svg`, `docs/database.dbml`)                                              |
+| `npm run docs:coverage`                   | Regenerates the data coverage report (`data/COVERAGE.md`)                                                                 |
 
 ### Files that are generated
 
@@ -94,6 +94,10 @@ These are not stored in git, they are created for you when needed:
 - Add its indexes to [`data/indexes.sql`](../data/indexes.sql), which are created after the rows are loaded. Foreign key columns must use the same type and `COLLATE` as the column they reference, otherwise SQLite cannot use their index in joins.
 - The import disables foreign keys while loading and runs a `foreign_key_check` at the end, printing a warning if some row references a missing parent.
 - Regenerate the diagram: `npm run import-db && npm run docs:db`. After adding data, regenerate the coverage with `npm run docs:coverage`.
+
+### Formatting and line endings
+
+Files use LF line endings on every system (Windows included): `.gitattributes` and `.editorconfig` take care of it, so there is no need to set `core.autocrlf`. Prettier formats the staged files on every commit (`lint-staged`), and the commit also runs ESLint on them and the type check.
 
 ### Generators
 

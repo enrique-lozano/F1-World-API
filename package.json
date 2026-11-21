@@ -8,14 +8,14 @@
     "start": "node dist/src/server.js",
     "test": "vitest run",
     "swagger": "tsoa spec-and-routes && tsx scripts/enum-descriptions.ts",
-    "prettier": "prettier --write \"{src,data}/**/*.{json,js,ts}\"",
-    "prettier:check": "prettier --check \"{src,data}/**/*.{json,js,ts}\"",
     "prepare": "husky",
     "import-db": "tsx data/db-import.ts",
     "export-db": "tsx data/db-export.ts",
     "set-driver-photos": "tsx data/set-driver-photos.ts",
     "pretest": "npm run swagger && tsx data/db-import.ts --if-missing",
     "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "dev": "tsx watch src/server.ts",
     "predev": "npm run swagger",
@@ -53,6 +53,7 @@
     "@types/swagger-ui-express": "^4.1.8",
     "eslint": "^9.39.0",
     "husky": "^9.1.7",
+    "lint-staged": "^17.6.1",
     "prettier": "^3.9.10",
     "supertest": "^7.3.1",
     "tsx": "^4.23.15",
@@ -62,5 +63,9 @@
   },
   "engines": {
     "node": ">=22"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown",
+    "*.ts": "eslint --fix"
   }
 }

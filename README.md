@@ -37,12 +37,12 @@ Not equally for every era: race results and qualifying are complete since 1950, 
 
 ## Get started 🚀
 
-| I want to...                                  | Read                                                          |
-| --------------------------------------------- | ------------------------------------------------------------- |
-| **Use the data** in an app, a query or a CSV  | [Using the RaceDex data](docs/USING_THE_DATA.md)              |
-| **Fix or add data** (no programming needed)   | [Contributing data](docs/CONTRIBUTING_DATA.md)                |
-| **Contribute code**                           | [Contributing code](docs/CODE_CONTRIBUTING.md)                |
-| Understand a term (layout, entrant, stint...) | [Glossary](docs/GLOSSARY.md)                                  |
+| I want to...                                  | Read                                             |
+| --------------------------------------------- | ------------------------------------------------ |
+| **Use the data** in an app, a query or a CSV  | [Using the RaceDex data](docs/USING_THE_DATA.md) |
+| **Fix or add data** (no programming needed)   | [Contributing data](docs/CONTRIBUTING_DATA.md)   |
+| **Contribute code**                           | [Contributing code](docs/CODE_CONTRIBUTING.md)   |
+| Understand a term (layout, entrant, stint...) | [Glossary](docs/GLOSSARY.md)                     |
 
 ### Quick start
 

@@ -4,13 +4,13 @@ Thank you for considering a contribution. There are many ways to help, and most 
 
 ## I want to...
 
-| ...                                                    | Go to                                                                                          |
-| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| **Fix or add data** (a lap time, a result, a driver)   | [Contributing data](docs/CONTRIBUTING_DATA.md). Edit a CSV file and open a pull request        |
-| **Fix a bug or build a feature**                       | [Contributing code](docs/CODE_CONTRIBUTING.md)                                                 |
-| **Report a problem**                                   | [Open an issue](https://github.com/enrique-lozano/RaceDex-API/issues)                          |
-| **Ask a question**                                     | [Q&A forum](https://github.com/enrique-lozano/RaceDex-API/discussions/categories/q-a)          |
-| **Suggest an idea**                                    | [Ideas forum](https://github.com/enrique-lozano/RaceDex-API/discussions/categories/ideas)      |
+| ...                                                  | Go to                                                                                     |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Fix or add data** (a lap time, a result, a driver) | [Contributing data](docs/CONTRIBUTING_DATA.md). Edit a CSV file and open a pull request   |
+| **Fix a bug or build a feature**                     | [Contributing code](docs/CODE_CONTRIBUTING.md)                                            |
+| **Report a problem**                                 | [Open an issue](https://github.com/enrique-lozano/RaceDex-API/issues)                     |
+| **Ask a question**                                   | [Q&A forum](https://github.com/enrique-lozano/RaceDex-API/discussions/categories/q-a)     |
+| **Suggest an idea**                                  | [Ideas forum](https://github.com/enrique-lozano/RaceDex-API/discussions/categories/ideas) |
 
 ## Reporting issues
 

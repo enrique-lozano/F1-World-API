@@ -36,23 +36,23 @@ It only rewrites the files whose content actually changed, so `git status` shows
 
 ## Where is each data?
 
-| I want to fix...                              | File (in `data/csv/`)                                                           |
-| --------------------------------------------- | ------------------------------------------------------------------------------- |
-| A driver (name, birth, nationality, photo)    | `drivers.csv`                                                                   |
-| Family relationships between drivers          | `driversFamilyRelationships.csv`                                                |
-| A team, its sales and renames                 | `entrants.csv`, `entrantSuccessions.csv`, `entrantSeasons.csv`                  |
-| A chassis, engine or constructor              | `chassis.csv`, `engines.csv`, `engineManufacturers.csv`, `constructors.csv`     |
-| Who raced for which team (and with which car) | `entries.csv`                                                                   |
-| A race weekend (name, laps, layout)           | `events.csv`                                                                    |
-| A Grand Prix (the recurring event)            | `grandsPrix.csv`                                                                |
-| A circuit or one of its layouts               | `circuits.csv`, `circuitLayouts.csv`                                            |
-| The shape of a layout                         | `data/tracks/<circuitLayoutId>.geojson`                                         |
-| Race, qualifying or practice results          | `seasons/<year>/<round> - <GP>/<session> - Results.csv`                         |
-| Lap times                                     | `seasons/<year>/<round> - <GP>/R - Lap times.csv`                               |
-| Pit stops                                     | `seasons/<year>/<round> - <GP>/R - Pit stops.csv`                               |
-| Tyre stints                                   | `seasons/<year>/<round> - <GP>/R - Stints.csv`                                  |
-| Weather, safety cars, red flags               | `weatherPeriods.csv`, `raceNeutralisations.csv`                                 |
-| Why a driver retired, and result codes        | `retirementReasons.csv`, `resultStatuses.csv`                                   |
+| I want to fix...                              | File (in `data/csv/`)                                                       |
+| --------------------------------------------- | --------------------------------------------------------------------------- |
+| A driver (name, birth, nationality, photo)    | `drivers.csv`                                                               |
+| Family relationships between drivers          | `driversFamilyRelationships.csv`                                            |
+| A team, its sales and renames                 | `entrants.csv`, `entrantSuccessions.csv`, `entrantSeasons.csv`              |
+| A chassis, engine or constructor              | `chassis.csv`, `engines.csv`, `engineManufacturers.csv`, `constructors.csv` |
+| Who raced for which team (and with which car) | `entries.csv`                                                               |
+| A race weekend (name, laps, layout)           | `events.csv`                                                                |
+| A Grand Prix (the recurring event)            | `grandsPrix.csv`                                                            |
+| A circuit or one of its layouts               | `circuits.csv`, `circuitLayouts.csv`                                        |
+| The shape of a layout                         | `data/tracks/<circuitLayoutId>.geojson`                                     |
+| Race, qualifying or practice results          | `seasons/<year>/<round> - <GP>/<session> - Results.csv`                     |
+| Lap times                                     | `seasons/<year>/<round> - <GP>/R - Lap times.csv`                           |
+| Pit stops                                     | `seasons/<year>/<round> - <GP>/R - Pit stops.csv`                           |
+| Tyre stints                                   | `seasons/<year>/<round> - <GP>/R - Stints.csv`                              |
+| Weather, safety cars, red flags               | `weatherPeriods.csv`, `raceNeutralisations.csv`                             |
+| Why a driver retired, and result codes        | `retirementReasons.csv`, `resultStatuses.csv`                               |
 
 The big tables are split **per session**. The `sessionId` column is not stored in those files: it is deduced from the path (`2023-01-R`). The photos of the drivers are not in this repository but in [racedex-assets](https://github.com/enrique-lozano/racedex-assets) (see [Photos of the drivers](#photos-of-the-drivers)).
 
@@ -71,15 +71,15 @@ The terms used below (entrant, layout, neutralisation...) are defined in the [gl
 
 Every driver entered for a race has a row in its `R - Results.csv`, also the ones that did not take the start. `positionText` is then one of the codes of [`resultStatuses.csv`](../data/csv/resultStatuses.csv) instead of a position:
 
-| Code   | Meaning                                                                                  |
-| ------ | ---------------------------------------------------------------------------------------- |
+| Code   | Meaning                                                                                     |
+| ------ | ------------------------------------------------------------------------------------------- |
 | `DNS`  | Did not start: was due to start and did not (for example, a failure on the way to the grid) |
-| `DNQ`  | Did not qualify                                                                          |
-| `DNPQ` | Did not pre-qualify                                                                      |
-| `EX`   | Excluded                                                                                 |
-| `DNP`  | Did not practice                                                                         |
-| `WD`   | Withdrawn by the team or the driver before the race, also after practice or qualifying   |
-| `DNA`  | Did not arrive                                                                           |
+| `DNQ`  | Did not qualify                                                                             |
+| `DNPQ` | Did not pre-qualify                                                                         |
+| `EX`   | Excluded                                                                                    |
+| `DNP`  | Did not practice                                                                            |
+| `WD`   | Withdrawn by the team or the driver before the race, also after practice or qualifying      |
+| `DNA`  | Did not arrive                                                                              |
 
 They go after the drivers that took the start, in that order, and the non-qualifiers by their qualifying time. A test driver (third, reserve or Friday driver) has `testDriver` = 1 in his entry and no race row: the API gives him `TD` in those GPs.
 

@@ -1,1 +1,2 @@
-npm run typecheck && npm run lint && npm run prettier:check
+npx --no -- lint-staged
+npm run typecheck

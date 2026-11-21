@@ -11,13 +11,13 @@ The data is licensed under [CC BY-NC-SA 4.0](../DATA_LICENSE.md).
 
 ## What is here
 
-| Path                       | What                                                                                  |
-| -------------------------- | ------------------------------------------------------------------------------------- |
-| `csv/`                     | One file per table, and the big tables split per session in `csv/seasons/`            |
-| `tracks/`                  | The shape of each circuit layout, as GeoJSON (GitHub draws it as a map)               |
-| `schema.sql`               | The structure of the database. Its comments document every table and column           |
-| [`SOURCES.md`](SOURCES.md) | Where the data comes from                                                             |
-| [`COVERAGE.md`](COVERAGE.md) | How complete each kind of data is, per decade and season                            |
+| Path                         | What                                                                        |
+| ---------------------------- | --------------------------------------------------------------------------- |
+| `csv/`                       | One file per table, and the big tables split per session in `csv/seasons/`  |
+| `tracks/`                    | The shape of each circuit layout, as GeoJSON (GitHub draws it as a map)     |
+| `schema.sql`                 | The structure of the database. Its comments document every table and column |
+| [`SOURCES.md`](SOURCES.md)   | Where the data comes from                                                   |
+| [`COVERAGE.md`](COVERAGE.md) | How complete each kind of data is, per decade and season                    |
 
 ## Where to go next
 

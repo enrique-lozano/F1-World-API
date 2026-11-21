@@ -2,11 +2,11 @@
 
 The same data is available in three forms. Pick the one that fits what you are doing:
 
-| You want to...                                  | Use                     |
-| ----------------------------------------------- | ----------------------- |
-| Build a website or app                          | [REST API](#rest-api)   |
-| Run your own queries, joins and aggregations    | [SQLite](#sqlite)       |
-| Load it in Excel, pandas, R or a notebook       | [CSV files](#csv-files) |
+| You want to...                               | Use                     |
+| -------------------------------------------- | ----------------------- |
+| Build a website or app                       | [REST API](#rest-api)   |
+| Run your own queries, joins and aggregations | [SQLite](#sqlite)       |
+| Load it in Excel, pandas, R or a notebook    | [CSV files](#csv-files) |
 
 Whatever you choose, read [License and attribution](#license-and-attribution) and [How complete is the data?](#how-complete-is-the-data) first.
 
@@ -44,24 +44,24 @@ Optional environment variables: `PORT` (default `3200`), `RACEDEX_DB_PATH` (defa
 
 ### Recipes
 
-| Question                                          | Request                                           |
-| ------------------------------------------------- | ------------------------------------------------- |
-| Which seasons are available?                      | `GET /api/seasons`                                |
-| Find a driver by name                             | `GET /api/drivers?name=hamilton`                  |
-| Career stats of a driver                          | `GET /api/drivers/{driverId}/stats`               |
-| Results of a driver in one season                 | `GET /api/drivers/{driverId}/results?season=2023` |
-| The calendar of a season                          | `GET /api/events?season=2023`                     |
-| One race weekend, with its circuit                | `GET /api/events/2023/1`                          |
-| Classification of a race                          | `GET /api/sessions/2023/1/R/results`              |
-| Who set the fastest lap?                          | `GET /api/sessions/2023/1/R/fastest-lap`          |
-| Every lap of a race                               | `GET /api/sessions/2023/1/R/laps`                 |
-| Pit stops of a race                               | `GET /api/sessions/2023/1/R/pit-stops`            |
-| Drivers' standings of a season                    | `GET /api/championships/2023/drivers`             |
-| Constructors' standings of a season               | `GET /api/championships/2023/constructors`        |
-| Wins, poles and podiums at a circuit              | `GET /api/circuits/{circuitId}/records`           |
-| The layouts of a circuit                          | `GET /api/circuit-layouts?circuitId={circuitId}`  |
-| The shape of a layout, ready to draw on a map     | `GET /api/circuit-layouts/{layoutId}/geometry`    |
-| Tyre stints, weather and safety cars              | `GET /api/stints`, `/api/weather`, `/api/race-neutralisations` |
+| Question                                      | Request                                                        |
+| --------------------------------------------- | -------------------------------------------------------------- |
+| Which seasons are available?                  | `GET /api/seasons`                                             |
+| Find a driver by name                         | `GET /api/drivers?name=hamilton`                               |
+| Career stats of a driver                      | `GET /api/drivers/{driverId}/stats`                            |
+| Results of a driver in one season             | `GET /api/drivers/{driverId}/results?season=2023`              |
+| The calendar of a season                      | `GET /api/events?season=2023`                                  |
+| One race weekend, with its circuit            | `GET /api/events/2023/1`                                       |
+| Classification of a race                      | `GET /api/sessions/2023/1/R/results`                           |
+| Who set the fastest lap?                      | `GET /api/sessions/2023/1/R/fastest-lap`                       |
+| Every lap of a race                           | `GET /api/sessions/2023/1/R/laps`                              |
+| Pit stops of a race                           | `GET /api/sessions/2023/1/R/pit-stops`                         |
+| Drivers' standings of a season                | `GET /api/championships/2023/drivers`                          |
+| Constructors' standings of a season           | `GET /api/championships/2023/constructors`                     |
+| Wins, poles and podiums at a circuit          | `GET /api/circuits/{circuitId}/records`                        |
+| The layouts of a circuit                      | `GET /api/circuit-layouts?circuitId={circuitId}`               |
+| The shape of a layout, ready to draw on a map | `GET /api/circuit-layouts/{layoutId}/geometry`                 |
+| Tyre stints, weather and safety cars          | `GET /api/stints`, `/api/weather`, `/api/race-neutralisations` |
 
 Find the ids you need with the list endpoints (`/api/drivers`, `/api/circuits`...). For example, the fastest lap of the 2023 Bahrain GP answers (trimmed):
 
