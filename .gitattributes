@@ -1,13 +1,2 @@
 # Prettier writes LF: the same line endings on every system, whatever core.autocrlf says
 * text=auto eol=lf
-
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.webp binary
-*.gif binary
-*.ico binary
-*.woff binary
-*.woff2 binary
-*.db binary
-*.sqlite binary
