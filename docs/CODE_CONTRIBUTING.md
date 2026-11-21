@@ -97,7 +97,7 @@ These are not stored in git, they are created for you when needed:
 
 ### Formatting and line endings
 
-Files use LF line endings on every system (Windows included): `.gitattributes` and `.editorconfig` take care of it, so there is no need to set `core.autocrlf`. Prettier formats the staged files on every commit (`lint-staged`), and the commit also runs ESLint on them and the type check.
+Files use LF line endings on every system (Windows included): `.gitattributes` and Prettier take care of it, so there is no need to set `core.autocrlf`. Prettier formats the staged files on every commit (`lint-staged`), and the commit also runs ESLint on them and the type check.
 
 ### Generators
 
